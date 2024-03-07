@@ -13,7 +13,7 @@
 
 package com.exoscale.model;
 
-import com.exoscale.model.AnyOf;
+import com.exoscale.model.AbstractOpenApiSchema;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

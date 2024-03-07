@@ -148,8 +148,7 @@ public class DbaasServiceKafka {
   private DbaasServiceMaintenance maintenance;
 
   public static final String JSON_PROPERTY_KAFKA_SETTINGS = "kafka-settings";
-  private JsonSchemaKafka kafkaSettings = {};
-
+  private JsonSchemaKafka kafkaSettings =new JsonSchemaKafka(); //{};
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
 

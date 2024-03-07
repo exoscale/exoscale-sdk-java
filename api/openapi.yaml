@@ -52543,7 +52543,7 @@ components:
           title: wal_writer_delay
           type: integer
         wal_sender_timeout:
-          anyOf: []
+          AbstractOpenApiSchema: []
           description: "Terminate replication connections that are inactive for longer\
             \ than this amount of time, in milliseconds. Setting this value to zero\
             \ disables the timeout."
