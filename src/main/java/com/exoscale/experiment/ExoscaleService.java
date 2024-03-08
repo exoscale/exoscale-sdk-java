@@ -2,10 +2,11 @@ package com.exoscale.experiment;
 
 
 import com.exoscale.model.AntiAffinityGroup;
+import com.exoscale.model.Instance;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +19,25 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ExoscaleService {
+    // Using ObjectMapper to convert classes into Jackson format
+    private final ObjectMapper objectMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(ExoscaleNetworkCommunication.class);
-
     private final ExoscaleNetworkCommunication exoscaleNetwork;
 
     @Autowired
-    public ExoscaleService(ExoscaleNetworkCommunication exoscaleNetwork) {
+    public ExoscaleService(ExoscaleNetworkCommunication exoscaleNetwork, ObjectMapper objectMappe) {
+        this.objectMapper = objectMappe;
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
         this.exoscaleNetwork = exoscaleNetwork;
     }
 
     /**
-     * Creates a compute instance on Exoscale using the provided request body.
+     * Creates a compute {@link Instance} on Exoscale using the provided request body.
      *
      * @param requestBody The JSON string representing the request body for instance creation.
-     * @return The response from the Exoscale API after creating the instance.
+     * @return The response from the Exoscale API after creating the {@link Instance}.
      * @throws JsonProcessingException If there is an error processing the JSON.
      */
     public InstanceResponse createComputeInstance(String requestBody) throws JsonProcessingException {
@@ -43,44 +48,36 @@ public class ExoscaleService {
     }
 
     /**
-     * Generates a JSON string request body for creating a compute instance on Exoscale.
+     * Generates a JSON string request body for creating a compute  {@link Instance} on Exoscale.
      *
-     * @param instance The instance data to convert into a JSON request body.
-     * @return A JSON string representing the request body for instance creation.
+     * @param instance The {@link Instance} data to convert into a JSON request body.
+     * @return A JSON string representing the request body for {@link Instance} creation.
      */
-    public String createRequestBodyWithGson(Instance instance) {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("autoStart", instance.getAutoStart());
-        JsonArray securityGroups = new JsonArray();
-        JsonObject securityGroup = new JsonObject();
-        securityGroup.addProperty("id", instance.getSecurityGroupId());
-        securityGroups.add(securityGroup);
-        jsonObject.add("security-groups", securityGroups);
-        jsonObject.add("instance-type", createIdObject(instance.getInstanceTypeId()));
-        jsonObject.add("template", createIdObject(instance.getTemplateId()));
-        jsonObject.addProperty("disk-size", instance.getDiskSize());
-        if(CloudInitUserData.getCloudInitUserData() != null)
-            jsonObject.addProperty("user-data", CloudInitUserData.getCloudInitUserData());
-
-        return new Gson().toJson(jsonObject);
+    public String createInstanceRequestBodyWithJackson(Instance instance) {
+        try {
+            String jsonRequestBody = objectMapper.writeValueAsString(instance);
+            logger.info("Generated JSON request body for compute instance creation: {}", jsonRequestBody);
+            return jsonRequestBody;
+        } catch (JsonProcessingException e) {
+            logger.error("Error serializing Instance to JSON", e);
+            throw new RuntimeException("Failed to serialize Instance to JSON", e);
+        }
     }
 
     /**
-     * Creates a JSON object with a single field 'id'.
+     * Serializes an {@link AntiAffinityGroup} object into a JSON string using Jackson's {@link ObjectMapper}.
+     * This JSON string is used as the request body for API calls.
      *
-     * @param idValue The value for the 'id' field.
-     * @return A JsonObject with the 'id' field set to the given value.
+     * @param antiAffinityGroup The {@link AntiAffinityGroup} object to serialize.
+     * @return A JSON string representation of the {@link AntiAffinityGroup} object.
+     * @throws RuntimeException if serialization to JSON fails.
      */
-    private JsonObject createIdObject(String idValue) {
-        JsonObject idObject = new JsonObject();
-        idObject.addProperty("id", idValue);
-        return idObject;
-    }
-
-    public String createAntiAffinityGroupRequestBodyWithGson(AntiAffinityGroup antiAffinityGroup) {
-        JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("name", antiAffinityGroup.getName());
-        return new Gson().toJson(jsonObject);
+    public String createAntiAffinityGroupRequestBodyWithJackson(AntiAffinityGroup antiAffinityGroup) {
+        try {
+            return objectMapper.writeValueAsString(antiAffinityGroup);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to serialize AntiAffinityGroup to JSON", e);
+        }
 
     }
 

@@ -27,10 +27,14 @@ import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Compute instance type
  */
+@Getter
+@Setter
 @JsonPropertyOrder({
   InstanceType.JSON_PROPERTY_ID,
   InstanceType.JSON_PROPERTY_SIZE,

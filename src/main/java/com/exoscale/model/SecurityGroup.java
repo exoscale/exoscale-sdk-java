@@ -27,10 +27,14 @@ import java.util.Set;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Security Group
  */
+@Setter
+@Getter
 @JsonPropertyOrder({
   SecurityGroup.JSON_PROPERTY_ID,
   SecurityGroup.JSON_PROPERTY_NAME,

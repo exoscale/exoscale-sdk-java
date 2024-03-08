@@ -2,6 +2,7 @@ package com.exoscale.experiment;
 
 import com.exoscale.experiment.exception.InstanceCreationException;
 import com.exoscale.model.AntiAffinityGroup;
+import com.exoscale.model.Instance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,8 @@ public class ExoscaleController {
     public ResponseEntity<?> createNewComputeInstance( Instance instance) {
 
         try {
-            String requestBody = exoscaleService.createRequestBodyWithGson(instance);
+            String requestBody = exoscaleService.createInstanceRequestBodyWithJackson(instance);
             InstanceResponse response = exoscaleService.createComputeInstance(requestBody);
-
             logger.info("Compute Instance created successfully: {}", response.getId());
             return ResponseEntity.ok(response);
         } catch (InstanceCreationException e) {
@@ -50,7 +50,7 @@ public class ExoscaleController {
 
     public  ResponseEntity<?> createNewAntiAffinityGroup(AntiAffinityGroup antiAffinityGroup) {
         try {
-            String requestBody = exoscaleService.createAntiAffinityGroupRequestBodyWithGson(antiAffinityGroup);
+            String requestBody = exoscaleService.createAntiAffinityGroupRequestBodyWithJackson(antiAffinityGroup);
             InstanceResponse response = exoscaleService.createAntiAffinityGroup(requestBody);
             logger.info("Anti Affinity Group created successfully: {}", response.getId());
             return ResponseEntity.ok(response);

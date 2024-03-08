@@ -28,10 +28,14 @@ import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Instance template
  */
+@Setter
+@Getter
 @JsonPropertyOrder({
   Template.JSON_PROPERTY_MAINTAINER,
   Template.JSON_PROPERTY_DESCRIPTION,

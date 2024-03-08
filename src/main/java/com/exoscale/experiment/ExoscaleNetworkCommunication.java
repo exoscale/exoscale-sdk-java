@@ -2,6 +2,7 @@ package com.exoscale.experiment;
 
 import com.exoscale.experiment.exception.ExoscaleNetworkCommunicationException;
 import com.exoscale.invoker.ApiClient;
+import com.exoscale.model.AntiAffinityGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +91,7 @@ public class ExoscaleNetworkCommunication {
 
     public InstanceResponse createNewAntiAffinityGroup(String requestBody) {
         long unixTimestamp = System.currentTimeMillis() / 1000L;
+
         String concatenatedMessage = POST + SPACE + FORWARD_SLASH + VERSION_2 + FORWARD_SLASH + ANTI_AFFINITY_GROUP + NEW_LINE + requestBody + THREE_NEW_LINES + unixTimestamp;
         try {
             String signature = signatureService.generateSignature(secretKey, concatenatedMessage);
