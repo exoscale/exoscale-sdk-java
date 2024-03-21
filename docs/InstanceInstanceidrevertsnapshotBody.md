@@ -1,0 +1,6 @@
+# InstanceInstanceidrevertsnapshotBody
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | [**UUID**](UUID.md) | Snapshot ID | 

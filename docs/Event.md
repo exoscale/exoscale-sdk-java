@@ -1,0 +1,17 @@
+# Event
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**requestId** | **String** | Operation unique identifier |  [optional]
+**zone** | **String** | Operation targeted zone |  [optional]
+**remoteAddr** | **String** | Client IP address |  [optional]
+**getParams** | **Object** | Query string parameters (free form map) |  [optional]
+**bodyParams** | **Object** | Body parameters (free form map) |  [optional]
+**status** | **Long** | Operation HTTP status |  [optional]
+**uri** | **String** | Operation request URI |  [optional]
+**elapsedMs** | **Long** | Operation processing time |  [optional]
+**timestamp** | [**OffsetDateTime**](OffsetDateTime.md) | Time at which the event happened, millisecond resolution |  [optional]
+**pathParams** | **Object** | URI path parameters (free form map) |  [optional]
+**handler** | **String** | Operation handler name |  [optional]
+**message** | **String** | Operation message |  [optional]
