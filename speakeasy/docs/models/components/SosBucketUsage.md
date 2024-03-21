@@ -1,0 +1,13 @@
+# SosBucketUsage
+
+SOS Bucket usage
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `name`                                                                                                 | *Optional<? extends String>*                                                                           | :heavy_minus_sign:                                                                                     | SOS Bucket name                                                                                        |
+| `createdAt`                                                                                            | [OffsetDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html)              | :heavy_minus_sign:                                                                                     | SOS Bucket creation date                                                                               |
+| `zoneName`                                                                                             | [Optional<? extends com.exoscale.api.models.components.ZoneName>](../../models/components/ZoneName.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `size`                                                                                                 | *Optional<? extends Long>*                                                                             | :heavy_minus_sign:                                                                                     | SOS Bucket size in B                                                                                   |

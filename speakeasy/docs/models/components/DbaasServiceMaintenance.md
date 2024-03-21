@@ -1,0 +1,12 @@
+# DbaasServiceMaintenance
+
+Automatic maintenance settings
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `dow`                                                                                                        | [com.exoscale.api.models.components.Dow](../../models/components/Dow.md)                                     | :heavy_check_mark:                                                                                           | Day of week for installing updates                                                                           |
+| `time`                                                                                                       | *String*                                                                                                     | :heavy_check_mark:                                                                                           | Time for installing updates, UTC                                                                             |
+| `updates`                                                                                                    | List<[com.exoscale.api.models.components.DbaasServiceUpdate](../../models/components/DbaasServiceUpdate.md)> | :heavy_check_mark:                                                                                           | List of updates waiting to be installed                                                                      |

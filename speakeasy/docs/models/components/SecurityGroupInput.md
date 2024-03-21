@@ -1,0 +1,13 @@
+# SecurityGroupInput
+
+Security Group
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                     | *Optional<? extends String>*                                                                               | :heavy_minus_sign:                                                                                         | Security Group name                                                                                        |
+| `description`                                                                                              | *Optional<? extends String>*                                                                               | :heavy_minus_sign:                                                                                         | Security Group description                                                                                 |
+| `externalSources`                                                                                          | List<*String*>                                                                                             | :heavy_minus_sign:                                                                                         | Security Group external sources                                                                            |
+| `rules`                                                                                                    | List<[com.exoscale.api.models.components.SecurityGroupRule](../../models/components/SecurityGroupRule.md)> | :heavy_minus_sign:                                                                                         | Security Group rules                                                                                       |

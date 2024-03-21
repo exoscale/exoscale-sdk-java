@@ -1,0 +1,13 @@
+# DbaasIntegrationTypeSettings
+
+A JSON schema of additional settings of the integration.
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `properties`                                                                                               | [Optional<? extends com.exoscale.api.models.components.Properties>](../../models/components/Properties.md) | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `additionalProperties`                                                                                     | *Optional<? extends Boolean>*                                                                              | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `type`                                                                                                     | *Optional<? extends String>*                                                                               | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `title`                                                                                                    | *Optional<? extends String>*                                                                               | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |

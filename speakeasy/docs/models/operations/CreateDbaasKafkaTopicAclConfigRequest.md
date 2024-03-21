@@ -1,0 +1,9 @@
+# CreateDbaasKafkaTopicAclConfigRequest
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                           | *String*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `dbaasKafkaTopicAclEntry`                                                                                        | [com.exoscale.api.models.components.DbaasKafkaTopicAclEntry](../../models/components/DbaasKafkaTopicAclEntry.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |

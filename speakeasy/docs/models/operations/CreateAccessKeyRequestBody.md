@@ -1,0 +1,13 @@
+# CreateAccessKeyRequestBody
+
+IAM Access Key
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `name`                                                                                                     | *Optional<? extends String>*                                                                               | :heavy_minus_sign:                                                                                         | IAM Access Key name                                                                                        |
+| `tags`                                                                                                     | List<*String*>                                                                                             | :heavy_minus_sign:                                                                                         | IAM Access Key tags                                                                                        |
+| `operations`                                                                                               | List<*String*>                                                                                             | :heavy_minus_sign:                                                                                         | IAM Access Key operations                                                                                  |
+| `resources`                                                                                                | List<[com.exoscale.api.models.components.AccessKeyResource](../../models/components/AccessKeyResource.md)> | :heavy_minus_sign:                                                                                         | IAM Access Key Resources                                                                                   |

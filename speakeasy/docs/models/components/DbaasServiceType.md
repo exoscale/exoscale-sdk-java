@@ -1,0 +1,14 @@
+# DbaasServiceType
+
+DBaaS service
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `name`                                                                                     | *Optional<? extends String>*                                                               | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `availableVersions`                                                                        | List<*String*>                                                                             | :heavy_minus_sign:                                                                         | DbaaS service available versions                                                           |
+| `defaultVersion`                                                                           | *Optional<? extends String>*                                                               | :heavy_minus_sign:                                                                         | DbaaS service default version                                                              |
+| `description`                                                                              | *Optional<? extends String>*                                                               | :heavy_minus_sign:                                                                         | DbaaS service description                                                                  |
+| `plans`                                                                                    | List<[com.exoscale.api.models.components.DbaasPlan](../../models/components/DbaasPlan.md)> | :heavy_minus_sign:                                                                         | DbaaS service plans                                                                        |

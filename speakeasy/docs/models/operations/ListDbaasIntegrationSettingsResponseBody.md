@@ -1,0 +1,10 @@
+# ListDbaasIntegrationSettingsResponseBody
+
+200
+
+
+## Fields
+
+| Field                                                                                                                                                          | Type                                                                                                                                                           | Required                                                                                                                                                       | Description                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `settings`                                                                                                                                                     | [Optional<? extends com.exoscale.api.models.operations.ListDbaasIntegrationSettingsSettings>](../../models/operations/ListDbaasIntegrationSettingsSettings.md) | :heavy_minus_sign:                                                                                                                                             | The JSON schema representing the settings for the given integration type, source, and destination service types.                                               |

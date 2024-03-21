@@ -1,0 +1,10 @@
+# IamServicePolicyRule
+
+
+## Fields
+
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `action`                                                                                           | [Optional<? extends com.exoscale.api.models.components.Action>](../../models/components/Action.md) | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `expression`                                                                                       | *Optional<? extends String>*                                                                       | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
+| `resources`                                                                                        | List<*String*>                                                                                     | :heavy_minus_sign:                                                                                 | N/A                                                                                                |

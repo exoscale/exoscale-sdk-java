@@ -1,0 +1,11 @@
+# DbaasKafkaSchemaRegistryAclEntry
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `id`                                                                                   | *Optional<? extends String>*                                                           | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `username`                                                                             | *String*                                                                               | :heavy_check_mark:                                                                     | Kafka username or username pattern                                                     |
+| `resource`                                                                             | *String*                                                                               | :heavy_check_mark:                                                                     | Kafka Schema Registry name or pattern                                                  |
+| `permission`                                                                           | [com.exoscale.api.models.components.Permission](../../models/components/Permission.md) | :heavy_check_mark:                                                                     | Kafka Schema Registry permission                                                       |

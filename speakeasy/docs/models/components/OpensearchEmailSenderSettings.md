@@ -1,0 +1,10 @@
+# OpensearchEmailSenderSettings
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `emailSenderName`                                                            | *String*                                                                     | :heavy_check_mark:                                                           | This should be identical to the Sender name defined in Opensearch dashboards | alert-sender                                                                 |
+| `emailSenderPassword`                                                        | *String*                                                                     | :heavy_check_mark:                                                           | Sender password for Opensearch alerts to authenticate with SMTP server       | very-secure-mail-password                                                    |
+| `emailSenderUsername`                                                        | *String*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          | jane@example.com                                                             |

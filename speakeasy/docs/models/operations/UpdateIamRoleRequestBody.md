@@ -1,0 +1,10 @@
+# UpdateIamRoleRequestBody
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `description`                                                                                  | *Optional<? extends String>*                                                                   | :heavy_minus_sign:                                                                             | IAM Role description                                                                           |
+| `permissions`                                                                                  | List<[com.exoscale.api.models.operations.Permissions](../../models/operations/Permissions.md)> | :heavy_minus_sign:                                                                             | IAM Role permissions                                                                           |
+| `labels`                                                                                       | Map<String, *String*>                                                                          | :heavy_minus_sign:                                                                             | N/A                                                                                            |

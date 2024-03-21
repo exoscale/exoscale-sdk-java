@@ -1,0 +1,12 @@
+# AccessKeyResource
+
+Access key resource
+
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `domain`                                                                                                       | [Optional<? extends com.exoscale.api.models.components.Domain>](../../models/components/Domain.md)             | :heavy_minus_sign:                                                                                             | Resource domain                                                                                                |
+| `resourceType`                                                                                                 | [Optional<? extends com.exoscale.api.models.components.ResourceType>](../../models/components/ResourceType.md) | :heavy_minus_sign:                                                                                             | Resource type                                                                                                  |
+| `resourceName`                                                                                                 | *Optional<? extends String>*                                                                                   | :heavy_minus_sign:                                                                                             | Resource name                                                                                                  |

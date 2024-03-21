@@ -1,0 +1,8 @@
+# StartInstanceRequestBody
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `rescueProfile`                                                                                                  | [Optional<? extends com.exoscale.api.models.operations.RescueProfile>](../../models/operations/RescueProfile.md) | :heavy_minus_sign:                                                                                               | Boot in Rescue Mode, using named profile (supported: netboot, netboot-efi)                                       |

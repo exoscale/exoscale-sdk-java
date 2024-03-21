@@ -1,0 +1,9 @@
+# ResetInstanceRequestBody
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `template`                                                                                                       | [Optional<? extends com.exoscale.api.models.components.TemplateInput>](../../models/components/TemplateInput.md) | :heavy_minus_sign:                                                                                               | Instance template                                                                                                |
+| `diskSize`                                                                                                       | *Optional<? extends Long>*                                                                                       | :heavy_minus_sign:                                                                                               | Instance disk size in GB                                                                                         |

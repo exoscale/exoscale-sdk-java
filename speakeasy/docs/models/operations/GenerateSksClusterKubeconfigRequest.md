@@ -1,0 +1,9 @@
+# GenerateSksClusterKubeconfigRequest
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                       | *String*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `sksKubeconfigRequest`                                                                                     | [com.exoscale.api.models.components.SksKubeconfigRequest](../../models/components/SksKubeconfigRequest.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
