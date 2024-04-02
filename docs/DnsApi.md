@@ -5,15 +5,25 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createDnsDomain**](DnsApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain |
+| [**createDnsDomainWithHttpInfo**](DnsApi.md#createDnsDomainWithHttpInfo) | **POST** /dns-domain | Create DNS domain |
 | [**createDnsDomainRecord**](DnsApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
+| [**createDnsDomainRecordWithHttpInfo**](DnsApi.md#createDnsDomainRecordWithHttpInfo) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
 | [**deleteDnsDomain**](DnsApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
+| [**deleteDnsDomainWithHttpInfo**](DnsApi.md#deleteDnsDomainWithHttpInfo) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
 | [**deleteDnsDomainRecord**](DnsApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
+| [**deleteDnsDomainRecordWithHttpInfo**](DnsApi.md#deleteDnsDomainRecordWithHttpInfo) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
 | [**getDnsDomain**](DnsApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
+| [**getDnsDomainWithHttpInfo**](DnsApi.md#getDnsDomainWithHttpInfo) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
 | [**getDnsDomainRecord**](DnsApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
+| [**getDnsDomainRecordWithHttpInfo**](DnsApi.md#getDnsDomainRecordWithHttpInfo) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](DnsApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
+| [**getDnsDomainZoneFileWithHttpInfo**](DnsApi.md#getDnsDomainZoneFileWithHttpInfo) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
 | [**listDnsDomainRecords**](DnsApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
+| [**listDnsDomainRecordsWithHttpInfo**](DnsApi.md#listDnsDomainRecordsWithHttpInfo) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
 | [**listDnsDomains**](DnsApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains |
+| [**listDnsDomainsWithHttpInfo**](DnsApi.md#listDnsDomainsWithHttpInfo) | **GET** /dns-domain | List DNS domains |
 | [**updateDnsDomainRecord**](DnsApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
+| [**updateDnsDomainRecordWithHttpInfo**](DnsApi.md#updateDnsDomainRecordWithHttpInfo) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
 
 
 
@@ -29,11 +39,11 @@ Create DNS domain
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -67,6 +77,7 @@ public class Example {
 
 [**DnsDomain**](DnsDomain.md)
 
+
 ### Authorization
 
 No authorization required
@@ -76,6 +87,73 @@ No authorization required
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDnsDomainWithHttpInfo
+
+> ApiResponse<DnsDomain> createDnsDomain createDnsDomainWithHttpInfo(createDnsDomainRequest)
+
+Create DNS domain
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        CreateDnsDomainRequest createDnsDomainRequest = new CreateDnsDomainRequest(); // CreateDnsDomainRequest | 
+        try {
+            ApiResponse<DnsDomain> response = apiInstance.createDnsDomainWithHttpInfo(createDnsDomainRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#createDnsDomain");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createDnsDomainRequest** | [**CreateDnsDomainRequest**](CreateDnsDomainRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**DnsDomain**](DnsDomain.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -95,11 +173,11 @@ Create DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -135,6 +213,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -144,6 +223,75 @@ No authorization required
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDnsDomainRecordWithHttpInfo
+
+> ApiResponse<Operation> createDnsDomainRecord createDnsDomainRecordWithHttpInfo(domainId, createDnsDomainRecordRequest)
+
+Create DNS domain record
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID domainId = UUID.randomUUID(); // UUID | 
+        CreateDnsDomainRecordRequest createDnsDomainRecordRequest = new CreateDnsDomainRecordRequest(); // CreateDnsDomainRecordRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createDnsDomainRecordWithHttpInfo(domainId, createDnsDomainRecordRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#createDnsDomainRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **UUID**|  | |
+| **createDnsDomainRecordRequest** | [**CreateDnsDomainRecordRequest**](CreateDnsDomainRecordRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -163,11 +311,11 @@ Delete DNS Domain
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -201,6 +349,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -210,6 +359,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDnsDomainWithHttpInfo
+
+> ApiResponse<Operation> deleteDnsDomain deleteDnsDomainWithHttpInfo(id)
+
+Delete DNS Domain
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDnsDomainWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#deleteDnsDomain");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -229,11 +445,11 @@ Delete DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -269,6 +485,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -278,6 +495,75 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDnsDomainRecordWithHttpInfo
+
+> ApiResponse<Operation> deleteDnsDomainRecord deleteDnsDomainRecordWithHttpInfo(domainId, recordId)
+
+Delete DNS domain record
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID domainId = UUID.randomUUID(); // UUID | 
+        UUID recordId = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDnsDomainRecordWithHttpInfo(domainId, recordId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#deleteDnsDomainRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **UUID**|  | |
+| **recordId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -297,11 +583,11 @@ Retrieve DNS domain details
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -335,6 +621,7 @@ public class Example {
 
 [**DnsDomain**](DnsDomain.md)
 
+
 ### Authorization
 
 No authorization required
@@ -344,6 +631,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDnsDomainWithHttpInfo
+
+> ApiResponse<DnsDomain> getDnsDomain getDnsDomainWithHttpInfo(id)
+
+Retrieve DNS domain details
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DnsDomain> response = apiInstance.getDnsDomainWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#getDnsDomain");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DnsDomain**](DnsDomain.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -363,11 +717,11 @@ Retrieve DNS domain record details
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -403,6 +757,7 @@ public class Example {
 
 [**DnsDomainRecord**](DnsDomainRecord.md)
 
+
 ### Authorization
 
 No authorization required
@@ -412,6 +767,75 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDnsDomainRecordWithHttpInfo
+
+> ApiResponse<DnsDomainRecord> getDnsDomainRecord getDnsDomainRecordWithHttpInfo(domainId, recordId)
+
+Retrieve DNS domain record details
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID domainId = UUID.randomUUID(); // UUID | 
+        UUID recordId = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DnsDomainRecord> response = apiInstance.getDnsDomainRecordWithHttpInfo(domainId, recordId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#getDnsDomainRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **UUID**|  | |
+| **recordId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DnsDomainRecord**](DnsDomainRecord.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -431,11 +855,11 @@ Retrieve DNS domain zone file
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -469,6 +893,7 @@ public class Example {
 
 [**GetDnsDomainZoneFile200Response**](GetDnsDomainZoneFile200Response.md)
 
+
 ### Authorization
 
 No authorization required
@@ -478,6 +903,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDnsDomainZoneFileWithHttpInfo
+
+> ApiResponse<GetDnsDomainZoneFile200Response> getDnsDomainZoneFile getDnsDomainZoneFileWithHttpInfo(id)
+
+Retrieve DNS domain zone file
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<GetDnsDomainZoneFile200Response> response = apiInstance.getDnsDomainZoneFileWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#getDnsDomainZoneFile");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GetDnsDomainZoneFile200Response**](GetDnsDomainZoneFile200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -497,11 +989,11 @@ List DNS domain records
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -535,6 +1027,7 @@ public class Example {
 
 [**ListDnsDomainRecords200Response**](ListDnsDomainRecords200Response.md)
 
+
 ### Authorization
 
 No authorization required
@@ -544,6 +1037,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## listDnsDomainRecordsWithHttpInfo
+
+> ApiResponse<ListDnsDomainRecords200Response> listDnsDomainRecords listDnsDomainRecordsWithHttpInfo(domainId)
+
+List DNS domain records
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID domainId = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<ListDnsDomainRecords200Response> response = apiInstance.listDnsDomainRecordsWithHttpInfo(domainId);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#listDnsDomainRecords");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**ListDnsDomainRecords200Response**](ListDnsDomainRecords200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -563,11 +1123,11 @@ List DNS domains
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -597,6 +1157,7 @@ This endpoint does not need any parameter.
 
 [**ListDnsDomains200Response**](ListDnsDomains200Response.md)
 
+
 ### Authorization
 
 No authorization required
@@ -606,6 +1167,69 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## listDnsDomainsWithHttpInfo
+
+> ApiResponse<ListDnsDomains200Response> listDnsDomains listDnsDomainsWithHttpInfo()
+
+List DNS domains
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        try {
+            ApiResponse<ListDnsDomains200Response> response = apiInstance.listDnsDomainsWithHttpInfo();
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#listDnsDomains");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListDnsDomains200Response**](ListDnsDomains200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -625,11 +1249,11 @@ Update DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.DnsApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -667,6 +1291,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -676,6 +1301,77 @@ No authorization required
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## updateDnsDomainRecordWithHttpInfo
+
+> ApiResponse<Operation> updateDnsDomainRecord updateDnsDomainRecordWithHttpInfo(domainId, recordId, updateDnsDomainRecordRequest)
+
+Update DNS domain record
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DnsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        DnsApi apiInstance = new DnsApi(defaultClient);
+        UUID domainId = UUID.randomUUID(); // UUID | 
+        UUID recordId = UUID.randomUUID(); // UUID | 
+        UpdateDnsDomainRecordRequest updateDnsDomainRecordRequest = new UpdateDnsDomainRecordRequest(); // UpdateDnsDomainRecordRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.updateDnsDomainRecordWithHttpInfo(domainId, recordId, updateDnsDomainRecordRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DnsApi#updateDnsDomainRecord");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **domainId** | **UUID**|  | |
+| **recordId** | **UUID**|  | |
+| **updateDnsDomainRecordRequest** | [**UpdateDnsDomainRecordRequest**](UpdateDnsDomainRecordRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

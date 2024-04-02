@@ -13,10 +13,11 @@ Instance
 |**securityGroups** | [**List&lt;SecurityGroup&gt;**](SecurityGroup.md) | Instance Security Groups |  [optional] |
 |**name** | **String** | Instance name |  [optional] |
 |**instanceType** | [**InstanceType**](InstanceType.md) |  |  [optional] |
-|**privateNetworks** | [**List&lt;PrivateNetwork&gt;**](PrivateNetwork.md) | Instance Private Networks |  [optional] |
+|**privateNetworks** | [**List&lt;ListInstances200ResponseInstancesInnerPrivateNetworksInner&gt;**](ListInstances200ResponseInstancesInnerPrivateNetworksInner.md) | Instance Private Networks |  [optional] |
 |**template** | [**Template**](Template.md) |  |  [optional] |
 |**state** | **InstanceState** |  |  [optional] |
 |**sshKey** | [**SshKey**](SshKey.md) |  |  [optional] |
+|**macAddress** | **String** | Instance MAC address |  [optional] |
 |**manager** | [**Manager**](Manager.md) |  |  [optional] |
 |**ipv6Address** | **String** | Instance IPv6 address |  [optional] |
 |**id** | **UUID** | Instance ID |  [optional] |

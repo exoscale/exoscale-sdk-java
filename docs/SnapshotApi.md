@@ -5,11 +5,17 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createSnapshot**](SnapshotApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
+| [**createSnapshotWithHttpInfo**](SnapshotApi.md#createSnapshotWithHttpInfo) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
 | [**deleteSnapshot**](SnapshotApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot |
+| [**deleteSnapshotWithHttpInfo**](SnapshotApi.md#deleteSnapshotWithHttpInfo) | **DELETE** /snapshot/{id} | Delete a Snapshot |
 | [**exportSnapshot**](SnapshotApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot |
+| [**exportSnapshotWithHttpInfo**](SnapshotApi.md#exportSnapshotWithHttpInfo) | **POST** /snapshot/{id}:export | Export a Snapshot |
 | [**getSnapshot**](SnapshotApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details |
+| [**getSnapshotWithHttpInfo**](SnapshotApi.md#getSnapshotWithHttpInfo) | **GET** /snapshot/{id} | Retrieve Snapshot details |
 | [**listSnapshots**](SnapshotApi.md#listSnapshots) | **GET** /snapshot | List Snapshots |
+| [**listSnapshotsWithHttpInfo**](SnapshotApi.md#listSnapshotsWithHttpInfo) | **GET** /snapshot | List Snapshots |
 | [**promoteSnapshotToTemplate**](SnapshotApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
+| [**promoteSnapshotToTemplateWithHttpInfo**](SnapshotApi.md#promoteSnapshotToTemplateWithHttpInfo) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
 
 
 
@@ -25,11 +31,11 @@ Create a Snapshot of a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.SnapshotApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -63,6 +69,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -72,6 +79,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createSnapshotWithHttpInfo
+
+> ApiResponse<Operation> createSnapshot createSnapshotWithHttpInfo(id)
+
+Create a Snapshot of a Compute instance
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        SnapshotApi apiInstance = new SnapshotApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createSnapshotWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SnapshotApi#createSnapshot");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -91,11 +165,11 @@ Delete a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.SnapshotApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -129,6 +203,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -138,6 +213,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteSnapshotWithHttpInfo
+
+> ApiResponse<Operation> deleteSnapshot deleteSnapshotWithHttpInfo(id)
+
+Delete a Snapshot
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        SnapshotApi apiInstance = new SnapshotApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteSnapshotWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SnapshotApi#deleteSnapshot");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -157,11 +299,11 @@ Export a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.SnapshotApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -195,6 +337,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -204,6 +347,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## exportSnapshotWithHttpInfo
+
+> ApiResponse<Operation> exportSnapshot exportSnapshotWithHttpInfo(id)
+
+Export a Snapshot
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        SnapshotApi apiInstance = new SnapshotApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.exportSnapshotWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SnapshotApi#exportSnapshot");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -223,11 +433,11 @@ Retrieve Snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.SnapshotApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -261,6 +471,7 @@ public class Example {
 
 [**Snapshot**](Snapshot.md)
 
+
 ### Authorization
 
 No authorization required
@@ -270,6 +481,73 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getSnapshotWithHttpInfo
+
+> ApiResponse<Snapshot> getSnapshot getSnapshotWithHttpInfo(id)
+
+Retrieve Snapshot details
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        SnapshotApi apiInstance = new SnapshotApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Snapshot> response = apiInstance.getSnapshotWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SnapshotApi#getSnapshot");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Snapshot**](Snapshot.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -289,11 +567,11 @@ List Snapshots
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.SnapshotApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -323,6 +601,7 @@ This endpoint does not need any parameter.
 
 [**ListSnapshots200Response**](ListSnapshots200Response.md)
 
+
 ### Authorization
 
 No authorization required
@@ -332,6 +611,69 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## listSnapshotsWithHttpInfo
+
+> ApiResponse<ListSnapshots200Response> listSnapshots listSnapshotsWithHttpInfo()
+
+List Snapshots
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        SnapshotApi apiInstance = new SnapshotApi(defaultClient);
+        try {
+            ApiResponse<ListSnapshots200Response> response = apiInstance.listSnapshotsWithHttpInfo();
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SnapshotApi#listSnapshots");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListSnapshots200Response**](ListSnapshots200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -351,11 +693,11 @@ Promote a Snapshot to a Template
 
 ```java
 // Import classes:
-import com.exoscale.invoker.ApiClient;
-import com.exoscale.invoker.ApiException;
-import com.exoscale.invoker.Configuration;
-import com.exoscale.invoker.models.*;
-import com.exoscale.api.SnapshotApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -391,6 +733,7 @@ public class Example {
 
 [**Operation**](Operation.md)
 
+
 ### Authorization
 
 No authorization required
@@ -400,6 +743,75 @@ No authorization required
 - **Content-Type**: application/json
 - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## promoteSnapshotToTemplateWithHttpInfo
+
+> ApiResponse<Operation> promoteSnapshotToTemplate promoteSnapshotToTemplateWithHttpInfo(id, promoteSnapshotToTemplateRequest)
+
+Promote a Snapshot to a Template
+
+
+
+### Example
+
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.ApiResponse;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.SnapshotApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        SnapshotApi apiInstance = new SnapshotApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        PromoteSnapshotToTemplateRequest promoteSnapshotToTemplateRequest = new PromoteSnapshotToTemplateRequest(); // PromoteSnapshotToTemplateRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.promoteSnapshotToTemplateWithHttpInfo(id, promoteSnapshotToTemplateRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SnapshotApi#promoteSnapshotToTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **promoteSnapshotToTemplateRequest** | [**PromoteSnapshotToTemplateRequest**](PromoteSnapshotToTemplateRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
