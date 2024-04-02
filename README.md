@@ -12,4 +12,5 @@ By simplifying API access, this SDK aims to streamline the development of Java a
 - Simplified access to Exoscale's API endpoints
 - ...  TBA
 
+Change
 
