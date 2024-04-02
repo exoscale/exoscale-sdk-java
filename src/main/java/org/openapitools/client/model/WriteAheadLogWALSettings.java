@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.client.model.AnyOf;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,7 +47,7 @@ public class WriteAheadLogWALSettings {
   private Integer walWriterDelay;
 
   public static final String JSON_PROPERTY_WAL_SENDER_TIMEOUT = "wal_sender_timeout";
-  private JsonNullable<AnyOf> walSenderTimeout = JsonNullable.<AnyOf>undefined();
+  private JsonNullable<AbstractOpenApiSchema> walSenderTimeout = JsonNullable.<AbstractOpenApiSchema>undefined();
 
   public static final String JSON_PROPERTY_MAX_WAL_SENDERS = "max_wal_senders";
   private Integer maxWalSenders;
@@ -86,8 +85,8 @@ public class WriteAheadLogWALSettings {
   }
 
 
-  public WriteAheadLogWALSettings walSenderTimeout(AnyOf walSenderTimeout) {
-    this.walSenderTimeout = JsonNullable.<AnyOf>of(walSenderTimeout);
+  public WriteAheadLogWALSettings walSenderTimeout(AbstractOpenApiSchema walSenderTimeout) {
+    this.walSenderTimeout = JsonNullable.<AbstractOpenApiSchema>of(walSenderTimeout);
     return this;
   }
 
@@ -98,24 +97,24 @@ public class WriteAheadLogWALSettings {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public AnyOf getWalSenderTimeout() {
+  public AbstractOpenApiSchema getWalSenderTimeout() {
         return walSenderTimeout.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_WAL_SENDER_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<AnyOf> getWalSenderTimeout_JsonNullable() {
+  public JsonNullable<AbstractOpenApiSchema> getWalSenderTimeout_JsonNullable() {
     return walSenderTimeout;
   }
   
   @JsonProperty(JSON_PROPERTY_WAL_SENDER_TIMEOUT)
-  public void setWalSenderTimeout_JsonNullable(JsonNullable<AnyOf> walSenderTimeout) {
+  public void setWalSenderTimeout_JsonNullable(JsonNullable<AbstractOpenApiSchema> walSenderTimeout) {
     this.walSenderTimeout = walSenderTimeout;
   }
 
-  public void setWalSenderTimeout(AnyOf walSenderTimeout) {
-    this.walSenderTimeout = JsonNullable.<AnyOf>of(walSenderTimeout);
+  public void setWalSenderTimeout(AbstractOpenApiSchema walSenderTimeout) {
+    this.walSenderTimeout = JsonNullable.<AbstractOpenApiSchema>of(walSenderTimeout);
   }
 
 
@@ -269,7 +268,7 @@ public class WriteAheadLogWALSettings {
 
     // add `wal_sender_timeout` to the URL query string
     if (getWalSenderTimeout() != null) {
-      joiner.add(getWalSenderTimeout().toUrlQueryString(prefix + "wal_sender_timeout" + suffix));
+//      joiner.add(getWalSenderTimeout().toUrlQueryString(prefix + "wal_sender_timeout" + suffix));
     }
 
     // add `max_wal_senders` to the URL query string

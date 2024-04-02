@@ -952,7 +952,7 @@ public class SksNodepool {
     // add `addons` to the URL query string
     if (getAddons() != null) {
       int i = 0;
-      for (String _item : getAddons()) {
+      for (AddonsEnum _item : getAddons()) {
         joiner.add(String.format("%saddons%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
             URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));

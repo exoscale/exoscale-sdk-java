@@ -84,7 +84,7 @@ public class CreateDbaasServiceKafkaRequest {
   private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
 
   public static final String JSON_PROPERTY_KAFKA_SETTINGS = "kafka-settings";
-  private JsonSchemaKafka kafkaSettings = {};
+  private JsonSchemaKafka kafkaSettings ;
 
   public static final String JSON_PROPERTY_SCHEMA_REGISTRY_ENABLED = "schema-registry-enabled";
   private Boolean schemaRegistryEnabled;

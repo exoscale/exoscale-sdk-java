@@ -398,7 +398,7 @@ public class IamRole {
     // add `permissions` to the URL query string
     if (getPermissions() != null) {
       int i = 0;
-      for (String _item : getPermissions()) {
+      for (PermissionsEnum _item : getPermissions()) {
         joiner.add(String.format("%spermissions%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
             URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));

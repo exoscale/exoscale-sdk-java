@@ -99,8 +99,7 @@ public class CreateDbaasServicePgRequest {
   private String recoveryBackupTime;
 
   public static final String JSON_PROPERTY_PGLOOKOUT_SETTINGS = "pglookout-settings";
-  private JsonSchemaPglookout pglookoutSettings = {"max_failover_replication_time_lag":60};
-
+  private JsonSchemaPglookout pglookoutSettings = new JsonSchemaPglookout().maxFailoverReplicationTimeLag(60);
   public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
   private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
 
