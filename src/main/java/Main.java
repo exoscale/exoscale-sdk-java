@@ -21,6 +21,7 @@ public class Main {
 
 //        InstanceType instanceType = instanceTypeApi.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
         Template template = templateApi.getTemplate(UUID.fromString("4e4d4f64-9608-4dc3-b5f4-979c8ac39e7f"));
+        System.out.println(template.toString());
 
 //        CreateInstanceRequest request = new CreateInstanceRequest()
 //                .instanceType(instanceType)

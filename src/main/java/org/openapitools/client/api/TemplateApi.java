@@ -11,11 +11,7 @@
  */
 
 package org.openapitools.client.api;
-
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Pair;
+import org.openapitools.client.*;
 
 import org.openapitools.client.model.CopyTemplateRequest;
 import org.openapitools.client.model.ListTemplates200Response;
@@ -113,8 +109,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = copyTemplateRequestBuilder(id, copyTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -123,9 +119,9 @@ public class TemplateApi {
           throw getApiException("copyTemplate", localVarResponse);
         }
         return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -151,7 +147,7 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/template/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+            .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
@@ -195,8 +191,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = deleteTemplateRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -205,9 +201,9 @@ public class TemplateApi {
           throw getApiException("deleteTemplate", localVarResponse);
         }
         return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -229,7 +225,7 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/template/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+            .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
@@ -267,8 +263,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = getTemplateRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -277,9 +273,9 @@ public class TemplateApi {
           throw getApiException("getTemplate", localVarResponse);
         }
         return new ApiResponse<Template>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Template>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Template>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -299,15 +295,24 @@ public class TemplateApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getTemplate");
     }
 
+    long unixTimestamp = System.currentTimeMillis() / 1000L;
+
+    SignatureUtility signatureUtility = new SignatureUtility("Put your Secret Keu", "Put your public Key");
+    String authorizationValue;
+    try {
+      authorizationValue = signatureUtility.generateSignature("GET", "/v2/template/" + id, "", unixTimestamp);
+    } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+    }
+
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/template/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+            .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
     localVarRequestBuilder.header("Accept", "application/json");
-
+    localVarRequestBuilder.header("Authorization", authorizationValue);
     localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
@@ -315,6 +320,7 @@ public class TemplateApi {
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
+
     return localVarRequestBuilder;
   }
   /**
@@ -342,8 +348,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = listTemplatesRequestBuilder(visibility, family);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -352,9 +358,9 @@ public class TemplateApi {
           throw getApiException("listTemplates", localVarResponse);
         }
         return new ApiResponse<ListTemplates200Response>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListTemplates200Response>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListTemplates200Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -428,8 +434,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = promoteSnapshotToTemplateRequestBuilder(id, promoteSnapshotToTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -438,9 +444,9 @@ public class TemplateApi {
           throw getApiException("promoteSnapshotToTemplate", localVarResponse);
         }
         return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -466,7 +472,7 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/snapshot/{id}:promote"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+            .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
@@ -510,8 +516,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = registerTemplateRequestBuilder(registerTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -520,9 +526,9 @@ public class TemplateApi {
           throw getApiException("registerTemplate", localVarResponse);
         }
         return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -589,8 +595,8 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = updateTemplateRequestBuilder(id, updateTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
+              localVarRequestBuilder.build(),
+              HttpResponse.BodyHandlers.ofInputStream());
       if (memberVarResponseInterceptor != null) {
         memberVarResponseInterceptor.accept(localVarResponse);
       }
@@ -599,9 +605,9 @@ public class TemplateApi {
           throw getApiException("updateTemplate", localVarResponse);
         }
         return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+                localVarResponse.statusCode(),
+                localVarResponse.headers().map(),
+                localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -627,7 +633,7 @@ public class TemplateApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/template/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+            .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
