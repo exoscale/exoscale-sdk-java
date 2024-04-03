@@ -129,7 +129,7 @@ public class OperationApi {
       throw new ApiException(e);
     }
   }
-
+ // here to plug the signature
   private HttpRequest.Builder getOperationRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {

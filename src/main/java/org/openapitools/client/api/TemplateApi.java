@@ -90,7 +90,7 @@ public class TemplateApi {
 
   /**
    * Copy a Template from a zone to another
-   * 
+   *
    * @param id  (required)
    * @param copyTemplateRequest  (required)
    * @return Operation
@@ -103,7 +103,7 @@ public class TemplateApi {
 
   /**
    * Copy a Template from a zone to another
-   * 
+   *
    * @param id  (required)
    * @param copyTemplateRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -174,7 +174,7 @@ public class TemplateApi {
   }
   /**
    * Delete a Template
-   * 
+   *
    * @param id  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -186,7 +186,7 @@ public class TemplateApi {
 
   /**
    * Delete a Template
-   * 
+   *
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -246,7 +246,7 @@ public class TemplateApi {
   }
   /**
    * Retrieve Template details
-   * 
+   *
    * @param id  (required)
    * @return Template
    * @throws ApiException if fails to make API call
@@ -258,7 +258,7 @@ public class TemplateApi {
 
   /**
    * Retrieve Template details
-   * 
+   *
    * @param id  (required)
    * @return ApiResponse&lt;Template&gt;
    * @throws ApiException if fails to make API call
@@ -292,6 +292,7 @@ public class TemplateApi {
     }
   }
 
+  // here to plug the signature as well
   private HttpRequest.Builder getTemplateRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -318,7 +319,7 @@ public class TemplateApi {
   }
   /**
    * List Templates
-   * 
+   *
    * @param visibility  (optional)
    * @param family  (optional)
    * @return ListTemplates200Response
@@ -331,7 +332,7 @@ public class TemplateApi {
 
   /**
    * List Templates
-   * 
+   *
    * @param visibility  (optional)
    * @param family  (optional)
    * @return ApiResponse&lt;ListTemplates200Response&gt;
@@ -404,7 +405,7 @@ public class TemplateApi {
   }
   /**
    * Promote a Snapshot to a Template
-   * 
+   *
    * @param id  (required)
    * @param promoteSnapshotToTemplateRequest  (required)
    * @return Operation
@@ -417,7 +418,7 @@ public class TemplateApi {
 
   /**
    * Promote a Snapshot to a Template
-   * 
+   *
    * @param id  (required)
    * @param promoteSnapshotToTemplateRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -488,7 +489,7 @@ public class TemplateApi {
   }
   /**
    * Register a Template
-   * 
+   *
    * @param registerTemplateRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -500,7 +501,7 @@ public class TemplateApi {
 
   /**
    * Register a Template
-   * 
+   *
    * @param registerTemplateRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -565,7 +566,7 @@ public class TemplateApi {
   }
   /**
    * Update template attributes
-   * 
+   *
    * @param id  (required)
    * @param updateTemplateRequest  (required)
    * @return Operation
@@ -578,7 +579,7 @@ public class TemplateApi {
 
   /**
    * Update template attributes
-   * 
+   *
    * @param id  (required)
    * @param updateTemplateRequest  (required)
    * @return ApiResponse&lt;Operation&gt;

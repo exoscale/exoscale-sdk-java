@@ -19,19 +19,19 @@ public class Main {
         TemplateApi templateApi = new TemplateApi(apiClient);
         OperationApi operationApi = new OperationApi(apiClient);
 
-        InstanceType instanceType = instanceTypeApi.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
+//        InstanceType instanceType = instanceTypeApi.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
         Template template = templateApi.getTemplate(UUID.fromString("4e4d4f64-9608-4dc3-b5f4-979c8ac39e7f"));
 
-        CreateInstanceRequest request = new CreateInstanceRequest()
-                .instanceType(instanceType)
-                .template(template)
-                .diskSize(50L)
-                .publicIpAssignment(PublicIpAssignment.INET4);
-
-        Operation operation = instanceApi.createInstance(request);
-        while(Operation.StateEnum.PENDING.equals(operation.getState())) {
-            operation = operationApi.getOperation(operation.getId());
-            Thread.sleep(1000);
-        }
+//        CreateInstanceRequest request = new CreateInstanceRequest()
+//                .instanceType(instanceType)
+//                .template(template)
+//                .diskSize(50L)
+//                .publicIpAssignment(PublicIpAssignment.INET4);
+//
+//        Operation operation = instanceApi.createInstance(request);
+//        while(Operation.StateEnum.PENDING.equals(operation.getState())) {
+//            operation = operationApi.getOperation(operation.getId());
+//            Thread.sleep(1000);
+//        }
     }
 }
