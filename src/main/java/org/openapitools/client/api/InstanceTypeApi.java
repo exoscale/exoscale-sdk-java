@@ -12,10 +12,7 @@
 
 package org.openapitools.client.api;
 
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Pair;
+import org.openapitools.client.*;
 
 import org.openapitools.client.model.InstanceType;
 import org.openapitools.client.model.ListInstanceTypes200Response;
@@ -136,16 +133,23 @@ public class InstanceTypeApi {
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getInstanceType");
     }
+    long unixTimestamp = System.currentTimeMillis() / 1000L;
 
+    SignatureUtility signatureUtility = new SignatureUtility("Put your Secret Keu", "Put your public Key");
+    String authorizationValue;
+    try {
+      authorizationValue = signatureUtility.generateSignature("GET", "/v2/instance-type/" + id, "", unixTimestamp);
+    } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+    }
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/instance-type/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
     localVarRequestBuilder.header("Accept", "application/json");
-
+    localVarRequestBuilder.header("Authorization", authorizationValue);
     localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
