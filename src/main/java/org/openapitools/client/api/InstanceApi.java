@@ -12,10 +12,8 @@
 
 package org.openapitools.client.api;
 
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Pair;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.openapitools.client.*;
 
 import org.openapitools.client.model.CreateInstanceRequest;
 import org.openapitools.client.model.Instance;
@@ -217,6 +215,22 @@ public class InstanceApi {
     if (createInstanceRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'createInstanceRequest' when calling createInstance");
     }
+    long unixTimestamp = System.currentTimeMillis() / 1000L;
+
+    SignatureUtility signatureUtility = new SignatureUtility("Put your Secret Keu", "Put your public Key");
+
+    String requestBody;
+    try {
+      requestBody = memberVarObjectMapper.writeValueAsString(createInstanceRequest);
+    } catch (JsonProcessingException e) {
+      throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+    }
+    String authorizationValue;
+    try {
+      authorizationValue = signatureUtility.generateSignature("POST", "/v2/instance" , requestBody , unixTimestamp);
+    } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+    }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -226,6 +240,7 @@ public class InstanceApi {
 
     localVarRequestBuilder.header("Content-Type", "application/json");
     localVarRequestBuilder.header("Accept", "application/json");
+    localVarRequestBuilder.header("Authorization", authorizationValue);
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createInstanceRequest);
@@ -239,6 +254,7 @@ public class InstanceApi {
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
+
     return localVarRequestBuilder;
   }
   /**
