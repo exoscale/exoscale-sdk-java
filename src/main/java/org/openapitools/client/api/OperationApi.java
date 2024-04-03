@@ -12,10 +12,7 @@
 
 package org.openapitools.client.api;
 
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.ApiResponse;
-import org.openapitools.client.Pair;
+import org.openapitools.client.*;
 
 import org.openapitools.client.model.Operation;
 import java.util.UUID;
@@ -136,15 +133,24 @@ public class OperationApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getOperation");
     }
 
+    long unixTimestamp = System.currentTimeMillis() / 1000L;
+
+    SignatureUtility signatureUtility = new SignatureUtility("Put your Secret Key", "Put your Public Key");
+    String authorizationValue;
+    try {
+      authorizationValue = signatureUtility.generateSignature("GET", "/v2/operation/" + id, "", unixTimestamp);
+    } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+    }
+
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/operation/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
     localVarRequestBuilder.header("Accept", "application/json");
-
+    localVarRequestBuilder.header("Authorization", authorizationValue);
     localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
@@ -152,6 +158,7 @@ public class OperationApi {
     if (memberVarInterceptor != null) {
       memberVarInterceptor.accept(localVarRequestBuilder);
     }
+
     return localVarRequestBuilder;
   }
 }
