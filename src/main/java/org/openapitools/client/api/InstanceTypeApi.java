@@ -52,12 +52,13 @@ public class InstanceTypeApi {
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
-
+  private ApiClient apiClient ;
   public InstanceTypeApi() {
     this(new ApiClient());
   }
 
   public InstanceTypeApi(ApiClient apiClient) {
+    this.apiClient = apiClient;
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -65,6 +66,7 @@ public class InstanceTypeApi {
     memberVarReadTimeout = apiClient.getReadTimeout();
     memberVarResponseInterceptor = apiClient.getResponseInterceptor();
     memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
+
   }
 
   protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
@@ -135,7 +137,7 @@ public class InstanceTypeApi {
     }
     long unixTimestamp = System.currentTimeMillis() / 1000L;
 
-    SignatureUtility signatureUtility = new SignatureUtility("Put your Secret Keu", "Put your public Key");
+    SignatureUtility signatureUtility = apiClient.getSignatureUtility();
     String authorizationValue;
     try {
       authorizationValue = signatureUtility.generateSignature("GET", "/v2/instance-type/" + id, "", unixTimestamp);
