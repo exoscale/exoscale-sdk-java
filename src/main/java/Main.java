@@ -31,10 +31,10 @@ public class Main {
                 .template(template)
                 .diskSize(50L)
                 .publicIpAssignment(PublicIpAssignment.INET4);
-//        Operation operation = instanceApi.createInstance(request);
-//        while(Operation.StateEnum.PENDING.equals(operation.getState())) {
-//            operation = operationApi.getOperation(operation.getId());
-//            Thread.sleep(1000);
-//        }
+        Operation operation = instanceApi.createInstance(request);
+        while(Operation.StateEnum.PENDING.equals(operation.getState())) {
+            operation = operationApi.getOperation(operation.getId());
+            Thread.sleep(1000);
+        }
     }
 }
