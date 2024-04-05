@@ -47,12 +47,13 @@ public class TemplateApi {
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
-
+  private ApiClient apiClient ;
   public TemplateApi() {
     this(new ApiClient());
   }
 
   public TemplateApi(ApiClient apiClient) {
+    this.apiClient = apiClient;
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -288,7 +289,7 @@ public class TemplateApi {
 
     long unixTimestamp = System.currentTimeMillis() / 1000L;
 
-    Credentials credentials = new Credentials("Put your Secret Keu", "Put your public Key");
+    Credentials credentials = apiClient.getSignatureUtility();
     String authorizationValue;
     try {
       authorizationValue = credentials.generateSignature("GET", "/v2/template/" + id, "", unixTimestamp);
