@@ -26,11 +26,11 @@ public class Main {
         Template template = templateApi.getTemplate(UUID.fromString("4e4d4f64-9608-4dc3-b5f4-979c8ac39e7f"));
         System.out.println(instanceType.toString());
 
-//        CreateInstanceRequest request = new CreateInstanceRequest()
-//                .instanceType(instanceType)
-//                .template(template)
-//                .diskSize(50L)
-//                .publicIpAssignment(PublicIpAssignment.INET4);
+        CreateInstanceRequest request = new CreateInstanceRequest()
+                .instanceType(instanceType)
+                .template(template)
+                .diskSize(50L)
+                .publicIpAssignment(PublicIpAssignment.INET4);
 //        Operation operation = instanceApi.createInstance(request);
 //        while(Operation.StateEnum.PENDING.equals(operation.getState())) {
 //            operation = operationApi.getOperation(operation.getId());

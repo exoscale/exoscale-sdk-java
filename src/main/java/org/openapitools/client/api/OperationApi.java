@@ -39,12 +39,13 @@ public class OperationApi {
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
-
+  private ApiClient apiClient ;
   public OperationApi() {
     this(new ApiClient());
   }
 
   public OperationApi(ApiClient apiClient) {
+    this.apiClient = apiClient;
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -123,7 +124,7 @@ public class OperationApi {
 
     long unixTimestamp = System.currentTimeMillis() / 1000L;
 
-    Credentials credentials = new Credentials("Put your Secret Key", "Put your Public Key");
+    Credentials credentials = apiClient.getSignatureUtility();
     String authorizationValue;
     try {
       authorizationValue = credentials.generateSignature("GET", "/v2/operation/" + id, "", unixTimestamp);
