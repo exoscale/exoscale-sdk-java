@@ -122,12 +122,10 @@ public class OperationApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getOperation");
     }
 
-    long unixTimestamp = System.currentTimeMillis() / 1000L;
-
     Credentials credentials = apiClient.getSignatureUtility();
     String authorizationValue;
     try {
-      authorizationValue = credentials.generateSignature("GET", "/v2/operation/" + id, "", unixTimestamp);
+      authorizationValue = credentials.generateSignature("GET", "/v2/operation/" + id, "");
     } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
     }

@@ -20,10 +20,11 @@ public class Credentials {
         this.apiKey = apiKey;
     }
 
-    public String generateSignature(String method, String path, String requestBody, long timestamp) throws Exception {
-        String message = method + SPACE + path + LINE_BREAK+LINE_BREAK+LINE_BREAK+LINE_BREAK + timestamp;
+    public String generateSignature(String method, String path, String requestBody) throws Exception {
+        long unixTimestamp = System.currentTimeMillis() / 1000L;
+        String message = method + SPACE + path + LINE_BREAK+LINE_BREAK+LINE_BREAK+LINE_BREAK + unixTimestamp;
         if (!requestBody.isEmpty()) {
-            message = method + SPACE + path + LINE_BREAK + requestBody + LINE_BREAK+LINE_BREAK+LINE_BREAK + timestamp;
+            message = method + SPACE + path + LINE_BREAK + requestBody + LINE_BREAK+LINE_BREAK+LINE_BREAK + unixTimestamp;
         }
         Mac mac = Mac.getInstance(HMAC_SHA_256);
         SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), HMAC_SHA_256);
@@ -31,7 +32,7 @@ public class Credentials {
         byte[] hash = mac.doFinal(message.getBytes());
         String signature = Base64.getEncoder().encodeToString(hash);
 
-        return EXO_2_HMAC_SHA_256_CREDENTIAL + apiKey + COMMA + EXPIRES + timestamp + COMMA + SIGNATURE + signature;
+        return EXO_2_HMAC_SHA_256_CREDENTIAL + apiKey + COMMA + EXPIRES + unixTimestamp + COMMA + SIGNATURE + signature;
     }
 }
 

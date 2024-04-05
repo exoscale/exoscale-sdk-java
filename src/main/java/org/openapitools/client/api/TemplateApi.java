@@ -287,12 +287,12 @@ public class TemplateApi {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getTemplate");
     }
 
-    long unixTimestamp = System.currentTimeMillis() / 1000L;
+
 
     Credentials credentials = apiClient.getSignatureUtility();
     String authorizationValue;
     try {
-      authorizationValue = credentials.generateSignature("GET", "/v2/template/" + id, "", unixTimestamp);
+      authorizationValue = credentials.generateSignature("GET", "/v2/template/" + id, "");
     } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
     }

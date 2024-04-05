@@ -207,7 +207,6 @@ public class InstanceApi {
     if (createInstanceRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'createInstanceRequest' when calling createInstance");
     }
-    long unixTimestamp = System.currentTimeMillis() / 1000L;
 
     Credentials credentials = apiClient.getSignatureUtility();
 
@@ -219,7 +218,7 @@ public class InstanceApi {
     }
     String authorizationValue;
     try {
-      authorizationValue = credentials.generateSignature("POST", "/v2/instance" , requestBody , unixTimestamp);
+      authorizationValue = credentials.generateSignature("POST", "/v2/instance" , requestBody );
     } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
     }

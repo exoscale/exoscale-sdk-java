@@ -123,12 +123,12 @@ public class InstanceTypeApi {
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getInstanceType");
     }
-    long unixTimestamp = System.currentTimeMillis() / 1000L;
+
 
     Credentials credentials = apiClient.getSignatureUtility();
     String authorizationValue;
     try {
-      authorizationValue = credentials.generateSignature("GET", "/v2/instance-type/" + id, "", unixTimestamp);
+      authorizationValue = credentials.generateSignature("GET", "/v2/instance-type/" + id, "");
     } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
     }
