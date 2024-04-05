@@ -4,7 +4,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-public class SignatureUtility {
+public class Credentials {
     private static final String HMAC_SHA_256 = "HmacSHA256";
     private static final String EXPIRES = "expires=";
     private static final String EXO_2_HMAC_SHA_256_CREDENTIAL = "EXO2-HMAC-SHA256 credential=";
@@ -15,7 +15,7 @@ public class SignatureUtility {
     private static final String COMMA = ",";
     private String secretKey;
     private String apiKey;
-    public SignatureUtility(String secretKey, String apiKey) {
+    public Credentials(String secretKey, String apiKey) {
         this.secretKey = secretKey;
         this.apiKey = apiKey;
     }

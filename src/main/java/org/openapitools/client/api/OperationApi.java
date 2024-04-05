@@ -21,25 +21,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.InputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.http.HttpRequest;
-import java.nio.channels.Channels;
-import java.nio.channels.Pipe;
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-import java.util.ArrayList;
-import java.util.StringJoiner;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.function.Consumer;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
@@ -135,10 +123,10 @@ public class OperationApi {
 
     long unixTimestamp = System.currentTimeMillis() / 1000L;
 
-    SignatureUtility signatureUtility = new SignatureUtility("Put your Secret Key", "Put your Public Key");
+    Credentials credentials = new Credentials("Put your Secret Key", "Put your Public Key");
     String authorizationValue;
     try {
-      authorizationValue = signatureUtility.generateSignature("GET", "/v2/operation/" + id, "", unixTimestamp);
+      authorizationValue = credentials.generateSignature("GET", "/v2/operation/" + id, "", unixTimestamp);
     } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
     }

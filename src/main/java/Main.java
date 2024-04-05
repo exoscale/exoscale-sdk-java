@@ -1,6 +1,6 @@
 import org.openapitools.client.ApiClient;
 import org.openapitools.client.ApiException;
-import org.openapitools.client.SignatureUtility;
+import org.openapitools.client.Credentials;
 import org.openapitools.client.api.InstanceApi;
 import org.openapitools.client.api.InstanceTypeApi;
 import org.openapitools.client.api.OperationApi;
@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws ApiException, InterruptedException {
 
-        ApiClient apiClient = new ApiClient(new SignatureUtility("Put your Secret Key", "Put your Public Key"));
+        ApiClient apiClient = new ApiClient(new Credentials("Put your Secret Key", "Put your Public Key"));
 
 
         InstanceTypeApi instanceTypeApi = new InstanceTypeApi(apiClient);

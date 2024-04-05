@@ -54,7 +54,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class ApiClient {
 
-  private SignatureUtility signatureUtility;
+  private Credentials credentials;
   private HttpClient.Builder builder;
   private ObjectMapper mapper;
   private String scheme;
@@ -165,7 +165,7 @@ public class ApiClient {
    * Create an instance of ApiClient.
    */
   public ApiClient() {
-    this.signatureUtility = signatureUtility;
+    this.credentials = credentials;
     this.builder = createDefaultHttpClientBuilder();
     this.mapper = createDefaultObjectMapper();
     updateBaseUri(getDefaultBaseUri());
@@ -175,8 +175,8 @@ public class ApiClient {
     responseInterceptor = null;
     asyncResponseInterceptor = null;
   }
-  public ApiClient(SignatureUtility signatureUtility) {
-    this.signatureUtility = signatureUtility;
+  public ApiClient(Credentials credentials) {
+    this.credentials = credentials;
     this.builder = createDefaultHttpClientBuilder();
     this.mapper = createDefaultObjectMapper();
     updateBaseUri(getDefaultBaseUri());
@@ -186,8 +186,8 @@ public class ApiClient {
     responseInterceptor = null;
     asyncResponseInterceptor = null;
   }
-  public SignatureUtility getSignatureUtility() {
-    return this.signatureUtility;
+  public Credentials getSignatureUtility() {
+    return this.credentials;
   }
   /**
    * Create an instance of ApiClient.
