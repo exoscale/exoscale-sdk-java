@@ -1,6 +1,7 @@
 {{>licenseInfo}}
 package {{package}};
-
+import org.openapitools.client.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import {{invokerPackage}}.ApiClient;
 import {{invokerPackage}}.ApiException;
 import {{invokerPackage}}.ApiResponse;
@@ -61,12 +62,13 @@ public class {{classname}} {
   private final Duration memberVarReadTimeout;
   private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
   private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
-
+  private ApiClient apiClient;
   public {{classname}}() {
     this(new ApiClient());
   }
 
   public {{classname}}(ApiClient apiClient) {
+    this.apiClient = apiClient;
     memberVarHttpClient = apiClient.getHttpClient();
     memberVarObjectMapper = apiClient.getObjectMapper();
     memberVarBaseUri = apiClient.getBaseUri();
@@ -347,12 +349,29 @@ public class {{classname}} {
     {{/required}}
     {{/allParams}}
 
+    Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     {{! Switch delimiters for baseName so we can write constants like "{query}" }}
     String localVarPath = "{{{path}}}"{{#pathParams}}
         .replace({{=<% %>=}}"{<%baseName%>}"<%={{ }}=%>, ApiClient.urlEncode({{{paramName}}}.toString())){{/pathParams}};
+      String requestBody = null;
+      String authorizationValue;
+  {{#bodyParam}}
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString({{paramName}});
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+  {{/bodyParam}}
 
+
+      try{
+      authorizationValue = credentials.generateSignature("{{httpMethod}}", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
     {{#hasQueryParams}}
     List<Pair> localVarQueryParams = new ArrayList<>();
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
