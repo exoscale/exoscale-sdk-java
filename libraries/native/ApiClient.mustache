@@ -44,7 +44,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  */
 {{>generatedAnnotation}}
 public class ApiClient {
-
+  private Credentials credentials;
   private HttpClient.Builder builder;
   private ObjectMapper mapper;
   private String scheme;
@@ -168,6 +168,23 @@ public class ApiClient {
   /**
    * Create an instance of ApiClient.
    *
+   * @param credentials Credentials.
+   * @param mapper Object mapper.
+   */
+  public ApiClient(Credentials credentials){
+    this.credentials = credentials; {{!Added Part}}
+    this.builder = createDefaultHttpClientBuilder();
+    this.mapper = createDefaultObjectMapper();
+    updateBaseUri(getDefaultBaseUri());
+    interceptor = null;
+    readTimeout = null;
+    connectTimeout = null;
+    responseInterceptor = null;
+    syncResponseInterceptor = null;
+   }
+  /**
+   * Create an instance of ApiClient.
+   *
    * @param builder Http client builder.
    * @param mapper Object mapper.
    * @param baseUri Base URI
@@ -214,6 +231,26 @@ public class ApiClient {
     port = uri.getPort();
     basePath = uri.getRawPath();
   }
+
+  /**
+   * Set the {@link Credentials} object to be used for generating authorization signatures.
+   *
+   * @param credentials The {@link Credentials} object.
+   * @return This {@link ApiClient} instance for method chaining.
+   */
+   public ApiClient setCredentials(Credentials credentials) {
+     this.credentials = credentials;
+     return this;
+   }
+
+  /**
+   * Get the {@link Credentials} object currently used for generating authorization signatures.
+   *
+   * @return The {@link Credentials} object.
+   */
+   public Credentials getCredentials() {
+      return this.credentials;
+   }
 
   /**
    * Set a custom {@link HttpClient.Builder} object to use when creating the
