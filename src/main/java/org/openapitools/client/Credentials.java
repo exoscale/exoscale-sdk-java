@@ -24,17 +24,13 @@ public class Credentials {
         long unixTimestamp = System.currentTimeMillis() / 1000L;
         String message = method + SPACE + path + LINE_BREAK+LINE_BREAK+LINE_BREAK+LINE_BREAK + unixTimestamp;
         if (!requestBody.isEmpty()) {
-            System.out.println("Empty");
             message = method + SPACE + path + LINE_BREAK + requestBody + LINE_BREAK+LINE_BREAK+LINE_BREAK + unixTimestamp;
         }
-        System.out.println("---------> Request Body: "+requestBody);
-        System.out.println("---------> Message: "+message);
         Mac mac = Mac.getInstance(HMAC_SHA_256);
         SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), HMAC_SHA_256);
         mac.init(secretKeySpec);
         byte[] hash = mac.doFinal(message.getBytes());
         String signature = Base64.getEncoder().encodeToString(hash);
-
         return EXO_2_HMAC_SHA_256_CREDENTIAL + apiKey + COMMA + EXPIRES + unixTimestamp + COMMA + SIGNATURE + signature;
     }
 }
