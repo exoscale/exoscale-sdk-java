@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateDbaasServiceKafkaRequestAuthenticationMethods.JSON_PROPERTY_CERTIFICATE,
   UpdateDbaasServiceKafkaRequestAuthenticationMethods.JSON_PROPERTY_SASL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceKafkaRequestAuthenticationMethods {
   public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
   private Boolean certificate;

@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class JSON {
   private ObjectMapper mapper;
 
@@ -111,7 +111,7 @@ public class JSON {
 
     /**
      * Returns the target model class that should be used to deserialize the input data.
-     * This function can be invoked for anyOf/oneOf composed models with discriminator mappings.
+     * This function can be invoked for AbstractOpenApiSchema/oneOf composed models with discriminator mappings.
      * The discriminator mappings are used to determine the target model class.
      *
      * @param node The input data.
@@ -180,7 +180,7 @@ public class JSON {
     }
     visitedClasses.add(modelClass);
 
-    // Traverse the oneOf/anyOf composed schemas.
+    // Traverse the oneOf/AbstractOpenApiSchema composed schemas.
     Map<String, Class<?>> descendants = modelDescendants.get(modelClass);
     if (descendants != null) {
       for (Class<?> childType : descendants.values()) {
@@ -198,7 +198,7 @@ public class JSON {
   private static Map<Class<?>, ClassDiscriminatorMapping> modelDiscriminators = new HashMap<>();
 
   /**
-   * A map of oneOf/anyOf descendants for each model class.
+   * A map of oneOf/AbstractOpenApiSchema descendants for each model class.
    */
   private static Map<Class<?>, Map<String, Class<?>>> modelDescendants = new HashMap<>();
 
@@ -215,10 +215,10 @@ public class JSON {
   }
 
   /**
-    * Register the oneOf/anyOf descendants of the modelClass.
+    * Register the oneOf/AbstractOpenApiSchema descendants of the modelClass.
     *
     * @param modelClass the model class
-    * @param descendants a map of oneOf/anyOf descendants.
+    * @param descendants a map of oneOf/AbstractOpenApiSchema descendants.
     */
   public static void registerDescendants(Class<?> modelClass, Map<String, Class<?>> descendants) {
     modelDescendants.put(modelClass, descendants);

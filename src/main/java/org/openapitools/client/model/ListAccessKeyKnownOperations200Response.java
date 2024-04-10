@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ListAccessKeyKnownOperations200Response.JSON_PROPERTY_ACCESS_KEY_OPERATIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class ListAccessKeyKnownOperations200Response {
   public static final String JSON_PROPERTY_ACCESS_KEY_OPERATIONS = "access-key-operations";
   private List<AccessKeyOperation> accessKeyOperations;

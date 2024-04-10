@@ -54,7 +54,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateDbaasServiceKafkaRequest.JSON_PROPERTY_VERSION,
   UpdateDbaasServiceKafkaRequest.JSON_PROPERTY_PLAN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceKafkaRequest {
   public static final String JSON_PROPERTY_AUTHENTICATION_METHODS = "authentication-methods";
   private UpdateDbaasServiceKafkaRequestAuthenticationMethods authenticationMethods;
@@ -84,7 +84,7 @@ public class UpdateDbaasServiceKafkaRequest {
   private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
 
   public static final String JSON_PROPERTY_KAFKA_SETTINGS = "kafka-settings";
-  private JsonSchemaKafka kafkaSettings = new JsonSchemaKafka(); // we need know what this was like this, is it from our side (openAPI sep) or the generator
+  private JsonSchemaKafka kafkaSettings;
 
   public static final String JSON_PROPERTY_SCHEMA_REGISTRY_ENABLED = "schema-registry-enabled";
   private Boolean schemaRegistryEnabled;

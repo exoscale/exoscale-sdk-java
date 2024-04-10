@@ -20,9 +20,9 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
+ * Abstract class for oneOf,AbstractOpenApiSchema schemas defined in OpenAPI spec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object
@@ -31,7 +31,7 @@ public abstract class AbstractOpenApiSchema {
     // is nullable
     private Boolean isNullable;
 
-    // schema type (e.g. oneOf, anyOf)
+    // schema type (e.g. oneOf, AbstractOpenApiSchema)
     private final String schemaType;
 
     public AbstractOpenApiSchema(String schemaType, Boolean isNullable) {
@@ -40,7 +40,7 @@ public abstract class AbstractOpenApiSchema {
     }
 
     /**
-     * Get the list of oneOf/anyOf composed schemas allowed to be stored in this object
+     * Get the list of oneOf/AbstractOpenApiSchema composed schemas allowed to be stored in this object
      *
      * @return an instance of the actual schema/object
      */
@@ -62,7 +62,7 @@ public abstract class AbstractOpenApiSchema {
     public void setActualInstance(Object instance) {this.instance = instance;}
 
     /**
-     * Get the instant recursively when the schemas defined in oneOf/anyof happen to be oneOf/anyOf schema as well
+     * Get the instant recursively when the schemas defined in oneOf/AbstractOpenApiSchema happen to be oneOf/AbstractOpenApiSchema schema as well
      *
      * @return an instance of the actual schema/object
      */
@@ -81,7 +81,7 @@ public abstract class AbstractOpenApiSchema {
     }
 
     /**
-     * Get the schema type (e.g. anyOf, oneOf)
+     * Get the schema type (e.g. AbstractOpenApiSchema, oneOf)
      *
      * @return the schema type
      */

@@ -51,9 +51,8 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * <p>The setter methods of this class return the current object to facilitate
  * a fluent style of configuration.</p>
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class ApiClient {
-
   private Credentials credentials;
   private HttpClient.Builder builder;
   private ObjectMapper mapper;
@@ -165,7 +164,6 @@ public class ApiClient {
    * Create an instance of ApiClient.
    */
   public ApiClient() {
-    this.credentials = credentials;
     this.builder = createDefaultHttpClientBuilder();
     this.mapper = createDefaultObjectMapper();
     updateBaseUri(getDefaultBaseUri());
@@ -175,8 +173,15 @@ public class ApiClient {
     responseInterceptor = null;
     asyncResponseInterceptor = null;
   }
-  public ApiClient(Credentials credentials) {
-    this.credentials = credentials;
+
+  /**
+   * Create an instance of ApiClient.
+   *
+   * @param credentials Credentials.
+   * @param mapper Object mapper.
+   */
+  public ApiClient(Credentials credentials){
+    this.credentials = credentials; 
     this.builder = createDefaultHttpClientBuilder();
     this.mapper = createDefaultObjectMapper();
     updateBaseUri(getDefaultBaseUri());
@@ -185,10 +190,7 @@ public class ApiClient {
     connectTimeout = null;
     responseInterceptor = null;
     asyncResponseInterceptor = null;
-  }
-  public Credentials getSignatureUtility() {
-    return this.credentials;
-  }
+   }
   /**
    * Create an instance of ApiClient.
    *
@@ -236,6 +238,26 @@ public class ApiClient {
     port = uri.getPort();
     basePath = uri.getRawPath();
   }
+
+  /**
+   * Set the {@link Credentials} object to be used for generating authorization signatures.
+   *
+   * @param credentials The {@link Credentials} object.
+   * @return This {@link ApiClient} instance for method chaining.
+   */
+   public ApiClient setCredentials(Credentials credentials) {
+     this.credentials = credentials;
+     return this;
+   }
+
+  /**
+   * Get the {@link Credentials} object currently used for generating authorization signatures.
+   *
+   * @return The {@link Credentials} object.
+   */
+   public Credentials getCredentials() {
+      return this.credentials;
+   }
 
   /**
    * Set a custom {@link HttpClient.Builder} object to use when creating the

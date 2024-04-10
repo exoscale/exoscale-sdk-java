@@ -170,7 +170,7 @@ paths:
           description: "200"
       summary: Delete a Load Balancer Service
       tags:
-      - network-load-balancer
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -201,7 +201,7 @@ paths:
           description: "200"
       summary: Retrieve Load Balancer Service details
       tags:
-      - network-load-balancer
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -238,7 +238,7 @@ paths:
           description: "200"
       summary: Update a Load Balancer Service
       tags:
-      - network-load-balancer
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-opensearch/{name}/acl-config:
@@ -261,7 +261,7 @@ paths:
           description: "200"
       summary: Get DBaaS OpenSearch ACL configuration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     put:
       operationId: update-dbaas-opensearch-acl-config
@@ -288,7 +288,7 @@ paths:
           description: "200"
       summary: Create a DBaaS OpenSearch ACL configuration
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance-pool/{id}:scale:
@@ -319,7 +319,7 @@ paths:
           description: "200"
       summary: Scale an Instance Pool
       tags:
-      - instance-pool
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance/{id}:create-snapshot:
@@ -344,8 +344,7 @@ paths:
           description: "200"
       summary: Create a Snapshot of a Compute instance
       tags:
-      - instance
-      - snapshot
+      - Exoscale
       x-accepts: application/json
   /reverse-dns/elastic-ip/{id}:
     delete:
@@ -369,7 +368,7 @@ paths:
           description: "200"
       summary: Delete the PTR DNS record for an elastic IP
       tags:
-      - reverse-dns
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -392,7 +391,7 @@ paths:
           description: "200"
       summary: Query the PTR DNS records for an elastic IP
       tags:
-      - reverse-dns
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -421,7 +420,7 @@ paths:
           description: "200"
       summary: Update/Create the PTR DNS record for an elastic IP
       tags:
-      - reverse-dns
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /anti-affinity-group:
@@ -438,7 +437,7 @@ paths:
           description: "200"
       summary: List Anti-affinity Groups
       tags:
-      - anti-affinity-group
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -459,7 +458,7 @@ paths:
           description: "200"
       summary: Create an Anti-affinity Group
       tags:
-      - anti-affinity-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /event:
@@ -497,7 +496,7 @@ paths:
           description: "200"
       summary: List Events
       tags:
-      - event
+      - Exoscale
       x-accepts: application/json
   /security-group/{id}/rules/{rule-id}:
     delete:
@@ -529,7 +528,7 @@ paths:
           description: "200"
       summary: Delete a Security Group rule
       tags:
-      - security-group
+      - Exoscale
       x-accepts: application/json
   /dbaas-grafana/{name}/maintenance/start:
     put:
@@ -551,7 +550,7 @@ paths:
           description: "200"
       summary: Initiate Grafana maintenance update
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /access-key/{key}:
     delete:
@@ -575,7 +574,7 @@ paths:
           description: "200"
       summary: Revoke an IAM Access Key
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -597,7 +596,7 @@ paths:
           description: "200"
       summary: Retrieve IAM Access Key details
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service}/upgrade-check:
     post:
@@ -626,7 +625,7 @@ paths:
           description: "200"
       summary: ""
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{service-name}/user/{username}/password/reset:
@@ -663,7 +662,7 @@ paths:
           description: "200"
       summary: Reset the credentials of a DBaaS mysql user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-redis/{service-name}/user/{username}/password/reveal:
@@ -693,7 +692,7 @@ paths:
           description: "200"
       summary: Reveal the secrets of a DBaaS Redis user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /load-balancer:
     get:
@@ -709,7 +708,7 @@ paths:
           description: "200"
       summary: List Load Balancers
       tags:
-      - network-load-balancer
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -730,7 +729,7 @@ paths:
           description: "200"
       summary: Create a Load Balancer
       tags:
-      - network-load-balancer
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /security-group:
@@ -761,7 +760,7 @@ paths:
           description: "200"
       summary: List Security Groups.
       tags:
-      - security-group
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -782,7 +781,7 @@ paths:
           description: "200"
       summary: Create a Security Group
       tags:
-      - security-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{service-name}/connection-pool:
@@ -812,7 +811,7 @@ paths:
           description: "200"
       summary: Create a DBaaS PostgreSQL connection pool
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{name}:
@@ -835,7 +834,7 @@ paths:
           description: "200"
       summary: Delete a MySQL service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       description: Get a DBaaS MySQL service
@@ -857,7 +856,7 @@ paths:
           description: "200"
       summary: Get a DBaaS MySQL service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     post:
       description: Create a DBaaS MySQL service
@@ -885,7 +884,7 @@ paths:
           description: "200"
       summary: Create a DBaaS MySQL service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -914,7 +913,7 @@ paths:
           description: "200"
       summary: Update a DBaaS MySQL service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /private-network/{id}:attach:
@@ -945,7 +944,7 @@ paths:
           description: "200"
       summary: Attach a Compute instance to a Private Network
       tags:
-      - private-network
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{service-name}/user:
@@ -974,7 +973,7 @@ paths:
           description: "200"
       summary: Create a DBaaS MySQL user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-service-type:
@@ -991,7 +990,7 @@ paths:
           description: "200"
       summary: DBaaS Service Types
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /instance-type/{id}:
     get:
@@ -1015,7 +1014,7 @@ paths:
           description: "200"
       summary: Retrieve Instance Type details
       tags:
-      - instance-type
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:password:
     get:
@@ -1046,7 +1045,7 @@ paths:
       summary: Reveal the password used during instance creation or the latest password
         reset.
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:resize-disk:
     put:
@@ -1077,7 +1076,7 @@ paths:
           description: "200"
       summary: Resize a Compute instance disk
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-service:
@@ -1094,7 +1093,7 @@ paths:
           description: "200"
       summary: List DBaaS services
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /elastic-ip:
     get:
@@ -1110,7 +1109,7 @@ paths:
           description: "200"
       summary: List Elastic IPs
       tags:
-      - elastic-ip
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -1131,7 +1130,7 @@ paths:
           description: "200"
       summary: Create an Elastic IP
       tags:
-      - elastic-ip
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /zone:
@@ -1148,7 +1147,7 @@ paths:
           description: "200"
       summary: List Zones
       tags:
-      - zone
+      - Exoscale
       x-accepts: application/json
   /instance-pool:
     get:
@@ -1164,7 +1163,7 @@ paths:
           description: "200"
       summary: List Instance Pools
       tags:
-      - instance-pool
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -1185,7 +1184,7 @@ paths:
           description: "200"
       summary: Create an Instance Pool
       tags:
-      - instance-pool
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster-kubeconfig/{id}:
@@ -1216,7 +1215,7 @@ paths:
           description: "200"
       summary: Generate a new Kubeconfig file for a SKS cluster
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dns-domain/{domain-id}/record:
@@ -1241,7 +1240,7 @@ paths:
           description: "200"
       summary: List DNS domain records
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -1270,7 +1269,7 @@ paths:
           description: "200"
       summary: Create DNS domain record
       tags:
-      - dns
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-ca-certificate:
@@ -1288,7 +1287,7 @@ paths:
           description: "200"
       summary: Get DBaaS CA Certificate
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-settings-grafana:
     get:
@@ -1304,7 +1303,7 @@ paths:
           description: "200"
       summary: Get DBaaS Grafana settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /deploy-target:
     get:
@@ -1320,7 +1319,7 @@ paths:
           description: "200"
       summary: List Deploy Targets
       tags:
-      - deploy-target
+      - Exoscale
       x-accepts: application/json
   /instance-type:
     get:
@@ -1336,7 +1335,7 @@ paths:
           description: "200"
       summary: List Compute instance Types
       tags:
-      - instance-type
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/database/{database-name}:
     delete:
@@ -1365,7 +1364,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS Postgres database
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /block-storage/{id}:attach:
     put:
@@ -1395,7 +1394,7 @@ paths:
           description: "200"
       summary: Attach block storage volume to an instance
       tags:
-      - block-storage
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{name}/migration/stop:
@@ -1418,7 +1417,7 @@ paths:
           description: "200"
       summary: Stop a DBaaS PostgreSQL migration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-kafka/{name}:
     delete:
@@ -1440,7 +1439,7 @@ paths:
           description: "200"
       summary: Delete a Kafka service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       operationId: get-dbaas-service-kafka
@@ -1461,7 +1460,7 @@ paths:
           description: "200"
       summary: Get a DBaaS Kafka service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     post:
       description: Create a DBaaS Kafka service
@@ -1489,7 +1488,7 @@ paths:
           description: "200"
       summary: Create a DBaaS Kafka service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -1518,7 +1517,7 @@ paths:
           description: "200"
       summary: Update a DBaaS Kafka service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance/{id}:reset-password:
@@ -1543,7 +1542,7 @@ paths:
           description: "200"
       summary: Reset a compute instance password
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /dbaas-settings-redis:
     get:
@@ -1559,7 +1558,7 @@ paths:
           description: "200"
       summary: Get DBaaS Redis settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-kafka/{name}/schema-registry/acl-config:
     post:
@@ -1587,7 +1586,7 @@ paths:
           description: "200"
       summary: Add a Kafka Schema Registry ACL entry
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /access-key:
@@ -1604,7 +1603,7 @@ paths:
           description: "200"
       summary: List IAM Access Keys
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     post:
       description: "This operation creates a legacy IAM Access Key, to create a key\
@@ -1629,7 +1628,7 @@ paths:
           description: "200"
       summary: Create a legacy IAM Access Key
       tags:
-      - iam
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /private-network/{id}:update-ip:
@@ -1661,7 +1660,7 @@ paths:
       summary: Update the IP address of an instance attached to a managed private
         network
       tags:
-      - private-network
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/nodepool/{sks-nodepool-id}:
@@ -1694,7 +1693,7 @@ paths:
           description: "200"
       summary: Delete an SKS Nodepool
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -1725,7 +1724,7 @@ paths:
           description: "200"
       summary: Retrieve SKS Nodepool details
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -1762,7 +1761,7 @@ paths:
           description: "200"
       summary: Update an SKS Nodepool
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /block-storage-snapshot/{id}:
@@ -1787,7 +1786,7 @@ paths:
           description: "200"
       summary: "Delete a block storage snapshot, data will be unrecoverable"
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -1810,7 +1809,7 @@ paths:
           description: "200"
       summary: Retrieve block storage snapshot details
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/user:
     post:
@@ -1838,7 +1837,7 @@ paths:
           description: "200"
       summary: Create a DBaaS Postgres user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance-pool/{id}:
@@ -1863,7 +1862,7 @@ paths:
           description: "200"
       summary: Delete an Instance Pool
       tags:
-      - instance-pool
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -1886,7 +1885,7 @@ paths:
           description: "200"
       summary: Retrieve Instance Pool details
       tags:
-      - instance-pool
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -1915,7 +1914,7 @@ paths:
           description: "200"
       summary: Update an Instance Pool
       tags:
-      - instance-pool
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /private-network:
@@ -1932,7 +1931,7 @@ paths:
           description: "200"
       summary: List Private Networks
       tags:
-      - private-network
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -1953,7 +1952,7 @@ paths:
           description: "200"
       summary: Create a Private Network
       tags:
-      - private-network
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance/{id}:start:
@@ -1985,7 +1984,7 @@ paths:
           description: "200"
       summary: Start a Compute instance
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-redis/{service-name}/user/{username}:
@@ -2015,7 +2014,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS Redis user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /security-group/{id}:
     delete:
@@ -2039,7 +2038,7 @@ paths:
           description: "200"
       summary: Delete a Security Group
       tags:
-      - security-group
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -2062,7 +2061,7 @@ paths:
           description: "200"
       summary: Retrieve Security Group details
       tags:
-      - security-group
+      - Exoscale
       x-accepts: application/json
   /sks-cluster/{id}/authority/{authority}/cert:
     get:
@@ -2098,7 +2097,7 @@ paths:
           description: "200"
       summary: Get the certificate for a SKS cluster authority
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /snapshot/{id}:export:
     post:
@@ -2122,7 +2121,7 @@ paths:
           description: "200"
       summary: Export a Snapshot
       tags:
-      - snapshot
+      - Exoscale
       x-accepts: application/json
   /elastic-ip/{id}/{field}:
     delete:
@@ -2155,7 +2154,7 @@ paths:
           description: "200"
       summary: Reset an Elastic IP field to its default value
       tags:
-      - elastic-ip
+      - Exoscale
       x-accepts: application/json
   /quota/{entity}:
     get:
@@ -2178,7 +2177,7 @@ paths:
           description: "200"
       summary: Retrieve Resource Quota
       tags:
-      - quotas
+      - Exoscale
       x-accepts: application/json
   /sks-cluster-deprecated-resources/{id}:
     get:
@@ -2204,7 +2203,7 @@ paths:
           description: "200"
       summary: Resources that are scheduled to be removed in future kubernetes releases
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /block-storage/{id}:
     delete:
@@ -2228,7 +2227,7 @@ paths:
           description: "200"
       summary: "Delete a block storage volume, data will be unrecoverable"
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -2251,7 +2250,7 @@ paths:
           description: "200"
       summary: Retrieve block storage volume details
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -2280,7 +2279,7 @@ paths:
           description: "200"
       summary: Set block storage volume labels
       tags:
-      - block-storage
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-opensearch/{service-name}/user/{username}:
@@ -2310,7 +2309,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS OpenSearch user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /block-storage/{id}:create-snapshot:
     post:
@@ -2340,7 +2339,7 @@ paths:
           description: "200"
       summary: Create a block storage snapshot
       tags:
-      - block-storage
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /private-network/{id}:detach:
@@ -2371,7 +2370,7 @@ paths:
           description: "200"
       summary: Detach a Compute instance from a Private Network
       tags:
-      - private-network
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /private-network/{id}:
@@ -2396,7 +2395,7 @@ paths:
           description: "200"
       summary: Delete a Private Network
       tags:
-      - private-network
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -2419,7 +2418,7 @@ paths:
           description: "200"
       summary: Retrieve Private Network details
       tags:
-      - private-network
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -2448,7 +2447,7 @@ paths:
           description: "200"
       summary: Update a Private Network
       tags:
-      - private-network
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /load-balancer/{id}/{field}:
@@ -2483,7 +2482,7 @@ paths:
           description: "200"
       summary: Reset a Load Balancer field to its default value
       tags:
-      - network-load-balancer
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:scale:
     put:
@@ -2515,7 +2514,7 @@ paths:
           description: "200"
       summary: Scale a Compute instance to a new Instance Type
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /api-key:
@@ -2531,7 +2530,7 @@ paths:
           description: "200"
       summary: List API keys
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     post:
       operationId: create-api-key
@@ -2551,7 +2550,7 @@ paths:
           description: "200"
       summary: Create a new API key
       tags:
-      - iam
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /block-storage-snapshot:
@@ -2568,7 +2567,7 @@ paths:
           description: "200"
       summary: List block storage snapshots
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
   /dns-domain:
     get:
@@ -2584,7 +2583,7 @@ paths:
           description: "200"
       summary: List DNS domains
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -2605,7 +2604,7 @@ paths:
           description: "200"
       summary: Create DNS domain
       tags:
-      - dns
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance/{id}:stop:
@@ -2630,7 +2629,7 @@ paths:
           description: "200"
       summary: Stop a Compute instance
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /dns-domain/{domain-id}/record/{record-id}:
     delete:
@@ -2662,7 +2661,7 @@ paths:
           description: "200"
       summary: Delete DNS domain record
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -2693,7 +2692,7 @@ paths:
           description: "200"
       summary: Retrieve DNS domain record details
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -2730,7 +2729,7 @@ paths:
           description: "200"
       summary: Update DNS domain record
       tags:
-      - dns
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-kafka/{service-name}/user:
@@ -2759,7 +2758,7 @@ paths:
           description: "200"
       summary: Create a DBaaS Kafka user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /security-group/{id}:attach:
@@ -2790,7 +2789,7 @@ paths:
           description: "200"
       summary: Attach a Compute instance to a Security Group
       tags:
-      - security-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /snapshot/{id}:
@@ -2815,7 +2814,7 @@ paths:
           description: "200"
       summary: Delete a Snapshot
       tags:
-      - snapshot
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -2838,7 +2837,7 @@ paths:
           description: "200"
       summary: Retrieve Snapshot details
       tags:
-      - snapshot
+      - Exoscale
       x-accepts: application/json
   /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale:
     put:
@@ -2876,7 +2875,7 @@ paths:
           description: "200"
       summary: Scale a SKS Nodepool
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-settings-mysql:
@@ -2893,7 +2892,7 @@ paths:
           description: "200"
       summary: Get DBaaS MySQL settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /sks-cluster/{id}/upgrade-service-level:
     put:
@@ -2917,7 +2916,7 @@ paths:
           description: "200"
       summary: Upgrade a SKS cluster to pro
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /api-key/{id}:
     delete:
@@ -2939,7 +2938,7 @@ paths:
           description: "200"
       summary: Delete an API key
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     get:
       operationId: get-api-key
@@ -2960,7 +2959,7 @@ paths:
           description: "200"
       summary: Get API key
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
   /load-balancer/{id}/service/{service-id}/{field}:
     delete:
@@ -3001,8 +3000,7 @@ paths:
           description: "200"
       summary: Reset a Load Balancer Service field to its default value
       tags:
-      - network-load-balancer
-      - compute
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/database:
     post:
@@ -3030,7 +3028,7 @@ paths:
           description: "200"
       summary: Create a DBaaS Postgres database
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /security-group/{id}/rules:
@@ -3061,7 +3059,7 @@ paths:
           description: "200"
       summary: Create a Security Group rule
       tags:
-      - security-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-opensearch/{service-name}/user:
@@ -3090,7 +3088,7 @@ paths:
           description: "200"
       summary: Create a DBaaS OpenSearch user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-integration-types:
@@ -3107,7 +3105,7 @@ paths:
           description: "200"
       summary: Get DBaaS integration types
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /access-key-known-operations:
     get:
@@ -3124,7 +3122,7 @@ paths:
       summary: Retrieve all known available IAM Access Key operations and associated
         tags
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/user/{username}:
     delete:
@@ -3153,7 +3151,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS Postgres user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:add-protection:
     put:
@@ -3177,7 +3175,7 @@ paths:
           description: "200"
       summary: Set instance destruction protection
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/user/{username}/allow-replication:
     put:
@@ -3212,7 +3210,7 @@ paths:
           description: "200"
       summary: Update access control for one service user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /iam-role/{id}:
@@ -3237,7 +3235,7 @@ paths:
           description: "200"
       summary: Delete IAM Role
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -3260,7 +3258,7 @@ paths:
           description: "200"
       summary: Retrieve IAM Role
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -3289,7 +3287,7 @@ paths:
           description: "200"
       summary: Update IAM Role
       tags:
-      - iam
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance/{id}/{field}:
@@ -3323,7 +3321,7 @@ paths:
           description: "200"
       summary: Reset Instance field
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /instance-pool/{id}/{field}:
     delete:
@@ -3365,7 +3363,7 @@ paths:
           description: "200"
       summary: Reset an Instance Pool field to its default value
       tags:
-      - instance-pool
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:remove-protection:
     put:
@@ -3389,7 +3387,7 @@ paths:
           description: "200"
       summary: Remove instance destruction protection
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /dbaas-kafka/{name}/topic/acl-config:
     post:
@@ -3417,7 +3415,7 @@ paths:
           description: "200"
       summary: Add a Kafka topic ACL entry
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /snapshot:
@@ -3434,7 +3432,7 @@ paths:
           description: "200"
       summary: List Snapshots
       tags:
-      - snapshot
+      - Exoscale
       x-accepts: application/json
   /operation/{id}:
     get:
@@ -3458,7 +3456,7 @@ paths:
           description: "200"
       summary: Retrieve Operation details
       tags:
-      - operation
+      - Exoscale
       x-accepts: application/json
   /dns-domain/{id}/zone:
     get:
@@ -3482,7 +3480,7 @@ paths:
           description: "200"
       summary: Retrieve DNS domain zone file
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
   /dbaas-mysql/{service-name}/database/{database-name}:
     delete:
@@ -3511,7 +3509,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS MySQL database
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /security-group/{id}:remove-source:
     put:
@@ -3541,7 +3539,7 @@ paths:
           description: "200"
       summary: Remove an external source from a Security Group
       tags:
-      - security-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /iam-organization-policy:
@@ -3558,7 +3556,7 @@ paths:
           description: "200"
       summary: Retrieve IAM Organization Policy
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -3579,7 +3577,7 @@ paths:
           description: "200"
       summary: Update IAM Organization Policy
       tags:
-      - iam
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-service-logs/{service-name}:
@@ -3609,7 +3607,7 @@ paths:
           description: "200"
       summary: Get logs of DBaaS service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /template/{id}:
@@ -3634,7 +3632,7 @@ paths:
           description: "200"
       summary: Delete a Template
       tags:
-      - template
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -3657,7 +3655,7 @@ paths:
           description: "200"
       summary: Retrieve Template details
       tags:
-      - template
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -3686,7 +3684,7 @@ paths:
           description: "200"
       summary: Copy a Template from a zone to another
       tags:
-      - template
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -3716,7 +3714,7 @@ paths:
           description: "200"
       summary: Update template attributes
       tags:
-      - template
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{name}/maintenance/start:
@@ -3739,7 +3737,7 @@ paths:
           description: "200"
       summary: Initiate PostgreSQL maintenance update
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /reverse-dns/instance/{id}:
     delete:
@@ -3763,7 +3761,7 @@ paths:
           description: "200"
       summary: Delete the PTR DNS record for an instance
       tags:
-      - reverse-dns
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -3786,7 +3784,7 @@ paths:
           description: "200"
       summary: Query the PTR DNS records for an instance
       tags:
-      - reverse-dns
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -3815,7 +3813,7 @@ paths:
           description: "200"
       summary: Update/Create the PTR DNS record for an instance
       tags:
-      - reverse-dns
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance-pool/{id}:evict:
@@ -3848,7 +3846,7 @@ paths:
           description: "200"
       summary: Evict Instance Pool members
       tags:
-      - instance-pool
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /security-group/{id}:detach:
@@ -3879,7 +3877,7 @@ paths:
           description: "200"
       summary: Detach a Compute instance from a Security Group
       tags:
-      - security-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict:
@@ -3920,7 +3918,7 @@ paths:
           description: "200"
       summary: Evict Nodepool members
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id}:
@@ -3950,7 +3948,7 @@ paths:
           description: "200"
       summary: Delete a Kafka ACL entry
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dns-domain/{id}:
     delete:
@@ -3974,7 +3972,7 @@ paths:
           description: "200"
       summary: Delete DNS Domain
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -3997,7 +3995,7 @@ paths:
           description: "200"
       summary: Retrieve DNS domain details
       tags:
-      - dns
+      - Exoscale
       x-accepts: application/json
   /block-storage/{id}:resize-volume:
     put:
@@ -4028,7 +4026,7 @@ paths:
           description: "200"
       summary: Resize a block storage volume
       tags:
-      - block-storage
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-kafka/{service-name}/user/{username}:
@@ -4058,7 +4056,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS kafka user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-service-type/{service-type-name}:
     get:
@@ -4081,7 +4079,7 @@ paths:
           description: "200"
       summary: Get a DBaaS service type
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /security-group/{id}:add-source:
     put:
@@ -4111,7 +4109,7 @@ paths:
           description: "200"
       summary: Add an external source as a member of a Security Group
       tags:
-      - security-group
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{name}/maintenance/start:
@@ -4134,7 +4132,7 @@ paths:
           description: "200"
       summary: Initiate MySQL maintenance update
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-opensearch/{service-name}/user/{username}/password/reset:
     put:
@@ -4170,7 +4168,7 @@ paths:
           description: "200"
       summary: Reset the credentials of a DBaaS OpenSearch user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sos-buckets-usage:
@@ -4187,7 +4185,7 @@ paths:
           description: "200"
       summary: List SOS Buckets Usage
       tags:
-      - sos
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:reset:
     put:
@@ -4219,7 +4217,7 @@ paths:
           description: "200"
       summary: Reset a Compute instance to a base/target template
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{service-name}/user/{username}/password/reveal:
@@ -4249,7 +4247,7 @@ paths:
           description: "200"
       summary: Reveal the secrets of a DBaaS MySQL user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /ssh-key/{name}:
     delete:
@@ -4272,7 +4270,7 @@ paths:
           description: "200"
       summary: Delete a SSH key
       tags:
-      - ssh-key
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -4294,7 +4292,7 @@ paths:
           description: "200"
       summary: Retrieve SSH key details
       tags:
-      - ssh-key
+      - Exoscale
       x-accepts: application/json
   /dbaas-service-metrics/{service-name}:
     post:
@@ -4323,7 +4321,7 @@ paths:
           description: "200"
       summary: Get metrics of DBaaS service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /deploy-target/{id}:
@@ -4348,7 +4346,7 @@ paths:
           description: "200"
       summary: Retrieve Deploy Target details
       tags:
-      - deploy-target
+      - Exoscale
       x-accepts: application/json
   /elastic-ip/{id}:detach:
     put:
@@ -4378,7 +4376,7 @@ paths:
           description: "200"
       summary: Detach a Compute instance from an Elastic IP
       tags:
-      - elastic-ip
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-kafka/{service-name}/user/{username}/password/reveal:
@@ -4408,7 +4406,7 @@ paths:
           description: "200"
       summary: Reveal the secrets of a DBaaS Kafka user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-task-migration-check/{service}:
     post:
@@ -4437,7 +4435,7 @@ paths:
           description: "200"
       summary: ""
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /load-balancer/{id}/service:
@@ -4468,7 +4466,7 @@ paths:
           description: "200"
       summary: Add a Load Balancer Service
       tags:
-      - network-load-balancer
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /access-key-operations:
@@ -4486,7 +4484,7 @@ paths:
       summary: Retrieve IAM Access Key operations and associated tags for the signing
         key
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
   /ssh-key:
     get:
@@ -4502,7 +4500,7 @@ paths:
           description: "200"
       summary: List SSH keys
       tags:
-      - ssh-key
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -4523,7 +4521,7 @@ paths:
           description: "200"
       summary: Import SSH key
       tags:
-      - ssh-key
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /snapshot/{id}:promote:
@@ -4554,8 +4552,7 @@ paths:
           description: "200"
       summary: Promote a Snapshot to a Template
       tags:
-      - snapshot
-      - template
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster:
@@ -4572,7 +4569,7 @@ paths:
           description: "200"
       summary: List SKS clusters
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -4593,7 +4590,7 @@ paths:
           description: "200"
       summary: Create an SKS cluster
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /block-storage/{id}:detach:
@@ -4618,7 +4615,7 @@ paths:
           description: "200"
       summary: Detach block storage volume
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
   /dbaas-integration/{id}:
     delete:
@@ -4642,7 +4639,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS Integration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       description: Get a DBaaS Integration
@@ -4665,7 +4662,7 @@ paths:
           description: "200"
       summary: Get a DBaaS Integration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     put:
       description: Update a existing DBaaS integration
@@ -4694,7 +4691,7 @@ paths:
           description: "200"
       summary: Update a existing DBaaS integration
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /elastic-ip/{id}:attach:
@@ -4725,7 +4722,7 @@ paths:
           description: "200"
       summary: Attach a Compute instance to an Elastic IP
       tags:
-      - elastic-ip
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}:
@@ -4750,7 +4747,7 @@ paths:
           description: "200"
       summary: Delete an SKS cluster
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -4773,7 +4770,7 @@ paths:
           description: "200"
       summary: Retrieve SKS cluster details
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -4802,7 +4799,7 @@ paths:
           description: "200"
       summary: Update an SKS cluster
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /quota:
@@ -4819,7 +4816,7 @@ paths:
           description: "200"
       summary: List Organization Quotas
       tags:
-      - quotas
+      - Exoscale
       x-accepts: application/json
   /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type}:
     get:
@@ -4856,7 +4853,7 @@ paths:
           description: "200"
       summary: Get DBaaS integration settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-settings-pg:
     get:
@@ -4872,7 +4869,7 @@ paths:
           description: "200"
       summary: Get DBaaS PostgreSQL settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /elastic-ip/{id}:
     delete:
@@ -4896,7 +4893,7 @@ paths:
           description: "200"
       summary: Delete an Elastic IP
       tags:
-      - elastic-ip
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -4919,7 +4916,7 @@ paths:
           description: "200"
       summary: Retrieve Elastic IP details
       tags:
-      - elastic-ip
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -4948,7 +4945,7 @@ paths:
           description: "200"
       summary: Update an Elastic IP
       tags:
-      - elastic-ip
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/inspection:
@@ -4975,7 +4972,7 @@ paths:
           description: "200"
       summary: Get the latest inspection result
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /dbaas-redis/{name}/migration/stop:
     post:
@@ -4997,7 +4994,7 @@ paths:
           description: "200"
       summary: Stop a DBaaS Redis migration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /instance/{id}:
     delete:
@@ -5021,7 +5018,7 @@ paths:
           description: "200"
       summary: Delete a Compute instance
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -5044,7 +5041,7 @@ paths:
           description: "200"
       summary: Retrieve Compute instance details
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -5073,7 +5070,7 @@ paths:
           description: "200"
       summary: Update a Compute instance
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{name}/migration/stop:
@@ -5096,7 +5093,7 @@ paths:
           description: "200"
       summary: Stop a DBaaS MySQL migration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-kafka/{name}/maintenance/start:
     put:
@@ -5118,7 +5115,7 @@ paths:
           description: "200"
       summary: Initiate Kafka maintenance update
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /sks-cluster/{id}/rotate-ccm-credentials:
     put:
@@ -5142,7 +5139,7 @@ paths:
           description: "200"
       summary: Rotate Exoscale CCM credentials
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name}:
     delete:
@@ -5172,7 +5169,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS PostgreSQL connection pool
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -5207,7 +5204,7 @@ paths:
           description: "200"
       summary: Update a DBaaS PostgreSQL connection pool
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /iam-role/{id}:policy:
@@ -5238,7 +5235,7 @@ paths:
           description: "200"
       summary: Update IAM Role Policy
       tags:
-      - iam
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/{field}:
@@ -5273,7 +5270,7 @@ paths:
           description: "200"
       summary: Reset an SKS cluster field to its default value
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /dbaas-migration-status/{name}:
     get:
@@ -5296,7 +5293,7 @@ paths:
           description: "200"
       summary: Get a DBaaS migration status
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-mysql/{service-name}/user/{username}:
     delete:
@@ -5325,7 +5322,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS MySQL user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /load-balancer/{id}:
     delete:
@@ -5349,7 +5346,7 @@ paths:
           description: "200"
       summary: Delete a Load Balancer
       tags:
-      - network-load-balancer
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -5372,7 +5369,7 @@ paths:
           description: "200"
       summary: Retrieve Load Balancer details
       tags:
-      - network-load-balancer
+      - Exoscale
       x-accepts: application/json
     put:
       description: ""
@@ -5401,7 +5398,7 @@ paths:
           description: "200"
       summary: Update a Load Balancer
       tags:
-      - network-load-balancer
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-service/{name}:
@@ -5425,7 +5422,7 @@ paths:
           description: "200"
       summary: Delete a DBaaS service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-mysql/{service-name}/database:
     post:
@@ -5453,7 +5450,7 @@ paths:
           description: "200"
       summary: Create a DBaaS MySQL database
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /template:
@@ -5487,7 +5484,7 @@ paths:
           description: "200"
       summary: List Templates
       tags:
-      - template
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -5508,7 +5505,7 @@ paths:
           description: "200"
       summary: Register a Template
       tags:
-      - template
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance/{id}:reboot:
@@ -5533,7 +5530,7 @@ paths:
           description: "200"
       summary: Reboot a Compute instance
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
   /dbaas-settings-kafka:
     get:
@@ -5549,7 +5546,7 @@ paths:
           description: "200"
       summary: Get DBaaS Kafka settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-postgres/{service-name}/user/{username}/password/reveal:
     get:
@@ -5578,7 +5575,7 @@ paths:
           description: "200"
       summary: Reveal the secrets of a DBaaS Postgres user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-settings-opensearch:
     get:
@@ -5594,7 +5591,7 @@ paths:
           description: "200"
       summary: Get DBaaS OpenSearch settings
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-grafana/{name}:
     delete:
@@ -5616,7 +5613,7 @@ paths:
           description: "200"
       summary: Delete a Grafana service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       operationId: get-dbaas-service-grafana
@@ -5637,7 +5634,7 @@ paths:
           description: "200"
       summary: Get a DBaaS Grafana service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     post:
       description: Create a DBaaS Grafana service
@@ -5665,7 +5662,7 @@ paths:
           description: "200"
       summary: ""
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -5693,7 +5690,7 @@ paths:
           description: "200"
       summary: Update a DBaaS Grafana service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/nodepool:
@@ -5724,7 +5721,7 @@ paths:
           description: "200"
       summary: Create a new SKS Nodepool
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-redis/{service-name}/user/{username}/password/reset:
@@ -5761,7 +5758,7 @@ paths:
           description: "200"
       summary: Reset the credentials of a DBaaS Redis user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-opensearch/{name}/maintenance/start:
@@ -5784,7 +5781,7 @@ paths:
           description: "200"
       summary: Initiate OpenSearch maintenance update
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-kafka/{name}/acl-config:
     get:
@@ -5806,7 +5803,7 @@ paths:
           description: "200"
       summary: Get DBaaS kafka ACL configuration
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-kafka/{service-name}/user/{username}/password/reset:
     put:
@@ -5842,7 +5839,7 @@ paths:
           description: "200"
       summary: Reset the credentials of a DBaaS Kafka user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-opensearch/{service-name}/user/{username}/password/reveal:
@@ -5872,7 +5869,7 @@ paths:
           description: "200"
       summary: Reveal the secrets of a DBaaS OpenSearch user
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /dbaas-opensearch/{name}:
     delete:
@@ -5894,7 +5891,7 @@ paths:
           description: "200"
       summary: Delete a OpenSearch service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       description: Get a DBaaS OpenSearch service
@@ -5916,7 +5913,7 @@ paths:
           description: "200"
       summary: Get a DBaaS OpenSearch service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     post:
       description: Create a DBaaS OpenSearch service
@@ -5944,7 +5941,7 @@ paths:
           description: "200"
       summary: Create a DBaaS OpenSearch service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -5973,7 +5970,7 @@ paths:
           description: "200"
       summary: Update a DBaaS OpenSearch service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field}:
@@ -6020,7 +6017,7 @@ paths:
           description: "200"
       summary: Reset an SKS Nodepool field to its default value
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /dbaas-redis/{name}:
     delete:
@@ -6042,7 +6039,7 @@ paths:
           description: "200"
       summary: Delete a Redis service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       description: Get a DBaaS Redis service
@@ -6064,7 +6061,7 @@ paths:
           description: "200"
       summary: Get a DBaaS Redis service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     post:
       description: Create a DBaaS Redis service
@@ -6092,7 +6089,7 @@ paths:
           description: "200"
       summary: Create a DBaaS Redis service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -6121,7 +6118,7 @@ paths:
           description: "200"
       summary: Update a DBaaS Redis service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{name}:
@@ -6144,7 +6141,7 @@ paths:
           description: "200"
       summary: Delete a Postgres service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     get:
       description: Get a DBaaS PostgreSQL service
@@ -6166,7 +6163,7 @@ paths:
           description: "200"
       summary: Get a DBaaS PostgreSQL service
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
     post:
       operationId: create-dbaas-service-pg
@@ -6193,7 +6190,7 @@ paths:
           description: "200"
       summary: Create a DBaaS PostgreSQL service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
     put:
@@ -6222,7 +6219,7 @@ paths:
           description: "200"
       summary: Update a DBaaS PostgreSQL service
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-integration:
@@ -6245,7 +6242,7 @@ paths:
           description: "200"
       summary: Create a new DBaaS integration between two services
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-task/{service}/{id}:
@@ -6277,7 +6274,7 @@ paths:
           description: "200"
       summary: Get a DBaaS task
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /sos/{bucket}/presigned-url:
     get:
@@ -6307,7 +6304,7 @@ paths:
           description: "200"
       summary: Retrieve Presigned Download URL for SOS object
       tags:
-      - sos
+      - Exoscale
       x-accepts: application/json
   /sks-cluster/{id}/rotate-operators-ca:
     put:
@@ -6331,7 +6328,7 @@ paths:
           description: "200"
       summary: Rotate operators certificate authority
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /anti-affinity-group/{id}:
     delete:
@@ -6355,7 +6352,7 @@ paths:
           description: "200"
       summary: Delete an Anti-affinity Group
       tags:
-      - anti-affinity-group
+      - Exoscale
       x-accepts: application/json
     get:
       description: ""
@@ -6378,7 +6375,7 @@ paths:
           description: "200"
       summary: Retrieve Anti-affinity Group details
       tags:
-      - anti-affinity-group
+      - Exoscale
       x-accepts: application/json
   /sks-cluster-version:
     get:
@@ -6401,7 +6398,7 @@ paths:
           description: "200"
       summary: List available versions for SKS clusters
       tags:
-      - sks
+      - Exoscale
       x-accepts: application/json
   /dbaas-redis/{service-name}/user:
     post:
@@ -6429,7 +6426,7 @@ paths:
           description: "200"
       summary: Create a DBaaS Redis user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /instance:
@@ -6470,7 +6467,7 @@ paths:
           description: "200"
       summary: List Compute instances
       tags:
-      - instance
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -6491,7 +6488,7 @@ paths:
           description: "200"
       summary: Create a Compute instance
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /iam-role:
@@ -6508,7 +6505,7 @@ paths:
           description: "200"
       summary: List IAM Roles
       tags:
-      - iam
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -6529,7 +6526,7 @@ paths:
           description: "200"
       summary: Create IAM Role
       tags:
-      - iam
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /private-network/{id}/{field}:
@@ -6563,7 +6560,7 @@ paths:
           description: "200"
       summary: Reset Private Network field
       tags:
-      - private-network
+      - Exoscale
       x-accepts: application/json
   /sks-cluster/{id}/upgrade:
     put:
@@ -6593,7 +6590,7 @@ paths:
           description: "200"
       summary: Upgrade an SKS cluster
       tags:
-      - sks
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-redis/{name}/maintenance/start:
@@ -6616,7 +6613,7 @@ paths:
           description: "200"
       summary: Initiate Redis maintenance update
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /block-storage:
     get:
@@ -6640,7 +6637,7 @@ paths:
           description: "200"
       summary: List block storage volumes
       tags:
-      - block-storage
+      - Exoscale
       x-accepts: application/json
     post:
       description: ""
@@ -6661,7 +6658,7 @@ paths:
           description: "200"
       summary: Create a block storage volume
       tags:
-      - block-storage
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-kafka/{name}/topic/acl-config/{acl-id}:
@@ -6691,7 +6688,7 @@ paths:
           description: "200"
       summary: Delete a Kafka ACL entry
       tags:
-      - dbaas
+      - Exoscale
       x-accepts: application/json
   /instance/{instance-id}:revert-snapshot:
     post:
@@ -6723,7 +6720,7 @@ paths:
           description: "200"
       summary: Revert a snapshot for an instance
       tags:
-      - instance
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{service-name}/user/{username}/password/reset:
@@ -6760,7 +6757,7 @@ paths:
           description: "200"
       summary: Reset the credentials of a DBaaS Postgres user
       tags:
-      - dbaas
+      - Exoscale
       x-content-type: application/json
       x-accepts: application/json
 components:
@@ -26116,7 +26113,7 @@ components:
     block-storage-snapshot:
       description: Block storage snapshot
       example:
-        size: 829
+        size: 10
         name: name
         block-storage-volume:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -26138,10 +26135,8 @@ components:
           type: string
         size:
           description: Snapshot size
-          exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
-          maximum: 10240
           minimum: 10
           type: integer
         created-at:
@@ -26964,7 +26959,7 @@ components:
         blocksize: 0
         instance:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        size: 829
+        size: 10
         block-storage-snapshots:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -27002,10 +26997,8 @@ components:
           type: string
         size:
           description: Volume size
-          exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
-          maximum: 10240
           minimum: 10
           type: integer
         blocksize:
@@ -37700,7 +37693,7 @@ components:
     list_block_storage_snapshots_200_response:
       example:
         block-storage-snapshots:
-        - size: 829
+        - size: 10
           name: name
           block-storage-volume:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -37709,7 +37702,7 @@ components:
           state: partially-destroyed
           labels:
             key: labels
-        - size: 829
+        - size: 10
           name: name
           block-storage-volume:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -38092,10 +38085,8 @@ components:
       properties:
         size:
           description: Volume size in GB
-          exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
-          maximum: 10240
           minimum: 11
           type: integer
       required:
@@ -49301,7 +49292,7 @@ components:
         - blocksize: 0
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 829
+          size: 10
           block-storage-snapshots:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -49314,7 +49305,7 @@ components:
         - blocksize: 0
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 829
+          size: 10
           block-storage-snapshots:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -49340,10 +49331,8 @@ components:
           description: |-
             Volume size in GB.
                                         When a snapshot ID is supplied, this defaults to the size of the source volume, but can be set to a larger value.
-          exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
-          maximum: 10240
           minimum: 10
           type: integer
         labels:
@@ -49974,7 +49963,7 @@ components:
           title: wal_writer_delay
           type: integer
         wal_sender_timeout:
-          anyOf: []
+          AbstractOpenApiSchema: []
           description: "Terminate replication connections that are inactive for longer\
             \ than this amount of time, in milliseconds. Setting this value to zero\
             \ disables the timeout."

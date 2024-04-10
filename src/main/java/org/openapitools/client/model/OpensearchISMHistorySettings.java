@@ -43,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OpensearchISMHistorySettings.JSON_PROPERTY_ISM_HISTORY_ROLLOVER_CHECK_PERIOD,
   OpensearchISMHistorySettings.JSON_PROPERTY_ISM_HISTORY_ROLLOVER_RETENTION_PERIOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class OpensearchISMHistorySettings {
   public static final String JSON_PROPERTY_ISM_ENABLED = "ism_enabled";
   private Boolean ismEnabled = true;

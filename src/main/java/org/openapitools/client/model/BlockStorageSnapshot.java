@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BlockStorageSnapshot.JSON_PROPERTY_LABELS,
   BlockStorageSnapshot.JSON_PROPERTY_BLOCK_STORAGE_VOLUME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class BlockStorageSnapshot {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -178,7 +178,6 @@ public class BlockStorageSnapshot {
    /**
    * Snapshot size
    * minimum: 10
-   * maximum: 10240
    * @return size
   **/
   @javax.annotation.Nullable

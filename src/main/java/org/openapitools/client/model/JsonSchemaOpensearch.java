@@ -73,7 +73,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_THROTTLED_QUEUE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_CLUSTER_MAX_SHARDS_PER_NODE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_THREAD_POOL_SEARCH_THROTTLED_SIZE = "thread_pool_search_throttled_size";
   private Integer threadPoolSearchThrottledSize;

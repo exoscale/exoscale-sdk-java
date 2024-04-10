@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateBlockStorageVolumeRequest.JSON_PROPERTY_LABELS,
   CreateBlockStorageVolumeRequest.JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class CreateBlockStorageVolumeRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -90,7 +90,6 @@ public class CreateBlockStorageVolumeRequest {
    /**
    * Volume size in GB.                             When a snapshot ID is supplied, this defaults to the size of the source volume, but can be set to a larger value.
    * minimum: 10
-   * maximum: 10240
    * @return size
   **/
   @javax.annotation.Nullable

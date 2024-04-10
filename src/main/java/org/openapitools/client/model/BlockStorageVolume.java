@@ -50,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BlockStorageVolume.JSON_PROPERTY_ID,
   BlockStorageVolume.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class BlockStorageVolume {
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
@@ -251,7 +251,6 @@ public class BlockStorageVolume {
    /**
    * Volume size
    * minimum: 10
-   * maximum: 10240
    * @return size
   **/
   @javax.annotation.Nullable

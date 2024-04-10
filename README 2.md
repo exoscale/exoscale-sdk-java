@@ -4,7 +4,7 @@ Exoscale Public API
 
 - API version: 2.0.0
 
-- Build date: 2024-04-02T12:56:21.011484+02:00[Europe/Vienna]
+- Build date: 2024-04-10T11:00:33.694281+02:00[Europe/Vienna]
 
 - Generator version: 7.4.0
 
@@ -85,21 +85,22 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 import org.openapitools.client.*;
 import org.openapitools.client.model.*;
-import org.openapitools.client.api.AntiAffinityGroupApi;
+import org.openapitools.client.api.ExoscaleApi;
 
-public class AntiAffinityGroupApiExample {
+public class ExoscaleApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         // Configure clients using the `defaultClient` object, such as
         // overriding the host and port, timeout, etc.
-        AntiAffinityGroupApi apiInstance = new AntiAffinityGroupApi(defaultClient);
-        CreateAntiAffinityGroupRequest createAntiAffinityGroupRequest = new CreateAntiAffinityGroupRequest(); // CreateAntiAffinityGroupRequest | 
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        AddExternalSourceToSecurityGroupRequest addExternalSourceToSecurityGroupRequest = new AddExternalSourceToSecurityGroupRequest(); // AddExternalSourceToSecurityGroupRequest | 
         try {
-            Operation result = apiInstance.createAntiAffinityGroup(createAntiAffinityGroupRequest);
+            Operation result = apiInstance.addExternalSourceToSecurityGroup(id, addExternalSourceToSecurityGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AntiAffinityGroupApi#createAntiAffinityGroup");
+            System.err.println("Exception when calling ExoscaleApi#addExternalSourceToSecurityGroup");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -116,518 +117,512 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AntiAffinityGroupApi* | [**createAntiAffinityGroup**](docs/AntiAffinityGroupApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
-*AntiAffinityGroupApi* | [**createAntiAffinityGroupWithHttpInfo**](docs/AntiAffinityGroupApi.md#createAntiAffinityGroupWithHttpInfo) | **POST** /anti-affinity-group | Create an Anti-affinity Group
-*AntiAffinityGroupApi* | [**deleteAntiAffinityGroup**](docs/AntiAffinityGroupApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
-*AntiAffinityGroupApi* | [**deleteAntiAffinityGroupWithHttpInfo**](docs/AntiAffinityGroupApi.md#deleteAntiAffinityGroupWithHttpInfo) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
-*AntiAffinityGroupApi* | [**getAntiAffinityGroup**](docs/AntiAffinityGroupApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
-*AntiAffinityGroupApi* | [**getAntiAffinityGroupWithHttpInfo**](docs/AntiAffinityGroupApi.md#getAntiAffinityGroupWithHttpInfo) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
-*AntiAffinityGroupApi* | [**listAntiAffinityGroups**](docs/AntiAffinityGroupApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
-*AntiAffinityGroupApi* | [**listAntiAffinityGroupsWithHttpInfo**](docs/AntiAffinityGroupApi.md#listAntiAffinityGroupsWithHttpInfo) | **GET** /anti-affinity-group | List Anti-affinity Groups
-*BlockStorageApi* | [**attachBlockStorageVolumeToInstance**](docs/BlockStorageApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
-*BlockStorageApi* | [**attachBlockStorageVolumeToInstanceWithHttpInfo**](docs/BlockStorageApi.md#attachBlockStorageVolumeToInstanceWithHttpInfo) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
-*BlockStorageApi* | [**createBlockStorageSnapshot**](docs/BlockStorageApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
-*BlockStorageApi* | [**createBlockStorageSnapshotWithHttpInfo**](docs/BlockStorageApi.md#createBlockStorageSnapshotWithHttpInfo) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
-*BlockStorageApi* | [**createBlockStorageVolume**](docs/BlockStorageApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume
-*BlockStorageApi* | [**createBlockStorageVolumeWithHttpInfo**](docs/BlockStorageApi.md#createBlockStorageVolumeWithHttpInfo) | **POST** /block-storage | Create a block storage volume
-*BlockStorageApi* | [**deleteBlockStorageSnapshot**](docs/BlockStorageApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
-*BlockStorageApi* | [**deleteBlockStorageSnapshotWithHttpInfo**](docs/BlockStorageApi.md#deleteBlockStorageSnapshotWithHttpInfo) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
-*BlockStorageApi* | [**deleteBlockStorageVolume**](docs/BlockStorageApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
-*BlockStorageApi* | [**deleteBlockStorageVolumeWithHttpInfo**](docs/BlockStorageApi.md#deleteBlockStorageVolumeWithHttpInfo) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
-*BlockStorageApi* | [**detachBlockStorageVolume**](docs/BlockStorageApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume
-*BlockStorageApi* | [**detachBlockStorageVolumeWithHttpInfo**](docs/BlockStorageApi.md#detachBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:detach | Detach block storage volume
-*BlockStorageApi* | [**getBlockStorageSnapshot**](docs/BlockStorageApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details
-*BlockStorageApi* | [**getBlockStorageSnapshotWithHttpInfo**](docs/BlockStorageApi.md#getBlockStorageSnapshotWithHttpInfo) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details
-*BlockStorageApi* | [**getBlockStorageVolume**](docs/BlockStorageApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details
-*BlockStorageApi* | [**getBlockStorageVolumeWithHttpInfo**](docs/BlockStorageApi.md#getBlockStorageVolumeWithHttpInfo) | **GET** /block-storage/{id} | Retrieve block storage volume details
-*BlockStorageApi* | [**listBlockStorageSnapshots**](docs/BlockStorageApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots
-*BlockStorageApi* | [**listBlockStorageSnapshotsWithHttpInfo**](docs/BlockStorageApi.md#listBlockStorageSnapshotsWithHttpInfo) | **GET** /block-storage-snapshot | List block storage snapshots
-*BlockStorageApi* | [**listBlockStorageVolumes**](docs/BlockStorageApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes
-*BlockStorageApi* | [**listBlockStorageVolumesWithHttpInfo**](docs/BlockStorageApi.md#listBlockStorageVolumesWithHttpInfo) | **GET** /block-storage | List block storage volumes
-*BlockStorageApi* | [**resizeBlockStorageVolume**](docs/BlockStorageApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
-*BlockStorageApi* | [**resizeBlockStorageVolumeWithHttpInfo**](docs/BlockStorageApi.md#resizeBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
-*BlockStorageApi* | [**updateBlockStorageVolumeLabels**](docs/BlockStorageApi.md#updateBlockStorageVolumeLabels) | **PUT** /block-storage/{id} | Set block storage volume labels
-*BlockStorageApi* | [**updateBlockStorageVolumeLabelsWithHttpInfo**](docs/BlockStorageApi.md#updateBlockStorageVolumeLabelsWithHttpInfo) | **PUT** /block-storage/{id} | Set block storage volume labels
-*ComputeApi* | [**resetLoadBalancerServiceField**](docs/ComputeApi.md#resetLoadBalancerServiceField) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
-*ComputeApi* | [**resetLoadBalancerServiceFieldWithHttpInfo**](docs/ComputeApi.md#resetLoadBalancerServiceFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
-*DbaasApi* | [**createDbaasIntegration**](docs/DbaasApi.md#createDbaasIntegration) | **POST** /dbaas-integration | Create a new DBaaS integration between two services
-*DbaasApi* | [**createDbaasIntegrationWithHttpInfo**](docs/DbaasApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration | Create a new DBaaS integration between two services
-*DbaasApi* | [**createDbaasKafkaSchemaRegistryAclConfig**](docs/DbaasApi.md#createDbaasKafkaSchemaRegistryAclConfig) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry
-*DbaasApi* | [**createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](docs/DbaasApi.md#createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry
-*DbaasApi* | [**createDbaasKafkaTopicAclConfig**](docs/DbaasApi.md#createDbaasKafkaTopicAclConfig) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry
-*DbaasApi* | [**createDbaasKafkaTopicAclConfigWithHttpInfo**](docs/DbaasApi.md#createDbaasKafkaTopicAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry
-*DbaasApi* | [**createDbaasKafkaUser**](docs/DbaasApi.md#createDbaasKafkaUser) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user
-*DbaasApi* | [**createDbaasKafkaUserWithHttpInfo**](docs/DbaasApi.md#createDbaasKafkaUserWithHttpInfo) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user
-*DbaasApi* | [**createDbaasMysqlDatabase**](docs/DbaasApi.md#createDbaasMysqlDatabase) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database
-*DbaasApi* | [**createDbaasMysqlDatabaseWithHttpInfo**](docs/DbaasApi.md#createDbaasMysqlDatabaseWithHttpInfo) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database
-*DbaasApi* | [**createDbaasMysqlUser**](docs/DbaasApi.md#createDbaasMysqlUser) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user
-*DbaasApi* | [**createDbaasMysqlUserWithHttpInfo**](docs/DbaasApi.md#createDbaasMysqlUserWithHttpInfo) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user
-*DbaasApi* | [**createDbaasOpensearchUser**](docs/DbaasApi.md#createDbaasOpensearchUser) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user
-*DbaasApi* | [**createDbaasOpensearchUserWithHttpInfo**](docs/DbaasApi.md#createDbaasOpensearchUserWithHttpInfo) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user
-*DbaasApi* | [**createDbaasPgConnectionPool**](docs/DbaasApi.md#createDbaasPgConnectionPool) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool
-*DbaasApi* | [**createDbaasPgConnectionPoolWithHttpInfo**](docs/DbaasApi.md#createDbaasPgConnectionPoolWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool
-*DbaasApi* | [**createDbaasPgDatabase**](docs/DbaasApi.md#createDbaasPgDatabase) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database
-*DbaasApi* | [**createDbaasPgDatabaseWithHttpInfo**](docs/DbaasApi.md#createDbaasPgDatabaseWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database
-*DbaasApi* | [**createDbaasPgUpgradeCheck**](docs/DbaasApi.md#createDbaasPgUpgradeCheck) | **POST** /dbaas-postgres/{service}/upgrade-check | 
-*DbaasApi* | [**createDbaasPgUpgradeCheckWithHttpInfo**](docs/DbaasApi.md#createDbaasPgUpgradeCheckWithHttpInfo) | **POST** /dbaas-postgres/{service}/upgrade-check | 
-*DbaasApi* | [**createDbaasPostgresUser**](docs/DbaasApi.md#createDbaasPostgresUser) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user
-*DbaasApi* | [**createDbaasPostgresUserWithHttpInfo**](docs/DbaasApi.md#createDbaasPostgresUserWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user
-*DbaasApi* | [**createDbaasRedisUser**](docs/DbaasApi.md#createDbaasRedisUser) | **POST** /dbaas-redis/{service-name}/user | Create a DBaaS Redis user
-*DbaasApi* | [**createDbaasRedisUserWithHttpInfo**](docs/DbaasApi.md#createDbaasRedisUserWithHttpInfo) | **POST** /dbaas-redis/{service-name}/user | Create a DBaaS Redis user
-*DbaasApi* | [**createDbaasServiceGrafana**](docs/DbaasApi.md#createDbaasServiceGrafana) | **POST** /dbaas-grafana/{name} | 
-*DbaasApi* | [**createDbaasServiceGrafanaWithHttpInfo**](docs/DbaasApi.md#createDbaasServiceGrafanaWithHttpInfo) | **POST** /dbaas-grafana/{name} | 
-*DbaasApi* | [**createDbaasServiceKafka**](docs/DbaasApi.md#createDbaasServiceKafka) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service
-*DbaasApi* | [**createDbaasServiceKafkaWithHttpInfo**](docs/DbaasApi.md#createDbaasServiceKafkaWithHttpInfo) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service
-*DbaasApi* | [**createDbaasServiceMysql**](docs/DbaasApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service
-*DbaasApi* | [**createDbaasServiceMysqlWithHttpInfo**](docs/DbaasApi.md#createDbaasServiceMysqlWithHttpInfo) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service
-*DbaasApi* | [**createDbaasServiceOpensearch**](docs/DbaasApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service
-*DbaasApi* | [**createDbaasServiceOpensearchWithHttpInfo**](docs/DbaasApi.md#createDbaasServiceOpensearchWithHttpInfo) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service
-*DbaasApi* | [**createDbaasServicePg**](docs/DbaasApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service
-*DbaasApi* | [**createDbaasServicePgWithHttpInfo**](docs/DbaasApi.md#createDbaasServicePgWithHttpInfo) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service
-*DbaasApi* | [**createDbaasServiceRedis**](docs/DbaasApi.md#createDbaasServiceRedis) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service
-*DbaasApi* | [**createDbaasServiceRedisWithHttpInfo**](docs/DbaasApi.md#createDbaasServiceRedisWithHttpInfo) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service
-*DbaasApi* | [**createDbaasTaskMigrationCheck**](docs/DbaasApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} | 
-*DbaasApi* | [**createDbaasTaskMigrationCheckWithHttpInfo**](docs/DbaasApi.md#createDbaasTaskMigrationCheckWithHttpInfo) | **POST** /dbaas-task-migration-check/{service} | 
-*DbaasApi* | [**deleteDbaasIntegration**](docs/DbaasApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration
-*DbaasApi* | [**deleteDbaasIntegrationWithHttpInfo**](docs/DbaasApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration
-*DbaasApi* | [**deleteDbaasKafkaSchemaRegistryAclConfig**](docs/DbaasApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry
-*DbaasApi* | [**deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](docs/DbaasApi.md#deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry
-*DbaasApi* | [**deleteDbaasKafkaTopicAclConfig**](docs/DbaasApi.md#deleteDbaasKafkaTopicAclConfig) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry
-*DbaasApi* | [**deleteDbaasKafkaTopicAclConfigWithHttpInfo**](docs/DbaasApi.md#deleteDbaasKafkaTopicAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry
-*DbaasApi* | [**deleteDbaasKafkaUser**](docs/DbaasApi.md#deleteDbaasKafkaUser) | **DELETE** /dbaas-kafka/{service-name}/user/{username} | Delete a DBaaS kafka user
-*DbaasApi* | [**deleteDbaasKafkaUserWithHttpInfo**](docs/DbaasApi.md#deleteDbaasKafkaUserWithHttpInfo) | **DELETE** /dbaas-kafka/{service-name}/user/{username} | Delete a DBaaS kafka user
-*DbaasApi* | [**deleteDbaasMysqlDatabase**](docs/DbaasApi.md#deleteDbaasMysqlDatabase) | **DELETE** /dbaas-mysql/{service-name}/database/{database-name} | Delete a DBaaS MySQL database
-*DbaasApi* | [**deleteDbaasMysqlDatabaseWithHttpInfo**](docs/DbaasApi.md#deleteDbaasMysqlDatabaseWithHttpInfo) | **DELETE** /dbaas-mysql/{service-name}/database/{database-name} | Delete a DBaaS MySQL database
-*DbaasApi* | [**deleteDbaasMysqlUser**](docs/DbaasApi.md#deleteDbaasMysqlUser) | **DELETE** /dbaas-mysql/{service-name}/user/{username} | Delete a DBaaS MySQL user
-*DbaasApi* | [**deleteDbaasMysqlUserWithHttpInfo**](docs/DbaasApi.md#deleteDbaasMysqlUserWithHttpInfo) | **DELETE** /dbaas-mysql/{service-name}/user/{username} | Delete a DBaaS MySQL user
-*DbaasApi* | [**deleteDbaasOpensearchUser**](docs/DbaasApi.md#deleteDbaasOpensearchUser) | **DELETE** /dbaas-opensearch/{service-name}/user/{username} | Delete a DBaaS OpenSearch user
-*DbaasApi* | [**deleteDbaasOpensearchUserWithHttpInfo**](docs/DbaasApi.md#deleteDbaasOpensearchUserWithHttpInfo) | **DELETE** /dbaas-opensearch/{service-name}/user/{username} | Delete a DBaaS OpenSearch user
-*DbaasApi* | [**deleteDbaasPgConnectionPool**](docs/DbaasApi.md#deleteDbaasPgConnectionPool) | **DELETE** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Delete a DBaaS PostgreSQL connection pool
-*DbaasApi* | [**deleteDbaasPgConnectionPoolWithHttpInfo**](docs/DbaasApi.md#deleteDbaasPgConnectionPoolWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Delete a DBaaS PostgreSQL connection pool
-*DbaasApi* | [**deleteDbaasPgDatabase**](docs/DbaasApi.md#deleteDbaasPgDatabase) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database
-*DbaasApi* | [**deleteDbaasPgDatabaseWithHttpInfo**](docs/DbaasApi.md#deleteDbaasPgDatabaseWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database
-*DbaasApi* | [**deleteDbaasPostgresUser**](docs/DbaasApi.md#deleteDbaasPostgresUser) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user
-*DbaasApi* | [**deleteDbaasPostgresUserWithHttpInfo**](docs/DbaasApi.md#deleteDbaasPostgresUserWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user
-*DbaasApi* | [**deleteDbaasRedisUser**](docs/DbaasApi.md#deleteDbaasRedisUser) | **DELETE** /dbaas-redis/{service-name}/user/{username} | Delete a DBaaS Redis user
-*DbaasApi* | [**deleteDbaasRedisUserWithHttpInfo**](docs/DbaasApi.md#deleteDbaasRedisUserWithHttpInfo) | **DELETE** /dbaas-redis/{service-name}/user/{username} | Delete a DBaaS Redis user
-*DbaasApi* | [**deleteDbaasService**](docs/DbaasApi.md#deleteDbaasService) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service
-*DbaasApi* | [**deleteDbaasServiceWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServiceWithHttpInfo) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service
-*DbaasApi* | [**deleteDbaasServiceGrafana**](docs/DbaasApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service
-*DbaasApi* | [**deleteDbaasServiceGrafanaWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServiceGrafanaWithHttpInfo) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service
-*DbaasApi* | [**deleteDbaasServiceKafka**](docs/DbaasApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service
-*DbaasApi* | [**deleteDbaasServiceKafkaWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServiceKafkaWithHttpInfo) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service
-*DbaasApi* | [**deleteDbaasServiceMysql**](docs/DbaasApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
-*DbaasApi* | [**deleteDbaasServiceMysqlWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServiceMysqlWithHttpInfo) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
-*DbaasApi* | [**deleteDbaasServiceOpensearch**](docs/DbaasApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
-*DbaasApi* | [**deleteDbaasServiceOpensearchWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServiceOpensearchWithHttpInfo) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
-*DbaasApi* | [**deleteDbaasServicePg**](docs/DbaasApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
-*DbaasApi* | [**deleteDbaasServicePgWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServicePgWithHttpInfo) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
-*DbaasApi* | [**deleteDbaasServiceRedis**](docs/DbaasApi.md#deleteDbaasServiceRedis) | **DELETE** /dbaas-redis/{name} | Delete a Redis service
-*DbaasApi* | [**deleteDbaasServiceRedisWithHttpInfo**](docs/DbaasApi.md#deleteDbaasServiceRedisWithHttpInfo) | **DELETE** /dbaas-redis/{name} | Delete a Redis service
-*DbaasApi* | [**getDbaasCaCertificate**](docs/DbaasApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
-*DbaasApi* | [**getDbaasCaCertificateWithHttpInfo**](docs/DbaasApi.md#getDbaasCaCertificateWithHttpInfo) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
-*DbaasApi* | [**getDbaasIntegration**](docs/DbaasApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration
-*DbaasApi* | [**getDbaasIntegrationWithHttpInfo**](docs/DbaasApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration
-*DbaasApi* | [**getDbaasKafkaAclConfig**](docs/DbaasApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
-*DbaasApi* | [**getDbaasKafkaAclConfigWithHttpInfo**](docs/DbaasApi.md#getDbaasKafkaAclConfigWithHttpInfo) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
-*DbaasApi* | [**getDbaasMigrationStatus**](docs/DbaasApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status
-*DbaasApi* | [**getDbaasMigrationStatusWithHttpInfo**](docs/DbaasApi.md#getDbaasMigrationStatusWithHttpInfo) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status
-*DbaasApi* | [**getDbaasOpensearchAclConfig**](docs/DbaasApi.md#getDbaasOpensearchAclConfig) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration
-*DbaasApi* | [**getDbaasOpensearchAclConfigWithHttpInfo**](docs/DbaasApi.md#getDbaasOpensearchAclConfigWithHttpInfo) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration
-*DbaasApi* | [**getDbaasServiceGrafana**](docs/DbaasApi.md#getDbaasServiceGrafana) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service
-*DbaasApi* | [**getDbaasServiceGrafanaWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceGrafanaWithHttpInfo) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service
-*DbaasApi* | [**getDbaasServiceKafka**](docs/DbaasApi.md#getDbaasServiceKafka) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service
-*DbaasApi* | [**getDbaasServiceKafkaWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceKafkaWithHttpInfo) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service
-*DbaasApi* | [**getDbaasServiceLogs**](docs/DbaasApi.md#getDbaasServiceLogs) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service
-*DbaasApi* | [**getDbaasServiceLogsWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceLogsWithHttpInfo) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service
-*DbaasApi* | [**getDbaasServiceMetrics**](docs/DbaasApi.md#getDbaasServiceMetrics) | **POST** /dbaas-service-metrics/{service-name} | Get metrics of DBaaS service
-*DbaasApi* | [**getDbaasServiceMetricsWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceMetricsWithHttpInfo) | **POST** /dbaas-service-metrics/{service-name} | Get metrics of DBaaS service
-*DbaasApi* | [**getDbaasServiceMysql**](docs/DbaasApi.md#getDbaasServiceMysql) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service
-*DbaasApi* | [**getDbaasServiceMysqlWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceMysqlWithHttpInfo) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service
-*DbaasApi* | [**getDbaasServiceOpensearch**](docs/DbaasApi.md#getDbaasServiceOpensearch) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service
-*DbaasApi* | [**getDbaasServiceOpensearchWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceOpensearchWithHttpInfo) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service
-*DbaasApi* | [**getDbaasServicePg**](docs/DbaasApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service
-*DbaasApi* | [**getDbaasServicePgWithHttpInfo**](docs/DbaasApi.md#getDbaasServicePgWithHttpInfo) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service
-*DbaasApi* | [**getDbaasServiceRedis**](docs/DbaasApi.md#getDbaasServiceRedis) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service
-*DbaasApi* | [**getDbaasServiceRedisWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceRedisWithHttpInfo) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service
-*DbaasApi* | [**getDbaasServiceType**](docs/DbaasApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
-*DbaasApi* | [**getDbaasServiceTypeWithHttpInfo**](docs/DbaasApi.md#getDbaasServiceTypeWithHttpInfo) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
-*DbaasApi* | [**getDbaasSettingsGrafana**](docs/DbaasApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
-*DbaasApi* | [**getDbaasSettingsGrafanaWithHttpInfo**](docs/DbaasApi.md#getDbaasSettingsGrafanaWithHttpInfo) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
-*DbaasApi* | [**getDbaasSettingsKafka**](docs/DbaasApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings
-*DbaasApi* | [**getDbaasSettingsKafkaWithHttpInfo**](docs/DbaasApi.md#getDbaasSettingsKafkaWithHttpInfo) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings
-*DbaasApi* | [**getDbaasSettingsMysql**](docs/DbaasApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
-*DbaasApi* | [**getDbaasSettingsMysqlWithHttpInfo**](docs/DbaasApi.md#getDbaasSettingsMysqlWithHttpInfo) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
-*DbaasApi* | [**getDbaasSettingsOpensearch**](docs/DbaasApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings
-*DbaasApi* | [**getDbaasSettingsOpensearchWithHttpInfo**](docs/DbaasApi.md#getDbaasSettingsOpensearchWithHttpInfo) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings
-*DbaasApi* | [**getDbaasSettingsPg**](docs/DbaasApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings
-*DbaasApi* | [**getDbaasSettingsPgWithHttpInfo**](docs/DbaasApi.md#getDbaasSettingsPgWithHttpInfo) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings
-*DbaasApi* | [**getDbaasSettingsRedis**](docs/DbaasApi.md#getDbaasSettingsRedis) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings
-*DbaasApi* | [**getDbaasSettingsRedisWithHttpInfo**](docs/DbaasApi.md#getDbaasSettingsRedisWithHttpInfo) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings
-*DbaasApi* | [**getDbaasTask**](docs/DbaasApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
-*DbaasApi* | [**getDbaasTaskWithHttpInfo**](docs/DbaasApi.md#getDbaasTaskWithHttpInfo) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
-*DbaasApi* | [**listDbaasIntegrationSettings**](docs/DbaasApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings
-*DbaasApi* | [**listDbaasIntegrationSettingsWithHttpInfo**](docs/DbaasApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings
-*DbaasApi* | [**listDbaasIntegrationTypes**](docs/DbaasApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types | Get DBaaS integration types
-*DbaasApi* | [**listDbaasIntegrationTypesWithHttpInfo**](docs/DbaasApi.md#listDbaasIntegrationTypesWithHttpInfo) | **GET** /dbaas-integration-types | Get DBaaS integration types
-*DbaasApi* | [**listDbaasServiceTypes**](docs/DbaasApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types
-*DbaasApi* | [**listDbaasServiceTypesWithHttpInfo**](docs/DbaasApi.md#listDbaasServiceTypesWithHttpInfo) | **GET** /dbaas-service-type | DBaaS Service Types
-*DbaasApi* | [**listDbaasServices**](docs/DbaasApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services
-*DbaasApi* | [**listDbaasServicesWithHttpInfo**](docs/DbaasApi.md#listDbaasServicesWithHttpInfo) | **GET** /dbaas-service | List DBaaS services
-*DbaasApi* | [**resetDbaasKafkaUserPassword**](docs/DbaasApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
-*DbaasApi* | [**resetDbaasKafkaUserPasswordWithHttpInfo**](docs/DbaasApi.md#resetDbaasKafkaUserPasswordWithHttpInfo) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
-*DbaasApi* | [**resetDbaasMysqlUserPassword**](docs/DbaasApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
-*DbaasApi* | [**resetDbaasMysqlUserPasswordWithHttpInfo**](docs/DbaasApi.md#resetDbaasMysqlUserPasswordWithHttpInfo) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
-*DbaasApi* | [**resetDbaasOpensearchUserPassword**](docs/DbaasApi.md#resetDbaasOpensearchUserPassword) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user
-*DbaasApi* | [**resetDbaasOpensearchUserPasswordWithHttpInfo**](docs/DbaasApi.md#resetDbaasOpensearchUserPasswordWithHttpInfo) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user
-*DbaasApi* | [**resetDbaasPostgresUserPassword**](docs/DbaasApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user
-*DbaasApi* | [**resetDbaasPostgresUserPasswordWithHttpInfo**](docs/DbaasApi.md#resetDbaasPostgresUserPasswordWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user
-*DbaasApi* | [**resetDbaasRedisUserPassword**](docs/DbaasApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user
-*DbaasApi* | [**resetDbaasRedisUserPasswordWithHttpInfo**](docs/DbaasApi.md#resetDbaasRedisUserPasswordWithHttpInfo) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user
-*DbaasApi* | [**revealDbaasKafkaUserPassword**](docs/DbaasApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
-*DbaasApi* | [**revealDbaasKafkaUserPasswordWithHttpInfo**](docs/DbaasApi.md#revealDbaasKafkaUserPasswordWithHttpInfo) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
-*DbaasApi* | [**revealDbaasMysqlUserPassword**](docs/DbaasApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user
-*DbaasApi* | [**revealDbaasMysqlUserPasswordWithHttpInfo**](docs/DbaasApi.md#revealDbaasMysqlUserPasswordWithHttpInfo) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user
-*DbaasApi* | [**revealDbaasOpensearchUserPassword**](docs/DbaasApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
-*DbaasApi* | [**revealDbaasOpensearchUserPasswordWithHttpInfo**](docs/DbaasApi.md#revealDbaasOpensearchUserPasswordWithHttpInfo) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
-*DbaasApi* | [**revealDbaasPostgresUserPassword**](docs/DbaasApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
-*DbaasApi* | [**revealDbaasPostgresUserPasswordWithHttpInfo**](docs/DbaasApi.md#revealDbaasPostgresUserPasswordWithHttpInfo) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
-*DbaasApi* | [**revealDbaasRedisUserPassword**](docs/DbaasApi.md#revealDbaasRedisUserPassword) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user
-*DbaasApi* | [**revealDbaasRedisUserPasswordWithHttpInfo**](docs/DbaasApi.md#revealDbaasRedisUserPasswordWithHttpInfo) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user
-*DbaasApi* | [**startDbaasGrafanaMaintenance**](docs/DbaasApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
-*DbaasApi* | [**startDbaasGrafanaMaintenanceWithHttpInfo**](docs/DbaasApi.md#startDbaasGrafanaMaintenanceWithHttpInfo) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
-*DbaasApi* | [**startDbaasKafkaMaintenance**](docs/DbaasApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update
-*DbaasApi* | [**startDbaasKafkaMaintenanceWithHttpInfo**](docs/DbaasApi.md#startDbaasKafkaMaintenanceWithHttpInfo) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update
-*DbaasApi* | [**startDbaasMysqlMaintenance**](docs/DbaasApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
-*DbaasApi* | [**startDbaasMysqlMaintenanceWithHttpInfo**](docs/DbaasApi.md#startDbaasMysqlMaintenanceWithHttpInfo) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
-*DbaasApi* | [**startDbaasOpensearchMaintenance**](docs/DbaasApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update
-*DbaasApi* | [**startDbaasOpensearchMaintenanceWithHttpInfo**](docs/DbaasApi.md#startDbaasOpensearchMaintenanceWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update
-*DbaasApi* | [**startDbaasPgMaintenance**](docs/DbaasApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update
-*DbaasApi* | [**startDbaasPgMaintenanceWithHttpInfo**](docs/DbaasApi.md#startDbaasPgMaintenanceWithHttpInfo) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update
-*DbaasApi* | [**startDbaasRedisMaintenance**](docs/DbaasApi.md#startDbaasRedisMaintenance) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update
-*DbaasApi* | [**startDbaasRedisMaintenanceWithHttpInfo**](docs/DbaasApi.md#startDbaasRedisMaintenanceWithHttpInfo) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update
-*DbaasApi* | [**stopDbaasMysqlMigration**](docs/DbaasApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration
-*DbaasApi* | [**stopDbaasMysqlMigrationWithHttpInfo**](docs/DbaasApi.md#stopDbaasMysqlMigrationWithHttpInfo) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration
-*DbaasApi* | [**stopDbaasPgMigration**](docs/DbaasApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
-*DbaasApi* | [**stopDbaasPgMigrationWithHttpInfo**](docs/DbaasApi.md#stopDbaasPgMigrationWithHttpInfo) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
-*DbaasApi* | [**stopDbaasRedisMigration**](docs/DbaasApi.md#stopDbaasRedisMigration) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration
-*DbaasApi* | [**stopDbaasRedisMigrationWithHttpInfo**](docs/DbaasApi.md#stopDbaasRedisMigrationWithHttpInfo) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration
-*DbaasApi* | [**updateDbaasIntegration**](docs/DbaasApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration
-*DbaasApi* | [**updateDbaasIntegrationWithHttpInfo**](docs/DbaasApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration
-*DbaasApi* | [**updateDbaasOpensearchAclConfig**](docs/DbaasApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
-*DbaasApi* | [**updateDbaasOpensearchAclConfigWithHttpInfo**](docs/DbaasApi.md#updateDbaasOpensearchAclConfigWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
-*DbaasApi* | [**updateDbaasPgConnectionPool**](docs/DbaasApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool
-*DbaasApi* | [**updateDbaasPgConnectionPoolWithHttpInfo**](docs/DbaasApi.md#updateDbaasPgConnectionPoolWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool
-*DbaasApi* | [**updateDbaasPostgresAllowReplication**](docs/DbaasApi.md#updateDbaasPostgresAllowReplication) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user
-*DbaasApi* | [**updateDbaasPostgresAllowReplicationWithHttpInfo**](docs/DbaasApi.md#updateDbaasPostgresAllowReplicationWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user
-*DbaasApi* | [**updateDbaasServiceGrafana**](docs/DbaasApi.md#updateDbaasServiceGrafana) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service
-*DbaasApi* | [**updateDbaasServiceGrafanaWithHttpInfo**](docs/DbaasApi.md#updateDbaasServiceGrafanaWithHttpInfo) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service
-*DbaasApi* | [**updateDbaasServiceKafka**](docs/DbaasApi.md#updateDbaasServiceKafka) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service
-*DbaasApi* | [**updateDbaasServiceKafkaWithHttpInfo**](docs/DbaasApi.md#updateDbaasServiceKafkaWithHttpInfo) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service
-*DbaasApi* | [**updateDbaasServiceMysql**](docs/DbaasApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service
-*DbaasApi* | [**updateDbaasServiceMysqlWithHttpInfo**](docs/DbaasApi.md#updateDbaasServiceMysqlWithHttpInfo) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service
-*DbaasApi* | [**updateDbaasServiceOpensearch**](docs/DbaasApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service
-*DbaasApi* | [**updateDbaasServiceOpensearchWithHttpInfo**](docs/DbaasApi.md#updateDbaasServiceOpensearchWithHttpInfo) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service
-*DbaasApi* | [**updateDbaasServicePg**](docs/DbaasApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
-*DbaasApi* | [**updateDbaasServicePgWithHttpInfo**](docs/DbaasApi.md#updateDbaasServicePgWithHttpInfo) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
-*DbaasApi* | [**updateDbaasServiceRedis**](docs/DbaasApi.md#updateDbaasServiceRedis) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service
-*DbaasApi* | [**updateDbaasServiceRedisWithHttpInfo**](docs/DbaasApi.md#updateDbaasServiceRedisWithHttpInfo) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service
-*DeployTargetApi* | [**getDeployTarget**](docs/DeployTargetApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
-*DeployTargetApi* | [**getDeployTargetWithHttpInfo**](docs/DeployTargetApi.md#getDeployTargetWithHttpInfo) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
-*DeployTargetApi* | [**listDeployTargets**](docs/DeployTargetApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets
-*DeployTargetApi* | [**listDeployTargetsWithHttpInfo**](docs/DeployTargetApi.md#listDeployTargetsWithHttpInfo) | **GET** /deploy-target | List Deploy Targets
-*DnsApi* | [**createDnsDomain**](docs/DnsApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain
-*DnsApi* | [**createDnsDomainWithHttpInfo**](docs/DnsApi.md#createDnsDomainWithHttpInfo) | **POST** /dns-domain | Create DNS domain
-*DnsApi* | [**createDnsDomainRecord**](docs/DnsApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record
-*DnsApi* | [**createDnsDomainRecordWithHttpInfo**](docs/DnsApi.md#createDnsDomainRecordWithHttpInfo) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record
-*DnsApi* | [**deleteDnsDomain**](docs/DnsApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain
-*DnsApi* | [**deleteDnsDomainWithHttpInfo**](docs/DnsApi.md#deleteDnsDomainWithHttpInfo) | **DELETE** /dns-domain/{id} | Delete DNS Domain
-*DnsApi* | [**deleteDnsDomainRecord**](docs/DnsApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record
-*DnsApi* | [**deleteDnsDomainRecordWithHttpInfo**](docs/DnsApi.md#deleteDnsDomainRecordWithHttpInfo) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record
-*DnsApi* | [**getDnsDomain**](docs/DnsApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details
-*DnsApi* | [**getDnsDomainWithHttpInfo**](docs/DnsApi.md#getDnsDomainWithHttpInfo) | **GET** /dns-domain/{id} | Retrieve DNS domain details
-*DnsApi* | [**getDnsDomainRecord**](docs/DnsApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
-*DnsApi* | [**getDnsDomainRecordWithHttpInfo**](docs/DnsApi.md#getDnsDomainRecordWithHttpInfo) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
-*DnsApi* | [**getDnsDomainZoneFile**](docs/DnsApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
-*DnsApi* | [**getDnsDomainZoneFileWithHttpInfo**](docs/DnsApi.md#getDnsDomainZoneFileWithHttpInfo) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
-*DnsApi* | [**listDnsDomainRecords**](docs/DnsApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records
-*DnsApi* | [**listDnsDomainRecordsWithHttpInfo**](docs/DnsApi.md#listDnsDomainRecordsWithHttpInfo) | **GET** /dns-domain/{domain-id}/record | List DNS domain records
-*DnsApi* | [**listDnsDomains**](docs/DnsApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains
-*DnsApi* | [**listDnsDomainsWithHttpInfo**](docs/DnsApi.md#listDnsDomainsWithHttpInfo) | **GET** /dns-domain | List DNS domains
-*DnsApi* | [**updateDnsDomainRecord**](docs/DnsApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
-*DnsApi* | [**updateDnsDomainRecordWithHttpInfo**](docs/DnsApi.md#updateDnsDomainRecordWithHttpInfo) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
-*ElasticIpApi* | [**attachInstanceToElasticIp**](docs/ElasticIpApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
-*ElasticIpApi* | [**attachInstanceToElasticIpWithHttpInfo**](docs/ElasticIpApi.md#attachInstanceToElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
-*ElasticIpApi* | [**createElasticIp**](docs/ElasticIpApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP
-*ElasticIpApi* | [**createElasticIpWithHttpInfo**](docs/ElasticIpApi.md#createElasticIpWithHttpInfo) | **POST** /elastic-ip | Create an Elastic IP
-*ElasticIpApi* | [**deleteElasticIp**](docs/ElasticIpApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP
-*ElasticIpApi* | [**deleteElasticIpWithHttpInfo**](docs/ElasticIpApi.md#deleteElasticIpWithHttpInfo) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP
-*ElasticIpApi* | [**detachInstanceFromElasticIp**](docs/ElasticIpApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
-*ElasticIpApi* | [**detachInstanceFromElasticIpWithHttpInfo**](docs/ElasticIpApi.md#detachInstanceFromElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
-*ElasticIpApi* | [**getElasticIp**](docs/ElasticIpApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
-*ElasticIpApi* | [**getElasticIpWithHttpInfo**](docs/ElasticIpApi.md#getElasticIpWithHttpInfo) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
-*ElasticIpApi* | [**listElasticIps**](docs/ElasticIpApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs
-*ElasticIpApi* | [**listElasticIpsWithHttpInfo**](docs/ElasticIpApi.md#listElasticIpsWithHttpInfo) | **GET** /elastic-ip | List Elastic IPs
-*ElasticIpApi* | [**resetElasticIpField**](docs/ElasticIpApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value
-*ElasticIpApi* | [**resetElasticIpFieldWithHttpInfo**](docs/ElasticIpApi.md#resetElasticIpFieldWithHttpInfo) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value
-*ElasticIpApi* | [**updateElasticIp**](docs/ElasticIpApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
-*ElasticIpApi* | [**updateElasticIpWithHttpInfo**](docs/ElasticIpApi.md#updateElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id} | Update an Elastic IP
-*EventApi* | [**listEvents**](docs/EventApi.md#listEvents) | **GET** /event | List Events
-*EventApi* | [**listEventsWithHttpInfo**](docs/EventApi.md#listEventsWithHttpInfo) | **GET** /event | List Events
-*IamApi* | [**createAccessKey**](docs/IamApi.md#createAccessKey) | **POST** /access-key | Create a legacy IAM Access Key
-*IamApi* | [**createAccessKeyWithHttpInfo**](docs/IamApi.md#createAccessKeyWithHttpInfo) | **POST** /access-key | Create a legacy IAM Access Key
-*IamApi* | [**createApiKey**](docs/IamApi.md#createApiKey) | **POST** /api-key | Create a new API key
-*IamApi* | [**createApiKeyWithHttpInfo**](docs/IamApi.md#createApiKeyWithHttpInfo) | **POST** /api-key | Create a new API key
-*IamApi* | [**createIamRole**](docs/IamApi.md#createIamRole) | **POST** /iam-role | Create IAM Role
-*IamApi* | [**createIamRoleWithHttpInfo**](docs/IamApi.md#createIamRoleWithHttpInfo) | **POST** /iam-role | Create IAM Role
-*IamApi* | [**deleteApiKey**](docs/IamApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
-*IamApi* | [**deleteApiKeyWithHttpInfo**](docs/IamApi.md#deleteApiKeyWithHttpInfo) | **DELETE** /api-key/{id} | Delete an API key
-*IamApi* | [**deleteIamRole**](docs/IamApi.md#deleteIamRole) | **DELETE** /iam-role/{id} | Delete IAM Role
-*IamApi* | [**deleteIamRoleWithHttpInfo**](docs/IamApi.md#deleteIamRoleWithHttpInfo) | **DELETE** /iam-role/{id} | Delete IAM Role
-*IamApi* | [**getAccessKey**](docs/IamApi.md#getAccessKey) | **GET** /access-key/{key} | Retrieve IAM Access Key details
-*IamApi* | [**getAccessKeyWithHttpInfo**](docs/IamApi.md#getAccessKeyWithHttpInfo) | **GET** /access-key/{key} | Retrieve IAM Access Key details
-*IamApi* | [**getApiKey**](docs/IamApi.md#getApiKey) | **GET** /api-key/{id} | Get API key
-*IamApi* | [**getApiKeyWithHttpInfo**](docs/IamApi.md#getApiKeyWithHttpInfo) | **GET** /api-key/{id} | Get API key
-*IamApi* | [**getIamOrganizationPolicy**](docs/IamApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
-*IamApi* | [**getIamOrganizationPolicyWithHttpInfo**](docs/IamApi.md#getIamOrganizationPolicyWithHttpInfo) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
-*IamApi* | [**getIamRole**](docs/IamApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
-*IamApi* | [**getIamRoleWithHttpInfo**](docs/IamApi.md#getIamRoleWithHttpInfo) | **GET** /iam-role/{id} | Retrieve IAM Role
-*IamApi* | [**listAccessKeyKnownOperations**](docs/IamApi.md#listAccessKeyKnownOperations) | **GET** /access-key-known-operations | Retrieve all known available IAM Access Key operations and associated tags
-*IamApi* | [**listAccessKeyKnownOperationsWithHttpInfo**](docs/IamApi.md#listAccessKeyKnownOperationsWithHttpInfo) | **GET** /access-key-known-operations | Retrieve all known available IAM Access Key operations and associated tags
-*IamApi* | [**listAccessKeyOperations**](docs/IamApi.md#listAccessKeyOperations) | **GET** /access-key-operations | Retrieve IAM Access Key operations and associated tags for the signing key
-*IamApi* | [**listAccessKeyOperationsWithHttpInfo**](docs/IamApi.md#listAccessKeyOperationsWithHttpInfo) | **GET** /access-key-operations | Retrieve IAM Access Key operations and associated tags for the signing key
-*IamApi* | [**listAccessKeys**](docs/IamApi.md#listAccessKeys) | **GET** /access-key | List IAM Access Keys
-*IamApi* | [**listAccessKeysWithHttpInfo**](docs/IamApi.md#listAccessKeysWithHttpInfo) | **GET** /access-key | List IAM Access Keys
-*IamApi* | [**listApiKeys**](docs/IamApi.md#listApiKeys) | **GET** /api-key | List API keys
-*IamApi* | [**listApiKeysWithHttpInfo**](docs/IamApi.md#listApiKeysWithHttpInfo) | **GET** /api-key | List API keys
-*IamApi* | [**listIamRoles**](docs/IamApi.md#listIamRoles) | **GET** /iam-role | List IAM Roles
-*IamApi* | [**listIamRolesWithHttpInfo**](docs/IamApi.md#listIamRolesWithHttpInfo) | **GET** /iam-role | List IAM Roles
-*IamApi* | [**revokeAccessKey**](docs/IamApi.md#revokeAccessKey) | **DELETE** /access-key/{key} | Revoke an IAM Access Key
-*IamApi* | [**revokeAccessKeyWithHttpInfo**](docs/IamApi.md#revokeAccessKeyWithHttpInfo) | **DELETE** /access-key/{key} | Revoke an IAM Access Key
-*IamApi* | [**updateIamOrganizationPolicy**](docs/IamApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy
-*IamApi* | [**updateIamOrganizationPolicyWithHttpInfo**](docs/IamApi.md#updateIamOrganizationPolicyWithHttpInfo) | **PUT** /iam-organization-policy | Update IAM Organization Policy
-*IamApi* | [**updateIamRole**](docs/IamApi.md#updateIamRole) | **PUT** /iam-role/{id} | Update IAM Role
-*IamApi* | [**updateIamRoleWithHttpInfo**](docs/IamApi.md#updateIamRoleWithHttpInfo) | **PUT** /iam-role/{id} | Update IAM Role
-*IamApi* | [**updateIamRolePolicy**](docs/IamApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
-*IamApi* | [**updateIamRolePolicyWithHttpInfo**](docs/IamApi.md#updateIamRolePolicyWithHttpInfo) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
-*InstanceApi* | [**addInstanceProtection**](docs/InstanceApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection
-*InstanceApi* | [**addInstanceProtectionWithHttpInfo**](docs/InstanceApi.md#addInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:add-protection | Set instance destruction protection
-*InstanceApi* | [**createInstance**](docs/InstanceApi.md#createInstance) | **POST** /instance | Create a Compute instance
-*InstanceApi* | [**createInstanceWithHttpInfo**](docs/InstanceApi.md#createInstanceWithHttpInfo) | **POST** /instance | Create a Compute instance
-*InstanceApi* | [**createSnapshot**](docs/InstanceApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
-*InstanceApi* | [**createSnapshotWithHttpInfo**](docs/InstanceApi.md#createSnapshotWithHttpInfo) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
-*InstanceApi* | [**deleteInstance**](docs/InstanceApi.md#deleteInstance) | **DELETE** /instance/{id} | Delete a Compute instance
-*InstanceApi* | [**deleteInstanceWithHttpInfo**](docs/InstanceApi.md#deleteInstanceWithHttpInfo) | **DELETE** /instance/{id} | Delete a Compute instance
-*InstanceApi* | [**getInstance**](docs/InstanceApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details
-*InstanceApi* | [**getInstanceWithHttpInfo**](docs/InstanceApi.md#getInstanceWithHttpInfo) | **GET** /instance/{id} | Retrieve Compute instance details
-*InstanceApi* | [**listInstances**](docs/InstanceApi.md#listInstances) | **GET** /instance | List Compute instances
-*InstanceApi* | [**listInstancesWithHttpInfo**](docs/InstanceApi.md#listInstancesWithHttpInfo) | **GET** /instance | List Compute instances
-*InstanceApi* | [**rebootInstance**](docs/InstanceApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
-*InstanceApi* | [**rebootInstanceWithHttpInfo**](docs/InstanceApi.md#rebootInstanceWithHttpInfo) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
-*InstanceApi* | [**removeInstanceProtection**](docs/InstanceApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
-*InstanceApi* | [**removeInstanceProtectionWithHttpInfo**](docs/InstanceApi.md#removeInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
-*InstanceApi* | [**resetInstance**](docs/InstanceApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template
-*InstanceApi* | [**resetInstanceWithHttpInfo**](docs/InstanceApi.md#resetInstanceWithHttpInfo) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template
-*InstanceApi* | [**resetInstanceField**](docs/InstanceApi.md#resetInstanceField) | **DELETE** /instance/{id}/{field} | Reset Instance field
-*InstanceApi* | [**resetInstanceFieldWithHttpInfo**](docs/InstanceApi.md#resetInstanceFieldWithHttpInfo) | **DELETE** /instance/{id}/{field} | Reset Instance field
-*InstanceApi* | [**resetInstancePassword**](docs/InstanceApi.md#resetInstancePassword) | **PUT** /instance/{id}:reset-password | Reset a compute instance password
-*InstanceApi* | [**resetInstancePasswordWithHttpInfo**](docs/InstanceApi.md#resetInstancePasswordWithHttpInfo) | **PUT** /instance/{id}:reset-password | Reset a compute instance password
-*InstanceApi* | [**resizeInstanceDisk**](docs/InstanceApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
-*InstanceApi* | [**resizeInstanceDiskWithHttpInfo**](docs/InstanceApi.md#resizeInstanceDiskWithHttpInfo) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
-*InstanceApi* | [**revealInstancePassword**](docs/InstanceApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
-*InstanceApi* | [**revealInstancePasswordWithHttpInfo**](docs/InstanceApi.md#revealInstancePasswordWithHttpInfo) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
-*InstanceApi* | [**revertInstanceToSnapshot**](docs/InstanceApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
-*InstanceApi* | [**revertInstanceToSnapshotWithHttpInfo**](docs/InstanceApi.md#revertInstanceToSnapshotWithHttpInfo) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
-*InstanceApi* | [**scaleInstance**](docs/InstanceApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
-*InstanceApi* | [**scaleInstanceWithHttpInfo**](docs/InstanceApi.md#scaleInstanceWithHttpInfo) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
-*InstanceApi* | [**startInstance**](docs/InstanceApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance
-*InstanceApi* | [**startInstanceWithHttpInfo**](docs/InstanceApi.md#startInstanceWithHttpInfo) | **PUT** /instance/{id}:start | Start a Compute instance
-*InstanceApi* | [**stopInstance**](docs/InstanceApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
-*InstanceApi* | [**stopInstanceWithHttpInfo**](docs/InstanceApi.md#stopInstanceWithHttpInfo) | **PUT** /instance/{id}:stop | Stop a Compute instance
-*InstanceApi* | [**updateInstance**](docs/InstanceApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance
-*InstanceApi* | [**updateInstanceWithHttpInfo**](docs/InstanceApi.md#updateInstanceWithHttpInfo) | **PUT** /instance/{id} | Update a Compute instance
-*InstancePoolApi* | [**createInstancePool**](docs/InstancePoolApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool
-*InstancePoolApi* | [**createInstancePoolWithHttpInfo**](docs/InstancePoolApi.md#createInstancePoolWithHttpInfo) | **POST** /instance-pool | Create an Instance Pool
-*InstancePoolApi* | [**deleteInstancePool**](docs/InstancePoolApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool
-*InstancePoolApi* | [**deleteInstancePoolWithHttpInfo**](docs/InstancePoolApi.md#deleteInstancePoolWithHttpInfo) | **DELETE** /instance-pool/{id} | Delete an Instance Pool
-*InstancePoolApi* | [**evictInstancePoolMembers**](docs/InstancePoolApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members
-*InstancePoolApi* | [**evictInstancePoolMembersWithHttpInfo**](docs/InstancePoolApi.md#evictInstancePoolMembersWithHttpInfo) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members
-*InstancePoolApi* | [**getInstancePool**](docs/InstancePoolApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
-*InstancePoolApi* | [**getInstancePoolWithHttpInfo**](docs/InstancePoolApi.md#getInstancePoolWithHttpInfo) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
-*InstancePoolApi* | [**listInstancePools**](docs/InstancePoolApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools
-*InstancePoolApi* | [**listInstancePoolsWithHttpInfo**](docs/InstancePoolApi.md#listInstancePoolsWithHttpInfo) | **GET** /instance-pool | List Instance Pools
-*InstancePoolApi* | [**resetInstancePoolField**](docs/InstancePoolApi.md#resetInstancePoolField) | **DELETE** /instance-pool/{id}/{field} | Reset an Instance Pool field to its default value
-*InstancePoolApi* | [**resetInstancePoolFieldWithHttpInfo**](docs/InstancePoolApi.md#resetInstancePoolFieldWithHttpInfo) | **DELETE** /instance-pool/{id}/{field} | Reset an Instance Pool field to its default value
-*InstancePoolApi* | [**scaleInstancePool**](docs/InstancePoolApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
-*InstancePoolApi* | [**scaleInstancePoolWithHttpInfo**](docs/InstancePoolApi.md#scaleInstancePoolWithHttpInfo) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
-*InstancePoolApi* | [**updateInstancePool**](docs/InstancePoolApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool
-*InstancePoolApi* | [**updateInstancePoolWithHttpInfo**](docs/InstancePoolApi.md#updateInstancePoolWithHttpInfo) | **PUT** /instance-pool/{id} | Update an Instance Pool
-*InstanceTypeApi* | [**getInstanceType**](docs/InstanceTypeApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
-*InstanceTypeApi* | [**getInstanceTypeWithHttpInfo**](docs/InstanceTypeApi.md#getInstanceTypeWithHttpInfo) | **GET** /instance-type/{id} | Retrieve Instance Type details
-*InstanceTypeApi* | [**listInstanceTypes**](docs/InstanceTypeApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types
-*InstanceTypeApi* | [**listInstanceTypesWithHttpInfo**](docs/InstanceTypeApi.md#listInstanceTypesWithHttpInfo) | **GET** /instance-type | List Compute instance Types
-*NetworkLoadBalancerApi* | [**addServiceToLoadBalancer**](docs/NetworkLoadBalancerApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
-*NetworkLoadBalancerApi* | [**addServiceToLoadBalancerWithHttpInfo**](docs/NetworkLoadBalancerApi.md#addServiceToLoadBalancerWithHttpInfo) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
-*NetworkLoadBalancerApi* | [**createLoadBalancer**](docs/NetworkLoadBalancerApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer
-*NetworkLoadBalancerApi* | [**createLoadBalancerWithHttpInfo**](docs/NetworkLoadBalancerApi.md#createLoadBalancerWithHttpInfo) | **POST** /load-balancer | Create a Load Balancer
-*NetworkLoadBalancerApi* | [**deleteLoadBalancer**](docs/NetworkLoadBalancerApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer
-*NetworkLoadBalancerApi* | [**deleteLoadBalancerWithHttpInfo**](docs/NetworkLoadBalancerApi.md#deleteLoadBalancerWithHttpInfo) | **DELETE** /load-balancer/{id} | Delete a Load Balancer
-*NetworkLoadBalancerApi* | [**deleteLoadBalancerService**](docs/NetworkLoadBalancerApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service
-*NetworkLoadBalancerApi* | [**deleteLoadBalancerServiceWithHttpInfo**](docs/NetworkLoadBalancerApi.md#deleteLoadBalancerServiceWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service
-*NetworkLoadBalancerApi* | [**getLoadBalancer**](docs/NetworkLoadBalancerApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
-*NetworkLoadBalancerApi* | [**getLoadBalancerWithHttpInfo**](docs/NetworkLoadBalancerApi.md#getLoadBalancerWithHttpInfo) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
-*NetworkLoadBalancerApi* | [**getLoadBalancerService**](docs/NetworkLoadBalancerApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
-*NetworkLoadBalancerApi* | [**getLoadBalancerServiceWithHttpInfo**](docs/NetworkLoadBalancerApi.md#getLoadBalancerServiceWithHttpInfo) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
-*NetworkLoadBalancerApi* | [**listLoadBalancers**](docs/NetworkLoadBalancerApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers
-*NetworkLoadBalancerApi* | [**listLoadBalancersWithHttpInfo**](docs/NetworkLoadBalancerApi.md#listLoadBalancersWithHttpInfo) | **GET** /load-balancer | List Load Balancers
-*NetworkLoadBalancerApi* | [**resetLoadBalancerField**](docs/NetworkLoadBalancerApi.md#resetLoadBalancerField) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value
-*NetworkLoadBalancerApi* | [**resetLoadBalancerFieldWithHttpInfo**](docs/NetworkLoadBalancerApi.md#resetLoadBalancerFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value
-*NetworkLoadBalancerApi* | [**resetLoadBalancerServiceField**](docs/NetworkLoadBalancerApi.md#resetLoadBalancerServiceField) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
-*NetworkLoadBalancerApi* | [**resetLoadBalancerServiceFieldWithHttpInfo**](docs/NetworkLoadBalancerApi.md#resetLoadBalancerServiceFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
-*NetworkLoadBalancerApi* | [**updateLoadBalancer**](docs/NetworkLoadBalancerApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer
-*NetworkLoadBalancerApi* | [**updateLoadBalancerWithHttpInfo**](docs/NetworkLoadBalancerApi.md#updateLoadBalancerWithHttpInfo) | **PUT** /load-balancer/{id} | Update a Load Balancer
-*NetworkLoadBalancerApi* | [**updateLoadBalancerService**](docs/NetworkLoadBalancerApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service
-*NetworkLoadBalancerApi* | [**updateLoadBalancerServiceWithHttpInfo**](docs/NetworkLoadBalancerApi.md#updateLoadBalancerServiceWithHttpInfo) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service
-*OperationApi* | [**getOperation**](docs/OperationApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details
-*OperationApi* | [**getOperationWithHttpInfo**](docs/OperationApi.md#getOperationWithHttpInfo) | **GET** /operation/{id} | Retrieve Operation details
-*PrivateNetworkApi* | [**attachInstanceToPrivateNetwork**](docs/PrivateNetworkApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
-*PrivateNetworkApi* | [**attachInstanceToPrivateNetworkWithHttpInfo**](docs/PrivateNetworkApi.md#attachInstanceToPrivateNetworkWithHttpInfo) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
-*PrivateNetworkApi* | [**createPrivateNetwork**](docs/PrivateNetworkApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network
-*PrivateNetworkApi* | [**createPrivateNetworkWithHttpInfo**](docs/PrivateNetworkApi.md#createPrivateNetworkWithHttpInfo) | **POST** /private-network | Create a Private Network
-*PrivateNetworkApi* | [**deletePrivateNetwork**](docs/PrivateNetworkApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network
-*PrivateNetworkApi* | [**deletePrivateNetworkWithHttpInfo**](docs/PrivateNetworkApi.md#deletePrivateNetworkWithHttpInfo) | **DELETE** /private-network/{id} | Delete a Private Network
-*PrivateNetworkApi* | [**detachInstanceFromPrivateNetwork**](docs/PrivateNetworkApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
-*PrivateNetworkApi* | [**detachInstanceFromPrivateNetworkWithHttpInfo**](docs/PrivateNetworkApi.md#detachInstanceFromPrivateNetworkWithHttpInfo) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
-*PrivateNetworkApi* | [**getPrivateNetwork**](docs/PrivateNetworkApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details
-*PrivateNetworkApi* | [**getPrivateNetworkWithHttpInfo**](docs/PrivateNetworkApi.md#getPrivateNetworkWithHttpInfo) | **GET** /private-network/{id} | Retrieve Private Network details
-*PrivateNetworkApi* | [**listPrivateNetworks**](docs/PrivateNetworkApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks
-*PrivateNetworkApi* | [**listPrivateNetworksWithHttpInfo**](docs/PrivateNetworkApi.md#listPrivateNetworksWithHttpInfo) | **GET** /private-network | List Private Networks
-*PrivateNetworkApi* | [**resetPrivateNetworkField**](docs/PrivateNetworkApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
-*PrivateNetworkApi* | [**resetPrivateNetworkFieldWithHttpInfo**](docs/PrivateNetworkApi.md#resetPrivateNetworkFieldWithHttpInfo) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
-*PrivateNetworkApi* | [**updatePrivateNetwork**](docs/PrivateNetworkApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network
-*PrivateNetworkApi* | [**updatePrivateNetworkWithHttpInfo**](docs/PrivateNetworkApi.md#updatePrivateNetworkWithHttpInfo) | **PUT** /private-network/{id} | Update a Private Network
-*PrivateNetworkApi* | [**updatePrivateNetworkInstanceIp**](docs/PrivateNetworkApi.md#updatePrivateNetworkInstanceIp) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network
-*PrivateNetworkApi* | [**updatePrivateNetworkInstanceIpWithHttpInfo**](docs/PrivateNetworkApi.md#updatePrivateNetworkInstanceIpWithHttpInfo) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network
-*QuotasApi* | [**getQuota**](docs/QuotasApi.md#getQuota) | **GET** /quota/{entity} | Retrieve Resource Quota
-*QuotasApi* | [**getQuotaWithHttpInfo**](docs/QuotasApi.md#getQuotaWithHttpInfo) | **GET** /quota/{entity} | Retrieve Resource Quota
-*QuotasApi* | [**listQuotas**](docs/QuotasApi.md#listQuotas) | **GET** /quota | List Organization Quotas
-*QuotasApi* | [**listQuotasWithHttpInfo**](docs/QuotasApi.md#listQuotasWithHttpInfo) | **GET** /quota | List Organization Quotas
-*ReverseDnsApi* | [**deleteReverseDnsElasticIp**](docs/ReverseDnsApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP
-*ReverseDnsApi* | [**deleteReverseDnsElasticIpWithHttpInfo**](docs/ReverseDnsApi.md#deleteReverseDnsElasticIpWithHttpInfo) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP
-*ReverseDnsApi* | [**deleteReverseDnsInstance**](docs/ReverseDnsApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance
-*ReverseDnsApi* | [**deleteReverseDnsInstanceWithHttpInfo**](docs/ReverseDnsApi.md#deleteReverseDnsInstanceWithHttpInfo) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance
-*ReverseDnsApi* | [**getReverseDnsElasticIp**](docs/ReverseDnsApi.md#getReverseDnsElasticIp) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP
-*ReverseDnsApi* | [**getReverseDnsElasticIpWithHttpInfo**](docs/ReverseDnsApi.md#getReverseDnsElasticIpWithHttpInfo) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP
-*ReverseDnsApi* | [**getReverseDnsInstance**](docs/ReverseDnsApi.md#getReverseDnsInstance) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance
-*ReverseDnsApi* | [**getReverseDnsInstanceWithHttpInfo**](docs/ReverseDnsApi.md#getReverseDnsInstanceWithHttpInfo) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance
-*ReverseDnsApi* | [**updateReverseDnsElasticIp**](docs/ReverseDnsApi.md#updateReverseDnsElasticIp) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP
-*ReverseDnsApi* | [**updateReverseDnsElasticIpWithHttpInfo**](docs/ReverseDnsApi.md#updateReverseDnsElasticIpWithHttpInfo) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP
-*ReverseDnsApi* | [**updateReverseDnsInstance**](docs/ReverseDnsApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance
-*ReverseDnsApi* | [**updateReverseDnsInstanceWithHttpInfo**](docs/ReverseDnsApi.md#updateReverseDnsInstanceWithHttpInfo) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance
-*SecurityGroupApi* | [**addExternalSourceToSecurityGroup**](docs/SecurityGroupApi.md#addExternalSourceToSecurityGroup) | **PUT** /security-group/{id}:add-source | Add an external source as a member of a Security Group
-*SecurityGroupApi* | [**addExternalSourceToSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#addExternalSourceToSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:add-source | Add an external source as a member of a Security Group
-*SecurityGroupApi* | [**addRuleToSecurityGroup**](docs/SecurityGroupApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule
-*SecurityGroupApi* | [**addRuleToSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#addRuleToSecurityGroupWithHttpInfo) | **POST** /security-group/{id}/rules | Create a Security Group rule
-*SecurityGroupApi* | [**attachInstanceToSecurityGroup**](docs/SecurityGroupApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
-*SecurityGroupApi* | [**attachInstanceToSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#attachInstanceToSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
-*SecurityGroupApi* | [**createSecurityGroup**](docs/SecurityGroupApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group
-*SecurityGroupApi* | [**createSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#createSecurityGroupWithHttpInfo) | **POST** /security-group | Create a Security Group
-*SecurityGroupApi* | [**deleteRuleFromSecurityGroup**](docs/SecurityGroupApi.md#deleteRuleFromSecurityGroup) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule
-*SecurityGroupApi* | [**deleteRuleFromSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#deleteRuleFromSecurityGroupWithHttpInfo) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule
-*SecurityGroupApi* | [**deleteSecurityGroup**](docs/SecurityGroupApi.md#deleteSecurityGroup) | **DELETE** /security-group/{id} | Delete a Security Group
-*SecurityGroupApi* | [**deleteSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#deleteSecurityGroupWithHttpInfo) | **DELETE** /security-group/{id} | Delete a Security Group
-*SecurityGroupApi* | [**detachInstanceFromSecurityGroup**](docs/SecurityGroupApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group
-*SecurityGroupApi* | [**detachInstanceFromSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#detachInstanceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group
-*SecurityGroupApi* | [**getSecurityGroup**](docs/SecurityGroupApi.md#getSecurityGroup) | **GET** /security-group/{id} | Retrieve Security Group details
-*SecurityGroupApi* | [**getSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#getSecurityGroupWithHttpInfo) | **GET** /security-group/{id} | Retrieve Security Group details
-*SecurityGroupApi* | [**listSecurityGroups**](docs/SecurityGroupApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups.
-*SecurityGroupApi* | [**listSecurityGroupsWithHttpInfo**](docs/SecurityGroupApi.md#listSecurityGroupsWithHttpInfo) | **GET** /security-group | List Security Groups.
-*SecurityGroupApi* | [**removeExternalSourceFromSecurityGroup**](docs/SecurityGroupApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
-*SecurityGroupApi* | [**removeExternalSourceFromSecurityGroupWithHttpInfo**](docs/SecurityGroupApi.md#removeExternalSourceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
-*SksApi* | [**createSksCluster**](docs/SksApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster
-*SksApi* | [**createSksClusterWithHttpInfo**](docs/SksApi.md#createSksClusterWithHttpInfo) | **POST** /sks-cluster | Create an SKS cluster
-*SksApi* | [**createSksNodepool**](docs/SksApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
-*SksApi* | [**createSksNodepoolWithHttpInfo**](docs/SksApi.md#createSksNodepoolWithHttpInfo) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
-*SksApi* | [**deleteSksCluster**](docs/SksApi.md#deleteSksCluster) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster
-*SksApi* | [**deleteSksClusterWithHttpInfo**](docs/SksApi.md#deleteSksClusterWithHttpInfo) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster
-*SksApi* | [**deleteSksNodepool**](docs/SksApi.md#deleteSksNodepool) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool
-*SksApi* | [**deleteSksNodepoolWithHttpInfo**](docs/SksApi.md#deleteSksNodepoolWithHttpInfo) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool
-*SksApi* | [**evictSksNodepoolMembers**](docs/SksApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members
-*SksApi* | [**evictSksNodepoolMembersWithHttpInfo**](docs/SksApi.md#evictSksNodepoolMembersWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members
-*SksApi* | [**generateSksClusterKubeconfig**](docs/SksApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
-*SksApi* | [**generateSksClusterKubeconfigWithHttpInfo**](docs/SksApi.md#generateSksClusterKubeconfigWithHttpInfo) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
-*SksApi* | [**getSksCluster**](docs/SksApi.md#getSksCluster) | **GET** /sks-cluster/{id} | Retrieve SKS cluster details
-*SksApi* | [**getSksClusterWithHttpInfo**](docs/SksApi.md#getSksClusterWithHttpInfo) | **GET** /sks-cluster/{id} | Retrieve SKS cluster details
-*SksApi* | [**getSksClusterAuthorityCert**](docs/SksApi.md#getSksClusterAuthorityCert) | **GET** /sks-cluster/{id}/authority/{authority}/cert | Get the certificate for a SKS cluster authority
-*SksApi* | [**getSksClusterAuthorityCertWithHttpInfo**](docs/SksApi.md#getSksClusterAuthorityCertWithHttpInfo) | **GET** /sks-cluster/{id}/authority/{authority}/cert | Get the certificate for a SKS cluster authority
-*SksApi* | [**getSksClusterInspection**](docs/SksApi.md#getSksClusterInspection) | **GET** /sks-cluster/{id}/inspection | Get the latest inspection result
-*SksApi* | [**getSksClusterInspectionWithHttpInfo**](docs/SksApi.md#getSksClusterInspectionWithHttpInfo) | **GET** /sks-cluster/{id}/inspection | Get the latest inspection result
-*SksApi* | [**getSksNodepool**](docs/SksApi.md#getSksNodepool) | **GET** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Retrieve SKS Nodepool details
-*SksApi* | [**getSksNodepoolWithHttpInfo**](docs/SksApi.md#getSksNodepoolWithHttpInfo) | **GET** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Retrieve SKS Nodepool details
-*SksApi* | [**listSksClusterDeprecatedResources**](docs/SksApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases
-*SksApi* | [**listSksClusterDeprecatedResourcesWithHttpInfo**](docs/SksApi.md#listSksClusterDeprecatedResourcesWithHttpInfo) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases
-*SksApi* | [**listSksClusterVersions**](docs/SksApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters
-*SksApi* | [**listSksClusterVersionsWithHttpInfo**](docs/SksApi.md#listSksClusterVersionsWithHttpInfo) | **GET** /sks-cluster-version | List available versions for SKS clusters
-*SksApi* | [**listSksClusters**](docs/SksApi.md#listSksClusters) | **GET** /sks-cluster | List SKS clusters
-*SksApi* | [**listSksClustersWithHttpInfo**](docs/SksApi.md#listSksClustersWithHttpInfo) | **GET** /sks-cluster | List SKS clusters
-*SksApi* | [**resetSksClusterField**](docs/SksApi.md#resetSksClusterField) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value
-*SksApi* | [**resetSksClusterFieldWithHttpInfo**](docs/SksApi.md#resetSksClusterFieldWithHttpInfo) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value
-*SksApi* | [**resetSksNodepoolField**](docs/SksApi.md#resetSksNodepoolField) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value
-*SksApi* | [**resetSksNodepoolFieldWithHttpInfo**](docs/SksApi.md#resetSksNodepoolFieldWithHttpInfo) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value
-*SksApi* | [**rotateSksCcmCredentials**](docs/SksApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
-*SksApi* | [**rotateSksCcmCredentialsWithHttpInfo**](docs/SksApi.md#rotateSksCcmCredentialsWithHttpInfo) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
-*SksApi* | [**rotateSksOperatorsCa**](docs/SksApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority
-*SksApi* | [**rotateSksOperatorsCaWithHttpInfo**](docs/SksApi.md#rotateSksOperatorsCaWithHttpInfo) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority
-*SksApi* | [**scaleSksNodepool**](docs/SksApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
-*SksApi* | [**scaleSksNodepoolWithHttpInfo**](docs/SksApi.md#scaleSksNodepoolWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
-*SksApi* | [**updateSksCluster**](docs/SksApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster
-*SksApi* | [**updateSksClusterWithHttpInfo**](docs/SksApi.md#updateSksClusterWithHttpInfo) | **PUT** /sks-cluster/{id} | Update an SKS cluster
-*SksApi* | [**updateSksNodepool**](docs/SksApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
-*SksApi* | [**updateSksNodepoolWithHttpInfo**](docs/SksApi.md#updateSksNodepoolWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
-*SksApi* | [**upgradeSksCluster**](docs/SksApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster
-*SksApi* | [**upgradeSksClusterWithHttpInfo**](docs/SksApi.md#upgradeSksClusterWithHttpInfo) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster
-*SksApi* | [**upgradeSksClusterServiceLevel**](docs/SksApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro
-*SksApi* | [**upgradeSksClusterServiceLevelWithHttpInfo**](docs/SksApi.md#upgradeSksClusterServiceLevelWithHttpInfo) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro
-*SnapshotApi* | [**createSnapshot**](docs/SnapshotApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
-*SnapshotApi* | [**createSnapshotWithHttpInfo**](docs/SnapshotApi.md#createSnapshotWithHttpInfo) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
-*SnapshotApi* | [**deleteSnapshot**](docs/SnapshotApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot
-*SnapshotApi* | [**deleteSnapshotWithHttpInfo**](docs/SnapshotApi.md#deleteSnapshotWithHttpInfo) | **DELETE** /snapshot/{id} | Delete a Snapshot
-*SnapshotApi* | [**exportSnapshot**](docs/SnapshotApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot
-*SnapshotApi* | [**exportSnapshotWithHttpInfo**](docs/SnapshotApi.md#exportSnapshotWithHttpInfo) | **POST** /snapshot/{id}:export | Export a Snapshot
-*SnapshotApi* | [**getSnapshot**](docs/SnapshotApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details
-*SnapshotApi* | [**getSnapshotWithHttpInfo**](docs/SnapshotApi.md#getSnapshotWithHttpInfo) | **GET** /snapshot/{id} | Retrieve Snapshot details
-*SnapshotApi* | [**listSnapshots**](docs/SnapshotApi.md#listSnapshots) | **GET** /snapshot | List Snapshots
-*SnapshotApi* | [**listSnapshotsWithHttpInfo**](docs/SnapshotApi.md#listSnapshotsWithHttpInfo) | **GET** /snapshot | List Snapshots
-*SnapshotApi* | [**promoteSnapshotToTemplate**](docs/SnapshotApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
-*SnapshotApi* | [**promoteSnapshotToTemplateWithHttpInfo**](docs/SnapshotApi.md#promoteSnapshotToTemplateWithHttpInfo) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
-*SosApi* | [**getSosPresignedUrl**](docs/SosApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object
-*SosApi* | [**getSosPresignedUrlWithHttpInfo**](docs/SosApi.md#getSosPresignedUrlWithHttpInfo) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object
-*SosApi* | [**listSosBucketsUsage**](docs/SosApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage
-*SosApi* | [**listSosBucketsUsageWithHttpInfo**](docs/SosApi.md#listSosBucketsUsageWithHttpInfo) | **GET** /sos-buckets-usage | List SOS Buckets Usage
-*SshKeyApi* | [**deleteSshKey**](docs/SshKeyApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key
-*SshKeyApi* | [**deleteSshKeyWithHttpInfo**](docs/SshKeyApi.md#deleteSshKeyWithHttpInfo) | **DELETE** /ssh-key/{name} | Delete a SSH key
-*SshKeyApi* | [**getSshKey**](docs/SshKeyApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details
-*SshKeyApi* | [**getSshKeyWithHttpInfo**](docs/SshKeyApi.md#getSshKeyWithHttpInfo) | **GET** /ssh-key/{name} | Retrieve SSH key details
-*SshKeyApi* | [**listSshKeys**](docs/SshKeyApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys
-*SshKeyApi* | [**listSshKeysWithHttpInfo**](docs/SshKeyApi.md#listSshKeysWithHttpInfo) | **GET** /ssh-key | List SSH keys
-*SshKeyApi* | [**registerSshKey**](docs/SshKeyApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key
-*SshKeyApi* | [**registerSshKeyWithHttpInfo**](docs/SshKeyApi.md#registerSshKeyWithHttpInfo) | **POST** /ssh-key | Import SSH key
-*TemplateApi* | [**copyTemplate**](docs/TemplateApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
-*TemplateApi* | [**copyTemplateWithHttpInfo**](docs/TemplateApi.md#copyTemplateWithHttpInfo) | **POST** /template/{id} | Copy a Template from a zone to another
-*TemplateApi* | [**deleteTemplate**](docs/TemplateApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template
-*TemplateApi* | [**deleteTemplateWithHttpInfo**](docs/TemplateApi.md#deleteTemplateWithHttpInfo) | **DELETE** /template/{id} | Delete a Template
-*TemplateApi* | [**getTemplate**](docs/TemplateApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
-*TemplateApi* | [**getTemplateWithHttpInfo**](docs/TemplateApi.md#getTemplateWithHttpInfo) | **GET** /template/{id} | Retrieve Template details
-*TemplateApi* | [**listTemplates**](docs/TemplateApi.md#listTemplates) | **GET** /template | List Templates
-*TemplateApi* | [**listTemplatesWithHttpInfo**](docs/TemplateApi.md#listTemplatesWithHttpInfo) | **GET** /template | List Templates
-*TemplateApi* | [**promoteSnapshotToTemplate**](docs/TemplateApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
-*TemplateApi* | [**promoteSnapshotToTemplateWithHttpInfo**](docs/TemplateApi.md#promoteSnapshotToTemplateWithHttpInfo) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
-*TemplateApi* | [**registerTemplate**](docs/TemplateApi.md#registerTemplate) | **POST** /template | Register a Template
-*TemplateApi* | [**registerTemplateWithHttpInfo**](docs/TemplateApi.md#registerTemplateWithHttpInfo) | **POST** /template | Register a Template
-*TemplateApi* | [**updateTemplate**](docs/TemplateApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes
-*TemplateApi* | [**updateTemplateWithHttpInfo**](docs/TemplateApi.md#updateTemplateWithHttpInfo) | **PUT** /template/{id} | Update template attributes
-*ZoneApi* | [**listZones**](docs/ZoneApi.md#listZones) | **GET** /zone | List Zones
-*ZoneApi* | [**listZonesWithHttpInfo**](docs/ZoneApi.md#listZonesWithHttpInfo) | **GET** /zone | List Zones
+*ExoscaleApi* | [**addExternalSourceToSecurityGroup**](docs/ExoscaleApi.md#addExternalSourceToSecurityGroup) | **PUT** /security-group/{id}:add-source | Add an external source as a member of a Security Group
+*ExoscaleApi* | [**addExternalSourceToSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#addExternalSourceToSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:add-source | Add an external source as a member of a Security Group
+*ExoscaleApi* | [**addInstanceProtection**](docs/ExoscaleApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection
+*ExoscaleApi* | [**addInstanceProtectionWithHttpInfo**](docs/ExoscaleApi.md#addInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:add-protection | Set instance destruction protection
+*ExoscaleApi* | [**addRuleToSecurityGroup**](docs/ExoscaleApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule
+*ExoscaleApi* | [**addRuleToSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#addRuleToSecurityGroupWithHttpInfo) | **POST** /security-group/{id}/rules | Create a Security Group rule
+*ExoscaleApi* | [**addServiceToLoadBalancer**](docs/ExoscaleApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
+*ExoscaleApi* | [**addServiceToLoadBalancerWithHttpInfo**](docs/ExoscaleApi.md#addServiceToLoadBalancerWithHttpInfo) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
+*ExoscaleApi* | [**attachBlockStorageVolumeToInstance**](docs/ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
+*ExoscaleApi* | [**attachBlockStorageVolumeToInstanceWithHttpInfo**](docs/ExoscaleApi.md#attachBlockStorageVolumeToInstanceWithHttpInfo) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
+*ExoscaleApi* | [**attachInstanceToElasticIp**](docs/ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
+*ExoscaleApi* | [**attachInstanceToElasticIpWithHttpInfo**](docs/ExoscaleApi.md#attachInstanceToElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
+*ExoscaleApi* | [**attachInstanceToPrivateNetwork**](docs/ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
+*ExoscaleApi* | [**attachInstanceToPrivateNetworkWithHttpInfo**](docs/ExoscaleApi.md#attachInstanceToPrivateNetworkWithHttpInfo) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
+*ExoscaleApi* | [**attachInstanceToSecurityGroup**](docs/ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
+*ExoscaleApi* | [**attachInstanceToSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#attachInstanceToSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
+*ExoscaleApi* | [**copyTemplate**](docs/ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
+*ExoscaleApi* | [**copyTemplateWithHttpInfo**](docs/ExoscaleApi.md#copyTemplateWithHttpInfo) | **POST** /template/{id} | Copy a Template from a zone to another
+*ExoscaleApi* | [**createAccessKey**](docs/ExoscaleApi.md#createAccessKey) | **POST** /access-key | Create a legacy IAM Access Key
+*ExoscaleApi* | [**createAccessKeyWithHttpInfo**](docs/ExoscaleApi.md#createAccessKeyWithHttpInfo) | **POST** /access-key | Create a legacy IAM Access Key
+*ExoscaleApi* | [**createAntiAffinityGroup**](docs/ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
+*ExoscaleApi* | [**createAntiAffinityGroupWithHttpInfo**](docs/ExoscaleApi.md#createAntiAffinityGroupWithHttpInfo) | **POST** /anti-affinity-group | Create an Anti-affinity Group
+*ExoscaleApi* | [**createApiKey**](docs/ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key
+*ExoscaleApi* | [**createApiKeyWithHttpInfo**](docs/ExoscaleApi.md#createApiKeyWithHttpInfo) | **POST** /api-key | Create a new API key
+*ExoscaleApi* | [**createBlockStorageSnapshot**](docs/ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
+*ExoscaleApi* | [**createBlockStorageSnapshotWithHttpInfo**](docs/ExoscaleApi.md#createBlockStorageSnapshotWithHttpInfo) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
+*ExoscaleApi* | [**createBlockStorageVolume**](docs/ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume
+*ExoscaleApi* | [**createBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#createBlockStorageVolumeWithHttpInfo) | **POST** /block-storage | Create a block storage volume
+*ExoscaleApi* | [**createDbaasIntegration**](docs/ExoscaleApi.md#createDbaasIntegration) | **POST** /dbaas-integration | Create a new DBaaS integration between two services
+*ExoscaleApi* | [**createDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration | Create a new DBaaS integration between two services
+*ExoscaleApi* | [**createDbaasKafkaSchemaRegistryAclConfig**](docs/ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfig) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry
+*ExoscaleApi* | [**createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](docs/ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry
+*ExoscaleApi* | [**createDbaasKafkaTopicAclConfig**](docs/ExoscaleApi.md#createDbaasKafkaTopicAclConfig) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry
+*ExoscaleApi* | [**createDbaasKafkaTopicAclConfigWithHttpInfo**](docs/ExoscaleApi.md#createDbaasKafkaTopicAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry
+*ExoscaleApi* | [**createDbaasKafkaUser**](docs/ExoscaleApi.md#createDbaasKafkaUser) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user
+*ExoscaleApi* | [**createDbaasKafkaUserWithHttpInfo**](docs/ExoscaleApi.md#createDbaasKafkaUserWithHttpInfo) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user
+*ExoscaleApi* | [**createDbaasMysqlDatabase**](docs/ExoscaleApi.md#createDbaasMysqlDatabase) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database
+*ExoscaleApi* | [**createDbaasMysqlDatabaseWithHttpInfo**](docs/ExoscaleApi.md#createDbaasMysqlDatabaseWithHttpInfo) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database
+*ExoscaleApi* | [**createDbaasMysqlUser**](docs/ExoscaleApi.md#createDbaasMysqlUser) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user
+*ExoscaleApi* | [**createDbaasMysqlUserWithHttpInfo**](docs/ExoscaleApi.md#createDbaasMysqlUserWithHttpInfo) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user
+*ExoscaleApi* | [**createDbaasOpensearchUser**](docs/ExoscaleApi.md#createDbaasOpensearchUser) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user
+*ExoscaleApi* | [**createDbaasOpensearchUserWithHttpInfo**](docs/ExoscaleApi.md#createDbaasOpensearchUserWithHttpInfo) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user
+*ExoscaleApi* | [**createDbaasPgConnectionPool**](docs/ExoscaleApi.md#createDbaasPgConnectionPool) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool
+*ExoscaleApi* | [**createDbaasPgConnectionPoolWithHttpInfo**](docs/ExoscaleApi.md#createDbaasPgConnectionPoolWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool
+*ExoscaleApi* | [**createDbaasPgDatabase**](docs/ExoscaleApi.md#createDbaasPgDatabase) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database
+*ExoscaleApi* | [**createDbaasPgDatabaseWithHttpInfo**](docs/ExoscaleApi.md#createDbaasPgDatabaseWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database
+*ExoscaleApi* | [**createDbaasPgUpgradeCheck**](docs/ExoscaleApi.md#createDbaasPgUpgradeCheck) | **POST** /dbaas-postgres/{service}/upgrade-check | 
+*ExoscaleApi* | [**createDbaasPgUpgradeCheckWithHttpInfo**](docs/ExoscaleApi.md#createDbaasPgUpgradeCheckWithHttpInfo) | **POST** /dbaas-postgres/{service}/upgrade-check | 
+*ExoscaleApi* | [**createDbaasPostgresUser**](docs/ExoscaleApi.md#createDbaasPostgresUser) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user
+*ExoscaleApi* | [**createDbaasPostgresUserWithHttpInfo**](docs/ExoscaleApi.md#createDbaasPostgresUserWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user
+*ExoscaleApi* | [**createDbaasRedisUser**](docs/ExoscaleApi.md#createDbaasRedisUser) | **POST** /dbaas-redis/{service-name}/user | Create a DBaaS Redis user
+*ExoscaleApi* | [**createDbaasRedisUserWithHttpInfo**](docs/ExoscaleApi.md#createDbaasRedisUserWithHttpInfo) | **POST** /dbaas-redis/{service-name}/user | Create a DBaaS Redis user
+*ExoscaleApi* | [**createDbaasServiceGrafana**](docs/ExoscaleApi.md#createDbaasServiceGrafana) | **POST** /dbaas-grafana/{name} | 
+*ExoscaleApi* | [**createDbaasServiceGrafanaWithHttpInfo**](docs/ExoscaleApi.md#createDbaasServiceGrafanaWithHttpInfo) | **POST** /dbaas-grafana/{name} | 
+*ExoscaleApi* | [**createDbaasServiceKafka**](docs/ExoscaleApi.md#createDbaasServiceKafka) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service
+*ExoscaleApi* | [**createDbaasServiceKafkaWithHttpInfo**](docs/ExoscaleApi.md#createDbaasServiceKafkaWithHttpInfo) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service
+*ExoscaleApi* | [**createDbaasServiceMysql**](docs/ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service
+*ExoscaleApi* | [**createDbaasServiceMysqlWithHttpInfo**](docs/ExoscaleApi.md#createDbaasServiceMysqlWithHttpInfo) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service
+*ExoscaleApi* | [**createDbaasServiceOpensearch**](docs/ExoscaleApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service
+*ExoscaleApi* | [**createDbaasServiceOpensearchWithHttpInfo**](docs/ExoscaleApi.md#createDbaasServiceOpensearchWithHttpInfo) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service
+*ExoscaleApi* | [**createDbaasServicePg**](docs/ExoscaleApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service
+*ExoscaleApi* | [**createDbaasServicePgWithHttpInfo**](docs/ExoscaleApi.md#createDbaasServicePgWithHttpInfo) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service
+*ExoscaleApi* | [**createDbaasServiceRedis**](docs/ExoscaleApi.md#createDbaasServiceRedis) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service
+*ExoscaleApi* | [**createDbaasServiceRedisWithHttpInfo**](docs/ExoscaleApi.md#createDbaasServiceRedisWithHttpInfo) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service
+*ExoscaleApi* | [**createDbaasTaskMigrationCheck**](docs/ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} | 
+*ExoscaleApi* | [**createDbaasTaskMigrationCheckWithHttpInfo**](docs/ExoscaleApi.md#createDbaasTaskMigrationCheckWithHttpInfo) | **POST** /dbaas-task-migration-check/{service} | 
+*ExoscaleApi* | [**createDnsDomain**](docs/ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain
+*ExoscaleApi* | [**createDnsDomainWithHttpInfo**](docs/ExoscaleApi.md#createDnsDomainWithHttpInfo) | **POST** /dns-domain | Create DNS domain
+*ExoscaleApi* | [**createDnsDomainRecord**](docs/ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record
+*ExoscaleApi* | [**createDnsDomainRecordWithHttpInfo**](docs/ExoscaleApi.md#createDnsDomainRecordWithHttpInfo) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record
+*ExoscaleApi* | [**createElasticIp**](docs/ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP
+*ExoscaleApi* | [**createElasticIpWithHttpInfo**](docs/ExoscaleApi.md#createElasticIpWithHttpInfo) | **POST** /elastic-ip | Create an Elastic IP
+*ExoscaleApi* | [**createIamRole**](docs/ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role
+*ExoscaleApi* | [**createIamRoleWithHttpInfo**](docs/ExoscaleApi.md#createIamRoleWithHttpInfo) | **POST** /iam-role | Create IAM Role
+*ExoscaleApi* | [**createInstance**](docs/ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance
+*ExoscaleApi* | [**createInstanceWithHttpInfo**](docs/ExoscaleApi.md#createInstanceWithHttpInfo) | **POST** /instance | Create a Compute instance
+*ExoscaleApi* | [**createInstancePool**](docs/ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool
+*ExoscaleApi* | [**createInstancePoolWithHttpInfo**](docs/ExoscaleApi.md#createInstancePoolWithHttpInfo) | **POST** /instance-pool | Create an Instance Pool
+*ExoscaleApi* | [**createLoadBalancer**](docs/ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer
+*ExoscaleApi* | [**createLoadBalancerWithHttpInfo**](docs/ExoscaleApi.md#createLoadBalancerWithHttpInfo) | **POST** /load-balancer | Create a Load Balancer
+*ExoscaleApi* | [**createPrivateNetwork**](docs/ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network
+*ExoscaleApi* | [**createPrivateNetworkWithHttpInfo**](docs/ExoscaleApi.md#createPrivateNetworkWithHttpInfo) | **POST** /private-network | Create a Private Network
+*ExoscaleApi* | [**createSecurityGroup**](docs/ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group
+*ExoscaleApi* | [**createSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#createSecurityGroupWithHttpInfo) | **POST** /security-group | Create a Security Group
+*ExoscaleApi* | [**createSksCluster**](docs/ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster
+*ExoscaleApi* | [**createSksClusterWithHttpInfo**](docs/ExoscaleApi.md#createSksClusterWithHttpInfo) | **POST** /sks-cluster | Create an SKS cluster
+*ExoscaleApi* | [**createSksNodepool**](docs/ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
+*ExoscaleApi* | [**createSksNodepoolWithHttpInfo**](docs/ExoscaleApi.md#createSksNodepoolWithHttpInfo) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
+*ExoscaleApi* | [**createSnapshot**](docs/ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
+*ExoscaleApi* | [**createSnapshotWithHttpInfo**](docs/ExoscaleApi.md#createSnapshotWithHttpInfo) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
+*ExoscaleApi* | [**deleteAntiAffinityGroup**](docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
+*ExoscaleApi* | [**deleteAntiAffinityGroupWithHttpInfo**](docs/ExoscaleApi.md#deleteAntiAffinityGroupWithHttpInfo) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
+*ExoscaleApi* | [**deleteApiKey**](docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
+*ExoscaleApi* | [**deleteApiKeyWithHttpInfo**](docs/ExoscaleApi.md#deleteApiKeyWithHttpInfo) | **DELETE** /api-key/{id} | Delete an API key
+*ExoscaleApi* | [**deleteBlockStorageSnapshot**](docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
+*ExoscaleApi* | [**deleteBlockStorageSnapshotWithHttpInfo**](docs/ExoscaleApi.md#deleteBlockStorageSnapshotWithHttpInfo) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
+*ExoscaleApi* | [**deleteBlockStorageVolume**](docs/ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
+*ExoscaleApi* | [**deleteBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#deleteBlockStorageVolumeWithHttpInfo) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
+*ExoscaleApi* | [**deleteDbaasIntegration**](docs/ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration
+*ExoscaleApi* | [**deleteDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration
+*ExoscaleApi* | [**deleteDbaasKafkaSchemaRegistryAclConfig**](docs/ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry
+*ExoscaleApi* | [**deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry
+*ExoscaleApi* | [**deleteDbaasKafkaTopicAclConfig**](docs/ExoscaleApi.md#deleteDbaasKafkaTopicAclConfig) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry
+*ExoscaleApi* | [**deleteDbaasKafkaTopicAclConfigWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasKafkaTopicAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry
+*ExoscaleApi* | [**deleteDbaasKafkaUser**](docs/ExoscaleApi.md#deleteDbaasKafkaUser) | **DELETE** /dbaas-kafka/{service-name}/user/{username} | Delete a DBaaS kafka user
+*ExoscaleApi* | [**deleteDbaasKafkaUserWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasKafkaUserWithHttpInfo) | **DELETE** /dbaas-kafka/{service-name}/user/{username} | Delete a DBaaS kafka user
+*ExoscaleApi* | [**deleteDbaasMysqlDatabase**](docs/ExoscaleApi.md#deleteDbaasMysqlDatabase) | **DELETE** /dbaas-mysql/{service-name}/database/{database-name} | Delete a DBaaS MySQL database
+*ExoscaleApi* | [**deleteDbaasMysqlDatabaseWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasMysqlDatabaseWithHttpInfo) | **DELETE** /dbaas-mysql/{service-name}/database/{database-name} | Delete a DBaaS MySQL database
+*ExoscaleApi* | [**deleteDbaasMysqlUser**](docs/ExoscaleApi.md#deleteDbaasMysqlUser) | **DELETE** /dbaas-mysql/{service-name}/user/{username} | Delete a DBaaS MySQL user
+*ExoscaleApi* | [**deleteDbaasMysqlUserWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasMysqlUserWithHttpInfo) | **DELETE** /dbaas-mysql/{service-name}/user/{username} | Delete a DBaaS MySQL user
+*ExoscaleApi* | [**deleteDbaasOpensearchUser**](docs/ExoscaleApi.md#deleteDbaasOpensearchUser) | **DELETE** /dbaas-opensearch/{service-name}/user/{username} | Delete a DBaaS OpenSearch user
+*ExoscaleApi* | [**deleteDbaasOpensearchUserWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasOpensearchUserWithHttpInfo) | **DELETE** /dbaas-opensearch/{service-name}/user/{username} | Delete a DBaaS OpenSearch user
+*ExoscaleApi* | [**deleteDbaasPgConnectionPool**](docs/ExoscaleApi.md#deleteDbaasPgConnectionPool) | **DELETE** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Delete a DBaaS PostgreSQL connection pool
+*ExoscaleApi* | [**deleteDbaasPgConnectionPoolWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasPgConnectionPoolWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Delete a DBaaS PostgreSQL connection pool
+*ExoscaleApi* | [**deleteDbaasPgDatabase**](docs/ExoscaleApi.md#deleteDbaasPgDatabase) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database
+*ExoscaleApi* | [**deleteDbaasPgDatabaseWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasPgDatabaseWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database
+*ExoscaleApi* | [**deleteDbaasPostgresUser**](docs/ExoscaleApi.md#deleteDbaasPostgresUser) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user
+*ExoscaleApi* | [**deleteDbaasPostgresUserWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasPostgresUserWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user
+*ExoscaleApi* | [**deleteDbaasRedisUser**](docs/ExoscaleApi.md#deleteDbaasRedisUser) | **DELETE** /dbaas-redis/{service-name}/user/{username} | Delete a DBaaS Redis user
+*ExoscaleApi* | [**deleteDbaasRedisUserWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasRedisUserWithHttpInfo) | **DELETE** /dbaas-redis/{service-name}/user/{username} | Delete a DBaaS Redis user
+*ExoscaleApi* | [**deleteDbaasService**](docs/ExoscaleApi.md#deleteDbaasService) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service
+*ExoscaleApi* | [**deleteDbaasServiceWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServiceWithHttpInfo) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service
+*ExoscaleApi* | [**deleteDbaasServiceGrafana**](docs/ExoscaleApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service
+*ExoscaleApi* | [**deleteDbaasServiceGrafanaWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServiceGrafanaWithHttpInfo) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service
+*ExoscaleApi* | [**deleteDbaasServiceKafka**](docs/ExoscaleApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service
+*ExoscaleApi* | [**deleteDbaasServiceKafkaWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServiceKafkaWithHttpInfo) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service
+*ExoscaleApi* | [**deleteDbaasServiceMysql**](docs/ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
+*ExoscaleApi* | [**deleteDbaasServiceMysqlWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServiceMysqlWithHttpInfo) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
+*ExoscaleApi* | [**deleteDbaasServiceOpensearch**](docs/ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
+*ExoscaleApi* | [**deleteDbaasServiceOpensearchWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServiceOpensearchWithHttpInfo) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
+*ExoscaleApi* | [**deleteDbaasServicePg**](docs/ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
+*ExoscaleApi* | [**deleteDbaasServicePgWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServicePgWithHttpInfo) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
+*ExoscaleApi* | [**deleteDbaasServiceRedis**](docs/ExoscaleApi.md#deleteDbaasServiceRedis) | **DELETE** /dbaas-redis/{name} | Delete a Redis service
+*ExoscaleApi* | [**deleteDbaasServiceRedisWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasServiceRedisWithHttpInfo) | **DELETE** /dbaas-redis/{name} | Delete a Redis service
+*ExoscaleApi* | [**deleteDnsDomain**](docs/ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain
+*ExoscaleApi* | [**deleteDnsDomainWithHttpInfo**](docs/ExoscaleApi.md#deleteDnsDomainWithHttpInfo) | **DELETE** /dns-domain/{id} | Delete DNS Domain
+*ExoscaleApi* | [**deleteDnsDomainRecord**](docs/ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record
+*ExoscaleApi* | [**deleteDnsDomainRecordWithHttpInfo**](docs/ExoscaleApi.md#deleteDnsDomainRecordWithHttpInfo) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record
+*ExoscaleApi* | [**deleteElasticIp**](docs/ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP
+*ExoscaleApi* | [**deleteElasticIpWithHttpInfo**](docs/ExoscaleApi.md#deleteElasticIpWithHttpInfo) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP
+*ExoscaleApi* | [**deleteIamRole**](docs/ExoscaleApi.md#deleteIamRole) | **DELETE** /iam-role/{id} | Delete IAM Role
+*ExoscaleApi* | [**deleteIamRoleWithHttpInfo**](docs/ExoscaleApi.md#deleteIamRoleWithHttpInfo) | **DELETE** /iam-role/{id} | Delete IAM Role
+*ExoscaleApi* | [**deleteInstance**](docs/ExoscaleApi.md#deleteInstance) | **DELETE** /instance/{id} | Delete a Compute instance
+*ExoscaleApi* | [**deleteInstanceWithHttpInfo**](docs/ExoscaleApi.md#deleteInstanceWithHttpInfo) | **DELETE** /instance/{id} | Delete a Compute instance
+*ExoscaleApi* | [**deleteInstancePool**](docs/ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool
+*ExoscaleApi* | [**deleteInstancePoolWithHttpInfo**](docs/ExoscaleApi.md#deleteInstancePoolWithHttpInfo) | **DELETE** /instance-pool/{id} | Delete an Instance Pool
+*ExoscaleApi* | [**deleteLoadBalancer**](docs/ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer
+*ExoscaleApi* | [**deleteLoadBalancerWithHttpInfo**](docs/ExoscaleApi.md#deleteLoadBalancerWithHttpInfo) | **DELETE** /load-balancer/{id} | Delete a Load Balancer
+*ExoscaleApi* | [**deleteLoadBalancerService**](docs/ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service
+*ExoscaleApi* | [**deleteLoadBalancerServiceWithHttpInfo**](docs/ExoscaleApi.md#deleteLoadBalancerServiceWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service
+*ExoscaleApi* | [**deletePrivateNetwork**](docs/ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network
+*ExoscaleApi* | [**deletePrivateNetworkWithHttpInfo**](docs/ExoscaleApi.md#deletePrivateNetworkWithHttpInfo) | **DELETE** /private-network/{id} | Delete a Private Network
+*ExoscaleApi* | [**deleteReverseDnsElasticIp**](docs/ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP
+*ExoscaleApi* | [**deleteReverseDnsElasticIpWithHttpInfo**](docs/ExoscaleApi.md#deleteReverseDnsElasticIpWithHttpInfo) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP
+*ExoscaleApi* | [**deleteReverseDnsInstance**](docs/ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance
+*ExoscaleApi* | [**deleteReverseDnsInstanceWithHttpInfo**](docs/ExoscaleApi.md#deleteReverseDnsInstanceWithHttpInfo) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance
+*ExoscaleApi* | [**deleteRuleFromSecurityGroup**](docs/ExoscaleApi.md#deleteRuleFromSecurityGroup) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule
+*ExoscaleApi* | [**deleteRuleFromSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#deleteRuleFromSecurityGroupWithHttpInfo) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule
+*ExoscaleApi* | [**deleteSecurityGroup**](docs/ExoscaleApi.md#deleteSecurityGroup) | **DELETE** /security-group/{id} | Delete a Security Group
+*ExoscaleApi* | [**deleteSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#deleteSecurityGroupWithHttpInfo) | **DELETE** /security-group/{id} | Delete a Security Group
+*ExoscaleApi* | [**deleteSksCluster**](docs/ExoscaleApi.md#deleteSksCluster) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster
+*ExoscaleApi* | [**deleteSksClusterWithHttpInfo**](docs/ExoscaleApi.md#deleteSksClusterWithHttpInfo) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster
+*ExoscaleApi* | [**deleteSksNodepool**](docs/ExoscaleApi.md#deleteSksNodepool) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool
+*ExoscaleApi* | [**deleteSksNodepoolWithHttpInfo**](docs/ExoscaleApi.md#deleteSksNodepoolWithHttpInfo) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool
+*ExoscaleApi* | [**deleteSnapshot**](docs/ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot
+*ExoscaleApi* | [**deleteSnapshotWithHttpInfo**](docs/ExoscaleApi.md#deleteSnapshotWithHttpInfo) | **DELETE** /snapshot/{id} | Delete a Snapshot
+*ExoscaleApi* | [**deleteSshKey**](docs/ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key
+*ExoscaleApi* | [**deleteSshKeyWithHttpInfo**](docs/ExoscaleApi.md#deleteSshKeyWithHttpInfo) | **DELETE** /ssh-key/{name} | Delete a SSH key
+*ExoscaleApi* | [**deleteTemplate**](docs/ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template
+*ExoscaleApi* | [**deleteTemplateWithHttpInfo**](docs/ExoscaleApi.md#deleteTemplateWithHttpInfo) | **DELETE** /template/{id} | Delete a Template
+*ExoscaleApi* | [**detachBlockStorageVolume**](docs/ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume
+*ExoscaleApi* | [**detachBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#detachBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:detach | Detach block storage volume
+*ExoscaleApi* | [**detachInstanceFromElasticIp**](docs/ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
+*ExoscaleApi* | [**detachInstanceFromElasticIpWithHttpInfo**](docs/ExoscaleApi.md#detachInstanceFromElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
+*ExoscaleApi* | [**detachInstanceFromPrivateNetwork**](docs/ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
+*ExoscaleApi* | [**detachInstanceFromPrivateNetworkWithHttpInfo**](docs/ExoscaleApi.md#detachInstanceFromPrivateNetworkWithHttpInfo) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
+*ExoscaleApi* | [**detachInstanceFromSecurityGroup**](docs/ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group
+*ExoscaleApi* | [**detachInstanceFromSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#detachInstanceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group
+*ExoscaleApi* | [**evictInstancePoolMembers**](docs/ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members
+*ExoscaleApi* | [**evictInstancePoolMembersWithHttpInfo**](docs/ExoscaleApi.md#evictInstancePoolMembersWithHttpInfo) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members
+*ExoscaleApi* | [**evictSksNodepoolMembers**](docs/ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members
+*ExoscaleApi* | [**evictSksNodepoolMembersWithHttpInfo**](docs/ExoscaleApi.md#evictSksNodepoolMembersWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members
+*ExoscaleApi* | [**exportSnapshot**](docs/ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot
+*ExoscaleApi* | [**exportSnapshotWithHttpInfo**](docs/ExoscaleApi.md#exportSnapshotWithHttpInfo) | **POST** /snapshot/{id}:export | Export a Snapshot
+*ExoscaleApi* | [**generateSksClusterKubeconfig**](docs/ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
+*ExoscaleApi* | [**generateSksClusterKubeconfigWithHttpInfo**](docs/ExoscaleApi.md#generateSksClusterKubeconfigWithHttpInfo) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
+*ExoscaleApi* | [**getAccessKey**](docs/ExoscaleApi.md#getAccessKey) | **GET** /access-key/{key} | Retrieve IAM Access Key details
+*ExoscaleApi* | [**getAccessKeyWithHttpInfo**](docs/ExoscaleApi.md#getAccessKeyWithHttpInfo) | **GET** /access-key/{key} | Retrieve IAM Access Key details
+*ExoscaleApi* | [**getAntiAffinityGroup**](docs/ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
+*ExoscaleApi* | [**getAntiAffinityGroupWithHttpInfo**](docs/ExoscaleApi.md#getAntiAffinityGroupWithHttpInfo) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
+*ExoscaleApi* | [**getApiKey**](docs/ExoscaleApi.md#getApiKey) | **GET** /api-key/{id} | Get API key
+*ExoscaleApi* | [**getApiKeyWithHttpInfo**](docs/ExoscaleApi.md#getApiKeyWithHttpInfo) | **GET** /api-key/{id} | Get API key
+*ExoscaleApi* | [**getBlockStorageSnapshot**](docs/ExoscaleApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details
+*ExoscaleApi* | [**getBlockStorageSnapshotWithHttpInfo**](docs/ExoscaleApi.md#getBlockStorageSnapshotWithHttpInfo) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details
+*ExoscaleApi* | [**getBlockStorageVolume**](docs/ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details
+*ExoscaleApi* | [**getBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#getBlockStorageVolumeWithHttpInfo) | **GET** /block-storage/{id} | Retrieve block storage volume details
+*ExoscaleApi* | [**getDbaasCaCertificate**](docs/ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
+*ExoscaleApi* | [**getDbaasCaCertificateWithHttpInfo**](docs/ExoscaleApi.md#getDbaasCaCertificateWithHttpInfo) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
+*ExoscaleApi* | [**getDbaasIntegration**](docs/ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration
+*ExoscaleApi* | [**getDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration
+*ExoscaleApi* | [**getDbaasKafkaAclConfig**](docs/ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
+*ExoscaleApi* | [**getDbaasKafkaAclConfigWithHttpInfo**](docs/ExoscaleApi.md#getDbaasKafkaAclConfigWithHttpInfo) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
+*ExoscaleApi* | [**getDbaasMigrationStatus**](docs/ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status
+*ExoscaleApi* | [**getDbaasMigrationStatusWithHttpInfo**](docs/ExoscaleApi.md#getDbaasMigrationStatusWithHttpInfo) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status
+*ExoscaleApi* | [**getDbaasOpensearchAclConfig**](docs/ExoscaleApi.md#getDbaasOpensearchAclConfig) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration
+*ExoscaleApi* | [**getDbaasOpensearchAclConfigWithHttpInfo**](docs/ExoscaleApi.md#getDbaasOpensearchAclConfigWithHttpInfo) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration
+*ExoscaleApi* | [**getDbaasServiceGrafana**](docs/ExoscaleApi.md#getDbaasServiceGrafana) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service
+*ExoscaleApi* | [**getDbaasServiceGrafanaWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceGrafanaWithHttpInfo) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service
+*ExoscaleApi* | [**getDbaasServiceKafka**](docs/ExoscaleApi.md#getDbaasServiceKafka) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service
+*ExoscaleApi* | [**getDbaasServiceKafkaWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceKafkaWithHttpInfo) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service
+*ExoscaleApi* | [**getDbaasServiceLogs**](docs/ExoscaleApi.md#getDbaasServiceLogs) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service
+*ExoscaleApi* | [**getDbaasServiceLogsWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceLogsWithHttpInfo) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service
+*ExoscaleApi* | [**getDbaasServiceMetrics**](docs/ExoscaleApi.md#getDbaasServiceMetrics) | **POST** /dbaas-service-metrics/{service-name} | Get metrics of DBaaS service
+*ExoscaleApi* | [**getDbaasServiceMetricsWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceMetricsWithHttpInfo) | **POST** /dbaas-service-metrics/{service-name} | Get metrics of DBaaS service
+*ExoscaleApi* | [**getDbaasServiceMysql**](docs/ExoscaleApi.md#getDbaasServiceMysql) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service
+*ExoscaleApi* | [**getDbaasServiceMysqlWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceMysqlWithHttpInfo) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service
+*ExoscaleApi* | [**getDbaasServiceOpensearch**](docs/ExoscaleApi.md#getDbaasServiceOpensearch) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service
+*ExoscaleApi* | [**getDbaasServiceOpensearchWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceOpensearchWithHttpInfo) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service
+*ExoscaleApi* | [**getDbaasServicePg**](docs/ExoscaleApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service
+*ExoscaleApi* | [**getDbaasServicePgWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServicePgWithHttpInfo) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service
+*ExoscaleApi* | [**getDbaasServiceRedis**](docs/ExoscaleApi.md#getDbaasServiceRedis) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service
+*ExoscaleApi* | [**getDbaasServiceRedisWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceRedisWithHttpInfo) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service
+*ExoscaleApi* | [**getDbaasServiceType**](docs/ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
+*ExoscaleApi* | [**getDbaasServiceTypeWithHttpInfo**](docs/ExoscaleApi.md#getDbaasServiceTypeWithHttpInfo) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
+*ExoscaleApi* | [**getDbaasSettingsGrafana**](docs/ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
+*ExoscaleApi* | [**getDbaasSettingsGrafanaWithHttpInfo**](docs/ExoscaleApi.md#getDbaasSettingsGrafanaWithHttpInfo) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
+*ExoscaleApi* | [**getDbaasSettingsKafka**](docs/ExoscaleApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings
+*ExoscaleApi* | [**getDbaasSettingsKafkaWithHttpInfo**](docs/ExoscaleApi.md#getDbaasSettingsKafkaWithHttpInfo) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings
+*ExoscaleApi* | [**getDbaasSettingsMysql**](docs/ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
+*ExoscaleApi* | [**getDbaasSettingsMysqlWithHttpInfo**](docs/ExoscaleApi.md#getDbaasSettingsMysqlWithHttpInfo) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
+*ExoscaleApi* | [**getDbaasSettingsOpensearch**](docs/ExoscaleApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings
+*ExoscaleApi* | [**getDbaasSettingsOpensearchWithHttpInfo**](docs/ExoscaleApi.md#getDbaasSettingsOpensearchWithHttpInfo) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings
+*ExoscaleApi* | [**getDbaasSettingsPg**](docs/ExoscaleApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings
+*ExoscaleApi* | [**getDbaasSettingsPgWithHttpInfo**](docs/ExoscaleApi.md#getDbaasSettingsPgWithHttpInfo) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings
+*ExoscaleApi* | [**getDbaasSettingsRedis**](docs/ExoscaleApi.md#getDbaasSettingsRedis) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings
+*ExoscaleApi* | [**getDbaasSettingsRedisWithHttpInfo**](docs/ExoscaleApi.md#getDbaasSettingsRedisWithHttpInfo) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings
+*ExoscaleApi* | [**getDbaasTask**](docs/ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
+*ExoscaleApi* | [**getDbaasTaskWithHttpInfo**](docs/ExoscaleApi.md#getDbaasTaskWithHttpInfo) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
+*ExoscaleApi* | [**getDeployTarget**](docs/ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
+*ExoscaleApi* | [**getDeployTargetWithHttpInfo**](docs/ExoscaleApi.md#getDeployTargetWithHttpInfo) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
+*ExoscaleApi* | [**getDnsDomain**](docs/ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details
+*ExoscaleApi* | [**getDnsDomainWithHttpInfo**](docs/ExoscaleApi.md#getDnsDomainWithHttpInfo) | **GET** /dns-domain/{id} | Retrieve DNS domain details
+*ExoscaleApi* | [**getDnsDomainRecord**](docs/ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
+*ExoscaleApi* | [**getDnsDomainRecordWithHttpInfo**](docs/ExoscaleApi.md#getDnsDomainRecordWithHttpInfo) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
+*ExoscaleApi* | [**getDnsDomainZoneFile**](docs/ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
+*ExoscaleApi* | [**getDnsDomainZoneFileWithHttpInfo**](docs/ExoscaleApi.md#getDnsDomainZoneFileWithHttpInfo) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
+*ExoscaleApi* | [**getElasticIp**](docs/ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
+*ExoscaleApi* | [**getElasticIpWithHttpInfo**](docs/ExoscaleApi.md#getElasticIpWithHttpInfo) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
+*ExoscaleApi* | [**getIamOrganizationPolicy**](docs/ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
+*ExoscaleApi* | [**getIamOrganizationPolicyWithHttpInfo**](docs/ExoscaleApi.md#getIamOrganizationPolicyWithHttpInfo) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
+*ExoscaleApi* | [**getIamRole**](docs/ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
+*ExoscaleApi* | [**getIamRoleWithHttpInfo**](docs/ExoscaleApi.md#getIamRoleWithHttpInfo) | **GET** /iam-role/{id} | Retrieve IAM Role
+*ExoscaleApi* | [**getInstance**](docs/ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details
+*ExoscaleApi* | [**getInstanceWithHttpInfo**](docs/ExoscaleApi.md#getInstanceWithHttpInfo) | **GET** /instance/{id} | Retrieve Compute instance details
+*ExoscaleApi* | [**getInstancePool**](docs/ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
+*ExoscaleApi* | [**getInstancePoolWithHttpInfo**](docs/ExoscaleApi.md#getInstancePoolWithHttpInfo) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
+*ExoscaleApi* | [**getInstanceType**](docs/ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
+*ExoscaleApi* | [**getInstanceTypeWithHttpInfo**](docs/ExoscaleApi.md#getInstanceTypeWithHttpInfo) | **GET** /instance-type/{id} | Retrieve Instance Type details
+*ExoscaleApi* | [**getLoadBalancer**](docs/ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
+*ExoscaleApi* | [**getLoadBalancerWithHttpInfo**](docs/ExoscaleApi.md#getLoadBalancerWithHttpInfo) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
+*ExoscaleApi* | [**getLoadBalancerService**](docs/ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
+*ExoscaleApi* | [**getLoadBalancerServiceWithHttpInfo**](docs/ExoscaleApi.md#getLoadBalancerServiceWithHttpInfo) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
+*ExoscaleApi* | [**getOperation**](docs/ExoscaleApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details
+*ExoscaleApi* | [**getOperationWithHttpInfo**](docs/ExoscaleApi.md#getOperationWithHttpInfo) | **GET** /operation/{id} | Retrieve Operation details
+*ExoscaleApi* | [**getPrivateNetwork**](docs/ExoscaleApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details
+*ExoscaleApi* | [**getPrivateNetworkWithHttpInfo**](docs/ExoscaleApi.md#getPrivateNetworkWithHttpInfo) | **GET** /private-network/{id} | Retrieve Private Network details
+*ExoscaleApi* | [**getQuota**](docs/ExoscaleApi.md#getQuota) | **GET** /quota/{entity} | Retrieve Resource Quota
+*ExoscaleApi* | [**getQuotaWithHttpInfo**](docs/ExoscaleApi.md#getQuotaWithHttpInfo) | **GET** /quota/{entity} | Retrieve Resource Quota
+*ExoscaleApi* | [**getReverseDnsElasticIp**](docs/ExoscaleApi.md#getReverseDnsElasticIp) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP
+*ExoscaleApi* | [**getReverseDnsElasticIpWithHttpInfo**](docs/ExoscaleApi.md#getReverseDnsElasticIpWithHttpInfo) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP
+*ExoscaleApi* | [**getReverseDnsInstance**](docs/ExoscaleApi.md#getReverseDnsInstance) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance
+*ExoscaleApi* | [**getReverseDnsInstanceWithHttpInfo**](docs/ExoscaleApi.md#getReverseDnsInstanceWithHttpInfo) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance
+*ExoscaleApi* | [**getSecurityGroup**](docs/ExoscaleApi.md#getSecurityGroup) | **GET** /security-group/{id} | Retrieve Security Group details
+*ExoscaleApi* | [**getSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#getSecurityGroupWithHttpInfo) | **GET** /security-group/{id} | Retrieve Security Group details
+*ExoscaleApi* | [**getSksCluster**](docs/ExoscaleApi.md#getSksCluster) | **GET** /sks-cluster/{id} | Retrieve SKS cluster details
+*ExoscaleApi* | [**getSksClusterWithHttpInfo**](docs/ExoscaleApi.md#getSksClusterWithHttpInfo) | **GET** /sks-cluster/{id} | Retrieve SKS cluster details
+*ExoscaleApi* | [**getSksClusterAuthorityCert**](docs/ExoscaleApi.md#getSksClusterAuthorityCert) | **GET** /sks-cluster/{id}/authority/{authority}/cert | Get the certificate for a SKS cluster authority
+*ExoscaleApi* | [**getSksClusterAuthorityCertWithHttpInfo**](docs/ExoscaleApi.md#getSksClusterAuthorityCertWithHttpInfo) | **GET** /sks-cluster/{id}/authority/{authority}/cert | Get the certificate for a SKS cluster authority
+*ExoscaleApi* | [**getSksClusterInspection**](docs/ExoscaleApi.md#getSksClusterInspection) | **GET** /sks-cluster/{id}/inspection | Get the latest inspection result
+*ExoscaleApi* | [**getSksClusterInspectionWithHttpInfo**](docs/ExoscaleApi.md#getSksClusterInspectionWithHttpInfo) | **GET** /sks-cluster/{id}/inspection | Get the latest inspection result
+*ExoscaleApi* | [**getSksNodepool**](docs/ExoscaleApi.md#getSksNodepool) | **GET** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Retrieve SKS Nodepool details
+*ExoscaleApi* | [**getSksNodepoolWithHttpInfo**](docs/ExoscaleApi.md#getSksNodepoolWithHttpInfo) | **GET** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Retrieve SKS Nodepool details
+*ExoscaleApi* | [**getSnapshot**](docs/ExoscaleApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details
+*ExoscaleApi* | [**getSnapshotWithHttpInfo**](docs/ExoscaleApi.md#getSnapshotWithHttpInfo) | **GET** /snapshot/{id} | Retrieve Snapshot details
+*ExoscaleApi* | [**getSosPresignedUrl**](docs/ExoscaleApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object
+*ExoscaleApi* | [**getSosPresignedUrlWithHttpInfo**](docs/ExoscaleApi.md#getSosPresignedUrlWithHttpInfo) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object
+*ExoscaleApi* | [**getSshKey**](docs/ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details
+*ExoscaleApi* | [**getSshKeyWithHttpInfo**](docs/ExoscaleApi.md#getSshKeyWithHttpInfo) | **GET** /ssh-key/{name} | Retrieve SSH key details
+*ExoscaleApi* | [**getTemplate**](docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
+*ExoscaleApi* | [**getTemplateWithHttpInfo**](docs/ExoscaleApi.md#getTemplateWithHttpInfo) | **GET** /template/{id} | Retrieve Template details
+*ExoscaleApi* | [**listAccessKeyKnownOperations**](docs/ExoscaleApi.md#listAccessKeyKnownOperations) | **GET** /access-key-known-operations | Retrieve all known available IAM Access Key operations and associated tags
+*ExoscaleApi* | [**listAccessKeyKnownOperationsWithHttpInfo**](docs/ExoscaleApi.md#listAccessKeyKnownOperationsWithHttpInfo) | **GET** /access-key-known-operations | Retrieve all known available IAM Access Key operations and associated tags
+*ExoscaleApi* | [**listAccessKeyOperations**](docs/ExoscaleApi.md#listAccessKeyOperations) | **GET** /access-key-operations | Retrieve IAM Access Key operations and associated tags for the signing key
+*ExoscaleApi* | [**listAccessKeyOperationsWithHttpInfo**](docs/ExoscaleApi.md#listAccessKeyOperationsWithHttpInfo) | **GET** /access-key-operations | Retrieve IAM Access Key operations and associated tags for the signing key
+*ExoscaleApi* | [**listAccessKeys**](docs/ExoscaleApi.md#listAccessKeys) | **GET** /access-key | List IAM Access Keys
+*ExoscaleApi* | [**listAccessKeysWithHttpInfo**](docs/ExoscaleApi.md#listAccessKeysWithHttpInfo) | **GET** /access-key | List IAM Access Keys
+*ExoscaleApi* | [**listAntiAffinityGroups**](docs/ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
+*ExoscaleApi* | [**listAntiAffinityGroupsWithHttpInfo**](docs/ExoscaleApi.md#listAntiAffinityGroupsWithHttpInfo) | **GET** /anti-affinity-group | List Anti-affinity Groups
+*ExoscaleApi* | [**listApiKeys**](docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
+*ExoscaleApi* | [**listApiKeysWithHttpInfo**](docs/ExoscaleApi.md#listApiKeysWithHttpInfo) | **GET** /api-key | List API keys
+*ExoscaleApi* | [**listBlockStorageSnapshots**](docs/ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots
+*ExoscaleApi* | [**listBlockStorageSnapshotsWithHttpInfo**](docs/ExoscaleApi.md#listBlockStorageSnapshotsWithHttpInfo) | **GET** /block-storage-snapshot | List block storage snapshots
+*ExoscaleApi* | [**listBlockStorageVolumes**](docs/ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes
+*ExoscaleApi* | [**listBlockStorageVolumesWithHttpInfo**](docs/ExoscaleApi.md#listBlockStorageVolumesWithHttpInfo) | **GET** /block-storage | List block storage volumes
+*ExoscaleApi* | [**listDbaasIntegrationSettings**](docs/ExoscaleApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings
+*ExoscaleApi* | [**listDbaasIntegrationSettingsWithHttpInfo**](docs/ExoscaleApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings
+*ExoscaleApi* | [**listDbaasIntegrationTypes**](docs/ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types | Get DBaaS integration types
+*ExoscaleApi* | [**listDbaasIntegrationTypesWithHttpInfo**](docs/ExoscaleApi.md#listDbaasIntegrationTypesWithHttpInfo) | **GET** /dbaas-integration-types | Get DBaaS integration types
+*ExoscaleApi* | [**listDbaasServiceTypes**](docs/ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types
+*ExoscaleApi* | [**listDbaasServiceTypesWithHttpInfo**](docs/ExoscaleApi.md#listDbaasServiceTypesWithHttpInfo) | **GET** /dbaas-service-type | DBaaS Service Types
+*ExoscaleApi* | [**listDbaasServices**](docs/ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services
+*ExoscaleApi* | [**listDbaasServicesWithHttpInfo**](docs/ExoscaleApi.md#listDbaasServicesWithHttpInfo) | **GET** /dbaas-service | List DBaaS services
+*ExoscaleApi* | [**listDeployTargets**](docs/ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets
+*ExoscaleApi* | [**listDeployTargetsWithHttpInfo**](docs/ExoscaleApi.md#listDeployTargetsWithHttpInfo) | **GET** /deploy-target | List Deploy Targets
+*ExoscaleApi* | [**listDnsDomainRecords**](docs/ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records
+*ExoscaleApi* | [**listDnsDomainRecordsWithHttpInfo**](docs/ExoscaleApi.md#listDnsDomainRecordsWithHttpInfo) | **GET** /dns-domain/{domain-id}/record | List DNS domain records
+*ExoscaleApi* | [**listDnsDomains**](docs/ExoscaleApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains
+*ExoscaleApi* | [**listDnsDomainsWithHttpInfo**](docs/ExoscaleApi.md#listDnsDomainsWithHttpInfo) | **GET** /dns-domain | List DNS domains
+*ExoscaleApi* | [**listElasticIps**](docs/ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs
+*ExoscaleApi* | [**listElasticIpsWithHttpInfo**](docs/ExoscaleApi.md#listElasticIpsWithHttpInfo) | **GET** /elastic-ip | List Elastic IPs
+*ExoscaleApi* | [**listEvents**](docs/ExoscaleApi.md#listEvents) | **GET** /event | List Events
+*ExoscaleApi* | [**listEventsWithHttpInfo**](docs/ExoscaleApi.md#listEventsWithHttpInfo) | **GET** /event | List Events
+*ExoscaleApi* | [**listIamRoles**](docs/ExoscaleApi.md#listIamRoles) | **GET** /iam-role | List IAM Roles
+*ExoscaleApi* | [**listIamRolesWithHttpInfo**](docs/ExoscaleApi.md#listIamRolesWithHttpInfo) | **GET** /iam-role | List IAM Roles
+*ExoscaleApi* | [**listInstancePools**](docs/ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools
+*ExoscaleApi* | [**listInstancePoolsWithHttpInfo**](docs/ExoscaleApi.md#listInstancePoolsWithHttpInfo) | **GET** /instance-pool | List Instance Pools
+*ExoscaleApi* | [**listInstanceTypes**](docs/ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types
+*ExoscaleApi* | [**listInstanceTypesWithHttpInfo**](docs/ExoscaleApi.md#listInstanceTypesWithHttpInfo) | **GET** /instance-type | List Compute instance Types
+*ExoscaleApi* | [**listInstances**](docs/ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances
+*ExoscaleApi* | [**listInstancesWithHttpInfo**](docs/ExoscaleApi.md#listInstancesWithHttpInfo) | **GET** /instance | List Compute instances
+*ExoscaleApi* | [**listLoadBalancers**](docs/ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers
+*ExoscaleApi* | [**listLoadBalancersWithHttpInfo**](docs/ExoscaleApi.md#listLoadBalancersWithHttpInfo) | **GET** /load-balancer | List Load Balancers
+*ExoscaleApi* | [**listPrivateNetworks**](docs/ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks
+*ExoscaleApi* | [**listPrivateNetworksWithHttpInfo**](docs/ExoscaleApi.md#listPrivateNetworksWithHttpInfo) | **GET** /private-network | List Private Networks
+*ExoscaleApi* | [**listQuotas**](docs/ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas
+*ExoscaleApi* | [**listQuotasWithHttpInfo**](docs/ExoscaleApi.md#listQuotasWithHttpInfo) | **GET** /quota | List Organization Quotas
+*ExoscaleApi* | [**listSecurityGroups**](docs/ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups.
+*ExoscaleApi* | [**listSecurityGroupsWithHttpInfo**](docs/ExoscaleApi.md#listSecurityGroupsWithHttpInfo) | **GET** /security-group | List Security Groups.
+*ExoscaleApi* | [**listSksClusterDeprecatedResources**](docs/ExoscaleApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases
+*ExoscaleApi* | [**listSksClusterDeprecatedResourcesWithHttpInfo**](docs/ExoscaleApi.md#listSksClusterDeprecatedResourcesWithHttpInfo) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases
+*ExoscaleApi* | [**listSksClusterVersions**](docs/ExoscaleApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters
+*ExoscaleApi* | [**listSksClusterVersionsWithHttpInfo**](docs/ExoscaleApi.md#listSksClusterVersionsWithHttpInfo) | **GET** /sks-cluster-version | List available versions for SKS clusters
+*ExoscaleApi* | [**listSksClusters**](docs/ExoscaleApi.md#listSksClusters) | **GET** /sks-cluster | List SKS clusters
+*ExoscaleApi* | [**listSksClustersWithHttpInfo**](docs/ExoscaleApi.md#listSksClustersWithHttpInfo) | **GET** /sks-cluster | List SKS clusters
+*ExoscaleApi* | [**listSnapshots**](docs/ExoscaleApi.md#listSnapshots) | **GET** /snapshot | List Snapshots
+*ExoscaleApi* | [**listSnapshotsWithHttpInfo**](docs/ExoscaleApi.md#listSnapshotsWithHttpInfo) | **GET** /snapshot | List Snapshots
+*ExoscaleApi* | [**listSosBucketsUsage**](docs/ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage
+*ExoscaleApi* | [**listSosBucketsUsageWithHttpInfo**](docs/ExoscaleApi.md#listSosBucketsUsageWithHttpInfo) | **GET** /sos-buckets-usage | List SOS Buckets Usage
+*ExoscaleApi* | [**listSshKeys**](docs/ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys
+*ExoscaleApi* | [**listSshKeysWithHttpInfo**](docs/ExoscaleApi.md#listSshKeysWithHttpInfo) | **GET** /ssh-key | List SSH keys
+*ExoscaleApi* | [**listTemplates**](docs/ExoscaleApi.md#listTemplates) | **GET** /template | List Templates
+*ExoscaleApi* | [**listTemplatesWithHttpInfo**](docs/ExoscaleApi.md#listTemplatesWithHttpInfo) | **GET** /template | List Templates
+*ExoscaleApi* | [**listZones**](docs/ExoscaleApi.md#listZones) | **GET** /zone | List Zones
+*ExoscaleApi* | [**listZonesWithHttpInfo**](docs/ExoscaleApi.md#listZonesWithHttpInfo) | **GET** /zone | List Zones
+*ExoscaleApi* | [**promoteSnapshotToTemplate**](docs/ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
+*ExoscaleApi* | [**promoteSnapshotToTemplateWithHttpInfo**](docs/ExoscaleApi.md#promoteSnapshotToTemplateWithHttpInfo) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
+*ExoscaleApi* | [**rebootInstance**](docs/ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
+*ExoscaleApi* | [**rebootInstanceWithHttpInfo**](docs/ExoscaleApi.md#rebootInstanceWithHttpInfo) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
+*ExoscaleApi* | [**registerSshKey**](docs/ExoscaleApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key
+*ExoscaleApi* | [**registerSshKeyWithHttpInfo**](docs/ExoscaleApi.md#registerSshKeyWithHttpInfo) | **POST** /ssh-key | Import SSH key
+*ExoscaleApi* | [**registerTemplate**](docs/ExoscaleApi.md#registerTemplate) | **POST** /template | Register a Template
+*ExoscaleApi* | [**registerTemplateWithHttpInfo**](docs/ExoscaleApi.md#registerTemplateWithHttpInfo) | **POST** /template | Register a Template
+*ExoscaleApi* | [**removeExternalSourceFromSecurityGroup**](docs/ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
+*ExoscaleApi* | [**removeExternalSourceFromSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#removeExternalSourceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
+*ExoscaleApi* | [**removeInstanceProtection**](docs/ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
+*ExoscaleApi* | [**removeInstanceProtectionWithHttpInfo**](docs/ExoscaleApi.md#removeInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
+*ExoscaleApi* | [**resetDbaasKafkaUserPassword**](docs/ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
+*ExoscaleApi* | [**resetDbaasKafkaUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasKafkaUserPasswordWithHttpInfo) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
+*ExoscaleApi* | [**resetDbaasMysqlUserPassword**](docs/ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
+*ExoscaleApi* | [**resetDbaasMysqlUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasMysqlUserPasswordWithHttpInfo) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
+*ExoscaleApi* | [**resetDbaasOpensearchUserPassword**](docs/ExoscaleApi.md#resetDbaasOpensearchUserPassword) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user
+*ExoscaleApi* | [**resetDbaasOpensearchUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasOpensearchUserPasswordWithHttpInfo) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user
+*ExoscaleApi* | [**resetDbaasPostgresUserPassword**](docs/ExoscaleApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user
+*ExoscaleApi* | [**resetDbaasPostgresUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasPostgresUserPasswordWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user
+*ExoscaleApi* | [**resetDbaasRedisUserPassword**](docs/ExoscaleApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user
+*ExoscaleApi* | [**resetDbaasRedisUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasRedisUserPasswordWithHttpInfo) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user
+*ExoscaleApi* | [**resetElasticIpField**](docs/ExoscaleApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value
+*ExoscaleApi* | [**resetElasticIpFieldWithHttpInfo**](docs/ExoscaleApi.md#resetElasticIpFieldWithHttpInfo) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value
+*ExoscaleApi* | [**resetInstance**](docs/ExoscaleApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template
+*ExoscaleApi* | [**resetInstanceWithHttpInfo**](docs/ExoscaleApi.md#resetInstanceWithHttpInfo) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template
+*ExoscaleApi* | [**resetInstanceField**](docs/ExoscaleApi.md#resetInstanceField) | **DELETE** /instance/{id}/{field} | Reset Instance field
+*ExoscaleApi* | [**resetInstanceFieldWithHttpInfo**](docs/ExoscaleApi.md#resetInstanceFieldWithHttpInfo) | **DELETE** /instance/{id}/{field} | Reset Instance field
+*ExoscaleApi* | [**resetInstancePassword**](docs/ExoscaleApi.md#resetInstancePassword) | **PUT** /instance/{id}:reset-password | Reset a compute instance password
+*ExoscaleApi* | [**resetInstancePasswordWithHttpInfo**](docs/ExoscaleApi.md#resetInstancePasswordWithHttpInfo) | **PUT** /instance/{id}:reset-password | Reset a compute instance password
+*ExoscaleApi* | [**resetInstancePoolField**](docs/ExoscaleApi.md#resetInstancePoolField) | **DELETE** /instance-pool/{id}/{field} | Reset an Instance Pool field to its default value
+*ExoscaleApi* | [**resetInstancePoolFieldWithHttpInfo**](docs/ExoscaleApi.md#resetInstancePoolFieldWithHttpInfo) | **DELETE** /instance-pool/{id}/{field} | Reset an Instance Pool field to its default value
+*ExoscaleApi* | [**resetLoadBalancerField**](docs/ExoscaleApi.md#resetLoadBalancerField) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value
+*ExoscaleApi* | [**resetLoadBalancerFieldWithHttpInfo**](docs/ExoscaleApi.md#resetLoadBalancerFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value
+*ExoscaleApi* | [**resetLoadBalancerServiceField**](docs/ExoscaleApi.md#resetLoadBalancerServiceField) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
+*ExoscaleApi* | [**resetLoadBalancerServiceFieldWithHttpInfo**](docs/ExoscaleApi.md#resetLoadBalancerServiceFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
+*ExoscaleApi* | [**resetPrivateNetworkField**](docs/ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
+*ExoscaleApi* | [**resetPrivateNetworkFieldWithHttpInfo**](docs/ExoscaleApi.md#resetPrivateNetworkFieldWithHttpInfo) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
+*ExoscaleApi* | [**resetSksClusterField**](docs/ExoscaleApi.md#resetSksClusterField) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value
+*ExoscaleApi* | [**resetSksClusterFieldWithHttpInfo**](docs/ExoscaleApi.md#resetSksClusterFieldWithHttpInfo) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value
+*ExoscaleApi* | [**resetSksNodepoolField**](docs/ExoscaleApi.md#resetSksNodepoolField) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value
+*ExoscaleApi* | [**resetSksNodepoolFieldWithHttpInfo**](docs/ExoscaleApi.md#resetSksNodepoolFieldWithHttpInfo) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value
+*ExoscaleApi* | [**resizeBlockStorageVolume**](docs/ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
+*ExoscaleApi* | [**resizeBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#resizeBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
+*ExoscaleApi* | [**resizeInstanceDisk**](docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
+*ExoscaleApi* | [**resizeInstanceDiskWithHttpInfo**](docs/ExoscaleApi.md#resizeInstanceDiskWithHttpInfo) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
+*ExoscaleApi* | [**revealDbaasKafkaUserPassword**](docs/ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
+*ExoscaleApi* | [**revealDbaasKafkaUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasKafkaUserPasswordWithHttpInfo) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
+*ExoscaleApi* | [**revealDbaasMysqlUserPassword**](docs/ExoscaleApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user
+*ExoscaleApi* | [**revealDbaasMysqlUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasMysqlUserPasswordWithHttpInfo) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user
+*ExoscaleApi* | [**revealDbaasOpensearchUserPassword**](docs/ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
+*ExoscaleApi* | [**revealDbaasOpensearchUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasOpensearchUserPasswordWithHttpInfo) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
+*ExoscaleApi* | [**revealDbaasPostgresUserPassword**](docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
+*ExoscaleApi* | [**revealDbaasPostgresUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasPostgresUserPasswordWithHttpInfo) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
+*ExoscaleApi* | [**revealDbaasRedisUserPassword**](docs/ExoscaleApi.md#revealDbaasRedisUserPassword) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user
+*ExoscaleApi* | [**revealDbaasRedisUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasRedisUserPasswordWithHttpInfo) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user
+*ExoscaleApi* | [**revealInstancePassword**](docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
+*ExoscaleApi* | [**revealInstancePasswordWithHttpInfo**](docs/ExoscaleApi.md#revealInstancePasswordWithHttpInfo) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
+*ExoscaleApi* | [**revertInstanceToSnapshot**](docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
+*ExoscaleApi* | [**revertInstanceToSnapshotWithHttpInfo**](docs/ExoscaleApi.md#revertInstanceToSnapshotWithHttpInfo) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
+*ExoscaleApi* | [**revokeAccessKey**](docs/ExoscaleApi.md#revokeAccessKey) | **DELETE** /access-key/{key} | Revoke an IAM Access Key
+*ExoscaleApi* | [**revokeAccessKeyWithHttpInfo**](docs/ExoscaleApi.md#revokeAccessKeyWithHttpInfo) | **DELETE** /access-key/{key} | Revoke an IAM Access Key
+*ExoscaleApi* | [**rotateSksCcmCredentials**](docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
+*ExoscaleApi* | [**rotateSksCcmCredentialsWithHttpInfo**](docs/ExoscaleApi.md#rotateSksCcmCredentialsWithHttpInfo) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
+*ExoscaleApi* | [**rotateSksOperatorsCa**](docs/ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority
+*ExoscaleApi* | [**rotateSksOperatorsCaWithHttpInfo**](docs/ExoscaleApi.md#rotateSksOperatorsCaWithHttpInfo) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority
+*ExoscaleApi* | [**scaleInstance**](docs/ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
+*ExoscaleApi* | [**scaleInstanceWithHttpInfo**](docs/ExoscaleApi.md#scaleInstanceWithHttpInfo) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
+*ExoscaleApi* | [**scaleInstancePool**](docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
+*ExoscaleApi* | [**scaleInstancePoolWithHttpInfo**](docs/ExoscaleApi.md#scaleInstancePoolWithHttpInfo) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
+*ExoscaleApi* | [**scaleSksNodepool**](docs/ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
+*ExoscaleApi* | [**scaleSksNodepoolWithHttpInfo**](docs/ExoscaleApi.md#scaleSksNodepoolWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
+*ExoscaleApi* | [**startDbaasGrafanaMaintenance**](docs/ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
+*ExoscaleApi* | [**startDbaasGrafanaMaintenanceWithHttpInfo**](docs/ExoscaleApi.md#startDbaasGrafanaMaintenanceWithHttpInfo) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
+*ExoscaleApi* | [**startDbaasKafkaMaintenance**](docs/ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update
+*ExoscaleApi* | [**startDbaasKafkaMaintenanceWithHttpInfo**](docs/ExoscaleApi.md#startDbaasKafkaMaintenanceWithHttpInfo) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update
+*ExoscaleApi* | [**startDbaasMysqlMaintenance**](docs/ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
+*ExoscaleApi* | [**startDbaasMysqlMaintenanceWithHttpInfo**](docs/ExoscaleApi.md#startDbaasMysqlMaintenanceWithHttpInfo) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
+*ExoscaleApi* | [**startDbaasOpensearchMaintenance**](docs/ExoscaleApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update
+*ExoscaleApi* | [**startDbaasOpensearchMaintenanceWithHttpInfo**](docs/ExoscaleApi.md#startDbaasOpensearchMaintenanceWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update
+*ExoscaleApi* | [**startDbaasPgMaintenance**](docs/ExoscaleApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update
+*ExoscaleApi* | [**startDbaasPgMaintenanceWithHttpInfo**](docs/ExoscaleApi.md#startDbaasPgMaintenanceWithHttpInfo) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update
+*ExoscaleApi* | [**startDbaasRedisMaintenance**](docs/ExoscaleApi.md#startDbaasRedisMaintenance) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update
+*ExoscaleApi* | [**startDbaasRedisMaintenanceWithHttpInfo**](docs/ExoscaleApi.md#startDbaasRedisMaintenanceWithHttpInfo) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update
+*ExoscaleApi* | [**startInstance**](docs/ExoscaleApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance
+*ExoscaleApi* | [**startInstanceWithHttpInfo**](docs/ExoscaleApi.md#startInstanceWithHttpInfo) | **PUT** /instance/{id}:start | Start a Compute instance
+*ExoscaleApi* | [**stopDbaasMysqlMigration**](docs/ExoscaleApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration
+*ExoscaleApi* | [**stopDbaasMysqlMigrationWithHttpInfo**](docs/ExoscaleApi.md#stopDbaasMysqlMigrationWithHttpInfo) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration
+*ExoscaleApi* | [**stopDbaasPgMigration**](docs/ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
+*ExoscaleApi* | [**stopDbaasPgMigrationWithHttpInfo**](docs/ExoscaleApi.md#stopDbaasPgMigrationWithHttpInfo) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
+*ExoscaleApi* | [**stopDbaasRedisMigration**](docs/ExoscaleApi.md#stopDbaasRedisMigration) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration
+*ExoscaleApi* | [**stopDbaasRedisMigrationWithHttpInfo**](docs/ExoscaleApi.md#stopDbaasRedisMigrationWithHttpInfo) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration
+*ExoscaleApi* | [**stopInstance**](docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
+*ExoscaleApi* | [**stopInstanceWithHttpInfo**](docs/ExoscaleApi.md#stopInstanceWithHttpInfo) | **PUT** /instance/{id}:stop | Stop a Compute instance
+*ExoscaleApi* | [**updateBlockStorageVolumeLabels**](docs/ExoscaleApi.md#updateBlockStorageVolumeLabels) | **PUT** /block-storage/{id} | Set block storage volume labels
+*ExoscaleApi* | [**updateBlockStorageVolumeLabelsWithHttpInfo**](docs/ExoscaleApi.md#updateBlockStorageVolumeLabelsWithHttpInfo) | **PUT** /block-storage/{id} | Set block storage volume labels
+*ExoscaleApi* | [**updateDbaasIntegration**](docs/ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration
+*ExoscaleApi* | [**updateDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration
+*ExoscaleApi* | [**updateDbaasOpensearchAclConfig**](docs/ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
+*ExoscaleApi* | [**updateDbaasOpensearchAclConfigWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasOpensearchAclConfigWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
+*ExoscaleApi* | [**updateDbaasPgConnectionPool**](docs/ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool
+*ExoscaleApi* | [**updateDbaasPgConnectionPoolWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasPgConnectionPoolWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool
+*ExoscaleApi* | [**updateDbaasPostgresAllowReplication**](docs/ExoscaleApi.md#updateDbaasPostgresAllowReplication) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user
+*ExoscaleApi* | [**updateDbaasPostgresAllowReplicationWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasPostgresAllowReplicationWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user
+*ExoscaleApi* | [**updateDbaasServiceGrafana**](docs/ExoscaleApi.md#updateDbaasServiceGrafana) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service
+*ExoscaleApi* | [**updateDbaasServiceGrafanaWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasServiceGrafanaWithHttpInfo) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service
+*ExoscaleApi* | [**updateDbaasServiceKafka**](docs/ExoscaleApi.md#updateDbaasServiceKafka) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service
+*ExoscaleApi* | [**updateDbaasServiceKafkaWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasServiceKafkaWithHttpInfo) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service
+*ExoscaleApi* | [**updateDbaasServiceMysql**](docs/ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service
+*ExoscaleApi* | [**updateDbaasServiceMysqlWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasServiceMysqlWithHttpInfo) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service
+*ExoscaleApi* | [**updateDbaasServiceOpensearch**](docs/ExoscaleApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service
+*ExoscaleApi* | [**updateDbaasServiceOpensearchWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasServiceOpensearchWithHttpInfo) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service
+*ExoscaleApi* | [**updateDbaasServicePg**](docs/ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
+*ExoscaleApi* | [**updateDbaasServicePgWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasServicePgWithHttpInfo) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
+*ExoscaleApi* | [**updateDbaasServiceRedis**](docs/ExoscaleApi.md#updateDbaasServiceRedis) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service
+*ExoscaleApi* | [**updateDbaasServiceRedisWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasServiceRedisWithHttpInfo) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service
+*ExoscaleApi* | [**updateDnsDomainRecord**](docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
+*ExoscaleApi* | [**updateDnsDomainRecordWithHttpInfo**](docs/ExoscaleApi.md#updateDnsDomainRecordWithHttpInfo) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
+*ExoscaleApi* | [**updateElasticIp**](docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
+*ExoscaleApi* | [**updateElasticIpWithHttpInfo**](docs/ExoscaleApi.md#updateElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id} | Update an Elastic IP
+*ExoscaleApi* | [**updateIamOrganizationPolicy**](docs/ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy
+*ExoscaleApi* | [**updateIamOrganizationPolicyWithHttpInfo**](docs/ExoscaleApi.md#updateIamOrganizationPolicyWithHttpInfo) | **PUT** /iam-organization-policy | Update IAM Organization Policy
+*ExoscaleApi* | [**updateIamRole**](docs/ExoscaleApi.md#updateIamRole) | **PUT** /iam-role/{id} | Update IAM Role
+*ExoscaleApi* | [**updateIamRoleWithHttpInfo**](docs/ExoscaleApi.md#updateIamRoleWithHttpInfo) | **PUT** /iam-role/{id} | Update IAM Role
+*ExoscaleApi* | [**updateIamRolePolicy**](docs/ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
+*ExoscaleApi* | [**updateIamRolePolicyWithHttpInfo**](docs/ExoscaleApi.md#updateIamRolePolicyWithHttpInfo) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
+*ExoscaleApi* | [**updateInstance**](docs/ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance
+*ExoscaleApi* | [**updateInstanceWithHttpInfo**](docs/ExoscaleApi.md#updateInstanceWithHttpInfo) | **PUT** /instance/{id} | Update a Compute instance
+*ExoscaleApi* | [**updateInstancePool**](docs/ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool
+*ExoscaleApi* | [**updateInstancePoolWithHttpInfo**](docs/ExoscaleApi.md#updateInstancePoolWithHttpInfo) | **PUT** /instance-pool/{id} | Update an Instance Pool
+*ExoscaleApi* | [**updateLoadBalancer**](docs/ExoscaleApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer
+*ExoscaleApi* | [**updateLoadBalancerWithHttpInfo**](docs/ExoscaleApi.md#updateLoadBalancerWithHttpInfo) | **PUT** /load-balancer/{id} | Update a Load Balancer
+*ExoscaleApi* | [**updateLoadBalancerService**](docs/ExoscaleApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service
+*ExoscaleApi* | [**updateLoadBalancerServiceWithHttpInfo**](docs/ExoscaleApi.md#updateLoadBalancerServiceWithHttpInfo) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service
+*ExoscaleApi* | [**updatePrivateNetwork**](docs/ExoscaleApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network
+*ExoscaleApi* | [**updatePrivateNetworkWithHttpInfo**](docs/ExoscaleApi.md#updatePrivateNetworkWithHttpInfo) | **PUT** /private-network/{id} | Update a Private Network
+*ExoscaleApi* | [**updatePrivateNetworkInstanceIp**](docs/ExoscaleApi.md#updatePrivateNetworkInstanceIp) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network
+*ExoscaleApi* | [**updatePrivateNetworkInstanceIpWithHttpInfo**](docs/ExoscaleApi.md#updatePrivateNetworkInstanceIpWithHttpInfo) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network
+*ExoscaleApi* | [**updateReverseDnsElasticIp**](docs/ExoscaleApi.md#updateReverseDnsElasticIp) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP
+*ExoscaleApi* | [**updateReverseDnsElasticIpWithHttpInfo**](docs/ExoscaleApi.md#updateReverseDnsElasticIpWithHttpInfo) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP
+*ExoscaleApi* | [**updateReverseDnsInstance**](docs/ExoscaleApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance
+*ExoscaleApi* | [**updateReverseDnsInstanceWithHttpInfo**](docs/ExoscaleApi.md#updateReverseDnsInstanceWithHttpInfo) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance
+*ExoscaleApi* | [**updateSksCluster**](docs/ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster
+*ExoscaleApi* | [**updateSksClusterWithHttpInfo**](docs/ExoscaleApi.md#updateSksClusterWithHttpInfo) | **PUT** /sks-cluster/{id} | Update an SKS cluster
+*ExoscaleApi* | [**updateSksNodepool**](docs/ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
+*ExoscaleApi* | [**updateSksNodepoolWithHttpInfo**](docs/ExoscaleApi.md#updateSksNodepoolWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
+*ExoscaleApi* | [**updateTemplate**](docs/ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes
+*ExoscaleApi* | [**updateTemplateWithHttpInfo**](docs/ExoscaleApi.md#updateTemplateWithHttpInfo) | **PUT** /template/{id} | Update template attributes
+*ExoscaleApi* | [**upgradeSksCluster**](docs/ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster
+*ExoscaleApi* | [**upgradeSksClusterWithHttpInfo**](docs/ExoscaleApi.md#upgradeSksClusterWithHttpInfo) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster
+*ExoscaleApi* | [**upgradeSksClusterServiceLevel**](docs/ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro
+*ExoscaleApi* | [**upgradeSksClusterServiceLevelWithHttpInfo**](docs/ExoscaleApi.md#upgradeSksClusterServiceLevelWithHttpInfo) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro
 
 
 ## Documentation for Models

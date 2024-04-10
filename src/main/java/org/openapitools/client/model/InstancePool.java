@@ -72,7 +72,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InstancePool.JSON_PROPERTY_DISK_SIZE,
   InstancePool.JSON_PROPERTY_SSH_KEYS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T12:56:21.011484+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-10T11:00:33.694281+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class InstancePool {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private List<AntiAffinityGroup> antiAffinityGroups;
