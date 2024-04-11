@@ -15,7 +15,7 @@ public class Main {
 
         InstanceType instanceType = client.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
         System.out.println(instanceType.toString());
-        Template template = client.getTemplate(UUID.fromString("4e4d4f64-9608-4dc3-b5f4-979c8ac39e7f"));
+        Template template = client.getTemplate(UUID.fromString("0e96fc01-885a-4e74-91bb-d233ac58fa3a"));
         CreateInstanceRequest request = new CreateInstanceRequest()
                 .instanceType(instanceType)
                 .template(template)
