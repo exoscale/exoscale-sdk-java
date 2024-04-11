@@ -15,9 +15,9 @@ public class Credentials {
     private static final String COMMA = ",";
     private String secretKey;
     private String apiKey;
-    public Credentials(String secretKey, String apiKey) {
-        this.secretKey = secretKey;
+    public Credentials( String apiKey, String secretKey) {
         this.apiKey = apiKey;
+        this.secretKey = secretKey;
     }
 
     public String generateSignature(String method, String path, String requestBody) throws Exception {

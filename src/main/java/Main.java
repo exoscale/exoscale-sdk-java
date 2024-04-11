@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws ApiException, InterruptedException {
 
-        Client client = new Client(new Credentials("Put your Secret Key", "Put your Public Key"));
+        Client client = new Client(new Credentials("Put your Public Key", "Put your Secret Key"));
 
         InstanceType instanceType = client.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
         System.out.println(instanceType.toString());
