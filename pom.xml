@@ -112,6 +112,12 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                        <configuration>
+                            <failOnError>false</failOnError>
+                            <additionalJavadocOptions>
+                                <additionalOption>-Xdoclint:none</additionalOption>
+                            </additionalJavadocOptions>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
