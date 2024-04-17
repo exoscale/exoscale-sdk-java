@@ -26,13 +26,44 @@
                             <configOptions>
                                 <openapi.generator.maven.plugin.openapiNormalizer>SET_TAGS_FOR_ALL_OPERATIONS=true</openapi.generator.maven.plugin.openapiNormalizer>
                             </configOptions>
-                            <output>${project.basedir}/Generated Code</output>
+                            <output>${project.basedir}/Generated-Code</output>
                             <templateDirectory>${project.basedir}</templateDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-custom-templates</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/Generated-Code/src/main/java/org/openapitools/client</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/libraries/native</directory>
+                                    <includes>
+                                        <include>Credentials.java</include>
+                                        <include>Client.java</include>
+                                    </includes>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 </project>
