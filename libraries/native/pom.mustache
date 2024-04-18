@@ -1,25 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.exoscale</groupId>
-    <artifactId>exoscale4j</artifactId>
+    <groupId>{{groupId}}</groupId>
+    <artifactId>{{artifactId}}</artifactId>
     <packaging>jar</packaging>
-    <name>Exoscale Java SDK</name>
-    <version>1.0.0</version>
-    <url>https://github.com/exoscale/exoscale4j</url>
-    <description>Java SDK for interacting with Exoscale cloud services.</description>
+    <name>{{artifactId}}</name>
+    <version>{{artifactVersion}}</version>
+    <url>{{artifactUrl}}</url>
+    <description>{{artifactDescription}}</description>
     <scm>
-        <connection>scm:git:git://github.com/exoscale/exoscale4j.git</connection>
-        <developerConnection>scm:git:ssh://github.com/exoscale/exoscale4j.git</developerConnection>
-        <url>https://github.com/exoscale/exoscale4j</url>
+        <connection>{{scmConnection}}</connection>
+        <developerConnection>{{scmDeveloperConnection}}</developerConnection>
+        <url>{{scmUrl}}</url>
     </scm>
-{{#parentOverridden}}
-    <parent>
-        <groupId>{{{parentGroupId}}}</groupId>
-        <artifactId>{{{parentArtifactId}}}</artifactId>
-        <version>{{{parentVersion}}}</version>
-    </parent>
-{{/parentOverridden}}
+    {{#parentOverridden}}
+        <parent>
+            <groupId>{{{parentGroupId}}}</groupId>
+            <artifactId>{{{parentArtifactId}}}</artifactId>
+            <version>{{{parentVersion}}}</version>
+        </parent>
+    {{/parentOverridden}}
 
     <licenses>
         <license>
@@ -31,10 +31,10 @@
 
     <developers>
         <developer>
-            <name>Giza</name>
-            <email>giza@exoscale.ch</email>
-            <organization>Exoscale</organization>
-            <organizationUrl>https://www.exoscale.com</organizationUrl>
+            <name>{{developerName}}</name>
+            <email>{{developerEmail}}</email>
+            <organization>{{developerOrganization}}</organization>
+            <organizationUrl>{{developerOrganizationUrl}}</organizationUrl>
         </developer>
     </developers>
 

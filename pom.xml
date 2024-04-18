@@ -24,9 +24,27 @@
                             <generatorName>java</generatorName>
                             <library>native</library>
                             <configOptions>
-                                <openapi.generator.maven.plugin.openapiNormalizer>SET_TAGS_FOR_ALL_OPERATIONS=true</openapi.generator.maven.plugin.openapiNormalizer>
+                                <openapi.generator.maven.plugin.openapiNormalizer>SET_TAGS_FOR_ALL_OPERATIONS=exoscale</openapi.generator.maven.plugin.openapiNormalizer>
+                                <apiPackage>com.exoscale.exoscale4j.api</apiPackage>
+                                <modelPackage>com.exoscale.exoscale4j.model</modelPackage>
+                                <invokerPackage>com.exoscale.exoscale4j.client</invokerPackage>
+                                <groupId>com.exoscale</groupId>
+                                <artifactId>exoscale4j</artifactId>
+                                <artifactVersion>1.0.0-SNAPSHOT</artifactVersion>
+                                <artifactUrl>https://github.com/exoscale/exoscale4j</artifactUrl>
+                                <artifactDescription>Java SDK for interacting with Exoscale Cloud Services.</artifactDescription>
+                                <scmConnection>scm:git:git://github.com/exoscale4j.git</scmConnection>
+                                <scmDeveloperConnection>scm:git:ssh://github.com/exoscale/exoscale4j.git</scmDeveloperConnection>
+                                <scmUrl>https://github.com/exoscale/exoscale4j</scmUrl>
+                                <licenseName>Apache License Version 2.0</licenseName>
+                                <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+                                <developerName>Giza</developerName>
+                                <developerEmail>giza@exoscale.com</developerEmail>
+                                <developerOrganization>Exoscale</developerOrganization>
+                                <developerOrganizationUrl>https://www.exoscale.com</developerOrganizationUrl>
                             </configOptions>
-                            <output>${project.basedir}/Generated-Code</output>
+
+                            <output>${project.basedir}/sdk</output>
                             <templateDirectory>${project.basedir}</templateDirectory>
                         </configuration>
                     </execution>
@@ -45,7 +63,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.basedir}/Generated-Code/src/main/java/org/openapitools/client</outputDirectory>
+                            <outputDirectory>${project.basedir}/sdk/src/main/java/com/exoscale/exoscale4j/client</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}/libraries/native</directory>
