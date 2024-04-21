@@ -1,15 +1,35 @@
-# exoscale4j
-Exoscale 4 Java SDK: A comprehensive library for interacting with Exoscale's cloud services, simplifying API access for Java applications.
+<img src="img.png" alt="Description of image" width="200" style="float: right;">
+
+# Exoscale4J Generator
 
 
-The Exoscale Java SDK is a comprehensive library which going to be designed to facilitate Java developers in interacting with Exoscale's cloud services. 
-By simplifying API access, this SDK aims to streamline the development of Java applications that leverage Exoscale's cloud services.
+| Title                | Description                                                      |
+|----------------------|------------------------------------------------------------------|
+| Exoscale4J Generator | Java SDK for interacting with Exoscale Cloud Services Generator. |
+| Last update          | 2024-04-21                                                       |
 
-**Purpose of This Repository:** This repository serves as the central hub for all Exoscale Java library code, encompassing the full spectrum of tools, utilities, and documentation necessary for developers to efficiently integrate Exoscale services into their Java applications.
+## **Exoscale 4 Java Generator**: 
+Is a custom OpenApi generator Java native template to generate Exoscale4J a Java SDK for interaction with Exoscale could services, that was customised align with Exoscale standards.
 
-## Features
+## **Requirements**
+To successfully build and use the Exoscale4j SDK, the following are required:
 
-- Simplified access to Exoscale's API endpoints
-- ...  TBA
+1. **Java 11 or higher**
+2. **Maven**
+## **Installation**
+Clone the repository with following commands:
+
+```shell
+git clone https://github.com/exoscale/exoscale4j.git
+cd exoscale4j
+```
+## **SDK Generation**
+To generate the SDK you need to the run the following maven command:
+```shell
+mvn clean install
+```
+
+## **Usage**
+After the building, you will find the generated code within the **sdk** directory within the root directory.
 
 
