@@ -25,6 +25,9 @@
                             <library>native</library>
                             <configOptions>
                                 <openapi.generator.maven.plugin.openapiNormalizer>SET_TAGS_FOR_ALL_OPERATIONS=exoscale</openapi.generator.maven.plugin.openapiNormalizer>
+                                <additionalProperties>
+                                    <buildTool>maven</buildTool>
+                                </additionalProperties>
                                 <apiPackage>com.exoscale.exoscale4j.api</apiPackage>
                                 <modelPackage>com.exoscale.exoscale4j.model</modelPackage>
                                 <invokerPackage>com.exoscale.exoscale4j.client</invokerPackage>
@@ -43,7 +46,9 @@
                                 <developerOrganization>Exoscale</developerOrganization>
                                 <developerOrganizationUrl>https://www.exoscale.com</developerOrganizationUrl>
                             </configOptions>
-
+                            <additionalProperties>
+                                <buildTool>maven</buildTool>
+                            </additionalProperties>
                             <output>${project.basedir}/sdk</output>
                             <templateDirectory>${project.basedir}</templateDirectory>
                         </configuration>
