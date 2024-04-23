@@ -23,8 +23,10 @@
                             <inputSpec>https://openapi-v2.exoscale.com/source.yaml</inputSpec>
                             <generatorName>java</generatorName>
                             <library>native</library>
+                            <openapiNormalizer>
+                                SET_TAGS_FOR_ALL_OPERATIONS=exoscale
+                            </openapiNormalizer>
                             <configOptions>
-                                <openapi.generator.maven.plugin.openapiNormalizer>SET_TAGS_FOR_ALL_OPERATIONS=exoscale</openapi.generator.maven.plugin.openapiNormalizer>
                                 <additionalProperties>
                                     <buildTool>maven</buildTool>
                                 </additionalProperties>
