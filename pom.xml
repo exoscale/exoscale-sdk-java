@@ -52,7 +52,7 @@
                                 <buildTool>maven</buildTool>
                             </additionalProperties>
                             <output>${project.basedir}/sdk</output>
-                            <templateDirectory>${project.basedir}</templateDirectory>
+                            <templateDirectory>${project.basedir}/generator</templateDirectory>
                         </configuration>
                     </execution>
                 </executions>
