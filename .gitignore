@@ -20,5 +20,6 @@ target
 .gradle
 build
 
-# OS generated files #
+# IDEs and Editors
+.idea 
 .DS_Store
