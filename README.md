@@ -1,4 +1,4 @@
-<img src="img.png" alt="Description of image" width="200" style="float: right;">
+<img src="img/img.png" alt="Description of image" width="200" style="float: right;">
 
 # Exoscale4J Generator
 
