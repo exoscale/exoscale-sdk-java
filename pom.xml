@@ -73,7 +73,7 @@
                             <outputDirectory>${project.basedir}/sdk/src/main/java/com/exoscale/exoscale4j/client</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.basedir}/libraries/native</directory>
+                                    <directory>${project.basedir}/generator/libraries/native</directory>
                                     <includes>
                                         <include>Credentials.java</include>
                                         <include>Client.java</include>
