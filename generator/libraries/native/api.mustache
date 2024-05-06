@@ -452,12 +452,7 @@ public class {{classname}} {
     localVarRequestBuilder.method("{{httpMethod}}", HttpRequest.BodyPublishers.ofString({{paramName}}));
     {{/isString}}
     {{^isString}}
-    try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes({{paramName}});
-      localVarRequestBuilder.method("{{httpMethod}}", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
+      localVarRequestBuilder.method("{{httpMethod}}", HttpRequest.BodyPublishers.ofString(requestBody));
     {{/isString}}
     {{/bodyParam}}
     {{^bodyParam}}
