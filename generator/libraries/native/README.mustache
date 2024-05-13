@@ -86,13 +86,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class NewInstanceExample {
     public static void main(String[] args) throws ApiException, InterruptedException {
-    Client client = new Client(new Credentials("PUT YOUR PUBLIC KEY","PUT YOUR SECRET KEY"));
-    InstanceType instanceType = client.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
-    Template template = client.getTemplate(UUID.fromString("cbd89eb1-c66c-4637-9483-904d7e36c318"));
-    System.out.println(instanceType.toString());
-    CreateInstanceRequest request = new CreateInstanceRequest().instanceType(instanceType).template(template).diskSize(10L).labels(null);
-    Operation operation = client.createInstance(request);
-    client.wait(operation);
+        Client client = new Client(new Credentials("PUT YOUR PUBLIC KEY","PUT YOUR SECRET KEY"));
+        InstanceType instanceType = client.getInstanceType(UUID.fromString("b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844"));
+        Template template = client.getTemplate(UUID.fromString("cbd89eb1-c66c-4637-9483-904d7e36c318"));
+        CreateInstanceRequest request = new CreateInstanceRequest().instanceType(instanceType).template(template).diskSize(10L);
+        Operation operation = client.createInstance(request);
+        client.wait(operation);
     }
 }
 
