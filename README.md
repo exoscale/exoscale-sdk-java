@@ -6,7 +6,7 @@
 | Title                | Description                                                      |
 |----------------------|------------------------------------------------------------------|
 | Exoscale4J Generator | Java SDK for interacting with Exoscale Cloud Services Generator. |
-| Last update          | 2024-04-21                                                       |
+| Last update          | 2024-05-13                                                       |
 
 ## **Exoscale 4 Java Generator**: 
 Is a custom OpenApi generator Java native template to generate Exoscale4J a Java SDK for interaction with Exoscale could services, that was customised align with Exoscale standards.
