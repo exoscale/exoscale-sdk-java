@@ -6,7 +6,7 @@
 | Title                | Description                                                      |
 |----------------------|------------------------------------------------------------------|
 | Exoscale4J Generator | Java SDK for interacting with Exoscale Cloud Services Generator. |
-| Last update          | 2024-05-13                                                       |
+| Last update          | 2024-05-14                                                       |
 
 ## **Exoscale 4 Java Generator**: 
 Is a custom OpenApi generator Java native template to generate Exoscale4J a Java SDK for interaction with Exoscale could services, that was customised align with Exoscale standards.
@@ -24,9 +24,15 @@ git clone https://github.com/exoscale/exoscale4j.git
 cd exoscale4j
 ```
 ## **SDK Generation**
-To generate the SDK you need to the run the following maven command:
+To generate and compile the SDK, follow the below steps:
+
+1. **Generate the SDK sources:**
 ```shell
-mvn clean install
+   mvn generate-sources
+```
+2. **Navigate to the SDK directory and install the SDK:**
+```shell
+   cd sdk && mvn install
 ```
 
 ## **Usage**
