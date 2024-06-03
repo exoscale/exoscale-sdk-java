@@ -1,0 +1,60 @@
+name: Maven Package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    # Set up JDK 11
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        server-id: 'central' 
+        settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+    # Create a settings.xml file
+    - name: Create settings.xml
+      run: |
+        echo "<settings xmlns=\"http://maven.apache.org/SETTINGS/1.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/xsd/settings-1.0.0.xsd\">
+          <servers>
+            <server>
+              <id>central</id>
+              <username>${{ secrets.MAVEN_USERNAME }}</username>
+              <password>${{ secrets.MAVEN_PASSWORD }}</password>
+            </server>
+          </servers>
+          <profiles>
+            <profile>
+              <id>gpg</id>
+              <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <gpg.keyname>${{ secrets.GPG_KEYNAME }}</gpg.keyname>
+                <gpg.passphrase>${{ secrets.GPG_PASSPHRASE }}</gpg.passphrase>
+                <gpg.secretKeyring>/github/home/.gnupg/secring.gpg</gpg.secretKeyring>
+              </properties>
+            </profile>
+          </profiles>
+          <activeProfiles>
+            <activeProfile>gpg</activeProfile>
+          </activeProfiles>
+        </settings>" > ${{ github.workspace }}/settings.xml
+
+    # Build with Maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    # Publish to Maven Central
+    - name: Publish to Maven Central
+      run: mvn deploy -P sign-artifacts --settings ${{ github.workspace }}/settings.xml
+      env:
+        MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
