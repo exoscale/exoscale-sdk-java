@@ -47,6 +47,14 @@ jobs:
           </activeProfiles>
         </settings>" > ${{ github.workspace }}/settings.xml
 
+    # Import GPG key
+    - name: Import GPG key
+      run: |
+        echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --batch --yes
+      env:
+        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
     # Build with Maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
