@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.exoscale</groupId>
+    <groupId>com.exoscale</groupId>
     <artifactId>untitled1</artifactId>
     <version>1.0-SNAPSHOT</version>
  
@@ -33,9 +33,9 @@
                                 <apiPackage>com.exoscale.exoscale4j.api</apiPackage>
                                 <modelPackage>com.exoscale.exoscale4j.model</modelPackage>
                                 <invokerPackage>com.exoscale.exoscale4j.client</invokerPackage>
-                                <groupId>com.exoscale</groupId>
+                                <groupId>com.exoscale.exoscale4j</groupId>
                                 <artifactId>exoscale4j</artifactId>
-                                <artifactVersion>1.0.0-SNAPSHOT</artifactVersion>
+                                <artifactVersion>1.0.0</artifactVersion>
                                 <artifactUrl>https://github.com/exoscale/exoscale4j</artifactUrl>
                                 <artifactDescription>Java SDK for interacting with Exoscale Cloud Services.</artifactDescription>
                                 <scmConnection>scm:git:git://github.com/exoscale4j.git</scmConnection>
