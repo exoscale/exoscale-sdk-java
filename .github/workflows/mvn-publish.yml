@@ -1,6 +1,7 @@
 name: Maven Package
 on:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,13 +30,21 @@ jobs:
           </servers>
         </settings>
         EOF
-    # Build with Maven
+    
+    # Import GPG key
+    - name: Import GPG key
+      run: |
+        echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+      env:
+        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+
+    # Build and sign artifacts with Maven
     - name: Build with Maven
       run: mvn -B package --file sdk/pom.xml verify -P sign-artifacts -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     # Publish to Maven Central
     - name: Publish to Maven Central
-      run: mvn deploy --file sdk/pom.xml -P  sign-artifacts -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
+      run: mvn deploy --file sdk/pom.xml -P sign-artifacts -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
