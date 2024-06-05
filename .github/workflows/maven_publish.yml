@@ -19,17 +19,18 @@ jobs:
         distribution: 'temurin'
         server-id: 'central' 
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-        
+
+    
     # Import GPG key
     - name: Import GPG key
       run: |
         echo "${{ secrets.MAVEN_GPG_KEYRING }}" | gpg --import
         
-        
     - name: Generate settings.xml
       run: |
         cat << EOF > ${{ github.workspace }}/settings.xml
-        <settings>
+        <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
           <servers>
             <server>
               <id>central</id>
@@ -37,6 +38,19 @@ jobs:
               <password>${{ secrets.MAVEN_PASSWORD }}</password>
             </server>
           </servers>
+          <profiles>
+            <profile>
+            <id>gpg</id>
+            <properties>
+              <gpg.executable>gpg</gpg.executable>
+              <gpg.keyname>${{ secrets.GPG_KEY_ID }}</gpg.keyname>
+              <gpg.passphrase>${{ secrets.GPG_PASSPHRASE }}</gpg.passphrase>
+            </properties>
+          </profile>
+        </profiles>
+        <activeProfiles>
+          <activeProfile>gpg</activeProfile>
+          </activeProfiles>
         </settings>
         EOF
 
