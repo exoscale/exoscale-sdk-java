@@ -36,9 +36,9 @@ jobs:
               <id>gpg</id>
               <properties>
                 <gpg.executable>gpg</gpg.executable>
-                <gpg.keyname>${{ secrets.GPG_KEYNAME }}</gpg.keyname>
-                <gpg.passphrase>${{ secrets.GPG_PASSPHRASE }}</gpg.passphrase>
-                <gpg.secretKeyring>/github/home/.gnupg/secring.gpg</gpg.secretKeyring>
+                <gpg.keyname>${{ secrets.MAVEN_GPG_KEYNAME }}</gpg.keyname>
+                <gpg.passphrase>${{ secrets.MAVEN_GPG_PASSPHRASE }}</gpg.passphrase>
+                <gpg.secretKeyring>{{ secrets.MAVEN_GPG_KEYNAME }}</gpg.secretKeyring>
               </properties>
             </profile>
           </profiles>
@@ -52,8 +52,8 @@ jobs:
       run: |
         echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --batch --yes
       env:
-        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_KEYNAME }}
+        GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     # Build with Maven
     - name: Build with Maven
@@ -65,4 +65,4 @@ jobs:
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
