@@ -23,7 +23,7 @@ jobs:
           java-version: '11'
 
       - name: Publish to Maven Central
-        run: mvn clean deploy -f sdk/pom.xml -P sign-artifacts --settings .github/maven-settings.xml
+        run: mvn clean deploy -P sign-artifacts --settings .github/maven-settings.xml
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
