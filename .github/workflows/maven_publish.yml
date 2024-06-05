@@ -24,7 +24,7 @@ jobs:
     # Import GPG key
     - name: Import GPG key
       run: |
-        echo "${{ secrets.MAVEN_GPG_KEYRING }}" | gpg --dearmor > ~/my_secring.gpg
+        cat "${{ secrets.MAVEN_GPG_KEYRING }}" | gpg --dearmor > ~/my_secring.gpg
         gpg --batch --yes --import ~/my_secring.gpg
         
     - name: Generate settings.xml
