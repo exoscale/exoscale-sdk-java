@@ -50,7 +50,7 @@ jobs:
     # Import GPG key
     - name: Import GPG key
       run: |
-        echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --batch --yes
+        echo "${{ secrets.MAVEN_GPG_KEYNAME }}" | gpg --import --batch --yes
       env:
         GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_KEYNAME }}
         GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
