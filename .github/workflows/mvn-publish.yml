@@ -31,11 +31,11 @@ jobs:
         EOF
     # Build with Maven
     - name: Build with Maven
-      run: mvn -B package --file sdk/pom.xml -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
+      run: mvn clean package verify -P sign-artifacts -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     # Publish to Maven Central
     - name: Publish to Maven Central
-      run: mvn deploy --file sdk/pom.xml -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
+      run: mvn deploy -P sign-artifacts -s ${{ github.workspace }}/settings.xml -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
