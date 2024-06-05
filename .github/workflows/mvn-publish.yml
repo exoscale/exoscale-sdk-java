@@ -20,7 +20,7 @@ jobs:
         gpg-private-key: ${{ secrets.MAVEN_GPG_KEYRING }}
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
     - name: Publish package
-      run: mvn --batch-mode deploy --file sdk/pom.xml
+      run: mvn --batch-mode deploy --file sdk/pom.xml -Psign-artifacts
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD}}
