@@ -27,7 +27,7 @@ jobs:
 
     # Publish to Maven Central
     - name: Publish to Maven Central
-      run: mvn deploy -P sign-artifacts --file sdk/pom.xml 
+      run: mvn deploy -P --file sdk/pom.xml 
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
