@@ -24,11 +24,11 @@ jobs:
           
       - name: Import GPG key
         run: |
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-          echo "$GPG_PRIVATE_KEY" | gpg --import --batch --yes
+          echo "$MAVEN_GPG_KEYRING" | gpg --batch --import
+          echo "$MAVEN_GPG_KEYRING" | gpg --import --batch --yes
           gpg --list-keys
         env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          MAVEN_GPG_KEYRING: ${{ secrets.MAVEN_GPG_KEYRING }}
 
       - name: Publish to Maven Central
         run: mvn clean deploy -P sign-artifacts --settings ../.github/maven-settings.xml
