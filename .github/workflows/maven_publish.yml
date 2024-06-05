@@ -20,6 +20,12 @@ jobs:
         server-id: 'central' 
         settings-path: ${{ github.workspace }} # location for the settings.xml file
         
+    # Import GPG key
+    - name: Import GPG key
+      run: |
+        echo "${{ secrets.MAVEN_GPG_KEYRING }}" | gpg --import
+        
+        
     - name: Generate settings.xml
       run: |
         cat << EOF > ${{ github.workspace }}/settings.xml
