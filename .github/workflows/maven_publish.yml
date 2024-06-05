@@ -24,7 +24,8 @@ jobs:
     # Import GPG key
     - name: Import GPG key
       run: |
-        echo "${{ secrets.MAVEN_GPG_KEYRING }}" | gpg --import
+        echo "${{ secrets.MAVEN_GPG_KEYRING }}" | base64 --decode > ~/my_secring.gpg
+        gpg --batch --yes --import ~/my_secring.gpg
         
     - name: Generate settings.xml
       run: |
@@ -43,8 +44,8 @@ jobs:
             <id>gpg</id>
             <properties>
               <gpg.executable>gpg</gpg.executable>
-              <gpg.keyname>${{ secrets.GPG_KEY_ID }}</gpg.keyname>
-              <gpg.passphrase>${{ secrets.GPG_PASSPHRASE }}</gpg.passphrase>
+              <gpg.keyname>${{ secrets.MAVEN_GPG_KEYNAME }}</gpg.keyname>
+              <gpg.passphrase>${{ secrets.MAVEN_GPG_PASSPHRAS }}</gpg.passphrase>
             </properties>
           </profile>
         </profiles>
