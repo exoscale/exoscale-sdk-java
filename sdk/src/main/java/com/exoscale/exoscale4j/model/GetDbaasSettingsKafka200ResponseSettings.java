@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetDbaasSettingsKafka200ResponseSettings.JSON_PROPERTY_KAFKA_REST,
   GetDbaasSettingsKafka200ResponseSettings.JSON_PROPERTY_SCHEMA_REGISTRY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-05T10:50:16.155057+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-05T21:27:44.654335085+02:00[Europe/Zurich]", comments = "Generator version: 7.4.0")
 public class GetDbaasSettingsKafka200ResponseSettings {
   public static final String JSON_PROPERTY_KAFKA = "kafka";
   private GetDbaasSettingsKafka200ResponseSettingsKafka kafka;

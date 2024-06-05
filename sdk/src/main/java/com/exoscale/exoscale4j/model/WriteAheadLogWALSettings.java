@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WriteAheadLogWALSettings.JSON_PROPERTY_WAL_SENDER_TIMEOUT,
   WriteAheadLogWALSettings.JSON_PROPERTY_WAL_WRITER_DELAY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-05T10:50:16.155057+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-05T21:27:44.654335085+02:00[Europe/Zurich]", comments = "Generator version: 7.4.0")
 public class WriteAheadLogWALSettings {
   public static final String JSON_PROPERTY_MAX_SLOT_WAL_KEEP_SIZE = "max_slot_wal_keep_size";
   private Integer maxSlotWalKeepSize;
