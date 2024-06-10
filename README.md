@@ -41,7 +41,7 @@ After the building, you will find the generated code within the **sdk** director
 ## **Releasing the SDK**
 To release a new version of the SDK, follow these steps:
 
-1. **Increment the version**: Update the `<artifactVersion>` inside `exoscale4j/ [pom.xml](https://github.com/exoscale/exoscale4j/blob/main/pom.xml#L38) `.
+1. **Increment the version**: Update the `<artifactVersion>` inside exoscale4j/[pom.xml](https://github.com/exoscale/exoscale4j/blob/main/pom.xml#L38).
 2. **Generate sources**: Refer to the [SDK Generation](#sdk-generation) section to regenerate the sources.
 3. **Create a commit for the release**: Commit the version bump with a message indicating the release version:
     ```shell
