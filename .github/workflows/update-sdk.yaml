@@ -3,7 +3,7 @@ name: Update SDK and release
 on:
   push:
     branches:
-      - main
+      - test-workflow 
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'  # At :00 every hour
