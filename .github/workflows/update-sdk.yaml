@@ -3,7 +3,7 @@ name: Update SDK and release
 on:
   push:
     branches:
-      - test-workflow 
+      - main
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'  # At :00 every hour
@@ -25,15 +25,21 @@ jobs:
         id: changes
         run: |
           if ! git diff --exit-code sdk/api/openapi.yaml; then
-            echo "changes=true" >> $GITHUB_ENV
+            echo "true" > changes_detected
           else
-            echo "changes=false" >> $GITHUB_ENV
+            echo "false" > changes_detected
           fi
+        continue-on-error: true
+
+      - name: Set output
+        id: set-output
+        run: |
+          echo "::set-output name=changes::$(cat changes_detected)"
 
   update-version:
     runs-on: ubuntu-latest
     needs: check-and-update-sdk
-    if: env.changes == 'true'
+    if: needs.check-and-update-sdk.outputs.changes == 'true'
 
     steps:
       - name: Checkout
