@@ -12,12 +12,14 @@ jobs:
   check-and-update-sdk:
     runs-on: ubuntu-latest
 
+    outputs:
+      changes: ${{ steps.check_changes.outputs.changes }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Fetch latest OpenAPI definition
-        shell: bash
         run: |
           curl https://openapi-v2.exoscale.com/source.yaml > sdk/api/openapi.yaml
 
@@ -29,6 +31,7 @@ jobs:
           else
             echo "changes=false" >> $GITHUB_ENV
           fi
+        shell: bash
 
   update-version:
     runs-on: ubuntu-latest
@@ -48,6 +51,7 @@ jobs:
           new_version="${parts[0]}.${parts[1]}.$new_patch-${parts[3]}"
           xmlstarlet ed --inplace --update "//artifactVersion" --value "$new_version" pom.xml
           echo "new_version=$new_version" >> $GITHUB_ENV
+        shell: bash
 
       - name: Generate SDK sources
         run: mvn generate-sources
@@ -64,9 +68,10 @@ jobs:
           git add sdk/api/openapi.yaml pom.xml
           git commit -m "Update SDK to version ${new_version}"
           git push origin main
+        shell: bash
 
       - name: Create release tag
         run: |
           git tag -a v${new_version} -m "Release ${new_version}"
           git push origin v${new_version}
-
+        shell: bash
