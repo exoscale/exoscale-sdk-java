@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OpensearchEmailSenderSettings.JSON_PROPERTY_EMAIL_SENDER_PASSWORD,
   OpensearchEmailSenderSettings.JSON_PROPERTY_EMAIL_SENDER_USERNAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:12:55.204771Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class OpensearchEmailSenderSettings {
   public static final String JSON_PROPERTY_EMAIL_SENDER_NAME = "email_sender_name";
   private String emailSenderName;

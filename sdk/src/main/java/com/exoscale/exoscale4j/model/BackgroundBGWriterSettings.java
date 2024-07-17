@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BackgroundBGWriterSettings.JSON_PROPERTY_BGWRITER_LRU_MAXPAGES,
   BackgroundBGWriterSettings.JSON_PROPERTY_BGWRITER_LRU_MULTIPLIER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:12:55.204771Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class BackgroundBGWriterSettings {
   public static final String JSON_PROPERTY_BGWRITER_DELAY = "bgwriter_delay";
   private Integer bgwriterDelay;

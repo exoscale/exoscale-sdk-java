@@ -110,6 +110,7 @@ docs/DbaasServiceType.md
 docs/DbaasServiceUpdate.md
 docs/DbaasTask.md
 docs/DbaasTaskResultCodesInner.md
+docs/DbaasUserGrafanaSecrets.md
 docs/DbaasUserKafkaSecrets.md
 docs/DbaasUserMysqlSecrets.md
 docs/DbaasUserOpensearchSecrets.md
@@ -253,8 +254,8 @@ docs/Quota.md
 docs/RegisterSshKeyRequest.md
 docs/RegisterTemplateRequest.md
 docs/RemoveExternalSourceFromSecurityGroupRequest.md
+docs/ResetDbaasGrafanaUserPasswordRequest.md
 docs/ResetDbaasMysqlUserPasswordRequest.md
-docs/ResetDbaasOpensearchUserPasswordRequest.md
 docs/ResetInstanceRequest.md
 docs/ResizeBlockStorageVolumeRequest.md
 docs/ResizeInstanceDiskRequest.md
@@ -313,6 +314,7 @@ docs/UpdateSksClusterRequest.md
 docs/UpdateSksNodepoolRequest.md
 docs/UpdateTemplateRequest.md
 docs/UpgradeSksClusterRequest.md
+docs/User.md
 docs/WriteAheadLogWALSettings.md
 docs/Zone.md
 docs/ZoneName.md
@@ -440,6 +442,7 @@ src/main/java/com/exoscale/exoscale4j/model/DbaasServiceType.java
 src/main/java/com/exoscale/exoscale4j/model/DbaasServiceUpdate.java
 src/main/java/com/exoscale/exoscale4j/model/DbaasTask.java
 src/main/java/com/exoscale/exoscale4j/model/DbaasTaskResultCodesInner.java
+src/main/java/com/exoscale/exoscale4j/model/DbaasUserGrafanaSecrets.java
 src/main/java/com/exoscale/exoscale4j/model/DbaasUserKafkaSecrets.java
 src/main/java/com/exoscale/exoscale4j/model/DbaasUserMysqlSecrets.java
 src/main/java/com/exoscale/exoscale4j/model/DbaasUserOpensearchSecrets.java
@@ -582,8 +585,8 @@ src/main/java/com/exoscale/exoscale4j/model/Quota.java
 src/main/java/com/exoscale/exoscale4j/model/RegisterSshKeyRequest.java
 src/main/java/com/exoscale/exoscale4j/model/RegisterTemplateRequest.java
 src/main/java/com/exoscale/exoscale4j/model/RemoveExternalSourceFromSecurityGroupRequest.java
+src/main/java/com/exoscale/exoscale4j/model/ResetDbaasGrafanaUserPasswordRequest.java
 src/main/java/com/exoscale/exoscale4j/model/ResetDbaasMysqlUserPasswordRequest.java
-src/main/java/com/exoscale/exoscale4j/model/ResetDbaasOpensearchUserPasswordRequest.java
 src/main/java/com/exoscale/exoscale4j/model/ResetInstanceRequest.java
 src/main/java/com/exoscale/exoscale4j/model/ResizeBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/exoscale4j/model/ResizeInstanceDiskRequest.java
@@ -642,6 +645,7 @@ src/main/java/com/exoscale/exoscale4j/model/UpdateSksClusterRequest.java
 src/main/java/com/exoscale/exoscale4j/model/UpdateSksNodepoolRequest.java
 src/main/java/com/exoscale/exoscale4j/model/UpdateTemplateRequest.java
 src/main/java/com/exoscale/exoscale4j/model/UpgradeSksClusterRequest.java
+src/main/java/com/exoscale/exoscale4j/model/User.java
 src/main/java/com/exoscale/exoscale4j/model/WriteAheadLogWALSettings.java
 src/main/java/com/exoscale/exoscale4j/model/Zone.java
 src/main/java/com/exoscale/exoscale4j/model/ZoneName.java
@@ -750,6 +754,7 @@ src/test/java/com/exoscale/exoscale4j/model/DbaasServiceTypeTest.java
 src/test/java/com/exoscale/exoscale4j/model/DbaasServiceUpdateTest.java
 src/test/java/com/exoscale/exoscale4j/model/DbaasTaskResultCodesInnerTest.java
 src/test/java/com/exoscale/exoscale4j/model/DbaasTaskTest.java
+src/test/java/com/exoscale/exoscale4j/model/DbaasUserGrafanaSecretsTest.java
 src/test/java/com/exoscale/exoscale4j/model/DbaasUserKafkaSecretsTest.java
 src/test/java/com/exoscale/exoscale4j/model/DbaasUserMysqlSecretsTest.java
 src/test/java/com/exoscale/exoscale4j/model/DbaasUserOpensearchSecretsTest.java
@@ -892,8 +897,8 @@ src/test/java/com/exoscale/exoscale4j/model/QuotaTest.java
 src/test/java/com/exoscale/exoscale4j/model/RegisterSshKeyRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/RegisterTemplateRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/RemoveExternalSourceFromSecurityGroupRequestTest.java
+src/test/java/com/exoscale/exoscale4j/model/ResetDbaasGrafanaUserPasswordRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/ResetDbaasMysqlUserPasswordRequestTest.java
-src/test/java/com/exoscale/exoscale4j/model/ResetDbaasOpensearchUserPasswordRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/ResetInstanceRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/ResizeBlockStorageVolumeRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/ResizeInstanceDiskRequestTest.java
@@ -952,6 +957,7 @@ src/test/java/com/exoscale/exoscale4j/model/UpdateSksClusterRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/UpdateSksNodepoolRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/UpdateTemplateRequestTest.java
 src/test/java/com/exoscale/exoscale4j/model/UpgradeSksClusterRequestTest.java
+src/test/java/com/exoscale/exoscale4j/model/UserTest.java
 src/test/java/com/exoscale/exoscale4j/model/WriteAheadLogWALSettingsTest.java
 src/test/java/com/exoscale/exoscale4j/model/ZoneNameTest.java
 src/test/java/com/exoscale/exoscale4j/model/ZoneTest.java

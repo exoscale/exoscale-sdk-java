@@ -1,6 +1,6 @@
 
 
-# ResetDbaasOpensearchUserPasswordRequest
+# ResetDbaasGrafanaUserPasswordRequest
 
 
 ## Properties

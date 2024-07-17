@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDbaasPgDatabaseRequest.JSON_PROPERTY_LC_COLLATE,
   CreateDbaasPgDatabaseRequest.JSON_PROPERTY_LC_CTYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:12:55.204771Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateDbaasPgDatabaseRequest {
   public static final String JSON_PROPERTY_DATABASE_NAME = "database-name";
   private String databaseName;

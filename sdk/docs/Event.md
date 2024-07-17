@@ -8,6 +8,7 @@ A notable Mutation Event which happened on the infrastructure
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**iamUser** | [**User**](User.md) |  |  [optional] |
 |**requestId** | **String** | Operation unique identifier |  [optional] |
 |**iamRole** | [**IamRole**](IamRole.md) |  |  [optional] |
 |**zone** | **String** | Operation targeted zone |  [optional] |

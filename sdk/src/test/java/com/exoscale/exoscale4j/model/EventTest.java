@@ -15,6 +15,7 @@ package com.exoscale.exoscale4j.model;
 
 import com.exoscale.exoscale4j.model.IamApiKey;
 import com.exoscale.exoscale4j.model.IamRole;
+import com.exoscale.exoscale4j.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,6 +39,14 @@ public class EventTest {
     @Test
     public void testEvent() {
         // TODO: test Event
+    }
+
+    /**
+     * Test the property 'iamUser'
+     */
+    @Test
+    public void iamUserTest() {
+        // TODO: test iamUser
     }
 
     /**

@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.exoscale4j.model.IamApiKey;
 import com.exoscale.exoscale4j.model.IamRole;
+import com.exoscale.exoscale4j.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * A notable Mutation Event which happened on the infrastructure
  */
 @JsonPropertyOrder({
+  Event.JSON_PROPERTY_IAM_USER,
   Event.JSON_PROPERTY_REQUEST_ID,
   Event.JSON_PROPERTY_IAM_ROLE,
   Event.JSON_PROPERTY_ZONE,
@@ -50,8 +52,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Event.JSON_PROPERTY_HANDLER,
   Event.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T16:12:55.204771Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class Event {
+  public static final String JSON_PROPERTY_IAM_USER = "iam-user";
+  private User iamUser;
+
   public static final String JSON_PROPERTY_REQUEST_ID = "request-id";
   private String requestId;
 
@@ -96,6 +101,31 @@ public class Event {
 
   public Event() { 
   }
+
+  public Event iamUser(User iamUser) {
+    this.iamUser = iamUser;
+    return this;
+  }
+
+   /**
+   * Get iamUser
+   * @return iamUser
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IAM_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public User getIamUser() {
+    return iamUser;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IAM_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIamUser(User iamUser) {
+    this.iamUser = iamUser;
+  }
+
 
   public Event requestId(String requestId) {
     this.requestId = requestId;
@@ -461,7 +491,8 @@ public class Event {
       return false;
     }
     Event event = (Event) o;
-    return Objects.equals(this.requestId, event.requestId) &&
+    return Objects.equals(this.iamUser, event.iamUser) &&
+        Objects.equals(this.requestId, event.requestId) &&
         Objects.equals(this.iamRole, event.iamRole) &&
         Objects.equals(this.zone, event.zone) &&
         Objects.equals(this.getParams, event.getParams) &&
@@ -479,13 +510,14 @@ public class Event {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, iamRole, zone, getParams, bodyParams, status, sourceIp, iamApiKey, uri, elapsedMs, timestamp, pathParams, handler, message);
+    return Objects.hash(iamUser, requestId, iamRole, zone, getParams, bodyParams, status, sourceIp, iamApiKey, uri, elapsedMs, timestamp, pathParams, handler, message);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Event {\n");
+    sb.append("    iamUser: ").append(toIndentedString(iamUser)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    iamRole: ").append(toIndentedString(iamRole)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
@@ -546,6 +578,11 @@ public class Event {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `iam-user` to the URL query string
+    if (getIamUser() != null) {
+      joiner.add(getIamUser().toUrlQueryString(prefix + "iam-user" + suffix));
+    }
 
     // add `request-id` to the URL query string
     if (getRequestId() != null) {
