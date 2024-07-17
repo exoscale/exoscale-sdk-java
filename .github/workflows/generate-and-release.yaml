@@ -1,0 +1,55 @@
+name: Generate SDK and Release
+
+on:
+  push:
+    branches:
+      - test-workflow
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'  # At :00 every hour
+
+jobs:
+  generate-and-release-sdk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install xmlstarlet
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+
+      - name: Increment artifactVersion
+        id: increment_version
+        run: |
+          current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
+          echo "Current version: $current_version"
+          IFS='.-' read -r -a parts <<< "$current_version"
+          new_patch=$((parts[2] + 1))
+          new_version="${parts[0]}.${parts[1]}.$new_patch-${parts[3]}"
+          echo "New version: $new_version"
+          xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$new_version" pom.xml
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "Updated version to $new_version"
+
+      - name: Generate SDK sources
+        run: mvn generate-sources
+
+      - name: Compile and install SDK
+        run: |
+          cd sdk
+          mvn install
+
+      - name: Commit changes
+        run: |
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add pom.xml
+          git commit -m "Release ${new_version}"
+          git push origin main
+
+      - name: Create release tag
+        run: |
+          new_version=${{ env.new_version }}
+          git tag -a v${new_version} -m "Release ${new_version}"
+          git push origin v${new_version}
