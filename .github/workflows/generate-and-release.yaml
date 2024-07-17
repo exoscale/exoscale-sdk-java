@@ -3,7 +3,7 @@ name: Generate SDK and Release
 on:
   push:
     branches:
-      - test
+      - test-workflow
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'  # At :00 every hour
