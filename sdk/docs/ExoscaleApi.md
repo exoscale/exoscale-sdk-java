@@ -364,6 +364,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**removeExternalSourceFromSecurityGroupWithHttpInfo**](ExoscaleApi.md#removeExternalSourceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
 | [**removeInstanceProtection**](ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
 | [**removeInstanceProtectionWithHttpInfo**](ExoscaleApi.md#removeInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
+| [**resetDbaasGrafanaUserPassword**](ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
+| [**resetDbaasGrafanaUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasGrafanaUserPasswordWithHttpInfo) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
 | [**resetDbaasKafkaUserPassword**](ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasKafkaUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasKafkaUserPasswordWithHttpInfo) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasMysqlUserPassword**](ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
@@ -398,6 +400,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resizeBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#resizeBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
 | [**resizeInstanceDisk**](ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
 | [**resizeInstanceDiskWithHttpInfo**](ExoscaleApi.md#resizeInstanceDiskWithHttpInfo) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
+| [**revealDbaasGrafanaUserPassword**](ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
+| [**revealDbaasGrafanaUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasGrafanaUserPasswordWithHttpInfo) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
 | [**revealDbaasKafkaUserPassword**](ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
 | [**revealDbaasKafkaUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasKafkaUserPasswordWithHttpInfo) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
 | [**revealDbaasMysqlUserPassword**](ExoscaleApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user |
@@ -24527,9 +24531,151 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## resetDbaasGrafanaUserPassword
+
+> Operation resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+
+Reset the credentials of a DBaaS Grafana user
+
+If no password is provided one will be generated automatically.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.exoscale4j.client.ApiClient;
+import com.exoscale.exoscale4j.client.ApiException;
+import com.exoscale.exoscale4j.client.Configuration;
+import com.exoscale.exoscale4j.client.models.*;
+import com.exoscale.exoscale4j.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        try {
+            Operation result = apiInstance.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#resetDbaasGrafanaUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## resetDbaasGrafanaUserPasswordWithHttpInfo
+
+> ApiResponse<Operation> resetDbaasGrafanaUserPassword resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+
+Reset the credentials of a DBaaS Grafana user
+
+If no password is provided one will be generated automatically.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.exoscale4j.client.ApiClient;
+import com.exoscale.exoscale4j.client.ApiException;
+import com.exoscale.exoscale4j.client.ApiResponse;
+import com.exoscale.exoscale4j.client.Configuration;
+import com.exoscale.exoscale4j.client.models.*;
+import com.exoscale.exoscale4j.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#resetDbaasGrafanaUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## resetDbaasKafkaUserPassword
 
-> Operation resetDbaasKafkaUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> Operation resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS Kafka user
 
@@ -24553,9 +24699,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            Operation result = apiInstance.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            Operation result = apiInstance.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasKafkaUserPassword");
@@ -24575,7 +24721,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -24598,7 +24744,7 @@ No authorization required
 
 ## resetDbaasKafkaUserPasswordWithHttpInfo
 
-> ApiResponse<Operation> resetDbaasKafkaUserPassword resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> ApiResponse<Operation> resetDbaasKafkaUserPassword resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS Kafka user
 
@@ -24623,9 +24769,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            ApiResponse<Operation> response = apiInstance.resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -24647,7 +24793,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -24813,7 +24959,7 @@ No authorization required
 
 ## resetDbaasOpensearchUserPassword
 
-> Operation resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> Operation resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS OpenSearch user
 
@@ -24837,9 +24983,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            Operation result = apiInstance.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            Operation result = apiInstance.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasOpensearchUserPassword");
@@ -24859,7 +25005,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -24882,7 +25028,7 @@ No authorization required
 
 ## resetDbaasOpensearchUserPasswordWithHttpInfo
 
-> ApiResponse<Operation> resetDbaasOpensearchUserPassword resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> ApiResponse<Operation> resetDbaasOpensearchUserPassword resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS OpenSearch user
 
@@ -24907,9 +25053,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            ApiResponse<Operation> response = apiInstance.resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -24931,7 +25077,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -24955,7 +25101,7 @@ No authorization required
 
 ## resetDbaasPostgresUserPassword
 
-> Operation resetDbaasPostgresUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> Operation resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS Postgres user
 
@@ -24979,9 +25125,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            Operation result = apiInstance.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            Operation result = apiInstance.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasPostgresUserPassword");
@@ -25001,7 +25147,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -25024,7 +25170,7 @@ No authorization required
 
 ## resetDbaasPostgresUserPasswordWithHttpInfo
 
-> ApiResponse<Operation> resetDbaasPostgresUserPassword resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> ApiResponse<Operation> resetDbaasPostgresUserPassword resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS Postgres user
 
@@ -25049,9 +25195,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            ApiResponse<Operation> response = apiInstance.resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -25073,7 +25219,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -25097,7 +25243,7 @@ No authorization required
 
 ## resetDbaasRedisUserPassword
 
-> Operation resetDbaasRedisUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> Operation resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS Redis user
 
@@ -25121,9 +25267,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            Operation result = apiInstance.resetDbaasRedisUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            Operation result = apiInstance.resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasRedisUserPassword");
@@ -25143,7 +25289,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -25166,7 +25312,7 @@ No authorization required
 
 ## resetDbaasRedisUserPasswordWithHttpInfo
 
-> ApiResponse<Operation> resetDbaasRedisUserPassword resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest)
+> ApiResponse<Operation> resetDbaasRedisUserPassword resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
 
 Reset the credentials of a DBaaS Redis user
 
@@ -25191,9 +25337,9 @@ public class Example {
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = new ResetDbaasOpensearchUserPasswordRequest(); // ResetDbaasOpensearchUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
         try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+            ApiResponse<Operation> response = apiInstance.resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println("Status code: " + response.getStatusCode());
             System.out.println("Response headers: " + response.getHeaders());
             System.out.println("Response body: " + response.getData());
@@ -25215,7 +25361,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasOpensearchUserPasswordRequest** | [**ResetDbaasOpensearchUserPasswordRequest**](ResetDbaasOpensearchUserPasswordRequest.md)|  | |
+| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -26889,6 +27035,140 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## revealDbaasGrafanaUserPassword
+
+> DbaasUserGrafanaSecrets revealDbaasGrafanaUserPassword(serviceName, username)
+
+Reveal the secrets of a DBaaS Grafana user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.exoscale4j.client.ApiClient;
+import com.exoscale.exoscale4j.client.ApiException;
+import com.exoscale.exoscale4j.client.Configuration;
+import com.exoscale.exoscale4j.client.models.*;
+import com.exoscale.exoscale4j.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        try {
+            DbaasUserGrafanaSecrets result = apiInstance.revealDbaasGrafanaUserPassword(serviceName, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revealDbaasGrafanaUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+[**DbaasUserGrafanaSecrets**](DbaasUserGrafanaSecrets.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## revealDbaasGrafanaUserPasswordWithHttpInfo
+
+> ApiResponse<DbaasUserGrafanaSecrets> revealDbaasGrafanaUserPassword revealDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username)
+
+Reveal the secrets of a DBaaS Grafana user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.exoscale4j.client.ApiClient;
+import com.exoscale.exoscale4j.client.ApiException;
+import com.exoscale.exoscale4j.client.ApiResponse;
+import com.exoscale.exoscale4j.client.Configuration;
+import com.exoscale.exoscale4j.client.models.*;
+import com.exoscale.exoscale4j.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        try {
+            ApiResponse<DbaasUserGrafanaSecrets> response = apiInstance.revealDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revealDbaasGrafanaUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasUserGrafanaSecrets**](DbaasUserGrafanaSecrets.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details

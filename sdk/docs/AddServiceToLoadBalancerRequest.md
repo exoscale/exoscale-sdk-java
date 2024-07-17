@@ -32,6 +32,7 @@
 | Name | Value |
 |---- | -----|
 | ROUND_ROBIN | &quot;round-robin&quot; |
+| MAGLEV_HASH | &quot;maglev-hash&quot; |
 | SOURCE_HASH | &quot;source-hash&quot; |
 
 

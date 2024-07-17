@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetDbaasServiceLogsRequest.JSON_PROPERTY_SORT_ORDER,
   GetDbaasServiceLogsRequest.JSON_PROPERTY_OFFSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class GetDbaasServiceLogsRequest {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;

@@ -7,7 +7,7 @@ Exoscale Public API
 
 - API version: 2.0.0
 
-- Build date: 2024-06-10T11:13:25.453512+02:00[Europe/Vienna]
+- Build date: 2024-07-17T17:28:20.527227Z[Etc/UTC]
 
 
 - Generator version: 7.4.0
@@ -39,7 +39,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.exoscale4j</groupId>
     <artifactId>exoscale4j</artifactId>
-    <version>0.0.1-ALPHA</version>
+    <version>0.0.2-ALPHA</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ url "url_to_your_maven_repository"
 
 
 dependencies {
-implementation 'com.exoscale.exoscale4j:exoscale4j:0.0.1-ALPHA'
+implementation 'com.exoscale.exoscale4j:exoscale4j:0.0.2-ALPHA'
 }
 ```
 
@@ -69,7 +69,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- target/exoscale4j-0.0.1-ALPHA.jar
+- target/exoscale4j-0.0.2-ALPHA.jar
 - target/lib/*.jar
 
 ## Getting Started
@@ -462,6 +462,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**removeExternalSourceFromSecurityGroupWithHttpInfo**](docs/ExoscaleApi.md#removeExternalSourceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
 *ExoscaleApi* | [**removeInstanceProtection**](docs/ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
 *ExoscaleApi* | [**removeInstanceProtectionWithHttpInfo**](docs/ExoscaleApi.md#removeInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
+*ExoscaleApi* | [**resetDbaasGrafanaUserPassword**](docs/ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user
+*ExoscaleApi* | [**resetDbaasGrafanaUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasGrafanaUserPasswordWithHttpInfo) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user
 *ExoscaleApi* | [**resetDbaasKafkaUserPassword**](docs/ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
 *ExoscaleApi* | [**resetDbaasKafkaUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#resetDbaasKafkaUserPasswordWithHttpInfo) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
 *ExoscaleApi* | [**resetDbaasMysqlUserPassword**](docs/ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
@@ -496,6 +498,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resizeBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#resizeBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
 *ExoscaleApi* | [**resizeInstanceDisk**](docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
 *ExoscaleApi* | [**resizeInstanceDiskWithHttpInfo**](docs/ExoscaleApi.md#resizeInstanceDiskWithHttpInfo) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
+*ExoscaleApi* | [**revealDbaasGrafanaUserPassword**](docs/ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
+*ExoscaleApi* | [**revealDbaasGrafanaUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasGrafanaUserPasswordWithHttpInfo) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
 *ExoscaleApi* | [**revealDbaasKafkaUserPassword**](docs/ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
 *ExoscaleApi* | [**revealDbaasKafkaUserPasswordWithHttpInfo**](docs/ExoscaleApi.md#revealDbaasKafkaUserPasswordWithHttpInfo) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
 *ExoscaleApi* | [**revealDbaasMysqlUserPassword**](docs/ExoscaleApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user
@@ -710,6 +714,7 @@ Class | Method | HTTP request | Description
  - [DbaasServiceUpdate](docs/DbaasServiceUpdate.md)
  - [DbaasTask](docs/DbaasTask.md)
  - [DbaasTaskResultCodesInner](docs/DbaasTaskResultCodesInner.md)
+ - [DbaasUserGrafanaSecrets](docs/DbaasUserGrafanaSecrets.md)
  - [DbaasUserKafkaSecrets](docs/DbaasUserKafkaSecrets.md)
  - [DbaasUserMysqlSecrets](docs/DbaasUserMysqlSecrets.md)
  - [DbaasUserOpensearchSecrets](docs/DbaasUserOpensearchSecrets.md)
@@ -852,8 +857,8 @@ Class | Method | HTTP request | Description
  - [RegisterSshKeyRequest](docs/RegisterSshKeyRequest.md)
  - [RegisterTemplateRequest](docs/RegisterTemplateRequest.md)
  - [RemoveExternalSourceFromSecurityGroupRequest](docs/RemoveExternalSourceFromSecurityGroupRequest.md)
+ - [ResetDbaasGrafanaUserPasswordRequest](docs/ResetDbaasGrafanaUserPasswordRequest.md)
  - [ResetDbaasMysqlUserPasswordRequest](docs/ResetDbaasMysqlUserPasswordRequest.md)
- - [ResetDbaasOpensearchUserPasswordRequest](docs/ResetDbaasOpensearchUserPasswordRequest.md)
  - [ResetInstanceRequest](docs/ResetInstanceRequest.md)
  - [ResizeBlockStorageVolumeRequest](docs/ResizeBlockStorageVolumeRequest.md)
  - [ResizeInstanceDiskRequest](docs/ResizeInstanceDiskRequest.md)
@@ -912,6 +917,7 @@ Class | Method | HTTP request | Description
  - [UpdateSksNodepoolRequest](docs/UpdateSksNodepoolRequest.md)
  - [UpdateTemplateRequest](docs/UpdateTemplateRequest.md)
  - [UpgradeSksClusterRequest](docs/UpgradeSksClusterRequest.md)
+ - [User](docs/User.md)
  - [WriteAheadLogWALSettings](docs/WriteAheadLogWALSettings.md)
  - [Zone](docs/Zone.md)
  - [ZoneName](docs/ZoneName.md)

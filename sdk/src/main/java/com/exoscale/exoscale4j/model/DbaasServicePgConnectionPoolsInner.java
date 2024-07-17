@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServicePgConnectionPoolsInner.JSON_PROPERTY_SIZE,
   DbaasServicePgConnectionPoolsInner.JSON_PROPERTY_USERNAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasServicePgConnectionPoolsInner {
   public static final String JSON_PROPERTY_CONNECTION_URI = "connection-uri";
   private String connectionUri;

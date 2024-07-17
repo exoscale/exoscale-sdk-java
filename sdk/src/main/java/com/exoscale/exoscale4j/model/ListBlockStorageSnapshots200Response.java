@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ListBlockStorageSnapshots200Response.JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ListBlockStorageSnapshots200Response {
   public static final String JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS = "block-storage-snapshots";
   private List<BlockStorageSnapshot> blockStorageSnapshots;

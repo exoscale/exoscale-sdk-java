@@ -53,7 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceCommon.JSON_PROPERTY_CREATED_AT,
   DbaasServiceCommon.JSON_PROPERTY_PLAN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasServiceCommon {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
