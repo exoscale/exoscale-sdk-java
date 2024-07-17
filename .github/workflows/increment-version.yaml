@@ -3,7 +3,7 @@ name: Increment Version in pom.xml
 on:
   push:
     branches:
-      - test-workflow
+      - main
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'  # At :00 every hour
