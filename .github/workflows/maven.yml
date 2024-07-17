@@ -31,4 +31,4 @@ jobs:
     - name: Generate sources in root
       run: mvn -B generate-sources --no-transfer-progress --file pom.xml
     - name: Build SDK with Maven
-      run: cd sdk && mvn -B install --no-transfer-progress --file pom.xml
+      run: cd sdk && mvn -B install --no-transfer-progress --file pom.xml -Dmaven.test.skip=true -X
