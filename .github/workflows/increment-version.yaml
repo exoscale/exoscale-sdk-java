@@ -19,19 +19,15 @@ jobs:
       - name: Install xmlstarlet
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
-      - name: Print pom.xml
-        run: cat pom.xml
-
       - name: Increment artifactVersion
         run: |
-          set -e
-          current_version=$(xmlstarlet sel -t -v "//artifactVersion" pom.xml)
+          current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
           echo "Current version: $current_version"
           IFS='.-' read -r -a parts <<< "$current_version"
           new_patch=$((parts[2] + 1))
           new_version="${parts[0]}.${parts[1]}.$new_patch-${parts[3]}"
           echo "New version: $new_version"
-          xmlstarlet ed --inplace --update "//artifactVersion" --value "$new_version" pom.xml
+          xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$new_version" pom.xml
           echo "Updated version to $new_version"
 
       - name: Commit changes
