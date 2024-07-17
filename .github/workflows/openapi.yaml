@@ -1,0 +1,29 @@
+name: Update bundled OpenAPI definition
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'  # At :00 every hour
+
+jobs:
+  update-openapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch latest OpenAPI definition
+        shell: bash
+        run: |
+          curl https://openapi-v2.exoscale.com/source.yaml -o sdk/api/openapi.yaml
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add sdk/api/openapi.yaml
+          timestamp=$(date -u)
+          git commit -m "OpenAPI spec update: ${timestamp}" || exit 0
+          git push
