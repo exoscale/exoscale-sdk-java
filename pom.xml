@@ -39,8 +39,8 @@
                 <scmUrl>https://github.com/exoscale/exoscale4j</scmUrl>
                 <licenseName>Apache License Version 2.0</licenseName>
                 <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
-                <developerName>Giza</developerName>
-                <developerEmail>giza@exoscale.com</developerEmail>
+                <developerName>Exoscale</developerName>
+                <developerEmail>support@exoscale.ch</developerEmail>
                 <developerOrganization>Exoscale</developerOrganization>
                 <developerOrganizationUrl>https://www.exoscale.com</developerOrganizationUrl>
               </configOptions>
