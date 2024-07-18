@@ -1,11 +1,6 @@
 name: Generate SDK and Release
 
 on:
-  push:
-    branches:
-      - Automise-release-process  # to be changed into main after merge
-    paths:
-      - 'sdk/api/openapi.yaml'
   workflow_dispatch:
 
 
