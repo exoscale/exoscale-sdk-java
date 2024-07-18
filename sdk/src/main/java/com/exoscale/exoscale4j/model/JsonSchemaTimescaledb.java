@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   JsonSchemaTimescaledb.JSON_PROPERTY_MAX_BACKGROUND_WORKERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T11:55:07.035952Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class JsonSchemaTimescaledb {
   public static final String JSON_PROPERTY_MAX_BACKGROUND_WORKERS = "max_background_workers";
   private Integer maxBackgroundWorkers = 16;

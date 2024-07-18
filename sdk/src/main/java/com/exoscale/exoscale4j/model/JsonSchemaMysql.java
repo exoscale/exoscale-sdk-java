@@ -68,7 +68,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaMysql.JSON_PROPERTY_DEFAULT_TIME_ZONE,
   JsonSchemaMysql.JSON_PROPERTY_LONG_QUERY_TIME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T11:55:07.035952Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_NET_WRITE_TIMEOUT = "net_write_timeout";
   private Integer netWriteTimeout;

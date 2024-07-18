@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ListSosBucketsUsage200Response.JSON_PROPERTY_SOS_BUCKETS_USAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T11:55:07.035952Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ListSosBucketsUsage200Response {
   public static final String JSON_PROPERTY_SOS_BUCKETS_USAGE = "sos-buckets-usage";
   private List<SosBucketUsage> sosBucketsUsage;

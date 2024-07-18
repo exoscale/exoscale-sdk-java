@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksOidc.JSON_PROPERTY_GROUPS_PREFIX,
   SksOidc.JSON_PROPERTY_REQUIRED_CLAIM
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T11:55:07.035952Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class SksOidc {
   public static final String JSON_PROPERTY_CLIENT_ID = "client-id";
   private String clientId;

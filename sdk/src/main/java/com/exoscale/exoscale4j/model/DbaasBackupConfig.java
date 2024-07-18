@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasBackupConfig.JSON_PROPERTY_INFREQUENT_INTERVAL_MINUTES,
   DbaasBackupConfig.JSON_PROPERTY_INFREQUENT_OLDEST_AGE_MINUTES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-17T17:28:20.527227Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T11:55:07.035952Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasBackupConfig {
   public static final String JSON_PROPERTY_MAX_COUNT = "max-count";
   private Long maxCount;
