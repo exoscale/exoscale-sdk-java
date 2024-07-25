@@ -1,8 +1,6 @@
 name: Update bundled OpenAPI definition and generate SDK
 
 on:
-  schedule:
-    - cron: '35 11 * * *'  
   workflow_dispatch:
 
 jobs:
