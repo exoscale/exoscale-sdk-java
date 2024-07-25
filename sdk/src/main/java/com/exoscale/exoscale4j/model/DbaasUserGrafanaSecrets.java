@@ -29,26 +29,55 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * ResetDbaasOpensearchUserPasswordRequest
+ * Grafana User secrets
  */
 @JsonPropertyOrder({
-  ResetDbaasOpensearchUserPasswordRequest.JSON_PROPERTY_PASSWORD
+  DbaasUserGrafanaSecrets.JSON_PROPERTY_USERNAME,
+  DbaasUserGrafanaSecrets.JSON_PROPERTY_PASSWORD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
-public class ResetDbaasOpensearchUserPasswordRequest {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+public class DbaasUserGrafanaSecrets {
+  public static final String JSON_PROPERTY_USERNAME = "username";
+  private String username;
+
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
-  public ResetDbaasOpensearchUserPasswordRequest() { 
+  public DbaasUserGrafanaSecrets() { 
   }
 
-  public ResetDbaasOpensearchUserPasswordRequest password(String password) {
+  public DbaasUserGrafanaSecrets username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Grafana username
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
+  public DbaasUserGrafanaSecrets password(String password) {
     this.password = password;
     return this;
   }
 
    /**
-   * Get password
+   * Grafana password
    * @return password
   **/
   @javax.annotation.Nullable
@@ -68,7 +97,7 @@ public class ResetDbaasOpensearchUserPasswordRequest {
 
 
   /**
-   * Return true if this reset_dbaas_opensearch_user_password_request object is equal to o.
+   * Return true if this dbaas-user-grafana-secrets object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,19 +107,21 @@ public class ResetDbaasOpensearchUserPasswordRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = (ResetDbaasOpensearchUserPasswordRequest) o;
-    return Objects.equals(this.password, resetDbaasOpensearchUserPasswordRequest.password);
+    DbaasUserGrafanaSecrets dbaasUserGrafanaSecrets = (DbaasUserGrafanaSecrets) o;
+    return Objects.equals(this.username, dbaasUserGrafanaSecrets.username) &&
+        Objects.equals(this.password, dbaasUserGrafanaSecrets.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password);
+    return Objects.hash(username, password);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResetDbaasOpensearchUserPasswordRequest {\n");
+    sb.append("class DbaasUserGrafanaSecrets {\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -138,6 +169,11 @@ public class ResetDbaasOpensearchUserPasswordRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `username` to the URL query string
+    if (getUsername() != null) {
+      joiner.add(String.format("%susername%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsername()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `password` to the URL query string
     if (getPassword() != null) {

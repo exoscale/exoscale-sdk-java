@@ -52,6 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   SksNodepool.JSON_PROPERTY_ANTI_AFFINITY_GROUPS,
   SksNodepool.JSON_PROPERTY_DESCRIPTION,
+  SksNodepool.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
   SksNodepool.JSON_PROPERTY_LABELS,
   SksNodepool.JSON_PROPERTY_TAINTS,
   SksNodepool.JSON_PROPERTY_SECURITY_GROUPS,
@@ -71,13 +72,51 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksNodepool.JSON_PROPERTY_VERSION,
   SksNodepool.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class SksNodepool {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private List<AntiAffinityGroup> antiAffinityGroups;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /**
+   * Nodepool public IP assignment of the Instances:  * IPv4 (&#x60;inet4&#x60;) addressing only; * IPv4 and IPv6 (&#x60;dual&#x60;) addressing.
+   */
+  public enum PublicIpAssignmentEnum {
+    INET4("inet4"),
+    
+    DUAL("dual");
+
+    private String value;
+
+    PublicIpAssignmentEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PublicIpAssignmentEnum fromValue(String value) {
+      for (PublicIpAssignmentEnum b : PublicIpAssignmentEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT = "public-ip-assignment";
+  private PublicIpAssignmentEnum publicIpAssignment;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
@@ -283,6 +322,31 @@ public class SksNodepool {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public SksNodepool publicIpAssignment(PublicIpAssignmentEnum publicIpAssignment) {
+    this.publicIpAssignment = publicIpAssignment;
+    return this;
+  }
+
+   /**
+   * Nodepool public IP assignment of the Instances:  * IPv4 (&#x60;inet4&#x60;) addressing only; * IPv4 and IPv6 (&#x60;dual&#x60;) addressing.
+   * @return publicIpAssignment
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PublicIpAssignmentEnum getPublicIpAssignment() {
+    return publicIpAssignment;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPublicIpAssignment(PublicIpAssignmentEnum publicIpAssignment) {
+    this.publicIpAssignment = publicIpAssignment;
   }
 
 
@@ -754,6 +818,7 @@ public class SksNodepool {
     SksNodepool sksNodepool = (SksNodepool) o;
     return Objects.equals(this.antiAffinityGroups, sksNodepool.antiAffinityGroups) &&
         Objects.equals(this.description, sksNodepool.description) &&
+        Objects.equals(this.publicIpAssignment, sksNodepool.publicIpAssignment) &&
         Objects.equals(this.labels, sksNodepool.labels) &&
         Objects.equals(this.taints, sksNodepool.taints) &&
         Objects.equals(this.securityGroups, sksNodepool.securityGroups) &&
@@ -776,7 +841,7 @@ public class SksNodepool {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, addons, id, diskSize, version, createdAt);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, addons, id, diskSize, version, createdAt);
   }
 
   @Override
@@ -785,6 +850,7 @@ public class SksNodepool {
     sb.append("class SksNodepool {\n");
     sb.append("    antiAffinityGroups: ").append(toIndentedString(antiAffinityGroups)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("    securityGroups: ").append(toIndentedString(securityGroups)).append("\n");
@@ -863,6 +929,11 @@ public class SksNodepool {
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `public-ip-assignment` to the URL query string
+    if (getPublicIpAssignment() != null) {
+      joiner.add(String.format("%spublic-ip-assignment%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPublicIpAssignment()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `labels` to the URL query string

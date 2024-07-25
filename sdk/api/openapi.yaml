@@ -29,115 +29,98 @@ servers:
       - at-vie-2
       - bg-sof-1
 tags:
-- description: |2-
-
-    Security Groups are groups of firewall rules that regulate network traffic to and from your Compute instances.
-
-    [Read more](https://community.exoscale.com/documentation/compute/security-groups/)
+- description: |-
+    Security Groups are groups of firewall rules that regulate
+                       network traffic to and from your Compute instances.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/documentation/compute/security-groups/
   name: security-groups
-- description: |2-
-
-    An Instance Type is a resource describing the amount of CPU, RAM and eventually GPUs your Compute instance will run on.
-
-    [Read more](https://www.exoscale.com/pricing/)
+- description: |-
+    An Instance Type is a resource describing the amount of
+                       CPU, RAM and eventually GPUs your Compute instance will run on.
   externalDocs:
     description: Read more
     url: https://www.exoscale.com/pricing/
   name: instance-types
-- description: |2
-
-    A Network Load Balancer (NLB) is a Layer 4 (TCP/UDP) load balancer that distributes incoming traffic to Compute instances managed by an Instance Pool.
-
-    [Read more](https://community.exoscale.com/documentation/compute/network-load-balancer/)
+- description: |-
+    A Network Load Balancer (NLB) is a Layer 4 (TCP/UDP)
+                       load balancer that distributes incoming traffic to Compute
+                       instances managed by an Instance Pool.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/documentation/compute/network-load-balancer/
   name: network-load-balancer
-- description: |2-
-
-    Instance Pools is an Exoscale service allowing users to provision managed groups of identical Compute instances automatically.
-
-    [Read more](https://community.exoscale.com/documentation/compute/instance-pools/)
+- description: |-
+    Instance Pools is an Exoscale service allowing users
+                       to provision managed groups of identical Compute
+                       instances automatically.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/documentation/compute/instance-pools/
   name: instance-pools
-- description: |2-
-
-    Events form the basis of the Exoscale audit-trail, a mechanism to query past events
-    performing mutations on resources which happened on an organization
+- description: |-
+    Events form the basis of the Exoscale audit-trail, a mechanism
+                       to query past events performing mutations on resources
+                       which happened on an organization.
   externalDocs:
     description: Read more
     url: https://www.exoscale.com/support/
   name: event
-- description: |2-
-
-    Instances are the virtual machines at the core of the Exoscale Compute service.
+- description: |-
+    Instances are the virtual machines at the core of the Exoscale
+                       Compute service.
   externalDocs:
     description: Read more
     url: https://www.exoscale.com/compute/
   name: instances
-- description: |2-
-
-    Exoscale's Block Storage offers persistent
-    externally attached volumes for your workloads.
+- description: |-
+    Exoscale's Block Storage offers persistent externally
+                       attached volumes for your workloads.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/
+    url: https://community.exoscale.com/documentation/block-storage/
   name: block-storage
-- description: |2-
-
-    Snapshots provide a way to get point-in-time recovery for your Compute instance.
-
-    [Read more](https://community.exoscale.com/documentation/compute/snapshots/)
+- description: |-
+    Snapshots provide a way to get point-in-time recovery
+                       for your Compute instance.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/documentation/compute/snapshots/
   name: snapshots
-- description: |2-
-
-    A Zone represents an independent datacenter in which Exoscale infrastructure is deployed into.
-
-    [Read more](https://www.exoscale.com/datacenters/)
+- description: |-
+    A Zone represents an independent datacenter in which Exoscale
+                       infrastructure is deployed into.
   externalDocs:
     description: Read more
     url: https://www.exoscale.com/datacenters/
   name: zones
-- description: |2-
-
-    SSH Keypairs
-
-    [Read more](https://community.exoscale.com/documentation/compute/ssh-keypairs/)
+- description: SSH Keypairs
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/documentation/compute/ssh-keypairs/
   name: ssh-keypair
-- description: |2-
-
-    Operations describe the current state of an asynchronous operation.
+- description: |-
+    Operations describe the current state of an asynchronous
+                       operation.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/
   name: operations
-- description: |2-
-
-    Templates contain the OS and the initial setup of a Compute instance.
+- description: |-
+    Templates contain the OS and the initial setup of a
+                       Compute instance.
   externalDocs:
     description: Read more
     url: https://www.exoscale.com/templates/
   name: templates
-- description: |2-
-
-    SKS is Exoscale's scalable Kubernetes service which provides managed Kubernetes
-    control planes with integrated support for Exoscale instance pools ands network load
-    balancers.
-    [Read more](https://www.exoscale.com/scalable-kubernetes-service/)
+- description: |-
+    SKS is Exoscale's scalable Kubernetes service which provides
+                       managed Kubernetes control planes with integrated support for
+                       Exoscale instance pools ands network load balancers.
   externalDocs:
     description: Read more
-    url: https://www.exoscale.com/scalable-kubernetes-service/
+    url: https://community.exoscale.com/documentation/sks/
   name: sks
 paths:
   /load-balancer/{id}/service/{service-id}:
@@ -3680,6 +3663,35 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-grafana/{service-name}/user/{username}/password/reveal:
+    get:
+      operationId: reveal-dbaas-grafana-user-password
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-user-username'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-user-grafana-secrets'
+          description: "200"
+      summary: Reveal the secrets of a DBaaS Grafana user
+      tags:
+      - exoscale
+      x-accepts: application/json
   /reverse-dns/instance/{id}:
     delete:
       description: ""
@@ -3786,6 +3798,43 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Evict Instance Pool members
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-grafana/{service-name}/user/{username}/password/reset:
+    put:
+      description: If no password is provided one will be generated automatically.
+      operationId: reset-dbaas-grafana-user-password
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-user-username'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Reset the credentials of a DBaaS Grafana user
       tags:
       - exoscale
       x-content-type: application/json
@@ -4098,7 +4147,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_opensearch_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
         required: true
       responses:
         "200":
@@ -5696,7 +5745,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_opensearch_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
         required: true
       responses:
         "200":
@@ -5777,7 +5826,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_opensearch_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
         required: true
       responses:
         "200":
@@ -6695,7 +6744,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_opensearch_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
         required: true
       responses:
         "200":
@@ -11679,6 +11728,66 @@ components:
           - success
           type: string
       type: object
+    user:
+      description: User
+      example:
+        two-factor-authentication: true
+        role:
+          permissions:
+          - bypass-governance-retention
+          - bypass-governance-retention
+          editable: true
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          labels:
+            key: labels
+          policy:
+            services:
+              key:
+                rules:
+                - expression: expression
+                  action: allow
+                  resources:
+                  - resources
+                  - resources
+                - expression: expression
+                  action: allow
+                  resources:
+                  - resources
+                  - resources
+                type: rules
+            default-service-strategy: allow
+        pending: true
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        sso: true
+        email: email
+      properties:
+        sso:
+          description: SSO enabled
+          type: boolean
+        two-factor-authentication:
+          description: Two Factor Authentication enabled
+          type: boolean
+        email:
+          description: User Email
+          readOnly: true
+          type: string
+        id:
+          description: User ID
+          format: uuid
+          readOnly: true
+          type: string
+        role:
+          $ref: '#/components/schemas/iam-role'
+        pending:
+          description: True if the user has not yet created an Exoscale account
+          readOnly: true
+          type: boolean
+      required:
+      - email
+      - role
+      type: object
     dbaas-service-mysql:
       example:
         components:
@@ -12515,6 +12624,38 @@ components:
                   - resources
                 type: rules
             default-service-strategy: allow
+        iam-user:
+          two-factor-authentication: true
+          role:
+            permissions:
+            - bypass-governance-retention
+            - bypass-governance-retention
+            editable: true
+            name: name
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            labels:
+              key: labels
+            policy:
+              services:
+                key:
+                  rules:
+                  - expression: expression
+                    action: allow
+                    resources:
+                    - resources
+                    - resources
+                  - expression: expression
+                    action: allow
+                    resources:
+                    - resources
+                    - resources
+                  type: rules
+              default-service-strategy: allow
+          pending: true
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sso: true
+          email: email
         request-id: request-id
         message: message
         uri: uri
@@ -12524,6 +12665,8 @@ components:
         status: 0
         timestamp: 2000-01-23T04:56:07.000+00:00
       properties:
+        iam-user:
+          $ref: '#/components/schemas/user'
         request-id:
           description: Operation unique identifier
           type: string
@@ -14243,6 +14386,7 @@ components:
           description: Load balancing strategy
           enum:
           - round-robin
+          - maglev-hash
           - source-hash
           type: string
         healthcheck:
@@ -15691,6 +15835,19 @@ components:
       maxLength: 63
       minLength: 0
       type: string
+    dbaas-user-grafana-secrets:
+      description: Grafana User secrets
+      example:
+        password: password
+        username: username
+      properties:
+        username:
+          description: Grafana username
+          type: string
+        password:
+          description: Grafana password
+          type: string
+      type: object
     sks-cluster:
       description: SKS Cluster
       example:
@@ -15715,6 +15872,7 @@ components:
             created-at: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
+          public-ip-assignment: inet4
           instance-pool:
             elastic-ips:
             - healthcheck:
@@ -18008,6 +18166,7 @@ components:
             created-at: 2000-01-23T04:56:07.000+00:00
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
+          public-ip-assignment: inet4
           instance-pool:
             elastic-ips:
             - healthcheck:
@@ -21904,6 +22063,7 @@ components:
           created-at: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           family: family
+        public-ip-assignment: inet4
         instance-pool:
           elastic-ips:
           - healthcheck:
@@ -24186,6 +24346,16 @@ components:
         description:
           description: Nodepool description
           maxLength: 255
+          type: string
+        public-ip-assignment:
+          description: |-
+            Nodepool public IP assignment of the Instances:
+
+            * IPv4 (`inet4`) addressing only;
+            * IPv4 and IPv6 (`dual`) addressing.
+          enum:
+          - inet4
+          - dual
           type: string
         labels:
           additionalProperties:
@@ -27142,6 +27312,7 @@ components:
           description: Load balancing strategy
           enum:
           - round-robin
+          - maglev-hash
           - source-hash
           type: string
         port:
@@ -37356,6 +37527,16 @@ components:
           description: Nodepool description
           maxLength: 255
           type: string
+        public-ip-assignment:
+          description: |-
+            Configures public IP assignment of the Instances with:
+
+            * IPv4 (`inet4`) addressing only;
+            * both IPv4 and IPv6 (`dual`) addressing.
+          enum:
+          - inet4
+          - dual
+          type: string
         labels:
           additionalProperties:
             type: string
@@ -38063,6 +38244,13 @@ components:
             type: string
           type: array
       type: object
+    reset_dbaas_grafana_user_password_request:
+      properties:
+        password:
+          maxLength: 256
+          minLength: 8
+          type: string
+      type: object
     evict_sks_nodepool_members_request:
       properties:
         instances:
@@ -38090,13 +38278,6 @@ components:
           type: string
       required:
       - cidr
-      type: object
-    reset_dbaas_opensearch_user_password_request:
-      properties:
-        password:
-          maxLength: 256
-          minLength: 8
-          type: string
       type: object
     list_sos_buckets_usage_200_response:
       example:
@@ -38189,6 +38370,7 @@ components:
           description: Load balancing strategy
           enum:
           - round-robin
+          - maglev-hash
           - source-hash
           type: string
         port:
@@ -38294,6 +38476,7 @@ components:
               created-at: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
+            public-ip-assignment: inet4
             instance-pool:
               elastic-ips:
               - healthcheck:
@@ -40587,6 +40770,7 @@ components:
               created-at: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
+            public-ip-assignment: inet4
             instance-pool:
               elastic-ips:
               - healthcheck:
@@ -42896,6 +43080,7 @@ components:
               created-at: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
+            public-ip-assignment: inet4
             instance-pool:
               elastic-ips:
               - healthcheck:
@@ -45189,6 +45374,7 @@ components:
               created-at: 2000-01-23T04:56:07.000+00:00
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
+            public-ip-assignment: inet4
             instance-pool:
               elastic-ips:
               - healthcheck:
@@ -48172,6 +48358,16 @@ components:
         description:
           description: Nodepool description
           maxLength: 255
+          type: string
+        public-ip-assignment:
+          description: |-
+            Configures public IP assignment of the Instances with:
+
+            * IPv4 (`inet4`) addressing only (default);
+            * both IPv4 and IPv6 (`dual`) addressing.
+          enum:
+          - inet4
+          - dual
           type: string
         labels:
           additionalProperties:

@@ -10,6 +10,7 @@ SKS Nodepool
 |------------ | ------------- | ------------- | -------------|
 |**antiAffinityGroups** | [**List&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Nodepool Anti-affinity Groups |  [optional] |
 |**description** | **String** | Nodepool description |  [optional] |
+|**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Nodepool public IP assignment of the Instances:  * IPv4 (&#x60;inet4&#x60;) addressing only; * IPv4 and IPv6 (&#x60;dual&#x60;) addressing. |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**taints** | [**Map&lt;String, SksNodepoolTaint&gt;**](SksNodepoolTaint.md) |  |  [optional] |
 |**securityGroups** | [**List&lt;SecurityGroup&gt;**](SecurityGroup.md) | Nodepool Security Groups |  [optional] |
@@ -28,6 +29,15 @@ SKS Nodepool
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
 |**version** | **String** | Nodepool version |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Nodepool creation date |  [optional] [readonly] |
+
+
+
+## Enum: PublicIpAssignmentEnum
+
+| Name | Value |
+|---- | -----|
+| INET4 | &quot;inet4&quot; |
+| DUAL | &quot;dual&quot; |
 
 
 
