@@ -1,9 +1,9 @@
 name: Update OpenAPI and generate SDK
 
 on:
-  workflow_dispatch:
-    branches:
-      - actions-test
+  push:
+    branches: 
+      - actions-test      
 
 jobs:
   update-openapi-generate-sdk:
