@@ -3,7 +3,7 @@ name: Update OpenAPI and generate SDK
 on:
   push:
     branches:
-      - actions-test
+      - actions-test 
 
 jobs:
   scheduled:
