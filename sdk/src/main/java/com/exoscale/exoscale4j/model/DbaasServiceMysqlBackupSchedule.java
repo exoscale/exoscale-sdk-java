@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceMysqlBackupSchedule.JSON_PROPERTY_BACKUP_HOUR,
   DbaasServiceMysqlBackupSchedule.JSON_PROPERTY_BACKUP_MINUTE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:19:43.121270Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasServiceMysqlBackupSchedule {
   public static final String JSON_PROPERTY_BACKUP_HOUR = "backup-hour";
   private Long backupHour;

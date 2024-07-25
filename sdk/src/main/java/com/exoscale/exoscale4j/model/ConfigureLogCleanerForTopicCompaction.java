@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ConfigureLogCleanerForTopicCompaction.JSON_PROPERTY_LOG_CLEANER_MIN_COMPACTION_LAG_MS,
   ConfigureLogCleanerForTopicCompaction.JSON_PROPERTY_LOG_CLEANUP_POLICY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:19:43.121270Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ConfigureLogCleanerForTopicCompaction {
   public static final String JSON_PROPERTY_LOG_CLEANER_DELETE_RETENTION_MS = "log_cleaner_delete_retention_ms";
   private Integer logCleanerDeleteRetentionMs;
