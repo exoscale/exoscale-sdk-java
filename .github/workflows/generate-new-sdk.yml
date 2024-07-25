@@ -53,4 +53,11 @@ jobs:
           git add sdk/  # Add the generated SDK
           timestamp=$(date -u)
           git commit -m "OpenAPI spec update and SDK generation: ${timestamp}" || exit 0
-          git push origin actions-test  # Change to main branch after testing
+
+      - name: Pull latest changes from remote
+        if: steps.check_changes.outputs.changed == 'true'
+        run: git pull --rebase origin actions-test
+
+      - name: Push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: git push origin actions-test  # Change to main branch after testing
