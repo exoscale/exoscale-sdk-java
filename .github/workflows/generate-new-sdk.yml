@@ -18,7 +18,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: sdk/api/openapi_old.yaml
-          key: openapi-old
+          key: openapi-old-${{ github.sha }}
+          restore-keys: |
+            openapi-old-
 
       - name: Fetch the current OpenAPI definition
         run: |
