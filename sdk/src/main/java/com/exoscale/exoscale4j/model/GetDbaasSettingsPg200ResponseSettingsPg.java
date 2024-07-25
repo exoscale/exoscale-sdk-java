@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetDbaasSettingsPg200ResponseSettingsPg.JSON_PROPERTY_TYPE,
   GetDbaasSettingsPg200ResponseSettingsPg.JSON_PROPERTY_TITLE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:19:43.121270Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:26:02.309598Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class GetDbaasSettingsPg200ResponseSettingsPg {
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
   private Object properties;

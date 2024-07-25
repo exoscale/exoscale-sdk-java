@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OpensearchSecurityPluginSettings.JSON_PROPERTY_INTERNAL_AUTHENTICATION_BACKEND_LIMITING,
   OpensearchSecurityPluginSettings.JSON_PROPERTY_IP_RATE_LIMITING
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:19:43.121270Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:26:02.309598Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class OpensearchSecurityPluginSettings {
   public static final String JSON_PROPERTY_INTERNAL_AUTHENTICATION_BACKEND_LIMITING = "internal_authentication_backend_limiting";
   private InternalAuthenticationBackendLimiting internalAuthenticationBackendLimiting;

@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceUpdate.JSON_PROPERTY_START_AFTER,
   DbaasServiceUpdate.JSON_PROPERTY_START_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:19:43.121270Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:26:02.309598Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasServiceUpdate {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;

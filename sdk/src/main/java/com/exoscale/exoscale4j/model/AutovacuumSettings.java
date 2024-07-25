@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AutovacuumSettings.JSON_PROPERTY_AUTOVACUUM_ANALYZE_THRESHOLD,
   AutovacuumSettings.JSON_PROPERTY_AUTOVACUUM_FREEZE_MAX_AGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:19:43.121270Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:26:02.309598Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class AutovacuumSettings {
   public static final String JSON_PROPERTY_LOG_AUTOVACUUM_MIN_DURATION = "log_autovacuum_min_duration";
   private Integer logAutovacuumMinDuration;
