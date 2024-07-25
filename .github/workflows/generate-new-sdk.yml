@@ -6,67 +6,20 @@ on:
       - actions-test
 
 jobs:
-  update-openapi-generate-sdk:
+  scheduled:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v4
-
-      - name: Cache previous OpenAPI file
-        id: cache-openapi
-        uses: actions/cache@v3
-        with:
-          path: sdk/api/openapi_old.yaml
-          key: openapi-old-${{ github.sha }}
-          restore-keys: |
-            openapi-old-
-
-      - name: Fetch the current OpenAPI definition
-        run: |
-          cp sdk/api/openapi.yaml sdk/api/openapi_old.yaml || echo "No previous OpenAPI file."
-
       - name: Fetch latest OpenAPI definition
-        run: |
+        shell: bash
+        run: |-
           curl -s https://openapi-v2.exoscale.com/source.yaml -o sdk/api/openapi.yaml
-
-      - name: Check if OpenAPI definition has changed
-        id: check_changes
-        run: |
-          if diff sdk/api/openapi.yaml sdk/api/openapi_old.yaml; then
-            echo "No changes in OpenAPI definition."
-            echo "changed=false" >> $GITHUB_ENV
-          else
-            echo "OpenAPI definition has changed."
-            echo "changed=true" >> $GITHUB_ENV
-          fi
-
-      - name: Delete old SDK folder
-        if: env.changed == 'true'
-        run: rm -rf sdk
-
-      - name: Generate SDK sources
-        if: env.changed == 'true'
-        run: mvn -B generate-sources --no-transfer-progress --file pom.xml
-
-      - name: Compile and install SDK
-        if: env.changed == 'true'
-        run: cd sdk && mvn -B install --no-transfer-progress --file pom.xml -Dmaven.test.skip=true -X
-
-      - name: Commit changes
-        if: env.changed == 'true'
-        run: |
+      - name: Commit and push if changed
+        run: |-
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
-          git add sdk/api/openapi.yaml
-          git add sdk/  # Add the generated SDK
+          git add exoscale/openapi.json
           timestamp=$(date -u)
-          git commit -m "OpenAPI spec update and SDK generation: ${timestamp}" || exit 0
-
-      - name: Pull latest changes from remote
-        if: env.changed == 'true'
-        run: git pull --rebase origin actions-test
-
-      - name: Push changes
-        if: env.changed == 'true'
-        run: git push origin actions-test  # Change to main branch after testing
+          git commit -m "OpenAPI spec update: ${timestamp}" || exit 0
+          git push
