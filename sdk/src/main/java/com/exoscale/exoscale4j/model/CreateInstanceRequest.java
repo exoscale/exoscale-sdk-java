@@ -59,7 +59,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateInstanceRequest.JSON_PROPERTY_DISK_SIZE,
   CreateInstanceRequest.JSON_PROPERTY_SSH_KEYS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateInstanceRequest {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private Set<AntiAffinityGroup> antiAffinityGroups;

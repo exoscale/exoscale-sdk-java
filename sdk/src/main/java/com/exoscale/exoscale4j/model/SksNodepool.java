@@ -72,7 +72,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksNodepool.JSON_PROPERTY_VERSION,
   SksNodepool.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class SksNodepool {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private List<AntiAffinityGroup> antiAffinityGroups;

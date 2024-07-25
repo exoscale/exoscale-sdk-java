@@ -7,7 +7,7 @@ Exoscale Public API
 
 - API version: 2.0.0
 
-- Build date: 2024-07-25T12:59:58.559957Z[Etc/UTC]
+- Build date: 2024-07-25T13:08:43.238996Z[Etc/UTC]
 
 
 - Generator version: 7.4.0

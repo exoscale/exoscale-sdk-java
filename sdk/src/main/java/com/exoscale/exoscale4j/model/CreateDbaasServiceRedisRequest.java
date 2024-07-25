@@ -46,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDbaasServiceRedisRequest.JSON_PROPERTY_FORK_FROM_SERVICE,
   CreateDbaasServiceRedisRequest.JSON_PROPERTY_RECOVERY_BACKUP_NAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateDbaasServiceRedisRequest {
   public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
   private UpdateDbaasServiceMysqlRequestMaintenance maintenance;

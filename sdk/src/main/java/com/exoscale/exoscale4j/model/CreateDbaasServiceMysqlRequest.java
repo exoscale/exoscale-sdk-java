@@ -54,7 +54,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDbaasServiceMysqlRequest.JSON_PROPERTY_MIGRATION,
   CreateDbaasServiceMysqlRequest.JSON_PROPERTY_BINLOG_RETENTION_PERIOD
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateDbaasServiceMysqlRequest {
   public static final String JSON_PROPERTY_BACKUP_SCHEDULE = "backup-schedule";
   private UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule;

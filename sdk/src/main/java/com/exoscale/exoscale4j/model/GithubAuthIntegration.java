@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GithubAuthIntegration.JSON_PROPERTY_SKIP_ORG_ROLE_SYNC,
   GithubAuthIntegration.JSON_PROPERTY_TEAM_IDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T13:08:43.238996Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class GithubAuthIntegration {
   public static final String JSON_PROPERTY_ALLOW_SIGN_UP = "allow_sign_up";
   private Boolean allowSignUp;
