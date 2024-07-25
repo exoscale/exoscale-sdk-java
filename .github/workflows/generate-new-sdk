@@ -1,4 +1,4 @@
-name: Update bundled OpenAPI definition and generate SDK
+name: Update OpenAPI and generate SDK
 
 on:
   workflow_dispatch:
