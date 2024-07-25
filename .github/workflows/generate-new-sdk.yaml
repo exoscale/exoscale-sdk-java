@@ -1,6 +1,8 @@
-name: Update OpenAPI and generate SDK
+name: Update bundled OpenAPI definition and generate SDK
 
 on:
+  schedule:
+    - cron: '10 12 * * *'  # UTC
   workflow_dispatch:
 
 jobs:
@@ -41,4 +43,4 @@ jobs:
           git add sdk/  # Add the generated SDK
           timestamp=$(date -u)
           git commit -m "OpenAPI spec update and SDK generation: ${timestamp}" || exit 0
-          git push origin actions-test  # Change from actions-test to main branch after commit
+          git push origin actions-test  # Change to main branch after testing
