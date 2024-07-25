@@ -70,7 +70,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaPg.JSON_PROPERTY_MAX_STANDBY_ARCHIVE_DELAY,
   JsonSchemaPg.JSON_PROPERTY_BG_WRITER
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class JsonSchemaPg {
   public static final String JSON_PROPERTY_TRACK_ACTIVITY_QUERY_SIZE = "track_activity_query_size";
   private Integer trackActivityQuerySize;

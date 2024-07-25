@@ -66,7 +66,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDbaasServicePgRequest.JSON_PROPERTY_ADMIN_PASSWORD,
   CreateDbaasServicePgRequest.JSON_PROPERTY_MIGRATION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateDbaasServicePgRequest {
   public static final String JSON_PROPERTY_PGBOUNCER_SETTINGS = "pgbouncer-settings";
   private JsonSchemaPgbouncer pgbouncerSettings;

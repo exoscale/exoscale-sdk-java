@@ -54,7 +54,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDbaasServiceKafkaRequest.JSON_PROPERTY_VERSION,
   CreateDbaasServiceKafkaRequest.JSON_PROPERTY_PLAN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateDbaasServiceKafkaRequest {
   public static final String JSON_PROPERTY_AUTHENTICATION_METHODS = "authentication-methods";
   private UpdateDbaasServiceKafkaRequestAuthenticationMethods authenticationMethods;

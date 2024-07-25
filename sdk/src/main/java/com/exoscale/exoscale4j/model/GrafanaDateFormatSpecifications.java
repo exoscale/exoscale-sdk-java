@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GrafanaDateFormatSpecifications.JSON_PROPERTY_INTERVAL_SECOND,
   GrafanaDateFormatSpecifications.JSON_PROPERTY_INTERVAL_YEAR
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class GrafanaDateFormatSpecifications {
   public static final String JSON_PROPERTY_DEFAULT_TIMEZONE = "default_timezone";
   private String defaultTimezone;

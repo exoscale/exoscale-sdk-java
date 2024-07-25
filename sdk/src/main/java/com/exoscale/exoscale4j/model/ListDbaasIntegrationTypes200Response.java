@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ListDbaasIntegrationTypes200Response.JSON_PROPERTY_DBAAS_INTEGRATION_TYPES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:43:01.822793Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-25T12:59:58.559957Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ListDbaasIntegrationTypes200Response {
   public static final String JSON_PROPERTY_DBAAS_INTEGRATION_TYPES = "dbaas-integration-types";
   private List<DbaasIntegrationType> dbaasIntegrationTypes;
