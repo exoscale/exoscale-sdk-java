@@ -1,0 +1,46 @@
+name: Update bundled OpenAPI definition and generate SDK
+
+on:
+  schedule:
+    - cron: '1 2 : 5 7'  # At 07:00 every day
+  workflow_dispatch:
+
+jobs:
+  update-openapi-generate-sdk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch latest OpenAPI definition
+        shell: bash
+        run: |
+          curl -s https://openapi-v2.exoscale.com/source.yaml -o sdk/api/openapi.yaml
+
+      - name: Check if OpenAPI definition has changed
+        id: check_changes
+        run: |
+          if git diff --exit-code sdk/api/openapi.yaml; then
+            echo "No changes in OpenAPI definition."
+            exit 0
+          fi
+
+      - name: Delete old SDK folder
+        run: rm -rf sdk
+
+      - name: Generate SDK sources
+        run: mvn -B generate-sources --no-transfer-progress --file pom.xml
+
+      - name: Compile and install SDK
+        run: cd sdk && mvn -B install --no-transfer-progress --file pom.xml -Dmaven.test.skip=true -X
+
+      - name: Commit changes
+        run: |
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add sdk/api/openapi.yaml
+          git add sdk/  # Add the generated SDK
+          timestamp=$(date -u)
+          git commit -m "OpenAPI spec update and SDK generation: ${timestamp}" || exit 0
+          git push origin actions-test  # Change from actions-test to main branch after commit
