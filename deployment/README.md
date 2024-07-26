@@ -28,7 +28,7 @@ To generate and compile the SDK, follow the below steps:
 
 1. **Generate the SDK sources:**
 ```shell
-   mvn generate-sources
+   mvn generate-sources process-resources
 ```
 2. **Navigate to the SDK directory and install the SDK:**
 ```shell
