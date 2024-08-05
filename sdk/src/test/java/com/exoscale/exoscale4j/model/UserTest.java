@@ -13,36 +13,78 @@
 
 package com.exoscale.exoscale4j.model;
 
+import com.exoscale.exoscale4j.model.IamRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ResetDbaasOpensearchUserPasswordRequest
+ * Model tests for User
  */
-public class ResetDbaasOpensearchUserPasswordRequestTest {
-    private final ResetDbaasOpensearchUserPasswordRequest model = new ResetDbaasOpensearchUserPasswordRequest();
+public class UserTest {
+    private final User model = new User();
 
     /**
-     * Model tests for ResetDbaasOpensearchUserPasswordRequest
+     * Model tests for User
      */
     @Test
-    public void testResetDbaasOpensearchUserPasswordRequest() {
-        // TODO: test ResetDbaasOpensearchUserPasswordRequest
+    public void testUser() {
+        // TODO: test User
     }
 
     /**
-     * Test the property 'password'
+     * Test the property 'sso'
      */
     @Test
-    public void passwordTest() {
-        // TODO: test password
+    public void ssoTest() {
+        // TODO: test sso
+    }
+
+    /**
+     * Test the property 'twoFactorAuthentication'
+     */
+    @Test
+    public void twoFactorAuthenticationTest() {
+        // TODO: test twoFactorAuthentication
+    }
+
+    /**
+     * Test the property 'email'
+     */
+    @Test
+    public void emailTest() {
+        // TODO: test email
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'role'
+     */
+    @Test
+    public void roleTest() {
+        // TODO: test role
+    }
+
+    /**
+     * Test the property 'pending'
+     */
+    @Test
+    public void pendingTest() {
+        // TODO: test pending
     }
 
 }

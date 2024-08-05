@@ -43,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AddRuleToSecurityGroupRequest.JSON_PROPERTY_START_PORT,
   AddRuleToSecurityGroupRequest.JSON_PROPERTY_END_PORT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-05T21:53:56.743866Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class AddRuleToSecurityGroupRequest {
   /**
    * Network flow direction to match

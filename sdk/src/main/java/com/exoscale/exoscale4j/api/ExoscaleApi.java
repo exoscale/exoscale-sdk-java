@@ -73,6 +73,8 @@ import com.exoscale.exoscale4j.model.DbaasServicePg;
 import com.exoscale.exoscale4j.model.DbaasServiceRedis;
 import com.exoscale.exoscale4j.model.DbaasServiceType;
 import com.exoscale.exoscale4j.model.DbaasTask;
+import com.exoscale.exoscale4j.model.DbaasUserGrafanaSecrets;
+import com.exoscale.exoscale4j.model.DbaasUserKafkaConnectSecrets;
 import com.exoscale.exoscale4j.model.DbaasUserKafkaSecrets;
 import com.exoscale.exoscale4j.model.DbaasUserMysqlSecrets;
 import com.exoscale.exoscale4j.model.DbaasUserOpensearchSecrets;
@@ -147,8 +149,8 @@ import com.exoscale.exoscale4j.model.Quota;
 import com.exoscale.exoscale4j.model.RegisterSshKeyRequest;
 import com.exoscale.exoscale4j.model.RegisterTemplateRequest;
 import com.exoscale.exoscale4j.model.RemoveExternalSourceFromSecurityGroupRequest;
+import com.exoscale.exoscale4j.model.ResetDbaasGrafanaUserPasswordRequest;
 import com.exoscale.exoscale4j.model.ResetDbaasMysqlUserPasswordRequest;
-import com.exoscale.exoscale4j.model.ResetDbaasOpensearchUserPasswordRequest;
 import com.exoscale.exoscale4j.model.ResetInstanceRequest;
 import com.exoscale.exoscale4j.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.exoscale4j.model.ResizeInstanceDiskRequest;
@@ -217,7 +219,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-05T21:53:56.743866Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ExoscaleApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -8019,6 +8021,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Temporarily enable writes for MySQL services in read-only mode due to filled up storage
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation enableDbaasMysqlWrites(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = enableDbaasMysqlWritesWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Temporarily enable writes for MySQL services in read-only mode due to filled up storage
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> enableDbaasMysqlWritesWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = enableDbaasMysqlWritesRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("enableDbaasMysqlWrites", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder enableDbaasMysqlWritesRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling enableDbaasMysqlWrites");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-mysql/{name}/enable/writes"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Evict Instance Pool members
    * This operation evicts the specified Compute instances member from the Instance Pool, shrinking it to &#x60;&amp;lt;current pool size&amp;gt; - &amp;lt;# evicted members&amp;gt;&#x60;.
    * @param id  (required)
@@ -15603,16 +15687,117 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Reset the credentials of a DBaaS Grafana user
+   * If no password is provided one will be generated automatically.
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation resetDbaasGrafanaUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reset the credentials of a DBaaS Grafana user
+   * If no password is provided one will be generated automatically.
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> resetDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasGrafanaUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("resetDbaasGrafanaUserPassword", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder resetDbaasGrafanaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasGrafanaUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasGrafanaUserPassword");
+    }
+    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
+    if (resetDbaasGrafanaUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasGrafanaUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-grafana/{service-name}/user/{username}/password/reset"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Reset the credentials of a DBaaS Kafka user
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasKafkaUserPassword(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public Operation resetDbaasKafkaUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -15621,12 +15806,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasKafkaUserPasswordRequestBuilder(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public ApiResponse<Operation> resetDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasKafkaUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -15654,7 +15839,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasKafkaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasKafkaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasKafkaUserPassword");
@@ -15663,9 +15848,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasKafkaUserPassword");
     }
-    // verify the required parameter 'resetDbaasOpensearchUserPasswordRequest' is set
-    if (resetDbaasOpensearchUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasOpensearchUserPasswordRequest' when calling resetDbaasKafkaUserPassword");
+    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
+    if (resetDbaasGrafanaUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasKafkaUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -15677,7 +15862,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasOpensearchUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -15809,12 +15994,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasOpensearchUserPassword(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public Operation resetDbaasOpensearchUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -15823,12 +16008,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasOpensearchUserPasswordRequestBuilder(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public ApiResponse<Operation> resetDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasOpensearchUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -15856,7 +16041,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasOpensearchUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasOpensearchUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasOpensearchUserPassword");
@@ -15865,9 +16050,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasOpensearchUserPassword");
     }
-    // verify the required parameter 'resetDbaasOpensearchUserPasswordRequest' is set
-    if (resetDbaasOpensearchUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasOpensearchUserPasswordRequest' when calling resetDbaasOpensearchUserPassword");
+    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
+    if (resetDbaasGrafanaUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasOpensearchUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -15879,7 +16064,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasOpensearchUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -15910,12 +16095,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasPostgresUserPassword(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public Operation resetDbaasPostgresUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -15924,12 +16109,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasPostgresUserPasswordRequestBuilder(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public ApiResponse<Operation> resetDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasPostgresUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -15957,7 +16142,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasPostgresUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasPostgresUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasPostgresUserPassword");
@@ -15966,9 +16151,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasPostgresUserPassword");
     }
-    // verify the required parameter 'resetDbaasOpensearchUserPasswordRequest' is set
-    if (resetDbaasOpensearchUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasOpensearchUserPasswordRequest' when calling resetDbaasPostgresUserPassword");
+    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
+    if (resetDbaasGrafanaUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasPostgresUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -15980,7 +16165,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasOpensearchUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -16011,12 +16196,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasRedisUserPassword(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public Operation resetDbaasRedisUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -16025,12 +16210,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasOpensearchUserPasswordRequest  (required)
+   * @param resetDbaasGrafanaUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasRedisUserPasswordRequestBuilder(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+  public ApiResponse<Operation> resetDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasRedisUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -16058,7 +16243,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasRedisUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasRedisUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasRedisUserPassword");
@@ -16067,9 +16252,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasRedisUserPassword");
     }
-    // verify the required parameter 'resetDbaasOpensearchUserPasswordRequest' is set
-    if (resetDbaasOpensearchUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasOpensearchUserPasswordRequest' when calling resetDbaasRedisUserPassword");
+    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
+    if (resetDbaasGrafanaUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasRedisUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -16081,7 +16266,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasOpensearchUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -17189,6 +17374,177 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Reveal the secrets of a DBaaS Grafana user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return DbaasUserGrafanaSecrets
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasUserGrafanaSecrets revealDbaasGrafanaUserPassword(String serviceName, String username) throws ApiException {
+    ApiResponse<DbaasUserGrafanaSecrets> localVarResponse = revealDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reveal the secrets of a DBaaS Grafana user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return ApiResponse&lt;DbaasUserGrafanaSecrets&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasUserGrafanaSecrets> revealDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = revealDbaasGrafanaUserPasswordRequestBuilder(serviceName, username);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("revealDbaasGrafanaUserPassword", localVarResponse);
+        }
+        return new ApiResponse<DbaasUserGrafanaSecrets>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserGrafanaSecrets>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder revealDbaasGrafanaUserPasswordRequestBuilder(String serviceName, String username) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling revealDbaasGrafanaUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling revealDbaasGrafanaUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-grafana/{service-name}/user/{username}/password/reveal"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Reveal the secrets for DBaaS Kafka Connect
+   * 
+   * @param serviceName  (required)
+   * @return DbaasUserKafkaConnectSecrets
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasUserKafkaConnectSecrets revealDbaasKafkaConnectPassword(String serviceName) throws ApiException {
+    ApiResponse<DbaasUserKafkaConnectSecrets> localVarResponse = revealDbaasKafkaConnectPasswordWithHttpInfo(serviceName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reveal the secrets for DBaaS Kafka Connect
+   * 
+   * @param serviceName  (required)
+   * @return ApiResponse&lt;DbaasUserKafkaConnectSecrets&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasUserKafkaConnectSecrets> revealDbaasKafkaConnectPasswordWithHttpInfo(String serviceName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = revealDbaasKafkaConnectPasswordRequestBuilder(serviceName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("revealDbaasKafkaConnectPassword", localVarResponse);
+        }
+        return new ApiResponse<DbaasUserKafkaConnectSecrets>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserKafkaConnectSecrets>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder revealDbaasKafkaConnectPasswordRequestBuilder(String serviceName) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling revealDbaasKafkaConnectPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-kafka/{service-name}/connect/password/reveal"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasOpensearchAclConfig.JSON_PROPERTY_ACL_ENABLED,
   DbaasOpensearchAclConfig.JSON_PROPERTY_EXTENDED_ACL_ENABLED
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-10T11:13:25.453512+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-05T21:53:56.743866Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasOpensearchAclConfig {
   public static final String JSON_PROPERTY_ACLS = "acls";
   private List<DbaasOpensearchAclConfigAclsInner> acls;

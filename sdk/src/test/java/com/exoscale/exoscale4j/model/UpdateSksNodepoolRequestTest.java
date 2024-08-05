@@ -65,6 +65,14 @@ public class UpdateSksNodepoolRequestTest {
     }
 
     /**
+     * Test the property 'publicIpAssignment'
+     */
+    @Test
+    public void publicIpAssignmentTest() {
+        // TODO: test publicIpAssignment
+    }
+
+    /**
      * Test the property 'labels'
      */
     @Test

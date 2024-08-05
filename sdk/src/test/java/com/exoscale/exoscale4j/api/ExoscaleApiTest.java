@@ -69,6 +69,8 @@ import com.exoscale.exoscale4j.model.DbaasServicePg;
 import com.exoscale.exoscale4j.model.DbaasServiceRedis;
 import com.exoscale.exoscale4j.model.DbaasServiceType;
 import com.exoscale.exoscale4j.model.DbaasTask;
+import com.exoscale.exoscale4j.model.DbaasUserGrafanaSecrets;
+import com.exoscale.exoscale4j.model.DbaasUserKafkaConnectSecrets;
 import com.exoscale.exoscale4j.model.DbaasUserKafkaSecrets;
 import com.exoscale.exoscale4j.model.DbaasUserMysqlSecrets;
 import com.exoscale.exoscale4j.model.DbaasUserOpensearchSecrets;
@@ -143,8 +145,8 @@ import com.exoscale.exoscale4j.model.Quota;
 import com.exoscale.exoscale4j.model.RegisterSshKeyRequest;
 import com.exoscale.exoscale4j.model.RegisterTemplateRequest;
 import com.exoscale.exoscale4j.model.RemoveExternalSourceFromSecurityGroupRequest;
+import com.exoscale.exoscale4j.model.ResetDbaasGrafanaUserPasswordRequest;
 import com.exoscale.exoscale4j.model.ResetDbaasMysqlUserPasswordRequest;
-import com.exoscale.exoscale4j.model.ResetDbaasOpensearchUserPasswordRequest;
 import com.exoscale.exoscale4j.model.ResetInstanceRequest;
 import com.exoscale.exoscale4j.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.exoscale4j.model.ResizeInstanceDiskRequest;
@@ -1749,6 +1751,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Temporarily enable writes for MySQL services in read-only mode due to filled up storage
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void enableDbaasMysqlWritesTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.enableDbaasMysqlWrites(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Evict Instance Pool members
      *
      * This operation evicts the specified Compute instances member from the Instance Pool, shrinking it to &#x60;&amp;lt;current pool size&amp;gt; - &amp;lt;# evicted members&amp;gt;&#x60;.
@@ -3304,6 +3323,25 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Reset the credentials of a DBaaS Grafana user
+     *
+     * If no password is provided one will be generated automatically.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resetDbaasGrafanaUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
+        Operation response = 
+        api.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reset the credentials of a DBaaS Kafka user
      *
      * If no password is provided one will be generated automatically.
@@ -3315,9 +3353,9 @@ public class ExoscaleApiTest {
     public void resetDbaasKafkaUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = null;
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+        api.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3353,9 +3391,9 @@ public class ExoscaleApiTest {
     public void resetDbaasOpensearchUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = null;
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+        api.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3372,9 +3410,9 @@ public class ExoscaleApiTest {
     public void resetDbaasPostgresUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = null;
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+        api.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3391,9 +3429,9 @@ public class ExoscaleApiTest {
     public void resetDbaasRedisUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasOpensearchUserPasswordRequest resetDbaasOpensearchUserPasswordRequest = null;
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasRedisUserPassword(serviceName, username, resetDbaasOpensearchUserPasswordRequest);
+        api.resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3611,6 +3649,41 @@ public class ExoscaleApiTest {
         ResizeInstanceDiskRequest resizeInstanceDiskRequest = null;
         Operation response = 
         api.resizeInstanceDisk(id, resizeInstanceDiskRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Reveal the secrets of a DBaaS Grafana user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealDbaasGrafanaUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        DbaasUserGrafanaSecrets response = 
+        api.revealDbaasGrafanaUserPassword(serviceName, username);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Reveal the secrets for DBaaS Kafka Connect
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealDbaasKafkaConnectPasswordTest() throws ApiException {
+        String serviceName = null;
+        DbaasUserKafkaConnectSecrets response = 
+        api.revealDbaasKafkaConnectPassword(serviceName);
         
         // TODO: test validations
     }
