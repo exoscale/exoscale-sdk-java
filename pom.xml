@@ -16,9 +16,8 @@
                 <version>7.4.0</version>
                 <executions>
                     <execution>
-                        <!-- Added id and phase to bind OpenAPI generation to generate-sources phase -->
-                        <id>generate-sources</id> <!-- Added line -->
-                        <phase>generate-sources</phase> <!-- Added line -->
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -55,7 +54,7 @@
                                 <buildTool>maven</buildTool>
                             </additionalProperties>
                             <output>${project.basedir}/sdk</output>
-                            <templateDirectory>${project.basedir}/deployment/generator</templateDirectory>
+                            <templateDirectory>generator</templateDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -76,7 +75,7 @@
                             <outputDirectory>${project.basedir}/sdk/src/main/java/com/exoscale/exoscale4j/client</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.basedir}/deployment/generator/libraries/native</directory>
+                                    <directory>${project.basedir}/generator/libraries/native</directory>
                                     <includes>
                                         <include>Credentials.java</include>
                                         <include>Client.java</include>
@@ -88,9 +87,8 @@
                     </execution>
 
                     <execution>
-                        <!-- Added new execution block for copying README.md -->
-                        <id>copy-readme</id> <!-- Added line -->
-                        <phase>process-resources</phase> <!-- Added line -->
+                        <id>copy-readme</id>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -106,7 +104,7 @@
                                 </resource>
                             </resources>
                         </configuration>
-                    </execution> <!-- Added block ends here -->
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

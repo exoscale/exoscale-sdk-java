@@ -8,7 +8,7 @@
 | Exoscale4J Generator | Java SDK for interacting with Exoscale Cloud Services Generator. |
 | Last update          | 2024-07-26                                                       |
 
-## **Exoscale 4 Java Generator**: 
+## **Exoscale 4 Java Generator**:
 Is a custom OpenApi generator Java native template to generate Exoscale4J a Java SDK for interaction with Exoscale could services, that was customised align with Exoscale standards.
 
 ## **Requirements**
@@ -53,13 +53,13 @@ To release a new version of the SDK, follow these steps:
     git tag -a v<new-version> -m "Release <new-version>"
     git push origin v<new-version>
     ```
-    - Replace `<new-version>` with the new version number, by increment it with 1.
-    - Replace `Release <new-version>`  with a message usually that describes the release, for example:
-      ```plaintext
-      Release 0.0.1-ALPHA 
-      - Initial alpha release
-      - Any other breaking changes or important notes
-      ```
+   - Replace `<new-version>` with the new version number, by increment it with 1.
+   - Replace `Release <new-version>`  with a message usually that describes the release, for example:
+     ```plaintext
+     Release 0.0.1-ALPHA 
+     - Initial alpha release
+     - Any other breaking changes or important notes
+     ```
 
 5. **Trigger the "Publish to Maven Central" workflow**: Go to the [GitHub Actions](https://github.com/exoscale/exoscale4j/actions/workflows/publish_maven_central.yml) and manually trigger the "Publish to Maven Central" workflow.
 6. **Promote the version to Maven Central**: Once the workflow finishes without any failures, go to the Maven Central [publish page](https://central.sonatype.com/publishing) and press the Publish button..
