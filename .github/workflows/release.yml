@@ -26,3 +26,21 @@ jobs:
           RELEASE_TITLE="Release ${TAG_NAME}"
           RELEASE_NOTES="See the [CHANGELOG](https://github.com/exoscale/exoscale4j/blob/main/CHANGELOG.md) for details."
           gh release create "${TAG_NAME}" --title "${RELEASE_TITLE}" --notes "${RELEASE_NOTES}"
+
+      # Set up JDK 11
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          server-id: 'central'
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_KEYRING }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Publish package
+        run: mvn --batch-mode deploy --file sdk/pom.xml -Psign-artifacts
+        env:
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD}}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
