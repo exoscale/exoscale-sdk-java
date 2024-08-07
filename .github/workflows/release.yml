@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: add-new-api-folder-for-the-current-version
 
       - name: Set up GitHub CLI
         uses: sersoft-gmbh/setup-gh-cli-action@v2
