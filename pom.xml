@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.exoscale</groupId>
     <artifactId>sdk</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -16,9 +15,8 @@
                 <version>7.4.0</version>
                 <executions>
                     <execution>
-                        <!-- Added id and phase to bind OpenAPI generation to generate-sources phase -->
-                        <id>generate-sources</id> <!-- Added line -->
-                        <phase>generate-sources</phase> <!-- Added line -->
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -46,8 +44,8 @@
                                 <scmUrl>https://github.com/exoscale/exoscale4j</scmUrl>
                                 <licenseName>Apache License Version 2.0</licenseName>
                                 <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
-                                <developerName>Giza</developerName>
-                                <developerEmail>giza@exoscale.com</developerEmail>
+                                <developerName>Exoscale</developerName>
+                                <developerEmail>support@exoscale.com</developerEmail>
                                 <developerOrganization>Exoscale</developerOrganization>
                                 <developerOrganizationUrl>https://www.exoscale.com</developerOrganizationUrl>
                             </configOptions>
@@ -76,7 +74,7 @@
                             <outputDirectory>${project.basedir}/sdk/src/main/java/com/exoscale/exoscale4j/client</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.basedir}/deployment/generator/libraries/native</directory>
+                                    <directory>${project.basedir}/generator/libraries/native</directory>
                                     <includes>
                                         <include>Credentials.java</include>
                                         <include>Client.java</include>
@@ -88,9 +86,8 @@
                     </execution>
 
                     <execution>
-                        <!-- Added new execution block for copying README.md -->
-                        <id>copy-readme</id> <!-- Added line -->
-                        <phase>process-resources</phase> <!-- Added line -->
+                        <id>copy-readme</id>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -106,7 +103,7 @@
                                 </resource>
                             </resources>
                         </configuration>
-                    </execution> <!-- Added block ends here -->
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
