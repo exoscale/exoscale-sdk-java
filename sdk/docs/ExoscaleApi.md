@@ -527,11 +527,11 @@ Add an external source as a member of a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -594,12 +594,12 @@ Add an external source as a member of a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -665,11 +665,11 @@ Set instance destruction protection
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -730,12 +730,12 @@ Set instance destruction protection
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -799,11 +799,11 @@ Create a Security Group rule
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -866,12 +866,12 @@ Create a Security Group rule
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -937,11 +937,11 @@ Add a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1004,12 +1004,12 @@ Add a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1075,11 +1075,11 @@ Attach block storage volume to an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1142,12 +1142,12 @@ Attach block storage volume to an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1213,11 +1213,11 @@ Attach a Compute instance to an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1280,12 +1280,12 @@ Attach a Compute instance to an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1351,11 +1351,11 @@ Attach a Compute instance to a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1418,12 +1418,12 @@ Attach a Compute instance to a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1489,11 +1489,11 @@ Attach a Compute instance to a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1556,12 +1556,12 @@ Attach a Compute instance to a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1627,11 +1627,11 @@ Copy a Template from a zone to another
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1694,12 +1694,12 @@ Copy a Template from a zone to another
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1765,11 +1765,11 @@ Create an Anti-affinity Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1830,12 +1830,12 @@ Create an Anti-affinity Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1897,11 +1897,11 @@ Create a new API key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -1960,12 +1960,12 @@ Create a new API key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2029,11 +2029,11 @@ Create a block storage snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2096,12 +2096,12 @@ Create a block storage snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2167,11 +2167,11 @@ Create a block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2232,12 +2232,12 @@ Create a block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2301,11 +2301,11 @@ Create a new DBaaS integration between two services
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2366,12 +2366,12 @@ Create a new DBaaS integration between two services
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2433,11 +2433,11 @@ Add a Kafka Schema Registry ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2498,12 +2498,12 @@ Add a Kafka Schema Registry ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2567,11 +2567,11 @@ Add a Kafka topic ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2632,12 +2632,12 @@ Add a Kafka topic ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2701,11 +2701,11 @@ Create a DBaaS Kafka user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2766,12 +2766,12 @@ Create a DBaaS Kafka user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2835,11 +2835,11 @@ Create a DBaaS MySQL database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2900,12 +2900,12 @@ Create a DBaaS MySQL database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -2969,11 +2969,11 @@ Create a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3034,12 +3034,12 @@ Create a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3103,11 +3103,11 @@ Create a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3168,12 +3168,12 @@ Create a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3239,11 +3239,11 @@ Create a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3306,12 +3306,12 @@ Create a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3375,11 +3375,11 @@ Create a DBaaS Postgres database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3440,12 +3440,12 @@ Create a DBaaS Postgres database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3511,11 +3511,11 @@ Check whether you can upgrade Postgres service to a newer version
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3578,12 +3578,12 @@ Check whether you can upgrade Postgres service to a newer version
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3647,11 +3647,11 @@ Create a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3712,12 +3712,12 @@ Create a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3781,11 +3781,11 @@ Create a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3846,12 +3846,12 @@ Create a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3917,11 +3917,11 @@ Create a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -3984,12 +3984,12 @@ Create a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4055,11 +4055,11 @@ Create a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4122,12 +4122,12 @@ Create a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4193,11 +4193,11 @@ Create a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4260,12 +4260,12 @@ Create a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4331,11 +4331,11 @@ Create a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4398,12 +4398,12 @@ Create a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4467,11 +4467,11 @@ Create a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4532,12 +4532,12 @@ Create a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4603,11 +4603,11 @@ Create a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4670,12 +4670,12 @@ Create a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4741,11 +4741,11 @@ Create a DBaaS task to check migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4808,12 +4808,12 @@ Create a DBaaS task to check migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4879,11 +4879,11 @@ Create DNS domain
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -4944,12 +4944,12 @@ Create DNS domain
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5013,11 +5013,11 @@ Create DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5080,12 +5080,12 @@ Create DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5151,11 +5151,11 @@ Create an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5216,12 +5216,12 @@ Create an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5285,11 +5285,11 @@ Create IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5350,12 +5350,12 @@ Create IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5419,11 +5419,11 @@ Create a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5484,12 +5484,12 @@ Create a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5553,11 +5553,11 @@ Create an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5618,12 +5618,12 @@ Create an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5687,11 +5687,11 @@ Create a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5752,12 +5752,12 @@ Create a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5821,11 +5821,11 @@ Create a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5886,12 +5886,12 @@ Create a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -5955,11 +5955,11 @@ Create a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6020,12 +6020,12 @@ Create a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6089,11 +6089,11 @@ Create an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6154,12 +6154,12 @@ Create an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6223,11 +6223,11 @@ Create a new SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6290,12 +6290,12 @@ Create a new SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6361,11 +6361,11 @@ Create a Snapshot of a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6426,12 +6426,12 @@ Create a Snapshot of a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6495,11 +6495,11 @@ Delete an Anti-affinity Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6560,12 +6560,12 @@ Delete an Anti-affinity Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6627,11 +6627,11 @@ Delete an API key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6690,12 +6690,12 @@ Delete an API key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6759,11 +6759,11 @@ Delete a block storage snapshot, data will be unrecoverable
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6824,12 +6824,12 @@ Delete a block storage snapshot, data will be unrecoverable
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6893,11 +6893,11 @@ Delete a block storage volume, data will be unrecoverable
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -6958,12 +6958,12 @@ Delete a block storage volume, data will be unrecoverable
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7027,11 +7027,11 @@ Delete a DBaaS Integration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7092,12 +7092,12 @@ Delete a DBaaS Integration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7159,11 +7159,11 @@ Delete a Kafka ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7224,12 +7224,12 @@ Delete a Kafka ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7293,11 +7293,11 @@ Delete a Kafka ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7358,12 +7358,12 @@ Delete a Kafka ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7427,11 +7427,11 @@ Delete a DBaaS kafka user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7492,12 +7492,12 @@ Delete a DBaaS kafka user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7561,11 +7561,11 @@ Delete a DBaaS MySQL database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7626,12 +7626,12 @@ Delete a DBaaS MySQL database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7695,11 +7695,11 @@ Delete a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7760,12 +7760,12 @@ Delete a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7829,11 +7829,11 @@ Delete a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7894,12 +7894,12 @@ Delete a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -7965,11 +7965,11 @@ Delete a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8032,12 +8032,12 @@ Delete a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8101,11 +8101,11 @@ Delete a DBaaS Postgres database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8166,12 +8166,12 @@ Delete a DBaaS Postgres database
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8235,11 +8235,11 @@ Delete a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8300,12 +8300,12 @@ Delete a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8369,11 +8369,11 @@ Delete a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8434,12 +8434,12 @@ Delete a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8505,11 +8505,11 @@ Delete a DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8570,12 +8570,12 @@ Delete a DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8637,11 +8637,11 @@ Delete a Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8700,12 +8700,12 @@ Delete a Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8767,11 +8767,11 @@ Delete a Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8830,12 +8830,12 @@ Delete a Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8897,11 +8897,11 @@ Delete a MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -8960,12 +8960,12 @@ Delete a MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9027,11 +9027,11 @@ Delete a OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9090,12 +9090,12 @@ Delete a OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9157,11 +9157,11 @@ Delete a Postgres service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9220,12 +9220,12 @@ Delete a Postgres service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9287,11 +9287,11 @@ Delete a Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9350,12 +9350,12 @@ Delete a Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9419,11 +9419,11 @@ Delete DNS Domain
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9484,12 +9484,12 @@ Delete DNS Domain
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9553,11 +9553,11 @@ Delete DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9620,12 +9620,12 @@ Delete DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9691,11 +9691,11 @@ Delete an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9756,12 +9756,12 @@ Delete an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9825,11 +9825,11 @@ Delete IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9890,12 +9890,12 @@ Delete IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -9959,11 +9959,11 @@ Delete a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10024,12 +10024,12 @@ Delete a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10093,11 +10093,11 @@ Delete an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10158,12 +10158,12 @@ Delete an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10227,11 +10227,11 @@ Delete a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10292,12 +10292,12 @@ Delete a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10361,11 +10361,11 @@ Delete a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10428,12 +10428,12 @@ Delete a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10499,11 +10499,11 @@ Delete a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10564,12 +10564,12 @@ Delete a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10633,11 +10633,11 @@ Delete the PTR DNS record for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10698,12 +10698,12 @@ Delete the PTR DNS record for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10767,11 +10767,11 @@ Delete the PTR DNS record for an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10832,12 +10832,12 @@ Delete the PTR DNS record for an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10901,11 +10901,11 @@ Delete a Security Group rule
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -10968,12 +10968,12 @@ Delete a Security Group rule
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11039,11 +11039,11 @@ Delete a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11104,12 +11104,12 @@ Delete a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11173,11 +11173,11 @@ Delete an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11238,12 +11238,12 @@ Delete an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11307,11 +11307,11 @@ Delete an SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11374,12 +11374,12 @@ Delete an SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11445,11 +11445,11 @@ Delete a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11510,12 +11510,12 @@ Delete a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11579,11 +11579,11 @@ Delete a SSH key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11644,12 +11644,12 @@ Delete a SSH key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11713,11 +11713,11 @@ Delete a Template
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11778,12 +11778,12 @@ Delete a Template
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11847,11 +11847,11 @@ Detach block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11912,12 +11912,12 @@ Detach block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -11981,11 +11981,11 @@ Detach a Compute instance from an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12048,12 +12048,12 @@ Detach a Compute instance from an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12119,11 +12119,11 @@ Detach a Compute instance from a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12186,12 +12186,12 @@ Detach a Compute instance from a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12257,11 +12257,11 @@ Detach a Compute instance from a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12324,12 +12324,12 @@ Detach a Compute instance from a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12393,11 +12393,11 @@ Temporarily enable writes for MySQL services in read-only mode due to filled up 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12456,12 +12456,12 @@ Temporarily enable writes for MySQL services in read-only mode due to filled up 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12525,11 +12525,11 @@ This operation evicts the specified Compute instances member from the Instance P
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12592,12 +12592,12 @@ This operation evicts the specified Compute instances member from the Instance P
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12663,11 +12663,11 @@ This operation evicts the specified Compute instances member from the Nodepool, 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12732,12 +12732,12 @@ This operation evicts the specified Compute instances member from the Nodepool, 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12805,11 +12805,11 @@ Export a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12870,12 +12870,12 @@ Export a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -12939,11 +12939,11 @@ This operation returns a Kubeconfig file encoded in base64.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13006,12 +13006,12 @@ This operation returns a Kubeconfig file encoded in base64.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13077,11 +13077,11 @@ Retrieve Anti-affinity Group details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13142,12 +13142,12 @@ Retrieve Anti-affinity Group details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13209,11 +13209,11 @@ Get API key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13272,12 +13272,12 @@ Get API key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13341,11 +13341,11 @@ Retrieve block storage snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13406,12 +13406,12 @@ Retrieve block storage snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13475,11 +13475,11 @@ Retrieve block storage volume details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13540,12 +13540,12 @@ Retrieve block storage volume details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13609,11 +13609,11 @@ Retrieve signed url valid for 60 seconds to connect via console-proxy websocket 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13674,12 +13674,12 @@ Retrieve signed url valid for 60 seconds to connect via console-proxy websocket 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13743,11 +13743,11 @@ Returns a CA Certificate required to reach a DBaaS service through a TLS-protect
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13804,12 +13804,12 @@ Returns a CA Certificate required to reach a DBaaS service through a TLS-protect
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13869,11 +13869,11 @@ Get a DBaaS Integration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -13934,12 +13934,12 @@ Get a DBaaS Integration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14001,11 +14001,11 @@ Get DBaaS kafka ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14064,12 +14064,12 @@ Get DBaaS kafka ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14133,11 +14133,11 @@ Get a DBaaS migration status
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14198,12 +14198,12 @@ Get a DBaaS migration status
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14265,11 +14265,11 @@ Get DBaaS OpenSearch ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14328,12 +14328,12 @@ Get DBaaS OpenSearch ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14395,11 +14395,11 @@ Get a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14458,12 +14458,12 @@ Get a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14525,11 +14525,11 @@ Get a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14588,12 +14588,12 @@ Get a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14657,11 +14657,11 @@ Get logs of DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14724,12 +14724,12 @@ Get logs of DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14795,11 +14795,11 @@ Get metrics of DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14862,12 +14862,12 @@ Get metrics of DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14933,11 +14933,11 @@ Get a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -14998,12 +14998,12 @@ Get a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15067,11 +15067,11 @@ Get a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15132,12 +15132,12 @@ Get a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15201,11 +15201,11 @@ Get a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15266,12 +15266,12 @@ Get a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15335,11 +15335,11 @@ Get a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15400,12 +15400,12 @@ Get a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15469,11 +15469,11 @@ Get a DBaaS service type
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15534,12 +15534,12 @@ Get a DBaaS service type
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15603,11 +15603,11 @@ Get DBaaS Grafana settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15664,12 +15664,12 @@ Get DBaaS Grafana settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15729,11 +15729,11 @@ Get DBaaS Kafka settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15790,12 +15790,12 @@ Get DBaaS Kafka settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15855,11 +15855,11 @@ Get DBaaS MySQL settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15916,12 +15916,12 @@ Get DBaaS MySQL settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -15981,11 +15981,11 @@ Get DBaaS OpenSearch settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16042,12 +16042,12 @@ Get DBaaS OpenSearch settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16107,11 +16107,11 @@ Get DBaaS PostgreSQL settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16168,12 +16168,12 @@ Get DBaaS PostgreSQL settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16233,11 +16233,11 @@ Returns the default settings for Redis.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16294,12 +16294,12 @@ Returns the default settings for Redis.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16359,11 +16359,11 @@ Get a DBaaS task
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16426,12 +16426,12 @@ Get a DBaaS task
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16497,11 +16497,11 @@ Retrieve Deploy Target details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16562,12 +16562,12 @@ Retrieve Deploy Target details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16631,11 +16631,11 @@ Retrieve DNS domain details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16696,12 +16696,12 @@ Retrieve DNS domain details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16765,11 +16765,11 @@ Retrieve DNS domain record details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16832,12 +16832,12 @@ Retrieve DNS domain record details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16903,11 +16903,11 @@ Retrieve DNS domain zone file
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -16968,12 +16968,12 @@ Retrieve DNS domain zone file
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17037,11 +17037,11 @@ Retrieve Elastic IP details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17102,12 +17102,12 @@ Retrieve Elastic IP details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17171,11 +17171,11 @@ Retrieve IAM Organization Policy
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17232,12 +17232,12 @@ Retrieve IAM Organization Policy
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17297,11 +17297,11 @@ Retrieve IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17362,12 +17362,12 @@ Retrieve IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17431,11 +17431,11 @@ Retrieve Compute instance details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17496,12 +17496,12 @@ Retrieve Compute instance details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17565,11 +17565,11 @@ Retrieve Instance Pool details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17630,12 +17630,12 @@ Retrieve Instance Pool details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17699,11 +17699,11 @@ Retrieve Instance Type details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17764,12 +17764,12 @@ Retrieve Instance Type details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17833,11 +17833,11 @@ Retrieve Load Balancer details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17898,12 +17898,12 @@ Retrieve Load Balancer details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -17967,11 +17967,11 @@ Retrieve Load Balancer Service details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18034,12 +18034,12 @@ Retrieve Load Balancer Service details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18105,11 +18105,11 @@ Retrieve Operation details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18170,12 +18170,12 @@ Retrieve Operation details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18239,11 +18239,11 @@ Retrieve an organization
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18300,12 +18300,12 @@ Retrieve an organization
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18365,11 +18365,11 @@ Retrieve Private Network details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18430,12 +18430,12 @@ Retrieve Private Network details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18499,11 +18499,11 @@ Retrieve Resource Quota
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18564,12 +18564,12 @@ Retrieve Resource Quota
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18633,11 +18633,11 @@ Query the PTR DNS records for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18698,12 +18698,12 @@ Query the PTR DNS records for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18767,11 +18767,11 @@ Query the PTR DNS records for an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18832,12 +18832,12 @@ Query the PTR DNS records for an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18901,11 +18901,11 @@ Retrieve Security Group details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -18966,12 +18966,12 @@ Retrieve Security Group details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19035,11 +19035,11 @@ Retrieve SKS cluster details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19100,12 +19100,12 @@ Retrieve SKS cluster details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19169,11 +19169,11 @@ This operation returns the certificate for the given SKS cluster authority encod
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19236,12 +19236,12 @@ This operation returns the certificate for the given SKS cluster authority encod
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19307,11 +19307,11 @@ Helps troubleshoot common problems when deploying a kubernetes cluster. Inspecti
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19372,12 +19372,12 @@ Helps troubleshoot common problems when deploying a kubernetes cluster. Inspecti
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19441,11 +19441,11 @@ Retrieve SKS Nodepool details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19508,12 +19508,12 @@ Retrieve SKS Nodepool details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19579,11 +19579,11 @@ Retrieve Snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19644,12 +19644,12 @@ Retrieve Snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19713,11 +19713,11 @@ Generates Presigned Download URL for SOS object
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19780,12 +19780,12 @@ Generates Presigned Download URL for SOS object
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19851,11 +19851,11 @@ Retrieve SSH key details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19916,12 +19916,12 @@ Retrieve SSH key details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -19985,11 +19985,11 @@ Retrieve Template details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20050,12 +20050,12 @@ Retrieve Template details
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20119,11 +20119,11 @@ List Anti-affinity Groups
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20180,12 +20180,12 @@ List Anti-affinity Groups
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20243,11 +20243,11 @@ List API keys
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20302,12 +20302,12 @@ List API keys
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20367,11 +20367,11 @@ List block storage snapshots
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20428,12 +20428,12 @@ List block storage snapshots
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20493,11 +20493,11 @@ List block storage volumes
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20558,12 +20558,12 @@ List block storage volumes
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20627,11 +20627,11 @@ Get DBaaS integration settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20696,12 +20696,12 @@ Get DBaaS integration settings
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20769,11 +20769,11 @@ Get DBaaS integration types
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20830,12 +20830,12 @@ Get DBaaS integration types
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20895,11 +20895,11 @@ List available service types for DBaaS
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -20956,12 +20956,12 @@ List available service types for DBaaS
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21021,11 +21021,11 @@ List DBaaS services
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21082,12 +21082,12 @@ List DBaaS services
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21147,11 +21147,11 @@ List Deploy Targets
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21208,12 +21208,12 @@ List Deploy Targets
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21273,11 +21273,11 @@ List DNS domain records
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21338,12 +21338,12 @@ List DNS domain records
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21407,11 +21407,11 @@ List DNS domains
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21468,12 +21468,12 @@ List DNS domains
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21533,11 +21533,11 @@ List Elastic IPs
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21594,12 +21594,12 @@ List Elastic IPs
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21659,11 +21659,11 @@ Retrieve Mutation Events for a given date range. Defaults to retrieving Events f
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21726,12 +21726,12 @@ Retrieve Mutation Events for a given date range. Defaults to retrieving Events f
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21797,11 +21797,11 @@ List IAM Roles
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21858,12 +21858,12 @@ List IAM Roles
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21923,11 +21923,11 @@ List Instance Pools
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -21984,12 +21984,12 @@ List Instance Pools
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22049,11 +22049,11 @@ List Compute instance Types
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22110,12 +22110,12 @@ List Compute instance Types
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22175,11 +22175,11 @@ List Compute instances
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22244,12 +22244,12 @@ List Compute instances
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22317,11 +22317,11 @@ List Load Balancers
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22378,12 +22378,12 @@ List Load Balancers
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22443,11 +22443,11 @@ List Private Networks
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22504,12 +22504,12 @@ List Private Networks
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22569,11 +22569,11 @@ List Organization Quotas
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22630,12 +22630,12 @@ List Organization Quotas
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22695,11 +22695,11 @@ Lists security groups. When visibility is set to public, lists public security g
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22760,12 +22760,12 @@ Lists security groups. When visibility is set to public, lists public security g
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22829,11 +22829,11 @@ This operation returns the deprecated resources for a given cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22894,12 +22894,12 @@ This operation returns the deprecated resources for a given cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -22963,11 +22963,11 @@ List available versions for SKS clusters
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23028,12 +23028,12 @@ List available versions for SKS clusters
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23097,11 +23097,11 @@ List SKS clusters
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23158,12 +23158,12 @@ List SKS clusters
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23223,11 +23223,11 @@ List Snapshots
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23284,12 +23284,12 @@ List Snapshots
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23349,11 +23349,11 @@ List SOS Buckets Usage
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23410,12 +23410,12 @@ List SOS Buckets Usage
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23475,11 +23475,11 @@ List SSH keys
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23536,12 +23536,12 @@ List SSH keys
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23601,11 +23601,11 @@ List Templates
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23668,12 +23668,12 @@ List Templates
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23739,11 +23739,11 @@ List Zones
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23800,12 +23800,12 @@ List Zones
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23865,11 +23865,11 @@ Promote a Snapshot to a Template
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -23932,12 +23932,12 @@ Promote a Snapshot to a Template
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24003,11 +24003,11 @@ Reboot a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24068,12 +24068,12 @@ Reboot a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24137,11 +24137,11 @@ Import SSH key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24202,12 +24202,12 @@ Import SSH key
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24271,11 +24271,11 @@ Register a Template
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24336,12 +24336,12 @@ Register a Template
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24405,11 +24405,11 @@ Remove an external source from a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24472,12 +24472,12 @@ Remove an external source from a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24543,11 +24543,11 @@ Remove instance destruction protection
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24608,12 +24608,12 @@ Remove instance destruction protection
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24677,11 +24677,11 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24746,12 +24746,12 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24819,11 +24819,11 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24888,12 +24888,12 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -24961,11 +24961,11 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25030,12 +25030,12 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25103,11 +25103,11 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25172,12 +25172,12 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25245,11 +25245,11 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25314,12 +25314,12 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25387,11 +25387,11 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25456,12 +25456,12 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25529,11 +25529,11 @@ Reset an Elastic IP field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25596,12 +25596,12 @@ Reset an Elastic IP field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25667,11 +25667,11 @@ This operation re-installs a Compute instance to a base template. If target temp
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25734,12 +25734,12 @@ This operation re-installs a Compute instance to a base template. If target temp
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25805,11 +25805,11 @@ Reset Instance field
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25872,12 +25872,12 @@ Reset Instance field
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -25943,11 +25943,11 @@ Reset a compute instance password
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26008,12 +26008,12 @@ Reset a compute instance password
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26077,11 +26077,11 @@ Reset an Instance Pool field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26144,12 +26144,12 @@ Reset an Instance Pool field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26215,11 +26215,11 @@ Reset a Load Balancer field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26282,12 +26282,12 @@ Reset a Load Balancer field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26353,11 +26353,11 @@ Reset a Load Balancer Service field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26422,12 +26422,12 @@ Reset a Load Balancer Service field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26495,11 +26495,11 @@ Reset Private Network field
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26562,12 +26562,12 @@ Reset Private Network field
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26633,11 +26633,11 @@ Reset an SKS cluster field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26700,12 +26700,12 @@ Reset an SKS cluster field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26771,11 +26771,11 @@ Reset an SKS Nodepool field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26840,12 +26840,12 @@ Reset an SKS Nodepool field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26913,11 +26913,11 @@ This operation resizes a Block storage volume. Note: the volume can only grow, c
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -26980,12 +26980,12 @@ This operation resizes a Block storage volume. Note: the volume can only grow, c
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27051,11 +27051,11 @@ This operation resizes a Compute instance&#39;s disk volume. Note: the disk can 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27118,12 +27118,12 @@ This operation resizes a Compute instance&#39;s disk volume. Note: the disk can 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27187,11 +27187,11 @@ Reveal the secrets of a DBaaS Grafana user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27252,12 +27252,12 @@ Reveal the secrets of a DBaaS Grafana user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27321,11 +27321,11 @@ Reveal the secrets for DBaaS Kafka Connect
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27384,12 +27384,12 @@ Reveal the secrets for DBaaS Kafka Connect
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27451,11 +27451,11 @@ Reveal the secrets of a DBaaS Kafka user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27516,12 +27516,12 @@ Reveal the secrets of a DBaaS Kafka user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27585,11 +27585,11 @@ Reveal the secrets of a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27650,12 +27650,12 @@ Reveal the secrets of a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27719,11 +27719,11 @@ Reveal the secrets of a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27784,12 +27784,12 @@ Reveal the secrets of a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27853,11 +27853,11 @@ Reveal the secrets of a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27918,12 +27918,12 @@ Reveal the secrets of a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -27987,11 +27987,11 @@ Reveal the secrets of a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28052,12 +28052,12 @@ Reveal the secrets of a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28123,11 +28123,11 @@ Reveal the password used during instance creation or the latest password reset. 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28188,12 +28188,12 @@ Reveal the password used during instance creation or the latest password reset. 
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28257,11 +28257,11 @@ This operation reverts the snapshot to the Compute instance volume, restoring st
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28324,12 +28324,12 @@ This operation reverts the snapshot to the Compute instance volume, restoring st
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28395,11 +28395,11 @@ Rotate Exoscale CCM credentials
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28460,12 +28460,12 @@ Rotate Exoscale CCM credentials
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28529,11 +28529,11 @@ Rotate operators certificate authority
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28594,12 +28594,12 @@ Rotate operators certificate authority
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28663,11 +28663,11 @@ This operation changes the Compute instance&#39;s type. Note: the new Instance T
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28730,12 +28730,12 @@ This operation changes the Compute instance&#39;s type. Note: the new Instance T
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28801,11 +28801,11 @@ Scale an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28868,12 +28868,12 @@ Scale an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -28939,11 +28939,11 @@ Scale a SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29008,12 +29008,12 @@ Scale a SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29079,11 +29079,11 @@ Initiate Grafana maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29142,12 +29142,12 @@ Initiate Grafana maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29209,11 +29209,11 @@ Initiate Kafka maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29272,12 +29272,12 @@ Initiate Kafka maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29339,11 +29339,11 @@ Initiate MySQL maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29402,12 +29402,12 @@ Initiate MySQL maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29469,11 +29469,11 @@ Initiate OpenSearch maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29532,12 +29532,12 @@ Initiate OpenSearch maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29599,11 +29599,11 @@ Initiate PostgreSQL maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29662,12 +29662,12 @@ Initiate PostgreSQL maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29729,11 +29729,11 @@ Initiate Redis maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29792,12 +29792,12 @@ Initiate Redis maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29861,11 +29861,11 @@ This operation starts a virtual machine, potentially using a rescue profile if s
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29928,12 +29928,12 @@ This operation starts a virtual machine, potentially using a rescue profile if s
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -29997,11 +29997,11 @@ Stop a DBaaS MySQL migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30060,12 +30060,12 @@ Stop a DBaaS MySQL migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30127,11 +30127,11 @@ Stop a DBaaS PostgreSQL migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30190,12 +30190,12 @@ Stop a DBaaS PostgreSQL migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30257,11 +30257,11 @@ Stop a DBaaS Redis migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30320,12 +30320,12 @@ Stop a DBaaS Redis migration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30389,11 +30389,11 @@ Stop a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30454,12 +30454,12 @@ Stop a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30523,11 +30523,11 @@ Update block storage volume snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30590,12 +30590,12 @@ Update block storage volume snapshot
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30661,11 +30661,11 @@ Update block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30728,12 +30728,12 @@ Update block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30799,11 +30799,11 @@ Update a existing DBaaS integration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30866,12 +30866,12 @@ Update a existing DBaaS integration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -30935,11 +30935,11 @@ Create a DBaaS OpenSearch ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31000,12 +31000,12 @@ Create a DBaaS OpenSearch ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31071,11 +31071,11 @@ Update a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31140,12 +31140,12 @@ Update a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31211,11 +31211,11 @@ Update access control for one service user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31278,12 +31278,12 @@ Update access control for one service user
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31349,11 +31349,11 @@ Update a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31414,12 +31414,12 @@ Update a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31485,11 +31485,11 @@ Update a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31552,12 +31552,12 @@ Update a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31623,11 +31623,11 @@ Update a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31690,12 +31690,12 @@ Update a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31761,11 +31761,11 @@ Update a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31828,12 +31828,12 @@ Update a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31899,11 +31899,11 @@ Update a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -31966,12 +31966,12 @@ Update a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32037,11 +32037,11 @@ Update a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32104,12 +32104,12 @@ Update a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32175,11 +32175,11 @@ Update DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32244,12 +32244,12 @@ Update DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32317,11 +32317,11 @@ Update an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32384,12 +32384,12 @@ Update an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32455,11 +32455,11 @@ Update IAM Organization Policy
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32520,12 +32520,12 @@ Update IAM Organization Policy
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32589,11 +32589,11 @@ Update IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32656,12 +32656,12 @@ Update IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32727,11 +32727,11 @@ Update IAM Role Policy
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32794,12 +32794,12 @@ Update IAM Role Policy
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32865,11 +32865,11 @@ Update a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -32932,12 +32932,12 @@ Update a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33003,11 +33003,11 @@ Update an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33070,12 +33070,12 @@ Update an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33141,11 +33141,11 @@ Update a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33208,12 +33208,12 @@ Update a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33279,11 +33279,11 @@ Update a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33348,12 +33348,12 @@ Update a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33421,11 +33421,11 @@ Update a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33488,12 +33488,12 @@ Update a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33559,11 +33559,11 @@ Update the IP address of an instance attached to a managed private network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33626,12 +33626,12 @@ Update the IP address of an instance attached to a managed private network
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33697,11 +33697,11 @@ Update/Create the PTR DNS record for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33764,12 +33764,12 @@ Update/Create the PTR DNS record for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33835,11 +33835,11 @@ Update/Create the PTR DNS record for an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33902,12 +33902,12 @@ Update/Create the PTR DNS record for an instance
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -33973,11 +33973,11 @@ Update an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34040,12 +34040,12 @@ Update an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34111,11 +34111,11 @@ Update an SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34180,12 +34180,12 @@ Update an SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34253,11 +34253,11 @@ Update template attributes
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34320,12 +34320,12 @@ Update template attributes
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34391,11 +34391,11 @@ Upgrade an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34458,12 +34458,12 @@ Upgrade an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34529,11 +34529,11 @@ Upgrade a SKS cluster to pro
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -34594,12 +34594,12 @@ Upgrade a SKS cluster to pro
 
 ```java
 // Import classes:
-import com.exoscale.exoscale4j.client.ApiClient;
-import com.exoscale.exoscale4j.client.ApiException;
-import com.exoscale.exoscale4j.client.ApiResponse;
-import com.exoscale.exoscale4j.client.Configuration;
-import com.exoscale.exoscale4j.client.models.*;
-import com.exoscale.exoscale4j.api.ExoscaleApi;
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
     public static void main(String[] args) {

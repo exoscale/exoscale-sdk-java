@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.exoscale.exoscale4j</groupId>
-    <artifactId>exoscale4j</artifactId>
+    <groupId>com.exoscale.sdk</groupId>
+    <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
-    <name>exoscale4j</name>
+    <name>sdk</name>
     <version>0.0.2-ALPHA</version>
     <url>https://github.com/exoscale/exoscale4j</url>
     <description>Java SDK for interacting with Exoscale Cloud Services.</description>

@@ -1,4 +1,4 @@
-# exoscale4j
+# sdk
 
 Java SDK for interacting with Exoscale Cloud Services.
 
@@ -7,7 +7,7 @@ Exoscale Public API
 
 - API version: 2.0.0
 
-- Build date: 2024-08-07T11:18:35.752314Z[Etc/UTC]
+- Build date: 2024-08-07T22:25:50.955886Z[Etc/UTC]
 
 
 - Generator version: 7.4.0
@@ -37,8 +37,8 @@ Maven users can simply add the below dependency to their `pom.xml` :
 
 ```xml
 <dependency>
-    <groupId>com.exoscale.exoscale4j</groupId>
-    <artifactId>exoscale4j</artifactId>
+    <groupId>com.exoscale.sdk</groupId>
+    <artifactId>sdk</artifactId>
     <version>0.0.2-ALPHA</version>
     <scope>compile</scope>
 </dependency>
@@ -56,7 +56,7 @@ url "url_to_your_maven_repository"
 
 
 dependencies {
-implementation 'com.exoscale.exoscale4j:exoscale4j:0.0.2-ALPHA'
+implementation 'com.exoscale.sdk:sdk:0.0.2-ALPHA'
 }
 ```
 
@@ -69,7 +69,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- target/exoscale4j-0.0.2-ALPHA.jar
+- target/sdk-0.0.2-ALPHA.jar
 - target/lib/*.jar
 
 ## Getting Started
@@ -78,8 +78,8 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import com.exoscale.exoscale4j.client.*;
-import com.exoscale.exoscale4j.model.*;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.model.*;
 import java.util.UUID;
 
 public class NewInstanceExample {
