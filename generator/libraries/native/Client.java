@@ -1,9 +1,9 @@
-package com.exoscale.exoscale4j.client;
+package com.exoscale.sdk.client;
 
 
-import com.exoscale.exoscale4j.api.*;
-import com.exoscale.exoscale4j.model.*;
-import com.exoscale.exoscale4j.client.*;
+import com.exoscale.sdk.api.*;
+import com.exoscale.sdk.model.*;
+import com.exoscale.sdk.client.*;
 
 /**
 * High-level wrapper for interacting with Exoscale API.
