@@ -9,7 +9,7 @@ info:
     url: https://portal.exoscale.com/tickets
   title: Exoscale Public API
   description: |2-
-  
+
     Infrastructure automation API, allowing programmatic access to all Exoscale products and services.
 
     The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:

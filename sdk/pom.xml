@@ -5,7 +5,7 @@
     <artifactId>exoscale4j</artifactId>
     <packaging>jar</packaging>
     <name>exoscale4j</name>
-    <version>0.0.1-ALPHA</version>
+    <version>0.0.2-ALPHA</version>
     <url>https://github.com/exoscale/exoscale4j</url>
     <description>Java SDK for interacting with Exoscale Cloud Services.</description>
     <scm>

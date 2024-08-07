@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceKafkaConnectionInfo.JSON_PROPERTY_REST_URI,
   DbaasServiceKafkaConnectionInfo.JSON_PROPERTY_REGISTRY_URI
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-05T21:53:56.743866Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T09:01:40.924075Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasServiceKafkaConnectionInfo {
   public static final String JSON_PROPERTY_NODES = "nodes";
   private List<String> nodes;

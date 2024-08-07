@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateDbaasServiceOpensearchRequestIndexPatternsInner.JSON_PROPERTY_SORTING_ALGORITHM,
   UpdateDbaasServiceOpensearchRequestIndexPatternsInner.JSON_PROPERTY_PATTERN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-05T21:53:56.743866Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T09:01:40.924075Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceOpensearchRequestIndexPatternsInner {
   public static final String JSON_PROPERTY_MAX_INDEX_COUNT = "max-index-count";
   private Long maxIndexCount;

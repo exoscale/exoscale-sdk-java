@@ -71,7 +71,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceRedis.JSON_PROPERTY_PLAN,
   DbaasServiceRedis.JSON_PROPERTY_USERS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-05T21:53:56.743866Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T09:01:40.924075Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasServiceRedis {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
