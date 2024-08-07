@@ -1,4 +1,4 @@
-package com.exoscale.exoscale4j.client;
+package com.exoscale.sdk.client;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
