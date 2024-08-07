@@ -1,0 +1,68 @@
+name: Update bundled openapi definition & Generate SDK
+
+on:
+  push:
+    branches:
+      - add-new-api-folder-for-the-current-version
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'  # At 07:00 every day
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch latest OpenAPI definition
+        shell: bash
+        run: |
+          curl -s https://openapi-v2.exoscale.com/source.yaml -o api/openapi.yaml
+
+      - name: Check for changes in OpenAPI definition
+        id: changes
+        run: |
+          git diff --exit-code api/openapi.yaml || echo "CHANGED=true" >> $GITHUB_ENV
+
+      - name: Install xmlstarlet
+        if: env.CHANGED == 'true'
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+
+      - name: Increment artifactVersion
+        if: env.CHANGED == 'true'
+        id: increment_version
+        run: |
+          current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
+          echo "Current version: $current_version"
+          IFS='.-' read -r -a parts <<< "$current_version"
+          new_patch=$((parts[2] + 1))
+          new_version="${parts[0]}.${parts[1]}.$new_patch-${parts[3]}"
+          echo "New version: $new_version"
+          xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$new_version" pom.xml
+          echo "new_version=$new_version" >> $GITHUB_ENV
+          echo "Updated version to $new_version"
+
+
+      - name: Delete existing SDK if OpenAPI definition has changed
+        if: env.CHANGED == 'true'
+        run: |
+          rm -rf sdk/*
+
+      - name: Generate code if OpenAPI definition has changed
+        if: env.CHANGED == 'true'
+        run: |
+          mvn generate-sources process-resources
+          cd sdk
+          mvn install
+          cd ..
+
+      - name: Commit and push changes if OpenAPI definition has changed
+        if: env.CHANGED == 'true'
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add .
+          timestamp=$(date -u)
+          git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
+          git push
