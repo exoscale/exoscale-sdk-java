@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.exoscale.exoscale4j.api"},{"l":"com.exoscale.exoscale4j.client"},{"l":"com.exoscale.exoscale4j.model"}];updateSearchResults();
