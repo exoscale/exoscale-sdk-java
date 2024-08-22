@@ -23,6 +23,7 @@ import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
+import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
@@ -31,6 +32,8 @@ import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.CreateBlockStorageVolumeRequest;
+import com.exoscale.sdk.model.CreateDbaasExternalEndpointDatadogRequest;
+import com.exoscale.sdk.model.CreateDbaasExternalEndpointRsyslogRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
@@ -57,6 +60,12 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchOutput;
+import com.exoscale.sdk.model.DbaasEndpointExternalPrometheusOutput;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchOutput;
+import com.exoscale.sdk.model.DbaasExternalEndpointDatadogOutput;
+import com.exoscale.sdk.model.DbaasExternalEndpointRsyslogOutput;
+import com.exoscale.sdk.model.DbaasExternalIntegration;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasKafkaAcls;
 import com.exoscale.sdk.model.DbaasKafkaSchemaRegistryAclEntry;
@@ -81,6 +90,7 @@ import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserRedisSecrets;
 import com.exoscale.sdk.model.DeployTarget;
+import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
@@ -115,6 +125,9 @@ import com.exoscale.sdk.model.ListAntiAffinityGroups200Response;
 import com.exoscale.sdk.model.ListApiKeys200Response;
 import com.exoscale.sdk.model.ListBlockStorageSnapshots200Response;
 import com.exoscale.sdk.model.ListBlockStorageVolumes200Response;
+import com.exoscale.sdk.model.ListDbaasExternalEndpointTypes200Response;
+import com.exoscale.sdk.model.ListDbaasExternalEndpoints200Response;
+import com.exoscale.sdk.model.ListDbaasExternalIntegrations200Response;
 import com.exoscale.sdk.model.ListDbaasIntegrationSettings200Response;
 import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
@@ -170,6 +183,9 @@ import com.exoscale.sdk.model.Template;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
+import com.exoscale.sdk.model.UpdateDbaasExternalEndpointElasticsearchRequest;
+import com.exoscale.sdk.model.UpdateDbaasExternalEndpointOpensearchRequest;
+import com.exoscale.sdk.model.UpdateDbaasExternalEndpointPrometheusRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.UpdateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.UpdateDbaasPostgresAllowReplicationRequest;
@@ -219,7 +235,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T22:25:50.955886Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class ExoscaleApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -690,6 +706,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Create a new DBaaS connection between a DBaaS service and an external service
+   * @param sourceServiceName  (required)
+   * @param attachDbaasServiceToEndpointRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation attachDbaasServiceToEndpoint(String sourceServiceName, AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = attachDbaasServiceToEndpointWithHttpInfo(sourceServiceName, attachDbaasServiceToEndpointRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Create a new DBaaS connection between a DBaaS service and an external service
+   * @param sourceServiceName  (required)
+   * @param attachDbaasServiceToEndpointRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> attachDbaasServiceToEndpointWithHttpInfo(String sourceServiceName, AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = attachDbaasServiceToEndpointRequestBuilder(sourceServiceName, attachDbaasServiceToEndpointRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("attachDbaasServiceToEndpoint", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder attachDbaasServiceToEndpointRequestBuilder(String sourceServiceName, AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest) throws ApiException {
+    // verify the required parameter 'sourceServiceName' is set
+    if (sourceServiceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'sourceServiceName' when calling attachDbaasServiceToEndpoint");
+    }
+    // verify the required parameter 'attachDbaasServiceToEndpointRequest' is set
+    if (attachDbaasServiceToEndpointRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachDbaasServiceToEndpointRequest' when calling attachDbaasServiceToEndpoint");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint/{source-service-name}/attach"
+        .replace("{source-service-name}", ApiClient.urlEncode(sourceServiceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(attachDbaasServiceToEndpointRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1421,6 +1531,476 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createBlockStorageVolumeRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Create DataDog external integration endpoint
+   * @param name  (required)
+   * @param createDbaasExternalEndpointDatadogRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasExternalEndpointDatadog(String name, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointDatadogWithHttpInfo(name, createDbaasExternalEndpointDatadogRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Create DataDog external integration endpoint
+   * @param name  (required)
+   * @param createDbaasExternalEndpointDatadogRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> createDbaasExternalEndpointDatadogWithHttpInfo(String name, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointDatadogRequestBuilder(name, createDbaasExternalEndpointDatadogRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasExternalEndpointDatadog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasExternalEndpointDatadogRequestBuilder(String name, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointDatadog");
+    }
+    // verify the required parameter 'createDbaasExternalEndpointDatadogRequest' is set
+    if (createDbaasExternalEndpointDatadogRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasExternalEndpointDatadogRequest' when calling createDbaasExternalEndpointDatadog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-datadog/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasExternalEndpointDatadogRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Create ElasticSearch Logs external integration endpoint
+   * @param name  (required)
+   * @param updateDbaasExternalEndpointElasticsearchRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasExternalEndpointElasticsearch(String name, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointElasticsearchWithHttpInfo(name, updateDbaasExternalEndpointElasticsearchRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Create ElasticSearch Logs external integration endpoint
+   * @param name  (required)
+   * @param updateDbaasExternalEndpointElasticsearchRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> createDbaasExternalEndpointElasticsearchWithHttpInfo(String name, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointElasticsearchRequestBuilder(name, updateDbaasExternalEndpointElasticsearchRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasExternalEndpointElasticsearch", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasExternalEndpointElasticsearchRequestBuilder(String name, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointElasticsearch");
+    }
+    // verify the required parameter 'updateDbaasExternalEndpointElasticsearchRequest' is set
+    if (updateDbaasExternalEndpointElasticsearchRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasExternalEndpointElasticsearchRequest' when calling createDbaasExternalEndpointElasticsearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasExternalEndpointElasticsearchRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Create OpenSearch Logs external integration endpoint
+   * @param name  (required)
+   * @param updateDbaasExternalEndpointOpensearchRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasExternalEndpointOpensearch(String name, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointOpensearchWithHttpInfo(name, updateDbaasExternalEndpointOpensearchRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Create OpenSearch Logs external integration endpoint
+   * @param name  (required)
+   * @param updateDbaasExternalEndpointOpensearchRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> createDbaasExternalEndpointOpensearchWithHttpInfo(String name, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointOpensearchRequestBuilder(name, updateDbaasExternalEndpointOpensearchRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasExternalEndpointOpensearch", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasExternalEndpointOpensearchRequestBuilder(String name, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointOpensearch");
+    }
+    // verify the required parameter 'updateDbaasExternalEndpointOpensearchRequest' is set
+    if (updateDbaasExternalEndpointOpensearchRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasExternalEndpointOpensearchRequest' when calling createDbaasExternalEndpointOpensearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasExternalEndpointOpensearchRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Create Prometheus external integration endpoint
+   * @param name  (required)
+   * @param updateDbaasExternalEndpointPrometheusRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasExternalEndpointPrometheus(String name, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointPrometheusWithHttpInfo(name, updateDbaasExternalEndpointPrometheusRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Create Prometheus external integration endpoint
+   * @param name  (required)
+   * @param updateDbaasExternalEndpointPrometheusRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> createDbaasExternalEndpointPrometheusWithHttpInfo(String name, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointPrometheusRequestBuilder(name, updateDbaasExternalEndpointPrometheusRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasExternalEndpointPrometheus", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasExternalEndpointPrometheusRequestBuilder(String name, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointPrometheus");
+    }
+    // verify the required parameter 'updateDbaasExternalEndpointPrometheusRequest' is set
+    if (updateDbaasExternalEndpointPrometheusRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasExternalEndpointPrometheusRequest' when calling createDbaasExternalEndpointPrometheus");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasExternalEndpointPrometheusRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Create RSyslog external integration endpoint
+   * @param name  (required)
+   * @param createDbaasExternalEndpointRsyslogRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasExternalEndpointRsyslog(String name, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointRsyslogWithHttpInfo(name, createDbaasExternalEndpointRsyslogRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Create RSyslog external integration endpoint
+   * @param name  (required)
+   * @param createDbaasExternalEndpointRsyslogRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> createDbaasExternalEndpointRsyslogWithHttpInfo(String name, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointRsyslogRequestBuilder(name, createDbaasExternalEndpointRsyslogRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasExternalEndpointRsyslog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasExternalEndpointRsyslogRequestBuilder(String name, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointRsyslog");
+    }
+    // verify the required parameter 'createDbaasExternalEndpointRsyslogRequest' is set
+    if (createDbaasExternalEndpointRsyslogRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasExternalEndpointRsyslogRequest' when calling createDbaasExternalEndpointRsyslog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasExternalEndpointRsyslogRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -4607,6 +5187,416 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * 
+   * [BETA] Delete DataDog external integration endpoint
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasExternalEndpointDatadog(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointDatadogWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Delete DataDog external integration endpoint
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> deleteDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointDatadogRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasExternalEndpointDatadog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasExternalEndpointDatadogRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointDatadog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-datadog/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Delete ElasticSearch logs external integration endpoint
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasExternalEndpointElasticsearch(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointElasticsearchWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Delete ElasticSearch logs external integration endpoint
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointElasticsearchRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasExternalEndpointElasticsearch", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasExternalEndpointElasticsearchRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointElasticsearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Delete OpenSearch logs external integration endpoint
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasExternalEndpointOpensearch(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointOpensearchWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Delete OpenSearch logs external integration endpoint
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> deleteDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointOpensearchRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasExternalEndpointOpensearch", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasExternalEndpointOpensearchRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointOpensearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Delete Prometheus external integration endpoint
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasExternalEndpointPrometheus(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointPrometheusWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Delete Prometheus external integration endpoint
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> deleteDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointPrometheusRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasExternalEndpointPrometheus", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasExternalEndpointPrometheusRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointPrometheus");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Delete RSyslog external integration endpoint
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasExternalEndpointRsyslog(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointRsyslogWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Delete RSyslog external integration endpoint
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> deleteDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointRsyslogRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasExternalEndpointRsyslog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasExternalEndpointRsyslogRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointRsyslog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Delete a DBaaS Integration
    * Delete a DBaaS Integration
    * @param id  (required)
@@ -7739,6 +8729,100 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * 
+   * [BETA] Detach a DBaaS external integration from a service
+   * @param sourceServiceName  (required)
+   * @param detachDbaasServiceFromEndpointRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation detachDbaasServiceFromEndpoint(String sourceServiceName, DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = detachDbaasServiceFromEndpointWithHttpInfo(sourceServiceName, detachDbaasServiceFromEndpointRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Detach a DBaaS external integration from a service
+   * @param sourceServiceName  (required)
+   * @param detachDbaasServiceFromEndpointRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> detachDbaasServiceFromEndpointWithHttpInfo(String sourceServiceName, DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = detachDbaasServiceFromEndpointRequestBuilder(sourceServiceName, detachDbaasServiceFromEndpointRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("detachDbaasServiceFromEndpoint", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder detachDbaasServiceFromEndpointRequestBuilder(String sourceServiceName, DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest) throws ApiException {
+    // verify the required parameter 'sourceServiceName' is set
+    if (sourceServiceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'sourceServiceName' when calling detachDbaasServiceFromEndpoint");
+    }
+    // verify the required parameter 'detachDbaasServiceFromEndpointRequest' is set
+    if (detachDbaasServiceFromEndpointRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'detachDbaasServiceFromEndpointRequest' when calling detachDbaasServiceFromEndpoint");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint/{source-service-name}/detach"
+        .replace("{source-service-name}", ApiClient.urlEncode(sourceServiceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(detachDbaasServiceFromEndpointRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Detach a Compute instance from an Elastic IP
    * 
    * @param id  (required)
@@ -8935,6 +10019,498 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/dbaas-ca-certificate";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get DataDog external endpoint settings
+   * @param id  (required)
+   * @return DbaasExternalEndpointDatadogOutput
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(UUID id) throws ApiException {
+    ApiResponse<DbaasExternalEndpointDatadogOutput> localVarResponse = getDbaasExternalEndpointDatadogWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get DataDog external endpoint settings
+   * @param id  (required)
+   * @return ApiResponse&lt;DbaasExternalEndpointDatadogOutput&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointDatadogRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalEndpointDatadog", localVarResponse);
+        }
+        return new ApiResponse<DbaasExternalEndpointDatadogOutput>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasExternalEndpointDatadogOutput>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalEndpointDatadogRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointDatadog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-datadog/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get ElasticSearch Logs external integration endpoint settings
+   * @param id  (required)
+   * @return DbaasEndpointElasticsearchOutput
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasEndpointElasticsearchOutput getDbaasExternalEndpointElasticsearch(UUID id) throws ApiException {
+    ApiResponse<DbaasEndpointElasticsearchOutput> localVarResponse = getDbaasExternalEndpointElasticsearchWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get ElasticSearch Logs external integration endpoint settings
+   * @param id  (required)
+   * @return ApiResponse&lt;DbaasEndpointElasticsearchOutput&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointElasticsearchRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalEndpointElasticsearch", localVarResponse);
+        }
+        return new ApiResponse<DbaasEndpointElasticsearchOutput>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasEndpointElasticsearchOutput>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalEndpointElasticsearchRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointElasticsearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get OpenSearch Logs external integration endpoint settings
+   * @param id  (required)
+   * @return DbaasEndpointOpensearchOutput
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasEndpointOpensearchOutput getDbaasExternalEndpointOpensearch(UUID id) throws ApiException {
+    ApiResponse<DbaasEndpointOpensearchOutput> localVarResponse = getDbaasExternalEndpointOpensearchWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get OpenSearch Logs external integration endpoint settings
+   * @param id  (required)
+   * @return ApiResponse&lt;DbaasEndpointOpensearchOutput&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointOpensearchRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalEndpointOpensearch", localVarResponse);
+        }
+        return new ApiResponse<DbaasEndpointOpensearchOutput>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasEndpointOpensearchOutput>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalEndpointOpensearchRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointOpensearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get Prometheus external integration endpoint settings
+   * @param id  (required)
+   * @return DbaasEndpointExternalPrometheusOutput
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasEndpointExternalPrometheusOutput getDbaasExternalEndpointPrometheus(UUID id) throws ApiException {
+    ApiResponse<DbaasEndpointExternalPrometheusOutput> localVarResponse = getDbaasExternalEndpointPrometheusWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get Prometheus external integration endpoint settings
+   * @param id  (required)
+   * @return ApiResponse&lt;DbaasEndpointExternalPrometheusOutput&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointPrometheusRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalEndpointPrometheus", localVarResponse);
+        }
+        return new ApiResponse<DbaasEndpointExternalPrometheusOutput>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasEndpointExternalPrometheusOutput>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalEndpointPrometheusRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointPrometheus");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get RSyslog external integration endpoint settings
+   * @param id  (required)
+   * @return DbaasExternalEndpointRsyslogOutput
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasExternalEndpointRsyslogOutput getDbaasExternalEndpointRsyslog(UUID id) throws ApiException {
+    ApiResponse<DbaasExternalEndpointRsyslogOutput> localVarResponse = getDbaasExternalEndpointRsyslogWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get RSyslog external integration endpoint settings
+   * @param id  (required)
+   * @return ApiResponse&lt;DbaasExternalEndpointRsyslogOutput&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointRsyslogRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalEndpointRsyslog", localVarResponse);
+        }
+        return new ApiResponse<DbaasExternalEndpointRsyslogOutput>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasExternalEndpointRsyslogOutput>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalEndpointRsyslogRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointRsyslog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get a DBaaS external integration
+   * @param id  (required)
+   * @return DbaasExternalIntegration
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasExternalIntegration getDbaasExternalIntegration(UUID id) throws ApiException {
+    ApiResponse<DbaasExternalIntegration> localVarResponse = getDbaasExternalIntegrationWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get a DBaaS external integration
+   * @param id  (required)
+   * @return ApiResponse&lt;DbaasExternalIntegration&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegrationWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalIntegrationRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalIntegration", localVarResponse);
+        }
+        return new ApiResponse<DbaasExternalIntegration>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasExternalIntegration>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalIntegrationRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalIntegration");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-integration/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -13137,6 +14713,238 @@ public class ExoscaleApi {
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] List available external endpoint types and their schemas for DBaaS external integrations
+   * @return ListDbaasExternalEndpointTypes200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListDbaasExternalEndpointTypes200Response listDbaasExternalEndpointTypes() throws ApiException {
+    ApiResponse<ListDbaasExternalEndpointTypes200Response> localVarResponse = listDbaasExternalEndpointTypesWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] List available external endpoint types and their schemas for DBaaS external integrations
+   * @return ApiResponse&lt;ListDbaasExternalEndpointTypes200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListDbaasExternalEndpointTypes200Response> listDbaasExternalEndpointTypesWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDbaasExternalEndpointTypesRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listDbaasExternalEndpointTypes", localVarResponse);
+        }
+        return new ApiResponse<ListDbaasExternalEndpointTypes200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListDbaasExternalEndpointTypes200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listDbaasExternalEndpointTypesRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-types";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] List available external endpoints for integrations
+   * @return ListDbaasExternalEndpoints200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListDbaasExternalEndpoints200Response listDbaasExternalEndpoints() throws ApiException {
+    ApiResponse<ListDbaasExternalEndpoints200Response> localVarResponse = listDbaasExternalEndpointsWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] List available external endpoints for integrations
+   * @return ApiResponse&lt;ListDbaasExternalEndpoints200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListDbaasExternalEndpoints200Response> listDbaasExternalEndpointsWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDbaasExternalEndpointsRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listDbaasExternalEndpoints", localVarResponse);
+        }
+        return new ApiResponse<ListDbaasExternalEndpoints200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListDbaasExternalEndpoints200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listDbaasExternalEndpointsRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoints";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] List all DBaaS connections between services and external endpoints
+   * @param serviceName  (required)
+   * @return ListDbaasExternalIntegrations200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListDbaasExternalIntegrations200Response listDbaasExternalIntegrations(String serviceName) throws ApiException {
+    ApiResponse<ListDbaasExternalIntegrations200Response> localVarResponse = listDbaasExternalIntegrationsWithHttpInfo(serviceName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] List all DBaaS connections between services and external endpoints
+   * @param serviceName  (required)
+   * @return ApiResponse&lt;ListDbaasExternalIntegrations200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<ListDbaasExternalIntegrations200Response> listDbaasExternalIntegrationsWithHttpInfo(String serviceName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDbaasExternalIntegrationsRequestBuilder(serviceName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listDbaasExternalIntegrations", localVarResponse);
+        }
+        return new ApiResponse<ListDbaasExternalIntegrations200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListDbaasExternalIntegrations200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listDbaasExternalIntegrationsRequestBuilder(String serviceName) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling listDbaasExternalIntegrations");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-integrations/{service-name}"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -19704,6 +21512,476 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateBlockStorageVolumeRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Update DataDog external integration endpoint
+   * @param id  (required)
+   * @param createDbaasExternalEndpointDatadogRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasExternalEndpointDatadog(UUID id, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointDatadogWithHttpInfo(id, createDbaasExternalEndpointDatadogRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Update DataDog external integration endpoint
+   * @param id  (required)
+   * @param createDbaasExternalEndpointDatadogRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> updateDbaasExternalEndpointDatadogWithHttpInfo(UUID id, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointDatadogRequestBuilder(id, createDbaasExternalEndpointDatadogRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasExternalEndpointDatadog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasExternalEndpointDatadogRequestBuilder(UUID id, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointDatadog");
+    }
+    // verify the required parameter 'createDbaasExternalEndpointDatadogRequest' is set
+    if (createDbaasExternalEndpointDatadogRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasExternalEndpointDatadogRequest' when calling updateDbaasExternalEndpointDatadog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-datadog/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasExternalEndpointDatadogRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Update ElasticSearch Logs external integration endpoint
+   * @param id  (required)
+   * @param updateDbaasExternalEndpointElasticsearchRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasExternalEndpointElasticsearch(UUID id, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointElasticsearchWithHttpInfo(id, updateDbaasExternalEndpointElasticsearchRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Update ElasticSearch Logs external integration endpoint
+   * @param id  (required)
+   * @param updateDbaasExternalEndpointElasticsearchRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> updateDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointElasticsearchRequestBuilder(id, updateDbaasExternalEndpointElasticsearchRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasExternalEndpointElasticsearch", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasExternalEndpointElasticsearchRequestBuilder(UUID id, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointElasticsearch");
+    }
+    // verify the required parameter 'updateDbaasExternalEndpointElasticsearchRequest' is set
+    if (updateDbaasExternalEndpointElasticsearchRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasExternalEndpointElasticsearchRequest' when calling updateDbaasExternalEndpointElasticsearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasExternalEndpointElasticsearchRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Update OpenSearch Logs external integration endpoint
+   * @param id  (required)
+   * @param updateDbaasExternalEndpointOpensearchRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasExternalEndpointOpensearch(UUID id, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointOpensearchWithHttpInfo(id, updateDbaasExternalEndpointOpensearchRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Update OpenSearch Logs external integration endpoint
+   * @param id  (required)
+   * @param updateDbaasExternalEndpointOpensearchRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> updateDbaasExternalEndpointOpensearchWithHttpInfo(UUID id, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointOpensearchRequestBuilder(id, updateDbaasExternalEndpointOpensearchRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasExternalEndpointOpensearch", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasExternalEndpointOpensearchRequestBuilder(UUID id, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointOpensearch");
+    }
+    // verify the required parameter 'updateDbaasExternalEndpointOpensearchRequest' is set
+    if (updateDbaasExternalEndpointOpensearchRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasExternalEndpointOpensearchRequest' when calling updateDbaasExternalEndpointOpensearch");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasExternalEndpointOpensearchRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Update Prometheus external integration endpoint
+   * @param id  (required)
+   * @param updateDbaasExternalEndpointPrometheusRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasExternalEndpointPrometheus(UUID id, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointPrometheusWithHttpInfo(id, updateDbaasExternalEndpointPrometheusRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Update Prometheus external integration endpoint
+   * @param id  (required)
+   * @param updateDbaasExternalEndpointPrometheusRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> updateDbaasExternalEndpointPrometheusWithHttpInfo(UUID id, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointPrometheusRequestBuilder(id, updateDbaasExternalEndpointPrometheusRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasExternalEndpointPrometheus", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasExternalEndpointPrometheusRequestBuilder(UUID id, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointPrometheus");
+    }
+    // verify the required parameter 'updateDbaasExternalEndpointPrometheusRequest' is set
+    if (updateDbaasExternalEndpointPrometheusRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasExternalEndpointPrometheusRequest' when calling updateDbaasExternalEndpointPrometheus");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasExternalEndpointPrometheusRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Update RSyslog external integration endpoint
+   * @param id  (required)
+   * @param createDbaasExternalEndpointRsyslogRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasExternalEndpointRsyslog(UUID id, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointRsyslogWithHttpInfo(id, createDbaasExternalEndpointRsyslogRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Update RSyslog external integration endpoint
+   * @param id  (required)
+   * @param createDbaasExternalEndpointRsyslogRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> updateDbaasExternalEndpointRsyslogWithHttpInfo(UUID id, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointRsyslogRequestBuilder(id, createDbaasExternalEndpointRsyslogRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasExternalEndpointRsyslog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasExternalEndpointRsyslogRequestBuilder(UUID id, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointRsyslog");
+    }
+    // verify the required parameter 'createDbaasExternalEndpointRsyslogRequest' is set
+    if (createDbaasExternalEndpointRsyslogRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasExternalEndpointRsyslogRequest' when calling updateDbaasExternalEndpointRsyslog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasExternalEndpointRsyslogRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

@@ -7,7 +7,7 @@ Exoscale Public API
 
 - API version: 2.0.0
 
-- Build date: 2024-08-07T22:25:50.955886Z[Etc/UTC]
+- Build date: 2024-08-22T07:06:13.134792Z[Etc/UTC]
 
 
 - Generator version: 7.4.0
@@ -39,7 +39,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.2-ALPHA</version>
+    <version>0.0.3-ALPHA</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ url "url_to_your_maven_repository"
 
 
 dependencies {
-implementation 'com.exoscale.sdk:sdk:0.0.2-ALPHA'
+implementation 'com.exoscale.sdk:sdk:0.0.3-ALPHA'
 }
 ```
 
@@ -69,7 +69,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- target/sdk-0.0.2-ALPHA.jar
+- target/sdk-0.0.3-ALPHA.jar
 - target/lib/*.jar
 
 ## Getting Started
@@ -112,6 +112,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**addServiceToLoadBalancerWithHttpInfo**](docs/ExoscaleApi.md#addServiceToLoadBalancerWithHttpInfo) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
 *ExoscaleApi* | [**attachBlockStorageVolumeToInstance**](docs/ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
 *ExoscaleApi* | [**attachBlockStorageVolumeToInstanceWithHttpInfo**](docs/ExoscaleApi.md#attachBlockStorageVolumeToInstanceWithHttpInfo) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
+*ExoscaleApi* | [**attachDbaasServiceToEndpoint**](docs/ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach | 
+*ExoscaleApi* | [**attachDbaasServiceToEndpointWithHttpInfo**](docs/ExoscaleApi.md#attachDbaasServiceToEndpointWithHttpInfo) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach | 
 *ExoscaleApi* | [**attachInstanceToElasticIp**](docs/ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
 *ExoscaleApi* | [**attachInstanceToElasticIpWithHttpInfo**](docs/ExoscaleApi.md#attachInstanceToElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
 *ExoscaleApi* | [**attachInstanceToPrivateNetwork**](docs/ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
@@ -128,6 +130,16 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createBlockStorageSnapshotWithHttpInfo**](docs/ExoscaleApi.md#createBlockStorageSnapshotWithHttpInfo) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
 *ExoscaleApi* | [**createBlockStorageVolume**](docs/ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume
 *ExoscaleApi* | [**createBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#createBlockStorageVolumeWithHttpInfo) | **POST** /block-storage | Create a block storage volume
+*ExoscaleApi* | [**createDbaasExternalEndpointDatadog**](docs/ExoscaleApi.md#createDbaasExternalEndpointDatadog) | **POST** /dbaas-external-endpoint-datadog/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointDatadogWithHttpInfo**](docs/ExoscaleApi.md#createDbaasExternalEndpointDatadogWithHttpInfo) | **POST** /dbaas-external-endpoint-datadog/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointElasticsearch**](docs/ExoscaleApi.md#createDbaasExternalEndpointElasticsearch) | **POST** /dbaas-external-endpoint-elasticsearch/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointElasticsearchWithHttpInfo**](docs/ExoscaleApi.md#createDbaasExternalEndpointElasticsearchWithHttpInfo) | **POST** /dbaas-external-endpoint-elasticsearch/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointOpensearch**](docs/ExoscaleApi.md#createDbaasExternalEndpointOpensearch) | **POST** /dbaas-external-endpoint-opensearch/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointOpensearchWithHttpInfo**](docs/ExoscaleApi.md#createDbaasExternalEndpointOpensearchWithHttpInfo) | **POST** /dbaas-external-endpoint-opensearch/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointPrometheus**](docs/ExoscaleApi.md#createDbaasExternalEndpointPrometheus) | **POST** /dbaas-external-endpoint-prometheus/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointPrometheusWithHttpInfo**](docs/ExoscaleApi.md#createDbaasExternalEndpointPrometheusWithHttpInfo) | **POST** /dbaas-external-endpoint-prometheus/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointRsyslog**](docs/ExoscaleApi.md#createDbaasExternalEndpointRsyslog) | **POST** /dbaas-external-endpoint-rsyslog/{name} | 
+*ExoscaleApi* | [**createDbaasExternalEndpointRsyslogWithHttpInfo**](docs/ExoscaleApi.md#createDbaasExternalEndpointRsyslogWithHttpInfo) | **POST** /dbaas-external-endpoint-rsyslog/{name} | 
 *ExoscaleApi* | [**createDbaasIntegration**](docs/ExoscaleApi.md#createDbaasIntegration) | **POST** /dbaas-integration | Create a new DBaaS integration between two services
 *ExoscaleApi* | [**createDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration | Create a new DBaaS integration between two services
 *ExoscaleApi* | [**createDbaasKafkaSchemaRegistryAclConfig**](docs/ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfig) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry
@@ -198,6 +210,16 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteBlockStorageSnapshotWithHttpInfo**](docs/ExoscaleApi.md#deleteBlockStorageSnapshotWithHttpInfo) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
 *ExoscaleApi* | [**deleteBlockStorageVolume**](docs/ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
 *ExoscaleApi* | [**deleteBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#deleteBlockStorageVolumeWithHttpInfo) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
+*ExoscaleApi* | [**deleteDbaasExternalEndpointDatadog**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointDatadogWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-datadog/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearch**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearchWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearchWithHttpInfo) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointOpensearch**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointOpensearchWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointOpensearchWithHttpInfo) | **DELETE** /dbaas-external-endpoint-opensearch/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointPrometheus**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointPrometheusWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointPrometheusWithHttpInfo) | **DELETE** /dbaas-external-endpoint-prometheus/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointRsyslog**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointRsyslogWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasExternalEndpointRsyslogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} | 
 *ExoscaleApi* | [**deleteDbaasIntegration**](docs/ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration
 *ExoscaleApi* | [**deleteDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration
 *ExoscaleApi* | [**deleteDbaasKafkaSchemaRegistryAclConfig**](docs/ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry
@@ -272,6 +294,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteTemplateWithHttpInfo**](docs/ExoscaleApi.md#deleteTemplateWithHttpInfo) | **DELETE** /template/{id} | Delete a Template
 *ExoscaleApi* | [**detachBlockStorageVolume**](docs/ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume
 *ExoscaleApi* | [**detachBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#detachBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:detach | Detach block storage volume
+*ExoscaleApi* | [**detachDbaasServiceFromEndpoint**](docs/ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach | 
+*ExoscaleApi* | [**detachDbaasServiceFromEndpointWithHttpInfo**](docs/ExoscaleApi.md#detachDbaasServiceFromEndpointWithHttpInfo) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach | 
 *ExoscaleApi* | [**detachInstanceFromElasticIp**](docs/ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
 *ExoscaleApi* | [**detachInstanceFromElasticIpWithHttpInfo**](docs/ExoscaleApi.md#detachInstanceFromElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
 *ExoscaleApi* | [**detachInstanceFromPrivateNetwork**](docs/ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
@@ -300,6 +324,18 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getConsoleProxyUrlWithHttpInfo**](docs/ExoscaleApi.md#getConsoleProxyUrlWithHttpInfo) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console.
 *ExoscaleApi* | [**getDbaasCaCertificate**](docs/ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
 *ExoscaleApi* | [**getDbaasCaCertificateWithHttpInfo**](docs/ExoscaleApi.md#getDbaasCaCertificateWithHttpInfo) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
+*ExoscaleApi* | [**getDbaasExternalEndpointDatadog**](docs/ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointDatadogWithHttpInfo**](docs/ExoscaleApi.md#getDbaasExternalEndpointDatadogWithHttpInfo) | **GET** /dbaas-external-endpoint-datadog/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointElasticsearch**](docs/ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointElasticsearchWithHttpInfo**](docs/ExoscaleApi.md#getDbaasExternalEndpointElasticsearchWithHttpInfo) | **GET** /dbaas-external-endpoint-elasticsearch/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointOpensearch**](docs/ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointOpensearchWithHttpInfo**](docs/ExoscaleApi.md#getDbaasExternalEndpointOpensearchWithHttpInfo) | **GET** /dbaas-external-endpoint-opensearch/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointPrometheus**](docs/ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointPrometheusWithHttpInfo**](docs/ExoscaleApi.md#getDbaasExternalEndpointPrometheusWithHttpInfo) | **GET** /dbaas-external-endpoint-prometheus/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointRsyslog**](docs/ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointRsyslogWithHttpInfo**](docs/ExoscaleApi.md#getDbaasExternalEndpointRsyslogWithHttpInfo) | **GET** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**getDbaasExternalIntegration**](docs/ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} | 
+*ExoscaleApi* | [**getDbaasExternalIntegrationWithHttpInfo**](docs/ExoscaleApi.md#getDbaasExternalIntegrationWithHttpInfo) | **GET** /dbaas-external-integration/{id} | 
 *ExoscaleApi* | [**getDbaasIntegration**](docs/ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration
 *ExoscaleApi* | [**getDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration
 *ExoscaleApi* | [**getDbaasKafkaAclConfig**](docs/ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
@@ -402,6 +438,12 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listBlockStorageSnapshotsWithHttpInfo**](docs/ExoscaleApi.md#listBlockStorageSnapshotsWithHttpInfo) | **GET** /block-storage-snapshot | List block storage snapshots
 *ExoscaleApi* | [**listBlockStorageVolumes**](docs/ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes
 *ExoscaleApi* | [**listBlockStorageVolumesWithHttpInfo**](docs/ExoscaleApi.md#listBlockStorageVolumesWithHttpInfo) | **GET** /block-storage | List block storage volumes
+*ExoscaleApi* | [**listDbaasExternalEndpointTypes**](docs/ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types | 
+*ExoscaleApi* | [**listDbaasExternalEndpointTypesWithHttpInfo**](docs/ExoscaleApi.md#listDbaasExternalEndpointTypesWithHttpInfo) | **GET** /dbaas-external-endpoint-types | 
+*ExoscaleApi* | [**listDbaasExternalEndpoints**](docs/ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints | 
+*ExoscaleApi* | [**listDbaasExternalEndpointsWithHttpInfo**](docs/ExoscaleApi.md#listDbaasExternalEndpointsWithHttpInfo) | **GET** /dbaas-external-endpoints | 
+*ExoscaleApi* | [**listDbaasExternalIntegrations**](docs/ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} | 
+*ExoscaleApi* | [**listDbaasExternalIntegrationsWithHttpInfo**](docs/ExoscaleApi.md#listDbaasExternalIntegrationsWithHttpInfo) | **GET** /dbaas-external-integrations/{service-name} | 
 *ExoscaleApi* | [**listDbaasIntegrationSettings**](docs/ExoscaleApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings
 *ExoscaleApi* | [**listDbaasIntegrationSettingsWithHttpInfo**](docs/ExoscaleApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings
 *ExoscaleApi* | [**listDbaasIntegrationTypes**](docs/ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types | Get DBaaS integration types
@@ -554,6 +596,16 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateBlockStorageSnapshotWithHttpInfo**](docs/ExoscaleApi.md#updateBlockStorageSnapshotWithHttpInfo) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
 *ExoscaleApi* | [**updateBlockStorageVolumeWithHttpInfo**](docs/ExoscaleApi.md#updateBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id} | Update block storage volume
+*ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointDatadogWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadogWithHttpInfo) | **PUT** /dbaas-external-endpoint-datadog/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointElasticsearch**](docs/ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointElasticsearchWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasExternalEndpointElasticsearchWithHttpInfo) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointOpensearch**](docs/ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointOpensearchWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasExternalEndpointOpensearchWithHttpInfo) | **PUT** /dbaas-external-endpoint-opensearch/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointPrometheus**](docs/ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointPrometheusWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasExternalEndpointPrometheusWithHttpInfo) | **PUT** /dbaas-external-endpoint-prometheus/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointRsyslog**](docs/ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointRsyslogWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasExternalEndpointRsyslogWithHttpInfo) | **PUT** /dbaas-external-endpoint-rsyslog/{id} | 
 *ExoscaleApi* | [**updateDbaasIntegration**](docs/ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration
 *ExoscaleApi* | [**updateDbaasIntegrationWithHttpInfo**](docs/ExoscaleApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration
 *ExoscaleApi* | [**updateDbaasOpensearchAclConfig**](docs/ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
@@ -623,6 +675,7 @@ Class | Method | HTTP request | Description
  - [AddServiceToLoadBalancerRequest](docs/AddServiceToLoadBalancerRequest.md)
  - [AntiAffinityGroup](docs/AntiAffinityGroup.md)
  - [AttachBlockStorageVolumeToInstanceRequest](docs/AttachBlockStorageVolumeToInstanceRequest.md)
+ - [AttachDbaasServiceToEndpointRequest](docs/AttachDbaasServiceToEndpointRequest.md)
  - [AttachInstanceToPrivateNetworkRequest](docs/AttachInstanceToPrivateNetworkRequest.md)
  - [AttachInstanceToPrivateNetworkRequestInstance](docs/AttachInstanceToPrivateNetworkRequestInstance.md)
  - [AutovacuumSettings](docs/AutovacuumSettings.md)
@@ -638,6 +691,8 @@ Class | Method | HTTP request | Description
  - [CreateApiKeyRequest](docs/CreateApiKeyRequest.md)
  - [CreateBlockStorageSnapshotRequest](docs/CreateBlockStorageSnapshotRequest.md)
  - [CreateBlockStorageVolumeRequest](docs/CreateBlockStorageVolumeRequest.md)
+ - [CreateDbaasExternalEndpointDatadogRequest](docs/CreateDbaasExternalEndpointDatadogRequest.md)
+ - [CreateDbaasExternalEndpointRsyslogRequest](docs/CreateDbaasExternalEndpointRsyslogRequest.md)
  - [CreateDbaasIntegrationRequest](docs/CreateDbaasIntegrationRequest.md)
  - [CreateDbaasKafkaUserRequest](docs/CreateDbaasKafkaUserRequest.md)
  - [CreateDbaasMysqlDatabaseRequest](docs/CreateDbaasMysqlDatabaseRequest.md)
@@ -666,6 +721,19 @@ Class | Method | HTTP request | Description
  - [CreateSksClusterRequest](docs/CreateSksClusterRequest.md)
  - [CreateSksNodepoolRequest](docs/CreateSksNodepoolRequest.md)
  - [DbaasBackupConfig](docs/DbaasBackupConfig.md)
+ - [DbaasEndpointDatadog](docs/DbaasEndpointDatadog.md)
+ - [DbaasEndpointDatadogDatadogTagsInner](docs/DbaasEndpointDatadogDatadogTagsInner.md)
+ - [DbaasEndpointElasticsearch](docs/DbaasEndpointElasticsearch.md)
+ - [DbaasEndpointElasticsearchOutput](docs/DbaasEndpointElasticsearchOutput.md)
+ - [DbaasEndpointExternalPrometheusOutput](docs/DbaasEndpointExternalPrometheusOutput.md)
+ - [DbaasEndpointOpensearch](docs/DbaasEndpointOpensearch.md)
+ - [DbaasEndpointOpensearchOutput](docs/DbaasEndpointOpensearchOutput.md)
+ - [DbaasEndpointPrometheus](docs/DbaasEndpointPrometheus.md)
+ - [DbaasEndpointRsyslog](docs/DbaasEndpointRsyslog.md)
+ - [DbaasExternalEndpoint](docs/DbaasExternalEndpoint.md)
+ - [DbaasExternalEndpointDatadogOutput](docs/DbaasExternalEndpointDatadogOutput.md)
+ - [DbaasExternalEndpointRsyslogOutput](docs/DbaasExternalEndpointRsyslogOutput.md)
+ - [DbaasExternalIntegration](docs/DbaasExternalIntegration.md)
  - [DbaasIntegration](docs/DbaasIntegration.md)
  - [DbaasIntegrationType](docs/DbaasIntegrationType.md)
  - [DbaasIntegrationTypeSettings](docs/DbaasIntegrationTypeSettings.md)
@@ -688,7 +756,6 @@ Class | Method | HTTP request | Description
  - [DbaasServiceGrafana](docs/DbaasServiceGrafana.md)
  - [DbaasServiceGrafanaConnectionInfo](docs/DbaasServiceGrafanaConnectionInfo.md)
  - [DbaasServiceGrafanaUsersInner](docs/DbaasServiceGrafanaUsersInner.md)
- - [DbaasServiceIntegration](docs/DbaasServiceIntegration.md)
  - [DbaasServiceKafka](docs/DbaasServiceKafka.md)
  - [DbaasServiceKafkaAuthenticationMethods](docs/DbaasServiceKafkaAuthenticationMethods.md)
  - [DbaasServiceKafkaComponentsInner](docs/DbaasServiceKafkaComponentsInner.md)
@@ -726,6 +793,7 @@ Class | Method | HTTP request | Description
  - [DbaasUserPostgresSecrets](docs/DbaasUserPostgresSecrets.md)
  - [DbaasUserRedisSecrets](docs/DbaasUserRedisSecrets.md)
  - [DeployTarget](docs/DeployTarget.md)
+ - [DetachDbaasServiceFromEndpointRequest](docs/DetachDbaasServiceFromEndpointRequest.md)
  - [DetachInstanceFromPrivateNetworkRequest](docs/DetachInstanceFromPrivateNetworkRequest.md)
  - [DnsDomain](docs/DnsDomain.md)
  - [DnsDomainRecord](docs/DnsDomainRecord.md)
@@ -733,6 +801,8 @@ Class | Method | HTTP request | Description
  - [ElasticIpHealthcheck](docs/ElasticIpHealthcheck.md)
  - [EnumComponentRoute](docs/EnumComponentRoute.md)
  - [EnumComponentUsage](docs/EnumComponentUsage.md)
+ - [EnumDatadogSite](docs/EnumDatadogSite.md)
+ - [EnumExternalEndpointTypes](docs/EnumExternalEndpointTypes.md)
  - [EnumIntegrationTypes](docs/EnumIntegrationTypes.md)
  - [EnumKafkaAuthMethod](docs/EnumKafkaAuthMethod.md)
  - [EnumMasterLinkStatus](docs/EnumMasterLinkStatus.md)
@@ -743,6 +813,7 @@ Class | Method | HTTP request | Description
  - [EnumPgPoolMode](docs/EnumPgPoolMode.md)
  - [EnumPgSynchronousReplication](docs/EnumPgSynchronousReplication.md)
  - [EnumPgVariant](docs/EnumPgVariant.md)
+ - [EnumRsyslogFormat](docs/EnumRsyslogFormat.md)
  - [EnumServiceState](docs/EnumServiceState.md)
  - [EnumSortOrder](docs/EnumSortOrder.md)
  - [Event](docs/Event.md)
@@ -817,6 +888,10 @@ Class | Method | HTTP request | Description
  - [ListApiKeys200Response](docs/ListApiKeys200Response.md)
  - [ListBlockStorageSnapshots200Response](docs/ListBlockStorageSnapshots200Response.md)
  - [ListBlockStorageVolumes200Response](docs/ListBlockStorageVolumes200Response.md)
+ - [ListDbaasExternalEndpointTypes200Response](docs/ListDbaasExternalEndpointTypes200Response.md)
+ - [ListDbaasExternalEndpointTypes200ResponseEndpointTypesInner](docs/ListDbaasExternalEndpointTypes200ResponseEndpointTypesInner.md)
+ - [ListDbaasExternalEndpoints200Response](docs/ListDbaasExternalEndpoints200Response.md)
+ - [ListDbaasExternalIntegrations200Response](docs/ListDbaasExternalIntegrations200Response.md)
  - [ListDbaasIntegrationSettings200Response](docs/ListDbaasIntegrationSettings200Response.md)
  - [ListDbaasIntegrationSettings200ResponseSettings](docs/ListDbaasIntegrationSettings200ResponseSettings.md)
  - [ListDbaasIntegrationTypes200Response](docs/ListDbaasIntegrationTypes200Response.md)
@@ -891,6 +966,9 @@ Class | Method | HTTP request | Description
  - [Template](docs/Template.md)
  - [UpdateBlockStorageSnapshotRequest](docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](docs/UpdateBlockStorageVolumeRequest.md)
+ - [UpdateDbaasExternalEndpointElasticsearchRequest](docs/UpdateDbaasExternalEndpointElasticsearchRequest.md)
+ - [UpdateDbaasExternalEndpointOpensearchRequest](docs/UpdateDbaasExternalEndpointOpensearchRequest.md)
+ - [UpdateDbaasExternalEndpointPrometheusRequest](docs/UpdateDbaasExternalEndpointPrometheusRequest.md)
  - [UpdateDbaasIntegrationRequest](docs/UpdateDbaasIntegrationRequest.md)
  - [UpdateDbaasPgConnectionPoolRequest](docs/UpdateDbaasPgConnectionPoolRequest.md)
  - [UpdateDbaasPostgresAllowReplicationRequest](docs/UpdateDbaasPostgresAllowReplicationRequest.md)

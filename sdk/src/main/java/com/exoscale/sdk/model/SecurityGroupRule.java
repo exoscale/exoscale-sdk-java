@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SecurityGroupRule.JSON_PROPERTY_NETWORK,
   SecurityGroupRule.JSON_PROPERTY_FLOW_DIRECTION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T22:25:50.955886Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class SecurityGroupRule {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;

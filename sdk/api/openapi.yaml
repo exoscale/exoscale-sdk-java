@@ -751,6 +751,83 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-endpoint-prometheus/{id}:
+    delete:
+      description: "[BETA] Delete Prometheus external integration endpoint"
+      operationId: delete-dbaas-external-endpoint-prometheus
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: "[BETA] Get Prometheus external integration endpoint settings"
+      operationId: get-dbaas-external-endpoint-prometheus
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-endpoint-external-prometheus-output'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: "[BETA] Update Prometheus external integration endpoint"
+      operationId: update-dbaas-external-endpoint-prometheus
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_external_endpoint_prometheus_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-mysql/{name}:
     delete:
       operationId: delete-dbaas-service-mysql
@@ -1120,6 +1197,36 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Create an Instance Pool
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-external-endpoint-rsyslog/{name}:
+    post:
+      description: "[BETA] Create RSyslog external integration endpoint"
+      operationId: create-dbaas-external-endpoint-rsyslog
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_external_endpoint_rsyslog_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
       tags:
       - exoscale
       x-content-type: application/json
@@ -1558,6 +1665,83 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-endpoint-rsyslog/{id}:
+    delete:
+      description: "[BETA] Delete RSyslog external integration endpoint"
+      operationId: delete-dbaas-external-endpoint-rsyslog
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: "[BETA] Get RSyslog external integration endpoint settings"
+      operationId: get-dbaas-external-endpoint-rsyslog
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-external-endpoint-rsyslog-output'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: "[BETA] Update RSyslog external integration endpoint"
+      operationId: update-dbaas-external-endpoint-rsyslog
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_external_endpoint_rsyslog_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /sks-cluster/{id}/nodepool/{sks-nodepool-id}:
     delete:
       description: ""
@@ -1765,6 +1949,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-integrations/{service-name}:
+    get:
+      description: "[BETA] List all DBaaS connections between services and external\
+        \ endpoints"
+      operationId: list-dbaas-external-integrations
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_dbaas_external_integrations_200_response'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
   /instance-pool/{id}:
     delete:
       description: ""
@@ -1841,6 +2049,23 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-external-endpoint-types:
+    get:
+      description: "[BETA] List available external endpoint types and their schemas\
+        \ for DBaaS external integrations"
+      operationId: list-dbaas-external-endpoint-types
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_dbaas_external_endpoint_types_200_response'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
       x-accepts: application/json
   /private-network:
     get:
@@ -2994,6 +3219,83 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-endpoint-opensearch/{id}:
+    delete:
+      description: "[BETA] Delete OpenSearch logs external integration endpoint"
+      operationId: delete-dbaas-external-endpoint-opensearch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: "[BETA] Get OpenSearch Logs external integration endpoint settings"
+      operationId: get-dbaas-external-endpoint-opensearch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-endpoint-opensearch-output'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: "[BETA] Update OpenSearch Logs external integration endpoint"
+      operationId: update-dbaas-external-endpoint-opensearch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_external_endpoint_opensearch_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /security-group/{id}/rules:
     post:
       description: ""
@@ -3427,6 +3729,36 @@ paths:
       summary: Retrieve DNS domain zone file
       tags:
       - exoscale
+      x-accepts: application/json
+  /dbaas-external-endpoint-opensearch/{name}:
+    post:
+      description: "[BETA] Create OpenSearch Logs external integration endpoint"
+      operationId: create-dbaas-external-endpoint-opensearch
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_external_endpoint_opensearch_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /dbaas-mysql/{service-name}/database/{database-name}:
     delete:
@@ -4124,6 +4456,36 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-endpoint-datadog/{name}:
+    post:
+      description: "[BETA] Create DataDog external integration endpoint"
+      operationId: create-dbaas-external-endpoint-datadog
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_external_endpoint_datadog_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-mysql/{name}/maintenance/start:
     put:
       operationId: start-dbaas-mysql-maintenance
@@ -4611,6 +4973,83 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-endpoint-elasticsearch/{id}:
+    delete:
+      description: "[BETA] Delete ElasticSearch logs external integration endpoint"
+      operationId: delete-dbaas-external-endpoint-elasticsearch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: "[BETA] Get ElasticSearch Logs external integration endpoint settings"
+      operationId: get-dbaas-external-endpoint-elasticsearch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-endpoint-elasticsearch-output'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: "[BETA] Update ElasticSearch Logs external integration endpoint"
+      operationId: update-dbaas-external-endpoint-elasticsearch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_external_endpoint_elasticsearch_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /block-storage/{id}:detach:
     put:
       description: ""
@@ -4634,6 +5073,36 @@ paths:
       summary: Detach block storage volume
       tags:
       - exoscale
+      x-accepts: application/json
+  /dbaas-external-endpoint-prometheus/{name}:
+    post:
+      description: "[BETA] Create Prometheus external integration endpoint"
+      operationId: create-dbaas-external-endpoint-prometheus
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_external_endpoint_prometheus_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /console/{id}:
     get:
@@ -5138,6 +5607,22 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-external-endpoints:
+    get:
+      description: "[BETA] List available external endpoints for integrations"
+      operationId: list-dbaas-external-endpoints
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_dbaas_external_endpoints_200_response'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-kafka/{name}/maintenance/start:
     put:
       operationId: start-dbaas-kafka-maintenance
@@ -5636,6 +6121,37 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-external-endpoint/{source-service-name}/attach:
+    put:
+      description: "[BETA] Create a new DBaaS connection between a DBaaS service and\
+        \ an external service"
+      operationId: attach-dbaas-service-to-endpoint
+      parameters:
+      - explode: false
+        in: path
+        name: source-service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/attach_dbaas_service_to_endpoint_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-grafana/{name}:
     delete:
       operationId: delete-dbaas-service-grafana
@@ -5763,6 +6279,36 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Create a new SKS Nodepool
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-external-endpoint-elasticsearch/{name}:
+    post:
+      description: "[BETA] Create ElasticSearch Logs external integration endpoint"
+      operationId: create-dbaas-external-endpoint-elasticsearch
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_external_endpoint_elasticsearch_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
       tags:
       - exoscale
       x-content-type: application/json
@@ -6062,6 +6608,36 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-external-endpoint/{source-service-name}/detach:
+    put:
+      description: "[BETA] Detach a DBaaS external integration from a service"
+      operationId: detach-dbaas-service-from-endpoint
+      parameters:
+      - explode: false
+        in: path
+        name: source-service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/detach_dbaas_service_from_endpoint_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-redis/{name}:
     delete:
       operationId: delete-dbaas-service-redis
@@ -6261,6 +6837,83 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Update a DBaaS PostgreSQL service
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-external-endpoint-datadog/{id}:
+    delete:
+      description: "[BETA] Delete DataDog external integration endpoint"
+      operationId: delete-dbaas-external-endpoint-datadog
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: "[BETA] Get DataDog external endpoint settings"
+      operationId: get-dbaas-external-endpoint-datadog
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-external-endpoint-datadog-output'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: "[BETA] Update DataDog external integration endpoint"
+      operationId: update-dbaas-external-endpoint-datadog
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_external_endpoint_datadog_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
       tags:
       - exoscale
       x-content-type: application/json
@@ -6803,6 +7456,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-integration/{id}:
+    get:
+      description: "[BETA] Get a DBaaS external integration"
+      operationId: get-dbaas-external-integration
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-external-integration'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
 components:
   schemas:
     dbaas-node-state:
@@ -6884,6 +7561,49 @@ components:
           type: string
       title: Schema Registry configuration
       type: object
+    dbaas-endpoint-opensearch:
+      example:
+        index-prefix: index-prefix
+        index-days-max: 801
+        url: url
+        ca: ca
+        timeout: 76
+      properties:
+        url:
+          description: OpenSearch connection URL
+          maxLength: 2048
+          minLength: 12
+          type: string
+        index-prefix:
+          description: OpenSearch index prefix
+          maxLength: 1000
+          minLength: 1
+          pattern: "^[a-z0-9][a-z0-9-_.]+$"
+          type: string
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        index-days-max:
+          description: Maximum number of days of logs to keep
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 10000
+          minimum: 1
+          type: integer
+        timeout:
+          description: OpenSearch request timeout limit
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 120.0
+          minimum: 10.0
+          type: integer
+      required:
+      - index-prefix
+      - url
+      type: object
     resource:
       description: Resource
       properties:
@@ -6940,6 +7660,14 @@ components:
       - migrating
       - error
       - destroyed
+      type: string
+    enum-external-endpoint-types:
+      enum:
+      - prometheus
+      - opensearch
+      - rsyslog
+      - datadog
+      - elasticsearch
       type: string
     dbaas-pg-pool-size:
       exclusiveMaximum: false
@@ -7024,6 +7752,54 @@ components:
       - public
       - privatelink
       type: string
+    dbaas-endpoint-opensearch-output:
+      example:
+        settings:
+          index-prefix: index-prefix
+          index-days-max: 801
+          url: url
+          ca: ca
+          timeout: 76
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+      properties:
+        name:
+          description: External integration endpoint name
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        id:
+          description: External integration endpoint id
+          format: uuid
+          type: string
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-opensearch'
+      type: object
+    dbaas-endpoint-elasticsearch-output:
+      example:
+        settings:
+          index-prefix: index-prefix
+          index-days-max: 801
+          url: url
+          ca: ca
+          timeout: 76
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+      properties:
+        name:
+          description: External integration endpoint name
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        id:
+          description: External integration endpoint id
+          format: uuid
+          type: string
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-elasticsearch'
+      type: object
     json-schema-grafana:
       example:
         cookie_samesite: lax
@@ -7617,6 +8393,73 @@ components:
           description: Private Network end IP address
           format: ipv4
           type: string
+      type: object
+    dbaas-endpoint-rsyslog:
+      example:
+        logline: logline
+        server: server
+        sd: sd
+        max-message-size: 1294387172
+        port: 5249
+        format: null
+        cert: cert
+        tls: true
+        key: key
+        ca: ca
+      properties:
+        format:
+          $ref: '#/components/schemas/enum-rsyslog-format'
+        key:
+          description: PEM encoded client key
+          maxLength: 16384
+          type: string
+        logline:
+          description: Custom syslog message format
+          maxLength: 512
+          minLength: 1
+          pattern: "^[ -~\\t]+$"
+          type: string
+        server:
+          description: Rsyslog server IP address or hostname
+          maxLength: 255
+          minLength: 4
+          type: string
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        cert:
+          description: PEM encoded client certificate
+          maxLength: 16384
+          type: string
+        tls:
+          description: Require TLS
+          type: boolean
+        port:
+          description: Rsyslog server port
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 65535
+          minimum: 1
+          type: integer
+        sd:
+          description: Structured data block for log message
+          maxLength: 1024
+          type: string
+        max-message-size:
+          description: Rsyslog max message size
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 2147483647
+          minimum: 2048
+          type: integer
+      required:
+      - format
+      - port
+      - server
+      - tls
       type: object
     enum-component-usage:
       enum:
@@ -10944,6 +11787,49 @@ components:
           format: uuid
           type: string
       type: object
+    dbaas-external-integration:
+      description: Integrations with other services
+      example:
+        source-service-name: source-service-name
+        description: description
+        dest-endpoint-name: dest-endpoint-name
+        dest-endpoint-id: dest-endpoint-id
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+        source-service-type: source-service-type
+        status: status
+      properties:
+        description:
+          description: Description of the integration
+          type: string
+        dest-endpoint-name:
+          description: External destination endpoint name
+          type: string
+        dest-endpoint-id:
+          description: External destination endpoint id
+          type: string
+        id:
+          description: Endpoint integration UUID
+          format: uuid
+          type: string
+        status:
+          description: Integration status
+          type: string
+        source-service-name:
+          description: DBaaS source service name
+          type: string
+        source-service-type:
+          maxLength: 64
+          minLength: 0
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+      required:
+      - description
+      - source-service-name
+      - source-service-type
+      - type
+      type: object
     json-schema-pg:
       additionalProperties: false
       example:
@@ -12471,6 +13357,27 @@ components:
       - plan
       - type
       type: object
+    dbaas-endpoint-external-prometheus-output:
+      example:
+        settings:
+          basic-auth-password: basic-auth-password
+          basic-auth-username: basic-auth-username
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+      properties:
+        name:
+          description: External integration endpoint name
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        id:
+          description: External integration endpoint id
+          format: uuid
+          type: string
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-prometheus'
+      type: object
     dbaas-user-password:
       maxLength: 256
       minLength: 8
@@ -12497,6 +13404,15 @@ components:
     dbaas-pg-pool-name:
       maxLength: 63
       minLength: 1
+      type: string
+    enum-datadog-site:
+      enum:
+      - us3.datadoghq.com
+      - ddog-gov.com
+      - datadoghq.eu
+      - us5.datadoghq.com
+      - ap1.datadoghq.com
+      - datadoghq.com
       type: string
     private-network-lease:
       description: Private Network leased IP address
@@ -15374,6 +16290,79 @@ components:
       - statement
       - session
       type: string
+    dbaas-endpoint-elasticsearch:
+      example:
+        index-prefix: index-prefix
+        index-days-max: 801
+        url: url
+        ca: ca
+        timeout: 76
+      properties:
+        url:
+          description: Elasticsearch connection URL
+          maxLength: 2048
+          minLength: 12
+          type: string
+        index-prefix:
+          description: Elasticsearch index prefix
+          maxLength: 1000
+          minLength: 1
+          pattern: "^[a-z0-9][a-z0-9-_.]+$"
+          type: string
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        index-days-max:
+          description: Maximum number of days of logs to keep
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 10000
+          minimum: 1
+          type: integer
+        timeout:
+          description: Elasticsearch request timeout limit
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 120.0
+          minimum: 10.0
+          type: integer
+      required:
+      - index-prefix
+      - url
+      type: object
+    dbaas-external-endpoint-datadog-output:
+      example:
+        settings:
+          datadog-api-key: datadog-api-key
+          kafka-consumer-stats-timeout: 181
+          kafka-consumer-check-instances: 8
+          site: null
+          disable-consumer-stats: true
+          max-partition-contexts: 29486
+          datadog-tags:
+          - comment: comment
+            tag: tag
+          - comment: comment
+            tag: tag
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+      properties:
+        name:
+          description: External integration endpoint name
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        id:
+          description: External integration endpoint id
+          format: uuid
+          type: string
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-datadog'
+      type: object
     sos-bucket-usage:
       description: SOS Bucket usage
       example:
@@ -15704,67 +16693,6 @@ components:
           type: integer
         min-age:
           type: string
-      type: object
-    dbaas-service-integration:
-      description: Integrations with other services
-      properties:
-        integration-status:
-          description: Integration status
-          type: object
-        description:
-          description: Description of the integration
-          type: string
-        source-service-type:
-          maxLength: 64
-          minLength: 0
-          type: string
-        source-endpoint:
-          description: Source endpoint name
-          type: string
-        dest-service-type:
-          maxLength: 64
-          minLength: 0
-          type: string
-        integration-type:
-          description: Type of the integration
-          type: string
-        dest-endpoint:
-          description: Destination endpoint name
-          type: string
-        user-config:
-          description: Service integration settings
-          type: object
-        dest-endpoint-id:
-          description: Destination endpoint id
-          type: string
-        service-integration-id:
-          description: Integration ID
-          type: string
-        dest-service:
-          description: Destination service name
-          type: string
-        active:
-          description: True when integration is active
-          type: boolean
-        source-endpoint-id:
-          description: Source endpoint ID
-          type: string
-        source-service:
-          description: Source service name
-          type: string
-        enabled:
-          description: True when integration is enabled
-          type: boolean
-      required:
-      - active
-      - description
-      - dest-service
-      - dest-service-type
-      - enabled
-      - integration-type
-      - service-integration-id
-      - source-service
-      - source-service-type
       type: object
     dbaas-pg-pool-username:
       maxLength: 64
@@ -26364,6 +27292,35 @@ components:
         block-storage-volume:
           $ref: '#/components/schemas/block-storage-volume-target'
       type: object
+    dbaas-external-endpoint-rsyslog-output:
+      example:
+        settings:
+          logline: logline
+          server: server
+          sd: sd
+          max-message-size: 1294387172
+          port: 5249
+          format: null
+          cert: cert
+          tls: true
+          key: key
+          ca: ca
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+      properties:
+        name:
+          description: External integration endpoint name
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        id:
+          description: External integration endpoint id
+          format: uuid
+          type: string
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-rsyslog'
+      type: object
     dbaas-user-postgres-secrets:
       description: Postgres User secrets
       example:
@@ -26723,6 +27680,22 @@ components:
           title: Number of Redis databases
           type: integer
       title: Redis settings
+      type: object
+    dbaas-external-endpoint:
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: null
+      properties:
+        name:
+          description: External integration endpoint name
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        id:
+          description: External integration endpoint id
+          format: uuid
+          type: string
       type: object
     dns-domain-record:
       description: DNS domain record
@@ -27299,6 +28272,12 @@ components:
       - timescale
       - aiven
       type: string
+    enum-rsyslog-format:
+      enum:
+      - custom
+      - rfc3164
+      - rfc5424
+      type: string
     dbaas-service-backup:
       description: List of backups for the service
       example:
@@ -27323,6 +28302,83 @@ components:
       - backup-name
       - backup-time
       - data-size
+      type: object
+    dbaas-endpoint-datadog:
+      example:
+        datadog-api-key: datadog-api-key
+        kafka-consumer-stats-timeout: 181
+        kafka-consumer-check-instances: 8
+        site: null
+        disable-consumer-stats: true
+        max-partition-contexts: 29486
+        datadog-tags:
+        - comment: comment
+          tag: tag
+        - comment: comment
+          tag: tag
+      properties:
+        datadog-api-key:
+          description: Datadog API key
+          maxLength: 256
+          minLength: 1
+          pattern: "^[A-Za-z0-9]{1,256}$"
+          type: string
+        site:
+          $ref: '#/components/schemas/enum-datadog-site'
+        datadog-tags:
+          description: Custom tags provided by user
+          items:
+            $ref: '#/components/schemas/dbaas_endpoint_datadog_datadog_tags_inner'
+          type: array
+        disable-consumer-stats:
+          description: Disable consumer group metrics
+          type: boolean
+        kafka-consumer-check-instances:
+          description: Number of separate instances to fetch kafka consumer statistics
+            with
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 100
+          minimum: 1
+          type: integer
+        kafka-consumer-stats-timeout:
+          description: Number of seconds that datadog will wait to get consumer statistics
+            from brokers
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 300
+          minimum: 2
+          type: integer
+        max-partition-contexts:
+          description: Maximum number of partition contexts to send
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 200000
+          minimum: 200
+          type: integer
+      required:
+      - datadog-api-key
+      - site
+      type: object
+    dbaas-endpoint-prometheus:
+      example:
+        basic-auth-password: basic-auth-password
+        basic-auth-username: basic-auth-username
+      properties:
+        basic-auth-username:
+          description: Prometheus basic authentication username
+          maxLength: 32
+          minLength: 5
+          pattern: "^[a-z0-9\\-@_]{5,32}$"
+          type: string
+        basic-auth-password:
+          description: Prometheus basic authentication password
+          maxLength: 64
+          minLength: 8
+          type: string
       type: object
     iam-service-policy:
       example:
@@ -33907,6 +34963,11 @@ components:
       - database-name
       - name
       type: object
+    update_dbaas_external_endpoint_prometheus_request:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-prometheus'
+      type: object
     update_dbaas_service_mysql_request_maintenance:
       description: Automatic maintenance settings
       properties:
@@ -37241,6 +38302,11 @@ components:
       - size
       - template
       type: object
+    create_dbaas_external_endpoint_rsyslog_request:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-rsyslog'
+      type: object
     generate_sks_cluster_kubeconfig_200_response:
       example:
         kubeconfig: kubeconfig
@@ -37664,6 +38730,31 @@ components:
       required:
       - username
       type: object
+    list_dbaas_external_integrations_200_response:
+      example:
+        external-integrations:
+        - source-service-name: source-service-name
+          description: description
+          dest-endpoint-name: dest-endpoint-name
+          dest-endpoint-id: dest-endpoint-id
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: null
+          source-service-type: source-service-type
+          status: status
+        - source-service-name: source-service-name
+          description: description
+          dest-endpoint-name: dest-endpoint-name
+          dest-endpoint-id: dest-endpoint-id
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: null
+          source-service-type: source-service-type
+          status: status
+      properties:
+        external-integrations:
+          items:
+            $ref: '#/components/schemas/dbaas-external-integration'
+          type: array
+      type: object
     update_instance_pool_request:
       properties:
         anti-affinity-groups:
@@ -37754,6 +38845,42 @@ components:
           nullable: true
           type: array
           uniqueItems: true
+      type: object
+    list_dbaas_external_endpoint_types_200_response_endpoint_types_inner:
+      example:
+        service-types:
+        - service-types
+        - service-types
+        type: null
+        title: title
+      properties:
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+        service-types:
+          items:
+            type: string
+          type: array
+        title:
+          type: string
+      type: object
+    list_dbaas_external_endpoint_types_200_response:
+      example:
+        endpoint-types:
+        - service-types:
+          - service-types
+          - service-types
+          type: null
+          title: title
+        - service-types:
+          - service-types
+          - service-types
+          type: null
+          title: title
+      properties:
+        endpoint-types:
+          items:
+            $ref: '#/components/schemas/list_dbaas_external_endpoint_types_200_response_endpoint_types_inner'
+          type: array
       type: object
     list_private_networks_200_response:
       example:
@@ -38085,6 +39212,11 @@ components:
       required:
       - database-name
       type: object
+    update_dbaas_external_endpoint_opensearch_request:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-opensearch'
+      type: object
     add_rule_to_security_group_request_icmp:
       description: "ICMP details (default: -1 (ANY))"
       properties:
@@ -38336,6 +39468,11 @@ components:
           type: string
       required:
       - cidr
+      type: object
+    create_dbaas_external_endpoint_datadog_request:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-datadog'
       type: object
     list_sos_buckets_usage_200_response:
       example:
@@ -47779,6 +48916,11 @@ components:
       - name
       - version
       type: object
+    update_dbaas_external_endpoint_elasticsearch_request:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas-endpoint-elasticsearch'
+      type: object
     get_console_proxy_url_200_response:
       example:
         path: path
@@ -48035,6 +49177,21 @@ components:
           additionalProperties:
             type: string
           type: object
+      type: object
+    list_dbaas_external_endpoints_200_response:
+      example:
+        dbaas-endpoints:
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: null
+        - name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: null
+      properties:
+        dbaas-endpoints:
+          items:
+            $ref: '#/components/schemas/dbaas-external-endpoint'
+          type: array
       type: object
     update_dbaas_pg_connection_pool_request:
       properties:
@@ -48358,6 +49515,18 @@ components:
       properties:
         settings:
           $ref: '#/components/schemas/get_dbaas_settings_opensearch_200_response_settings'
+      type: object
+    attach_dbaas_service_to_endpoint_request:
+      properties:
+        dest-endpoint-id:
+          description: External endpoint id
+          format: uuid
+          type: string
+        type:
+          $ref: '#/components/schemas/enum-external-endpoint-types'
+      required:
+      - dest-endpoint-id
+      - type
       type: object
     update_dbaas_service_grafana_request:
       properties:
@@ -48694,6 +49863,15 @@ components:
           $ref: '#/components/schemas/update_dbaas_service_opensearch_request_opensearch_dashboards'
       required:
       - plan
+      type: object
+    detach_dbaas_service_from_endpoint_request:
+      properties:
+        integration-id:
+          description: External Integration ID
+          format: uuid
+          type: string
+      required:
+      - integration-id
       type: object
     update_dbaas_service_redis_request:
       properties:
@@ -50823,7 +52001,6 @@ components:
         index:
           description: OpenSearch index pattern
           maxLength: 249
-          pattern: "[^\\s\\/]+"
           type: string
         permission:
           $ref: '#/components/schemas/enum-opensearch-rule-permission'
@@ -51228,6 +52405,24 @@ components:
       required:
       - ism_enabled
       title: Opensearch ISM History Settings
+      type: object
+    dbaas_endpoint_datadog_datadog_tags_inner:
+      example:
+        comment: comment
+        tag: tag
+      properties:
+        comment:
+          description: Optional tag explanation
+          maxLength: 1024
+          type: string
+        tag:
+          description: Tag value
+          maxLength: 200
+          minLength: 1
+          pattern: "^(?!aiven-)[^\\W\\d_](?:[:\\w./-]*[\\w./-])?$"
+          type: string
+      required:
+      - tag
       type: object
 x-topics:
 - title: API Request Signature

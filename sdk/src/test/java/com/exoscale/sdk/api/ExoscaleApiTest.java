@@ -19,6 +19,7 @@ import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
+import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
@@ -27,6 +28,8 @@ import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.CreateBlockStorageVolumeRequest;
+import com.exoscale.sdk.model.CreateDbaasExternalEndpointDatadogRequest;
+import com.exoscale.sdk.model.CreateDbaasExternalEndpointRsyslogRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
@@ -53,6 +56,12 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchOutput;
+import com.exoscale.sdk.model.DbaasEndpointExternalPrometheusOutput;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchOutput;
+import com.exoscale.sdk.model.DbaasExternalEndpointDatadogOutput;
+import com.exoscale.sdk.model.DbaasExternalEndpointRsyslogOutput;
+import com.exoscale.sdk.model.DbaasExternalIntegration;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasKafkaAcls;
 import com.exoscale.sdk.model.DbaasKafkaSchemaRegistryAclEntry;
@@ -77,6 +86,7 @@ import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserRedisSecrets;
 import com.exoscale.sdk.model.DeployTarget;
+import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
@@ -111,6 +121,9 @@ import com.exoscale.sdk.model.ListAntiAffinityGroups200Response;
 import com.exoscale.sdk.model.ListApiKeys200Response;
 import com.exoscale.sdk.model.ListBlockStorageSnapshots200Response;
 import com.exoscale.sdk.model.ListBlockStorageVolumes200Response;
+import com.exoscale.sdk.model.ListDbaasExternalEndpointTypes200Response;
+import com.exoscale.sdk.model.ListDbaasExternalEndpoints200Response;
+import com.exoscale.sdk.model.ListDbaasExternalIntegrations200Response;
 import com.exoscale.sdk.model.ListDbaasIntegrationSettings200Response;
 import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
@@ -166,6 +179,9 @@ import com.exoscale.sdk.model.Template;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
+import com.exoscale.sdk.model.UpdateDbaasExternalEndpointElasticsearchRequest;
+import com.exoscale.sdk.model.UpdateDbaasExternalEndpointOpensearchRequest;
+import com.exoscale.sdk.model.UpdateDbaasExternalEndpointPrometheusRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.UpdateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.UpdateDbaasPostgresAllowReplicationRequest;
@@ -293,6 +309,24 @@ public class ExoscaleApiTest {
         AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
         Operation response = 
         api.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Create a new DBaaS connection between a DBaaS service and an external service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void attachDbaasServiceToEndpointTest() throws ApiException {
+        String sourceServiceName = null;
+        AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest = null;
+        Operation response = 
+        api.attachDbaasServiceToEndpoint(sourceServiceName, attachDbaasServiceToEndpointRequest);
         
         // TODO: test validations
     }
@@ -434,6 +468,96 @@ public class ExoscaleApiTest {
         CreateBlockStorageVolumeRequest createBlockStorageVolumeRequest = null;
         Operation response = 
         api.createBlockStorageVolume(createBlockStorageVolumeRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Create DataDog external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasExternalEndpointDatadogTest() throws ApiException {
+        String name = null;
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = null;
+        Operation response = 
+        api.createDbaasExternalEndpointDatadog(name, createDbaasExternalEndpointDatadogRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Create ElasticSearch Logs external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasExternalEndpointElasticsearchTest() throws ApiException {
+        String name = null;
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = null;
+        Operation response = 
+        api.createDbaasExternalEndpointElasticsearch(name, updateDbaasExternalEndpointElasticsearchRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Create OpenSearch Logs external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasExternalEndpointOpensearchTest() throws ApiException {
+        String name = null;
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = null;
+        Operation response = 
+        api.createDbaasExternalEndpointOpensearch(name, updateDbaasExternalEndpointOpensearchRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Create Prometheus external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasExternalEndpointPrometheusTest() throws ApiException {
+        String name = null;
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = null;
+        Operation response = 
+        api.createDbaasExternalEndpointPrometheus(name, updateDbaasExternalEndpointPrometheusRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Create RSyslog external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasExternalEndpointRsyslogTest() throws ApiException {
+        String name = null;
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = null;
+        Operation response = 
+        api.createDbaasExternalEndpointRsyslog(name, createDbaasExternalEndpointRsyslogRequest);
         
         // TODO: test validations
     }
@@ -1049,6 +1173,91 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.deleteBlockStorageVolume(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Delete DataDog external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasExternalEndpointDatadogTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteDbaasExternalEndpointDatadog(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Delete ElasticSearch logs external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasExternalEndpointElasticsearchTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteDbaasExternalEndpointElasticsearch(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Delete OpenSearch logs external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasExternalEndpointOpensearchTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteDbaasExternalEndpointOpensearch(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Delete Prometheus external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasExternalEndpointPrometheusTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteDbaasExternalEndpointPrometheus(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Delete RSyslog external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasExternalEndpointRsyslogTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteDbaasExternalEndpointRsyslog(id);
         
         // TODO: test validations
     }
@@ -1697,6 +1906,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * 
+     *
+     * [BETA] Detach a DBaaS external integration from a service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void detachDbaasServiceFromEndpointTest() throws ApiException {
+        String sourceServiceName = null;
+        DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest = null;
+        Operation response = 
+        api.detachDbaasServiceFromEndpoint(sourceServiceName, detachDbaasServiceFromEndpointRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Detach a Compute instance from an Elastic IP
      *
      * 
@@ -1936,6 +2163,108 @@ public class ExoscaleApiTest {
     public void getDbaasCaCertificateTest() throws ApiException {
         GetDbaasCaCertificate200Response response = 
         api.getDbaasCaCertificate();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get DataDog external endpoint settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalEndpointDatadogTest() throws ApiException {
+        UUID id = null;
+        DbaasExternalEndpointDatadogOutput response = 
+        api.getDbaasExternalEndpointDatadog(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get ElasticSearch Logs external integration endpoint settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalEndpointElasticsearchTest() throws ApiException {
+        UUID id = null;
+        DbaasEndpointElasticsearchOutput response = 
+        api.getDbaasExternalEndpointElasticsearch(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get OpenSearch Logs external integration endpoint settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalEndpointOpensearchTest() throws ApiException {
+        UUID id = null;
+        DbaasEndpointOpensearchOutput response = 
+        api.getDbaasExternalEndpointOpensearch(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get Prometheus external integration endpoint settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalEndpointPrometheusTest() throws ApiException {
+        UUID id = null;
+        DbaasEndpointExternalPrometheusOutput response = 
+        api.getDbaasExternalEndpointPrometheus(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get RSyslog external integration endpoint settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalEndpointRsyslogTest() throws ApiException {
+        UUID id = null;
+        DbaasExternalEndpointRsyslogOutput response = 
+        api.getDbaasExternalEndpointRsyslog(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get a DBaaS external integration
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalIntegrationTest() throws ApiException {
+        UUID id = null;
+        DbaasExternalIntegration response = 
+        api.getDbaasExternalIntegration(id);
         
         // TODO: test validations
     }
@@ -2800,6 +3129,55 @@ public class ExoscaleApiTest {
         UUID instanceId = null;
         ListBlockStorageVolumes200Response response = 
         api.listBlockStorageVolumes(instanceId);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] List available external endpoint types and their schemas for DBaaS external integrations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDbaasExternalEndpointTypesTest() throws ApiException {
+        ListDbaasExternalEndpointTypes200Response response = 
+        api.listDbaasExternalEndpointTypes();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] List available external endpoints for integrations
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDbaasExternalEndpointsTest() throws ApiException {
+        ListDbaasExternalEndpoints200Response response = 
+        api.listDbaasExternalEndpoints();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] List all DBaaS connections between services and external endpoints
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDbaasExternalIntegrationsTest() throws ApiException {
+        String serviceName = null;
+        ListDbaasExternalIntegrations200Response response = 
+        api.listDbaasExternalIntegrations(serviceName);
         
         // TODO: test validations
     }
@@ -4122,6 +4500,96 @@ public class ExoscaleApiTest {
         UpdateBlockStorageVolumeRequest updateBlockStorageVolumeRequest = null;
         Operation response = 
         api.updateBlockStorageVolume(id, updateBlockStorageVolumeRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Update DataDog external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasExternalEndpointDatadogTest() throws ApiException {
+        UUID id = null;
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = null;
+        Operation response = 
+        api.updateDbaasExternalEndpointDatadog(id, createDbaasExternalEndpointDatadogRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Update ElasticSearch Logs external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasExternalEndpointElasticsearchTest() throws ApiException {
+        UUID id = null;
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = null;
+        Operation response = 
+        api.updateDbaasExternalEndpointElasticsearch(id, updateDbaasExternalEndpointElasticsearchRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Update OpenSearch Logs external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasExternalEndpointOpensearchTest() throws ApiException {
+        UUID id = null;
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = null;
+        Operation response = 
+        api.updateDbaasExternalEndpointOpensearch(id, updateDbaasExternalEndpointOpensearchRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Update Prometheus external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasExternalEndpointPrometheusTest() throws ApiException {
+        UUID id = null;
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = null;
+        Operation response = 
+        api.updateDbaasExternalEndpointPrometheus(id, updateDbaasExternalEndpointPrometheusRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Update RSyslog external integration endpoint
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasExternalEndpointRsyslogTest() throws ApiException {
+        UUID id = null;
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = null;
+        Operation response = 
+        api.updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest);
         
         // TODO: test validations
     }

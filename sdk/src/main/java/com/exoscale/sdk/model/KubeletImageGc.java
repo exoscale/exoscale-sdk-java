@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   KubeletImageGc.JSON_PROPERTY_LOW_THRESHOLD,
   KubeletImageGc.JSON_PROPERTY_MIN_AGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T22:25:50.955886Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class KubeletImageGc {
   public static final String JSON_PROPERTY_HIGH_THRESHOLD = "high-threshold";
   private Long highThreshold;

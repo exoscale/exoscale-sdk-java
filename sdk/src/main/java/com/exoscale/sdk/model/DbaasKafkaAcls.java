@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasKafkaAcls.JSON_PROPERTY_TOPIC_ACL,
   DbaasKafkaAcls.JSON_PROPERTY_SCHEMA_REGISTRY_ACL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-07T22:25:50.955886Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class DbaasKafkaAcls {
   public static final String JSON_PROPERTY_TOPIC_ACL = "topic-acl";
   private List<DbaasKafkaTopicAclEntry> topicAcl;

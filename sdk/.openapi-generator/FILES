@@ -12,6 +12,7 @@ docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
 docs/AntiAffinityGroup.md
 docs/AttachBlockStorageVolumeToInstanceRequest.md
+docs/AttachDbaasServiceToEndpointRequest.md
 docs/AttachInstanceToPrivateNetworkRequest.md
 docs/AttachInstanceToPrivateNetworkRequestInstance.md
 docs/AutovacuumSettings.md
@@ -27,6 +28,8 @@ docs/CreateAntiAffinityGroupRequest.md
 docs/CreateApiKeyRequest.md
 docs/CreateBlockStorageSnapshotRequest.md
 docs/CreateBlockStorageVolumeRequest.md
+docs/CreateDbaasExternalEndpointDatadogRequest.md
+docs/CreateDbaasExternalEndpointRsyslogRequest.md
 docs/CreateDbaasIntegrationRequest.md
 docs/CreateDbaasKafkaUserRequest.md
 docs/CreateDbaasMysqlDatabaseRequest.md
@@ -55,6 +58,19 @@ docs/CreateSecurityGroupRequest.md
 docs/CreateSksClusterRequest.md
 docs/CreateSksNodepoolRequest.md
 docs/DbaasBackupConfig.md
+docs/DbaasEndpointDatadog.md
+docs/DbaasEndpointDatadogDatadogTagsInner.md
+docs/DbaasEndpointElasticsearch.md
+docs/DbaasEndpointElasticsearchOutput.md
+docs/DbaasEndpointExternalPrometheusOutput.md
+docs/DbaasEndpointOpensearch.md
+docs/DbaasEndpointOpensearchOutput.md
+docs/DbaasEndpointPrometheus.md
+docs/DbaasEndpointRsyslog.md
+docs/DbaasExternalEndpoint.md
+docs/DbaasExternalEndpointDatadogOutput.md
+docs/DbaasExternalEndpointRsyslogOutput.md
+docs/DbaasExternalIntegration.md
 docs/DbaasIntegration.md
 docs/DbaasIntegrationType.md
 docs/DbaasIntegrationTypeSettings.md
@@ -77,7 +93,6 @@ docs/DbaasServiceComponents.md
 docs/DbaasServiceGrafana.md
 docs/DbaasServiceGrafanaConnectionInfo.md
 docs/DbaasServiceGrafanaUsersInner.md
-docs/DbaasServiceIntegration.md
 docs/DbaasServiceKafka.md
 docs/DbaasServiceKafkaAuthenticationMethods.md
 docs/DbaasServiceKafkaComponentsInner.md
@@ -115,6 +130,7 @@ docs/DbaasUserOpensearchSecrets.md
 docs/DbaasUserPostgresSecrets.md
 docs/DbaasUserRedisSecrets.md
 docs/DeployTarget.md
+docs/DetachDbaasServiceFromEndpointRequest.md
 docs/DetachInstanceFromPrivateNetworkRequest.md
 docs/DnsDomain.md
 docs/DnsDomainRecord.md
@@ -122,6 +138,8 @@ docs/ElasticIp.md
 docs/ElasticIpHealthcheck.md
 docs/EnumComponentRoute.md
 docs/EnumComponentUsage.md
+docs/EnumDatadogSite.md
+docs/EnumExternalEndpointTypes.md
 docs/EnumIntegrationTypes.md
 docs/EnumKafkaAuthMethod.md
 docs/EnumMasterLinkStatus.md
@@ -132,6 +150,7 @@ docs/EnumOpensearchRulePermission.md
 docs/EnumPgPoolMode.md
 docs/EnumPgSynchronousReplication.md
 docs/EnumPgVariant.md
+docs/EnumRsyslogFormat.md
 docs/EnumServiceState.md
 docs/EnumSortOrder.md
 docs/Event.md
@@ -207,6 +226,10 @@ docs/ListAntiAffinityGroups200Response.md
 docs/ListApiKeys200Response.md
 docs/ListBlockStorageSnapshots200Response.md
 docs/ListBlockStorageVolumes200Response.md
+docs/ListDbaasExternalEndpointTypes200Response.md
+docs/ListDbaasExternalEndpointTypes200ResponseEndpointTypesInner.md
+docs/ListDbaasExternalEndpoints200Response.md
+docs/ListDbaasExternalIntegrations200Response.md
 docs/ListDbaasIntegrationSettings200Response.md
 docs/ListDbaasIntegrationSettings200ResponseSettings.md
 docs/ListDbaasIntegrationTypes200Response.md
@@ -281,6 +304,9 @@ docs/StartInstanceRequest.md
 docs/Template.md
 docs/UpdateBlockStorageSnapshotRequest.md
 docs/UpdateBlockStorageVolumeRequest.md
+docs/UpdateDbaasExternalEndpointElasticsearchRequest.md
+docs/UpdateDbaasExternalEndpointOpensearchRequest.md
+docs/UpdateDbaasExternalEndpointPrometheusRequest.md
 docs/UpdateDbaasIntegrationRequest.md
 docs/UpdateDbaasPgConnectionPoolRequest.md
 docs/UpdateDbaasPostgresAllowReplicationRequest.md
@@ -340,6 +366,7 @@ src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
+src/main/java/com/exoscale/sdk/model/AttachDbaasServiceToEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/AttachInstanceToPrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/AttachInstanceToPrivateNetworkRequestInstance.java
 src/main/java/com/exoscale/sdk/model/AutovacuumSettings.java
@@ -355,6 +382,8 @@ src/main/java/com/exoscale/sdk/model/CreateAntiAffinityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/CreateBlockStorageVolumeRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasExternalEndpointDatadogRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasExternalEndpointRsyslogRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasIntegrationRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasKafkaUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasMysqlDatabaseRequest.java
@@ -383,6 +412,19 @@ src/main/java/com/exoscale/sdk/model/CreateSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksNodepoolRequest.java
 src/main/java/com/exoscale/sdk/model/DbaasBackupConfig.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadog.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadogDatadogTagsInner.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointElasticsearch.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointElasticsearchOutput.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointExternalPrometheusOutput.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointOpensearch.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointOpensearchOutput.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointPrometheus.java
+src/main/java/com/exoscale/sdk/model/DbaasEndpointRsyslog.java
+src/main/java/com/exoscale/sdk/model/DbaasExternalEndpoint.java
+src/main/java/com/exoscale/sdk/model/DbaasExternalEndpointDatadogOutput.java
+src/main/java/com/exoscale/sdk/model/DbaasExternalEndpointRsyslogOutput.java
+src/main/java/com/exoscale/sdk/model/DbaasExternalIntegration.java
 src/main/java/com/exoscale/sdk/model/DbaasIntegration.java
 src/main/java/com/exoscale/sdk/model/DbaasIntegrationType.java
 src/main/java/com/exoscale/sdk/model/DbaasIntegrationTypeSettings.java
@@ -405,7 +447,6 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceComponents.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceGrafana.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceGrafanaConnectionInfo.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceGrafanaUsersInner.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceIntegration.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceKafka.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceKafkaAuthenticationMethods.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceKafkaComponentsInner.java
@@ -443,6 +484,7 @@ src/main/java/com/exoscale/sdk/model/DbaasUserOpensearchSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserPostgresSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserRedisSecrets.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java
+src/main/java/com/exoscale/sdk/model/DetachDbaasServiceFromEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/DetachInstanceFromPrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/DnsDomain.java
 src/main/java/com/exoscale/sdk/model/DnsDomainRecord.java
@@ -450,6 +492,8 @@ src/main/java/com/exoscale/sdk/model/ElasticIp.java
 src/main/java/com/exoscale/sdk/model/ElasticIpHealthcheck.java
 src/main/java/com/exoscale/sdk/model/EnumComponentRoute.java
 src/main/java/com/exoscale/sdk/model/EnumComponentUsage.java
+src/main/java/com/exoscale/sdk/model/EnumDatadogSite.java
+src/main/java/com/exoscale/sdk/model/EnumExternalEndpointTypes.java
 src/main/java/com/exoscale/sdk/model/EnumIntegrationTypes.java
 src/main/java/com/exoscale/sdk/model/EnumKafkaAuthMethod.java
 src/main/java/com/exoscale/sdk/model/EnumMasterLinkStatus.java
@@ -460,6 +504,7 @@ src/main/java/com/exoscale/sdk/model/EnumOpensearchRulePermission.java
 src/main/java/com/exoscale/sdk/model/EnumPgPoolMode.java
 src/main/java/com/exoscale/sdk/model/EnumPgSynchronousReplication.java
 src/main/java/com/exoscale/sdk/model/EnumPgVariant.java
+src/main/java/com/exoscale/sdk/model/EnumRsyslogFormat.java
 src/main/java/com/exoscale/sdk/model/EnumServiceState.java
 src/main/java/com/exoscale/sdk/model/EnumSortOrder.java
 src/main/java/com/exoscale/sdk/model/Event.java
@@ -534,6 +579,10 @@ src/main/java/com/exoscale/sdk/model/ListAntiAffinityGroups200Response.java
 src/main/java/com/exoscale/sdk/model/ListApiKeys200Response.java
 src/main/java/com/exoscale/sdk/model/ListBlockStorageSnapshots200Response.java
 src/main/java/com/exoscale/sdk/model/ListBlockStorageVolumes200Response.java
+src/main/java/com/exoscale/sdk/model/ListDbaasExternalEndpointTypes200Response.java
+src/main/java/com/exoscale/sdk/model/ListDbaasExternalEndpointTypes200ResponseEndpointTypesInner.java
+src/main/java/com/exoscale/sdk/model/ListDbaasExternalEndpoints200Response.java
+src/main/java/com/exoscale/sdk/model/ListDbaasExternalIntegrations200Response.java
 src/main/java/com/exoscale/sdk/model/ListDbaasIntegrationSettings200Response.java
 src/main/java/com/exoscale/sdk/model/ListDbaasIntegrationSettings200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/ListDbaasIntegrationTypes200Response.java
@@ -608,6 +657,9 @@ src/main/java/com/exoscale/sdk/model/StartInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/Template.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageVolumeRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDbaasExternalEndpointElasticsearchRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDbaasExternalEndpointOpensearchRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDbaasExternalEndpointPrometheusRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasIntegrationRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasPgConnectionPoolRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasPostgresAllowReplicationRequest.java

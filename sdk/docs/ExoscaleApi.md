@@ -14,6 +14,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**addServiceToLoadBalancerWithHttpInfo**](ExoscaleApi.md#addServiceToLoadBalancerWithHttpInfo) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service |
 | [**attachBlockStorageVolumeToInstance**](ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance |
 | [**attachBlockStorageVolumeToInstanceWithHttpInfo**](ExoscaleApi.md#attachBlockStorageVolumeToInstanceWithHttpInfo) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance |
+| [**attachDbaasServiceToEndpoint**](ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach |  |
+| [**attachDbaasServiceToEndpointWithHttpInfo**](ExoscaleApi.md#attachDbaasServiceToEndpointWithHttpInfo) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach |  |
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToElasticIpWithHttpInfo**](ExoscaleApi.md#attachInstanceToElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToPrivateNetwork**](ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
@@ -30,6 +32,16 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#createBlockStorageSnapshotWithHttpInfo) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
 | [**createBlockStorageVolume**](ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume |
 | [**createBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#createBlockStorageVolumeWithHttpInfo) | **POST** /block-storage | Create a block storage volume |
+| [**createDbaasExternalEndpointDatadog**](ExoscaleApi.md#createDbaasExternalEndpointDatadog) | **POST** /dbaas-external-endpoint-datadog/{name} |  |
+| [**createDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointDatadogWithHttpInfo) | **POST** /dbaas-external-endpoint-datadog/{name} |  |
+| [**createDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#createDbaasExternalEndpointElasticsearch) | **POST** /dbaas-external-endpoint-elasticsearch/{name} |  |
+| [**createDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointElasticsearchWithHttpInfo) | **POST** /dbaas-external-endpoint-elasticsearch/{name} |  |
+| [**createDbaasExternalEndpointOpensearch**](ExoscaleApi.md#createDbaasExternalEndpointOpensearch) | **POST** /dbaas-external-endpoint-opensearch/{name} |  |
+| [**createDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointOpensearchWithHttpInfo) | **POST** /dbaas-external-endpoint-opensearch/{name} |  |
+| [**createDbaasExternalEndpointPrometheus**](ExoscaleApi.md#createDbaasExternalEndpointPrometheus) | **POST** /dbaas-external-endpoint-prometheus/{name} |  |
+| [**createDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointPrometheusWithHttpInfo) | **POST** /dbaas-external-endpoint-prometheus/{name} |  |
+| [**createDbaasExternalEndpointRsyslog**](ExoscaleApi.md#createDbaasExternalEndpointRsyslog) | **POST** /dbaas-external-endpoint-rsyslog/{name} |  |
+| [**createDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointRsyslogWithHttpInfo) | **POST** /dbaas-external-endpoint-rsyslog/{name} |  |
 | [**createDbaasIntegration**](ExoscaleApi.md#createDbaasIntegration) | **POST** /dbaas-integration | Create a new DBaaS integration between two services |
 | [**createDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration | Create a new DBaaS integration between two services |
 | [**createDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfig) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry |
@@ -100,6 +112,16 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#deleteBlockStorageSnapshotWithHttpInfo) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
 | [**deleteBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#deleteBlockStorageVolumeWithHttpInfo) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
+| [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{id} |  |
+| [**deleteDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-datadog/{id} |  |
+| [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} |  |
+| [**deleteDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearchWithHttpInfo) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} |  |
+| [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{id} |  |
+| [**deleteDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearchWithHttpInfo) | **DELETE** /dbaas-external-endpoint-opensearch/{id} |  |
+| [**deleteDbaasExternalEndpointPrometheus**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{id} |  |
+| [**deleteDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheusWithHttpInfo) | **DELETE** /dbaas-external-endpoint-prometheus/{id} |  |
+| [**deleteDbaasExternalEndpointRsyslog**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**deleteDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**deleteDbaasIntegration**](ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration |
 | [**deleteDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration |
 | [**deleteDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry |
@@ -174,6 +196,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteTemplateWithHttpInfo**](ExoscaleApi.md#deleteTemplateWithHttpInfo) | **DELETE** /template/{id} | Delete a Template |
 | [**detachBlockStorageVolume**](ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
 | [**detachBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#detachBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
+| [**detachDbaasServiceFromEndpoint**](ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
+| [**detachDbaasServiceFromEndpointWithHttpInfo**](ExoscaleApi.md#detachDbaasServiceFromEndpointWithHttpInfo) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
 | [**detachInstanceFromElasticIpWithHttpInfo**](ExoscaleApi.md#detachInstanceFromElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
 | [**detachInstanceFromPrivateNetwork**](ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
@@ -202,6 +226,18 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getConsoleProxyUrlWithHttpInfo**](ExoscaleApi.md#getConsoleProxyUrlWithHttpInfo) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console. |
 | [**getDbaasCaCertificate**](ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
 | [**getDbaasCaCertificateWithHttpInfo**](ExoscaleApi.md#getDbaasCaCertificateWithHttpInfo) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
+| [**getDbaasExternalEndpointDatadog**](ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{id} |  |
+| [**getDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointDatadogWithHttpInfo) | **GET** /dbaas-external-endpoint-datadog/{id} |  |
+| [**getDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{id} |  |
+| [**getDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearchWithHttpInfo) | **GET** /dbaas-external-endpoint-elasticsearch/{id} |  |
+| [**getDbaasExternalEndpointOpensearch**](ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{id} |  |
+| [**getDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointOpensearchWithHttpInfo) | **GET** /dbaas-external-endpoint-opensearch/{id} |  |
+| [**getDbaasExternalEndpointPrometheus**](ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{id} |  |
+| [**getDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointPrometheusWithHttpInfo) | **GET** /dbaas-external-endpoint-prometheus/{id} |  |
+| [**getDbaasExternalEndpointRsyslog**](ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**getDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointRsyslogWithHttpInfo) | **GET** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**getDbaasExternalIntegration**](ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} |  |
+| [**getDbaasExternalIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasExternalIntegrationWithHttpInfo) | **GET** /dbaas-external-integration/{id} |  |
 | [**getDbaasIntegration**](ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration |
 | [**getDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration |
 | [**getDbaasKafkaAclConfig**](ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
@@ -304,6 +340,12 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listBlockStorageSnapshotsWithHttpInfo**](ExoscaleApi.md#listBlockStorageSnapshotsWithHttpInfo) | **GET** /block-storage-snapshot | List block storage snapshots |
 | [**listBlockStorageVolumes**](ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes |
 | [**listBlockStorageVolumesWithHttpInfo**](ExoscaleApi.md#listBlockStorageVolumesWithHttpInfo) | **GET** /block-storage | List block storage volumes |
+| [**listDbaasExternalEndpointTypes**](ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types |  |
+| [**listDbaasExternalEndpointTypesWithHttpInfo**](ExoscaleApi.md#listDbaasExternalEndpointTypesWithHttpInfo) | **GET** /dbaas-external-endpoint-types |  |
+| [**listDbaasExternalEndpoints**](ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints |  |
+| [**listDbaasExternalEndpointsWithHttpInfo**](ExoscaleApi.md#listDbaasExternalEndpointsWithHttpInfo) | **GET** /dbaas-external-endpoints |  |
+| [**listDbaasExternalIntegrations**](ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} |  |
+| [**listDbaasExternalIntegrationsWithHttpInfo**](ExoscaleApi.md#listDbaasExternalIntegrationsWithHttpInfo) | **GET** /dbaas-external-integrations/{service-name} |  |
 | [**listDbaasIntegrationSettings**](ExoscaleApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings |
 | [**listDbaasIntegrationSettingsWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings |
 | [**listDbaasIntegrationTypes**](ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types | Get DBaaS integration types |
@@ -456,6 +498,16 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#updateBlockStorageSnapshotWithHttpInfo) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
 | [**updateBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#updateBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id} | Update block storage volume |
+| [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{id} |  |
+| [**updateDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointDatadogWithHttpInfo) | **PUT** /dbaas-external-endpoint-datadog/{id} |  |
+| [**updateDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} |  |
+| [**updateDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointElasticsearchWithHttpInfo) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} |  |
+| [**updateDbaasExternalEndpointOpensearch**](ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{id} |  |
+| [**updateDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointOpensearchWithHttpInfo) | **PUT** /dbaas-external-endpoint-opensearch/{id} |  |
+| [**updateDbaasExternalEndpointPrometheus**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{id} |  |
+| [**updateDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheusWithHttpInfo) | **PUT** /dbaas-external-endpoint-prometheus/{id} |  |
+| [**updateDbaasExternalEndpointRsyslog**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**updateDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslogWithHttpInfo) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**updateDbaasIntegration**](ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration |
 | [**updateDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration |
 | [**updateDbaasOpensearchAclConfig**](ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
@@ -1180,6 +1232,144 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## attachDbaasServiceToEndpoint
+
+> Operation attachDbaasServiceToEndpoint(sourceServiceName, attachDbaasServiceToEndpointRequest)
+
+
+
+[BETA] Create a new DBaaS connection between a DBaaS service and an external service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String sourceServiceName = "sourceServiceName_example"; // String | 
+        AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest = new AttachDbaasServiceToEndpointRequest(); // AttachDbaasServiceToEndpointRequest | 
+        try {
+            Operation result = apiInstance.attachDbaasServiceToEndpoint(sourceServiceName, attachDbaasServiceToEndpointRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#attachDbaasServiceToEndpoint");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceServiceName** | **String**|  | |
+| **attachDbaasServiceToEndpointRequest** | [**AttachDbaasServiceToEndpointRequest**](AttachDbaasServiceToEndpointRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## attachDbaasServiceToEndpointWithHttpInfo
+
+> ApiResponse<Operation> attachDbaasServiceToEndpoint attachDbaasServiceToEndpointWithHttpInfo(sourceServiceName, attachDbaasServiceToEndpointRequest)
+
+
+
+[BETA] Create a new DBaaS connection between a DBaaS service and an external service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String sourceServiceName = "sourceServiceName_example"; // String | 
+        AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest = new AttachDbaasServiceToEndpointRequest(); // AttachDbaasServiceToEndpointRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.attachDbaasServiceToEndpointWithHttpInfo(sourceServiceName, attachDbaasServiceToEndpointRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#attachDbaasServiceToEndpoint");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceServiceName** | **String**|  | |
+| **attachDbaasServiceToEndpointRequest** | [**AttachDbaasServiceToEndpointRequest**](AttachDbaasServiceToEndpointRequest.md)|  | |
 
 ### Return type
 
@@ -2268,6 +2458,696 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **createBlockStorageVolumeRequest** | [**CreateBlockStorageVolumeRequest**](CreateBlockStorageVolumeRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasExternalEndpointDatadog
+
+> Operation createDbaasExternalEndpointDatadog(name, createDbaasExternalEndpointDatadogRequest)
+
+
+
+[BETA] Create DataDog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
+        try {
+            Operation result = apiInstance.createDbaasExternalEndpointDatadog(name, createDbaasExternalEndpointDatadogRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasExternalEndpointDatadogRequest** | [**CreateDbaasExternalEndpointDatadogRequest**](CreateDbaasExternalEndpointDatadogRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDbaasExternalEndpointDatadogWithHttpInfo
+
+> ApiResponse<Operation> createDbaasExternalEndpointDatadog createDbaasExternalEndpointDatadogWithHttpInfo(name, createDbaasExternalEndpointDatadogRequest)
+
+
+
+[BETA] Create DataDog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointDatadogWithHttpInfo(name, createDbaasExternalEndpointDatadogRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasExternalEndpointDatadogRequest** | [**CreateDbaasExternalEndpointDatadogRequest**](CreateDbaasExternalEndpointDatadogRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasExternalEndpointElasticsearch
+
+> Operation createDbaasExternalEndpointElasticsearch(name, updateDbaasExternalEndpointElasticsearchRequest)
+
+
+
+[BETA] Create ElasticSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
+        try {
+            Operation result = apiInstance.createDbaasExternalEndpointElasticsearch(name, updateDbaasExternalEndpointElasticsearchRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasExternalEndpointElasticsearchRequest** | [**UpdateDbaasExternalEndpointElasticsearchRequest**](UpdateDbaasExternalEndpointElasticsearchRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDbaasExternalEndpointElasticsearchWithHttpInfo
+
+> ApiResponse<Operation> createDbaasExternalEndpointElasticsearch createDbaasExternalEndpointElasticsearchWithHttpInfo(name, updateDbaasExternalEndpointElasticsearchRequest)
+
+
+
+[BETA] Create ElasticSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointElasticsearchWithHttpInfo(name, updateDbaasExternalEndpointElasticsearchRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasExternalEndpointElasticsearchRequest** | [**UpdateDbaasExternalEndpointElasticsearchRequest**](UpdateDbaasExternalEndpointElasticsearchRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasExternalEndpointOpensearch
+
+> Operation createDbaasExternalEndpointOpensearch(name, updateDbaasExternalEndpointOpensearchRequest)
+
+
+
+[BETA] Create OpenSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
+        try {
+            Operation result = apiInstance.createDbaasExternalEndpointOpensearch(name, updateDbaasExternalEndpointOpensearchRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasExternalEndpointOpensearchRequest** | [**UpdateDbaasExternalEndpointOpensearchRequest**](UpdateDbaasExternalEndpointOpensearchRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDbaasExternalEndpointOpensearchWithHttpInfo
+
+> ApiResponse<Operation> createDbaasExternalEndpointOpensearch createDbaasExternalEndpointOpensearchWithHttpInfo(name, updateDbaasExternalEndpointOpensearchRequest)
+
+
+
+[BETA] Create OpenSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointOpensearchWithHttpInfo(name, updateDbaasExternalEndpointOpensearchRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasExternalEndpointOpensearchRequest** | [**UpdateDbaasExternalEndpointOpensearchRequest**](UpdateDbaasExternalEndpointOpensearchRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasExternalEndpointPrometheus
+
+> Operation createDbaasExternalEndpointPrometheus(name, updateDbaasExternalEndpointPrometheusRequest)
+
+
+
+[BETA] Create Prometheus external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
+        try {
+            Operation result = apiInstance.createDbaasExternalEndpointPrometheus(name, updateDbaasExternalEndpointPrometheusRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasExternalEndpointPrometheusRequest** | [**UpdateDbaasExternalEndpointPrometheusRequest**](UpdateDbaasExternalEndpointPrometheusRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDbaasExternalEndpointPrometheusWithHttpInfo
+
+> ApiResponse<Operation> createDbaasExternalEndpointPrometheus createDbaasExternalEndpointPrometheusWithHttpInfo(name, updateDbaasExternalEndpointPrometheusRequest)
+
+
+
+[BETA] Create Prometheus external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointPrometheusWithHttpInfo(name, updateDbaasExternalEndpointPrometheusRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasExternalEndpointPrometheusRequest** | [**UpdateDbaasExternalEndpointPrometheusRequest**](UpdateDbaasExternalEndpointPrometheusRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasExternalEndpointRsyslog
+
+> Operation createDbaasExternalEndpointRsyslog(name, createDbaasExternalEndpointRsyslogRequest)
+
+
+
+[BETA] Create RSyslog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        try {
+            Operation result = apiInstance.createDbaasExternalEndpointRsyslog(name, createDbaasExternalEndpointRsyslogRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasExternalEndpointRsyslogRequest** | [**CreateDbaasExternalEndpointRsyslogRequest**](CreateDbaasExternalEndpointRsyslogRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## createDbaasExternalEndpointRsyslogWithHttpInfo
+
+> ApiResponse<Operation> createDbaasExternalEndpointRsyslog createDbaasExternalEndpointRsyslogWithHttpInfo(name, createDbaasExternalEndpointRsyslogRequest)
+
+
+
+[BETA] Create RSyslog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String name = "name_example"; // String | 
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointRsyslogWithHttpInfo(name, createDbaasExternalEndpointRsyslogRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasExternalEndpointRsyslogRequest** | [**CreateDbaasExternalEndpointRsyslogRequest**](CreateDbaasExternalEndpointRsyslogRequest.md)|  | |
 
 ### Return type
 
@@ -6979,6 +7859,676 @@ public class Example {
             System.out.println("Response body: " + response.getData());
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteBlockStorageVolume");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasExternalEndpointDatadog
+
+> Operation deleteDbaasExternalEndpointDatadog(id)
+
+
+
+[BETA] Delete DataDog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            Operation result = apiInstance.deleteDbaasExternalEndpointDatadog(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDbaasExternalEndpointDatadogWithHttpInfo
+
+> ApiResponse<Operation> deleteDbaasExternalEndpointDatadog deleteDbaasExternalEndpointDatadogWithHttpInfo(id)
+
+
+
+[BETA] Delete DataDog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointDatadogWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasExternalEndpointElasticsearch
+
+> Operation deleteDbaasExternalEndpointElasticsearch(id)
+
+
+
+[BETA] Delete ElasticSearch logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            Operation result = apiInstance.deleteDbaasExternalEndpointElasticsearch(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDbaasExternalEndpointElasticsearchWithHttpInfo
+
+> ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearch deleteDbaasExternalEndpointElasticsearchWithHttpInfo(id)
+
+
+
+[BETA] Delete ElasticSearch logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointElasticsearchWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasExternalEndpointOpensearch
+
+> Operation deleteDbaasExternalEndpointOpensearch(id)
+
+
+
+[BETA] Delete OpenSearch logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            Operation result = apiInstance.deleteDbaasExternalEndpointOpensearch(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDbaasExternalEndpointOpensearchWithHttpInfo
+
+> ApiResponse<Operation> deleteDbaasExternalEndpointOpensearch deleteDbaasExternalEndpointOpensearchWithHttpInfo(id)
+
+
+
+[BETA] Delete OpenSearch logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointOpensearchWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasExternalEndpointPrometheus
+
+> Operation deleteDbaasExternalEndpointPrometheus(id)
+
+
+
+[BETA] Delete Prometheus external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            Operation result = apiInstance.deleteDbaasExternalEndpointPrometheus(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDbaasExternalEndpointPrometheusWithHttpInfo
+
+> ApiResponse<Operation> deleteDbaasExternalEndpointPrometheus deleteDbaasExternalEndpointPrometheusWithHttpInfo(id)
+
+
+
+[BETA] Delete Prometheus external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointPrometheusWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasExternalEndpointRsyslog
+
+> Operation deleteDbaasExternalEndpointRsyslog(id)
+
+
+
+[BETA] Delete RSyslog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            Operation result = apiInstance.deleteDbaasExternalEndpointRsyslog(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## deleteDbaasExternalEndpointRsyslogWithHttpInfo
+
+> ApiResponse<Operation> deleteDbaasExternalEndpointRsyslog deleteDbaasExternalEndpointRsyslogWithHttpInfo(id)
+
+
+
+[BETA] Delete RSyslog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointRsyslogWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointRsyslog");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Response headers: " + e.getResponseHeaders());
             System.err.println("Reason: " + e.getResponseBody());
@@ -11969,6 +13519,144 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## detachDbaasServiceFromEndpoint
+
+> Operation detachDbaasServiceFromEndpoint(sourceServiceName, detachDbaasServiceFromEndpointRequest)
+
+
+
+[BETA] Detach a DBaaS external integration from a service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String sourceServiceName = "sourceServiceName_example"; // String | 
+        DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest = new DetachDbaasServiceFromEndpointRequest(); // DetachDbaasServiceFromEndpointRequest | 
+        try {
+            Operation result = apiInstance.detachDbaasServiceFromEndpoint(sourceServiceName, detachDbaasServiceFromEndpointRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#detachDbaasServiceFromEndpoint");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceServiceName** | **String**|  | |
+| **detachDbaasServiceFromEndpointRequest** | [**DetachDbaasServiceFromEndpointRequest**](DetachDbaasServiceFromEndpointRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## detachDbaasServiceFromEndpointWithHttpInfo
+
+> ApiResponse<Operation> detachDbaasServiceFromEndpoint detachDbaasServiceFromEndpointWithHttpInfo(sourceServiceName, detachDbaasServiceFromEndpointRequest)
+
+
+
+[BETA] Detach a DBaaS external integration from a service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String sourceServiceName = "sourceServiceName_example"; // String | 
+        DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest = new DetachDbaasServiceFromEndpointRequest(); // DetachDbaasServiceFromEndpointRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.detachDbaasServiceFromEndpointWithHttpInfo(sourceServiceName, detachDbaasServiceFromEndpointRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#detachDbaasServiceFromEndpoint");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceServiceName** | **String**|  | |
+| **detachDbaasServiceFromEndpointRequest** | [**DetachDbaasServiceFromEndpointRequest**](DetachDbaasServiceFromEndpointRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## detachInstanceFromElasticIp
 
 > Operation detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest)
@@ -13840,6 +15528,810 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiResponse<[**GetDbaasCaCertificate200Response**](GetDbaasCaCertificate200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalEndpointDatadog
+
+> DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(id)
+
+
+
+[BETA] Get DataDog external endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            DbaasExternalEndpointDatadogOutput result = apiInstance.getDbaasExternalEndpointDatadog(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DbaasExternalEndpointDatadogOutput**](DbaasExternalEndpointDatadogOutput.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDbaasExternalEndpointDatadogWithHttpInfo
+
+> ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadog getDbaasExternalEndpointDatadogWithHttpInfo(id)
+
+
+
+[BETA] Get DataDog external endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DbaasExternalEndpointDatadogOutput> response = apiInstance.getDbaasExternalEndpointDatadogWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasExternalEndpointDatadogOutput**](DbaasExternalEndpointDatadogOutput.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalEndpointElasticsearch
+
+> DbaasEndpointElasticsearchOutput getDbaasExternalEndpointElasticsearch(id)
+
+
+
+[BETA] Get ElasticSearch Logs external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            DbaasEndpointElasticsearchOutput result = apiInstance.getDbaasExternalEndpointElasticsearch(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DbaasEndpointElasticsearchOutput**](DbaasEndpointElasticsearchOutput.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDbaasExternalEndpointElasticsearchWithHttpInfo
+
+> ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearch getDbaasExternalEndpointElasticsearchWithHttpInfo(id)
+
+
+
+[BETA] Get ElasticSearch Logs external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DbaasEndpointElasticsearchOutput> response = apiInstance.getDbaasExternalEndpointElasticsearchWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasEndpointElasticsearchOutput**](DbaasEndpointElasticsearchOutput.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalEndpointOpensearch
+
+> DbaasEndpointOpensearchOutput getDbaasExternalEndpointOpensearch(id)
+
+
+
+[BETA] Get OpenSearch Logs external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            DbaasEndpointOpensearchOutput result = apiInstance.getDbaasExternalEndpointOpensearch(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DbaasEndpointOpensearchOutput**](DbaasEndpointOpensearchOutput.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDbaasExternalEndpointOpensearchWithHttpInfo
+
+> ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearch getDbaasExternalEndpointOpensearchWithHttpInfo(id)
+
+
+
+[BETA] Get OpenSearch Logs external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DbaasEndpointOpensearchOutput> response = apiInstance.getDbaasExternalEndpointOpensearchWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasEndpointOpensearchOutput**](DbaasEndpointOpensearchOutput.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalEndpointPrometheus
+
+> DbaasEndpointExternalPrometheusOutput getDbaasExternalEndpointPrometheus(id)
+
+
+
+[BETA] Get Prometheus external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            DbaasEndpointExternalPrometheusOutput result = apiInstance.getDbaasExternalEndpointPrometheus(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DbaasEndpointExternalPrometheusOutput**](DbaasEndpointExternalPrometheusOutput.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDbaasExternalEndpointPrometheusWithHttpInfo
+
+> ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheus getDbaasExternalEndpointPrometheusWithHttpInfo(id)
+
+
+
+[BETA] Get Prometheus external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DbaasEndpointExternalPrometheusOutput> response = apiInstance.getDbaasExternalEndpointPrometheusWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasEndpointExternalPrometheusOutput**](DbaasEndpointExternalPrometheusOutput.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalEndpointRsyslog
+
+> DbaasExternalEndpointRsyslogOutput getDbaasExternalEndpointRsyslog(id)
+
+
+
+[BETA] Get RSyslog external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            DbaasExternalEndpointRsyslogOutput result = apiInstance.getDbaasExternalEndpointRsyslog(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DbaasExternalEndpointRsyslogOutput**](DbaasExternalEndpointRsyslogOutput.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDbaasExternalEndpointRsyslogWithHttpInfo
+
+> ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslog getDbaasExternalEndpointRsyslogWithHttpInfo(id)
+
+
+
+[BETA] Get RSyslog external integration endpoint settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DbaasExternalEndpointRsyslogOutput> response = apiInstance.getDbaasExternalEndpointRsyslogWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasExternalEndpointRsyslogOutput**](DbaasExternalEndpointRsyslogOutput.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalIntegration
+
+> DbaasExternalIntegration getDbaasExternalIntegration(id)
+
+
+
+[BETA] Get a DBaaS external integration
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            DbaasExternalIntegration result = apiInstance.getDbaasExternalIntegration(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegration");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DbaasExternalIntegration**](DbaasExternalIntegration.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## getDbaasExternalIntegrationWithHttpInfo
+
+> ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegration getDbaasExternalIntegrationWithHttpInfo(id)
+
+
+
+[BETA] Get a DBaaS external integration
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        try {
+            ApiResponse<DbaasExternalIntegration> response = apiInstance.getDbaasExternalIntegrationWithHttpInfo(id);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegration");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasExternalIntegration**](DbaasExternalIntegration.md)>
 
 
 ### Authorization
@@ -20598,6 +23090,392 @@ public class Example {
 ### Return type
 
 ApiResponse<[**ListBlockStorageVolumes200Response**](ListBlockStorageVolumes200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listDbaasExternalEndpointTypes
+
+> ListDbaasExternalEndpointTypes200Response listDbaasExternalEndpointTypes()
+
+
+
+[BETA] List available external endpoint types and their schemas for DBaaS external integrations
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        try {
+            ListDbaasExternalEndpointTypes200Response result = apiInstance.listDbaasExternalEndpointTypes();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpointTypes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListDbaasExternalEndpointTypes200Response**](ListDbaasExternalEndpointTypes200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## listDbaasExternalEndpointTypesWithHttpInfo
+
+> ApiResponse<ListDbaasExternalEndpointTypes200Response> listDbaasExternalEndpointTypes listDbaasExternalEndpointTypesWithHttpInfo()
+
+
+
+[BETA] List available external endpoint types and their schemas for DBaaS external integrations
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        try {
+            ApiResponse<ListDbaasExternalEndpointTypes200Response> response = apiInstance.listDbaasExternalEndpointTypesWithHttpInfo();
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpointTypes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListDbaasExternalEndpointTypes200Response**](ListDbaasExternalEndpointTypes200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listDbaasExternalEndpoints
+
+> ListDbaasExternalEndpoints200Response listDbaasExternalEndpoints()
+
+
+
+[BETA] List available external endpoints for integrations
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        try {
+            ListDbaasExternalEndpoints200Response result = apiInstance.listDbaasExternalEndpoints();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpoints");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListDbaasExternalEndpoints200Response**](ListDbaasExternalEndpoints200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## listDbaasExternalEndpointsWithHttpInfo
+
+> ApiResponse<ListDbaasExternalEndpoints200Response> listDbaasExternalEndpoints listDbaasExternalEndpointsWithHttpInfo()
+
+
+
+[BETA] List available external endpoints for integrations
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        try {
+            ApiResponse<ListDbaasExternalEndpoints200Response> response = apiInstance.listDbaasExternalEndpointsWithHttpInfo();
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpoints");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListDbaasExternalEndpoints200Response**](ListDbaasExternalEndpoints200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listDbaasExternalIntegrations
+
+> ListDbaasExternalIntegrations200Response listDbaasExternalIntegrations(serviceName)
+
+
+
+[BETA] List all DBaaS connections between services and external endpoints
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | 
+        try {
+            ListDbaasExternalIntegrations200Response result = apiInstance.listDbaasExternalIntegrations(serviceName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalIntegrations");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+[**ListDbaasExternalIntegrations200Response**](ListDbaasExternalIntegrations200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## listDbaasExternalIntegrationsWithHttpInfo
+
+> ApiResponse<ListDbaasExternalIntegrations200Response> listDbaasExternalIntegrations listDbaasExternalIntegrationsWithHttpInfo(serviceName)
+
+
+
+[BETA] List all DBaaS connections between services and external endpoints
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        String serviceName = "serviceName_example"; // String | 
+        try {
+            ApiResponse<ListDbaasExternalIntegrations200Response> response = apiInstance.listDbaasExternalIntegrationsWithHttpInfo(serviceName);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalIntegrations");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**ListDbaasExternalIntegrations200Response**](ListDbaasExternalIntegrations200Response.md)>
 
 
 ### Authorization
@@ -30766,6 +33644,696 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **updateBlockStorageVolumeRequest** | [**UpdateBlockStorageVolumeRequest**](UpdateBlockStorageVolumeRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasExternalEndpointDatadog
+
+> Operation updateDbaasExternalEndpointDatadog(id, createDbaasExternalEndpointDatadogRequest)
+
+
+
+[BETA] Update DataDog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
+        try {
+            Operation result = apiInstance.updateDbaasExternalEndpointDatadog(id, createDbaasExternalEndpointDatadogRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **createDbaasExternalEndpointDatadogRequest** | [**CreateDbaasExternalEndpointDatadogRequest**](CreateDbaasExternalEndpointDatadogRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## updateDbaasExternalEndpointDatadogWithHttpInfo
+
+> ApiResponse<Operation> updateDbaasExternalEndpointDatadog updateDbaasExternalEndpointDatadogWithHttpInfo(id, createDbaasExternalEndpointDatadogRequest)
+
+
+
+[BETA] Update DataDog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointDatadogWithHttpInfo(id, createDbaasExternalEndpointDatadogRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **createDbaasExternalEndpointDatadogRequest** | [**CreateDbaasExternalEndpointDatadogRequest**](CreateDbaasExternalEndpointDatadogRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasExternalEndpointElasticsearch
+
+> Operation updateDbaasExternalEndpointElasticsearch(id, updateDbaasExternalEndpointElasticsearchRequest)
+
+
+
+[BETA] Update ElasticSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
+        try {
+            Operation result = apiInstance.updateDbaasExternalEndpointElasticsearch(id, updateDbaasExternalEndpointElasticsearchRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateDbaasExternalEndpointElasticsearchRequest** | [**UpdateDbaasExternalEndpointElasticsearchRequest**](UpdateDbaasExternalEndpointElasticsearchRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## updateDbaasExternalEndpointElasticsearchWithHttpInfo
+
+> ApiResponse<Operation> updateDbaasExternalEndpointElasticsearch updateDbaasExternalEndpointElasticsearchWithHttpInfo(id, updateDbaasExternalEndpointElasticsearchRequest)
+
+
+
+[BETA] Update ElasticSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointElasticsearchWithHttpInfo(id, updateDbaasExternalEndpointElasticsearchRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointElasticsearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateDbaasExternalEndpointElasticsearchRequest** | [**UpdateDbaasExternalEndpointElasticsearchRequest**](UpdateDbaasExternalEndpointElasticsearchRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasExternalEndpointOpensearch
+
+> Operation updateDbaasExternalEndpointOpensearch(id, updateDbaasExternalEndpointOpensearchRequest)
+
+
+
+[BETA] Update OpenSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
+        try {
+            Operation result = apiInstance.updateDbaasExternalEndpointOpensearch(id, updateDbaasExternalEndpointOpensearchRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateDbaasExternalEndpointOpensearchRequest** | [**UpdateDbaasExternalEndpointOpensearchRequest**](UpdateDbaasExternalEndpointOpensearchRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## updateDbaasExternalEndpointOpensearchWithHttpInfo
+
+> ApiResponse<Operation> updateDbaasExternalEndpointOpensearch updateDbaasExternalEndpointOpensearchWithHttpInfo(id, updateDbaasExternalEndpointOpensearchRequest)
+
+
+
+[BETA] Update OpenSearch Logs external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointOpensearchWithHttpInfo(id, updateDbaasExternalEndpointOpensearchRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointOpensearch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateDbaasExternalEndpointOpensearchRequest** | [**UpdateDbaasExternalEndpointOpensearchRequest**](UpdateDbaasExternalEndpointOpensearchRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasExternalEndpointPrometheus
+
+> Operation updateDbaasExternalEndpointPrometheus(id, updateDbaasExternalEndpointPrometheusRequest)
+
+
+
+[BETA] Update Prometheus external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
+        try {
+            Operation result = apiInstance.updateDbaasExternalEndpointPrometheus(id, updateDbaasExternalEndpointPrometheusRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateDbaasExternalEndpointPrometheusRequest** | [**UpdateDbaasExternalEndpointPrometheusRequest**](UpdateDbaasExternalEndpointPrometheusRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## updateDbaasExternalEndpointPrometheusWithHttpInfo
+
+> ApiResponse<Operation> updateDbaasExternalEndpointPrometheus updateDbaasExternalEndpointPrometheusWithHttpInfo(id, updateDbaasExternalEndpointPrometheusRequest)
+
+
+
+[BETA] Update Prometheus external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointPrometheusWithHttpInfo(id, updateDbaasExternalEndpointPrometheusRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointPrometheus");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateDbaasExternalEndpointPrometheusRequest** | [**UpdateDbaasExternalEndpointPrometheusRequest**](UpdateDbaasExternalEndpointPrometheusRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasExternalEndpointRsyslog
+
+> Operation updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest)
+
+
+
+[BETA] Update RSyslog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        try {
+            Operation result = apiInstance.updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **createDbaasExternalEndpointRsyslogRequest** | [**CreateDbaasExternalEndpointRsyslogRequest**](CreateDbaasExternalEndpointRsyslogRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+## updateDbaasExternalEndpointRsyslogWithHttpInfo
+
+> ApiResponse<Operation> updateDbaasExternalEndpointRsyslog updateDbaasExternalEndpointRsyslogWithHttpInfo(id, createDbaasExternalEndpointRsyslogRequest)
+
+
+
+[BETA] Update RSyslog external integration endpoint
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.ApiResponse;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID id = UUID.randomUUID(); // UUID | 
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        try {
+            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointRsyslogWithHttpInfo(id, createDbaasExternalEndpointRsyslogRequest);
+            System.out.println("Status code: " + response.getStatusCode());
+            System.out.println("Response headers: " + response.getHeaders());
+            System.out.println("Response body: " + response.getData());
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointRsyslog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            System.err.println("Reason: " + e.getResponseBody());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **createDbaasExternalEndpointRsyslogRequest** | [**CreateDbaasExternalEndpointRsyslogRequest**](CreateDbaasExternalEndpointRsyslogRequest.md)|  | |
 
 ### Return type
 
