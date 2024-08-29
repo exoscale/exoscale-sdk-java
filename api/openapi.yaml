@@ -9476,7 +9476,7 @@ paths:
                   type: string
                   maxLength: 255
                   minLength: 1
-                  description: Nodepool name
+                  description: Nodepool name, lowercase only
                 instance-type:
                   "$ref": "#/components/schemas/instance-type"
                   description: Nodepool instances type
@@ -9491,7 +9491,7 @@ paths:
                   maxLength: 30
                   minLength: 1
                   description: 'Prefix to apply to managed instances names (default:
-                    pool)'
+                    pool), lowercase only'
                 deploy-target:
                   "$ref": "#/components/schemas/deploy-target"
                   nullable: true
@@ -14648,7 +14648,7 @@ paths:
                   type: string
                   maxLength: 255
                   minLength: 1
-                  description: Nodepool name
+                  description: Nodepool name, lowercase only
                 instance-type:
                   "$ref": "#/components/schemas/instance-type"
                   description: Nodepool instances type
@@ -14671,7 +14671,8 @@ paths:
                   type: string
                   maxLength: 30
                   minLength: 1
-                  description: 'Prefix to apply to instances names (default: pool)'
+                  description: 'Prefix to apply to instances names (default: pool),
+                    lowercase only'
                 deploy-target:
                   "$ref": "#/components/schemas/deploy-target"
                   description: Nodepool Deploy Target

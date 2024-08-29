@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   JsonSchemaPglookout.JSON_PROPERTY_MAX_FAILOVER_REPLICATION_TIME_LAG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class JsonSchemaPglookout {
   public static final String JSON_PROPERTY_MAX_FAILOVER_REPLICATION_TIME_LAG = "max_failover_replication_time_lag";
   private Integer maxFailoverReplicationTimeLag = 60;

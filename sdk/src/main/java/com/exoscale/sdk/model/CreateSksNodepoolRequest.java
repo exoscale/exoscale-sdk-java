@@ -60,7 +60,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_ADDONS,
   CreateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateSksNodepoolRequest {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private Set<AntiAffinityGroup> antiAffinityGroups;
@@ -368,7 +368,7 @@ public class CreateSksNodepoolRequest {
   }
 
    /**
-   * Nodepool name
+   * Nodepool name, lowercase only
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -503,7 +503,7 @@ public class CreateSksNodepoolRequest {
   }
 
    /**
-   * Prefix to apply to instances names (default: pool)
+   * Prefix to apply to instances names (default: pool), lowercase only
    * @return instancePrefix
   **/
   @javax.annotation.Nullable

@@ -50,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LoadBalancerService.JSON_PROPERTY_ID,
   LoadBalancerService.JSON_PROPERTY_HEALTHCHECK_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class LoadBalancerService {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;

@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateElasticIpRequest.JSON_PROPERTY_HEALTHCHECK,
   CreateElasticIpRequest.JSON_PROPERTY_LABELS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-22T07:06:13.134792Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class CreateElasticIpRequest {
   /**
    * Elastic IP address family (default: :inet4)

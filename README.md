@@ -7,7 +7,7 @@ Exoscale Public API
 
 - API version: 2.0.0
 
-- Build date: 2024-08-22T07:06:13.134792Z[Etc/UTC]
+- Build date: 2024-08-29T07:06:33.173380Z[Etc/UTC]
 
 
 - Generator version: 7.4.0
@@ -39,7 +39,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.3-ALPHA</version>
+    <version>0.0.4-ALPHA</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ url "url_to_your_maven_repository"
 
 
 dependencies {
-implementation 'com.exoscale.sdk:sdk:0.0.3-ALPHA'
+implementation 'com.exoscale.sdk:sdk:0.0.4-ALPHA'
 }
 ```
 
@@ -69,7 +69,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- target/sdk-0.0.3-ALPHA.jar
+- target/sdk-0.0.4-ALPHA.jar
 - target/lib/*.jar
 
 ## Getting Started
