@@ -25,6 +25,7 @@
                                 SET_TAGS_FOR_ALL_OPERATIONS=exoscale
                             </openapiNormalizer>
               <configOptions>
+                <hideGenerationTimestamp>true</hideGenerationTimestamp>
                 <additionalProperties>
                   <buildTool>maven</buildTool>
                 </additionalProperties>
