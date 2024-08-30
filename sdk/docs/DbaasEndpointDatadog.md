@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**datadogApiKey** | **String** | Datadog API key |  |
+|**apiKey** | **String** | Datadog API key |  |
 |**site** | **EnumDatadogSite** |  |  |
-|**datadogTags** | [**List&lt;DbaasEndpointDatadogDatadogTagsInner&gt;**](DbaasEndpointDatadogDatadogTagsInner.md) | Custom tags provided by user |  [optional] |
+|**tags** | [**List&lt;DbaasDatadogTag&gt;**](DbaasDatadogTag.md) | Custom tags provided by user |  [optional] |
 |**disableConsumerStats** | **Boolean** | Disable consumer group metrics |  [optional] |
 |**kafkaConsumerCheckInstances** | **Long** | Number of separate instances to fetch kafka consumer statistics with |  [optional] |
 |**kafkaConsumerStatsTimeout** | **Long** | Number of seconds that datadog will wait to get consumer statistics from brokers |  [optional] |

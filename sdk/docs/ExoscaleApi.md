@@ -42,8 +42,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointPrometheusWithHttpInfo) | **POST** /dbaas-external-endpoint-prometheus/{name} |  |
 | [**createDbaasExternalEndpointRsyslog**](ExoscaleApi.md#createDbaasExternalEndpointRsyslog) | **POST** /dbaas-external-endpoint-rsyslog/{name} |  |
 | [**createDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointRsyslogWithHttpInfo) | **POST** /dbaas-external-endpoint-rsyslog/{name} |  |
-| [**createDbaasIntegration**](ExoscaleApi.md#createDbaasIntegration) | **POST** /dbaas-integration | Create a new DBaaS integration between two services |
-| [**createDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration | Create a new DBaaS integration between two services |
+| [**createDbaasIntegration**](ExoscaleApi.md#createDbaasIntegration) | **POST** /dbaas-integration |  |
+| [**createDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration |  |
 | [**createDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfig) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry |
 | [**createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry |
 | [**createDbaasKafkaTopicAclConfig**](ExoscaleApi.md#createDbaasKafkaTopicAclConfig) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry |
@@ -122,8 +122,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheusWithHttpInfo) | **DELETE** /dbaas-external-endpoint-prometheus/{id} |  |
 | [**deleteDbaasExternalEndpointRsyslog**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**deleteDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
-| [**deleteDbaasIntegration**](ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration |
-| [**deleteDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} | Delete a DBaaS Integration |
+| [**deleteDbaasIntegration**](ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} |  |
+| [**deleteDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} |  |
 | [**deleteDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry |
 | [**deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry |
 | [**deleteDbaasKafkaTopicAclConfig**](ExoscaleApi.md#deleteDbaasKafkaTopicAclConfig) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry |
@@ -238,8 +238,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointRsyslogWithHttpInfo) | **GET** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**getDbaasExternalIntegration**](ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} |  |
 | [**getDbaasExternalIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasExternalIntegrationWithHttpInfo) | **GET** /dbaas-external-integration/{id} |  |
-| [**getDbaasIntegration**](ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration |
-| [**getDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} | Get a DBaaS Integration |
+| [**getDbaasIntegration**](ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} |  |
+| [**getDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} |  |
 | [**getDbaasKafkaAclConfig**](ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
 | [**getDbaasKafkaAclConfigWithHttpInfo**](ExoscaleApi.md#getDbaasKafkaAclConfigWithHttpInfo) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
 | [**getDbaasMigrationStatus**](ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status |
@@ -346,10 +346,10 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listDbaasExternalEndpointsWithHttpInfo**](ExoscaleApi.md#listDbaasExternalEndpointsWithHttpInfo) | **GET** /dbaas-external-endpoints |  |
 | [**listDbaasExternalIntegrations**](ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} |  |
 | [**listDbaasExternalIntegrationsWithHttpInfo**](ExoscaleApi.md#listDbaasExternalIntegrationsWithHttpInfo) | **GET** /dbaas-external-integrations/{service-name} |  |
-| [**listDbaasIntegrationSettings**](ExoscaleApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings |
-| [**listDbaasIntegrationSettingsWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} | Get DBaaS integration settings |
-| [**listDbaasIntegrationTypes**](ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types | Get DBaaS integration types |
-| [**listDbaasIntegrationTypesWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationTypesWithHttpInfo) | **GET** /dbaas-integration-types | Get DBaaS integration types |
+| [**listDbaasIntegrationSettings**](ExoscaleApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} |  |
+| [**listDbaasIntegrationSettingsWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} |  |
+| [**listDbaasIntegrationTypes**](ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types |  |
+| [**listDbaasIntegrationTypesWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationTypesWithHttpInfo) | **GET** /dbaas-integration-types |  |
 | [**listDbaasServiceTypes**](ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types |
 | [**listDbaasServiceTypesWithHttpInfo**](ExoscaleApi.md#listDbaasServiceTypesWithHttpInfo) | **GET** /dbaas-service-type | DBaaS Service Types |
 | [**listDbaasServices**](ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services |
@@ -508,8 +508,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheusWithHttpInfo) | **PUT** /dbaas-external-endpoint-prometheus/{id} |  |
 | [**updateDbaasExternalEndpointRsyslog**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**updateDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslogWithHttpInfo) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
-| [**updateDbaasIntegration**](ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration |
-| [**updateDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} | Update a existing DBaaS integration |
+| [**updateDbaasIntegration**](ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} |  |
+| [**updateDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} |  |
 | [**updateDbaasOpensearchAclConfig**](ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
 | [**updateDbaasOpensearchAclConfigWithHttpInfo**](ExoscaleApi.md#updateDbaasOpensearchAclConfigWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
 | [**updateDbaasPgConnectionPool**](ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool |
@@ -3173,9 +3173,9 @@ No authorization required
 
 > Operation createDbaasIntegration(createDbaasIntegrationRequest)
 
-Create a new DBaaS integration between two services
 
-Create a new DBaaS integration between two services
+
+[BETA] Create a new DBaaS integration between two services
 
 ### Example
 
@@ -3238,9 +3238,9 @@ No authorization required
 
 > ApiResponse<Operation> createDbaasIntegration createDbaasIntegrationWithHttpInfo(createDbaasIntegrationRequest)
 
-Create a new DBaaS integration between two services
 
-Create a new DBaaS integration between two services
+
+[BETA] Create a new DBaaS integration between two services
 
 ### Example
 
@@ -8569,9 +8569,9 @@ No authorization required
 
 > Operation deleteDbaasIntegration(id)
 
-Delete a DBaaS Integration
 
-Delete a DBaaS Integration
+
+[BETA]Delete a DBaaS Integration
 
 ### Example
 
@@ -8634,9 +8634,9 @@ No authorization required
 
 > ApiResponse<Operation> deleteDbaasIntegration deleteDbaasIntegrationWithHttpInfo(id)
 
-Delete a DBaaS Integration
 
-Delete a DBaaS Integration
+
+[BETA]Delete a DBaaS Integration
 
 ### Example
 
@@ -16353,9 +16353,9 @@ No authorization required
 
 > DbaasIntegration getDbaasIntegration(id)
 
-Get a DBaaS Integration
 
-Get a DBaaS Integration
+
+[BETA] Get a DBaaS Integration
 
 ### Example
 
@@ -16418,9 +16418,9 @@ No authorization required
 
 > ApiResponse<DbaasIntegration> getDbaasIntegration getDbaasIntegrationWithHttpInfo(id)
 
-Get a DBaaS Integration
 
-Get a DBaaS Integration
+
+[BETA] Get a DBaaS Integration
 
 ### Example
 
@@ -23497,9 +23497,9 @@ No authorization required
 
 > ListDbaasIntegrationSettings200Response listDbaasIntegrationSettings(integrationType, sourceType, destType)
 
-Get DBaaS integration settings
 
-Get DBaaS integration settings
+
+[BETA] Get DBaaS integration settings
 
 ### Example
 
@@ -23566,9 +23566,9 @@ No authorization required
 
 > ApiResponse<ListDbaasIntegrationSettings200Response> listDbaasIntegrationSettings listDbaasIntegrationSettingsWithHttpInfo(integrationType, sourceType, destType)
 
-Get DBaaS integration settings
 
-Get DBaaS integration settings
+
+[BETA] Get DBaaS integration settings
 
 ### Example
 
@@ -23639,9 +23639,9 @@ No authorization required
 
 > ListDbaasIntegrationTypes200Response listDbaasIntegrationTypes()
 
-Get DBaaS integration types
 
-Get DBaaS integration types
+
+[BETA] Get DBaaS integration types
 
 ### Example
 
@@ -23700,9 +23700,9 @@ No authorization required
 
 > ApiResponse<ListDbaasIntegrationTypes200Response> listDbaasIntegrationTypes listDbaasIntegrationTypesWithHttpInfo()
 
-Get DBaaS integration types
 
-Get DBaaS integration types
+
+[BETA] Get DBaaS integration types
 
 ### Example
 
@@ -34359,9 +34359,9 @@ No authorization required
 
 > Operation updateDbaasIntegration(id, updateDbaasIntegrationRequest)
 
-Update a existing DBaaS integration
 
-Update a existing DBaaS integration
+
+[BETA] Update a existing DBaaS integration
 
 ### Example
 
@@ -34426,9 +34426,9 @@ No authorization required
 
 > ApiResponse<Operation> updateDbaasIntegration updateDbaasIntegrationWithHttpInfo(id, updateDbaasIntegrationRequest)
 
-Update a existing DBaaS integration
 
-Update a existing DBaaS integration
+
+[BETA] Update a existing DBaaS integration
 
 ### Example
 

@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateDbaasServiceOpensearchRequestIndexTemplate.JSON_PROPERTY_NUMBER_OF_REPLICAS,
   UpdateDbaasServiceOpensearchRequestIndexTemplate.JSON_PROPERTY_NUMBER_OF_SHARDS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-30T13:37:22.669691+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceOpensearchRequestIndexTemplate {
   public static final String JSON_PROPERTY_MAPPING_NESTED_OBJECTS_LIMIT = "mapping-nested-objects-limit";
   private Long mappingNestedObjectsLimit;

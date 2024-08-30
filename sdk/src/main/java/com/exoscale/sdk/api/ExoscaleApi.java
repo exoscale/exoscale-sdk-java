@@ -235,7 +235,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-30T13:37:22.669691+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class ExoscaleApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -2027,8 +2027,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Create a new DBaaS integration between two services
-   * Create a new DBaaS integration between two services
+   * 
+   * [BETA] Create a new DBaaS integration between two services
    * @param createDbaasIntegrationRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -2039,8 +2039,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Create a new DBaaS integration between two services
-   * Create a new DBaaS integration between two services
+   * 
+   * [BETA] Create a new DBaaS integration between two services
    * @param createDbaasIntegrationRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -5597,8 +5597,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Delete a DBaaS Integration
-   * Delete a DBaaS Integration
+   * 
+   * [BETA]Delete a DBaaS Integration
    * @param id  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -5609,8 +5609,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Delete a DBaaS Integration
-   * Delete a DBaaS Integration
+   * 
+   * [BETA]Delete a DBaaS Integration
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -10535,8 +10535,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Get a DBaaS Integration
-   * Get a DBaaS Integration
+   * 
+   * [BETA] Get a DBaaS Integration
    * @param id  (required)
    * @return DbaasIntegration
    * @throws ApiException if fails to make API call
@@ -10547,8 +10547,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Get a DBaaS Integration
-   * Get a DBaaS Integration
+   * 
+   * [BETA] Get a DBaaS Integration
    * @param id  (required)
    * @return ApiResponse&lt;DbaasIntegration&gt;
    * @throws ApiException if fails to make API call
@@ -14958,8 +14958,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Get DBaaS integration settings
-   * Get DBaaS integration settings
+   * 
+   * [BETA] Get DBaaS integration settings
    * @param integrationType  (required)
    * @param sourceType  (required)
    * @param destType  (required)
@@ -14972,8 +14972,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Get DBaaS integration settings
-   * Get DBaaS integration settings
+   * 
+   * [BETA] Get DBaaS integration settings
    * @param integrationType  (required)
    * @param sourceType  (required)
    * @param destType  (required)
@@ -15054,8 +15054,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Get DBaaS integration types
-   * Get DBaaS integration types
+   * 
+   * [BETA] Get DBaaS integration types
    * @return ListDbaasIntegrationTypes200Response
    * @throws ApiException if fails to make API call
    */
@@ -15065,8 +15065,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Get DBaaS integration types
-   * Get DBaaS integration types
+   * 
+   * [BETA] Get DBaaS integration types
    * @return ApiResponse&lt;ListDbaasIntegrationTypes200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -22008,8 +22008,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Update a existing DBaaS integration
-   * Update a existing DBaaS integration
+   * 
+   * [BETA] Update a existing DBaaS integration
    * @param id  (required)
    * @param updateDbaasIntegrationRequest  (required)
    * @return Operation
@@ -22021,8 +22021,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Update a existing DBaaS integration
-   * Update a existing DBaaS integration
+   * 
+   * [BETA] Update a existing DBaaS integration
    * @param id  (required)
    * @param updateDbaasIntegrationRequest  (required)
    * @return ApiResponse&lt;Operation&gt;

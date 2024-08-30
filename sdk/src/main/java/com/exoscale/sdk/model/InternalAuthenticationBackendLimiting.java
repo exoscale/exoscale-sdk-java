@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InternalAuthenticationBackendLimiting.JSON_PROPERTY_TIME_WINDOW_SECONDS,
   InternalAuthenticationBackendLimiting.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-30T13:37:22.669691+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
 public class InternalAuthenticationBackendLimiting {
   public static final String JSON_PROPERTY_ALLOWED_TRIES = "allowed_tries";
   private Integer allowedTries;
