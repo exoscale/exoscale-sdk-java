@@ -1,6 +1,6 @@
 
 
-# DbaasEndpointDatadogDatadogTagsInner
+# DbaasDatadogTag
 
 
 ## Properties

@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SMTPServerSettings.JSON_PROPERTY_STARTTLS_POLICY,
   SMTPServerSettings.JSON_PROPERTY_USERNAME
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class SMTPServerSettings {
   public static final String JSON_PROPERTY_FROM_ADDRESS = "from_address";
   private String fromAddress;

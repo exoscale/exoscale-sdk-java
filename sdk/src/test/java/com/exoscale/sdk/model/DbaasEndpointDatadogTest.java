@@ -13,7 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointDatadogDatadogTagsInner;
+import com.exoscale.sdk.model.DbaasDatadogTag;
 import com.exoscale.sdk.model.EnumDatadogSite;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -42,11 +42,11 @@ public class DbaasEndpointDatadogTest {
     }
 
     /**
-     * Test the property 'datadogApiKey'
+     * Test the property 'apiKey'
      */
     @Test
-    public void datadogApiKeyTest() {
-        // TODO: test datadogApiKey
+    public void apiKeyTest() {
+        // TODO: test apiKey
     }
 
     /**
@@ -58,11 +58,11 @@ public class DbaasEndpointDatadogTest {
     }
 
     /**
-     * Test the property 'datadogTags'
+     * Test the property 'tags'
      */
     @Test
-    public void datadogTagsTest() {
-        // TODO: test datadogTags
+    public void tagsTest() {
+        // TODO: test tags
     }
 
     /**

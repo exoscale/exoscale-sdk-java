@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GitLabAuthIntegration.JSON_PROPERTY_CLIENT_SECRET,
   GitLabAuthIntegration.JSON_PROPERTY_TOKEN_URL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GitLabAuthIntegration {
   public static final String JSON_PROPERTY_ALLOW_SIGN_UP = "allow_sign_up";
   private Boolean allowSignUp;

@@ -3358,7 +3358,7 @@ paths:
       x-accepts: application/json
   /dbaas-integration-types:
     get:
-      description: Get DBaaS integration types
+      description: "[BETA] Get DBaaS integration types"
       operationId: list-dbaas-integration-types
       parameters: []
       responses:
@@ -3368,7 +3368,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list_dbaas_integration_types_200_response'
           description: "200"
-      summary: Get DBaaS integration types
+      summary: ""
       tags:
       - exoscale
       x-accepts: application/json
@@ -5131,7 +5131,7 @@ paths:
       x-accepts: application/json
   /dbaas-integration/{id}:
     delete:
-      description: Delete a DBaaS Integration
+      description: "[BETA]Delete a DBaaS Integration"
       operationId: delete-dbaas-integration
       parameters:
       - explode: false
@@ -5149,12 +5149,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: Delete a DBaaS Integration
+      summary: ""
       tags:
       - exoscale
       x-accepts: application/json
     get:
-      description: Get a DBaaS Integration
+      description: "[BETA] Get a DBaaS Integration"
       operationId: get-dbaas-integration
       parameters:
       - explode: false
@@ -5172,12 +5172,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-integration'
           description: "200"
-      summary: Get a DBaaS Integration
+      summary: ""
       tags:
       - exoscale
       x-accepts: application/json
     put:
-      description: Update a existing DBaaS integration
+      description: "[BETA] Update a existing DBaaS integration"
       operationId: update-dbaas-integration
       parameters:
       - explode: false
@@ -5201,7 +5201,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: Update a existing DBaaS integration
+      summary: ""
       tags:
       - exoscale
       x-content-type: application/json
@@ -5332,7 +5332,7 @@ paths:
       x-accepts: application/json
   /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type}:
     get:
-      description: Get DBaaS integration settings
+      description: "[BETA] Get DBaaS integration settings"
       operationId: list-dbaas-integration-settings
       parameters:
       - explode: false
@@ -5363,7 +5363,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list_dbaas_integration_settings_200_response'
           description: "200"
-      summary: Get DBaaS integration settings
+      summary: ""
       tags:
       - exoscale
       x-accepts: application/json
@@ -6920,7 +6920,7 @@ paths:
       x-accepts: application/json
   /dbaas-integration:
     post:
-      description: Create a new DBaaS integration between two services
+      description: "[BETA] Create a new DBaaS integration between two services"
       operationId: create-dbaas-integration
       parameters: []
       requestBody:
@@ -6936,7 +6936,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: Create a new DBaaS integration between two services
+      summary: ""
       tags:
       - exoscale
       x-content-type: application/json
@@ -16336,13 +16336,13 @@ components:
     dbaas-external-endpoint-datadog-output:
       example:
         settings:
-          datadog-api-key: datadog-api-key
           kafka-consumer-stats-timeout: 181
           kafka-consumer-check-instances: 8
           site: null
+          api-key: api-key
           disable-consumer-stats: true
           max-partition-contexts: 29486
-          datadog-tags:
+          tags:
           - comment: comment
             tag: tag
           - comment: comment
@@ -25431,6 +25431,24 @@ components:
           readOnly: true
           type: string
       type: object
+    dbaas-datadog-tag:
+      example:
+        comment: comment
+        tag: tag
+      properties:
+        comment:
+          description: Optional tag explanation
+          maxLength: 1024
+          type: string
+        tag:
+          description: Tag value
+          maxLength: 200
+          minLength: 1
+          pattern: "^(?!aiven-)[^\\W\\d_](?:[:\\w./-]*[\\w./-])?$"
+          type: string
+      required:
+      - tag
+      type: object
     enum-integration-types:
       enum:
       - datasource
@@ -28305,19 +28323,19 @@ components:
       type: object
     dbaas-endpoint-datadog:
       example:
-        datadog-api-key: datadog-api-key
         kafka-consumer-stats-timeout: 181
         kafka-consumer-check-instances: 8
         site: null
+        api-key: api-key
         disable-consumer-stats: true
         max-partition-contexts: 29486
-        datadog-tags:
+        tags:
         - comment: comment
           tag: tag
         - comment: comment
           tag: tag
       properties:
-        datadog-api-key:
+        api-key:
           description: Datadog API key
           maxLength: 256
           minLength: 1
@@ -28325,10 +28343,10 @@ components:
           type: string
         site:
           $ref: '#/components/schemas/enum-datadog-site'
-        datadog-tags:
+        tags:
           description: Custom tags provided by user
           items:
-            $ref: '#/components/schemas/dbaas_endpoint_datadog_datadog_tags_inner'
+            $ref: '#/components/schemas/dbaas-datadog-tag'
           type: array
         disable-consumer-stats:
           description: Disable consumer group metrics
@@ -28360,7 +28378,7 @@ components:
           minimum: 200
           type: integer
       required:
-      - datadog-api-key
+      - api-key
       - site
       type: object
     dbaas-endpoint-prometheus:
@@ -52407,24 +52425,6 @@ components:
       required:
       - ism_enabled
       title: Opensearch ISM History Settings
-      type: object
-    dbaas_endpoint_datadog_datadog_tags_inner:
-      example:
-        comment: comment
-        tag: tag
-      properties:
-        comment:
-          description: Optional tag explanation
-          maxLength: 1024
-          type: string
-        tag:
-          description: Tag value
-          maxLength: 200
-          minLength: 1
-          pattern: "^(?!aiven-)[^\\W\\d_](?:[:\\w./-]*[\\w./-])?$"
-          type: string
-      required:
-      - tag
       type: object
 x-topics:
 - title: API Request Signature

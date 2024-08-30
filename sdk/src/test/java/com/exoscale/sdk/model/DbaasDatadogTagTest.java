@@ -24,17 +24,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointDatadogDatadogTagsInner
+ * Model tests for DbaasDatadogTag
  */
-public class DbaasEndpointDatadogDatadogTagsInnerTest {
-    private final DbaasEndpointDatadogDatadogTagsInner model = new DbaasEndpointDatadogDatadogTagsInner();
+public class DbaasDatadogTagTest {
+    private final DbaasDatadogTag model = new DbaasDatadogTag();
 
     /**
-     * Model tests for DbaasEndpointDatadogDatadogTagsInner
+     * Model tests for DbaasDatadogTag
      */
     @Test
-    public void testDbaasEndpointDatadogDatadogTagsInner() {
-        // TODO: test DbaasEndpointDatadogDatadogTagsInner
+    public void testDbaasDatadogTag() {
+        // TODO: test DbaasDatadogTag
     }
 
     /**

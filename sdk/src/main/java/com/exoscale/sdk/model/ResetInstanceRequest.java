@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ResetInstanceRequest.JSON_PROPERTY_TEMPLATE,
   ResetInstanceRequest.JSON_PROPERTY_DISK_SIZE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ResetInstanceRequest {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private Template template;

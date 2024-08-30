@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceRedisUsersInner.JSON_PROPERTY_PASSWORD,
   DbaasServiceRedisUsersInner.JSON_PROPERTY_ACCESS_CONTROL
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasServiceRedisUsersInner {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;

@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasEndpointElasticsearch.JSON_PROPERTY_INDEX_DAYS_MAX,
   DbaasEndpointElasticsearch.JSON_PROPERTY_TIMEOUT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasEndpointElasticsearch {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;

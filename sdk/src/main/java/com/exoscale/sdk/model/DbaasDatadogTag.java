@@ -29,24 +29,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointDatadogDatadogTagsInner
+ * DbaasDatadogTag
  */
 @JsonPropertyOrder({
-  DbaasEndpointDatadogDatadogTagsInner.JSON_PROPERTY_COMMENT,
-  DbaasEndpointDatadogDatadogTagsInner.JSON_PROPERTY_TAG
+  DbaasDatadogTag.JSON_PROPERTY_COMMENT,
+  DbaasDatadogTag.JSON_PROPERTY_TAG
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
-public class DbaasEndpointDatadogDatadogTagsInner {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
+public class DbaasDatadogTag {
   public static final String JSON_PROPERTY_COMMENT = "comment";
   private String comment;
 
   public static final String JSON_PROPERTY_TAG = "tag";
   private String tag;
 
-  public DbaasEndpointDatadogDatadogTagsInner() { 
+  public DbaasDatadogTag() { 
   }
 
-  public DbaasEndpointDatadogDatadogTagsInner comment(String comment) {
+  public DbaasDatadogTag comment(String comment) {
     this.comment = comment;
     return this;
   }
@@ -71,7 +71,7 @@ public class DbaasEndpointDatadogDatadogTagsInner {
   }
 
 
-  public DbaasEndpointDatadogDatadogTagsInner tag(String tag) {
+  public DbaasDatadogTag tag(String tag) {
     this.tag = tag;
     return this;
   }
@@ -97,7 +97,7 @@ public class DbaasEndpointDatadogDatadogTagsInner {
 
 
   /**
-   * Return true if this dbaas_endpoint_datadog_datadog_tags_inner object is equal to o.
+   * Return true if this dbaas-datadog-tag object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,9 +107,9 @@ public class DbaasEndpointDatadogDatadogTagsInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointDatadogDatadogTagsInner dbaasEndpointDatadogDatadogTagsInner = (DbaasEndpointDatadogDatadogTagsInner) o;
-    return Objects.equals(this.comment, dbaasEndpointDatadogDatadogTagsInner.comment) &&
-        Objects.equals(this.tag, dbaasEndpointDatadogDatadogTagsInner.tag);
+    DbaasDatadogTag dbaasDatadogTag = (DbaasDatadogTag) o;
+    return Objects.equals(this.comment, dbaasDatadogTag.comment) &&
+        Objects.equals(this.tag, dbaasDatadogTag.tag);
   }
 
   @Override
@@ -120,7 +120,7 @@ public class DbaasEndpointDatadogDatadogTagsInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointDatadogDatadogTagsInner {\n");
+    sb.append("class DbaasDatadogTag {\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("}");

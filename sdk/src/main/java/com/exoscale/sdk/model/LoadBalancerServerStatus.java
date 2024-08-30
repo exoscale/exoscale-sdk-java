@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LoadBalancerServerStatus.JSON_PROPERTY_PUBLIC_IP,
   LoadBalancerServerStatus.JSON_PROPERTY_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T07:06:33.173380Z[Etc/UTC]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class LoadBalancerServerStatus {
   public static final String JSON_PROPERTY_PUBLIC_IP = "public-ip";
   private String publicIp;

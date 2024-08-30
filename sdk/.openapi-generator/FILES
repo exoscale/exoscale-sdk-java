@@ -58,8 +58,8 @@ docs/CreateSecurityGroupRequest.md
 docs/CreateSksClusterRequest.md
 docs/CreateSksNodepoolRequest.md
 docs/DbaasBackupConfig.md
+docs/DbaasDatadogTag.md
 docs/DbaasEndpointDatadog.md
-docs/DbaasEndpointDatadogDatadogTagsInner.md
 docs/DbaasEndpointElasticsearch.md
 docs/DbaasEndpointElasticsearchOutput.md
 docs/DbaasEndpointExternalPrometheusOutput.md
@@ -412,8 +412,8 @@ src/main/java/com/exoscale/sdk/model/CreateSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksNodepoolRequest.java
 src/main/java/com/exoscale/sdk/model/DbaasBackupConfig.java
+src/main/java/com/exoscale/sdk/model/DbaasDatadogTag.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadog.java
-src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadogDatadogTagsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointElasticsearch.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointElasticsearchOutput.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointExternalPrometheusOutput.java
