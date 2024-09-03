@@ -5598,7 +5598,7 @@ public class ExoscaleApi {
   }
   /**
    * 
-   * [BETA]Delete a DBaaS Integration
+   * [BETA] Delete a DBaaS Integration
    * @param id  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -5610,7 +5610,7 @@ public class ExoscaleApi {
 
   /**
    * 
-   * [BETA]Delete a DBaaS Integration
+   * [BETA] Delete a DBaaS Integration
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call

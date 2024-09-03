@@ -42,11 +42,11 @@ public class DbaasEndpointDatadogTest {
     }
 
     /**
-     * Test the property 'apiKey'
+     * Test the property 'datadogApiKey'
      */
     @Test
-    public void apiKeyTest() {
-        // TODO: test apiKey
+    public void datadogApiKeyTest() {
+        // TODO: test datadogApiKey
     }
 
     /**
@@ -58,11 +58,11 @@ public class DbaasEndpointDatadogTest {
     }
 
     /**
-     * Test the property 'tags'
+     * Test the property 'datadogTags'
      */
     @Test
-    public void tagsTest() {
-        // TODO: test tags
+    public void datadogTagsTest() {
+        // TODO: test datadogTags
     }
 
     /**

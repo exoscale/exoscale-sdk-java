@@ -4976,7 +4976,6 @@ components:
           type: string
           maxLength: 200
           minLength: 1
-          pattern: "^(?!aiven-)[^\\W\\d_](?:[:\\w./-]*[\\w./-])?$"
           description: Tag value
       required:
       - tag
@@ -6978,7 +6977,7 @@ components:
     dbaas-endpoint-datadog:
       type: object
       properties:
-        api-key:
+        datadog-api-key:
           type: string
           maxLength: 256
           minLength: 1
@@ -6987,7 +6986,7 @@ components:
         site:
           "$ref": "#/components/schemas/enum-datadog-site"
           description: Datadog intake site. Defaults to datadoghq.com
-        tags:
+        datadog-tags:
           type: array
           items:
             "$ref": "#/components/schemas/dbaas-datadog-tag"
@@ -7022,7 +7021,7 @@ components:
           exclusiveMaximum: false
           description: Maximum number of partition contexts to send
       required:
-      - api-key
+      - datadog-api-key
       - site
     dbaas-endpoint-prometheus:
       type: object
@@ -13201,7 +13200,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/operation"
-      description: "[BETA]Delete a DBaaS Integration"
+      description: "[BETA] Delete a DBaaS Integration"
       parameters:
       - in: path
         required: true

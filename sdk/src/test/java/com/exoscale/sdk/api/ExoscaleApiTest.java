@@ -1265,7 +1265,7 @@ public class ExoscaleApiTest {
     /**
      * 
      *
-     * [BETA]Delete a DBaaS Integration
+     * [BETA] Delete a DBaaS Integration
      *
      * @throws ApiException
      *          if the Api call fails

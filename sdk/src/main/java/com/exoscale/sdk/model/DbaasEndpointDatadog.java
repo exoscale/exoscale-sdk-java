@@ -36,9 +36,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DbaasEndpointDatadog
  */
 @JsonPropertyOrder({
-  DbaasEndpointDatadog.JSON_PROPERTY_API_KEY,
+  DbaasEndpointDatadog.JSON_PROPERTY_DATADOG_API_KEY,
   DbaasEndpointDatadog.JSON_PROPERTY_SITE,
-  DbaasEndpointDatadog.JSON_PROPERTY_TAGS,
+  DbaasEndpointDatadog.JSON_PROPERTY_DATADOG_TAGS,
   DbaasEndpointDatadog.JSON_PROPERTY_DISABLE_CONSUMER_STATS,
   DbaasEndpointDatadog.JSON_PROPERTY_KAFKA_CONSUMER_CHECK_INSTANCES,
   DbaasEndpointDatadog.JSON_PROPERTY_KAFKA_CONSUMER_STATS_TIMEOUT,
@@ -46,14 +46,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasEndpointDatadog {
-  public static final String JSON_PROPERTY_API_KEY = "api-key";
-  private String apiKey;
+  public static final String JSON_PROPERTY_DATADOG_API_KEY = "datadog-api-key";
+  private String datadogApiKey;
 
   public static final String JSON_PROPERTY_SITE = "site";
   private EnumDatadogSite site;
 
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<DbaasDatadogTag> tags;
+  public static final String JSON_PROPERTY_DATADOG_TAGS = "datadog-tags";
+  private List<DbaasDatadogTag> datadogTags;
 
   public static final String JSON_PROPERTY_DISABLE_CONSUMER_STATS = "disable-consumer-stats";
   private Boolean disableConsumerStats;
@@ -70,28 +70,28 @@ public class DbaasEndpointDatadog {
   public DbaasEndpointDatadog() { 
   }
 
-  public DbaasEndpointDatadog apiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public DbaasEndpointDatadog datadogApiKey(String datadogApiKey) {
+    this.datadogApiKey = datadogApiKey;
     return this;
   }
 
    /**
    * Datadog API key
-   * @return apiKey
+   * @return datadogApiKey
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getApiKey() {
-    return apiKey;
+  public String getDatadogApiKey() {
+    return datadogApiKey;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public void setDatadogApiKey(String datadogApiKey) {
+    this.datadogApiKey = datadogApiKey;
   }
 
 
@@ -120,36 +120,36 @@ public class DbaasEndpointDatadog {
   }
 
 
-  public DbaasEndpointDatadog tags(List<DbaasDatadogTag> tags) {
-    this.tags = tags;
+  public DbaasEndpointDatadog datadogTags(List<DbaasDatadogTag> datadogTags) {
+    this.datadogTags = datadogTags;
     return this;
   }
 
-  public DbaasEndpointDatadog addTagsItem(DbaasDatadogTag tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
+  public DbaasEndpointDatadog addDatadogTagsItem(DbaasDatadogTag datadogTagsItem) {
+    if (this.datadogTags == null) {
+      this.datadogTags = new ArrayList<>();
     }
-    this.tags.add(tagsItem);
+    this.datadogTags.add(datadogTagsItem);
     return this;
   }
 
    /**
    * Custom tags provided by user
-   * @return tags
+   * @return datadogTags
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonProperty(JSON_PROPERTY_DATADOG_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasDatadogTag> getTags() {
-    return tags;
+  public List<DbaasDatadogTag> getDatadogTags() {
+    return datadogTags;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonProperty(JSON_PROPERTY_DATADOG_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTags(List<DbaasDatadogTag> tags) {
-    this.tags = tags;
+  public void setDatadogTags(List<DbaasDatadogTag> datadogTags) {
+    this.datadogTags = datadogTags;
   }
 
 
@@ -271,9 +271,9 @@ public class DbaasEndpointDatadog {
       return false;
     }
     DbaasEndpointDatadog dbaasEndpointDatadog = (DbaasEndpointDatadog) o;
-    return Objects.equals(this.apiKey, dbaasEndpointDatadog.apiKey) &&
+    return Objects.equals(this.datadogApiKey, dbaasEndpointDatadog.datadogApiKey) &&
         Objects.equals(this.site, dbaasEndpointDatadog.site) &&
-        Objects.equals(this.tags, dbaasEndpointDatadog.tags) &&
+        Objects.equals(this.datadogTags, dbaasEndpointDatadog.datadogTags) &&
         Objects.equals(this.disableConsumerStats, dbaasEndpointDatadog.disableConsumerStats) &&
         Objects.equals(this.kafkaConsumerCheckInstances, dbaasEndpointDatadog.kafkaConsumerCheckInstances) &&
         Objects.equals(this.kafkaConsumerStatsTimeout, dbaasEndpointDatadog.kafkaConsumerStatsTimeout) &&
@@ -282,16 +282,16 @@ public class DbaasEndpointDatadog {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, site, tags, disableConsumerStats, kafkaConsumerCheckInstances, kafkaConsumerStatsTimeout, maxPartitionContexts);
+    return Objects.hash(datadogApiKey, site, datadogTags, disableConsumerStats, kafkaConsumerCheckInstances, kafkaConsumerStatsTimeout, maxPartitionContexts);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbaasEndpointDatadog {\n");
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    datadogApiKey: ").append(toIndentedString(datadogApiKey)).append("\n");
     sb.append("    site: ").append(toIndentedString(site)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    datadogTags: ").append(toIndentedString(datadogTags)).append("\n");
     sb.append("    disableConsumerStats: ").append(toIndentedString(disableConsumerStats)).append("\n");
     sb.append("    kafkaConsumerCheckInstances: ").append(toIndentedString(kafkaConsumerCheckInstances)).append("\n");
     sb.append("    kafkaConsumerStatsTimeout: ").append(toIndentedString(kafkaConsumerStatsTimeout)).append("\n");
@@ -343,9 +343,9 @@ public class DbaasEndpointDatadog {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `api-key` to the URL query string
-    if (getApiKey() != null) {
-      joiner.add(String.format("%sapi-key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApiKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `datadog-api-key` to the URL query string
+    if (getDatadogApiKey() != null) {
+      joiner.add(String.format("%sdatadog-api-key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDatadogApiKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `site` to the URL query string
@@ -353,11 +353,11 @@ public class DbaasEndpointDatadog {
       joiner.add(String.format("%ssite%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSite()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `tags` to the URL query string
-    if (getTags() != null) {
-      for (int i = 0; i < getTags().size(); i++) {
-        if (getTags().get(i) != null) {
-          joiner.add(getTags().get(i).toUrlQueryString(String.format("%stags%s%s", prefix, suffix,
+    // add `datadog-tags` to the URL query string
+    if (getDatadogTags() != null) {
+      for (int i = 0; i < getDatadogTags().size(); i++) {
+        if (getDatadogTags().get(i) != null) {
+          joiner.add(getDatadogTags().get(i).toUrlQueryString(String.format("%sdatadog-tags%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

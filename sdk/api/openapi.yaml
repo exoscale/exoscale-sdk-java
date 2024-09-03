@@ -5131,7 +5131,7 @@ paths:
       x-accepts: application/json
   /dbaas-integration/{id}:
     delete:
-      description: "[BETA]Delete a DBaaS Integration"
+      description: "[BETA] Delete a DBaaS Integration"
       operationId: delete-dbaas-integration
       parameters:
       - explode: false
@@ -16336,13 +16336,13 @@ components:
     dbaas-external-endpoint-datadog-output:
       example:
         settings:
+          datadog-api-key: datadog-api-key
           kafka-consumer-stats-timeout: 181
           kafka-consumer-check-instances: 8
           site: null
-          api-key: api-key
           disable-consumer-stats: true
           max-partition-contexts: 29486
-          tags:
+          datadog-tags:
           - comment: comment
             tag: tag
           - comment: comment
@@ -25444,7 +25444,6 @@ components:
           description: Tag value
           maxLength: 200
           minLength: 1
-          pattern: "^(?!aiven-)[^\\W\\d_](?:[:\\w./-]*[\\w./-])?$"
           type: string
       required:
       - tag
@@ -28323,19 +28322,19 @@ components:
       type: object
     dbaas-endpoint-datadog:
       example:
+        datadog-api-key: datadog-api-key
         kafka-consumer-stats-timeout: 181
         kafka-consumer-check-instances: 8
         site: null
-        api-key: api-key
         disable-consumer-stats: true
         max-partition-contexts: 29486
-        tags:
+        datadog-tags:
         - comment: comment
           tag: tag
         - comment: comment
           tag: tag
       properties:
-        api-key:
+        datadog-api-key:
           description: Datadog API key
           maxLength: 256
           minLength: 1
@@ -28343,7 +28342,7 @@ components:
           type: string
         site:
           $ref: '#/components/schemas/enum-datadog-site'
-        tags:
+        datadog-tags:
           description: Custom tags provided by user
           items:
             $ref: '#/components/schemas/dbaas-datadog-tag'
@@ -28378,7 +28377,7 @@ components:
           minimum: 200
           type: integer
       required:
-      - api-key
+      - datadog-api-key
       - site
       type: object
     dbaas-endpoint-prometheus:
