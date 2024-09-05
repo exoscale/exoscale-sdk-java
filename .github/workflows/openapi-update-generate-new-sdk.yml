@@ -26,11 +26,11 @@ jobs:
           git diff --exit-code api/openapi.yaml || echo "CHANGED=true" >> $GITHUB_ENV
 
       - name: Install xmlstarlet
-        if: env.CHANGED == 'true'
+        if: ${{ env.CHANGED == 'true' }}
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
       - name: Increment artifactVersion
-        if: env.CHANGED == 'true'
+        if: ${{ env.CHANGED == 'true' }}
         id: increment_version
         run: |
           current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
@@ -45,12 +45,12 @@ jobs:
 
 
       - name: Delete existing SDK if OpenAPI definition has changed
-        if: env.CHANGED == 'true'
+        if: ${{ env.CHANGED == 'true' }}
         run: |
           rm -rf sdk/*
 
       - name: Generate code if OpenAPI definition has changed
-        if: env.CHANGED == 'true'
+        if: ${{ env.CHANGED == 'true' }}
         run: |
           mvn generate-sources process-resources
           cd sdk
@@ -58,7 +58,7 @@ jobs:
           cd ..
 
       - name: Commit and push changes if OpenAPI definition has changed
-        if: env.CHANGED == 'true'
+        if: ${{ env.CHANGED == 'true' }}
         run: |-
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
@@ -69,7 +69,7 @@ jobs:
 
 
   deploy_docs:
-    if: env.CHANGED == 'true'
+    if: ${{ env.CHANGED == 'true' }}  # Correct syntax
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository for gh-pages
@@ -101,4 +101,3 @@ jobs:
           timestamp=$(date -u)
           git commit -m "JavaDocs update: ${timestamp}" || exit 0
           git push
-  
