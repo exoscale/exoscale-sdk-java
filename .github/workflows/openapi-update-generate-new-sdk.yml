@@ -3,10 +3,10 @@ name: Update bundled openapi definition & Generate SDK
 on:
   push:
     branches:
-      - main
+      - salehelkaza/sc-104823/exoscale-sdk-for-java-last-mile
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'  # At 07:00 every day
+   # - cron: '0 7 * * *'  # At 07:00 every day
 
 jobs:
   scheduled:
@@ -66,3 +66,39 @@ jobs:
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
           git push
+
+
+  deploy_docs:
+    if: env.CHANGED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository for gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages-test  # Test on a temporary gh-pages branch
+
+      - name: Unzip JavaDocs JAR
+        run: |
+          jar -xvf target/javadoc.jar -C target/site/apidocs/
+
+      - name: Copy generated JavaDocs to gh-pages
+        run: |
+          mkdir -p javadoc/current
+          cp -r target/site/apidocs/* javadoc/current/
+
+      - name: Append new version to index.html in gh-pages
+        run: |
+          # Append the new version to the index.html file
+          echo "<li><a href=\"/exoscale4j/javadoc/$new_version\">$new_version</a></li>" >> index.html
+          # Also append to the javadoc/index.html
+          echo "<li><a href=\"/exoscale4j/javadoc/$new_version\">$new_version</a></li>" >> javadoc/index.html
+
+      - name: Commit and push JavaDocs to gh-pages
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add .
+          timestamp=$(date -u)
+          git commit -m "JavaDocs update: ${timestamp}" || exit 0
+          git push
+  
