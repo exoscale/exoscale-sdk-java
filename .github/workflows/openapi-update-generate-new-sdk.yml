@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
  # schedule:
    # - cron: '0 7 * * *'  # At 07:00 every day
-   
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -56,6 +55,13 @@ jobs:
           mvn install
           cd ..
 
+      - name: Check target folder for JavaDocs
+        if: env.CHANGED == 'true'
+        run: |
+          echo "Checking target folder for JavaDocs"
+          ls -lR target/
+          ls -lR sdk/target/
+      
       - name: Commit and push changes if OpenAPI definition has changed
         if: env.CHANGED == 'true'
         run: |-
@@ -65,11 +71,6 @@ jobs:
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
           git push
-
-      - name: Generate JavaDocs
-        if: env.CHANGED == 'true'
-        run: |
-          mvn javadoc:javadoc
 
       - name: Checkout gh-pages branch
         if: env.CHANGED == 'true'
@@ -81,7 +82,7 @@ jobs:
         if: env.CHANGED == 'true'
         run: |
           mkdir -p javadoc/current
-          cp -r target/site/apidocs/* javadoc/current/
+          cp -r sdk/target/site/apidocs/* javadoc/current/
 
       - name: Append new version to index.html
         if: env.CHANGED == 'true'
