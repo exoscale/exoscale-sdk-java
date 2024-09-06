@@ -82,12 +82,14 @@ jobs:
         if: env.CHANGED == 'true'
         run: |
           mkdir -p javadoc/current
-          # Dynamically find the Javadoc JAR file
           JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
+    
           if [ -z "$JAR_FILE" ]; then
             echo "No Javadoc JAR file found!"
+            ls -lR sdk/target/  # List the directory contents for debugging
             exit 1
           fi
+    
           echo "Found Javadoc JAR: $JAR_FILE"
           cp "$JAR_FILE" javadoc/current/
           cd javadoc/current
