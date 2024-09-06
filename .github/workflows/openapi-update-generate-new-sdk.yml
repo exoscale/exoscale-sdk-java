@@ -71,24 +71,31 @@ jobs:
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
           git push
+          
+      - name: Copy Javadoc JAR to a temporary location
+        run: |
+          mkdir -p /tmp/javadoc
+          cp sdk/target/*-javadoc.jar /tmp/javadoc/
 
       - name: Checkout gh-pages branch
         if: env.CHANGED == 'true'
         uses: actions/checkout@v4
         with:
           ref: gh-pages-test  # Test on a temporary gh-pages branch
-
-      - name: Find and extract Javadoc JAR dynamically
-        if: env.CHANGED == 'true'
+          
+      - name: Move Javadoc JAR back to working directory
+        run: |
+          mkdir -p sdk/target/
+          cp /tmp/javadoc/* sdk/target/
+          
+      - name: Extract Javadoc JAR dynamically
         run: |
           mkdir -p javadoc/current
           JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
-    
-          if [ -z "$JAR_FILE" ]; then
-            echo "No Javadoc JAR file found!"
-            ls -lR sdk/target/  # List the directory contents for debugging
-            exit 1
-          fi
+          echo "Found Javadoc JAR: $JAR_FILE"
+          cp "$JAR_FILE" javadoc/current/
+          cd javadoc/current
+          jar -xvf $(basename "$JAR_FILE")
     
           echo "Found Javadoc JAR: $JAR_FILE"
           cp "$JAR_FILE" javadoc/current/
