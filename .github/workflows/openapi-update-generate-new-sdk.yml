@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
  # schedule:
    # - cron: '0 7 * * *'  # At 07:00 every day
-
+   
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -26,11 +26,11 @@ jobs:
           git diff --exit-code api/openapi.yaml || echo "CHANGED=true" >> $GITHUB_ENV
 
       - name: Install xmlstarlet
-        if: ${{ env.CHANGED == 'true' }}
+        if: env.CHANGED == 'true'
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
       - name: Increment artifactVersion
-        if: ${{ env.CHANGED == 'true' }}
+        if: env.CHANGED == 'true'
         id: increment_version
         run: |
           current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
@@ -43,14 +43,13 @@ jobs:
           echo "new_version=$new_version" >> $GITHUB_ENV
           echo "Updated version to $new_version"
 
-
       - name: Delete existing SDK if OpenAPI definition has changed
-        if: ${{ env.CHANGED == 'true' }}
+        if: env.CHANGED == 'true'
         run: |
           rm -rf sdk/*
 
       - name: Generate code if OpenAPI definition has changed
-        if: ${{ env.CHANGED == 'true' }}
+        if: env.CHANGED == 'true'
         run: |
           mvn generate-sources process-resources
           cd sdk
@@ -58,7 +57,7 @@ jobs:
           cd ..
 
       - name: Commit and push changes if OpenAPI definition has changed
-        if: ${{ env.CHANGED == 'true' }}
+        if: env.CHANGED == 'true'
         run: |-
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
@@ -67,37 +66,33 @@ jobs:
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
           git push
 
+      - name: Generate JavaDocs
+        if: env.CHANGED == 'true'
+        run: |
+          mvn javadoc:javadoc
 
-  deploy_docs:
-    if: ${{ env.CHANGED == 'true' }}  # Correct syntax
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository for gh-pages
+      - name: Checkout gh-pages branch
+        if: env.CHANGED == 'true'
         uses: actions/checkout@v4
         with:
           ref: gh-pages-test  # Test on a temporary gh-pages branch
 
-      - name: Unzip JavaDocs JAR
-        run: |
-          jar -xvf target/javadoc.jar -C target/site/apidocs/
-
-      - name: Copy generated JavaDocs to gh-pages
+      - name: Copy JavaDocs to gh-pages
+        if: env.CHANGED == 'true'
         run: |
           mkdir -p javadoc/current
           cp -r target/site/apidocs/* javadoc/current/
 
-      - name: Append new version to index.html in gh-pages
+      - name: Append new version to index.html
+        if: env.CHANGED == 'true'
         run: |
-          # Append the new version to the index.html file
-          echo "<li><a href=\"/exoscale4j/javadoc/$new_version\">$new_version</a></li>" >> index.html
-          # Also append to the javadoc/index.html
-          echo "<li><a href=\"/exoscale4j/javadoc/$new_version\">$new_version</a></li>" >> javadoc/index.html
+          echo "<li><a href=\"/javadoc/current/\">$new_version</a></li>" >> index.html
 
-      - name: Commit and push JavaDocs to gh-pages
+      - name: Commit and push JavaDocs
+        if: env.CHANGED == 'true'
         run: |-
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
           git add .
-          timestamp=$(date -u)
-          git commit -m "JavaDocs update: ${timestamp}" || exit 0
+          git commit -m "Update JavaDocs for $new_version"
           git push
