@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
  # schedule:
    # - cron: '0 7 * * *'  # At 07:00 every day
-
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -61,7 +60,7 @@ jobs:
         run: |
           echo "Checking target folder for JavaDocs"
           ls -lR sdk/target/
-
+      
       - name: Commit and push changes if OpenAPI definition has changed
         if: env.CHANGED == 'true'
         run: |-
@@ -78,15 +77,11 @@ jobs:
         with:
           ref: gh-pages-test  # Test on a temporary gh-pages branch
 
-      - name: Find and extract Javadoc JAR dynamically
+      - name: Copy JavaDocs to gh-pages
         if: env.CHANGED == 'true'
         run: |
           mkdir -p javadoc/current
-          JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
-          echo "Found Javadoc JAR: $JAR_FILE"
-          cp $JAR_FILE javadoc/current/
-          cd javadoc/current
-          jar -xvf $(basename $JAR_FILE)
+          cp -r sdk/target/site/apidocs/* javadoc/current/
 
       - name: Append new version to index.html
         if: env.CHANGED == 'true'
@@ -99,8 +94,5 @@ jobs:
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
           git add .
-          git commit -m "Update JavaDocs for $new_version"
-          git push
-
           git commit -m "Update JavaDocs for $new_version"
           git push
