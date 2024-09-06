@@ -8571,7 +8571,7 @@ No authorization required
 
 
 
-[BETA]Delete a DBaaS Integration
+[BETA] Delete a DBaaS Integration
 
 ### Example
 
@@ -8636,7 +8636,7 @@ No authorization required
 
 
 
-[BETA]Delete a DBaaS Integration
+[BETA] Delete a DBaaS Integration
 
 ### Example
 

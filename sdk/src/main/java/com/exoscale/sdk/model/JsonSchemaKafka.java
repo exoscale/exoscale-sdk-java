@@ -76,7 +76,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaKafka.JSON_PROPERTY_OFFSETS_RETENTION_MINUTES,
   JsonSchemaKafka.JSON_PROPERTY_LOG_RETENTION_MS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-30T13:37:22.669691+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-06T07:23:47.609974Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class JsonSchemaKafka {
   public static final String JSON_PROPERTY_SASL_OAUTHBEARER_EXPECTED_AUDIENCE = "sasl_oauthbearer_expected_audience";
   private String saslOauthbearerExpectedAudience;

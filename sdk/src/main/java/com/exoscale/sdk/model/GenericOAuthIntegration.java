@@ -46,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GenericOAuthIntegration.JSON_PROPERTY_CLIENT_SECRET,
   GenericOAuthIntegration.JSON_PROPERTY_ALLOW_SIGN_UP
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-30T13:37:22.669691+02:00[Europe/Vienna]", comments = "Generator version: 7.4.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-06T07:23:47.609974Z[Etc/UTC]", comments = "Generator version: 7.4.0")
 public class GenericOAuthIntegration {
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   private List<String> scopes;

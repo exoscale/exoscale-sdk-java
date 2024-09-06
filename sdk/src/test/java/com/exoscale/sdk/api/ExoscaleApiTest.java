@@ -563,9 +563,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Create a new DBaaS integration between two services
+     * 
      *
-     * Create a new DBaaS integration between two services
+     * [BETA] Create a new DBaaS integration between two services
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1263,9 +1263,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Delete a DBaaS Integration
+     * 
      *
-     * Delete a DBaaS Integration
+     * [BETA] Delete a DBaaS Integration
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2270,9 +2270,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get a DBaaS Integration
+     * 
      *
-     * Get a DBaaS Integration
+     * [BETA] Get a DBaaS Integration
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3183,9 +3183,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get DBaaS integration settings
+     * 
      *
-     * Get DBaaS integration settings
+     * [BETA] Get DBaaS integration settings
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3202,9 +3202,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get DBaaS integration types
+     * 
      *
-     * Get DBaaS integration types
+     * [BETA] Get DBaaS integration types
      *
      * @throws ApiException
      *          if the Api call fails
@@ -4595,9 +4595,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Update a existing DBaaS integration
+     * 
      *
-     * Update a existing DBaaS integration
+     * [BETA] Update a existing DBaaS integration
      *
      * @throws ApiException
      *          if the Api call fails

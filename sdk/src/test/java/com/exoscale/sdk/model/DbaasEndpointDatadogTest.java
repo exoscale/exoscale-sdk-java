@@ -13,7 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointDatadogDatadogTagsInner;
+import com.exoscale.sdk.model.DbaasDatadogTag;
 import com.exoscale.sdk.model.EnumDatadogSite;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
