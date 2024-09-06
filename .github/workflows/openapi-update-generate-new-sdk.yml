@@ -59,7 +59,6 @@ jobs:
         if: env.CHANGED == 'true'
         run: |
           echo "Checking target folder for JavaDocs"
-          ls -lR target/
           ls -lR sdk/target/
       
       - name: Commit and push changes if OpenAPI definition has changed
