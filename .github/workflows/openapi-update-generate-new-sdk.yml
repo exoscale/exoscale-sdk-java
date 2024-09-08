@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
  # schedule:
    # - cron: '0 7 * * *'  # At 07:00 every day
-
+   
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -45,8 +45,7 @@ jobs:
 
       - name: Delete existing SDK if OpenAPI definition has changed
         if: env.CHANGED == 'true'
-        run: |
-          rm -rf sdk/*
+        run: rm -rf sdk/*
 
       - name: Generate code if OpenAPI definition has changed
         if: env.CHANGED == 'true'
@@ -58,9 +57,13 @@ jobs:
 
       - name: Check target folder for JavaDocs
         if: env.CHANGED == 'true'
+        run: ls -lR sdk/target/
+
+      - name: Copy Javadoc JAR to a temporary location
+        if: env.CHANGED == 'true'
         run: |
-          echo "Checking target folder for JavaDocs"
-          ls -lR sdk/target/
+          mkdir -p /tmp/javadoc
+          cp sdk/target/*-javadoc.jar /tmp/javadoc/
 
       - name: Commit and push changes if OpenAPI definition has changed
         if: env.CHANGED == 'true'
@@ -71,24 +74,21 @@ jobs:
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
           git push
-          
-      - name: Copy Javadoc JAR to a temporary location
-        run: |
-          mkdir -p /tmp/javadoc
-          cp sdk/target/*-javadoc.jar /tmp/javadoc/
 
       - name: Checkout gh-pages branch
         if: env.CHANGED == 'true'
         uses: actions/checkout@v4
         with:
           ref: gh-pages-test  # Test on a temporary gh-pages branch
-          
+
       - name: Move Javadoc JAR back to working directory
+        if: env.CHANGED == 'true'
         run: |
           mkdir -p sdk/target/
-          cp /tmp/javadoc/* sdk/target/
-          
+          mv /tmp/javadoc/* sdk/target/
+
       - name: Extract Javadoc JAR dynamically
+        if: env.CHANGED == 'true'
         run: |
           mkdir -p javadoc/current
           JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
@@ -96,16 +96,10 @@ jobs:
           cp "$JAR_FILE" javadoc/current/
           cd javadoc/current
           jar -xvf $(basename "$JAR_FILE")
-    
-          echo "Found Javadoc JAR: $JAR_FILE"
-          cp "$JAR_FILE" javadoc/current/
-          cd javadoc/current
-          jar -xvf $(basename "$JAR_FILE")
 
       - name: Append new version to index.html
         if: env.CHANGED == 'true'
-        run: |
-          echo "<li><a href=\"/javadoc/current/\">$new_version</a></li>" >> index.html
+        run: echo "<li><a href=\"/javadoc/current/\">$new_version</a></li>" >> index.html
 
       - name: Commit and push JavaDocs
         if: env.CHANGED == 'true'
