@@ -16,7 +16,7 @@ info:
 
     * [JSON format](https://openapi-v2.exoscale.com/source.json)
     * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
-tags:  
+tags:
 - description: |-
     Security Groups are groups of firewall rules that regulate
                        network traffic to and from your Compute instances.
