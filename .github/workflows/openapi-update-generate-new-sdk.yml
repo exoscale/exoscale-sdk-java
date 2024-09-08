@@ -45,7 +45,8 @@ jobs:
 
       - name: Delete existing SDK if OpenAPI definition has changed
         if: env.CHANGED == 'true'
-        run: rm -rf sdk/*
+        run: |
+          rm -rf sdk/*
 
       - name: Generate code if OpenAPI definition has changed
         if: env.CHANGED == 'true'
@@ -62,6 +63,8 @@ jobs:
       - name: Copy Javadoc JAR to a temporary location
         if: env.CHANGED == 'true'
         run: |
+          echo "Checking target folder for JavaDocs"
+          ls -lR sdk/target/
           mkdir -p /tmp/javadoc
           cp sdk/target/*-javadoc.jar /tmp/javadoc/
 
