@@ -90,19 +90,31 @@ jobs:
           mkdir -p sdk/target/
           mv /tmp/javadoc/* sdk/target/
 
-      - name: Extract Javadoc JAR dynamically
+      - name: Clean current Javadoc folder before new extraction
+        if: env.CHANGED == 'true'
+        run: |
+          rm -rf javadoc/current/*
+
+      - name: Extract Javadoc JAR dynamically and create version-specific folder
         if: env.CHANGED == 'true'
         run: |
           mkdir -p javadoc/current
+          mkdir -p javadoc/$new_version
           JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
           echo "Found Javadoc JAR: $JAR_FILE"
           cp "$JAR_FILE" javadoc/current/
+          cp "$JAR_FILE" javadoc/$new_version/
           cd javadoc/current
+          jar -xvf $(basename "$JAR_FILE")
+          cd ../$new_version
           jar -xvf $(basename "$JAR_FILE")
 
       - name: Append new version to index.html
         if: env.CHANGED == 'true'
-        run: echo "<li><a href=\"/javadoc/current/\">$new_version</a></li>" >> index.html
+        run: |
+          sed -i '/<\/ul>/i <li><a href="/exoscale4j/javadoc/'"$new_version"'">'$new_version'</a></li>' index.html
+
+
 
       - name: Commit and push JavaDocs
         if: env.CHANGED == 'true'
