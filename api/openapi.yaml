@@ -8,7 +8,7 @@ info:
     name: API support
     url: https://portal.exoscale.com/tickets
   title: Exoscale Public API
-  description: |2-  
+  description: |2-
 
     Infrastructure automation API, allowing programmatic access to all Exoscale products and services.
 
