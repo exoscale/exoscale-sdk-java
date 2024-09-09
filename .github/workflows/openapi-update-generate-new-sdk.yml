@@ -6,8 +6,8 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'  # At 07:00 every day
-
+   - cron: '0 7 * * *'  # At 07:00 every day
+   
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -43,7 +43,6 @@ jobs:
           echo "new_version=$new_version" >> $GITHUB_ENV
           echo "Updated version to $new_version"
 
-
       - name: Delete existing SDK if OpenAPI definition has changed
         if: env.CHANGED == 'true'
         run: |
@@ -57,6 +56,18 @@ jobs:
           mvn install
           cd ..
 
+      - name: Check target folder for JavaDocs
+        if: env.CHANGED == 'true'
+        run: ls -lR sdk/target/
+
+      - name: Copy Javadoc JAR to a temporary location
+        if: env.CHANGED == 'true'
+        run: |
+          echo "Checking target folder for JavaDocs"
+          ls -lR sdk/target/
+          mkdir -p /tmp/javadoc
+          cp sdk/target/*-javadoc.jar /tmp/javadoc/
+
       - name: Commit and push changes if OpenAPI definition has changed
         if: env.CHANGED == 'true'
         run: |-
@@ -65,4 +76,50 @@ jobs:
           git add .
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
+          git push
+
+      - name: Checkout gh-pages branch
+        if: env.CHANGED == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Move Javadoc JAR back to working directory
+        if: env.CHANGED == 'true'
+        run: |
+          mkdir -p sdk/target/
+          mv /tmp/javadoc/* sdk/target/
+
+      - name: Clean current Javadoc folder before new extraction
+        if: env.CHANGED == 'true'
+        run: |
+          rm -rf javadoc/current/*
+
+      - name: Extract Javadoc JAR dynamically and create version-specific folder
+        if: env.CHANGED == 'true'
+        run: |
+          mkdir -p javadoc/current
+          mkdir -p javadoc/$new_version
+          JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
+          echo "Found Javadoc JAR: $JAR_FILE"
+          cp "$JAR_FILE" javadoc/current/
+          cp "$JAR_FILE" javadoc/$new_version/
+          cd javadoc/current
+          jar -xvf $(basename "$JAR_FILE")
+          cd ../$new_version
+          jar -xvf $(basename "$JAR_FILE")
+
+      - name: Append new version to index.html files
+        if: env.CHANGED == 'true'
+        run: |
+          sed -i '/<ul>/a \ \ \ \ \ \ \ \ <li><a href="/exoscale4j/javadoc/'"$new_version"'">'"$new_version"'</a></li>' index.html
+          sed -i '/<ul>/a \ \ \ \ \ \ \ \ <li><a href="'$new_version'">'"$new_version"'</a></li>' javadoc/index.html
+
+
+      - name: Commit and push JavaDocs
+        if: env.CHANGED == 'true'
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add .
+          git commit -m "Update JavaDocs for $new_version"
           git push
