@@ -112,8 +112,7 @@ jobs:
       - name: Append new version to index.html
         if: env.CHANGED == 'true'
         run: |
-          sed -i '/<\/ul>/i <li><a href="/exoscale4j/javadoc/'"$new_version"'">'$new_version'</a></li>' index.html
-
+          sed -i '/<ul>/a <li><a href="/exoscale4j/javadoc/'"$new_version"'">'$new_version'</a></li>' index.html
 
 
       - name: Commit and push JavaDocs
