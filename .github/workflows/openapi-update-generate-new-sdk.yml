@@ -3,10 +3,10 @@ name: Update bundled openapi definition & Generate SDK
 on:
   push:
     branches:
-      - salehelkaza/sc-104823/exoscale-sdk-for-java-last-mile
+      - main
   workflow_dispatch:
- # schedule:
-   # - cron: '0 7 * * *'  # At 07:00 every day
+  schedule:
+   - cron: '0 7 * * *'  # At 07:00 every day
    
 jobs:
   scheduled:
