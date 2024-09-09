@@ -82,8 +82,7 @@ jobs:
         if: env.CHANGED == 'true'
         uses: actions/checkout@v4
         with:
-          ref: gh-pages-test  # Test on a temporary gh-pages branch
-
+          ref: gh-pages
       - name: Move Javadoc JAR back to working directory
         if: env.CHANGED == 'true'
         run: |
@@ -109,7 +108,7 @@ jobs:
           cd ../$new_version
           jar -xvf $(basename "$JAR_FILE")
 
-      - name: Append new version to index.html
+      - name: Append new version to index.html files
         if: env.CHANGED == 'true'
         run: |
           sed -i '/<ul>/a \ \ \ \ \ \ \ \ <li><a href="/exoscale4j/javadoc/'"$new_version"'">'"$new_version"'</a></li>' index.html
