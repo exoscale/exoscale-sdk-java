@@ -29,10 +29,8 @@ All URIs are relative to *{{basePath}}*
 
 ```java
 // Import classes:
-import {{{invokerPackage}}}.ApiClient;
-import {{{invokerPackage}}}.ApiException;
-import {{{invokerPackage}}}.Configuration;{{#hasAuthMethods}}
-import {{{invokerPackage}}}.auth.*;{{/hasAuthMethods}}
+import {{{invokerPackage}}}.*;
+import java.util.UUID;
 import {{{invokerPackage}}}.models.*;
 import {{{package}}}.{{{classname}}};{{#vendorExtensions.x-group-parameters}}
 import {{{package}}}.{{{classname}}}.*;{{/vendorExtensions.x-group-parameters}}
@@ -41,55 +39,47 @@ import java.util.concurrent.CompletableFuture;
 {{/asyncNative}}
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("{{{basePath}}}");
-        {{#hasAuthMethods}}
-        {{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
-        // Configure HTTP basic authorization: {{{name}}}
-        HttpBasicAuth {{{name}}} = (HttpBasicAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setUsername("YOUR USERNAME");
-        {{{name}}}.setPassword("YOUR PASSWORD");{{/isBasicBasic}}{{#isBasicBearer}}
-        // Configure HTTP bearer authorization: {{{name}}}
-        HttpBearerAuth {{{name}}} = (HttpBearerAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setBearerToken("BEARER TOKEN");{{/isBasicBearer}}{{/isBasic}}{{#isApiKey}}
-        // Configure API key authorization: {{{name}}}
-        ApiKeyAuth {{{name}}} = (ApiKeyAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //{{{name}}}.setApiKeyPrefix("Token");{{/isApiKey}}{{#isOAuth}}
-        // Configure OAuth2 access token for authorization: {{{name}}}
-        OAuth {{{name}}} = (OAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setAccessToken("YOUR ACCESS TOKEN");{{/isOAuth}}
-        {{/authMethods}}
-        {{/hasAuthMethods}}
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
+        // Initialize parameters
         {{#allParams}}
+        {{#isUuid}}
+        UUID {{paramName}} = UUID.randomUUID(); // Replace with correct UUID
+        {{/isUuid}}
+        {{#isRequestObject}}
+        {{{dataType}}} {{{paramName}}} = new {{{dataType}}}()
+        {{#required}}
+         .{{{fieldName}}}("{{{example}}}") // Required field: {{{description}}}
+        {{/required}}
+        {{/isRequestObject}}
+        {{^isUuid}}{{^isRequestObject}}
         {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
+        {{/isRequestObject}}{{/isUuid}}
         {{/allParams}}
-        try {
-            {{^vendorExtensions.x-group-parameters}}
-            {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
-            {{/vendorExtensions.x-group-parameters}}
-            {{#vendorExtensions.x-group-parameters}}
-            {{#hasParams}}
-            API{{operationId}}Request request = API{{operationId}}Request.newBuilder(){{#allParams}}
-                .{{paramName}}({{paramName}}){{/allParams}}
-                .build();
-            {{/hasParams}}
-            {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}apiInstance.{{operationId}}({{#hasParams}}request{{/hasParams}});
-            {{/vendorExtensions.x-group-parameters}}
-            {{#returnType}}
-            System.out.println(result{{#asyncNative}}.get(){{/asyncNative}});
-            {{/returnType}}
-        } catch (ApiException e) {
-            System.err.println("Exception when calling {{{classname}}}#{{{operationId}}}");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+
+
+        // Invoke the API method
+        {{#returnType}}
+        {{#asyncNative}}
+        CompletableFuture<{{{returnType}}}> result = client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+        {{/asyncNative}}
+        {{^asyncNative}}
+        Operation operation = client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+        client.wait(operation);
+        {{/asyncNative}}
+        {{/returnType}}
+
+        {{^returnType}}
+        {{#asyncNative}}
+        CompletableFuture<Void> result = client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+        {{/asyncNative}}
+        {{^asyncNative}}
+        client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+        {{/asyncNative}}
+        {{/returnType}}
+
     }
 }
 ```
