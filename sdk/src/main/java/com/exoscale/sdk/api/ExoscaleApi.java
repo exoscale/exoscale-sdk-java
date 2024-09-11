@@ -295,7 +295,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> addExternalSourceToSecurityGroupWithHttpInfo(UUID id, AddExternalSourceToSecurityGroupRequest addExternalSourceToSecurityGroupRequest) throws ApiException {
+  private ApiResponse<Operation> addExternalSourceToSecurityGroupWithHttpInfo(UUID id, AddExternalSourceToSecurityGroupRequest addExternalSourceToSecurityGroupRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = addExternalSourceToSecurityGroupRequestBuilder(id, addExternalSourceToSecurityGroupRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -387,7 +387,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> addInstanceProtectionWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> addInstanceProtectionWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = addInstanceProtectionRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -471,7 +471,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> addRuleToSecurityGroupWithHttpInfo(UUID id, AddRuleToSecurityGroupRequest addRuleToSecurityGroupRequest) throws ApiException {
+  private ApiResponse<Operation> addRuleToSecurityGroupWithHttpInfo(UUID id, AddRuleToSecurityGroupRequest addRuleToSecurityGroupRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = addRuleToSecurityGroupRequestBuilder(id, addRuleToSecurityGroupRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -565,7 +565,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> addServiceToLoadBalancerWithHttpInfo(UUID id, AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest) throws ApiException {
+  private ApiResponse<Operation> addServiceToLoadBalancerWithHttpInfo(UUID id, AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = addServiceToLoadBalancerRequestBuilder(id, addServiceToLoadBalancerRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -659,7 +659,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> attachBlockStorageVolumeToInstanceWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> attachBlockStorageVolumeToInstanceWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = attachBlockStorageVolumeToInstanceRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -753,7 +753,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> attachDbaasServiceToEndpointWithHttpInfo(String sourceServiceName, AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest) throws ApiException {
+  private ApiResponse<Operation> attachDbaasServiceToEndpointWithHttpInfo(String sourceServiceName, AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = attachDbaasServiceToEndpointRequestBuilder(sourceServiceName, attachDbaasServiceToEndpointRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -847,7 +847,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> attachInstanceToElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> attachInstanceToElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = attachInstanceToElasticIpRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -941,7 +941,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> attachInstanceToPrivateNetworkWithHttpInfo(UUID id, AttachInstanceToPrivateNetworkRequest attachInstanceToPrivateNetworkRequest) throws ApiException {
+  private ApiResponse<Operation> attachInstanceToPrivateNetworkWithHttpInfo(UUID id, AttachInstanceToPrivateNetworkRequest attachInstanceToPrivateNetworkRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = attachInstanceToPrivateNetworkRequestBuilder(id, attachInstanceToPrivateNetworkRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1035,7 +1035,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> attachInstanceToSecurityGroupWithHttpInfo(UUID id, DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest) throws ApiException {
+  private ApiResponse<Operation> attachInstanceToSecurityGroupWithHttpInfo(UUID id, DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = attachInstanceToSecurityGroupRequestBuilder(id, detachInstanceFromPrivateNetworkRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1129,7 +1129,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> copyTemplateWithHttpInfo(UUID id, CopyTemplateRequest copyTemplateRequest) throws ApiException {
+  private ApiResponse<Operation> copyTemplateWithHttpInfo(UUID id, CopyTemplateRequest copyTemplateRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = copyTemplateRequestBuilder(id, copyTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1221,7 +1221,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createAntiAffinityGroupWithHttpInfo(CreateAntiAffinityGroupRequest createAntiAffinityGroupRequest) throws ApiException {
+  private ApiResponse<Operation> createAntiAffinityGroupWithHttpInfo(CreateAntiAffinityGroupRequest createAntiAffinityGroupRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createAntiAffinityGroupRequestBuilder(createAntiAffinityGroupRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1308,7 +1308,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;IamApiKeyCreated&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IamApiKeyCreated> createApiKeyWithHttpInfo(CreateApiKeyRequest createApiKeyRequest) throws ApiException {
+  private ApiResponse<IamApiKeyCreated> createApiKeyWithHttpInfo(CreateApiKeyRequest createApiKeyRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createApiKeyRequestBuilder(createApiKeyRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1397,7 +1397,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createBlockStorageSnapshotWithHttpInfo(UUID id, CreateBlockStorageSnapshotRequest createBlockStorageSnapshotRequest) throws ApiException {
+  private ApiResponse<Operation> createBlockStorageSnapshotWithHttpInfo(UUID id, CreateBlockStorageSnapshotRequest createBlockStorageSnapshotRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createBlockStorageSnapshotRequestBuilder(id, createBlockStorageSnapshotRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1489,7 +1489,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createBlockStorageVolumeWithHttpInfo(CreateBlockStorageVolumeRequest createBlockStorageVolumeRequest) throws ApiException {
+  private ApiResponse<Operation> createBlockStorageVolumeWithHttpInfo(CreateBlockStorageVolumeRequest createBlockStorageVolumeRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createBlockStorageVolumeRequestBuilder(createBlockStorageVolumeRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1578,7 +1578,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasExternalEndpointDatadogWithHttpInfo(String name, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasExternalEndpointDatadogWithHttpInfo(String name, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointDatadogRequestBuilder(name, createDbaasExternalEndpointDatadogRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1672,7 +1672,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasExternalEndpointElasticsearchWithHttpInfo(String name, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasExternalEndpointElasticsearchWithHttpInfo(String name, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointElasticsearchRequestBuilder(name, updateDbaasExternalEndpointElasticsearchRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1766,7 +1766,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasExternalEndpointOpensearchWithHttpInfo(String name, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasExternalEndpointOpensearchWithHttpInfo(String name, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointOpensearchRequestBuilder(name, updateDbaasExternalEndpointOpensearchRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1860,7 +1860,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasExternalEndpointPrometheusWithHttpInfo(String name, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasExternalEndpointPrometheusWithHttpInfo(String name, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointPrometheusRequestBuilder(name, updateDbaasExternalEndpointPrometheusRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1954,7 +1954,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasExternalEndpointRsyslogWithHttpInfo(String name, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasExternalEndpointRsyslogWithHttpInfo(String name, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointRsyslogRequestBuilder(name, createDbaasExternalEndpointRsyslogRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2046,7 +2046,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasIntegrationWithHttpInfo(CreateDbaasIntegrationRequest createDbaasIntegrationRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasIntegrationWithHttpInfo(CreateDbaasIntegrationRequest createDbaasIntegrationRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasIntegrationRequestBuilder(createDbaasIntegrationRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2135,7 +2135,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(String name, DbaasKafkaSchemaRegistryAclEntry dbaasKafkaSchemaRegistryAclEntry) throws ApiException {
+  private ApiResponse<Operation> createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(String name, DbaasKafkaSchemaRegistryAclEntry dbaasKafkaSchemaRegistryAclEntry) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasKafkaSchemaRegistryAclConfigRequestBuilder(name, dbaasKafkaSchemaRegistryAclEntry);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2229,7 +2229,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasKafkaTopicAclConfigWithHttpInfo(String name, DbaasKafkaTopicAclEntry dbaasKafkaTopicAclEntry) throws ApiException {
+  private ApiResponse<Operation> createDbaasKafkaTopicAclConfigWithHttpInfo(String name, DbaasKafkaTopicAclEntry dbaasKafkaTopicAclEntry) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasKafkaTopicAclConfigRequestBuilder(name, dbaasKafkaTopicAclEntry);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2323,7 +2323,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasKafkaUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasKafkaUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasKafkaUserRequestBuilder(serviceName, createDbaasKafkaUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2417,7 +2417,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasMysqlDatabaseWithHttpInfo(String serviceName, CreateDbaasMysqlDatabaseRequest createDbaasMysqlDatabaseRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasMysqlDatabaseWithHttpInfo(String serviceName, CreateDbaasMysqlDatabaseRequest createDbaasMysqlDatabaseRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasMysqlDatabaseRequestBuilder(serviceName, createDbaasMysqlDatabaseRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2511,7 +2511,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasMysqlUserWithHttpInfo(String serviceName, CreateDbaasMysqlUserRequest createDbaasMysqlUserRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasMysqlUserWithHttpInfo(String serviceName, CreateDbaasMysqlUserRequest createDbaasMysqlUserRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasMysqlUserRequestBuilder(serviceName, createDbaasMysqlUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2605,7 +2605,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasOpensearchUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasOpensearchUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasOpensearchUserRequestBuilder(serviceName, createDbaasKafkaUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2699,7 +2699,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasPgConnectionPoolWithHttpInfo(String serviceName, CreateDbaasPgConnectionPoolRequest createDbaasPgConnectionPoolRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasPgConnectionPoolWithHttpInfo(String serviceName, CreateDbaasPgConnectionPoolRequest createDbaasPgConnectionPoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasPgConnectionPoolRequestBuilder(serviceName, createDbaasPgConnectionPoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2793,7 +2793,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasPgDatabaseWithHttpInfo(String serviceName, CreateDbaasPgDatabaseRequest createDbaasPgDatabaseRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasPgDatabaseWithHttpInfo(String serviceName, CreateDbaasPgDatabaseRequest createDbaasPgDatabaseRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasPgDatabaseRequestBuilder(serviceName, createDbaasPgDatabaseRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2887,7 +2887,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasTask&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasTask> createDbaasPgUpgradeCheckWithHttpInfo(String service, CreateDbaasPgUpgradeCheckRequest createDbaasPgUpgradeCheckRequest) throws ApiException {
+  private ApiResponse<DbaasTask> createDbaasPgUpgradeCheckWithHttpInfo(String service, CreateDbaasPgUpgradeCheckRequest createDbaasPgUpgradeCheckRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasPgUpgradeCheckRequestBuilder(service, createDbaasPgUpgradeCheckRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2981,7 +2981,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasPostgresUserWithHttpInfo(String serviceName, CreateDbaasPostgresUserRequest createDbaasPostgresUserRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasPostgresUserWithHttpInfo(String serviceName, CreateDbaasPostgresUserRequest createDbaasPostgresUserRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasPostgresUserRequestBuilder(serviceName, createDbaasPostgresUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3075,7 +3075,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasRedisUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasRedisUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasRedisUserRequestBuilder(serviceName, createDbaasKafkaUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3169,7 +3169,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasServiceGrafanaWithHttpInfo(String name, CreateDbaasServiceGrafanaRequest createDbaasServiceGrafanaRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasServiceGrafanaWithHttpInfo(String name, CreateDbaasServiceGrafanaRequest createDbaasServiceGrafanaRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasServiceGrafanaRequestBuilder(name, createDbaasServiceGrafanaRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3263,7 +3263,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasServiceKafkaWithHttpInfo(String name, CreateDbaasServiceKafkaRequest createDbaasServiceKafkaRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasServiceKafkaWithHttpInfo(String name, CreateDbaasServiceKafkaRequest createDbaasServiceKafkaRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasServiceKafkaRequestBuilder(name, createDbaasServiceKafkaRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3357,7 +3357,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasServiceMysqlWithHttpInfo(String name, CreateDbaasServiceMysqlRequest createDbaasServiceMysqlRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasServiceMysqlWithHttpInfo(String name, CreateDbaasServiceMysqlRequest createDbaasServiceMysqlRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasServiceMysqlRequestBuilder(name, createDbaasServiceMysqlRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3451,7 +3451,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasServiceOpensearchWithHttpInfo(String name, CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasServiceOpensearchWithHttpInfo(String name, CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasServiceOpensearchRequestBuilder(name, createDbaasServiceOpensearchRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3545,7 +3545,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasServicePgWithHttpInfo(String name, CreateDbaasServicePgRequest createDbaasServicePgRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasServicePgWithHttpInfo(String name, CreateDbaasServicePgRequest createDbaasServicePgRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasServicePgRequestBuilder(name, createDbaasServicePgRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3639,7 +3639,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasServiceRedisWithHttpInfo(String name, CreateDbaasServiceRedisRequest createDbaasServiceRedisRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasServiceRedisWithHttpInfo(String name, CreateDbaasServiceRedisRequest createDbaasServiceRedisRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasServiceRedisRequestBuilder(name, createDbaasServiceRedisRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3733,7 +3733,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDbaasTaskMigrationCheckWithHttpInfo(String service, CreateDbaasTaskMigrationCheckRequest createDbaasTaskMigrationCheckRequest) throws ApiException {
+  private ApiResponse<Operation> createDbaasTaskMigrationCheckWithHttpInfo(String service, CreateDbaasTaskMigrationCheckRequest createDbaasTaskMigrationCheckRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasTaskMigrationCheckRequestBuilder(service, createDbaasTaskMigrationCheckRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3825,7 +3825,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DnsDomain&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DnsDomain> createDnsDomainWithHttpInfo(CreateDnsDomainRequest createDnsDomainRequest) throws ApiException {
+  private ApiResponse<DnsDomain> createDnsDomainWithHttpInfo(CreateDnsDomainRequest createDnsDomainRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDnsDomainRequestBuilder(createDnsDomainRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3914,7 +3914,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createDnsDomainRecordWithHttpInfo(UUID domainId, CreateDnsDomainRecordRequest createDnsDomainRecordRequest) throws ApiException {
+  private ApiResponse<Operation> createDnsDomainRecordWithHttpInfo(UUID domainId, CreateDnsDomainRecordRequest createDnsDomainRecordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDnsDomainRecordRequestBuilder(domainId, createDnsDomainRecordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4006,7 +4006,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createElasticIpWithHttpInfo(CreateElasticIpRequest createElasticIpRequest) throws ApiException {
+  private ApiResponse<Operation> createElasticIpWithHttpInfo(CreateElasticIpRequest createElasticIpRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createElasticIpRequestBuilder(createElasticIpRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4093,7 +4093,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createIamRoleWithHttpInfo(CreateIamRoleRequest createIamRoleRequest) throws ApiException {
+  private ApiResponse<Operation> createIamRoleWithHttpInfo(CreateIamRoleRequest createIamRoleRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createIamRoleRequestBuilder(createIamRoleRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4180,7 +4180,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> createInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createInstanceRequestBuilder(createInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4267,7 +4267,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createInstancePoolWithHttpInfo(CreateInstancePoolRequest createInstancePoolRequest) throws ApiException {
+  private ApiResponse<Operation> createInstancePoolWithHttpInfo(CreateInstancePoolRequest createInstancePoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createInstancePoolRequestBuilder(createInstancePoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4354,7 +4354,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createLoadBalancerWithHttpInfo(CreateLoadBalancerRequest createLoadBalancerRequest) throws ApiException {
+  private ApiResponse<Operation> createLoadBalancerWithHttpInfo(CreateLoadBalancerRequest createLoadBalancerRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createLoadBalancerRequestBuilder(createLoadBalancerRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4441,7 +4441,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createPrivateNetworkWithHttpInfo(CreatePrivateNetworkRequest createPrivateNetworkRequest) throws ApiException {
+  private ApiResponse<Operation> createPrivateNetworkWithHttpInfo(CreatePrivateNetworkRequest createPrivateNetworkRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createPrivateNetworkRequestBuilder(createPrivateNetworkRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4528,7 +4528,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createSecurityGroupWithHttpInfo(CreateSecurityGroupRequest createSecurityGroupRequest) throws ApiException {
+  private ApiResponse<Operation> createSecurityGroupWithHttpInfo(CreateSecurityGroupRequest createSecurityGroupRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createSecurityGroupRequestBuilder(createSecurityGroupRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4615,7 +4615,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createSksClusterWithHttpInfo(CreateSksClusterRequest createSksClusterRequest) throws ApiException {
+  private ApiResponse<Operation> createSksClusterWithHttpInfo(CreateSksClusterRequest createSksClusterRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createSksClusterRequestBuilder(createSksClusterRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4704,7 +4704,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createSksNodepoolWithHttpInfo(UUID id, CreateSksNodepoolRequest createSksNodepoolRequest) throws ApiException {
+  private ApiResponse<Operation> createSksNodepoolWithHttpInfo(UUID id, CreateSksNodepoolRequest createSksNodepoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createSksNodepoolRequestBuilder(id, createSksNodepoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4796,7 +4796,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> createSnapshotWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> createSnapshotWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createSnapshotRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4878,7 +4878,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteAntiAffinityGroupWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteAntiAffinityGroupWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteAntiAffinityGroupRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4960,7 +4960,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteApiKeyWithHttpInfo(String id) throws ApiException {
+  private ApiResponse<Operation> deleteApiKeyWithHttpInfo(String id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteApiKeyRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5042,7 +5042,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteBlockStorageSnapshotWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteBlockStorageSnapshotWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteBlockStorageSnapshotRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5124,7 +5124,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteBlockStorageVolumeRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5206,7 +5206,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointDatadogRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5288,7 +5288,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointElasticsearchRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5370,7 +5370,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointOpensearchRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5452,7 +5452,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointPrometheusRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5534,7 +5534,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointRsyslogRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5616,7 +5616,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasIntegrationWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasIntegrationWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasIntegrationRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5700,7 +5700,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(String name, String aclId) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(String name, String aclId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasKafkaSchemaRegistryAclConfigRequestBuilder(name, aclId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5789,7 +5789,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasKafkaTopicAclConfigWithHttpInfo(String name, String aclId) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasKafkaTopicAclConfigWithHttpInfo(String name, String aclId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasKafkaTopicAclConfigRequestBuilder(name, aclId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5878,7 +5878,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasKafkaUserWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasKafkaUserWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasKafkaUserRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5967,7 +5967,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasMysqlDatabaseWithHttpInfo(String serviceName, String databaseName) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasMysqlDatabaseWithHttpInfo(String serviceName, String databaseName) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasMysqlDatabaseRequestBuilder(serviceName, databaseName);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6056,7 +6056,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasMysqlUserWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasMysqlUserWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasMysqlUserRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6145,7 +6145,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasOpensearchUserWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasOpensearchUserWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasOpensearchUserRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6234,7 +6234,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasPgConnectionPoolWithHttpInfo(String serviceName, String connectionPoolName) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasPgConnectionPoolWithHttpInfo(String serviceName, String connectionPoolName) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasPgConnectionPoolRequestBuilder(serviceName, connectionPoolName);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6323,7 +6323,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasPgDatabaseWithHttpInfo(String serviceName, String databaseName) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasPgDatabaseWithHttpInfo(String serviceName, String databaseName) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasPgDatabaseRequestBuilder(serviceName, databaseName);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6412,7 +6412,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasPostgresUserWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasPostgresUserWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasPostgresUserRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6501,7 +6501,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasRedisUserWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasRedisUserWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasRedisUserRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6588,7 +6588,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServiceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServiceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6670,7 +6670,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServiceGrafanaWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServiceGrafanaWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceGrafanaRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6752,7 +6752,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServiceKafkaWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServiceKafkaWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceKafkaRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6834,7 +6834,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServiceMysqlWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServiceMysqlWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceMysqlRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6916,7 +6916,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServiceOpensearchWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServiceOpensearchWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceOpensearchRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6998,7 +6998,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServicePgWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServicePgWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServicePgRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7080,7 +7080,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDbaasServiceRedisWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteDbaasServiceRedisWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceRedisRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7162,7 +7162,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDnsDomainWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteDnsDomainWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDnsDomainRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7246,7 +7246,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteDnsDomainRecordWithHttpInfo(UUID domainId, UUID recordId) throws ApiException {
+  private ApiResponse<Operation> deleteDnsDomainRecordWithHttpInfo(UUID domainId, UUID recordId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDnsDomainRecordRequestBuilder(domainId, recordId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7333,7 +7333,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteElasticIpWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteElasticIpWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteElasticIpRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7415,7 +7415,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteIamRoleWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteIamRoleWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteIamRoleRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7497,7 +7497,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteInstanceWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteInstanceWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteInstanceRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7579,7 +7579,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteInstancePoolWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteInstancePoolWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteInstancePoolRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7661,7 +7661,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteLoadBalancerWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteLoadBalancerWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteLoadBalancerRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7745,7 +7745,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteLoadBalancerServiceWithHttpInfo(UUID id, UUID serviceId) throws ApiException {
+  private ApiResponse<Operation> deleteLoadBalancerServiceWithHttpInfo(UUID id, UUID serviceId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteLoadBalancerServiceRequestBuilder(id, serviceId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7832,7 +7832,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deletePrivateNetworkWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deletePrivateNetworkWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deletePrivateNetworkRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7914,7 +7914,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteReverseDnsElasticIpWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteReverseDnsElasticIpWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteReverseDnsElasticIpRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7996,7 +7996,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteReverseDnsInstanceWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteReverseDnsInstanceWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteReverseDnsInstanceRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8080,7 +8080,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteRuleFromSecurityGroupWithHttpInfo(UUID id, UUID ruleId) throws ApiException {
+  private ApiResponse<Operation> deleteRuleFromSecurityGroupWithHttpInfo(UUID id, UUID ruleId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteRuleFromSecurityGroupRequestBuilder(id, ruleId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8167,7 +8167,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteSecurityGroupWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteSecurityGroupWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSecurityGroupRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8249,7 +8249,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteSksClusterWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteSksClusterWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSksClusterRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8333,7 +8333,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId) throws ApiException {
+  private ApiResponse<Operation> deleteSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSksNodepoolRequestBuilder(id, sksNodepoolId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8420,7 +8420,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteSnapshotWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteSnapshotWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSnapshotRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8502,7 +8502,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteSshKeyWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> deleteSshKeyWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSshKeyRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8584,7 +8584,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> deleteTemplateWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteTemplateWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteTemplateRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8666,7 +8666,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> detachBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> detachBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = detachBlockStorageVolumeRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8750,7 +8750,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> detachDbaasServiceFromEndpointWithHttpInfo(String sourceServiceName, DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest) throws ApiException {
+  private ApiResponse<Operation> detachDbaasServiceFromEndpointWithHttpInfo(String sourceServiceName, DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = detachDbaasServiceFromEndpointRequestBuilder(sourceServiceName, detachDbaasServiceFromEndpointRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8844,7 +8844,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> detachInstanceFromElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> detachInstanceFromElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = detachInstanceFromElasticIpRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8938,7 +8938,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> detachInstanceFromPrivateNetworkWithHttpInfo(UUID id, DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest) throws ApiException {
+  private ApiResponse<Operation> detachInstanceFromPrivateNetworkWithHttpInfo(UUID id, DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = detachInstanceFromPrivateNetworkRequestBuilder(id, detachInstanceFromPrivateNetworkRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9032,7 +9032,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> detachInstanceFromSecurityGroupWithHttpInfo(UUID id, DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest) throws ApiException {
+  private ApiResponse<Operation> detachInstanceFromSecurityGroupWithHttpInfo(UUID id, DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = detachInstanceFromSecurityGroupRequestBuilder(id, detachInstanceFromPrivateNetworkRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9124,7 +9124,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> enableDbaasMysqlWritesWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> enableDbaasMysqlWritesWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = enableDbaasMysqlWritesRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9208,7 +9208,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> evictInstancePoolMembersWithHttpInfo(UUID id, EvictInstancePoolMembersRequest evictInstancePoolMembersRequest) throws ApiException {
+  private ApiResponse<Operation> evictInstancePoolMembersWithHttpInfo(UUID id, EvictInstancePoolMembersRequest evictInstancePoolMembersRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = evictInstancePoolMembersRequestBuilder(id, evictInstancePoolMembersRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9304,7 +9304,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> evictSksNodepoolMembersWithHttpInfo(UUID id, UUID sksNodepoolId, EvictSksNodepoolMembersRequest evictSksNodepoolMembersRequest) throws ApiException {
+  private ApiResponse<Operation> evictSksNodepoolMembersWithHttpInfo(UUID id, UUID sksNodepoolId, EvictSksNodepoolMembersRequest evictSksNodepoolMembersRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = evictSksNodepoolMembersRequestBuilder(id, sksNodepoolId, evictSksNodepoolMembersRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9401,7 +9401,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> exportSnapshotWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> exportSnapshotWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = exportSnapshotRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9485,7 +9485,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GenerateSksClusterKubeconfig200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GenerateSksClusterKubeconfig200Response> generateSksClusterKubeconfigWithHttpInfo(UUID id, SksKubeconfigRequest sksKubeconfigRequest) throws ApiException {
+  private ApiResponse<GenerateSksClusterKubeconfig200Response> generateSksClusterKubeconfigWithHttpInfo(UUID id, SksKubeconfigRequest sksKubeconfigRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = generateSksClusterKubeconfigRequestBuilder(id, sksKubeconfigRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9577,7 +9577,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;AntiAffinityGroup&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<AntiAffinityGroup> getAntiAffinityGroupWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<AntiAffinityGroup> getAntiAffinityGroupWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getAntiAffinityGroupRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9659,7 +9659,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;IamApiKey&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IamApiKey> getApiKeyWithHttpInfo(String id) throws ApiException {
+  private ApiResponse<IamApiKey> getApiKeyWithHttpInfo(String id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getApiKeyRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9741,7 +9741,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;BlockStorageSnapshot&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<BlockStorageSnapshot> getBlockStorageSnapshotWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<BlockStorageSnapshot> getBlockStorageSnapshotWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getBlockStorageSnapshotRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9823,7 +9823,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;BlockStorageVolume&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<BlockStorageVolume> getBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<BlockStorageVolume> getBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getBlockStorageVolumeRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9905,7 +9905,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetConsoleProxyUrl200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetConsoleProxyUrl200Response> getConsoleProxyUrlWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<GetConsoleProxyUrl200Response> getConsoleProxyUrlWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getConsoleProxyUrlRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9985,7 +9985,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasCaCertificate200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasCaCertificate200Response> getDbaasCaCertificateWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasCaCertificate200Response> getDbaasCaCertificateWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasCaCertificateRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10062,7 +10062,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasExternalEndpointDatadogOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointDatadogRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10144,7 +10144,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasEndpointElasticsearchOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointElasticsearchRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10226,7 +10226,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasEndpointOpensearchOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointOpensearchRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10308,7 +10308,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasEndpointExternalPrometheusOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointPrometheusRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10390,7 +10390,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasExternalEndpointRsyslogOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointRsyslogRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10472,7 +10472,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasExternalIntegration&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegrationWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegrationWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalIntegrationRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10554,7 +10554,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasExternalIntegrationSettingsDatadog200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasExternalIntegrationSettingsDatadog200Response> getDbaasExternalIntegrationSettingsDatadogWithHttpInfo(UUID integrationId) throws ApiException {
+  private ApiResponse<GetDbaasExternalIntegrationSettingsDatadog200Response> getDbaasExternalIntegrationSettingsDatadogWithHttpInfo(UUID integrationId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasExternalIntegrationSettingsDatadogRequestBuilder(integrationId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10636,7 +10636,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasIntegration&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasIntegration> getDbaasIntegrationWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DbaasIntegration> getDbaasIntegrationWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasIntegrationRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10718,7 +10718,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasKafkaAcls&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasKafkaAcls> getDbaasKafkaAclConfigWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasKafkaAcls> getDbaasKafkaAclConfigWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasKafkaAclConfigRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10800,7 +10800,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasMigrationStatus&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasMigrationStatus> getDbaasMigrationStatusWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasMigrationStatus> getDbaasMigrationStatusWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasMigrationStatusRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10882,7 +10882,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasOpensearchAclConfig&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasOpensearchAclConfig> getDbaasOpensearchAclConfigWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasOpensearchAclConfig> getDbaasOpensearchAclConfigWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasOpensearchAclConfigRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10964,7 +10964,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceGrafana&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceGrafana> getDbaasServiceGrafanaWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasServiceGrafana> getDbaasServiceGrafanaWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceGrafanaRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11046,7 +11046,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceKafka&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceKafka> getDbaasServiceKafkaWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasServiceKafka> getDbaasServiceKafkaWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceKafkaRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11130,7 +11130,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceLogs&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceLogs> getDbaasServiceLogsWithHttpInfo(String serviceName, GetDbaasServiceLogsRequest getDbaasServiceLogsRequest) throws ApiException {
+  private ApiResponse<DbaasServiceLogs> getDbaasServiceLogsWithHttpInfo(String serviceName, GetDbaasServiceLogsRequest getDbaasServiceLogsRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceLogsRequestBuilder(serviceName, getDbaasServiceLogsRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11224,7 +11224,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasServiceMetrics200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasServiceMetrics200Response> getDbaasServiceMetricsWithHttpInfo(String serviceName, GetDbaasServiceMetricsRequest getDbaasServiceMetricsRequest) throws ApiException {
+  private ApiResponse<GetDbaasServiceMetrics200Response> getDbaasServiceMetricsWithHttpInfo(String serviceName, GetDbaasServiceMetricsRequest getDbaasServiceMetricsRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceMetricsRequestBuilder(serviceName, getDbaasServiceMetricsRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11316,7 +11316,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceMysql&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceMysql> getDbaasServiceMysqlWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasServiceMysql> getDbaasServiceMysqlWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceMysqlRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11398,7 +11398,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceOpensearch&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceOpensearch> getDbaasServiceOpensearchWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasServiceOpensearch> getDbaasServiceOpensearchWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceOpensearchRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11480,7 +11480,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServicePg&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServicePg> getDbaasServicePgWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasServicePg> getDbaasServicePgWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServicePgRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11562,7 +11562,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceRedis&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceRedis> getDbaasServiceRedisWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<DbaasServiceRedis> getDbaasServiceRedisWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceRedisRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11644,7 +11644,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasServiceType&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasServiceType> getDbaasServiceTypeWithHttpInfo(String serviceTypeName) throws ApiException {
+  private ApiResponse<DbaasServiceType> getDbaasServiceTypeWithHttpInfo(String serviceTypeName) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasServiceTypeRequestBuilder(serviceTypeName);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11724,7 +11724,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasSettingsGrafana200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasSettingsGrafana200Response> getDbaasSettingsGrafanaWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasSettingsGrafana200Response> getDbaasSettingsGrafanaWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsGrafanaRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11799,7 +11799,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasSettingsKafka200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasSettingsKafka200Response> getDbaasSettingsKafkaWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasSettingsKafka200Response> getDbaasSettingsKafkaWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsKafkaRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11874,7 +11874,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasSettingsMysql200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasSettingsMysql200Response> getDbaasSettingsMysqlWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasSettingsMysql200Response> getDbaasSettingsMysqlWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsMysqlRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11949,7 +11949,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasSettingsOpensearch200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasSettingsOpensearch200Response> getDbaasSettingsOpensearchWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasSettingsOpensearch200Response> getDbaasSettingsOpensearchWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsOpensearchRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12024,7 +12024,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasSettingsPg200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasSettingsPg200Response> getDbaasSettingsPgWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasSettingsPg200Response> getDbaasSettingsPgWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsPgRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12099,7 +12099,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDbaasSettingsRedis200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDbaasSettingsRedis200Response> getDbaasSettingsRedisWithHttpInfo() throws ApiException {
+  private ApiResponse<GetDbaasSettingsRedis200Response> getDbaasSettingsRedisWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsRedisRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12178,7 +12178,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasTask&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasTask> getDbaasTaskWithHttpInfo(String service, UUID id) throws ApiException {
+  private ApiResponse<DbaasTask> getDbaasTaskWithHttpInfo(String service, UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDbaasTaskRequestBuilder(service, id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12265,7 +12265,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DeployTarget&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DeployTarget> getDeployTargetWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DeployTarget> getDeployTargetWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDeployTargetRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12347,7 +12347,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DnsDomain&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DnsDomain> getDnsDomainWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<DnsDomain> getDnsDomainWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDnsDomainRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12431,7 +12431,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DnsDomainRecord&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DnsDomainRecord> getDnsDomainRecordWithHttpInfo(UUID domainId, UUID recordId) throws ApiException {
+  private ApiResponse<DnsDomainRecord> getDnsDomainRecordWithHttpInfo(UUID domainId, UUID recordId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDnsDomainRecordRequestBuilder(domainId, recordId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12518,7 +12518,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetDnsDomainZoneFile200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetDnsDomainZoneFile200Response> getDnsDomainZoneFileWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<GetDnsDomainZoneFile200Response> getDnsDomainZoneFileWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDnsDomainZoneFileRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12600,7 +12600,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ElasticIp&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ElasticIp> getElasticIpWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<ElasticIp> getElasticIpWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getElasticIpRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12680,7 +12680,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;IamPolicy&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IamPolicy> getIamOrganizationPolicyWithHttpInfo() throws ApiException {
+  private ApiResponse<IamPolicy> getIamOrganizationPolicyWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getIamOrganizationPolicyRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12757,7 +12757,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;IamRole&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<IamRole> getIamRoleWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<IamRole> getIamRoleWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getIamRoleRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12839,7 +12839,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Instance&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Instance> getInstanceWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Instance> getInstanceWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getInstanceRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -12921,7 +12921,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;InstancePool&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<InstancePool> getInstancePoolWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<InstancePool> getInstancePoolWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getInstancePoolRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13003,7 +13003,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;InstanceType&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<InstanceType> getInstanceTypeWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<InstanceType> getInstanceTypeWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getInstanceTypeRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13085,7 +13085,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;LoadBalancer&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<LoadBalancer> getLoadBalancerWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<LoadBalancer> getLoadBalancerWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getLoadBalancerRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13169,7 +13169,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;LoadBalancerService&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<LoadBalancerService> getLoadBalancerServiceWithHttpInfo(UUID id, UUID serviceId) throws ApiException {
+  private ApiResponse<LoadBalancerService> getLoadBalancerServiceWithHttpInfo(UUID id, UUID serviceId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getLoadBalancerServiceRequestBuilder(id, serviceId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13256,7 +13256,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> getOperationWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> getOperationWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getOperationRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13336,7 +13336,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Organization&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Organization> getOrganizationWithHttpInfo() throws ApiException {
+  private ApiResponse<Organization> getOrganizationWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getOrganizationRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13413,7 +13413,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;PrivateNetwork&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<PrivateNetwork> getPrivateNetworkWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<PrivateNetwork> getPrivateNetworkWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getPrivateNetworkRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13495,7 +13495,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Quota&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Quota> getQuotaWithHttpInfo(String entity) throws ApiException {
+  private ApiResponse<Quota> getQuotaWithHttpInfo(String entity) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getQuotaRequestBuilder(entity);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13577,7 +13577,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ReverseDnsRecord&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ReverseDnsRecord> getReverseDnsElasticIpWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<ReverseDnsRecord> getReverseDnsElasticIpWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getReverseDnsElasticIpRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13659,7 +13659,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ReverseDnsRecord&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ReverseDnsRecord> getReverseDnsInstanceWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<ReverseDnsRecord> getReverseDnsInstanceWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getReverseDnsInstanceRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13741,7 +13741,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;SecurityGroup&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<SecurityGroup> getSecurityGroupWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<SecurityGroup> getSecurityGroupWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSecurityGroupRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13823,7 +13823,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;SksCluster&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<SksCluster> getSksClusterWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<SksCluster> getSksClusterWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSksClusterRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13907,7 +13907,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetSksClusterAuthorityCert200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetSksClusterAuthorityCert200Response> getSksClusterAuthorityCertWithHttpInfo(UUID id, String authority) throws ApiException {
+  private ApiResponse<GetSksClusterAuthorityCert200Response> getSksClusterAuthorityCertWithHttpInfo(UUID id, String authority) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSksClusterAuthorityCertRequestBuilder(id, authority);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13994,7 +13994,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Map<String, Object>> getSksClusterInspectionWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Map<String, Object>> getSksClusterInspectionWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSksClusterInspectionRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14078,7 +14078,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;SksNodepool&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<SksNodepool> getSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId) throws ApiException {
+  private ApiResponse<SksNodepool> getSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSksNodepoolRequestBuilder(id, sksNodepoolId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14165,7 +14165,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Snapshot&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Snapshot> getSnapshotWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Snapshot> getSnapshotWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSnapshotRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14249,7 +14249,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;GetSosPresignedUrl200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<GetSosPresignedUrl200Response> getSosPresignedUrlWithHttpInfo(String bucket, String key) throws ApiException {
+  private ApiResponse<GetSosPresignedUrl200Response> getSosPresignedUrlWithHttpInfo(String bucket, String key) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSosPresignedUrlRequestBuilder(bucket, key);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14346,7 +14346,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;SshKey&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<SshKey> getSshKeyWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<SshKey> getSshKeyWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getSshKeyRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14428,7 +14428,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Template&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Template> getTemplateWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Template> getTemplateWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getTemplateRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14508,7 +14508,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListAntiAffinityGroups200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListAntiAffinityGroups200Response> listAntiAffinityGroupsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListAntiAffinityGroups200Response> listAntiAffinityGroupsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listAntiAffinityGroupsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14583,7 +14583,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListApiKeys200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListApiKeys200Response> listApiKeysWithHttpInfo() throws ApiException {
+  private ApiResponse<ListApiKeys200Response> listApiKeysWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listApiKeysRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14658,7 +14658,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListBlockStorageSnapshots200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListBlockStorageSnapshots200Response> listBlockStorageSnapshotsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListBlockStorageSnapshots200Response> listBlockStorageSnapshotsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listBlockStorageSnapshotsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14735,7 +14735,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListBlockStorageVolumes200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListBlockStorageVolumes200Response> listBlockStorageVolumesWithHttpInfo(UUID instanceId) throws ApiException {
+  private ApiResponse<ListBlockStorageVolumes200Response> listBlockStorageVolumesWithHttpInfo(UUID instanceId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listBlockStorageVolumesRequestBuilder(instanceId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14825,7 +14825,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasExternalEndpointTypes200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasExternalEndpointTypes200Response> listDbaasExternalEndpointTypesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDbaasExternalEndpointTypes200Response> listDbaasExternalEndpointTypesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasExternalEndpointTypesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14900,7 +14900,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasExternalEndpoints200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasExternalEndpoints200Response> listDbaasExternalEndpointsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDbaasExternalEndpoints200Response> listDbaasExternalEndpointsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasExternalEndpointsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14977,7 +14977,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasExternalIntegrations200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasExternalIntegrations200Response> listDbaasExternalIntegrationsWithHttpInfo(String serviceName) throws ApiException {
+  private ApiResponse<ListDbaasExternalIntegrations200Response> listDbaasExternalIntegrationsWithHttpInfo(String serviceName) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasExternalIntegrationsRequestBuilder(serviceName);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15063,7 +15063,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasIntegrationSettings200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasIntegrationSettings200Response> listDbaasIntegrationSettingsWithHttpInfo(String integrationType, String sourceType, String destType) throws ApiException {
+  private ApiResponse<ListDbaasIntegrationSettings200Response> listDbaasIntegrationSettingsWithHttpInfo(String integrationType, String sourceType, String destType) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasIntegrationSettingsRequestBuilder(integrationType, sourceType, destType);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15153,7 +15153,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasIntegrationTypes200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasIntegrationTypes200Response> listDbaasIntegrationTypesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDbaasIntegrationTypes200Response> listDbaasIntegrationTypesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasIntegrationTypesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15228,7 +15228,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasServiceTypes200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasServiceTypes200Response> listDbaasServiceTypesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDbaasServiceTypes200Response> listDbaasServiceTypesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasServiceTypesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15303,7 +15303,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDbaasServices200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDbaasServices200Response> listDbaasServicesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDbaasServices200Response> listDbaasServicesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDbaasServicesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15378,7 +15378,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDeployTargets200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDeployTargets200Response> listDeployTargetsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDeployTargets200Response> listDeployTargetsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDeployTargetsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15455,7 +15455,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDnsDomainRecords200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDnsDomainRecords200Response> listDnsDomainRecordsWithHttpInfo(UUID domainId) throws ApiException {
+  private ApiResponse<ListDnsDomainRecords200Response> listDnsDomainRecordsWithHttpInfo(UUID domainId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDnsDomainRecordsRequestBuilder(domainId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15535,7 +15535,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListDnsDomains200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListDnsDomains200Response> listDnsDomainsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDnsDomains200Response> listDnsDomainsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDnsDomainsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15610,7 +15610,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListElasticIps200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListElasticIps200Response> listElasticIpsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListElasticIps200Response> listElasticIpsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listElasticIpsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15689,7 +15689,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;List&lt;Event&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<Event>> listEventsWithHttpInfo(OffsetDateTime from, OffsetDateTime to) throws ApiException {
+  private ApiResponse<List<Event>> listEventsWithHttpInfo(OffsetDateTime from, OffsetDateTime to) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listEventsRequestBuilder(from, to);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15781,7 +15781,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListIamRoles200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListIamRoles200Response> listIamRolesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListIamRoles200Response> listIamRolesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listIamRolesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15856,7 +15856,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListInstancePools200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListInstancePools200Response> listInstancePoolsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListInstancePools200Response> listInstancePoolsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listInstancePoolsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -15931,7 +15931,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListInstanceTypes200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListInstanceTypes200Response> listInstanceTypesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListInstanceTypes200Response> listInstanceTypesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listInstanceTypesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16012,7 +16012,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListInstances200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListInstances200Response> listInstancesWithHttpInfo(UUID managerId, String managerType, String ipAddress) throws ApiException {
+  private ApiResponse<ListInstances200Response> listInstancesWithHttpInfo(UUID managerId, String managerType, String ipAddress) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listInstancesRequestBuilder(managerId, managerType, ipAddress);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16106,7 +16106,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListLoadBalancers200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListLoadBalancers200Response> listLoadBalancersWithHttpInfo() throws ApiException {
+  private ApiResponse<ListLoadBalancers200Response> listLoadBalancersWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listLoadBalancersRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16181,7 +16181,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListPrivateNetworks200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListPrivateNetworks200Response> listPrivateNetworksWithHttpInfo() throws ApiException {
+  private ApiResponse<ListPrivateNetworks200Response> listPrivateNetworksWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listPrivateNetworksRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16256,7 +16256,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListQuotas200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListQuotas200Response> listQuotasWithHttpInfo() throws ApiException {
+  private ApiResponse<ListQuotas200Response> listQuotasWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listQuotasRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16333,7 +16333,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListSecurityGroups200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListSecurityGroups200Response> listSecurityGroupsWithHttpInfo(String visibility) throws ApiException {
+  private ApiResponse<ListSecurityGroups200Response> listSecurityGroupsWithHttpInfo(String visibility) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSecurityGroupsRequestBuilder(visibility);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16425,7 +16425,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;List&lt;Map&lt;String, String&gt;&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<List<Map<String, String>>> listSksClusterDeprecatedResourcesWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<List<Map<String, String>>> listSksClusterDeprecatedResourcesWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSksClusterDeprecatedResourcesRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16507,7 +16507,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListSksClusterVersions200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListSksClusterVersions200Response> listSksClusterVersionsWithHttpInfo(String includeDeprecated) throws ApiException {
+  private ApiResponse<ListSksClusterVersions200Response> listSksClusterVersionsWithHttpInfo(String includeDeprecated) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSksClusterVersionsRequestBuilder(includeDeprecated);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16597,7 +16597,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListSksClusters200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListSksClusters200Response> listSksClustersWithHttpInfo() throws ApiException {
+  private ApiResponse<ListSksClusters200Response> listSksClustersWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSksClustersRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16672,7 +16672,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListSnapshots200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListSnapshots200Response> listSnapshotsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListSnapshots200Response> listSnapshotsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSnapshotsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16747,7 +16747,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListSosBucketsUsage200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListSosBucketsUsage200Response> listSosBucketsUsageWithHttpInfo() throws ApiException {
+  private ApiResponse<ListSosBucketsUsage200Response> listSosBucketsUsageWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSosBucketsUsageRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16822,7 +16822,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListSshKeys200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListSshKeys200Response> listSshKeysWithHttpInfo() throws ApiException {
+  private ApiResponse<ListSshKeys200Response> listSshKeysWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSshKeysRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16901,7 +16901,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListTemplates200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListTemplates200Response> listTemplatesWithHttpInfo(String visibility, String family) throws ApiException {
+  private ApiResponse<ListTemplates200Response> listTemplatesWithHttpInfo(String visibility, String family) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listTemplatesRequestBuilder(visibility, family);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16993,7 +16993,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;ListZones200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<ListZones200Response> listZonesWithHttpInfo() throws ApiException {
+  private ApiResponse<ListZones200Response> listZonesWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listZonesRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17072,7 +17072,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> promoteSnapshotToTemplateWithHttpInfo(UUID id, PromoteSnapshotToTemplateRequest promoteSnapshotToTemplateRequest) throws ApiException {
+  private ApiResponse<Operation> promoteSnapshotToTemplateWithHttpInfo(UUID id, PromoteSnapshotToTemplateRequest promoteSnapshotToTemplateRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = promoteSnapshotToTemplateRequestBuilder(id, promoteSnapshotToTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17164,7 +17164,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> rebootInstanceWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> rebootInstanceWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = rebootInstanceRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17246,7 +17246,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> registerSshKeyWithHttpInfo(RegisterSshKeyRequest registerSshKeyRequest) throws ApiException {
+  private ApiResponse<Operation> registerSshKeyWithHttpInfo(RegisterSshKeyRequest registerSshKeyRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = registerSshKeyRequestBuilder(registerSshKeyRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17333,7 +17333,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> registerTemplateWithHttpInfo(RegisterTemplateRequest registerTemplateRequest) throws ApiException {
+  private ApiResponse<Operation> registerTemplateWithHttpInfo(RegisterTemplateRequest registerTemplateRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = registerTemplateRequestBuilder(registerTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17422,7 +17422,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> removeExternalSourceFromSecurityGroupWithHttpInfo(UUID id, RemoveExternalSourceFromSecurityGroupRequest removeExternalSourceFromSecurityGroupRequest) throws ApiException {
+  private ApiResponse<Operation> removeExternalSourceFromSecurityGroupWithHttpInfo(UUID id, RemoveExternalSourceFromSecurityGroupRequest removeExternalSourceFromSecurityGroupRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = removeExternalSourceFromSecurityGroupRequestBuilder(id, removeExternalSourceFromSecurityGroupRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17514,7 +17514,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> removeInstanceProtectionWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> removeInstanceProtectionWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = removeInstanceProtectionRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17600,7 +17600,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private ApiResponse<Operation> resetDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasGrafanaUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17701,7 +17701,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private ApiResponse<Operation> resetDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasKafkaUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17802,7 +17802,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasMysqlUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasMysqlUserPasswordRequest resetDbaasMysqlUserPasswordRequest) throws ApiException {
+  private ApiResponse<Operation> resetDbaasMysqlUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasMysqlUserPasswordRequest resetDbaasMysqlUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasMysqlUserPasswordRequestBuilder(serviceName, username, resetDbaasMysqlUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17903,7 +17903,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private ApiResponse<Operation> resetDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasOpensearchUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18004,7 +18004,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private ApiResponse<Operation> resetDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasPostgresUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18105,7 +18105,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private ApiResponse<Operation> resetDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasRedisUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18204,7 +18204,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetElasticIpFieldWithHttpInfo(UUID id, String field) throws ApiException {
+  private ApiResponse<Operation> resetElasticIpFieldWithHttpInfo(UUID id, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetElasticIpFieldRequestBuilder(id, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18293,7 +18293,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetInstanceWithHttpInfo(UUID id, ResetInstanceRequest resetInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> resetInstanceWithHttpInfo(UUID id, ResetInstanceRequest resetInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetInstanceRequestBuilder(id, resetInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18387,7 +18387,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetInstanceFieldWithHttpInfo(UUID id, String field) throws ApiException {
+  private ApiResponse<Operation> resetInstanceFieldWithHttpInfo(UUID id, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetInstanceFieldRequestBuilder(id, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18474,7 +18474,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetInstancePasswordWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> resetInstancePasswordWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetInstancePasswordRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18558,7 +18558,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetInstancePoolFieldWithHttpInfo(UUID id, String field) throws ApiException {
+  private ApiResponse<Operation> resetInstancePoolFieldWithHttpInfo(UUID id, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetInstancePoolFieldRequestBuilder(id, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18647,7 +18647,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetLoadBalancerFieldWithHttpInfo(UUID id, String field) throws ApiException {
+  private ApiResponse<Operation> resetLoadBalancerFieldWithHttpInfo(UUID id, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetLoadBalancerFieldRequestBuilder(id, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18738,7 +18738,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetLoadBalancerServiceFieldWithHttpInfo(UUID id, UUID serviceId, String field) throws ApiException {
+  private ApiResponse<Operation> resetLoadBalancerServiceFieldWithHttpInfo(UUID id, UUID serviceId, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetLoadBalancerServiceFieldRequestBuilder(id, serviceId, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18832,7 +18832,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetPrivateNetworkFieldWithHttpInfo(UUID id, String field) throws ApiException {
+  private ApiResponse<Operation> resetPrivateNetworkFieldWithHttpInfo(UUID id, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetPrivateNetworkFieldRequestBuilder(id, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18921,7 +18921,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetSksClusterFieldWithHttpInfo(UUID id, String field) throws ApiException {
+  private ApiResponse<Operation> resetSksClusterFieldWithHttpInfo(UUID id, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetSksClusterFieldRequestBuilder(id, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19012,7 +19012,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resetSksNodepoolFieldWithHttpInfo(UUID id, UUID sksNodepoolId, String field) throws ApiException {
+  private ApiResponse<Operation> resetSksNodepoolFieldWithHttpInfo(UUID id, UUID sksNodepoolId, String field) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetSksNodepoolFieldRequestBuilder(id, sksNodepoolId, field);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19106,7 +19106,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;BlockStorageVolume&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<BlockStorageVolume> resizeBlockStorageVolumeWithHttpInfo(UUID id, ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest) throws ApiException {
+  private ApiResponse<BlockStorageVolume> resizeBlockStorageVolumeWithHttpInfo(UUID id, ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resizeBlockStorageVolumeRequestBuilder(id, resizeBlockStorageVolumeRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19200,7 +19200,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> resizeInstanceDiskWithHttpInfo(UUID id, ResizeInstanceDiskRequest resizeInstanceDiskRequest) throws ApiException {
+  private ApiResponse<Operation> resizeInstanceDiskWithHttpInfo(UUID id, ResizeInstanceDiskRequest resizeInstanceDiskRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resizeInstanceDiskRequestBuilder(id, resizeInstanceDiskRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19294,7 +19294,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserGrafanaSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserGrafanaSecrets> revealDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<DbaasUserGrafanaSecrets> revealDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasGrafanaUserPasswordRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19381,7 +19381,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserKafkaConnectSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserKafkaConnectSecrets> revealDbaasKafkaConnectPasswordWithHttpInfo(String serviceName) throws ApiException {
+  private ApiResponse<DbaasUserKafkaConnectSecrets> revealDbaasKafkaConnectPasswordWithHttpInfo(String serviceName) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasKafkaConnectPasswordRequestBuilder(serviceName);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19465,7 +19465,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserKafkaSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserKafkaSecrets> revealDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<DbaasUserKafkaSecrets> revealDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasKafkaUserPasswordRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19554,7 +19554,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserMysqlSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserMysqlSecrets> revealDbaasMysqlUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<DbaasUserMysqlSecrets> revealDbaasMysqlUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasMysqlUserPasswordRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19643,7 +19643,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserOpensearchSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserOpensearchSecrets> revealDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<DbaasUserOpensearchSecrets> revealDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasOpensearchUserPasswordRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19732,7 +19732,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserPostgresSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserPostgresSecrets> revealDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<DbaasUserPostgresSecrets> revealDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasPostgresUserPasswordRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19821,7 +19821,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasUserRedisSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasUserRedisSecrets> revealDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+  private ApiResponse<DbaasUserRedisSecrets> revealDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDbaasRedisUserPasswordRequestBuilder(serviceName, username);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19908,7 +19908,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;InstancePassword&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<InstancePassword> revealInstancePasswordWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<InstancePassword> revealInstancePasswordWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealInstancePasswordRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19992,7 +19992,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> revertInstanceToSnapshotWithHttpInfo(UUID instanceId, RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest) throws ApiException {
+  private ApiResponse<Operation> revertInstanceToSnapshotWithHttpInfo(UUID instanceId, RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revertInstanceToSnapshotRequestBuilder(instanceId, revertInstanceToSnapshotRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20084,7 +20084,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> rotateSksCcmCredentialsWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> rotateSksCcmCredentialsWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = rotateSksCcmCredentialsRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20166,7 +20166,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> rotateSksOperatorsCaWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> rotateSksOperatorsCaWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = rotateSksOperatorsCaRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20250,7 +20250,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> scaleInstanceWithHttpInfo(UUID id, ScaleInstanceRequest scaleInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> scaleInstanceWithHttpInfo(UUID id, ScaleInstanceRequest scaleInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scaleInstanceRequestBuilder(id, scaleInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20344,7 +20344,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> scaleInstancePoolWithHttpInfo(UUID id, ScaleInstancePoolRequest scaleInstancePoolRequest) throws ApiException {
+  private ApiResponse<Operation> scaleInstancePoolWithHttpInfo(UUID id, ScaleInstancePoolRequest scaleInstancePoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scaleInstancePoolRequestBuilder(id, scaleInstancePoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20440,7 +20440,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> scaleSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId, ScaleSksNodepoolRequest scaleSksNodepoolRequest) throws ApiException {
+  private ApiResponse<Operation> scaleSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId, ScaleSksNodepoolRequest scaleSksNodepoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scaleSksNodepoolRequestBuilder(id, sksNodepoolId, scaleSksNodepoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20537,7 +20537,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startDbaasGrafanaMaintenanceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> startDbaasGrafanaMaintenanceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startDbaasGrafanaMaintenanceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20619,7 +20619,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startDbaasKafkaMaintenanceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> startDbaasKafkaMaintenanceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startDbaasKafkaMaintenanceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20701,7 +20701,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startDbaasMysqlMaintenanceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> startDbaasMysqlMaintenanceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startDbaasMysqlMaintenanceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20783,7 +20783,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startDbaasOpensearchMaintenanceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> startDbaasOpensearchMaintenanceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startDbaasOpensearchMaintenanceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20865,7 +20865,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startDbaasPgMaintenanceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> startDbaasPgMaintenanceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startDbaasPgMaintenanceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20947,7 +20947,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startDbaasRedisMaintenanceWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> startDbaasRedisMaintenanceWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startDbaasRedisMaintenanceRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21031,7 +21031,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> startInstanceWithHttpInfo(UUID id, StartInstanceRequest startInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> startInstanceWithHttpInfo(UUID id, StartInstanceRequest startInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = startInstanceRequestBuilder(id, startInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21123,7 +21123,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> stopDbaasMysqlMigrationWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> stopDbaasMysqlMigrationWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = stopDbaasMysqlMigrationRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21205,7 +21205,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> stopDbaasPgMigrationWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> stopDbaasPgMigrationWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = stopDbaasPgMigrationRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21287,7 +21287,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> stopDbaasRedisMigrationWithHttpInfo(String name) throws ApiException {
+  private ApiResponse<Operation> stopDbaasRedisMigrationWithHttpInfo(String name) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = stopDbaasRedisMigrationRequestBuilder(name);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21369,7 +21369,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> stopInstanceWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> stopInstanceWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = stopInstanceRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21453,7 +21453,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateBlockStorageSnapshotWithHttpInfo(UUID id, UpdateBlockStorageSnapshotRequest updateBlockStorageSnapshotRequest) throws ApiException {
+  private ApiResponse<Operation> updateBlockStorageSnapshotWithHttpInfo(UUID id, UpdateBlockStorageSnapshotRequest updateBlockStorageSnapshotRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateBlockStorageSnapshotRequestBuilder(id, updateBlockStorageSnapshotRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21547,7 +21547,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateBlockStorageVolumeWithHttpInfo(UUID id, UpdateBlockStorageVolumeRequest updateBlockStorageVolumeRequest) throws ApiException {
+  private ApiResponse<Operation> updateBlockStorageVolumeWithHttpInfo(UUID id, UpdateBlockStorageVolumeRequest updateBlockStorageVolumeRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateBlockStorageVolumeRequestBuilder(id, updateBlockStorageVolumeRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21641,7 +21641,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasExternalEndpointDatadogWithHttpInfo(UUID id, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasExternalEndpointDatadogWithHttpInfo(UUID id, CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointDatadogRequestBuilder(id, createDbaasExternalEndpointDatadogRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21735,7 +21735,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id, UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointElasticsearchRequestBuilder(id, updateDbaasExternalEndpointElasticsearchRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21829,7 +21829,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasExternalEndpointOpensearchWithHttpInfo(UUID id, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasExternalEndpointOpensearchWithHttpInfo(UUID id, UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointOpensearchRequestBuilder(id, updateDbaasExternalEndpointOpensearchRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21923,7 +21923,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasExternalEndpointPrometheusWithHttpInfo(UUID id, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasExternalEndpointPrometheusWithHttpInfo(UUID id, UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointPrometheusRequestBuilder(id, updateDbaasExternalEndpointPrometheusRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22017,7 +22017,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasExternalEndpointRsyslogWithHttpInfo(UUID id, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasExternalEndpointRsyslogWithHttpInfo(UUID id, CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointRsyslogRequestBuilder(id, createDbaasExternalEndpointRsyslogRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22111,7 +22111,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasExternalIntegrationSettingsDatadogWithHttpInfo(UUID integrationId, GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response) throws ApiException {
+  private ApiResponse<Operation> updateDbaasExternalIntegrationSettingsDatadogWithHttpInfo(UUID integrationId, GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalIntegrationSettingsDatadogRequestBuilder(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22205,7 +22205,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasIntegrationWithHttpInfo(UUID id, UpdateDbaasIntegrationRequest updateDbaasIntegrationRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasIntegrationWithHttpInfo(UUID id, UpdateDbaasIntegrationRequest updateDbaasIntegrationRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasIntegrationRequestBuilder(id, updateDbaasIntegrationRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22299,7 +22299,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasOpensearchAclConfigWithHttpInfo(String name, DbaasOpensearchAclConfig dbaasOpensearchAclConfig) throws ApiException {
+  private ApiResponse<Operation> updateDbaasOpensearchAclConfigWithHttpInfo(String name, DbaasOpensearchAclConfig dbaasOpensearchAclConfig) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasOpensearchAclConfigRequestBuilder(name, dbaasOpensearchAclConfig);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22395,7 +22395,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasPgConnectionPoolWithHttpInfo(String serviceName, String connectionPoolName, UpdateDbaasPgConnectionPoolRequest updateDbaasPgConnectionPoolRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasPgConnectionPoolWithHttpInfo(String serviceName, String connectionPoolName, UpdateDbaasPgConnectionPoolRequest updateDbaasPgConnectionPoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasPgConnectionPoolRequestBuilder(serviceName, connectionPoolName, updateDbaasPgConnectionPoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22496,7 +22496,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;DbaasPostgresUsers&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<DbaasPostgresUsers> updateDbaasPostgresAllowReplicationWithHttpInfo(String serviceName, String username, UpdateDbaasPostgresAllowReplicationRequest updateDbaasPostgresAllowReplicationRequest) throws ApiException {
+  private ApiResponse<DbaasPostgresUsers> updateDbaasPostgresAllowReplicationWithHttpInfo(String serviceName, String username, UpdateDbaasPostgresAllowReplicationRequest updateDbaasPostgresAllowReplicationRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasPostgresAllowReplicationRequestBuilder(serviceName, username, updateDbaasPostgresAllowReplicationRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22595,7 +22595,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasServiceGrafanaWithHttpInfo(String name, UpdateDbaasServiceGrafanaRequest updateDbaasServiceGrafanaRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasServiceGrafanaWithHttpInfo(String name, UpdateDbaasServiceGrafanaRequest updateDbaasServiceGrafanaRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceGrafanaRequestBuilder(name, updateDbaasServiceGrafanaRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22689,7 +22689,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasServiceKafkaWithHttpInfo(String name, UpdateDbaasServiceKafkaRequest updateDbaasServiceKafkaRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasServiceKafkaWithHttpInfo(String name, UpdateDbaasServiceKafkaRequest updateDbaasServiceKafkaRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceKafkaRequestBuilder(name, updateDbaasServiceKafkaRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22783,7 +22783,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasServiceMysqlWithHttpInfo(String name, UpdateDbaasServiceMysqlRequest updateDbaasServiceMysqlRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasServiceMysqlWithHttpInfo(String name, UpdateDbaasServiceMysqlRequest updateDbaasServiceMysqlRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceMysqlRequestBuilder(name, updateDbaasServiceMysqlRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22877,7 +22877,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasServiceOpensearchWithHttpInfo(String name, UpdateDbaasServiceOpensearchRequest updateDbaasServiceOpensearchRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasServiceOpensearchWithHttpInfo(String name, UpdateDbaasServiceOpensearchRequest updateDbaasServiceOpensearchRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceOpensearchRequestBuilder(name, updateDbaasServiceOpensearchRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -22971,7 +22971,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasServicePgWithHttpInfo(String name, UpdateDbaasServicePgRequest updateDbaasServicePgRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasServicePgWithHttpInfo(String name, UpdateDbaasServicePgRequest updateDbaasServicePgRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasServicePgRequestBuilder(name, updateDbaasServicePgRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23065,7 +23065,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDbaasServiceRedisWithHttpInfo(String name, UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest) throws ApiException {
+  private ApiResponse<Operation> updateDbaasServiceRedisWithHttpInfo(String name, UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceRedisRequestBuilder(name, updateDbaasServiceRedisRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23161,7 +23161,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateDnsDomainRecordWithHttpInfo(UUID domainId, UUID recordId, UpdateDnsDomainRecordRequest updateDnsDomainRecordRequest) throws ApiException {
+  private ApiResponse<Operation> updateDnsDomainRecordWithHttpInfo(UUID domainId, UUID recordId, UpdateDnsDomainRecordRequest updateDnsDomainRecordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateDnsDomainRecordRequestBuilder(domainId, recordId, updateDnsDomainRecordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23260,7 +23260,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateElasticIpWithHttpInfo(UUID id, UpdateElasticIpRequest updateElasticIpRequest) throws ApiException {
+  private ApiResponse<Operation> updateElasticIpWithHttpInfo(UUID id, UpdateElasticIpRequest updateElasticIpRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateElasticIpRequestBuilder(id, updateElasticIpRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23352,7 +23352,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateIamOrganizationPolicyWithHttpInfo(IamPolicy iamPolicy) throws ApiException {
+  private ApiResponse<Operation> updateIamOrganizationPolicyWithHttpInfo(IamPolicy iamPolicy) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateIamOrganizationPolicyRequestBuilder(iamPolicy);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23441,7 +23441,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateIamRoleWithHttpInfo(UUID id, UpdateIamRoleRequest updateIamRoleRequest) throws ApiException {
+  private ApiResponse<Operation> updateIamRoleWithHttpInfo(UUID id, UpdateIamRoleRequest updateIamRoleRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateIamRoleRequestBuilder(id, updateIamRoleRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23535,7 +23535,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateIamRolePolicyWithHttpInfo(UUID id, IamPolicy iamPolicy) throws ApiException {
+  private ApiResponse<Operation> updateIamRolePolicyWithHttpInfo(UUID id, IamPolicy iamPolicy) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateIamRolePolicyRequestBuilder(id, iamPolicy);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23629,7 +23629,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateInstanceWithHttpInfo(UUID id, UpdateInstanceRequest updateInstanceRequest) throws ApiException {
+  private ApiResponse<Operation> updateInstanceWithHttpInfo(UUID id, UpdateInstanceRequest updateInstanceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateInstanceRequestBuilder(id, updateInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23723,7 +23723,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateInstancePoolWithHttpInfo(UUID id, UpdateInstancePoolRequest updateInstancePoolRequest) throws ApiException {
+  private ApiResponse<Operation> updateInstancePoolWithHttpInfo(UUID id, UpdateInstancePoolRequest updateInstancePoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateInstancePoolRequestBuilder(id, updateInstancePoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23817,7 +23817,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateLoadBalancerWithHttpInfo(UUID id, UpdateLoadBalancerRequest updateLoadBalancerRequest) throws ApiException {
+  private ApiResponse<Operation> updateLoadBalancerWithHttpInfo(UUID id, UpdateLoadBalancerRequest updateLoadBalancerRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateLoadBalancerRequestBuilder(id, updateLoadBalancerRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -23913,7 +23913,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateLoadBalancerServiceWithHttpInfo(UUID id, UUID serviceId, UpdateLoadBalancerServiceRequest updateLoadBalancerServiceRequest) throws ApiException {
+  private ApiResponse<Operation> updateLoadBalancerServiceWithHttpInfo(UUID id, UUID serviceId, UpdateLoadBalancerServiceRequest updateLoadBalancerServiceRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateLoadBalancerServiceRequestBuilder(id, serviceId, updateLoadBalancerServiceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24012,7 +24012,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updatePrivateNetworkWithHttpInfo(UUID id, UpdatePrivateNetworkRequest updatePrivateNetworkRequest) throws ApiException {
+  private ApiResponse<Operation> updatePrivateNetworkWithHttpInfo(UUID id, UpdatePrivateNetworkRequest updatePrivateNetworkRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updatePrivateNetworkRequestBuilder(id, updatePrivateNetworkRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24106,7 +24106,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updatePrivateNetworkInstanceIpWithHttpInfo(UUID id, UpdatePrivateNetworkInstanceIpRequest updatePrivateNetworkInstanceIpRequest) throws ApiException {
+  private ApiResponse<Operation> updatePrivateNetworkInstanceIpWithHttpInfo(UUID id, UpdatePrivateNetworkInstanceIpRequest updatePrivateNetworkInstanceIpRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updatePrivateNetworkInstanceIpRequestBuilder(id, updatePrivateNetworkInstanceIpRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24200,7 +24200,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateReverseDnsElasticIpWithHttpInfo(UUID id, UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest) throws ApiException {
+  private ApiResponse<Operation> updateReverseDnsElasticIpWithHttpInfo(UUID id, UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateReverseDnsElasticIpRequestBuilder(id, updateReverseDnsElasticIpRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24294,7 +24294,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateReverseDnsInstanceWithHttpInfo(UUID id, UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest) throws ApiException {
+  private ApiResponse<Operation> updateReverseDnsInstanceWithHttpInfo(UUID id, UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateReverseDnsInstanceRequestBuilder(id, updateReverseDnsElasticIpRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24388,7 +24388,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateSksClusterWithHttpInfo(UUID id, UpdateSksClusterRequest updateSksClusterRequest) throws ApiException {
+  private ApiResponse<Operation> updateSksClusterWithHttpInfo(UUID id, UpdateSksClusterRequest updateSksClusterRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateSksClusterRequestBuilder(id, updateSksClusterRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24484,7 +24484,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId, UpdateSksNodepoolRequest updateSksNodepoolRequest) throws ApiException {
+  private ApiResponse<Operation> updateSksNodepoolWithHttpInfo(UUID id, UUID sksNodepoolId, UpdateSksNodepoolRequest updateSksNodepoolRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateSksNodepoolRequestBuilder(id, sksNodepoolId, updateSksNodepoolRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24583,7 +24583,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> updateTemplateWithHttpInfo(UUID id, UpdateTemplateRequest updateTemplateRequest) throws ApiException {
+  private ApiResponse<Operation> updateTemplateWithHttpInfo(UUID id, UpdateTemplateRequest updateTemplateRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateTemplateRequestBuilder(id, updateTemplateRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24677,7 +24677,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> upgradeSksClusterWithHttpInfo(UUID id, UpgradeSksClusterRequest upgradeSksClusterRequest) throws ApiException {
+  private ApiResponse<Operation> upgradeSksClusterWithHttpInfo(UUID id, UpgradeSksClusterRequest upgradeSksClusterRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = upgradeSksClusterRequestBuilder(id, upgradeSksClusterRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24769,7 +24769,7 @@ public class ExoscaleApi {
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<Operation> upgradeSksClusterServiceLevelWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> upgradeSksClusterServiceLevelWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = upgradeSksClusterServiceLevelRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(

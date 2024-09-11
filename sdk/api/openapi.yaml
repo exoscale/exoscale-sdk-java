@@ -11399,10 +11399,12 @@ components:
           format: uuid
           readOnly: true
           type: string
+          x-go-findable: "1"
         ip:
           description: Elastic IP address
           readOnly: true
           type: string
+          x-go-findable: "2"
         addressfamily:
           description: Elastic IP address family
           enum:
@@ -12184,6 +12186,7 @@ components:
           format: uuid
           readOnly: true
           type: string
+          x-go-findable: "1"
         created-at:
           description: DNS domain creation date
           format: date-time
@@ -12194,6 +12197,7 @@ components:
           maxLength: 255
           minLength: 1
           type: string
+          x-go-findable: "2"
       type: object
     sks-kubeconfig-request:
       description: Kubeconfig request for a SKS cluster
@@ -13753,9 +13757,11 @@ components:
         name:
           description: IAM API Key name
           type: string
+          x-go-findable: "1"
         key:
           description: IAM API Key
           type: string
+          x-go-findable: "2"
         role-id:
           description: IAM API Key Role ID
           format: uuid
@@ -13982,10 +13988,12 @@ components:
           maxLength: 255
           minLength: 1
           type: string
+          x-go-findable: "1"
         fingerprint:
           description: SSH key fingerprint
           readOnly: true
           type: string
+          x-go-findable: "2"
       type: object
     load-balancer-service:
       description: Load Balancer Service
@@ -26078,6 +26086,7 @@ components:
           readOnly: true
           type: string
           x-go-type: Endpoint
+          x-go-findable: "2"
         sos-endpoint:
           description: Zone SOS endpoint
           readOnly: true
