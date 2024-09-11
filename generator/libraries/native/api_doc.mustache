@@ -33,6 +33,7 @@ import {{{invokerPackage}}}.ApiClient;
 import {{{invokerPackage}}}.ApiException;
 import {{{invokerPackage}}}.Configuration;{{#hasAuthMethods}}
 import {{{invokerPackage}}}.auth.*;{{/hasAuthMethods}}
+import {{{invokerPackage}}}.client.*;
 import {{{invokerPackage}}}.models.*;
 import {{{package}}}.{{{classname}}};{{#vendorExtensions.x-group-parameters}}
 import {{{package}}}.{{{classname}}}.*;{{/vendorExtensions.x-group-parameters}}
@@ -42,32 +43,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class Example {
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("{{{basePath}}}");
-        {{#hasAuthMethods}}
-        {{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
-        // Configure HTTP basic authorization: {{{name}}}
-        HttpBasicAuth {{{name}}} = (HttpBasicAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setUsername("YOUR USERNAME");
-        {{{name}}}.setPassword("YOUR PASSWORD");{{/isBasicBasic}}{{#isBasicBearer}}
-        // Configure HTTP bearer authorization: {{{name}}}
-        HttpBearerAuth {{{name}}} = (HttpBearerAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setBearerToken("BEARER TOKEN");{{/isBasicBearer}}{{/isBasic}}{{#isApiKey}}
-        // Configure API key authorization: {{{name}}}
-        ApiKeyAuth {{{name}}} = (ApiKeyAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //{{{name}}}.setApiKeyPrefix("Token");{{/isApiKey}}{{#isOAuth}}
-        // Configure OAuth2 access token for authorization: {{{name}}}
-        OAuth {{{name}}} = (OAuth) defaultClient.getAuthentication("{{{name}}}");
-        {{{name}}}.setAccessToken("YOUR ACCESS TOKEN");{{/isOAuth}}
-        {{/authMethods}}
-        {{/hasAuthMethods}}
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        {{{classname}}} apiInstance = new {{{classname}}}(defaultClient);
-        {{#allParams}}
-        {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
-        {{/allParams}}
         try {
             {{^vendorExtensions.x-group-parameters}}
             {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
