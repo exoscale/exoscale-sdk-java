@@ -5,565 +5,287 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addExternalSourceToSecurityGroup**](ExoscaleApi.md#addExternalSourceToSecurityGroup) | **PUT** /security-group/{id}:add-source | Add an external source as a member of a Security Group |
-| [**addExternalSourceToSecurityGroupWithHttpInfo**](ExoscaleApi.md#addExternalSourceToSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:add-source | Add an external source as a member of a Security Group |
 | [**addInstanceProtection**](ExoscaleApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection |
-| [**addInstanceProtectionWithHttpInfo**](ExoscaleApi.md#addInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:add-protection | Set instance destruction protection |
 | [**addRuleToSecurityGroup**](ExoscaleApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule |
-| [**addRuleToSecurityGroupWithHttpInfo**](ExoscaleApi.md#addRuleToSecurityGroupWithHttpInfo) | **POST** /security-group/{id}/rules | Create a Security Group rule |
 | [**addServiceToLoadBalancer**](ExoscaleApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service |
-| [**addServiceToLoadBalancerWithHttpInfo**](ExoscaleApi.md#addServiceToLoadBalancerWithHttpInfo) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service |
 | [**attachBlockStorageVolumeToInstance**](ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance |
-| [**attachBlockStorageVolumeToInstanceWithHttpInfo**](ExoscaleApi.md#attachBlockStorageVolumeToInstanceWithHttpInfo) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance |
 | [**attachDbaasServiceToEndpoint**](ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach |  |
-| [**attachDbaasServiceToEndpointWithHttpInfo**](ExoscaleApi.md#attachDbaasServiceToEndpointWithHttpInfo) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach |  |
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
-| [**attachInstanceToElasticIpWithHttpInfo**](ExoscaleApi.md#attachInstanceToElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToPrivateNetwork**](ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
-| [**attachInstanceToPrivateNetworkWithHttpInfo**](ExoscaleApi.md#attachInstanceToPrivateNetworkWithHttpInfo) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
-| [**attachInstanceToSecurityGroupWithHttpInfo**](ExoscaleApi.md#attachInstanceToSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
-| [**copyTemplateWithHttpInfo**](ExoscaleApi.md#copyTemplateWithHttpInfo) | **POST** /template/{id} | Copy a Template from a zone to another |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
-| [**createAntiAffinityGroupWithHttpInfo**](ExoscaleApi.md#createAntiAffinityGroupWithHttpInfo) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
-| [**createApiKeyWithHttpInfo**](ExoscaleApi.md#createApiKeyWithHttpInfo) | **POST** /api-key | Create a new API key |
 | [**createBlockStorageSnapshot**](ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
-| [**createBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#createBlockStorageSnapshotWithHttpInfo) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
 | [**createBlockStorageVolume**](ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume |
-| [**createBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#createBlockStorageVolumeWithHttpInfo) | **POST** /block-storage | Create a block storage volume |
 | [**createDbaasExternalEndpointDatadog**](ExoscaleApi.md#createDbaasExternalEndpointDatadog) | **POST** /dbaas-external-endpoint-datadog/{name} |  |
-| [**createDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointDatadogWithHttpInfo) | **POST** /dbaas-external-endpoint-datadog/{name} |  |
 | [**createDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#createDbaasExternalEndpointElasticsearch) | **POST** /dbaas-external-endpoint-elasticsearch/{name} |  |
-| [**createDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointElasticsearchWithHttpInfo) | **POST** /dbaas-external-endpoint-elasticsearch/{name} |  |
 | [**createDbaasExternalEndpointOpensearch**](ExoscaleApi.md#createDbaasExternalEndpointOpensearch) | **POST** /dbaas-external-endpoint-opensearch/{name} |  |
-| [**createDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointOpensearchWithHttpInfo) | **POST** /dbaas-external-endpoint-opensearch/{name} |  |
 | [**createDbaasExternalEndpointPrometheus**](ExoscaleApi.md#createDbaasExternalEndpointPrometheus) | **POST** /dbaas-external-endpoint-prometheus/{name} |  |
-| [**createDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointPrometheusWithHttpInfo) | **POST** /dbaas-external-endpoint-prometheus/{name} |  |
 | [**createDbaasExternalEndpointRsyslog**](ExoscaleApi.md#createDbaasExternalEndpointRsyslog) | **POST** /dbaas-external-endpoint-rsyslog/{name} |  |
-| [**createDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#createDbaasExternalEndpointRsyslogWithHttpInfo) | **POST** /dbaas-external-endpoint-rsyslog/{name} |  |
 | [**createDbaasIntegration**](ExoscaleApi.md#createDbaasIntegration) | **POST** /dbaas-integration |  |
-| [**createDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#createDbaasIntegrationWithHttpInfo) | **POST** /dbaas-integration |  |
 | [**createDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfig) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry |
-| [**createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](ExoscaleApi.md#createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/schema-registry/acl-config | Add a Kafka Schema Registry ACL entry |
 | [**createDbaasKafkaTopicAclConfig**](ExoscaleApi.md#createDbaasKafkaTopicAclConfig) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry |
-| [**createDbaasKafkaTopicAclConfigWithHttpInfo**](ExoscaleApi.md#createDbaasKafkaTopicAclConfigWithHttpInfo) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry |
 | [**createDbaasKafkaUser**](ExoscaleApi.md#createDbaasKafkaUser) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user |
-| [**createDbaasKafkaUserWithHttpInfo**](ExoscaleApi.md#createDbaasKafkaUserWithHttpInfo) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user |
 | [**createDbaasMysqlDatabase**](ExoscaleApi.md#createDbaasMysqlDatabase) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database |
-| [**createDbaasMysqlDatabaseWithHttpInfo**](ExoscaleApi.md#createDbaasMysqlDatabaseWithHttpInfo) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database |
 | [**createDbaasMysqlUser**](ExoscaleApi.md#createDbaasMysqlUser) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user |
-| [**createDbaasMysqlUserWithHttpInfo**](ExoscaleApi.md#createDbaasMysqlUserWithHttpInfo) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user |
 | [**createDbaasOpensearchUser**](ExoscaleApi.md#createDbaasOpensearchUser) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user |
-| [**createDbaasOpensearchUserWithHttpInfo**](ExoscaleApi.md#createDbaasOpensearchUserWithHttpInfo) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user |
 | [**createDbaasPgConnectionPool**](ExoscaleApi.md#createDbaasPgConnectionPool) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool |
-| [**createDbaasPgConnectionPoolWithHttpInfo**](ExoscaleApi.md#createDbaasPgConnectionPoolWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool |
 | [**createDbaasPgDatabase**](ExoscaleApi.md#createDbaasPgDatabase) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database |
-| [**createDbaasPgDatabaseWithHttpInfo**](ExoscaleApi.md#createDbaasPgDatabaseWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database |
 | [**createDbaasPgUpgradeCheck**](ExoscaleApi.md#createDbaasPgUpgradeCheck) | **POST** /dbaas-postgres/{service}/upgrade-check |  |
-| [**createDbaasPgUpgradeCheckWithHttpInfo**](ExoscaleApi.md#createDbaasPgUpgradeCheckWithHttpInfo) | **POST** /dbaas-postgres/{service}/upgrade-check |  |
 | [**createDbaasPostgresUser**](ExoscaleApi.md#createDbaasPostgresUser) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user |
-| [**createDbaasPostgresUserWithHttpInfo**](ExoscaleApi.md#createDbaasPostgresUserWithHttpInfo) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user |
 | [**createDbaasRedisUser**](ExoscaleApi.md#createDbaasRedisUser) | **POST** /dbaas-redis/{service-name}/user | Create a DBaaS Redis user |
-| [**createDbaasRedisUserWithHttpInfo**](ExoscaleApi.md#createDbaasRedisUserWithHttpInfo) | **POST** /dbaas-redis/{service-name}/user | Create a DBaaS Redis user |
 | [**createDbaasServiceGrafana**](ExoscaleApi.md#createDbaasServiceGrafana) | **POST** /dbaas-grafana/{name} |  |
-| [**createDbaasServiceGrafanaWithHttpInfo**](ExoscaleApi.md#createDbaasServiceGrafanaWithHttpInfo) | **POST** /dbaas-grafana/{name} |  |
 | [**createDbaasServiceKafka**](ExoscaleApi.md#createDbaasServiceKafka) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service |
-| [**createDbaasServiceKafkaWithHttpInfo**](ExoscaleApi.md#createDbaasServiceKafkaWithHttpInfo) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service |
 | [**createDbaasServiceMysql**](ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service |
-| [**createDbaasServiceMysqlWithHttpInfo**](ExoscaleApi.md#createDbaasServiceMysqlWithHttpInfo) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service |
 | [**createDbaasServiceOpensearch**](ExoscaleApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service |
-| [**createDbaasServiceOpensearchWithHttpInfo**](ExoscaleApi.md#createDbaasServiceOpensearchWithHttpInfo) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service |
 | [**createDbaasServicePg**](ExoscaleApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service |
-| [**createDbaasServicePgWithHttpInfo**](ExoscaleApi.md#createDbaasServicePgWithHttpInfo) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service |
 | [**createDbaasServiceRedis**](ExoscaleApi.md#createDbaasServiceRedis) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service |
-| [**createDbaasServiceRedisWithHttpInfo**](ExoscaleApi.md#createDbaasServiceRedisWithHttpInfo) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service |
 | [**createDbaasTaskMigrationCheck**](ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} |  |
-| [**createDbaasTaskMigrationCheckWithHttpInfo**](ExoscaleApi.md#createDbaasTaskMigrationCheckWithHttpInfo) | **POST** /dbaas-task-migration-check/{service} |  |
 | [**createDnsDomain**](ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain |
-| [**createDnsDomainWithHttpInfo**](ExoscaleApi.md#createDnsDomainWithHttpInfo) | **POST** /dns-domain | Create DNS domain |
 | [**createDnsDomainRecord**](ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
-| [**createDnsDomainRecordWithHttpInfo**](ExoscaleApi.md#createDnsDomainRecordWithHttpInfo) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
 | [**createElasticIp**](ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP |
-| [**createElasticIpWithHttpInfo**](ExoscaleApi.md#createElasticIpWithHttpInfo) | **POST** /elastic-ip | Create an Elastic IP |
 | [**createIamRole**](ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role |
-| [**createIamRoleWithHttpInfo**](ExoscaleApi.md#createIamRoleWithHttpInfo) | **POST** /iam-role | Create IAM Role |
 | [**createInstance**](ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance |
-| [**createInstanceWithHttpInfo**](ExoscaleApi.md#createInstanceWithHttpInfo) | **POST** /instance | Create a Compute instance |
 | [**createInstancePool**](ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool |
-| [**createInstancePoolWithHttpInfo**](ExoscaleApi.md#createInstancePoolWithHttpInfo) | **POST** /instance-pool | Create an Instance Pool |
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
-| [**createLoadBalancerWithHttpInfo**](ExoscaleApi.md#createLoadBalancerWithHttpInfo) | **POST** /load-balancer | Create a Load Balancer |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
-| [**createPrivateNetworkWithHttpInfo**](ExoscaleApi.md#createPrivateNetworkWithHttpInfo) | **POST** /private-network | Create a Private Network |
 | [**createSecurityGroup**](ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group |
-| [**createSecurityGroupWithHttpInfo**](ExoscaleApi.md#createSecurityGroupWithHttpInfo) | **POST** /security-group | Create a Security Group |
 | [**createSksCluster**](ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster |
-| [**createSksClusterWithHttpInfo**](ExoscaleApi.md#createSksClusterWithHttpInfo) | **POST** /sks-cluster | Create an SKS cluster |
 | [**createSksNodepool**](ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
-| [**createSksNodepoolWithHttpInfo**](ExoscaleApi.md#createSksNodepoolWithHttpInfo) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
-| [**createSnapshotWithHttpInfo**](ExoscaleApi.md#createSnapshotWithHttpInfo) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
-| [**deleteAntiAffinityGroupWithHttpInfo**](ExoscaleApi.md#deleteAntiAffinityGroupWithHttpInfo) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
-| [**deleteApiKeyWithHttpInfo**](ExoscaleApi.md#deleteApiKeyWithHttpInfo) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
-| [**deleteBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#deleteBlockStorageSnapshotWithHttpInfo) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
-| [**deleteBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#deleteBlockStorageVolumeWithHttpInfo) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
 | [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{id} |  |
-| [**deleteDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-datadog/{id} |  |
 | [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} |  |
-| [**deleteDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearchWithHttpInfo) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} |  |
 | [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{id} |  |
-| [**deleteDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearchWithHttpInfo) | **DELETE** /dbaas-external-endpoint-opensearch/{id} |  |
 | [**deleteDbaasExternalEndpointPrometheus**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{id} |  |
-| [**deleteDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheusWithHttpInfo) | **DELETE** /dbaas-external-endpoint-prometheus/{id} |  |
 | [**deleteDbaasExternalEndpointRsyslog**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
-| [**deleteDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslogWithHttpInfo) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**deleteDbaasIntegration**](ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} |  |
-| [**deleteDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#deleteDbaasIntegrationWithHttpInfo) | **DELETE** /dbaas-integration/{id} |  |
 | [**deleteDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry |
-| [**deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo**](ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry |
 | [**deleteDbaasKafkaTopicAclConfig**](ExoscaleApi.md#deleteDbaasKafkaTopicAclConfig) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry |
-| [**deleteDbaasKafkaTopicAclConfigWithHttpInfo**](ExoscaleApi.md#deleteDbaasKafkaTopicAclConfigWithHttpInfo) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry |
 | [**deleteDbaasKafkaUser**](ExoscaleApi.md#deleteDbaasKafkaUser) | **DELETE** /dbaas-kafka/{service-name}/user/{username} | Delete a DBaaS kafka user |
-| [**deleteDbaasKafkaUserWithHttpInfo**](ExoscaleApi.md#deleteDbaasKafkaUserWithHttpInfo) | **DELETE** /dbaas-kafka/{service-name}/user/{username} | Delete a DBaaS kafka user |
 | [**deleteDbaasMysqlDatabase**](ExoscaleApi.md#deleteDbaasMysqlDatabase) | **DELETE** /dbaas-mysql/{service-name}/database/{database-name} | Delete a DBaaS MySQL database |
-| [**deleteDbaasMysqlDatabaseWithHttpInfo**](ExoscaleApi.md#deleteDbaasMysqlDatabaseWithHttpInfo) | **DELETE** /dbaas-mysql/{service-name}/database/{database-name} | Delete a DBaaS MySQL database |
 | [**deleteDbaasMysqlUser**](ExoscaleApi.md#deleteDbaasMysqlUser) | **DELETE** /dbaas-mysql/{service-name}/user/{username} | Delete a DBaaS MySQL user |
-| [**deleteDbaasMysqlUserWithHttpInfo**](ExoscaleApi.md#deleteDbaasMysqlUserWithHttpInfo) | **DELETE** /dbaas-mysql/{service-name}/user/{username} | Delete a DBaaS MySQL user |
 | [**deleteDbaasOpensearchUser**](ExoscaleApi.md#deleteDbaasOpensearchUser) | **DELETE** /dbaas-opensearch/{service-name}/user/{username} | Delete a DBaaS OpenSearch user |
-| [**deleteDbaasOpensearchUserWithHttpInfo**](ExoscaleApi.md#deleteDbaasOpensearchUserWithHttpInfo) | **DELETE** /dbaas-opensearch/{service-name}/user/{username} | Delete a DBaaS OpenSearch user |
 | [**deleteDbaasPgConnectionPool**](ExoscaleApi.md#deleteDbaasPgConnectionPool) | **DELETE** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Delete a DBaaS PostgreSQL connection pool |
-| [**deleteDbaasPgConnectionPoolWithHttpInfo**](ExoscaleApi.md#deleteDbaasPgConnectionPoolWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Delete a DBaaS PostgreSQL connection pool |
 | [**deleteDbaasPgDatabase**](ExoscaleApi.md#deleteDbaasPgDatabase) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database |
-| [**deleteDbaasPgDatabaseWithHttpInfo**](ExoscaleApi.md#deleteDbaasPgDatabaseWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database |
 | [**deleteDbaasPostgresUser**](ExoscaleApi.md#deleteDbaasPostgresUser) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user |
-| [**deleteDbaasPostgresUserWithHttpInfo**](ExoscaleApi.md#deleteDbaasPostgresUserWithHttpInfo) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user |
 | [**deleteDbaasRedisUser**](ExoscaleApi.md#deleteDbaasRedisUser) | **DELETE** /dbaas-redis/{service-name}/user/{username} | Delete a DBaaS Redis user |
-| [**deleteDbaasRedisUserWithHttpInfo**](ExoscaleApi.md#deleteDbaasRedisUserWithHttpInfo) | **DELETE** /dbaas-redis/{service-name}/user/{username} | Delete a DBaaS Redis user |
 | [**deleteDbaasService**](ExoscaleApi.md#deleteDbaasService) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service |
-| [**deleteDbaasServiceWithHttpInfo**](ExoscaleApi.md#deleteDbaasServiceWithHttpInfo) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service |
 | [**deleteDbaasServiceGrafana**](ExoscaleApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service |
-| [**deleteDbaasServiceGrafanaWithHttpInfo**](ExoscaleApi.md#deleteDbaasServiceGrafanaWithHttpInfo) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service |
 | [**deleteDbaasServiceKafka**](ExoscaleApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service |
-| [**deleteDbaasServiceKafkaWithHttpInfo**](ExoscaleApi.md#deleteDbaasServiceKafkaWithHttpInfo) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service |
 | [**deleteDbaasServiceMysql**](ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service |
-| [**deleteDbaasServiceMysqlWithHttpInfo**](ExoscaleApi.md#deleteDbaasServiceMysqlWithHttpInfo) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service |
 | [**deleteDbaasServiceOpensearch**](ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service |
-| [**deleteDbaasServiceOpensearchWithHttpInfo**](ExoscaleApi.md#deleteDbaasServiceOpensearchWithHttpInfo) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service |
 | [**deleteDbaasServicePg**](ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service |
-| [**deleteDbaasServicePgWithHttpInfo**](ExoscaleApi.md#deleteDbaasServicePgWithHttpInfo) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service |
 | [**deleteDbaasServiceRedis**](ExoscaleApi.md#deleteDbaasServiceRedis) | **DELETE** /dbaas-redis/{name} | Delete a Redis service |
-| [**deleteDbaasServiceRedisWithHttpInfo**](ExoscaleApi.md#deleteDbaasServiceRedisWithHttpInfo) | **DELETE** /dbaas-redis/{name} | Delete a Redis service |
 | [**deleteDnsDomain**](ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
-| [**deleteDnsDomainWithHttpInfo**](ExoscaleApi.md#deleteDnsDomainWithHttpInfo) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
 | [**deleteDnsDomainRecord**](ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
-| [**deleteDnsDomainRecordWithHttpInfo**](ExoscaleApi.md#deleteDnsDomainRecordWithHttpInfo) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
 | [**deleteElasticIp**](ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP |
-| [**deleteElasticIpWithHttpInfo**](ExoscaleApi.md#deleteElasticIpWithHttpInfo) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP |
 | [**deleteIamRole**](ExoscaleApi.md#deleteIamRole) | **DELETE** /iam-role/{id} | Delete IAM Role |
-| [**deleteIamRoleWithHttpInfo**](ExoscaleApi.md#deleteIamRoleWithHttpInfo) | **DELETE** /iam-role/{id} | Delete IAM Role |
 | [**deleteInstance**](ExoscaleApi.md#deleteInstance) | **DELETE** /instance/{id} | Delete a Compute instance |
-| [**deleteInstanceWithHttpInfo**](ExoscaleApi.md#deleteInstanceWithHttpInfo) | **DELETE** /instance/{id} | Delete a Compute instance |
 | [**deleteInstancePool**](ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool |
-| [**deleteInstancePoolWithHttpInfo**](ExoscaleApi.md#deleteInstancePoolWithHttpInfo) | **DELETE** /instance-pool/{id} | Delete an Instance Pool |
 | [**deleteLoadBalancer**](ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer |
-| [**deleteLoadBalancerWithHttpInfo**](ExoscaleApi.md#deleteLoadBalancerWithHttpInfo) | **DELETE** /load-balancer/{id} | Delete a Load Balancer |
 | [**deleteLoadBalancerService**](ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service |
-| [**deleteLoadBalancerServiceWithHttpInfo**](ExoscaleApi.md#deleteLoadBalancerServiceWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service |
 | [**deletePrivateNetwork**](ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network |
-| [**deletePrivateNetworkWithHttpInfo**](ExoscaleApi.md#deletePrivateNetworkWithHttpInfo) | **DELETE** /private-network/{id} | Delete a Private Network |
 | [**deleteReverseDnsElasticIp**](ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP |
-| [**deleteReverseDnsElasticIpWithHttpInfo**](ExoscaleApi.md#deleteReverseDnsElasticIpWithHttpInfo) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP |
 | [**deleteReverseDnsInstance**](ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance |
-| [**deleteReverseDnsInstanceWithHttpInfo**](ExoscaleApi.md#deleteReverseDnsInstanceWithHttpInfo) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance |
 | [**deleteRuleFromSecurityGroup**](ExoscaleApi.md#deleteRuleFromSecurityGroup) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule |
-| [**deleteRuleFromSecurityGroupWithHttpInfo**](ExoscaleApi.md#deleteRuleFromSecurityGroupWithHttpInfo) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule |
 | [**deleteSecurityGroup**](ExoscaleApi.md#deleteSecurityGroup) | **DELETE** /security-group/{id} | Delete a Security Group |
-| [**deleteSecurityGroupWithHttpInfo**](ExoscaleApi.md#deleteSecurityGroupWithHttpInfo) | **DELETE** /security-group/{id} | Delete a Security Group |
 | [**deleteSksCluster**](ExoscaleApi.md#deleteSksCluster) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster |
-| [**deleteSksClusterWithHttpInfo**](ExoscaleApi.md#deleteSksClusterWithHttpInfo) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster |
 | [**deleteSksNodepool**](ExoscaleApi.md#deleteSksNodepool) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool |
-| [**deleteSksNodepoolWithHttpInfo**](ExoscaleApi.md#deleteSksNodepoolWithHttpInfo) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool |
 | [**deleteSnapshot**](ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot |
-| [**deleteSnapshotWithHttpInfo**](ExoscaleApi.md#deleteSnapshotWithHttpInfo) | **DELETE** /snapshot/{id} | Delete a Snapshot |
 | [**deleteSshKey**](ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key |
-| [**deleteSshKeyWithHttpInfo**](ExoscaleApi.md#deleteSshKeyWithHttpInfo) | **DELETE** /ssh-key/{name} | Delete a SSH key |
 | [**deleteTemplate**](ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template |
-| [**deleteTemplateWithHttpInfo**](ExoscaleApi.md#deleteTemplateWithHttpInfo) | **DELETE** /template/{id} | Delete a Template |
 | [**detachBlockStorageVolume**](ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
-| [**detachBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#detachBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
 | [**detachDbaasServiceFromEndpoint**](ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
-| [**detachDbaasServiceFromEndpointWithHttpInfo**](ExoscaleApi.md#detachDbaasServiceFromEndpointWithHttpInfo) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
-| [**detachInstanceFromElasticIpWithHttpInfo**](ExoscaleApi.md#detachInstanceFromElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
 | [**detachInstanceFromPrivateNetwork**](ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
-| [**detachInstanceFromPrivateNetworkWithHttpInfo**](ExoscaleApi.md#detachInstanceFromPrivateNetworkWithHttpInfo) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
 | [**detachInstanceFromSecurityGroup**](ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group |
-| [**detachInstanceFromSecurityGroupWithHttpInfo**](ExoscaleApi.md#detachInstanceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group |
 | [**enableDbaasMysqlWrites**](ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage |
-| [**enableDbaasMysqlWritesWithHttpInfo**](ExoscaleApi.md#enableDbaasMysqlWritesWithHttpInfo) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage |
 | [**evictInstancePoolMembers**](ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members |
-| [**evictInstancePoolMembersWithHttpInfo**](ExoscaleApi.md#evictInstancePoolMembersWithHttpInfo) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members |
 | [**evictSksNodepoolMembers**](ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members |
-| [**evictSksNodepoolMembersWithHttpInfo**](ExoscaleApi.md#evictSksNodepoolMembersWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members |
 | [**exportSnapshot**](ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot |
-| [**exportSnapshotWithHttpInfo**](ExoscaleApi.md#exportSnapshotWithHttpInfo) | **POST** /snapshot/{id}:export | Export a Snapshot |
 | [**generateSksClusterKubeconfig**](ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster |
-| [**generateSksClusterKubeconfigWithHttpInfo**](ExoscaleApi.md#generateSksClusterKubeconfigWithHttpInfo) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster |
 | [**getAntiAffinityGroup**](ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details |
-| [**getAntiAffinityGroupWithHttpInfo**](ExoscaleApi.md#getAntiAffinityGroupWithHttpInfo) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details |
 | [**getApiKey**](ExoscaleApi.md#getApiKey) | **GET** /api-key/{id} | Get API key |
-| [**getApiKeyWithHttpInfo**](ExoscaleApi.md#getApiKeyWithHttpInfo) | **GET** /api-key/{id} | Get API key |
 | [**getBlockStorageSnapshot**](ExoscaleApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details |
-| [**getBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#getBlockStorageSnapshotWithHttpInfo) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details |
 | [**getBlockStorageVolume**](ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details |
-| [**getBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#getBlockStorageVolumeWithHttpInfo) | **GET** /block-storage/{id} | Retrieve block storage volume details |
 | [**getConsoleProxyUrl**](ExoscaleApi.md#getConsoleProxyUrl) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console. |
-| [**getConsoleProxyUrlWithHttpInfo**](ExoscaleApi.md#getConsoleProxyUrlWithHttpInfo) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console. |
 | [**getDbaasCaCertificate**](ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
-| [**getDbaasCaCertificateWithHttpInfo**](ExoscaleApi.md#getDbaasCaCertificateWithHttpInfo) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
 | [**getDbaasExternalEndpointDatadog**](ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{id} |  |
-| [**getDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointDatadogWithHttpInfo) | **GET** /dbaas-external-endpoint-datadog/{id} |  |
 | [**getDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{id} |  |
-| [**getDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearchWithHttpInfo) | **GET** /dbaas-external-endpoint-elasticsearch/{id} |  |
 | [**getDbaasExternalEndpointOpensearch**](ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{id} |  |
-| [**getDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointOpensearchWithHttpInfo) | **GET** /dbaas-external-endpoint-opensearch/{id} |  |
 | [**getDbaasExternalEndpointPrometheus**](ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{id} |  |
-| [**getDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointPrometheusWithHttpInfo) | **GET** /dbaas-external-endpoint-prometheus/{id} |  |
 | [**getDbaasExternalEndpointRsyslog**](ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{id} |  |
-| [**getDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#getDbaasExternalEndpointRsyslogWithHttpInfo) | **GET** /dbaas-external-endpoint-rsyslog/{id} |  |
 | [**getDbaasExternalIntegration**](ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} |  |
-| [**getDbaasExternalIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasExternalIntegrationWithHttpInfo) | **GET** /dbaas-external-integration/{id} |  |
+| [**getDbaasExternalIntegrationSettingsDatadog**](ExoscaleApi.md#getDbaasExternalIntegrationSettingsDatadog) | **GET** /dbaas-external-integration-settings-datadog/{integration-id} |  |
 | [**getDbaasIntegration**](ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} |  |
-| [**getDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#getDbaasIntegrationWithHttpInfo) | **GET** /dbaas-integration/{id} |  |
 | [**getDbaasKafkaAclConfig**](ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
-| [**getDbaasKafkaAclConfigWithHttpInfo**](ExoscaleApi.md#getDbaasKafkaAclConfigWithHttpInfo) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
 | [**getDbaasMigrationStatus**](ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status |
-| [**getDbaasMigrationStatusWithHttpInfo**](ExoscaleApi.md#getDbaasMigrationStatusWithHttpInfo) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status |
 | [**getDbaasOpensearchAclConfig**](ExoscaleApi.md#getDbaasOpensearchAclConfig) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration |
-| [**getDbaasOpensearchAclConfigWithHttpInfo**](ExoscaleApi.md#getDbaasOpensearchAclConfigWithHttpInfo) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration |
 | [**getDbaasServiceGrafana**](ExoscaleApi.md#getDbaasServiceGrafana) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service |
-| [**getDbaasServiceGrafanaWithHttpInfo**](ExoscaleApi.md#getDbaasServiceGrafanaWithHttpInfo) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service |
 | [**getDbaasServiceKafka**](ExoscaleApi.md#getDbaasServiceKafka) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service |
-| [**getDbaasServiceKafkaWithHttpInfo**](ExoscaleApi.md#getDbaasServiceKafkaWithHttpInfo) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service |
 | [**getDbaasServiceLogs**](ExoscaleApi.md#getDbaasServiceLogs) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service |
-| [**getDbaasServiceLogsWithHttpInfo**](ExoscaleApi.md#getDbaasServiceLogsWithHttpInfo) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service |
 | [**getDbaasServiceMetrics**](ExoscaleApi.md#getDbaasServiceMetrics) | **POST** /dbaas-service-metrics/{service-name} | Get metrics of DBaaS service |
-| [**getDbaasServiceMetricsWithHttpInfo**](ExoscaleApi.md#getDbaasServiceMetricsWithHttpInfo) | **POST** /dbaas-service-metrics/{service-name} | Get metrics of DBaaS service |
 | [**getDbaasServiceMysql**](ExoscaleApi.md#getDbaasServiceMysql) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service |
-| [**getDbaasServiceMysqlWithHttpInfo**](ExoscaleApi.md#getDbaasServiceMysqlWithHttpInfo) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service |
 | [**getDbaasServiceOpensearch**](ExoscaleApi.md#getDbaasServiceOpensearch) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service |
-| [**getDbaasServiceOpensearchWithHttpInfo**](ExoscaleApi.md#getDbaasServiceOpensearchWithHttpInfo) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service |
 | [**getDbaasServicePg**](ExoscaleApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service |
-| [**getDbaasServicePgWithHttpInfo**](ExoscaleApi.md#getDbaasServicePgWithHttpInfo) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service |
 | [**getDbaasServiceRedis**](ExoscaleApi.md#getDbaasServiceRedis) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service |
-| [**getDbaasServiceRedisWithHttpInfo**](ExoscaleApi.md#getDbaasServiceRedisWithHttpInfo) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service |
 | [**getDbaasServiceType**](ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type |
-| [**getDbaasServiceTypeWithHttpInfo**](ExoscaleApi.md#getDbaasServiceTypeWithHttpInfo) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type |
 | [**getDbaasSettingsGrafana**](ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings |
-| [**getDbaasSettingsGrafanaWithHttpInfo**](ExoscaleApi.md#getDbaasSettingsGrafanaWithHttpInfo) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings |
 | [**getDbaasSettingsKafka**](ExoscaleApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings |
-| [**getDbaasSettingsKafkaWithHttpInfo**](ExoscaleApi.md#getDbaasSettingsKafkaWithHttpInfo) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings |
 | [**getDbaasSettingsMysql**](ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings |
-| [**getDbaasSettingsMysqlWithHttpInfo**](ExoscaleApi.md#getDbaasSettingsMysqlWithHttpInfo) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings |
 | [**getDbaasSettingsOpensearch**](ExoscaleApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings |
-| [**getDbaasSettingsOpensearchWithHttpInfo**](ExoscaleApi.md#getDbaasSettingsOpensearchWithHttpInfo) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings |
 | [**getDbaasSettingsPg**](ExoscaleApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings |
-| [**getDbaasSettingsPgWithHttpInfo**](ExoscaleApi.md#getDbaasSettingsPgWithHttpInfo) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings |
 | [**getDbaasSettingsRedis**](ExoscaleApi.md#getDbaasSettingsRedis) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings |
-| [**getDbaasSettingsRedisWithHttpInfo**](ExoscaleApi.md#getDbaasSettingsRedisWithHttpInfo) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings |
 | [**getDbaasTask**](ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
-| [**getDbaasTaskWithHttpInfo**](ExoscaleApi.md#getDbaasTaskWithHttpInfo) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
 | [**getDeployTarget**](ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
-| [**getDeployTargetWithHttpInfo**](ExoscaleApi.md#getDeployTargetWithHttpInfo) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
 | [**getDnsDomain**](ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
-| [**getDnsDomainWithHttpInfo**](ExoscaleApi.md#getDnsDomainWithHttpInfo) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
-| [**getDnsDomainRecordWithHttpInfo**](ExoscaleApi.md#getDnsDomainRecordWithHttpInfo) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
-| [**getDnsDomainZoneFileWithHttpInfo**](ExoscaleApi.md#getDnsDomainZoneFileWithHttpInfo) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
 | [**getElasticIp**](ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details |
-| [**getElasticIpWithHttpInfo**](ExoscaleApi.md#getElasticIpWithHttpInfo) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
-| [**getIamOrganizationPolicyWithHttpInfo**](ExoscaleApi.md#getIamOrganizationPolicyWithHttpInfo) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
-| [**getIamRoleWithHttpInfo**](ExoscaleApi.md#getIamRoleWithHttpInfo) | **GET** /iam-role/{id} | Retrieve IAM Role |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
-| [**getInstanceWithHttpInfo**](ExoscaleApi.md#getInstanceWithHttpInfo) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
-| [**getInstancePoolWithHttpInfo**](ExoscaleApi.md#getInstancePoolWithHttpInfo) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
-| [**getInstanceTypeWithHttpInfo**](ExoscaleApi.md#getInstanceTypeWithHttpInfo) | **GET** /instance-type/{id} | Retrieve Instance Type details |
 | [**getLoadBalancer**](ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
-| [**getLoadBalancerWithHttpInfo**](ExoscaleApi.md#getLoadBalancerWithHttpInfo) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
 | [**getLoadBalancerService**](ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details |
-| [**getLoadBalancerServiceWithHttpInfo**](ExoscaleApi.md#getLoadBalancerServiceWithHttpInfo) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details |
 | [**getOperation**](ExoscaleApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details |
-| [**getOperationWithHttpInfo**](ExoscaleApi.md#getOperationWithHttpInfo) | **GET** /operation/{id} | Retrieve Operation details |
 | [**getOrganization**](ExoscaleApi.md#getOrganization) | **GET** /organization | Retrieve an organization |
-| [**getOrganizationWithHttpInfo**](ExoscaleApi.md#getOrganizationWithHttpInfo) | **GET** /organization | Retrieve an organization |
 | [**getPrivateNetwork**](ExoscaleApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details |
-| [**getPrivateNetworkWithHttpInfo**](ExoscaleApi.md#getPrivateNetworkWithHttpInfo) | **GET** /private-network/{id} | Retrieve Private Network details |
 | [**getQuota**](ExoscaleApi.md#getQuota) | **GET** /quota/{entity} | Retrieve Resource Quota |
-| [**getQuotaWithHttpInfo**](ExoscaleApi.md#getQuotaWithHttpInfo) | **GET** /quota/{entity} | Retrieve Resource Quota |
 | [**getReverseDnsElasticIp**](ExoscaleApi.md#getReverseDnsElasticIp) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP |
-| [**getReverseDnsElasticIpWithHttpInfo**](ExoscaleApi.md#getReverseDnsElasticIpWithHttpInfo) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP |
 | [**getReverseDnsInstance**](ExoscaleApi.md#getReverseDnsInstance) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance |
-| [**getReverseDnsInstanceWithHttpInfo**](ExoscaleApi.md#getReverseDnsInstanceWithHttpInfo) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance |
 | [**getSecurityGroup**](ExoscaleApi.md#getSecurityGroup) | **GET** /security-group/{id} | Retrieve Security Group details |
-| [**getSecurityGroupWithHttpInfo**](ExoscaleApi.md#getSecurityGroupWithHttpInfo) | **GET** /security-group/{id} | Retrieve Security Group details |
 | [**getSksCluster**](ExoscaleApi.md#getSksCluster) | **GET** /sks-cluster/{id} | Retrieve SKS cluster details |
-| [**getSksClusterWithHttpInfo**](ExoscaleApi.md#getSksClusterWithHttpInfo) | **GET** /sks-cluster/{id} | Retrieve SKS cluster details |
 | [**getSksClusterAuthorityCert**](ExoscaleApi.md#getSksClusterAuthorityCert) | **GET** /sks-cluster/{id}/authority/{authority}/cert | Get the certificate for a SKS cluster authority |
-| [**getSksClusterAuthorityCertWithHttpInfo**](ExoscaleApi.md#getSksClusterAuthorityCertWithHttpInfo) | **GET** /sks-cluster/{id}/authority/{authority}/cert | Get the certificate for a SKS cluster authority |
 | [**getSksClusterInspection**](ExoscaleApi.md#getSksClusterInspection) | **GET** /sks-cluster/{id}/inspection | Get the latest inspection result |
-| [**getSksClusterInspectionWithHttpInfo**](ExoscaleApi.md#getSksClusterInspectionWithHttpInfo) | **GET** /sks-cluster/{id}/inspection | Get the latest inspection result |
 | [**getSksNodepool**](ExoscaleApi.md#getSksNodepool) | **GET** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Retrieve SKS Nodepool details |
-| [**getSksNodepoolWithHttpInfo**](ExoscaleApi.md#getSksNodepoolWithHttpInfo) | **GET** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Retrieve SKS Nodepool details |
 | [**getSnapshot**](ExoscaleApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details |
-| [**getSnapshotWithHttpInfo**](ExoscaleApi.md#getSnapshotWithHttpInfo) | **GET** /snapshot/{id} | Retrieve Snapshot details |
 | [**getSosPresignedUrl**](ExoscaleApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object |
-| [**getSosPresignedUrlWithHttpInfo**](ExoscaleApi.md#getSosPresignedUrlWithHttpInfo) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object |
 | [**getSshKey**](ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details |
-| [**getSshKeyWithHttpInfo**](ExoscaleApi.md#getSshKeyWithHttpInfo) | **GET** /ssh-key/{name} | Retrieve SSH key details |
 | [**getTemplate**](ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details |
-| [**getTemplateWithHttpInfo**](ExoscaleApi.md#getTemplateWithHttpInfo) | **GET** /template/{id} | Retrieve Template details |
 | [**listAntiAffinityGroups**](ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups |
-| [**listAntiAffinityGroupsWithHttpInfo**](ExoscaleApi.md#listAntiAffinityGroupsWithHttpInfo) | **GET** /anti-affinity-group | List Anti-affinity Groups |
 | [**listApiKeys**](ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys |
-| [**listApiKeysWithHttpInfo**](ExoscaleApi.md#listApiKeysWithHttpInfo) | **GET** /api-key | List API keys |
 | [**listBlockStorageSnapshots**](ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots |
-| [**listBlockStorageSnapshotsWithHttpInfo**](ExoscaleApi.md#listBlockStorageSnapshotsWithHttpInfo) | **GET** /block-storage-snapshot | List block storage snapshots |
 | [**listBlockStorageVolumes**](ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes |
-| [**listBlockStorageVolumesWithHttpInfo**](ExoscaleApi.md#listBlockStorageVolumesWithHttpInfo) | **GET** /block-storage | List block storage volumes |
 | [**listDbaasExternalEndpointTypes**](ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types |  |
-| [**listDbaasExternalEndpointTypesWithHttpInfo**](ExoscaleApi.md#listDbaasExternalEndpointTypesWithHttpInfo) | **GET** /dbaas-external-endpoint-types |  |
 | [**listDbaasExternalEndpoints**](ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints |  |
-| [**listDbaasExternalEndpointsWithHttpInfo**](ExoscaleApi.md#listDbaasExternalEndpointsWithHttpInfo) | **GET** /dbaas-external-endpoints |  |
 | [**listDbaasExternalIntegrations**](ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} |  |
-| [**listDbaasExternalIntegrationsWithHttpInfo**](ExoscaleApi.md#listDbaasExternalIntegrationsWithHttpInfo) | **GET** /dbaas-external-integrations/{service-name} |  |
 | [**listDbaasIntegrationSettings**](ExoscaleApi.md#listDbaasIntegrationSettings) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} |  |
-| [**listDbaasIntegrationSettingsWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationSettingsWithHttpInfo) | **GET** /dbaas-integration-settings/{integration-type}/{source-type}/{dest-type} |  |
 | [**listDbaasIntegrationTypes**](ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types |  |
-| [**listDbaasIntegrationTypesWithHttpInfo**](ExoscaleApi.md#listDbaasIntegrationTypesWithHttpInfo) | **GET** /dbaas-integration-types |  |
 | [**listDbaasServiceTypes**](ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types |
-| [**listDbaasServiceTypesWithHttpInfo**](ExoscaleApi.md#listDbaasServiceTypesWithHttpInfo) | **GET** /dbaas-service-type | DBaaS Service Types |
 | [**listDbaasServices**](ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services |
-| [**listDbaasServicesWithHttpInfo**](ExoscaleApi.md#listDbaasServicesWithHttpInfo) | **GET** /dbaas-service | List DBaaS services |
 | [**listDeployTargets**](ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets |
-| [**listDeployTargetsWithHttpInfo**](ExoscaleApi.md#listDeployTargetsWithHttpInfo) | **GET** /deploy-target | List Deploy Targets |
 | [**listDnsDomainRecords**](ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
-| [**listDnsDomainRecordsWithHttpInfo**](ExoscaleApi.md#listDnsDomainRecordsWithHttpInfo) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
 | [**listDnsDomains**](ExoscaleApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains |
-| [**listDnsDomainsWithHttpInfo**](ExoscaleApi.md#listDnsDomainsWithHttpInfo) | **GET** /dns-domain | List DNS domains |
 | [**listElasticIps**](ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs |
-| [**listElasticIpsWithHttpInfo**](ExoscaleApi.md#listElasticIpsWithHttpInfo) | **GET** /elastic-ip | List Elastic IPs |
 | [**listEvents**](ExoscaleApi.md#listEvents) | **GET** /event | List Events |
-| [**listEventsWithHttpInfo**](ExoscaleApi.md#listEventsWithHttpInfo) | **GET** /event | List Events |
 | [**listIamRoles**](ExoscaleApi.md#listIamRoles) | **GET** /iam-role | List IAM Roles |
-| [**listIamRolesWithHttpInfo**](ExoscaleApi.md#listIamRolesWithHttpInfo) | **GET** /iam-role | List IAM Roles |
 | [**listInstancePools**](ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools |
-| [**listInstancePoolsWithHttpInfo**](ExoscaleApi.md#listInstancePoolsWithHttpInfo) | **GET** /instance-pool | List Instance Pools |
 | [**listInstanceTypes**](ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types |
-| [**listInstanceTypesWithHttpInfo**](ExoscaleApi.md#listInstanceTypesWithHttpInfo) | **GET** /instance-type | List Compute instance Types |
 | [**listInstances**](ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances |
-| [**listInstancesWithHttpInfo**](ExoscaleApi.md#listInstancesWithHttpInfo) | **GET** /instance | List Compute instances |
 | [**listLoadBalancers**](ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers |
-| [**listLoadBalancersWithHttpInfo**](ExoscaleApi.md#listLoadBalancersWithHttpInfo) | **GET** /load-balancer | List Load Balancers |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
-| [**listPrivateNetworksWithHttpInfo**](ExoscaleApi.md#listPrivateNetworksWithHttpInfo) | **GET** /private-network | List Private Networks |
 | [**listQuotas**](ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas |
-| [**listQuotasWithHttpInfo**](ExoscaleApi.md#listQuotasWithHttpInfo) | **GET** /quota | List Organization Quotas |
 | [**listSecurityGroups**](ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups. |
-| [**listSecurityGroupsWithHttpInfo**](ExoscaleApi.md#listSecurityGroupsWithHttpInfo) | **GET** /security-group | List Security Groups. |
 | [**listSksClusterDeprecatedResources**](ExoscaleApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases |
-| [**listSksClusterDeprecatedResourcesWithHttpInfo**](ExoscaleApi.md#listSksClusterDeprecatedResourcesWithHttpInfo) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases |
 | [**listSksClusterVersions**](ExoscaleApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters |
-| [**listSksClusterVersionsWithHttpInfo**](ExoscaleApi.md#listSksClusterVersionsWithHttpInfo) | **GET** /sks-cluster-version | List available versions for SKS clusters |
 | [**listSksClusters**](ExoscaleApi.md#listSksClusters) | **GET** /sks-cluster | List SKS clusters |
-| [**listSksClustersWithHttpInfo**](ExoscaleApi.md#listSksClustersWithHttpInfo) | **GET** /sks-cluster | List SKS clusters |
 | [**listSnapshots**](ExoscaleApi.md#listSnapshots) | **GET** /snapshot | List Snapshots |
-| [**listSnapshotsWithHttpInfo**](ExoscaleApi.md#listSnapshotsWithHttpInfo) | **GET** /snapshot | List Snapshots |
 | [**listSosBucketsUsage**](ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage |
-| [**listSosBucketsUsageWithHttpInfo**](ExoscaleApi.md#listSosBucketsUsageWithHttpInfo) | **GET** /sos-buckets-usage | List SOS Buckets Usage |
 | [**listSshKeys**](ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys |
-| [**listSshKeysWithHttpInfo**](ExoscaleApi.md#listSshKeysWithHttpInfo) | **GET** /ssh-key | List SSH keys |
 | [**listTemplates**](ExoscaleApi.md#listTemplates) | **GET** /template | List Templates |
-| [**listTemplatesWithHttpInfo**](ExoscaleApi.md#listTemplatesWithHttpInfo) | **GET** /template | List Templates |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
-| [**listZonesWithHttpInfo**](ExoscaleApi.md#listZonesWithHttpInfo) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
-| [**promoteSnapshotToTemplateWithHttpInfo**](ExoscaleApi.md#promoteSnapshotToTemplateWithHttpInfo) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
 | [**rebootInstance**](ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance |
-| [**rebootInstanceWithHttpInfo**](ExoscaleApi.md#rebootInstanceWithHttpInfo) | **PUT** /instance/{id}:reboot | Reboot a Compute instance |
 | [**registerSshKey**](ExoscaleApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key |
-| [**registerSshKeyWithHttpInfo**](ExoscaleApi.md#registerSshKeyWithHttpInfo) | **POST** /ssh-key | Import SSH key |
 | [**registerTemplate**](ExoscaleApi.md#registerTemplate) | **POST** /template | Register a Template |
-| [**registerTemplateWithHttpInfo**](ExoscaleApi.md#registerTemplateWithHttpInfo) | **POST** /template | Register a Template |
 | [**removeExternalSourceFromSecurityGroup**](ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
-| [**removeExternalSourceFromSecurityGroupWithHttpInfo**](ExoscaleApi.md#removeExternalSourceFromSecurityGroupWithHttpInfo) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
 | [**removeInstanceProtection**](ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
-| [**removeInstanceProtectionWithHttpInfo**](ExoscaleApi.md#removeInstanceProtectionWithHttpInfo) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
 | [**resetDbaasGrafanaUserPassword**](ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
-| [**resetDbaasGrafanaUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasGrafanaUserPasswordWithHttpInfo) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
 | [**resetDbaasKafkaUserPassword**](ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
-| [**resetDbaasKafkaUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasKafkaUserPasswordWithHttpInfo) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasMysqlUserPassword**](ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
-| [**resetDbaasMysqlUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasMysqlUserPasswordWithHttpInfo) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
 | [**resetDbaasOpensearchUserPassword**](ExoscaleApi.md#resetDbaasOpensearchUserPassword) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user |
-| [**resetDbaasOpensearchUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasOpensearchUserPasswordWithHttpInfo) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user |
 | [**resetDbaasPostgresUserPassword**](ExoscaleApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user |
-| [**resetDbaasPostgresUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasPostgresUserPasswordWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user |
 | [**resetDbaasRedisUserPassword**](ExoscaleApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user |
-| [**resetDbaasRedisUserPasswordWithHttpInfo**](ExoscaleApi.md#resetDbaasRedisUserPasswordWithHttpInfo) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user |
 | [**resetElasticIpField**](ExoscaleApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value |
-| [**resetElasticIpFieldWithHttpInfo**](ExoscaleApi.md#resetElasticIpFieldWithHttpInfo) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value |
 | [**resetInstance**](ExoscaleApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template |
-| [**resetInstanceWithHttpInfo**](ExoscaleApi.md#resetInstanceWithHttpInfo) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template |
 | [**resetInstanceField**](ExoscaleApi.md#resetInstanceField) | **DELETE** /instance/{id}/{field} | Reset Instance field |
-| [**resetInstanceFieldWithHttpInfo**](ExoscaleApi.md#resetInstanceFieldWithHttpInfo) | **DELETE** /instance/{id}/{field} | Reset Instance field |
 | [**resetInstancePassword**](ExoscaleApi.md#resetInstancePassword) | **PUT** /instance/{id}:reset-password | Reset a compute instance password |
-| [**resetInstancePasswordWithHttpInfo**](ExoscaleApi.md#resetInstancePasswordWithHttpInfo) | **PUT** /instance/{id}:reset-password | Reset a compute instance password |
 | [**resetInstancePoolField**](ExoscaleApi.md#resetInstancePoolField) | **DELETE** /instance-pool/{id}/{field} | Reset an Instance Pool field to its default value |
-| [**resetInstancePoolFieldWithHttpInfo**](ExoscaleApi.md#resetInstancePoolFieldWithHttpInfo) | **DELETE** /instance-pool/{id}/{field} | Reset an Instance Pool field to its default value |
 | [**resetLoadBalancerField**](ExoscaleApi.md#resetLoadBalancerField) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value |
-| [**resetLoadBalancerFieldWithHttpInfo**](ExoscaleApi.md#resetLoadBalancerFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value |
 | [**resetLoadBalancerServiceField**](ExoscaleApi.md#resetLoadBalancerServiceField) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value |
-| [**resetLoadBalancerServiceFieldWithHttpInfo**](ExoscaleApi.md#resetLoadBalancerServiceFieldWithHttpInfo) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value |
 | [**resetPrivateNetworkField**](ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field |
-| [**resetPrivateNetworkFieldWithHttpInfo**](ExoscaleApi.md#resetPrivateNetworkFieldWithHttpInfo) | **DELETE** /private-network/{id}/{field} | Reset Private Network field |
 | [**resetSksClusterField**](ExoscaleApi.md#resetSksClusterField) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value |
-| [**resetSksClusterFieldWithHttpInfo**](ExoscaleApi.md#resetSksClusterFieldWithHttpInfo) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value |
 | [**resetSksNodepoolField**](ExoscaleApi.md#resetSksNodepoolField) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value |
-| [**resetSksNodepoolFieldWithHttpInfo**](ExoscaleApi.md#resetSksNodepoolFieldWithHttpInfo) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value |
 | [**resizeBlockStorageVolume**](ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
-| [**resizeBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#resizeBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
 | [**resizeInstanceDisk**](ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
-| [**resizeInstanceDiskWithHttpInfo**](ExoscaleApi.md#resizeInstanceDiskWithHttpInfo) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
 | [**revealDbaasGrafanaUserPassword**](ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
-| [**revealDbaasGrafanaUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasGrafanaUserPasswordWithHttpInfo) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
 | [**revealDbaasKafkaConnectPassword**](ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect |
-| [**revealDbaasKafkaConnectPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasKafkaConnectPasswordWithHttpInfo) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect |
 | [**revealDbaasKafkaUserPassword**](ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
-| [**revealDbaasKafkaUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasKafkaUserPasswordWithHttpInfo) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
 | [**revealDbaasMysqlUserPassword**](ExoscaleApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user |
-| [**revealDbaasMysqlUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasMysqlUserPasswordWithHttpInfo) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user |
 | [**revealDbaasOpensearchUserPassword**](ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user |
-| [**revealDbaasOpensearchUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasOpensearchUserPasswordWithHttpInfo) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user |
 | [**revealDbaasPostgresUserPassword**](ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
-| [**revealDbaasPostgresUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasPostgresUserPasswordWithHttpInfo) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
 | [**revealDbaasRedisUserPassword**](ExoscaleApi.md#revealDbaasRedisUserPassword) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user |
-| [**revealDbaasRedisUserPasswordWithHttpInfo**](ExoscaleApi.md#revealDbaasRedisUserPasswordWithHttpInfo) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
-| [**revealInstancePasswordWithHttpInfo**](ExoscaleApi.md#revealInstancePasswordWithHttpInfo) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
-| [**revertInstanceToSnapshotWithHttpInfo**](ExoscaleApi.md#revertInstanceToSnapshotWithHttpInfo) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
-| [**rotateSksCcmCredentialsWithHttpInfo**](ExoscaleApi.md#rotateSksCcmCredentialsWithHttpInfo) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksOperatorsCa**](ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority |
-| [**rotateSksOperatorsCaWithHttpInfo**](ExoscaleApi.md#rotateSksOperatorsCaWithHttpInfo) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority |
 | [**scaleInstance**](ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
-| [**scaleInstanceWithHttpInfo**](ExoscaleApi.md#scaleInstanceWithHttpInfo) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
-| [**scaleInstancePoolWithHttpInfo**](ExoscaleApi.md#scaleInstancePoolWithHttpInfo) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
-| [**scaleSksNodepoolWithHttpInfo**](ExoscaleApi.md#scaleSksNodepoolWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
-| [**startDbaasGrafanaMaintenanceWithHttpInfo**](ExoscaleApi.md#startDbaasGrafanaMaintenanceWithHttpInfo) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
 | [**startDbaasKafkaMaintenance**](ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
-| [**startDbaasKafkaMaintenanceWithHttpInfo**](ExoscaleApi.md#startDbaasKafkaMaintenanceWithHttpInfo) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
 | [**startDbaasMysqlMaintenance**](ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
-| [**startDbaasMysqlMaintenanceWithHttpInfo**](ExoscaleApi.md#startDbaasMysqlMaintenanceWithHttpInfo) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
 | [**startDbaasOpensearchMaintenance**](ExoscaleApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update |
-| [**startDbaasOpensearchMaintenanceWithHttpInfo**](ExoscaleApi.md#startDbaasOpensearchMaintenanceWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update |
 | [**startDbaasPgMaintenance**](ExoscaleApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update |
-| [**startDbaasPgMaintenanceWithHttpInfo**](ExoscaleApi.md#startDbaasPgMaintenanceWithHttpInfo) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update |
 | [**startDbaasRedisMaintenance**](ExoscaleApi.md#startDbaasRedisMaintenance) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update |
-| [**startDbaasRedisMaintenanceWithHttpInfo**](ExoscaleApi.md#startDbaasRedisMaintenanceWithHttpInfo) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update |
 | [**startInstance**](ExoscaleApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance |
-| [**startInstanceWithHttpInfo**](ExoscaleApi.md#startInstanceWithHttpInfo) | **PUT** /instance/{id}:start | Start a Compute instance |
 | [**stopDbaasMysqlMigration**](ExoscaleApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration |
-| [**stopDbaasMysqlMigrationWithHttpInfo**](ExoscaleApi.md#stopDbaasMysqlMigrationWithHttpInfo) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration |
 | [**stopDbaasPgMigration**](ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
-| [**stopDbaasPgMigrationWithHttpInfo**](ExoscaleApi.md#stopDbaasPgMigrationWithHttpInfo) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
 | [**stopDbaasRedisMigration**](ExoscaleApi.md#stopDbaasRedisMigration) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration |
-| [**stopDbaasRedisMigrationWithHttpInfo**](ExoscaleApi.md#stopDbaasRedisMigrationWithHttpInfo) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration |
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
-| [**stopInstanceWithHttpInfo**](ExoscaleApi.md#stopInstanceWithHttpInfo) | **PUT** /instance/{id}:stop | Stop a Compute instance |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
-| [**updateBlockStorageSnapshotWithHttpInfo**](ExoscaleApi.md#updateBlockStorageSnapshotWithHttpInfo) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
-| [**updateBlockStorageVolumeWithHttpInfo**](ExoscaleApi.md#updateBlockStorageVolumeWithHttpInfo) | **PUT** /block-storage/{id} | Update block storage volume |
 | [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{id} |  |
-| [**updateDbaasExternalEndpointDatadogWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointDatadogWithHttpInfo) | **PUT** /dbaas-external-endpoint-datadog/{id} |  |
 | [**updateDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} |  |
-| [**updateDbaasExternalEndpointElasticsearchWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointElasticsearchWithHttpInfo) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} |  |
 | [**updateDbaasExternalEndpointOpensearch**](ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{id} |  |
-| [**updateDbaasExternalEndpointOpensearchWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointOpensearchWithHttpInfo) | **PUT** /dbaas-external-endpoint-opensearch/{id} |  |
 | [**updateDbaasExternalEndpointPrometheus**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{id} |  |
-| [**updateDbaasExternalEndpointPrometheusWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheusWithHttpInfo) | **PUT** /dbaas-external-endpoint-prometheus/{id} |  |
 | [**updateDbaasExternalEndpointRsyslog**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
-| [**updateDbaasExternalEndpointRsyslogWithHttpInfo**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslogWithHttpInfo) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**updateDbaasExternalIntegrationSettingsDatadog**](ExoscaleApi.md#updateDbaasExternalIntegrationSettingsDatadog) | **POST** /dbaas-external-integration-settings-datadog/{integration-id} |  |
 | [**updateDbaasIntegration**](ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} |  |
-| [**updateDbaasIntegrationWithHttpInfo**](ExoscaleApi.md#updateDbaasIntegrationWithHttpInfo) | **PUT** /dbaas-integration/{id} |  |
 | [**updateDbaasOpensearchAclConfig**](ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
-| [**updateDbaasOpensearchAclConfigWithHttpInfo**](ExoscaleApi.md#updateDbaasOpensearchAclConfigWithHttpInfo) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
 | [**updateDbaasPgConnectionPool**](ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool |
-| [**updateDbaasPgConnectionPoolWithHttpInfo**](ExoscaleApi.md#updateDbaasPgConnectionPoolWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool |
 | [**updateDbaasPostgresAllowReplication**](ExoscaleApi.md#updateDbaasPostgresAllowReplication) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user |
-| [**updateDbaasPostgresAllowReplicationWithHttpInfo**](ExoscaleApi.md#updateDbaasPostgresAllowReplicationWithHttpInfo) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user |
 | [**updateDbaasServiceGrafana**](ExoscaleApi.md#updateDbaasServiceGrafana) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service |
-| [**updateDbaasServiceGrafanaWithHttpInfo**](ExoscaleApi.md#updateDbaasServiceGrafanaWithHttpInfo) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service |
 | [**updateDbaasServiceKafka**](ExoscaleApi.md#updateDbaasServiceKafka) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service |
-| [**updateDbaasServiceKafkaWithHttpInfo**](ExoscaleApi.md#updateDbaasServiceKafkaWithHttpInfo) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service |
 | [**updateDbaasServiceMysql**](ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service |
-| [**updateDbaasServiceMysqlWithHttpInfo**](ExoscaleApi.md#updateDbaasServiceMysqlWithHttpInfo) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service |
 | [**updateDbaasServiceOpensearch**](ExoscaleApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service |
-| [**updateDbaasServiceOpensearchWithHttpInfo**](ExoscaleApi.md#updateDbaasServiceOpensearchWithHttpInfo) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service |
 | [**updateDbaasServicePg**](ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service |
-| [**updateDbaasServicePgWithHttpInfo**](ExoscaleApi.md#updateDbaasServicePgWithHttpInfo) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service |
 | [**updateDbaasServiceRedis**](ExoscaleApi.md#updateDbaasServiceRedis) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service |
-| [**updateDbaasServiceRedisWithHttpInfo**](ExoscaleApi.md#updateDbaasServiceRedisWithHttpInfo) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service |
 | [**updateDnsDomainRecord**](ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
-| [**updateDnsDomainRecordWithHttpInfo**](ExoscaleApi.md#updateDnsDomainRecordWithHttpInfo) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
 | [**updateElasticIp**](ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP |
-| [**updateElasticIpWithHttpInfo**](ExoscaleApi.md#updateElasticIpWithHttpInfo) | **PUT** /elastic-ip/{id} | Update an Elastic IP |
 | [**updateIamOrganizationPolicy**](ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy |
-| [**updateIamOrganizationPolicyWithHttpInfo**](ExoscaleApi.md#updateIamOrganizationPolicyWithHttpInfo) | **PUT** /iam-organization-policy | Update IAM Organization Policy |
 | [**updateIamRole**](ExoscaleApi.md#updateIamRole) | **PUT** /iam-role/{id} | Update IAM Role |
-| [**updateIamRoleWithHttpInfo**](ExoscaleApi.md#updateIamRoleWithHttpInfo) | **PUT** /iam-role/{id} | Update IAM Role |
 | [**updateIamRolePolicy**](ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy |
-| [**updateIamRolePolicyWithHttpInfo**](ExoscaleApi.md#updateIamRolePolicyWithHttpInfo) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy |
 | [**updateInstance**](ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance |
-| [**updateInstanceWithHttpInfo**](ExoscaleApi.md#updateInstanceWithHttpInfo) | **PUT** /instance/{id} | Update a Compute instance |
 | [**updateInstancePool**](ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool |
-| [**updateInstancePoolWithHttpInfo**](ExoscaleApi.md#updateInstancePoolWithHttpInfo) | **PUT** /instance-pool/{id} | Update an Instance Pool |
 | [**updateLoadBalancer**](ExoscaleApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer |
-| [**updateLoadBalancerWithHttpInfo**](ExoscaleApi.md#updateLoadBalancerWithHttpInfo) | **PUT** /load-balancer/{id} | Update a Load Balancer |
 | [**updateLoadBalancerService**](ExoscaleApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service |
-| [**updateLoadBalancerServiceWithHttpInfo**](ExoscaleApi.md#updateLoadBalancerServiceWithHttpInfo) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service |
 | [**updatePrivateNetwork**](ExoscaleApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network |
-| [**updatePrivateNetworkWithHttpInfo**](ExoscaleApi.md#updatePrivateNetworkWithHttpInfo) | **PUT** /private-network/{id} | Update a Private Network |
 | [**updatePrivateNetworkInstanceIp**](ExoscaleApi.md#updatePrivateNetworkInstanceIp) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network |
-| [**updatePrivateNetworkInstanceIpWithHttpInfo**](ExoscaleApi.md#updatePrivateNetworkInstanceIpWithHttpInfo) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network |
 | [**updateReverseDnsElasticIp**](ExoscaleApi.md#updateReverseDnsElasticIp) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP |
-| [**updateReverseDnsElasticIpWithHttpInfo**](ExoscaleApi.md#updateReverseDnsElasticIpWithHttpInfo) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP |
 | [**updateReverseDnsInstance**](ExoscaleApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance |
-| [**updateReverseDnsInstanceWithHttpInfo**](ExoscaleApi.md#updateReverseDnsInstanceWithHttpInfo) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance |
 | [**updateSksCluster**](ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster |
-| [**updateSksClusterWithHttpInfo**](ExoscaleApi.md#updateSksClusterWithHttpInfo) | **PUT** /sks-cluster/{id} | Update an SKS cluster |
 | [**updateSksNodepool**](ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool |
-| [**updateSksNodepoolWithHttpInfo**](ExoscaleApi.md#updateSksNodepoolWithHttpInfo) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool |
 | [**updateTemplate**](ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes |
-| [**updateTemplateWithHttpInfo**](ExoscaleApi.md#updateTemplateWithHttpInfo) | **PUT** /template/{id} | Update template attributes |
 | [**upgradeSksCluster**](ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster |
-| [**upgradeSksClusterWithHttpInfo**](ExoscaleApi.md#upgradeSksClusterWithHttpInfo) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster |
 | [**upgradeSksClusterServiceLevel**](ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro |
-| [**upgradeSksClusterServiceLevelWithHttpInfo**](ExoscaleApi.md#upgradeSksClusterServiceLevelWithHttpInfo) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro |
 
 
 
@@ -634,48 +356,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## addExternalSourceToSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> addExternalSourceToSecurityGroup addExternalSourceToSecurityGroupWithHttpInfo(id, addExternalSourceToSecurityGroupRequest)
-
-Add an external source as a member of a Security Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AddExternalSourceToSecurityGroupRequest addExternalSourceToSecurityGroupRequest = new AddExternalSourceToSecurityGroupRequest(); // AddExternalSourceToSecurityGroupRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.addExternalSourceToSecurityGroupWithHttpInfo(id, addExternalSourceToSecurityGroupRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#addExternalSourceToSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -770,47 +450,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## addInstanceProtectionWithHttpInfo
-
-> ApiResponse<Operation> addInstanceProtection addInstanceProtectionWithHttpInfo(id)
-
-Set instance destruction protection
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.addInstanceProtectionWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#addInstanceProtection");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -906,48 +545,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## addRuleToSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> addRuleToSecurityGroup addRuleToSecurityGroupWithHttpInfo(id, addRuleToSecurityGroupRequest)
-
-Create a Security Group rule
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AddRuleToSecurityGroupRequest addRuleToSecurityGroupRequest = new AddRuleToSecurityGroupRequest(); // AddRuleToSecurityGroupRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.addRuleToSecurityGroupWithHttpInfo(id, addRuleToSecurityGroupRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#addRuleToSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1044,48 +641,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## addServiceToLoadBalancerWithHttpInfo
-
-> ApiResponse<Operation> addServiceToLoadBalancer addServiceToLoadBalancerWithHttpInfo(id, addServiceToLoadBalancerRequest)
-
-Add a Load Balancer Service
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest = new AddServiceToLoadBalancerRequest(); // AddServiceToLoadBalancerRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.addServiceToLoadBalancerWithHttpInfo(id, addServiceToLoadBalancerRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#addServiceToLoadBalancer");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1182,48 +737,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## attachBlockStorageVolumeToInstanceWithHttpInfo
-
-> ApiResponse<Operation> attachBlockStorageVolumeToInstance attachBlockStorageVolumeToInstanceWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest)
-
-Attach block storage volume to an instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.attachBlockStorageVolumeToInstanceWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#attachBlockStorageVolumeToInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1320,48 +833,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## attachDbaasServiceToEndpointWithHttpInfo
-
-> ApiResponse<Operation> attachDbaasServiceToEndpoint attachDbaasServiceToEndpointWithHttpInfo(sourceServiceName, attachDbaasServiceToEndpointRequest)
-
-
-
-[BETA] Create a new DBaaS connection between a DBaaS service and an external service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String sourceServiceName = "sourceServiceName_example"; // String | 
-        AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest = new AttachDbaasServiceToEndpointRequest(); // AttachDbaasServiceToEndpointRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.attachDbaasServiceToEndpointWithHttpInfo(sourceServiceName, attachDbaasServiceToEndpointRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#attachDbaasServiceToEndpoint");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1458,48 +929,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## attachInstanceToElasticIpWithHttpInfo
-
-> ApiResponse<Operation> attachInstanceToElasticIp attachInstanceToElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest)
-
-Attach a Compute instance to an Elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.attachInstanceToElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#attachInstanceToElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1596,48 +1025,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## attachInstanceToPrivateNetworkWithHttpInfo
-
-> ApiResponse<Operation> attachInstanceToPrivateNetwork attachInstanceToPrivateNetworkWithHttpInfo(id, attachInstanceToPrivateNetworkRequest)
-
-Attach a Compute instance to a Private Network
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AttachInstanceToPrivateNetworkRequest attachInstanceToPrivateNetworkRequest = new AttachInstanceToPrivateNetworkRequest(); // AttachInstanceToPrivateNetworkRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.attachInstanceToPrivateNetworkWithHttpInfo(id, attachInstanceToPrivateNetworkRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#attachInstanceToPrivateNetwork");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1734,48 +1121,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## attachInstanceToSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> attachInstanceToSecurityGroup attachInstanceToSecurityGroupWithHttpInfo(id, detachInstanceFromPrivateNetworkRequest)
-
-Attach a Compute instance to a Security Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.attachInstanceToSecurityGroupWithHttpInfo(id, detachInstanceFromPrivateNetworkRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#attachInstanceToSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -1872,48 +1217,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## copyTemplateWithHttpInfo
-
-> ApiResponse<Operation> copyTemplate copyTemplateWithHttpInfo(id, copyTemplateRequest)
-
-Copy a Template from a zone to another
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.copyTemplateWithHttpInfo(id, copyTemplateRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#copyTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2008,47 +1311,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createAntiAffinityGroupWithHttpInfo
-
-> ApiResponse<Operation> createAntiAffinityGroup createAntiAffinityGroupWithHttpInfo(createAntiAffinityGroupRequest)
-
-Create an Anti-affinity Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateAntiAffinityGroupRequest createAntiAffinityGroupRequest = new CreateAntiAffinityGroupRequest(); // CreateAntiAffinityGroupRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createAntiAffinityGroupWithHttpInfo(createAntiAffinityGroupRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createAntiAffinityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2140,45 +1402,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createApiKeyWithHttpInfo
-
-> ApiResponse<IamApiKeyCreated> createApiKey createApiKeyWithHttpInfo(createApiKeyRequest)
-
-Create a new API key
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateApiKeyRequest createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
-        try {
-            ApiResponse<IamApiKeyCreated> response = apiInstance.createApiKeyWithHttpInfo(createApiKeyRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2274,48 +1497,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createBlockStorageSnapshotWithHttpInfo
-
-> ApiResponse<Operation> createBlockStorageSnapshot createBlockStorageSnapshotWithHttpInfo(id, createBlockStorageSnapshotRequest)
-
-Create a block storage snapshot
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        CreateBlockStorageSnapshotRequest createBlockStorageSnapshotRequest = new CreateBlockStorageSnapshotRequest(); // CreateBlockStorageSnapshotRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createBlockStorageSnapshotWithHttpInfo(id, createBlockStorageSnapshotRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createBlockStorageSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2410,47 +1591,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createBlockStorageVolumeWithHttpInfo
-
-> ApiResponse<Operation> createBlockStorageVolume createBlockStorageVolumeWithHttpInfo(createBlockStorageVolumeRequest)
-
-Create a block storage volume
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateBlockStorageVolumeRequest createBlockStorageVolumeRequest = new CreateBlockStorageVolumeRequest(); // CreateBlockStorageVolumeRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createBlockStorageVolumeWithHttpInfo(createBlockStorageVolumeRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createBlockStorageVolume");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2546,48 +1686,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasExternalEndpointDatadogWithHttpInfo
-
-> ApiResponse<Operation> createDbaasExternalEndpointDatadog createDbaasExternalEndpointDatadogWithHttpInfo(name, createDbaasExternalEndpointDatadogRequest)
-
-
-
-[BETA] Create DataDog external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointDatadogWithHttpInfo(name, createDbaasExternalEndpointDatadogRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointDatadog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2684,48 +1782,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasExternalEndpointElasticsearchWithHttpInfo
-
-> ApiResponse<Operation> createDbaasExternalEndpointElasticsearch createDbaasExternalEndpointElasticsearchWithHttpInfo(name, updateDbaasExternalEndpointElasticsearchRequest)
-
-
-
-[BETA] Create ElasticSearch Logs external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointElasticsearchWithHttpInfo(name, updateDbaasExternalEndpointElasticsearchRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointElasticsearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2822,48 +1878,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasExternalEndpointOpensearchWithHttpInfo
-
-> ApiResponse<Operation> createDbaasExternalEndpointOpensearch createDbaasExternalEndpointOpensearchWithHttpInfo(name, updateDbaasExternalEndpointOpensearchRequest)
-
-
-
-[BETA] Create OpenSearch Logs external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointOpensearchWithHttpInfo(name, updateDbaasExternalEndpointOpensearchRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -2960,48 +1974,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasExternalEndpointPrometheusWithHttpInfo
-
-> ApiResponse<Operation> createDbaasExternalEndpointPrometheus createDbaasExternalEndpointPrometheusWithHttpInfo(name, updateDbaasExternalEndpointPrometheusRequest)
-
-
-
-[BETA] Create Prometheus external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointPrometheusWithHttpInfo(name, updateDbaasExternalEndpointPrometheusRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointPrometheus");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3098,48 +2070,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasExternalEndpointRsyslogWithHttpInfo
-
-> ApiResponse<Operation> createDbaasExternalEndpointRsyslog createDbaasExternalEndpointRsyslogWithHttpInfo(name, createDbaasExternalEndpointRsyslogRequest)
-
-
-
-[BETA] Create RSyslog external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasExternalEndpointRsyslogWithHttpInfo(name, createDbaasExternalEndpointRsyslogRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointRsyslog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3234,47 +2164,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasIntegrationWithHttpInfo
-
-> ApiResponse<Operation> createDbaasIntegration createDbaasIntegrationWithHttpInfo(createDbaasIntegrationRequest)
-
-
-
-[BETA] Create a new DBaaS integration between two services
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateDbaasIntegrationRequest createDbaasIntegrationRequest = new CreateDbaasIntegrationRequest(); // CreateDbaasIntegrationRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasIntegrationWithHttpInfo(createDbaasIntegrationRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasIntegration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3368,46 +2257,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo
-
-> ApiResponse<Operation> createDbaasKafkaSchemaRegistryAclConfig createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(name, dbaasKafkaSchemaRegistryAclEntry)
-
-Add a Kafka Schema Registry ACL entry
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        DbaasKafkaSchemaRegistryAclEntry dbaasKafkaSchemaRegistryAclEntry = new DbaasKafkaSchemaRegistryAclEntry(); // DbaasKafkaSchemaRegistryAclEntry | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(name, dbaasKafkaSchemaRegistryAclEntry);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasKafkaSchemaRegistryAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3502,46 +2351,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasKafkaTopicAclConfigWithHttpInfo
-
-> ApiResponse<Operation> createDbaasKafkaTopicAclConfig createDbaasKafkaTopicAclConfigWithHttpInfo(name, dbaasKafkaTopicAclEntry)
-
-Add a Kafka topic ACL entry
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        DbaasKafkaTopicAclEntry dbaasKafkaTopicAclEntry = new DbaasKafkaTopicAclEntry(); // DbaasKafkaTopicAclEntry | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasKafkaTopicAclConfigWithHttpInfo(name, dbaasKafkaTopicAclEntry);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasKafkaTopicAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3636,46 +2445,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasKafkaUserWithHttpInfo
-
-> ApiResponse<Operation> createDbaasKafkaUser createDbaasKafkaUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest)
-
-Create a DBaaS Kafka user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasKafkaUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasKafkaUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3770,46 +2539,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasMysqlDatabaseWithHttpInfo
-
-> ApiResponse<Operation> createDbaasMysqlDatabase createDbaasMysqlDatabaseWithHttpInfo(serviceName, createDbaasMysqlDatabaseRequest)
-
-Create a DBaaS MySQL database
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasMysqlDatabaseRequest createDbaasMysqlDatabaseRequest = new CreateDbaasMysqlDatabaseRequest(); // CreateDbaasMysqlDatabaseRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasMysqlDatabaseWithHttpInfo(serviceName, createDbaasMysqlDatabaseRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasMysqlDatabase");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -3904,46 +2633,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasMysqlUserWithHttpInfo
-
-> ApiResponse<Operation> createDbaasMysqlUser createDbaasMysqlUserWithHttpInfo(serviceName, createDbaasMysqlUserRequest)
-
-Create a DBaaS MySQL user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasMysqlUserRequest createDbaasMysqlUserRequest = new CreateDbaasMysqlUserRequest(); // CreateDbaasMysqlUserRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasMysqlUserWithHttpInfo(serviceName, createDbaasMysqlUserRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasMysqlUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4038,46 +2727,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasOpensearchUserWithHttpInfo
-
-> ApiResponse<Operation> createDbaasOpensearchUser createDbaasOpensearchUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest)
-
-Create a DBaaS OpenSearch user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasOpensearchUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasOpensearchUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4174,48 +2823,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasPgConnectionPoolWithHttpInfo
-
-> ApiResponse<Operation> createDbaasPgConnectionPool createDbaasPgConnectionPoolWithHttpInfo(serviceName, createDbaasPgConnectionPoolRequest)
-
-Create a DBaaS PostgreSQL connection pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasPgConnectionPoolRequest createDbaasPgConnectionPoolRequest = new CreateDbaasPgConnectionPoolRequest(); // CreateDbaasPgConnectionPoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasPgConnectionPoolWithHttpInfo(serviceName, createDbaasPgConnectionPoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasPgConnectionPool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4310,46 +2917,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasPgDatabaseWithHttpInfo
-
-> ApiResponse<Operation> createDbaasPgDatabase createDbaasPgDatabaseWithHttpInfo(serviceName, createDbaasPgDatabaseRequest)
-
-Create a DBaaS Postgres database
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasPgDatabaseRequest createDbaasPgDatabaseRequest = new CreateDbaasPgDatabaseRequest(); // CreateDbaasPgDatabaseRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasPgDatabaseWithHttpInfo(serviceName, createDbaasPgDatabaseRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasPgDatabase");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4446,48 +3013,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasPgUpgradeCheckWithHttpInfo
-
-> ApiResponse<DbaasTask> createDbaasPgUpgradeCheck createDbaasPgUpgradeCheckWithHttpInfo(service, createDbaasPgUpgradeCheckRequest)
-
-
-
-Check whether you can upgrade Postgres service to a newer version
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String service = "service_example"; // String | 
-        CreateDbaasPgUpgradeCheckRequest createDbaasPgUpgradeCheckRequest = new CreateDbaasPgUpgradeCheckRequest(); // CreateDbaasPgUpgradeCheckRequest | 
-        try {
-            ApiResponse<DbaasTask> response = apiInstance.createDbaasPgUpgradeCheckWithHttpInfo(service, createDbaasPgUpgradeCheckRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasPgUpgradeCheck");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4582,46 +3107,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasPostgresUserWithHttpInfo
-
-> ApiResponse<Operation> createDbaasPostgresUser createDbaasPostgresUserWithHttpInfo(serviceName, createDbaasPostgresUserRequest)
-
-Create a DBaaS Postgres user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasPostgresUserRequest createDbaasPostgresUserRequest = new CreateDbaasPostgresUserRequest(); // CreateDbaasPostgresUserRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasPostgresUserWithHttpInfo(serviceName, createDbaasPostgresUserRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasPostgresUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4716,46 +3201,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasRedisUserWithHttpInfo
-
-> ApiResponse<Operation> createDbaasRedisUser createDbaasRedisUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest)
-
-Create a DBaaS Redis user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasRedisUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasRedisUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4852,48 +3297,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasServiceGrafanaWithHttpInfo
-
-> ApiResponse<Operation> createDbaasServiceGrafana createDbaasServiceGrafanaWithHttpInfo(name, createDbaasServiceGrafanaRequest)
-
-
-
-Create a DBaaS Grafana service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasServiceGrafanaRequest createDbaasServiceGrafanaRequest = new CreateDbaasServiceGrafanaRequest(); // CreateDbaasServiceGrafanaRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasServiceGrafanaWithHttpInfo(name, createDbaasServiceGrafanaRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceGrafana");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -4990,48 +3393,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasServiceKafkaWithHttpInfo
-
-> ApiResponse<Operation> createDbaasServiceKafka createDbaasServiceKafkaWithHttpInfo(name, createDbaasServiceKafkaRequest)
-
-Create a DBaaS Kafka service
-
-Create a DBaaS Kafka service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasServiceKafkaRequest createDbaasServiceKafkaRequest = new CreateDbaasServiceKafkaRequest(); // CreateDbaasServiceKafkaRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasServiceKafkaWithHttpInfo(name, createDbaasServiceKafkaRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceKafka");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5128,48 +3489,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasServiceMysqlWithHttpInfo
-
-> ApiResponse<Operation> createDbaasServiceMysql createDbaasServiceMysqlWithHttpInfo(name, createDbaasServiceMysqlRequest)
-
-Create a DBaaS MySQL service
-
-Create a DBaaS MySQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasServiceMysqlRequest createDbaasServiceMysqlRequest = new CreateDbaasServiceMysqlRequest(); // CreateDbaasServiceMysqlRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasServiceMysqlWithHttpInfo(name, createDbaasServiceMysqlRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceMysql");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5266,48 +3585,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasServiceOpensearchWithHttpInfo
-
-> ApiResponse<Operation> createDbaasServiceOpensearch createDbaasServiceOpensearchWithHttpInfo(name, createDbaasServiceOpensearchRequest)
-
-Create a DBaaS OpenSearch service
-
-Create a DBaaS OpenSearch service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest = new CreateDbaasServiceOpensearchRequest(); // CreateDbaasServiceOpensearchRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasServiceOpensearchWithHttpInfo(name, createDbaasServiceOpensearchRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5402,46 +3679,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasServicePgWithHttpInfo
-
-> ApiResponse<Operation> createDbaasServicePg createDbaasServicePgWithHttpInfo(name, createDbaasServicePgRequest)
-
-Create a DBaaS PostgreSQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasServicePgRequest createDbaasServicePgRequest = new CreateDbaasServicePgRequest(); // CreateDbaasServicePgRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasServicePgWithHttpInfo(name, createDbaasServicePgRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasServicePg");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5538,48 +3775,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasServiceRedisWithHttpInfo
-
-> ApiResponse<Operation> createDbaasServiceRedis createDbaasServiceRedisWithHttpInfo(name, createDbaasServiceRedisRequest)
-
-Create a DBaaS Redis service
-
-Create a DBaaS Redis service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        CreateDbaasServiceRedisRequest createDbaasServiceRedisRequest = new CreateDbaasServiceRedisRequest(); // CreateDbaasServiceRedisRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasServiceRedisWithHttpInfo(name, createDbaasServiceRedisRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceRedis");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5676,48 +3871,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDbaasTaskMigrationCheckWithHttpInfo
-
-> ApiResponse<Operation> createDbaasTaskMigrationCheck createDbaasTaskMigrationCheckWithHttpInfo(service, createDbaasTaskMigrationCheckRequest)
-
-
-
-Create a DBaaS task to check migration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String service = "service_example"; // String | 
-        CreateDbaasTaskMigrationCheckRequest createDbaasTaskMigrationCheckRequest = new CreateDbaasTaskMigrationCheckRequest(); // CreateDbaasTaskMigrationCheckRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDbaasTaskMigrationCheckWithHttpInfo(service, createDbaasTaskMigrationCheckRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDbaasTaskMigrationCheck");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5812,47 +3965,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDnsDomainWithHttpInfo
-
-> ApiResponse<DnsDomain> createDnsDomain createDnsDomainWithHttpInfo(createDnsDomainRequest)
-
-Create DNS domain
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateDnsDomainRequest createDnsDomainRequest = new CreateDnsDomainRequest(); // CreateDnsDomainRequest | 
-        try {
-            ApiResponse<DnsDomain> response = apiInstance.createDnsDomainWithHttpInfo(createDnsDomainRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDnsDomain");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -5948,48 +4060,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createDnsDomainRecordWithHttpInfo
-
-> ApiResponse<Operation> createDnsDomainRecord createDnsDomainRecordWithHttpInfo(domainId, createDnsDomainRecordRequest)
-
-Create DNS domain record
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID domainId = UUID.randomUUID(); // UUID | 
-        CreateDnsDomainRecordRequest createDnsDomainRecordRequest = new CreateDnsDomainRecordRequest(); // CreateDnsDomainRecordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createDnsDomainRecordWithHttpInfo(domainId, createDnsDomainRecordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createDnsDomainRecord");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6084,47 +4154,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createElasticIpWithHttpInfo
-
-> ApiResponse<Operation> createElasticIp createElasticIpWithHttpInfo(createElasticIpRequest)
-
-Create an Elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateElasticIpRequest createElasticIpRequest = new CreateElasticIpRequest(); // CreateElasticIpRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createElasticIpWithHttpInfo(createElasticIpRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6218,47 +4247,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createIamRoleWithHttpInfo
-
-> ApiResponse<Operation> createIamRole createIamRoleWithHttpInfo(createIamRoleRequest)
-
-Create IAM Role
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateIamRoleRequest createIamRoleRequest = new CreateIamRoleRequest(); // CreateIamRoleRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createIamRoleWithHttpInfo(createIamRoleRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createIamRole");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6352,47 +4340,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createInstanceWithHttpInfo
-
-> ApiResponse<Operation> createInstance createInstanceWithHttpInfo(createInstanceRequest)
-
-Create a Compute instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateInstanceRequest createInstanceRequest = new CreateInstanceRequest(); // CreateInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createInstanceWithHttpInfo(createInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6486,47 +4433,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createInstancePoolWithHttpInfo
-
-> ApiResponse<Operation> createInstancePool createInstancePoolWithHttpInfo(createInstancePoolRequest)
-
-Create an Instance Pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateInstancePoolRequest createInstancePoolRequest = new CreateInstancePoolRequest(); // CreateInstancePoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createInstancePoolWithHttpInfo(createInstancePoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createInstancePool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6620,47 +4526,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createLoadBalancerWithHttpInfo
-
-> ApiResponse<Operation> createLoadBalancer createLoadBalancerWithHttpInfo(createLoadBalancerRequest)
-
-Create a Load Balancer
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateLoadBalancerRequest createLoadBalancerRequest = new CreateLoadBalancerRequest(); // CreateLoadBalancerRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createLoadBalancerWithHttpInfo(createLoadBalancerRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createLoadBalancer");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6754,47 +4619,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createPrivateNetworkWithHttpInfo
-
-> ApiResponse<Operation> createPrivateNetwork createPrivateNetworkWithHttpInfo(createPrivateNetworkRequest)
-
-Create a Private Network
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreatePrivateNetworkRequest createPrivateNetworkRequest = new CreatePrivateNetworkRequest(); // CreatePrivateNetworkRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createPrivateNetworkWithHttpInfo(createPrivateNetworkRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createPrivateNetwork");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -6888,47 +4712,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> createSecurityGroup createSecurityGroupWithHttpInfo(createSecurityGroupRequest)
-
-Create a Security Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateSecurityGroupRequest createSecurityGroupRequest = new CreateSecurityGroupRequest(); // CreateSecurityGroupRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createSecurityGroupWithHttpInfo(createSecurityGroupRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7022,47 +4805,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createSksClusterWithHttpInfo
-
-> ApiResponse<Operation> createSksCluster createSksClusterWithHttpInfo(createSksClusterRequest)
-
-Create an SKS cluster
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateSksClusterRequest createSksClusterRequest = new CreateSksClusterRequest(); // CreateSksClusterRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createSksClusterWithHttpInfo(createSksClusterRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createSksCluster");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7158,48 +4900,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createSksNodepoolWithHttpInfo
-
-> ApiResponse<Operation> createSksNodepool createSksNodepoolWithHttpInfo(id, createSksNodepoolRequest)
-
-Create a new SKS Nodepool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        CreateSksNodepoolRequest createSksNodepoolRequest = new CreateSksNodepoolRequest(); // CreateSksNodepoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createSksNodepoolWithHttpInfo(id, createSksNodepoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createSksNodepool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7294,47 +4994,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## createSnapshotWithHttpInfo
-
-> ApiResponse<Operation> createSnapshot createSnapshotWithHttpInfo(id)
-
-Create a Snapshot of a Compute instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.createSnapshotWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#createSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7428,47 +5087,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteAntiAffinityGroupWithHttpInfo
-
-> ApiResponse<Operation> deleteAntiAffinityGroup deleteAntiAffinityGroupWithHttpInfo(id)
-
-Delete an Anti-affinity Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteAntiAffinityGroupWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteAntiAffinityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7560,45 +5178,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteApiKeyWithHttpInfo
-
-> ApiResponse<Operation> deleteApiKey deleteApiKeyWithHttpInfo(id)
-
-Delete an API key
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String id = "id_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteApiKeyWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7692,47 +5271,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteBlockStorageSnapshotWithHttpInfo
-
-> ApiResponse<Operation> deleteBlockStorageSnapshot deleteBlockStorageSnapshotWithHttpInfo(id)
-
-Delete a block storage snapshot, data will be unrecoverable
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteBlockStorageSnapshotWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteBlockStorageSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7826,47 +5364,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteBlockStorageVolumeWithHttpInfo
-
-> ApiResponse<Operation> deleteBlockStorageVolume deleteBlockStorageVolumeWithHttpInfo(id)
-
-Delete a block storage volume, data will be unrecoverable
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteBlockStorageVolumeWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteBlockStorageVolume");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -7960,47 +5457,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasExternalEndpointDatadogWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasExternalEndpointDatadog deleteDbaasExternalEndpointDatadogWithHttpInfo(id)
-
-
-
-[BETA] Delete DataDog external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointDatadogWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointDatadog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8094,47 +5550,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasExternalEndpointElasticsearchWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearch deleteDbaasExternalEndpointElasticsearchWithHttpInfo(id)
-
-
-
-[BETA] Delete ElasticSearch logs external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointElasticsearchWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointElasticsearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8228,47 +5643,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasExternalEndpointOpensearchWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasExternalEndpointOpensearch deleteDbaasExternalEndpointOpensearchWithHttpInfo(id)
-
-
-
-[BETA] Delete OpenSearch logs external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointOpensearchWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8362,47 +5736,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasExternalEndpointPrometheusWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasExternalEndpointPrometheus deleteDbaasExternalEndpointPrometheusWithHttpInfo(id)
-
-
-
-[BETA] Delete Prometheus external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointPrometheusWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointPrometheus");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8496,47 +5829,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasExternalEndpointRsyslogWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasExternalEndpointRsyslog deleteDbaasExternalEndpointRsyslogWithHttpInfo(id)
-
-
-
-[BETA] Delete RSyslog external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasExternalEndpointRsyslogWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointRsyslog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8630,47 +5922,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasIntegrationWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasIntegration deleteDbaasIntegrationWithHttpInfo(id)
-
-
-
-[BETA] Delete a DBaaS Integration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasIntegrationWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasIntegration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8764,46 +6015,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasKafkaSchemaRegistryAclConfig deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(name, aclId)
-
-Delete a Kafka ACL entry
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        String aclId = "aclId_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasKafkaSchemaRegistryAclConfigWithHttpInfo(name, aclId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasKafkaSchemaRegistryAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -8898,46 +6109,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasKafkaTopicAclConfigWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasKafkaTopicAclConfig deleteDbaasKafkaTopicAclConfigWithHttpInfo(name, aclId)
-
-Delete a Kafka ACL entry
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        String aclId = "aclId_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasKafkaTopicAclConfigWithHttpInfo(name, aclId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasKafkaTopicAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9032,46 +6203,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasKafkaUserWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasKafkaUser deleteDbaasKafkaUserWithHttpInfo(serviceName, username)
-
-Delete a DBaaS kafka user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasKafkaUserWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasKafkaUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9166,46 +6297,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasMysqlDatabaseWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasMysqlDatabase deleteDbaasMysqlDatabaseWithHttpInfo(serviceName, databaseName)
-
-Delete a DBaaS MySQL database
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String databaseName = "databaseName_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasMysqlDatabaseWithHttpInfo(serviceName, databaseName);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasMysqlDatabase");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9300,46 +6391,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasMysqlUserWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasMysqlUser deleteDbaasMysqlUserWithHttpInfo(serviceName, username)
-
-Delete a DBaaS MySQL user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasMysqlUserWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasMysqlUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9434,46 +6485,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasOpensearchUserWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasOpensearchUser deleteDbaasOpensearchUserWithHttpInfo(serviceName, username)
-
-Delete a DBaaS OpenSearch user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasOpensearchUserWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasOpensearchUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9570,48 +6581,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasPgConnectionPoolWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasPgConnectionPool deleteDbaasPgConnectionPoolWithHttpInfo(serviceName, connectionPoolName)
-
-Delete a DBaaS PostgreSQL connection pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String connectionPoolName = "connectionPoolName_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasPgConnectionPoolWithHttpInfo(serviceName, connectionPoolName);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasPgConnectionPool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9706,46 +6675,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasPgDatabaseWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasPgDatabase deleteDbaasPgDatabaseWithHttpInfo(serviceName, databaseName)
-
-Delete a DBaaS Postgres database
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String databaseName = "databaseName_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasPgDatabaseWithHttpInfo(serviceName, databaseName);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasPgDatabase");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9840,46 +6769,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasPostgresUserWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasPostgresUser deleteDbaasPostgresUserWithHttpInfo(serviceName, username)
-
-Delete a DBaaS Postgres user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasPostgresUserWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasPostgresUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -9974,46 +6863,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasRedisUserWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasRedisUser deleteDbaasRedisUserWithHttpInfo(serviceName, username)
-
-Delete a DBaaS Redis user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasRedisUserWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasRedisUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10108,47 +6957,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServiceWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasService deleteDbaasServiceWithHttpInfo(name)
-
-Delete a DBaaS service
-
-Delete a DBaaS service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServiceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasService");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10240,45 +7048,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServiceGrafanaWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasServiceGrafana deleteDbaasServiceGrafanaWithHttpInfo(name)
-
-Delete a Grafana service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServiceGrafanaWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceGrafana");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10370,45 +7139,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServiceKafkaWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasServiceKafka deleteDbaasServiceKafkaWithHttpInfo(name)
-
-Delete a Kafka service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServiceKafkaWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceKafka");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10500,45 +7230,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServiceMysqlWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasServiceMysql deleteDbaasServiceMysqlWithHttpInfo(name)
-
-Delete a MySQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServiceMysqlWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceMysql");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10630,45 +7321,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServiceOpensearchWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasServiceOpensearch deleteDbaasServiceOpensearchWithHttpInfo(name)
-
-Delete a OpenSearch service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServiceOpensearchWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10760,45 +7412,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServicePgWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasServicePg deleteDbaasServicePgWithHttpInfo(name)
-
-Delete a Postgres service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServicePgWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServicePg");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -10890,45 +7503,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDbaasServiceRedisWithHttpInfo
-
-> ApiResponse<Operation> deleteDbaasServiceRedis deleteDbaasServiceRedisWithHttpInfo(name)
-
-Delete a Redis service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDbaasServiceRedisWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceRedis");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11022,47 +7596,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDnsDomainWithHttpInfo
-
-> ApiResponse<Operation> deleteDnsDomain deleteDnsDomainWithHttpInfo(id)
-
-Delete DNS Domain
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDnsDomainWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDnsDomain");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11158,48 +7691,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteDnsDomainRecordWithHttpInfo
-
-> ApiResponse<Operation> deleteDnsDomainRecord deleteDnsDomainRecordWithHttpInfo(domainId, recordId)
-
-Delete DNS domain record
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID domainId = UUID.randomUUID(); // UUID | 
-        UUID recordId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteDnsDomainRecordWithHttpInfo(domainId, recordId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteDnsDomainRecord");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11294,47 +7785,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteElasticIpWithHttpInfo
-
-> ApiResponse<Operation> deleteElasticIp deleteElasticIpWithHttpInfo(id)
-
-Delete an Elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteElasticIpWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11428,47 +7878,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteIamRoleWithHttpInfo
-
-> ApiResponse<Operation> deleteIamRole deleteIamRoleWithHttpInfo(id)
-
-Delete IAM Role
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteIamRoleWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteIamRole");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11562,47 +7971,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteInstanceWithHttpInfo
-
-> ApiResponse<Operation> deleteInstance deleteInstanceWithHttpInfo(id)
-
-Delete a Compute instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteInstanceWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11696,47 +8064,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteInstancePoolWithHttpInfo
-
-> ApiResponse<Operation> deleteInstancePool deleteInstancePoolWithHttpInfo(id)
-
-Delete an Instance Pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteInstancePoolWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteInstancePool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11830,47 +8157,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteLoadBalancerWithHttpInfo
-
-> ApiResponse<Operation> deleteLoadBalancer deleteLoadBalancerWithHttpInfo(id)
-
-Delete a Load Balancer
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteLoadBalancerWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteLoadBalancer");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -11966,48 +8252,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteLoadBalancerServiceWithHttpInfo
-
-> ApiResponse<Operation> deleteLoadBalancerService deleteLoadBalancerServiceWithHttpInfo(id, serviceId)
-
-Delete a Load Balancer Service
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID serviceId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteLoadBalancerServiceWithHttpInfo(id, serviceId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteLoadBalancerService");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12102,47 +8346,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deletePrivateNetworkWithHttpInfo
-
-> ApiResponse<Operation> deletePrivateNetwork deletePrivateNetworkWithHttpInfo(id)
-
-Delete a Private Network
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deletePrivateNetworkWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deletePrivateNetwork");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12236,47 +8439,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteReverseDnsElasticIpWithHttpInfo
-
-> ApiResponse<Operation> deleteReverseDnsElasticIp deleteReverseDnsElasticIpWithHttpInfo(id)
-
-Delete the PTR DNS record for an elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteReverseDnsElasticIpWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteReverseDnsElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12370,47 +8532,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteReverseDnsInstanceWithHttpInfo
-
-> ApiResponse<Operation> deleteReverseDnsInstance deleteReverseDnsInstanceWithHttpInfo(id)
-
-Delete the PTR DNS record for an instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteReverseDnsInstanceWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteReverseDnsInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12506,48 +8627,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteRuleFromSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> deleteRuleFromSecurityGroup deleteRuleFromSecurityGroupWithHttpInfo(id, ruleId)
-
-Delete a Security Group rule
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID ruleId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteRuleFromSecurityGroupWithHttpInfo(id, ruleId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteRuleFromSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12642,47 +8721,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> deleteSecurityGroup deleteSecurityGroupWithHttpInfo(id)
-
-Delete a Security Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteSecurityGroupWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12776,47 +8814,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteSksClusterWithHttpInfo
-
-> ApiResponse<Operation> deleteSksCluster deleteSksClusterWithHttpInfo(id)
-
-Delete an SKS cluster
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteSksClusterWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteSksCluster");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -12912,48 +8909,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteSksNodepoolWithHttpInfo
-
-> ApiResponse<Operation> deleteSksNodepool deleteSksNodepoolWithHttpInfo(id, sksNodepoolId)
-
-Delete an SKS Nodepool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteSksNodepoolWithHttpInfo(id, sksNodepoolId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteSksNodepool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13048,47 +9003,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteSnapshotWithHttpInfo
-
-> ApiResponse<Operation> deleteSnapshot deleteSnapshotWithHttpInfo(id)
-
-Delete a Snapshot
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteSnapshotWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13182,47 +9096,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteSshKeyWithHttpInfo
-
-> ApiResponse<Operation> deleteSshKey deleteSshKeyWithHttpInfo(name)
-
-Delete a SSH key
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteSshKeyWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteSshKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13316,47 +9189,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## deleteTemplateWithHttpInfo
-
-> ApiResponse<Operation> deleteTemplate deleteTemplateWithHttpInfo(id)
-
-Delete a Template
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.deleteTemplateWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13450,47 +9282,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## detachBlockStorageVolumeWithHttpInfo
-
-> ApiResponse<Operation> detachBlockStorageVolume detachBlockStorageVolumeWithHttpInfo(id)
-
-Detach block storage volume
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.detachBlockStorageVolumeWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#detachBlockStorageVolume");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13586,48 +9377,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## detachDbaasServiceFromEndpointWithHttpInfo
-
-> ApiResponse<Operation> detachDbaasServiceFromEndpoint detachDbaasServiceFromEndpointWithHttpInfo(sourceServiceName, detachDbaasServiceFromEndpointRequest)
-
-
-
-[BETA] Detach a DBaaS external integration from a service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String sourceServiceName = "sourceServiceName_example"; // String | 
-        DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest = new DetachDbaasServiceFromEndpointRequest(); // DetachDbaasServiceFromEndpointRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.detachDbaasServiceFromEndpointWithHttpInfo(sourceServiceName, detachDbaasServiceFromEndpointRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#detachDbaasServiceFromEndpoint");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13724,48 +9473,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## detachInstanceFromElasticIpWithHttpInfo
-
-> ApiResponse<Operation> detachInstanceFromElasticIp detachInstanceFromElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest)
-
-Detach a Compute instance from an Elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.detachInstanceFromElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#detachInstanceFromElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -13862,48 +9569,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## detachInstanceFromPrivateNetworkWithHttpInfo
-
-> ApiResponse<Operation> detachInstanceFromPrivateNetwork detachInstanceFromPrivateNetworkWithHttpInfo(id, detachInstanceFromPrivateNetworkRequest)
-
-Detach a Compute instance from a Private Network
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.detachInstanceFromPrivateNetworkWithHttpInfo(id, detachInstanceFromPrivateNetworkRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#detachInstanceFromPrivateNetwork");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14000,48 +9665,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## detachInstanceFromSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> detachInstanceFromSecurityGroup detachInstanceFromSecurityGroupWithHttpInfo(id, detachInstanceFromPrivateNetworkRequest)
-
-Detach a Compute instance from a Security Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.detachInstanceFromSecurityGroupWithHttpInfo(id, detachInstanceFromPrivateNetworkRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#detachInstanceFromSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14134,45 +9757,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## enableDbaasMysqlWritesWithHttpInfo
-
-> ApiResponse<Operation> enableDbaasMysqlWrites enableDbaasMysqlWritesWithHttpInfo(name)
-
-Temporarily enable writes for MySQL services in read-only mode due to filled up storage
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.enableDbaasMysqlWritesWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#enableDbaasMysqlWrites");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14268,48 +9852,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## evictInstancePoolMembersWithHttpInfo
-
-> ApiResponse<Operation> evictInstancePoolMembers evictInstancePoolMembersWithHttpInfo(id, evictInstancePoolMembersRequest)
-
-Evict Instance Pool members
-
-This operation evicts the specified Compute instances member from the Instance Pool, shrinking it to &#x60;&amp;lt;current pool size&amp;gt; - &amp;lt;# evicted members&amp;gt;&#x60;.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        EvictInstancePoolMembersRequest evictInstancePoolMembersRequest = new EvictInstancePoolMembersRequest(); // EvictInstancePoolMembersRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.evictInstancePoolMembersWithHttpInfo(id, evictInstancePoolMembersRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#evictInstancePoolMembers");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14408,49 +9950,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## evictSksNodepoolMembersWithHttpInfo
-
-> ApiResponse<Operation> evictSksNodepoolMembers evictSksNodepoolMembersWithHttpInfo(id, sksNodepoolId, evictSksNodepoolMembersRequest)
-
-Evict Nodepool members
-
-This operation evicts the specified Compute instances member from the Nodepool, shrinking it to &#x60;&amp;lt;current nodepool size&amp;gt; - &amp;lt;# evicted members&amp;gt;&#x60;.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        EvictSksNodepoolMembersRequest evictSksNodepoolMembersRequest = new EvictSksNodepoolMembersRequest(); // EvictSksNodepoolMembersRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.evictSksNodepoolMembersWithHttpInfo(id, sksNodepoolId, evictSksNodepoolMembersRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#evictSksNodepoolMembers");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14546,47 +10045,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## exportSnapshotWithHttpInfo
-
-> ApiResponse<Operation> exportSnapshot exportSnapshotWithHttpInfo(id)
-
-Export a Snapshot
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.exportSnapshotWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#exportSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14682,48 +10140,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## generateSksClusterKubeconfigWithHttpInfo
-
-> ApiResponse<GenerateSksClusterKubeconfig200Response> generateSksClusterKubeconfig generateSksClusterKubeconfigWithHttpInfo(id, sksKubeconfigRequest)
-
-Generate a new Kubeconfig file for a SKS cluster
-
-This operation returns a Kubeconfig file encoded in base64.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        SksKubeconfigRequest sksKubeconfigRequest = new SksKubeconfigRequest(); // SksKubeconfigRequest | 
-        try {
-            ApiResponse<GenerateSksClusterKubeconfig200Response> response = apiInstance.generateSksClusterKubeconfigWithHttpInfo(id, sksKubeconfigRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#generateSksClusterKubeconfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14818,47 +10234,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getAntiAffinityGroupWithHttpInfo
-
-> ApiResponse<AntiAffinityGroup> getAntiAffinityGroup getAntiAffinityGroupWithHttpInfo(id)
-
-Retrieve Anti-affinity Group details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<AntiAffinityGroup> response = apiInstance.getAntiAffinityGroupWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getAntiAffinityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -14950,45 +10325,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getApiKeyWithHttpInfo
-
-> ApiResponse<IamApiKey> getApiKey getApiKeyWithHttpInfo(id)
-
-Get API key
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String id = "id_example"; // String | 
-        try {
-            ApiResponse<IamApiKey> response = apiInstance.getApiKeyWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15082,47 +10418,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getBlockStorageSnapshotWithHttpInfo
-
-> ApiResponse<BlockStorageSnapshot> getBlockStorageSnapshot getBlockStorageSnapshotWithHttpInfo(id)
-
-Retrieve block storage snapshot details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<BlockStorageSnapshot> response = apiInstance.getBlockStorageSnapshotWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getBlockStorageSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15216,47 +10511,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getBlockStorageVolumeWithHttpInfo
-
-> ApiResponse<BlockStorageVolume> getBlockStorageVolume getBlockStorageVolumeWithHttpInfo(id)
-
-Retrieve block storage volume details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<BlockStorageVolume> response = apiInstance.getBlockStorageVolumeWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getBlockStorageVolume");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15350,47 +10604,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getConsoleProxyUrlWithHttpInfo
-
-> ApiResponse<GetConsoleProxyUrl200Response> getConsoleProxyUrl getConsoleProxyUrlWithHttpInfo(id)
-
-Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console.
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<GetConsoleProxyUrl200Response> response = apiInstance.getConsoleProxyUrlWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getConsoleProxyUrl");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15480,46 +10693,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasCaCertificateWithHttpInfo
-
-> ApiResponse<GetDbaasCaCertificate200Response> getDbaasCaCertificate getDbaasCaCertificateWithHttpInfo()
-
-Get DBaaS CA Certificate
-
-Returns a CA Certificate required to reach a DBaaS service through a TLS-protected connection.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasCaCertificate200Response> response = apiInstance.getDbaasCaCertificateWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasCaCertificate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15610,47 +10783,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasExternalEndpointDatadogWithHttpInfo
-
-> ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadog getDbaasExternalEndpointDatadogWithHttpInfo(id)
-
-
-
-[BETA] Get DataDog external endpoint settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasExternalEndpointDatadogOutput> response = apiInstance.getDbaasExternalEndpointDatadogWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointDatadog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15744,47 +10876,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasExternalEndpointElasticsearchWithHttpInfo
-
-> ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearch getDbaasExternalEndpointElasticsearchWithHttpInfo(id)
-
-
-
-[BETA] Get ElasticSearch Logs external integration endpoint settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasEndpointElasticsearchOutput> response = apiInstance.getDbaasExternalEndpointElasticsearchWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointElasticsearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -15878,47 +10969,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasExternalEndpointOpensearchWithHttpInfo
-
-> ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearch getDbaasExternalEndpointOpensearchWithHttpInfo(id)
-
-
-
-[BETA] Get OpenSearch Logs external integration endpoint settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasEndpointOpensearchOutput> response = apiInstance.getDbaasExternalEndpointOpensearchWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16012,47 +11062,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasExternalEndpointPrometheusWithHttpInfo
-
-> ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheus getDbaasExternalEndpointPrometheusWithHttpInfo(id)
-
-
-
-[BETA] Get Prometheus external integration endpoint settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasEndpointExternalPrometheusOutput> response = apiInstance.getDbaasExternalEndpointPrometheusWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointPrometheus");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16146,47 +11155,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasExternalEndpointRsyslogWithHttpInfo
-
-> ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslog getDbaasExternalEndpointRsyslogWithHttpInfo(id)
-
-
-
-[BETA] Get RSyslog external integration endpoint settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasExternalEndpointRsyslogOutput> response = apiInstance.getDbaasExternalEndpointRsyslogWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointRsyslog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16280,47 +11248,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasExternalIntegrationWithHttpInfo
-
-> ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegration getDbaasExternalIntegrationWithHttpInfo(id)
-
-
-
-[BETA] Get a DBaaS external integration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasExternalIntegration> response = apiInstance.getDbaasExternalIntegrationWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16332,6 +11259,99 @@ public class Example {
 ### Return type
 
 ApiResponse<[**DbaasExternalIntegration**](DbaasExternalIntegration.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasExternalIntegrationSettingsDatadog
+
+> GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog(integrationId)
+
+
+
+[BETA] Get Datadog integration settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiClient;
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+
+        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+        UUID integrationId = UUID.randomUUID(); // UUID | 
+        try {
+            GetDbaasExternalIntegrationSettingsDatadog200Response result = apiInstance.getDbaasExternalIntegrationSettingsDatadog(integrationId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegrationSettingsDatadog");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **UUID**|  | |
+
+### Return type
+
+[**GetDbaasExternalIntegrationSettingsDatadog200Response**](GetDbaasExternalIntegrationSettingsDatadog200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GetDbaasExternalIntegrationSettingsDatadog200Response**](GetDbaasExternalIntegrationSettingsDatadog200Response.md)>
 
 
 ### Authorization
@@ -16414,47 +11434,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasIntegrationWithHttpInfo
-
-> ApiResponse<DbaasIntegration> getDbaasIntegration getDbaasIntegrationWithHttpInfo(id)
-
-
-
-[BETA] Get a DBaaS Integration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasIntegration> response = apiInstance.getDbaasIntegrationWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasIntegration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16546,45 +11525,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasKafkaAclConfigWithHttpInfo
-
-> ApiResponse<DbaasKafkaAcls> getDbaasKafkaAclConfig getDbaasKafkaAclConfigWithHttpInfo(name)
-
-Get DBaaS kafka ACL configuration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasKafkaAcls> response = apiInstance.getDbaasKafkaAclConfigWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasKafkaAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16678,47 +11618,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasMigrationStatusWithHttpInfo
-
-> ApiResponse<DbaasMigrationStatus> getDbaasMigrationStatus getDbaasMigrationStatusWithHttpInfo(name)
-
-Get a DBaaS migration status
-
-Get a DBaaS migration status
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasMigrationStatus> response = apiInstance.getDbaasMigrationStatusWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasMigrationStatus");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16810,45 +11709,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasOpensearchAclConfigWithHttpInfo
-
-> ApiResponse<DbaasOpensearchAclConfig> getDbaasOpensearchAclConfig getDbaasOpensearchAclConfigWithHttpInfo(name)
-
-Get DBaaS OpenSearch ACL configuration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasOpensearchAclConfig> response = apiInstance.getDbaasOpensearchAclConfigWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasOpensearchAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -16940,45 +11800,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceGrafanaWithHttpInfo
-
-> ApiResponse<DbaasServiceGrafana> getDbaasServiceGrafana getDbaasServiceGrafanaWithHttpInfo(name)
-
-Get a DBaaS Grafana service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasServiceGrafana> response = apiInstance.getDbaasServiceGrafanaWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceGrafana");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17070,45 +11891,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceKafkaWithHttpInfo
-
-> ApiResponse<DbaasServiceKafka> getDbaasServiceKafka getDbaasServiceKafkaWithHttpInfo(name)
-
-Get a DBaaS Kafka service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasServiceKafka> response = apiInstance.getDbaasServiceKafkaWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceKafka");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17204,48 +11986,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceLogsWithHttpInfo
-
-> ApiResponse<DbaasServiceLogs> getDbaasServiceLogs getDbaasServiceLogsWithHttpInfo(serviceName, getDbaasServiceLogsRequest)
-
-Get logs of DBaaS service
-
-Get logs of DBaaS service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        GetDbaasServiceLogsRequest getDbaasServiceLogsRequest = new GetDbaasServiceLogsRequest(); // GetDbaasServiceLogsRequest | 
-        try {
-            ApiResponse<DbaasServiceLogs> response = apiInstance.getDbaasServiceLogsWithHttpInfo(serviceName, getDbaasServiceLogsRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceLogs");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17342,48 +12082,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceMetricsWithHttpInfo
-
-> ApiResponse<GetDbaasServiceMetrics200Response> getDbaasServiceMetrics getDbaasServiceMetricsWithHttpInfo(serviceName, getDbaasServiceMetricsRequest)
-
-Get metrics of DBaaS service
-
-Get metrics of DBaaS service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        GetDbaasServiceMetricsRequest getDbaasServiceMetricsRequest = new GetDbaasServiceMetricsRequest(); // GetDbaasServiceMetricsRequest | 
-        try {
-            ApiResponse<GetDbaasServiceMetrics200Response> response = apiInstance.getDbaasServiceMetricsWithHttpInfo(serviceName, getDbaasServiceMetricsRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceMetrics");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17478,47 +12176,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceMysqlWithHttpInfo
-
-> ApiResponse<DbaasServiceMysql> getDbaasServiceMysql getDbaasServiceMysqlWithHttpInfo(name)
-
-Get a DBaaS MySQL service
-
-Get a DBaaS MySQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasServiceMysql> response = apiInstance.getDbaasServiceMysqlWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceMysql");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17612,47 +12269,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceOpensearchWithHttpInfo
-
-> ApiResponse<DbaasServiceOpensearch> getDbaasServiceOpensearch getDbaasServiceOpensearchWithHttpInfo(name)
-
-Get a DBaaS OpenSearch service
-
-Get a DBaaS OpenSearch service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasServiceOpensearch> response = apiInstance.getDbaasServiceOpensearchWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17746,47 +12362,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServicePgWithHttpInfo
-
-> ApiResponse<DbaasServicePg> getDbaasServicePg getDbaasServicePgWithHttpInfo(name)
-
-Get a DBaaS PostgreSQL service
-
-Get a DBaaS PostgreSQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasServicePg> response = apiInstance.getDbaasServicePgWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServicePg");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -17880,47 +12455,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceRedisWithHttpInfo
-
-> ApiResponse<DbaasServiceRedis> getDbaasServiceRedis getDbaasServiceRedisWithHttpInfo(name)
-
-Get a DBaaS Redis service
-
-Get a DBaaS Redis service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<DbaasServiceRedis> response = apiInstance.getDbaasServiceRedisWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceRedis");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18014,47 +12548,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasServiceTypeWithHttpInfo
-
-> ApiResponse<DbaasServiceType> getDbaasServiceType getDbaasServiceTypeWithHttpInfo(serviceTypeName)
-
-Get a DBaaS service type
-
-Get a DBaaS service type
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceTypeName = "serviceTypeName_example"; // String | 
-        try {
-            ApiResponse<DbaasServiceType> response = apiInstance.getDbaasServiceTypeWithHttpInfo(serviceTypeName);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceType");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18144,46 +12637,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasSettingsGrafanaWithHttpInfo
-
-> ApiResponse<GetDbaasSettingsGrafana200Response> getDbaasSettingsGrafana getDbaasSettingsGrafanaWithHttpInfo()
-
-Get DBaaS Grafana settings
-
-Get DBaaS Grafana settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasSettingsGrafana200Response> response = apiInstance.getDbaasSettingsGrafanaWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsGrafana");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18270,46 +12723,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasSettingsKafkaWithHttpInfo
-
-> ApiResponse<GetDbaasSettingsKafka200Response> getDbaasSettingsKafka getDbaasSettingsKafkaWithHttpInfo()
-
-Get DBaaS Kafka settings
-
-Get DBaaS Kafka settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasSettingsKafka200Response> response = apiInstance.getDbaasSettingsKafkaWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsKafka");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18396,46 +12809,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasSettingsMysqlWithHttpInfo
-
-> ApiResponse<GetDbaasSettingsMysql200Response> getDbaasSettingsMysql getDbaasSettingsMysqlWithHttpInfo()
-
-Get DBaaS MySQL settings
-
-Get DBaaS MySQL settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasSettingsMysql200Response> response = apiInstance.getDbaasSettingsMysqlWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsMysql");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18522,46 +12895,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasSettingsOpensearchWithHttpInfo
-
-> ApiResponse<GetDbaasSettingsOpensearch200Response> getDbaasSettingsOpensearch getDbaasSettingsOpensearchWithHttpInfo()
-
-Get DBaaS OpenSearch settings
-
-Get DBaaS OpenSearch settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasSettingsOpensearch200Response> response = apiInstance.getDbaasSettingsOpensearchWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18648,46 +12981,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasSettingsPgWithHttpInfo
-
-> ApiResponse<GetDbaasSettingsPg200Response> getDbaasSettingsPg getDbaasSettingsPgWithHttpInfo()
-
-Get DBaaS PostgreSQL settings
-
-Get DBaaS PostgreSQL settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasSettingsPg200Response> response = apiInstance.getDbaasSettingsPgWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsPg");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18774,46 +13067,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasSettingsRedisWithHttpInfo
-
-> ApiResponse<GetDbaasSettingsRedis200Response> getDbaasSettingsRedis getDbaasSettingsRedisWithHttpInfo()
-
-Get DBaaS Redis settings
-
-Returns the default settings for Redis.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<GetDbaasSettingsRedis200Response> response = apiInstance.getDbaasSettingsRedisWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsRedis");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -18906,48 +13159,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDbaasTaskWithHttpInfo
-
-> ApiResponse<DbaasTask> getDbaasTask getDbaasTaskWithHttpInfo(service, id)
-
-Get a DBaaS task
-
-Get a DBaaS task
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String service = "service_example"; // String | 
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DbaasTask> response = apiInstance.getDbaasTaskWithHttpInfo(service, id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDbaasTask");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19042,47 +13253,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDeployTargetWithHttpInfo
-
-> ApiResponse<DeployTarget> getDeployTarget getDeployTargetWithHttpInfo(id)
-
-Retrieve Deploy Target details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DeployTarget> response = apiInstance.getDeployTargetWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDeployTarget");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19176,47 +13346,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDnsDomainWithHttpInfo
-
-> ApiResponse<DnsDomain> getDnsDomain getDnsDomainWithHttpInfo(id)
-
-Retrieve DNS domain details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DnsDomain> response = apiInstance.getDnsDomainWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDnsDomain");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19312,48 +13441,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDnsDomainRecordWithHttpInfo
-
-> ApiResponse<DnsDomainRecord> getDnsDomainRecord getDnsDomainRecordWithHttpInfo(domainId, recordId)
-
-Retrieve DNS domain record details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID domainId = UUID.randomUUID(); // UUID | 
-        UUID recordId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<DnsDomainRecord> response = apiInstance.getDnsDomainRecordWithHttpInfo(domainId, recordId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDnsDomainRecord");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19448,47 +13535,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getDnsDomainZoneFileWithHttpInfo
-
-> ApiResponse<GetDnsDomainZoneFile200Response> getDnsDomainZoneFile getDnsDomainZoneFileWithHttpInfo(id)
-
-Retrieve DNS domain zone file
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<GetDnsDomainZoneFile200Response> response = apiInstance.getDnsDomainZoneFileWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getDnsDomainZoneFile");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19582,47 +13628,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getElasticIpWithHttpInfo
-
-> ApiResponse<ElasticIp> getElasticIp getElasticIpWithHttpInfo(id)
-
-Retrieve Elastic IP details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<ElasticIp> response = apiInstance.getElasticIpWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19712,46 +13717,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getIamOrganizationPolicyWithHttpInfo
-
-> ApiResponse<IamPolicy> getIamOrganizationPolicy getIamOrganizationPolicyWithHttpInfo()
-
-Retrieve IAM Organization Policy
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<IamPolicy> response = apiInstance.getIamOrganizationPolicyWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getIamOrganizationPolicy");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19842,47 +13807,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getIamRoleWithHttpInfo
-
-> ApiResponse<IamRole> getIamRole getIamRoleWithHttpInfo(id)
-
-Retrieve IAM Role
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<IamRole> response = apiInstance.getIamRoleWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getIamRole");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -19976,47 +13900,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getInstanceWithHttpInfo
-
-> ApiResponse<Instance> getInstance getInstanceWithHttpInfo(id)
-
-Retrieve Compute instance details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Instance> response = apiInstance.getInstanceWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20110,47 +13993,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getInstancePoolWithHttpInfo
-
-> ApiResponse<InstancePool> getInstancePool getInstancePoolWithHttpInfo(id)
-
-Retrieve Instance Pool details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<InstancePool> response = apiInstance.getInstancePoolWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getInstancePool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20244,47 +14086,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getInstanceTypeWithHttpInfo
-
-> ApiResponse<InstanceType> getInstanceType getInstanceTypeWithHttpInfo(id)
-
-Retrieve Instance Type details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<InstanceType> response = apiInstance.getInstanceTypeWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getInstanceType");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20378,47 +14179,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getLoadBalancerWithHttpInfo
-
-> ApiResponse<LoadBalancer> getLoadBalancer getLoadBalancerWithHttpInfo(id)
-
-Retrieve Load Balancer details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<LoadBalancer> response = apiInstance.getLoadBalancerWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getLoadBalancer");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20514,48 +14274,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getLoadBalancerServiceWithHttpInfo
-
-> ApiResponse<LoadBalancerService> getLoadBalancerService getLoadBalancerServiceWithHttpInfo(id, serviceId)
-
-Retrieve Load Balancer Service details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID serviceId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<LoadBalancerService> response = apiInstance.getLoadBalancerServiceWithHttpInfo(id, serviceId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getLoadBalancerService");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20650,47 +14368,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getOperationWithHttpInfo
-
-> ApiResponse<Operation> getOperation getOperationWithHttpInfo(id)
-
-Retrieve Operation details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.getOperationWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getOperation");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20780,46 +14457,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getOrganizationWithHttpInfo
-
-> ApiResponse<Organization> getOrganization getOrganizationWithHttpInfo()
-
-Retrieve an organization
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<Organization> response = apiInstance.getOrganizationWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getOrganization");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -20910,47 +14547,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getPrivateNetworkWithHttpInfo
-
-> ApiResponse<PrivateNetwork> getPrivateNetwork getPrivateNetworkWithHttpInfo(id)
-
-Retrieve Private Network details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<PrivateNetwork> response = apiInstance.getPrivateNetworkWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getPrivateNetwork");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21044,47 +14640,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getQuotaWithHttpInfo
-
-> ApiResponse<Quota> getQuota getQuotaWithHttpInfo(entity)
-
-Retrieve Resource Quota
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String entity = "entity_example"; // String | 
-        try {
-            ApiResponse<Quota> response = apiInstance.getQuotaWithHttpInfo(entity);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getQuota");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21178,47 +14733,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getReverseDnsElasticIpWithHttpInfo
-
-> ApiResponse<ReverseDnsRecord> getReverseDnsElasticIp getReverseDnsElasticIpWithHttpInfo(id)
-
-Query the PTR DNS records for an elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<ReverseDnsRecord> response = apiInstance.getReverseDnsElasticIpWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getReverseDnsElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21312,47 +14826,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getReverseDnsInstanceWithHttpInfo
-
-> ApiResponse<ReverseDnsRecord> getReverseDnsInstance getReverseDnsInstanceWithHttpInfo(id)
-
-Query the PTR DNS records for an instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<ReverseDnsRecord> response = apiInstance.getReverseDnsInstanceWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getReverseDnsInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21446,47 +14919,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSecurityGroupWithHttpInfo
-
-> ApiResponse<SecurityGroup> getSecurityGroup getSecurityGroupWithHttpInfo(id)
-
-Retrieve Security Group details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<SecurityGroup> response = apiInstance.getSecurityGroupWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21580,47 +15012,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSksClusterWithHttpInfo
-
-> ApiResponse<SksCluster> getSksCluster getSksClusterWithHttpInfo(id)
-
-Retrieve SKS cluster details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<SksCluster> response = apiInstance.getSksClusterWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSksCluster");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21716,48 +15107,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSksClusterAuthorityCertWithHttpInfo
-
-> ApiResponse<GetSksClusterAuthorityCert200Response> getSksClusterAuthorityCert getSksClusterAuthorityCertWithHttpInfo(id, authority)
-
-Get the certificate for a SKS cluster authority
-
-This operation returns the certificate for the given SKS cluster authority encoded in base64.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String authority = "control-plane"; // String | 
-        try {
-            ApiResponse<GetSksClusterAuthorityCert200Response> response = apiInstance.getSksClusterAuthorityCertWithHttpInfo(id, authority);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSksClusterAuthorityCert");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21852,47 +15201,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSksClusterInspectionWithHttpInfo
-
-> ApiResponse<Map<String, Object>> getSksClusterInspection getSksClusterInspectionWithHttpInfo(id)
-
-Get the latest inspection result
-
-Helps troubleshoot common problems when deploying a kubernetes cluster. Inspections run every couple of minutes.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Map<String, Object>> response = apiInstance.getSksClusterInspectionWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSksClusterInspection");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -21988,48 +15296,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSksNodepoolWithHttpInfo
-
-> ApiResponse<SksNodepool> getSksNodepool getSksNodepoolWithHttpInfo(id, sksNodepoolId)
-
-Retrieve SKS Nodepool details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<SksNodepool> response = apiInstance.getSksNodepoolWithHttpInfo(id, sksNodepoolId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSksNodepool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22124,47 +15390,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSnapshotWithHttpInfo
-
-> ApiResponse<Snapshot> getSnapshot getSnapshotWithHttpInfo(id)
-
-Retrieve Snapshot details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Snapshot> response = apiInstance.getSnapshotWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22260,48 +15485,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSosPresignedUrlWithHttpInfo
-
-> ApiResponse<GetSosPresignedUrl200Response> getSosPresignedUrl getSosPresignedUrlWithHttpInfo(bucket, key)
-
-Retrieve Presigned Download URL for SOS object
-
-Generates Presigned Download URL for SOS object
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String bucket = "bucket_example"; // String | 
-        String key = "key_example"; // String | 
-        try {
-            ApiResponse<GetSosPresignedUrl200Response> response = apiInstance.getSosPresignedUrlWithHttpInfo(bucket, key);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSosPresignedUrl");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22396,47 +15579,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getSshKeyWithHttpInfo
-
-> ApiResponse<SshKey> getSshKey getSshKeyWithHttpInfo(name)
-
-Retrieve SSH key details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<SshKey> response = apiInstance.getSshKeyWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getSshKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22530,47 +15672,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## getTemplateWithHttpInfo
-
-> ApiResponse<Template> getTemplate getTemplateWithHttpInfo(id)
-
-Retrieve Template details
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Template> response = apiInstance.getTemplateWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#getTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22660,46 +15761,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listAntiAffinityGroupsWithHttpInfo
-
-> ApiResponse<ListAntiAffinityGroups200Response> listAntiAffinityGroups listAntiAffinityGroupsWithHttpInfo()
-
-List Anti-affinity Groups
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListAntiAffinityGroups200Response> response = apiInstance.listAntiAffinityGroupsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listAntiAffinityGroups");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22784,44 +15845,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listApiKeysWithHttpInfo
-
-> ApiResponse<ListApiKeys200Response> listApiKeys listApiKeysWithHttpInfo()
-
-List API keys
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListApiKeys200Response> response = apiInstance.listApiKeysWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listApiKeys");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -22908,46 +15931,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listBlockStorageSnapshotsWithHttpInfo
-
-> ApiResponse<ListBlockStorageSnapshots200Response> listBlockStorageSnapshots listBlockStorageSnapshotsWithHttpInfo()
-
-List block storage snapshots
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListBlockStorageSnapshots200Response> response = apiInstance.listBlockStorageSnapshotsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listBlockStorageSnapshots");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23038,47 +16021,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listBlockStorageVolumesWithHttpInfo
-
-> ApiResponse<ListBlockStorageVolumes200Response> listBlockStorageVolumes listBlockStorageVolumesWithHttpInfo(instanceId)
-
-List block storage volumes
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID instanceId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<ListBlockStorageVolumes200Response> response = apiInstance.listBlockStorageVolumesWithHttpInfo(instanceId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listBlockStorageVolumes");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23168,46 +16110,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasExternalEndpointTypesWithHttpInfo
-
-> ApiResponse<ListDbaasExternalEndpointTypes200Response> listDbaasExternalEndpointTypes listDbaasExternalEndpointTypesWithHttpInfo()
-
-
-
-[BETA] List available external endpoint types and their schemas for DBaaS external integrations
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDbaasExternalEndpointTypes200Response> response = apiInstance.listDbaasExternalEndpointTypesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpointTypes");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23294,46 +16196,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasExternalEndpointsWithHttpInfo
-
-> ApiResponse<ListDbaasExternalEndpoints200Response> listDbaasExternalEndpoints listDbaasExternalEndpointsWithHttpInfo()
-
-
-
-[BETA] List available external endpoints for integrations
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDbaasExternalEndpoints200Response> response = apiInstance.listDbaasExternalEndpointsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpoints");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23424,47 +16286,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasExternalIntegrationsWithHttpInfo
-
-> ApiResponse<ListDbaasExternalIntegrations200Response> listDbaasExternalIntegrations listDbaasExternalIntegrationsWithHttpInfo(serviceName)
-
-
-
-[BETA] List all DBaaS connections between services and external endpoints
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        try {
-            ApiResponse<ListDbaasExternalIntegrations200Response> response = apiInstance.listDbaasExternalIntegrationsWithHttpInfo(serviceName);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasExternalIntegrations");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23562,49 +16383,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasIntegrationSettingsWithHttpInfo
-
-> ApiResponse<ListDbaasIntegrationSettings200Response> listDbaasIntegrationSettings listDbaasIntegrationSettingsWithHttpInfo(integrationType, sourceType, destType)
-
-
-
-[BETA] Get DBaaS integration settings
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String integrationType = "integrationType_example"; // String | 
-        String sourceType = "sourceType_example"; // String | 
-        String destType = "destType_example"; // String | 
-        try {
-            ApiResponse<ListDbaasIntegrationSettings200Response> response = apiInstance.listDbaasIntegrationSettingsWithHttpInfo(integrationType, sourceType, destType);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasIntegrationSettings");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23696,46 +16474,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasIntegrationTypesWithHttpInfo
-
-> ApiResponse<ListDbaasIntegrationTypes200Response> listDbaasIntegrationTypes listDbaasIntegrationTypesWithHttpInfo()
-
-
-
-[BETA] Get DBaaS integration types
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDbaasIntegrationTypes200Response> response = apiInstance.listDbaasIntegrationTypesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasIntegrationTypes");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23822,46 +16560,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasServiceTypesWithHttpInfo
-
-> ApiResponse<ListDbaasServiceTypes200Response> listDbaasServiceTypes listDbaasServiceTypesWithHttpInfo()
-
-DBaaS Service Types
-
-List available service types for DBaaS
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDbaasServiceTypes200Response> response = apiInstance.listDbaasServiceTypesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasServiceTypes");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -23948,46 +16646,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDbaasServicesWithHttpInfo
-
-> ApiResponse<ListDbaasServices200Response> listDbaasServices listDbaasServicesWithHttpInfo()
-
-List DBaaS services
-
-List DBaaS services
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDbaasServices200Response> response = apiInstance.listDbaasServicesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDbaasServices");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24074,46 +16732,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDeployTargetsWithHttpInfo
-
-> ApiResponse<ListDeployTargets200Response> listDeployTargets listDeployTargetsWithHttpInfo()
-
-List Deploy Targets
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDeployTargets200Response> response = apiInstance.listDeployTargetsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDeployTargets");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24204,47 +16822,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDnsDomainRecordsWithHttpInfo
-
-> ApiResponse<ListDnsDomainRecords200Response> listDnsDomainRecords listDnsDomainRecordsWithHttpInfo(domainId)
-
-List DNS domain records
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID domainId = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<ListDnsDomainRecords200Response> response = apiInstance.listDnsDomainRecordsWithHttpInfo(domainId);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDnsDomainRecords");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24334,46 +16911,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listDnsDomainsWithHttpInfo
-
-> ApiResponse<ListDnsDomains200Response> listDnsDomains listDnsDomainsWithHttpInfo()
-
-List DNS domains
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListDnsDomains200Response> response = apiInstance.listDnsDomainsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listDnsDomains");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24460,46 +16997,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listElasticIpsWithHttpInfo
-
-> ApiResponse<ListElasticIps200Response> listElasticIps listElasticIpsWithHttpInfo()
-
-List Elastic IPs
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListElasticIps200Response> response = apiInstance.listElasticIpsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listElasticIps");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24592,48 +17089,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listEventsWithHttpInfo
-
-> ApiResponse<List<Event>> listEvents listEventsWithHttpInfo(from, to)
-
-List Events
-
-Retrieve Mutation Events for a given date range. Defaults to retrieving Events for the past 24 hours.          Both a &#x60;from&#x60; and &#x60;to&#x60; arguments can be specified to filter Events over a specific period.          Events will be the the most descriptive possible but not all fields are mandatory
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        OffsetDateTime from = OffsetDateTime.now(); // OffsetDateTime | 
-        OffsetDateTime to = OffsetDateTime.now(); // OffsetDateTime | 
-        try {
-            ApiResponse<List<Event>> response = apiInstance.listEventsWithHttpInfo(from, to);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listEvents");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24724,46 +17179,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listIamRolesWithHttpInfo
-
-> ApiResponse<ListIamRoles200Response> listIamRoles listIamRolesWithHttpInfo()
-
-List IAM Roles
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListIamRoles200Response> response = apiInstance.listIamRolesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listIamRoles");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24850,46 +17265,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listInstancePoolsWithHttpInfo
-
-> ApiResponse<ListInstancePools200Response> listInstancePools listInstancePoolsWithHttpInfo()
-
-List Instance Pools
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListInstancePools200Response> response = apiInstance.listInstancePoolsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listInstancePools");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -24976,46 +17351,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listInstanceTypesWithHttpInfo
-
-> ApiResponse<ListInstanceTypes200Response> listInstanceTypes listInstanceTypesWithHttpInfo()
-
-List Compute instance Types
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListInstanceTypes200Response> response = apiInstance.listInstanceTypesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listInstanceTypes");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25110,49 +17445,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listInstancesWithHttpInfo
-
-> ApiResponse<ListInstances200Response> listInstances listInstancesWithHttpInfo(managerId, managerType, ipAddress)
-
-List Compute instances
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID managerId = UUID.randomUUID(); // UUID | 
-        String managerType = "instance-pool"; // String | 
-        String ipAddress = "ipAddress_example"; // String | 
-        try {
-            ApiResponse<ListInstances200Response> response = apiInstance.listInstancesWithHttpInfo(managerId, managerType, ipAddress);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listInstances");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25244,46 +17536,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listLoadBalancersWithHttpInfo
-
-> ApiResponse<ListLoadBalancers200Response> listLoadBalancers listLoadBalancersWithHttpInfo()
-
-List Load Balancers
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListLoadBalancers200Response> response = apiInstance.listLoadBalancersWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listLoadBalancers");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25370,46 +17622,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listPrivateNetworksWithHttpInfo
-
-> ApiResponse<ListPrivateNetworks200Response> listPrivateNetworks listPrivateNetworksWithHttpInfo()
-
-List Private Networks
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListPrivateNetworks200Response> response = apiInstance.listPrivateNetworksWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listPrivateNetworks");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25496,46 +17708,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listQuotasWithHttpInfo
-
-> ApiResponse<ListQuotas200Response> listQuotas listQuotasWithHttpInfo()
-
-List Organization Quotas
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListQuotas200Response> response = apiInstance.listQuotasWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listQuotas");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25626,47 +17798,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSecurityGroupsWithHttpInfo
-
-> ApiResponse<ListSecurityGroups200Response> listSecurityGroups listSecurityGroupsWithHttpInfo(visibility)
-
-List Security Groups.
-
-Lists security groups. When visibility is set to public, lists public security groups. Public security groups are objects maintained by Exoscale which contain source addresses for relevant services hosted by Exoscale. They can be used a source in ingress rules and as a destination in egress rules.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String visibility = "private"; // String | 
-        try {
-            ApiResponse<ListSecurityGroups200Response> response = apiInstance.listSecurityGroupsWithHttpInfo(visibility);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSecurityGroups");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25760,47 +17891,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSksClusterDeprecatedResourcesWithHttpInfo
-
-> ApiResponse<List<Map<String, String>>> listSksClusterDeprecatedResources listSksClusterDeprecatedResourcesWithHttpInfo(id)
-
-Resources that are scheduled to be removed in future kubernetes releases
-
-This operation returns the deprecated resources for a given cluster
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<List<Map<String, String>>> response = apiInstance.listSksClusterDeprecatedResourcesWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSksClusterDeprecatedResources");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -25894,47 +17984,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSksClusterVersionsWithHttpInfo
-
-> ApiResponse<ListSksClusterVersions200Response> listSksClusterVersions listSksClusterVersionsWithHttpInfo(includeDeprecated)
-
-List available versions for SKS clusters
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String includeDeprecated = "includeDeprecated_example"; // String | 
-        try {
-            ApiResponse<ListSksClusterVersions200Response> response = apiInstance.listSksClusterVersionsWithHttpInfo(includeDeprecated);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSksClusterVersions");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26024,46 +18073,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSksClustersWithHttpInfo
-
-> ApiResponse<ListSksClusters200Response> listSksClusters listSksClustersWithHttpInfo()
-
-List SKS clusters
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListSksClusters200Response> response = apiInstance.listSksClustersWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSksClusters");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26150,46 +18159,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSnapshotsWithHttpInfo
-
-> ApiResponse<ListSnapshots200Response> listSnapshots listSnapshotsWithHttpInfo()
-
-List Snapshots
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListSnapshots200Response> response = apiInstance.listSnapshotsWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSnapshots");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26276,46 +18245,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSosBucketsUsageWithHttpInfo
-
-> ApiResponse<ListSosBucketsUsage200Response> listSosBucketsUsage listSosBucketsUsageWithHttpInfo()
-
-List SOS Buckets Usage
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListSosBucketsUsage200Response> response = apiInstance.listSosBucketsUsageWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSosBucketsUsage");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26402,46 +18331,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listSshKeysWithHttpInfo
-
-> ApiResponse<ListSshKeys200Response> listSshKeys listSshKeysWithHttpInfo()
-
-List SSH keys
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListSshKeys200Response> response = apiInstance.listSshKeysWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listSshKeys");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26534,48 +18423,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listTemplatesWithHttpInfo
-
-> ApiResponse<ListTemplates200Response> listTemplates listTemplatesWithHttpInfo(visibility, family)
-
-List Templates
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String visibility = "private"; // String | 
-        String family = "family_example"; // String | 
-        try {
-            ApiResponse<ListTemplates200Response> response = apiInstance.listTemplatesWithHttpInfo(visibility, family);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listTemplates");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26666,46 +18513,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## listZonesWithHttpInfo
-
-> ApiResponse<ListZones200Response> listZones listZonesWithHttpInfo()
-
-List Zones
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        try {
-            ApiResponse<ListZones200Response> response = apiInstance.listZonesWithHttpInfo();
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#listZones");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26798,48 +18605,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## promoteSnapshotToTemplateWithHttpInfo
-
-> ApiResponse<Operation> promoteSnapshotToTemplate promoteSnapshotToTemplateWithHttpInfo(id, promoteSnapshotToTemplateRequest)
-
-Promote a Snapshot to a Template
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        PromoteSnapshotToTemplateRequest promoteSnapshotToTemplateRequest = new PromoteSnapshotToTemplateRequest(); // PromoteSnapshotToTemplateRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.promoteSnapshotToTemplateWithHttpInfo(id, promoteSnapshotToTemplateRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#promoteSnapshotToTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -26934,47 +18699,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## rebootInstanceWithHttpInfo
-
-> ApiResponse<Operation> rebootInstance rebootInstanceWithHttpInfo(id)
-
-Reboot a Compute instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.rebootInstanceWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#rebootInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27068,47 +18792,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## registerSshKeyWithHttpInfo
-
-> ApiResponse<Operation> registerSshKey registerSshKeyWithHttpInfo(registerSshKeyRequest)
-
-Import SSH key
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        RegisterSshKeyRequest registerSshKeyRequest = new RegisterSshKeyRequest(); // RegisterSshKeyRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.registerSshKeyWithHttpInfo(registerSshKeyRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#registerSshKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27202,47 +18885,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## registerTemplateWithHttpInfo
-
-> ApiResponse<Operation> registerTemplate registerTemplateWithHttpInfo(registerTemplateRequest)
-
-Register a Template
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        RegisterTemplateRequest registerTemplateRequest = new RegisterTemplateRequest(); // RegisterTemplateRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.registerTemplateWithHttpInfo(registerTemplateRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#registerTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27338,48 +18980,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## removeExternalSourceFromSecurityGroupWithHttpInfo
-
-> ApiResponse<Operation> removeExternalSourceFromSecurityGroup removeExternalSourceFromSecurityGroupWithHttpInfo(id, removeExternalSourceFromSecurityGroupRequest)
-
-Remove an external source from a Security Group
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        RemoveExternalSourceFromSecurityGroupRequest removeExternalSourceFromSecurityGroupRequest = new RemoveExternalSourceFromSecurityGroupRequest(); // RemoveExternalSourceFromSecurityGroupRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.removeExternalSourceFromSecurityGroupWithHttpInfo(id, removeExternalSourceFromSecurityGroupRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#removeExternalSourceFromSecurityGroup");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27474,47 +19074,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## removeInstanceProtectionWithHttpInfo
-
-> ApiResponse<Operation> removeInstanceProtection removeInstanceProtectionWithHttpInfo(id)
-
-Remove instance destruction protection
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.removeInstanceProtectionWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#removeInstanceProtection");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27612,49 +19171,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetDbaasGrafanaUserPasswordWithHttpInfo
-
-> ApiResponse<Operation> resetDbaasGrafanaUserPassword resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
-
-Reset the credentials of a DBaaS Grafana user
-
-If no password is provided one will be generated automatically.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetDbaasGrafanaUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27754,49 +19270,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetDbaasKafkaUserPasswordWithHttpInfo
-
-> ApiResponse<Operation> resetDbaasKafkaUserPassword resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
-
-Reset the credentials of a DBaaS Kafka user
-
-If no password is provided one will be generated automatically.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetDbaasKafkaUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -27896,49 +19369,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetDbaasMysqlUserPasswordWithHttpInfo
-
-> ApiResponse<Operation> resetDbaasMysqlUserPassword resetDbaasMysqlUserPasswordWithHttpInfo(serviceName, username, resetDbaasMysqlUserPasswordRequest)
-
-Reset the credentials of a DBaaS mysql user
-
-If no password is provided one will be generated automatically.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        ResetDbaasMysqlUserPasswordRequest resetDbaasMysqlUserPasswordRequest = new ResetDbaasMysqlUserPasswordRequest(); // ResetDbaasMysqlUserPasswordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasMysqlUserPasswordWithHttpInfo(serviceName, username, resetDbaasMysqlUserPasswordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetDbaasMysqlUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28038,49 +19468,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetDbaasOpensearchUserPasswordWithHttpInfo
-
-> ApiResponse<Operation> resetDbaasOpensearchUserPassword resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
-
-Reset the credentials of a DBaaS OpenSearch user
-
-If no password is provided one will be generated automatically.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetDbaasOpensearchUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28180,49 +19567,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetDbaasPostgresUserPasswordWithHttpInfo
-
-> ApiResponse<Operation> resetDbaasPostgresUserPassword resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
-
-Reset the credentials of a DBaaS Postgres user
-
-If no password is provided one will be generated automatically.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetDbaasPostgresUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28322,49 +19666,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetDbaasRedisUserPasswordWithHttpInfo
-
-> ApiResponse<Operation> resetDbaasRedisUserPassword resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
-
-Reset the credentials of a DBaaS Redis user
-
-If no password is provided one will be generated automatically.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetDbaasRedisUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28462,48 +19763,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetElasticIpFieldWithHttpInfo
-
-> ApiResponse<Operation> resetElasticIpField resetElasticIpFieldWithHttpInfo(id, field)
-
-Reset an Elastic IP field to its default value
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String field = "description"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetElasticIpFieldWithHttpInfo(id, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetElasticIpField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28600,48 +19859,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetInstanceWithHttpInfo
-
-> ApiResponse<Operation> resetInstance resetInstanceWithHttpInfo(id, resetInstanceRequest)
-
-Reset a Compute instance to a base/target template
-
-This operation re-installs a Compute instance to a base template. If target template is provided it will be used to recreated instance from. Warning: the operation wipes all data stored on the disk.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        ResetInstanceRequest resetInstanceRequest = new ResetInstanceRequest(); // ResetInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetInstanceWithHttpInfo(id, resetInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28738,48 +19955,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetInstanceFieldWithHttpInfo
-
-> ApiResponse<Operation> resetInstanceField resetInstanceFieldWithHttpInfo(id, field)
-
-Reset Instance field
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String field = "labels"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetInstanceFieldWithHttpInfo(id, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetInstanceField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -28874,47 +20049,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetInstancePasswordWithHttpInfo
-
-> ApiResponse<Operation> resetInstancePassword resetInstancePasswordWithHttpInfo(id)
-
-Reset a compute instance password
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetInstancePasswordWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetInstancePassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29010,48 +20144,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetInstancePoolFieldWithHttpInfo
-
-> ApiResponse<Operation> resetInstancePoolField resetInstancePoolFieldWithHttpInfo(id, field)
-
-Reset an Instance Pool field to its default value
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String field = "anti-affinity-groups"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetInstancePoolFieldWithHttpInfo(id, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetInstancePoolField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29148,48 +20240,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetLoadBalancerFieldWithHttpInfo
-
-> ApiResponse<Operation> resetLoadBalancerField resetLoadBalancerFieldWithHttpInfo(id, field)
-
-Reset a Load Balancer field to its default value
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String field = "description"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetLoadBalancerFieldWithHttpInfo(id, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetLoadBalancerField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29288,49 +20338,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetLoadBalancerServiceFieldWithHttpInfo
-
-> ApiResponse<Operation> resetLoadBalancerServiceField resetLoadBalancerServiceFieldWithHttpInfo(id, serviceId, field)
-
-Reset a Load Balancer Service field to its default value
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID serviceId = UUID.randomUUID(); // UUID | 
-        String field = "description"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetLoadBalancerServiceFieldWithHttpInfo(id, serviceId, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetLoadBalancerServiceField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29428,48 +20435,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetPrivateNetworkFieldWithHttpInfo
-
-> ApiResponse<Operation> resetPrivateNetworkField resetPrivateNetworkFieldWithHttpInfo(id, field)
-
-Reset Private Network field
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String field = "labels"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetPrivateNetworkFieldWithHttpInfo(id, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetPrivateNetworkField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29566,48 +20531,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetSksClusterFieldWithHttpInfo
-
-> ApiResponse<Operation> resetSksClusterField resetSksClusterFieldWithHttpInfo(id, field)
-
-Reset an SKS cluster field to its default value
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        String field = "description"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetSksClusterFieldWithHttpInfo(id, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetSksClusterField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29706,49 +20629,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resetSksNodepoolFieldWithHttpInfo
-
-> ApiResponse<Operation> resetSksNodepoolField resetSksNodepoolFieldWithHttpInfo(id, sksNodepoolId, field)
-
-Reset an SKS Nodepool field to its default value
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        String field = "anti-affinity-groups"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resetSksNodepoolFieldWithHttpInfo(id, sksNodepoolId, field);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resetSksNodepoolField");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29846,48 +20726,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resizeBlockStorageVolumeWithHttpInfo
-
-> ApiResponse<BlockStorageVolume> resizeBlockStorageVolume resizeBlockStorageVolumeWithHttpInfo(id, resizeBlockStorageVolumeRequest)
-
-Resize a block storage volume
-
-This operation resizes a Block storage volume. Note: the volume can only grow, cannot be shrunk.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest = new ResizeBlockStorageVolumeRequest(); // ResizeBlockStorageVolumeRequest | 
-        try {
-            ApiResponse<BlockStorageVolume> response = apiInstance.resizeBlockStorageVolumeWithHttpInfo(id, resizeBlockStorageVolumeRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resizeBlockStorageVolume");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -29984,48 +20822,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## resizeInstanceDiskWithHttpInfo
-
-> ApiResponse<Operation> resizeInstanceDisk resizeInstanceDiskWithHttpInfo(id, resizeInstanceDiskRequest)
-
-Resize a Compute instance disk
-
-This operation resizes a Compute instance&#39;s disk volume. Note: the disk can only grow, cannot be shrunk.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        ResizeInstanceDiskRequest resizeInstanceDiskRequest = new ResizeInstanceDiskRequest(); // ResizeInstanceDiskRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.resizeInstanceDiskWithHttpInfo(id, resizeInstanceDiskRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#resizeInstanceDisk");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30120,46 +20916,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasGrafanaUserPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserGrafanaSecrets> revealDbaasGrafanaUserPassword revealDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username)
-
-Reveal the secrets of a DBaaS Grafana user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<DbaasUserGrafanaSecrets> response = apiInstance.revealDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasGrafanaUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30252,45 +21008,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasKafkaConnectPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserKafkaConnectSecrets> revealDbaasKafkaConnectPassword revealDbaasKafkaConnectPasswordWithHttpInfo(serviceName)
-
-Reveal the secrets for DBaaS Kafka Connect
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        try {
-            ApiResponse<DbaasUserKafkaConnectSecrets> response = apiInstance.revealDbaasKafkaConnectPasswordWithHttpInfo(serviceName);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasKafkaConnectPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30384,46 +21101,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasKafkaUserPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserKafkaSecrets> revealDbaasKafkaUserPassword revealDbaasKafkaUserPasswordWithHttpInfo(serviceName, username)
-
-Reveal the secrets of a DBaaS Kafka user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<DbaasUserKafkaSecrets> response = apiInstance.revealDbaasKafkaUserPasswordWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasKafkaUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30518,46 +21195,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasMysqlUserPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserMysqlSecrets> revealDbaasMysqlUserPassword revealDbaasMysqlUserPasswordWithHttpInfo(serviceName, username)
-
-Reveal the secrets of a DBaaS MySQL user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<DbaasUserMysqlSecrets> response = apiInstance.revealDbaasMysqlUserPasswordWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasMysqlUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30652,46 +21289,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasOpensearchUserPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserOpensearchSecrets> revealDbaasOpensearchUserPassword revealDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username)
-
-Reveal the secrets of a DBaaS OpenSearch user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<DbaasUserOpensearchSecrets> response = apiInstance.revealDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasOpensearchUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30786,46 +21383,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasPostgresUserPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserPostgresSecrets> revealDbaasPostgresUserPassword revealDbaasPostgresUserPasswordWithHttpInfo(serviceName, username)
-
-Reveal the secrets of a DBaaS Postgres user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<DbaasUserPostgresSecrets> response = apiInstance.revealDbaasPostgresUserPasswordWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasPostgresUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -30920,46 +21477,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealDbaasRedisUserPasswordWithHttpInfo
-
-> ApiResponse<DbaasUserRedisSecrets> revealDbaasRedisUserPassword revealDbaasRedisUserPasswordWithHttpInfo(serviceName, username)
-
-Reveal the secrets of a DBaaS Redis user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        try {
-            ApiResponse<DbaasUserRedisSecrets> response = apiInstance.revealDbaasRedisUserPasswordWithHttpInfo(serviceName, username);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealDbaasRedisUserPassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31054,47 +21571,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revealInstancePasswordWithHttpInfo
-
-> ApiResponse<InstancePassword> revealInstancePassword revealInstancePasswordWithHttpInfo(id)
-
-Reveal the password used during instance creation or the latest password reset.
-
-Reveal the password used during instance creation or the latest password reset.             This is only available for VMs created against templates having the &#x60;password-enabled&#x60;             property set to &#x60;true&#x60;.              Passwords are transiently stored for at most 24 hours and intended to be retrieved shortly after             creation or resets.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<InstancePassword> response = apiInstance.revealInstancePasswordWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealInstancePassword");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31190,48 +21666,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## revertInstanceToSnapshotWithHttpInfo
-
-> ApiResponse<Operation> revertInstanceToSnapshot revertInstanceToSnapshotWithHttpInfo(instanceId, revertInstanceToSnapshotRequest)
-
-Revert a snapshot for an instance
-
-This operation reverts the snapshot to the Compute instance volume, restoring stored data as it was at the time of the snapshot. The Compute instance must be previously stopped.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID instanceId = UUID.randomUUID(); // UUID | 
-        RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest = new RevertInstanceToSnapshotRequest(); // RevertInstanceToSnapshotRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.revertInstanceToSnapshotWithHttpInfo(instanceId, revertInstanceToSnapshotRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revertInstanceToSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31326,47 +21760,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## rotateSksCcmCredentialsWithHttpInfo
-
-> ApiResponse<Operation> rotateSksCcmCredentials rotateSksCcmCredentialsWithHttpInfo(id)
-
-Rotate Exoscale CCM credentials
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.rotateSksCcmCredentialsWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#rotateSksCcmCredentials");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31460,47 +21853,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## rotateSksOperatorsCaWithHttpInfo
-
-> ApiResponse<Operation> rotateSksOperatorsCa rotateSksOperatorsCaWithHttpInfo(id)
-
-Rotate operators certificate authority
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.rotateSksOperatorsCaWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#rotateSksOperatorsCa");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31596,48 +21948,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## scaleInstanceWithHttpInfo
-
-> ApiResponse<Operation> scaleInstance scaleInstanceWithHttpInfo(id, scaleInstanceRequest)
-
-Scale a Compute instance to a new Instance Type
-
-This operation changes the Compute instance&#39;s type. Note: the new Instance Type must be within the same family (e.g. a standard instance cannot be scaled to gpu2 or storage).
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        ScaleInstanceRequest scaleInstanceRequest = new ScaleInstanceRequest(); // ScaleInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.scaleInstanceWithHttpInfo(id, scaleInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#scaleInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31734,48 +22044,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## scaleInstancePoolWithHttpInfo
-
-> ApiResponse<Operation> scaleInstancePool scaleInstancePoolWithHttpInfo(id, scaleInstancePoolRequest)
-
-Scale an Instance Pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        ScaleInstancePoolRequest scaleInstancePoolRequest = new ScaleInstancePoolRequest(); // ScaleInstancePoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.scaleInstancePoolWithHttpInfo(id, scaleInstancePoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#scaleInstancePool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -31874,49 +22142,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## scaleSksNodepoolWithHttpInfo
-
-> ApiResponse<Operation> scaleSksNodepool scaleSksNodepoolWithHttpInfo(id, sksNodepoolId, scaleSksNodepoolRequest)
-
-Scale a SKS Nodepool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        ScaleSksNodepoolRequest scaleSksNodepoolRequest = new ScaleSksNodepoolRequest(); // ScaleSksNodepoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.scaleSksNodepoolWithHttpInfo(id, sksNodepoolId, scaleSksNodepoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#scaleSksNodepool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32010,45 +22235,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startDbaasGrafanaMaintenanceWithHttpInfo
-
-> ApiResponse<Operation> startDbaasGrafanaMaintenance startDbaasGrafanaMaintenanceWithHttpInfo(name)
-
-Initiate Grafana maintenance update
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startDbaasGrafanaMaintenanceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startDbaasGrafanaMaintenance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32140,45 +22326,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startDbaasKafkaMaintenanceWithHttpInfo
-
-> ApiResponse<Operation> startDbaasKafkaMaintenance startDbaasKafkaMaintenanceWithHttpInfo(name)
-
-Initiate Kafka maintenance update
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startDbaasKafkaMaintenanceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startDbaasKafkaMaintenance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32270,45 +22417,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startDbaasMysqlMaintenanceWithHttpInfo
-
-> ApiResponse<Operation> startDbaasMysqlMaintenance startDbaasMysqlMaintenanceWithHttpInfo(name)
-
-Initiate MySQL maintenance update
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startDbaasMysqlMaintenanceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startDbaasMysqlMaintenance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32400,45 +22508,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startDbaasOpensearchMaintenanceWithHttpInfo
-
-> ApiResponse<Operation> startDbaasOpensearchMaintenance startDbaasOpensearchMaintenanceWithHttpInfo(name)
-
-Initiate OpenSearch maintenance update
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startDbaasOpensearchMaintenanceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startDbaasOpensearchMaintenance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32530,45 +22599,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startDbaasPgMaintenanceWithHttpInfo
-
-> ApiResponse<Operation> startDbaasPgMaintenance startDbaasPgMaintenanceWithHttpInfo(name)
-
-Initiate PostgreSQL maintenance update
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startDbaasPgMaintenanceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startDbaasPgMaintenance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32660,45 +22690,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startDbaasRedisMaintenanceWithHttpInfo
-
-> ApiResponse<Operation> startDbaasRedisMaintenance startDbaasRedisMaintenanceWithHttpInfo(name)
-
-Initiate Redis maintenance update
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startDbaasRedisMaintenanceWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startDbaasRedisMaintenance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32794,48 +22785,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## startInstanceWithHttpInfo
-
-> ApiResponse<Operation> startInstance startInstanceWithHttpInfo(id, startInstanceRequest)
-
-Start a Compute instance
-
-This operation starts a virtual machine, potentially using a rescue profile if specified
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        StartInstanceRequest startInstanceRequest = new StartInstanceRequest(); // StartInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.startInstanceWithHttpInfo(id, startInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#startInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -32928,45 +22877,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## stopDbaasMysqlMigrationWithHttpInfo
-
-> ApiResponse<Operation> stopDbaasMysqlMigration stopDbaasMysqlMigrationWithHttpInfo(name)
-
-Stop a DBaaS MySQL migration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.stopDbaasMysqlMigrationWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#stopDbaasMysqlMigration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33058,45 +22968,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## stopDbaasPgMigrationWithHttpInfo
-
-> ApiResponse<Operation> stopDbaasPgMigration stopDbaasPgMigrationWithHttpInfo(name)
-
-Stop a DBaaS PostgreSQL migration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.stopDbaasPgMigrationWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#stopDbaasPgMigration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33188,45 +23059,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## stopDbaasRedisMigrationWithHttpInfo
-
-> ApiResponse<Operation> stopDbaasRedisMigration stopDbaasRedisMigrationWithHttpInfo(name)
-
-Stop a DBaaS Redis migration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        try {
-            ApiResponse<Operation> response = apiInstance.stopDbaasRedisMigrationWithHttpInfo(name);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#stopDbaasRedisMigration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33320,47 +23152,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## stopInstanceWithHttpInfo
-
-> ApiResponse<Operation> stopInstance stopInstanceWithHttpInfo(id)
-
-Stop a Compute instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.stopInstanceWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#stopInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33456,48 +23247,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateBlockStorageSnapshotWithHttpInfo
-
-> ApiResponse<Operation> updateBlockStorageSnapshot updateBlockStorageSnapshotWithHttpInfo(id, updateBlockStorageSnapshotRequest)
-
-Update block storage volume snapshot
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateBlockStorageSnapshotRequest updateBlockStorageSnapshotRequest = new UpdateBlockStorageSnapshotRequest(); // UpdateBlockStorageSnapshotRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateBlockStorageSnapshotWithHttpInfo(id, updateBlockStorageSnapshotRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateBlockStorageSnapshot");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33594,48 +23343,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateBlockStorageVolumeWithHttpInfo
-
-> ApiResponse<Operation> updateBlockStorageVolume updateBlockStorageVolumeWithHttpInfo(id, updateBlockStorageVolumeRequest)
-
-Update block storage volume
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateBlockStorageVolumeRequest updateBlockStorageVolumeRequest = new UpdateBlockStorageVolumeRequest(); // UpdateBlockStorageVolumeRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateBlockStorageVolumeWithHttpInfo(id, updateBlockStorageVolumeRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateBlockStorageVolume");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33732,48 +23439,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasExternalEndpointDatadogWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasExternalEndpointDatadog updateDbaasExternalEndpointDatadogWithHttpInfo(id, createDbaasExternalEndpointDatadogRequest)
-
-
-
-[BETA] Update DataDog external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointDatadogWithHttpInfo(id, createDbaasExternalEndpointDatadogRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointDatadog");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -33870,48 +23535,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasExternalEndpointElasticsearchWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasExternalEndpointElasticsearch updateDbaasExternalEndpointElasticsearchWithHttpInfo(id, updateDbaasExternalEndpointElasticsearchRequest)
-
-
-
-[BETA] Update ElasticSearch Logs external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointElasticsearchWithHttpInfo(id, updateDbaasExternalEndpointElasticsearchRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointElasticsearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34008,48 +23631,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasExternalEndpointOpensearchWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasExternalEndpointOpensearch updateDbaasExternalEndpointOpensearchWithHttpInfo(id, updateDbaasExternalEndpointOpensearchRequest)
-
-
-
-[BETA] Update OpenSearch Logs external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointOpensearchWithHttpInfo(id, updateDbaasExternalEndpointOpensearchRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34146,48 +23727,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasExternalEndpointPrometheusWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasExternalEndpointPrometheus updateDbaasExternalEndpointPrometheusWithHttpInfo(id, updateDbaasExternalEndpointPrometheusRequest)
-
-
-
-[BETA] Update Prometheus external integration endpoint
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointPrometheusWithHttpInfo(id, updateDbaasExternalEndpointPrometheusRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointPrometheus");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34284,13 +23823,42 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasExternalEndpointRsyslogWithHttpInfo
 
-> ApiResponse<Operation> updateDbaasExternalEndpointRsyslog updateDbaasExternalEndpointRsyslogWithHttpInfo(id, createDbaasExternalEndpointRsyslogRequest)
-
+### Parameters
 
 
-[BETA] Update RSyslog external integration endpoint
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **createDbaasExternalEndpointRsyslogRequest** | [**CreateDbaasExternalEndpointRsyslogRequest**](CreateDbaasExternalEndpointRsyslogRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasExternalIntegrationSettingsDatadog
+
+> Operation updateDbaasExternalIntegrationSettingsDatadog(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response)
+
+
+
+[BETA] Manage Datadog integration settings
 
 ### Example
 
@@ -34298,7 +23866,6 @@ No authorization required
 // Import classes:
 import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
 import com.exoscale.sdk.client.Configuration;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
@@ -34309,18 +23876,16 @@ public class Example {
         defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
 
         ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        UUID integrationId = UUID.randomUUID(); // UUID | 
+        GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response = new GetDbaasExternalIntegrationSettingsDatadog200Response(); // GetDbaasExternalIntegrationSettingsDatadog200Response | 
         try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasExternalEndpointRsyslogWithHttpInfo(id, createDbaasExternalEndpointRsyslogRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
+            Operation result = apiInstance.updateDbaasExternalIntegrationSettingsDatadog(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointRsyslog");
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalIntegrationSettingsDatadog");
             System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
             System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
     }
@@ -34332,8 +23897,36 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **createDbaasExternalEndpointRsyslogRequest** | [**CreateDbaasExternalEndpointRsyslogRequest**](CreateDbaasExternalEndpointRsyslogRequest.md)|  | |
+| **integrationId** | **UUID**|  | |
+| **getDbaasExternalIntegrationSettingsDatadog200Response** | [**GetDbaasExternalIntegrationSettingsDatadog200Response**](GetDbaasExternalIntegrationSettingsDatadog200Response.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **integrationId** | **UUID**|  | |
+| **getDbaasExternalIntegrationSettingsDatadog200Response** | [**GetDbaasExternalIntegrationSettingsDatadog200Response**](GetDbaasExternalIntegrationSettingsDatadog200Response.md)|  | |
 
 ### Return type
 
@@ -34422,48 +24015,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasIntegrationWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasIntegration updateDbaasIntegrationWithHttpInfo(id, updateDbaasIntegrationRequest)
-
-
-
-[BETA] Update a existing DBaaS integration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasIntegrationRequest updateDbaasIntegrationRequest = new UpdateDbaasIntegrationRequest(); // UpdateDbaasIntegrationRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasIntegrationWithHttpInfo(id, updateDbaasIntegrationRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasIntegration");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34558,46 +24109,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasOpensearchAclConfigWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasOpensearchAclConfig updateDbaasOpensearchAclConfigWithHttpInfo(name, dbaasOpensearchAclConfig)
-
-Create a DBaaS OpenSearch ACL configuration
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        DbaasOpensearchAclConfig dbaasOpensearchAclConfig = new DbaasOpensearchAclConfig(); // DbaasOpensearchAclConfig | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasOpensearchAclConfigWithHttpInfo(name, dbaasOpensearchAclConfig);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasOpensearchAclConfig");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34696,49 +24207,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasPgConnectionPoolWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasPgConnectionPool updateDbaasPgConnectionPoolWithHttpInfo(serviceName, connectionPoolName, updateDbaasPgConnectionPoolRequest)
-
-Update a DBaaS PostgreSQL connection pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String connectionPoolName = "connectionPoolName_example"; // String | 
-        UpdateDbaasPgConnectionPoolRequest updateDbaasPgConnectionPoolRequest = new UpdateDbaasPgConnectionPoolRequest(); // UpdateDbaasPgConnectionPoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasPgConnectionPoolWithHttpInfo(serviceName, connectionPoolName, updateDbaasPgConnectionPoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasPgConnectionPool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34836,47 +24304,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasPostgresAllowReplicationWithHttpInfo
-
-> ApiResponse<DbaasPostgresUsers> updateDbaasPostgresAllowReplication updateDbaasPostgresAllowReplicationWithHttpInfo(serviceName, username, updateDbaasPostgresAllowReplicationRequest)
-
-Update access control for one service user
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
-        UpdateDbaasPostgresAllowReplicationRequest updateDbaasPostgresAllowReplicationRequest = new UpdateDbaasPostgresAllowReplicationRequest(); // UpdateDbaasPostgresAllowReplicationRequest | 
-        try {
-            ApiResponse<DbaasPostgresUsers> response = apiInstance.updateDbaasPostgresAllowReplicationWithHttpInfo(serviceName, username, updateDbaasPostgresAllowReplicationRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasPostgresAllowReplication");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -34972,46 +24399,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasServiceGrafanaWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasServiceGrafana updateDbaasServiceGrafanaWithHttpInfo(name, updateDbaasServiceGrafanaRequest)
-
-Update a DBaaS Grafana service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasServiceGrafanaRequest updateDbaasServiceGrafanaRequest = new UpdateDbaasServiceGrafanaRequest(); // UpdateDbaasServiceGrafanaRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasServiceGrafanaWithHttpInfo(name, updateDbaasServiceGrafanaRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceGrafana");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35108,48 +24495,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasServiceKafkaWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasServiceKafka updateDbaasServiceKafkaWithHttpInfo(name, updateDbaasServiceKafkaRequest)
-
-Update a DBaaS Kafka service
-
-Update a DBaaS Kafka service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasServiceKafkaRequest updateDbaasServiceKafkaRequest = new UpdateDbaasServiceKafkaRequest(); // UpdateDbaasServiceKafkaRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasServiceKafkaWithHttpInfo(name, updateDbaasServiceKafkaRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceKafka");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35246,48 +24591,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasServiceMysqlWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasServiceMysql updateDbaasServiceMysqlWithHttpInfo(name, updateDbaasServiceMysqlRequest)
-
-Update a DBaaS MySQL service
-
-Update a DBaaS MySQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasServiceMysqlRequest updateDbaasServiceMysqlRequest = new UpdateDbaasServiceMysqlRequest(); // UpdateDbaasServiceMysqlRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasServiceMysqlWithHttpInfo(name, updateDbaasServiceMysqlRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceMysql");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35384,48 +24687,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasServiceOpensearchWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasServiceOpensearch updateDbaasServiceOpensearchWithHttpInfo(name, updateDbaasServiceOpensearchRequest)
-
-Update a DBaaS OpenSearch service
-
-Update a DBaaS OpenSearch service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasServiceOpensearchRequest updateDbaasServiceOpensearchRequest = new UpdateDbaasServiceOpensearchRequest(); // UpdateDbaasServiceOpensearchRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasServiceOpensearchWithHttpInfo(name, updateDbaasServiceOpensearchRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceOpensearch");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35522,48 +24783,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasServicePgWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasServicePg updateDbaasServicePgWithHttpInfo(name, updateDbaasServicePgRequest)
-
-Update a DBaaS PostgreSQL service
-
-Update a DBaaS PostgreSQL service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasServicePgRequest updateDbaasServicePgRequest = new UpdateDbaasServicePgRequest(); // UpdateDbaasServicePgRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasServicePgWithHttpInfo(name, updateDbaasServicePgRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasServicePg");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35660,48 +24879,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDbaasServiceRedisWithHttpInfo
-
-> ApiResponse<Operation> updateDbaasServiceRedis updateDbaasServiceRedisWithHttpInfo(name, updateDbaasServiceRedisRequest)
-
-Update a DBaaS Redis service
-
-Update a DBaaS Redis service
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        String name = "name_example"; // String | 
-        UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest = new UpdateDbaasServiceRedisRequest(); // UpdateDbaasServiceRedisRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDbaasServiceRedisWithHttpInfo(name, updateDbaasServiceRedisRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceRedis");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35800,49 +24977,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateDnsDomainRecordWithHttpInfo
-
-> ApiResponse<Operation> updateDnsDomainRecord updateDnsDomainRecordWithHttpInfo(domainId, recordId, updateDnsDomainRecordRequest)
-
-Update DNS domain record
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID domainId = UUID.randomUUID(); // UUID | 
-        UUID recordId = UUID.randomUUID(); // UUID | 
-        UpdateDnsDomainRecordRequest updateDnsDomainRecordRequest = new UpdateDnsDomainRecordRequest(); // UpdateDnsDomainRecordRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateDnsDomainRecordWithHttpInfo(domainId, recordId, updateDnsDomainRecordRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateDnsDomainRecord");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -35940,48 +25074,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateElasticIpWithHttpInfo
-
-> ApiResponse<Operation> updateElasticIp updateElasticIpWithHttpInfo(id, updateElasticIpRequest)
-
-Update an Elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateElasticIpRequest updateElasticIpRequest = new UpdateElasticIpRequest(); // UpdateElasticIpRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateElasticIpWithHttpInfo(id, updateElasticIpRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36076,47 +25168,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateIamOrganizationPolicyWithHttpInfo
-
-> ApiResponse<Operation> updateIamOrganizationPolicy updateIamOrganizationPolicyWithHttpInfo(iamPolicy)
-
-Update IAM Organization Policy
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateIamOrganizationPolicyWithHttpInfo(iamPolicy);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateIamOrganizationPolicy");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36212,48 +25263,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateIamRoleWithHttpInfo
-
-> ApiResponse<Operation> updateIamRole updateIamRoleWithHttpInfo(id, updateIamRoleRequest)
-
-Update IAM Role
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateIamRoleRequest updateIamRoleRequest = new UpdateIamRoleRequest(); // UpdateIamRoleRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateIamRoleWithHttpInfo(id, updateIamRoleRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateIamRole");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36350,48 +25359,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateIamRolePolicyWithHttpInfo
-
-> ApiResponse<Operation> updateIamRolePolicy updateIamRolePolicyWithHttpInfo(id, iamPolicy)
-
-Update IAM Role Policy
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateIamRolePolicyWithHttpInfo(id, iamPolicy);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateIamRolePolicy");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36488,48 +25455,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateInstanceWithHttpInfo
-
-> ApiResponse<Operation> updateInstance updateInstanceWithHttpInfo(id, updateInstanceRequest)
-
-Update a Compute instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateInstanceRequest updateInstanceRequest = new UpdateInstanceRequest(); // UpdateInstanceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateInstanceWithHttpInfo(id, updateInstanceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36626,48 +25551,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateInstancePoolWithHttpInfo
-
-> ApiResponse<Operation> updateInstancePool updateInstancePoolWithHttpInfo(id, updateInstancePoolRequest)
-
-Update an Instance Pool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateInstancePoolRequest updateInstancePoolRequest = new UpdateInstancePoolRequest(); // UpdateInstancePoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateInstancePoolWithHttpInfo(id, updateInstancePoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateInstancePool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36764,48 +25647,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateLoadBalancerWithHttpInfo
-
-> ApiResponse<Operation> updateLoadBalancer updateLoadBalancerWithHttpInfo(id, updateLoadBalancerRequest)
-
-Update a Load Balancer
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateLoadBalancerRequest updateLoadBalancerRequest = new UpdateLoadBalancerRequest(); // UpdateLoadBalancerRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateLoadBalancerWithHttpInfo(id, updateLoadBalancerRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateLoadBalancer");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -36904,49 +25745,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateLoadBalancerServiceWithHttpInfo
-
-> ApiResponse<Operation> updateLoadBalancerService updateLoadBalancerServiceWithHttpInfo(id, serviceId, updateLoadBalancerServiceRequest)
-
-Update a Load Balancer Service
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID serviceId = UUID.randomUUID(); // UUID | 
-        UpdateLoadBalancerServiceRequest updateLoadBalancerServiceRequest = new UpdateLoadBalancerServiceRequest(); // UpdateLoadBalancerServiceRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateLoadBalancerServiceWithHttpInfo(id, serviceId, updateLoadBalancerServiceRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateLoadBalancerService");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37044,48 +25842,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updatePrivateNetworkWithHttpInfo
-
-> ApiResponse<Operation> updatePrivateNetwork updatePrivateNetworkWithHttpInfo(id, updatePrivateNetworkRequest)
-
-Update a Private Network
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdatePrivateNetworkRequest updatePrivateNetworkRequest = new UpdatePrivateNetworkRequest(); // UpdatePrivateNetworkRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updatePrivateNetworkWithHttpInfo(id, updatePrivateNetworkRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updatePrivateNetwork");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37182,48 +25938,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updatePrivateNetworkInstanceIpWithHttpInfo
-
-> ApiResponse<Operation> updatePrivateNetworkInstanceIp updatePrivateNetworkInstanceIpWithHttpInfo(id, updatePrivateNetworkInstanceIpRequest)
-
-Update the IP address of an instance attached to a managed private network
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdatePrivateNetworkInstanceIpRequest updatePrivateNetworkInstanceIpRequest = new UpdatePrivateNetworkInstanceIpRequest(); // UpdatePrivateNetworkInstanceIpRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updatePrivateNetworkInstanceIpWithHttpInfo(id, updatePrivateNetworkInstanceIpRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updatePrivateNetworkInstanceIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37320,48 +26034,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateReverseDnsElasticIpWithHttpInfo
-
-> ApiResponse<Operation> updateReverseDnsElasticIp updateReverseDnsElasticIpWithHttpInfo(id, updateReverseDnsElasticIpRequest)
-
-Update/Create the PTR DNS record for an elastic IP
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = new UpdateReverseDnsElasticIpRequest(); // UpdateReverseDnsElasticIpRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateReverseDnsElasticIpWithHttpInfo(id, updateReverseDnsElasticIpRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateReverseDnsElasticIp");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37458,48 +26130,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateReverseDnsInstanceWithHttpInfo
-
-> ApiResponse<Operation> updateReverseDnsInstance updateReverseDnsInstanceWithHttpInfo(id, updateReverseDnsElasticIpRequest)
-
-Update/Create the PTR DNS record for an instance
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = new UpdateReverseDnsElasticIpRequest(); // UpdateReverseDnsElasticIpRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateReverseDnsInstanceWithHttpInfo(id, updateReverseDnsElasticIpRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateReverseDnsInstance");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37596,48 +26226,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateSksClusterWithHttpInfo
-
-> ApiResponse<Operation> updateSksCluster updateSksClusterWithHttpInfo(id, updateSksClusterRequest)
-
-Update an SKS cluster
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateSksClusterRequest updateSksClusterRequest = new UpdateSksClusterRequest(); // UpdateSksClusterRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateSksClusterWithHttpInfo(id, updateSksClusterRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateSksCluster");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37736,49 +26324,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateSksNodepoolWithHttpInfo
-
-> ApiResponse<Operation> updateSksNodepool updateSksNodepoolWithHttpInfo(id, sksNodepoolId, updateSksNodepoolRequest)
-
-Update an SKS Nodepool
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        UpdateSksNodepoolRequest updateSksNodepoolRequest = new UpdateSksNodepoolRequest(); // UpdateSksNodepoolRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateSksNodepoolWithHttpInfo(id, sksNodepoolId, updateSksNodepoolRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateSksNodepool");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -37876,48 +26421,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## updateTemplateWithHttpInfo
-
-> ApiResponse<Operation> updateTemplate updateTemplateWithHttpInfo(id, updateTemplateRequest)
-
-Update template attributes
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateTemplateRequest updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.updateTemplateWithHttpInfo(id, updateTemplateRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -38014,48 +26517,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## upgradeSksClusterWithHttpInfo
-
-> ApiResponse<Operation> upgradeSksCluster upgradeSksClusterWithHttpInfo(id, upgradeSksClusterRequest)
-
-Upgrade an SKS cluster
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpgradeSksClusterRequest upgradeSksClusterRequest = new UpgradeSksClusterRequest(); // UpgradeSksClusterRequest | 
-        try {
-            ApiResponse<Operation> response = apiInstance.upgradeSksClusterWithHttpInfo(id, upgradeSksClusterRequest);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#upgradeSksCluster");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 
@@ -38150,47 +26611,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
-## upgradeSksClusterServiceLevelWithHttpInfo
-
-> ApiResponse<Operation> upgradeSksClusterServiceLevel upgradeSksClusterServiceLevelWithHttpInfo(id)
-
-Upgrade a SKS cluster to pro
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiClient;
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.ApiResponse;
-import com.exoscale.sdk.client.Configuration;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        UUID id = UUID.randomUUID(); // UUID | 
-        try {
-            ApiResponse<Operation> response = apiInstance.upgradeSksClusterServiceLevelWithHttpInfo(id);
-            System.out.println("Status code: " + response.getStatusCode());
-            System.out.println("Response headers: " + response.getHeaders());
-            System.out.println("Response body: " + response.getData());
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#upgradeSksClusterServiceLevel");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            System.err.println("Reason: " + e.getResponseBody());
-            e.printStackTrace();
-        }
-    }
-}
-```
 
 ### Parameters
 

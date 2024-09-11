@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2024-09-09T09:55:16.539699Z[Etc/UTC]
+- Build date: 2024-09-11T07:06:02.928299Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.8-ALPHA</version>
+    <version>0.0.9-ALPHA</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.8-ALPHA'
+  implementation 'com.exoscale.sdk:sdk:0.0.9-ALPHA'
 }
 ```
 
@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{id} | 
 *ExoscaleApi* | [**getDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{id} | 
 *ExoscaleApi* | [**getDbaasExternalIntegration**](sdk/docs/ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} | 
+*ExoscaleApi* | [**getDbaasExternalIntegrationSettingsDatadog**](sdk/docs/ExoscaleApi.md#getDbaasExternalIntegrationSettingsDatadog) | **GET** /dbaas-external-integration-settings-datadog/{integration-id} | 
 *ExoscaleApi* | [**getDbaasIntegration**](sdk/docs/ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | 
 *ExoscaleApi* | [**getDbaasKafkaAclConfig**](sdk/docs/ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
 *ExoscaleApi* | [**getDbaasMigrationStatus**](sdk/docs/ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status
@@ -335,6 +336,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{id} | 
 *ExoscaleApi* | [**updateDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{id} | 
 *ExoscaleApi* | [**updateDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalIntegrationSettingsDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalIntegrationSettingsDatadog) | **POST** /dbaas-external-integration-settings-datadog/{integration-id} | 
 *ExoscaleApi* | [**updateDbaasIntegration**](sdk/docs/ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | 
 *ExoscaleApi* | [**updateDbaasOpensearchAclConfig**](sdk/docs/ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
 *ExoscaleApi* | [**updateDbaasPgConnectionPool**](sdk/docs/ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool
@@ -436,6 +438,7 @@ Class | Method | HTTP request | Description
  - [DbaasExternalEndpointRsyslogOutput](sdk/docs/DbaasExternalEndpointRsyslogOutput.md)
  - [DbaasExternalIntegration](sdk/docs/DbaasExternalIntegration.md)
  - [DbaasIntegration](sdk/docs/DbaasIntegration.md)
+ - [DbaasIntegrationSettingsDatadog](sdk/docs/DbaasIntegrationSettingsDatadog.md)
  - [DbaasIntegrationType](sdk/docs/DbaasIntegrationType.md)
  - [DbaasIntegrationTypeSettings](sdk/docs/DbaasIntegrationTypeSettings.md)
  - [DbaasKafkaAcls](sdk/docs/DbaasKafkaAcls.md)
@@ -524,6 +527,7 @@ Class | Method | HTTP request | Description
  - [GenericOAuthIntegration](sdk/docs/GenericOAuthIntegration.md)
  - [GetConsoleProxyUrl200Response](sdk/docs/GetConsoleProxyUrl200Response.md)
  - [GetDbaasCaCertificate200Response](sdk/docs/GetDbaasCaCertificate200Response.md)
+ - [GetDbaasExternalIntegrationSettingsDatadog200Response](sdk/docs/GetDbaasExternalIntegrationSettingsDatadog200Response.md)
  - [GetDbaasServiceLogsRequest](sdk/docs/GetDbaasServiceLogsRequest.md)
  - [GetDbaasServiceMetrics200Response](sdk/docs/GetDbaasServiceMetrics200Response.md)
  - [GetDbaasServiceMetricsRequest](sdk/docs/GetDbaasServiceMetricsRequest.md)

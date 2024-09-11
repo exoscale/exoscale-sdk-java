@@ -97,6 +97,7 @@ import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
 import com.exoscale.sdk.model.GetDbaasCaCertificate200Response;
+import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Response;
 import com.exoscale.sdk.model.GetDbaasServiceLogsRequest;
 import com.exoscale.sdk.model.GetDbaasServiceMetrics200Response;
 import com.exoscale.sdk.model.GetDbaasServiceMetricsRequest;
@@ -2265,6 +2266,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         DbaasExternalIntegration response = 
         api.getDbaasExternalIntegration(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Get Datadog integration settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasExternalIntegrationSettingsDatadogTest() throws ApiException {
+        UUID integrationId = null;
+        GetDbaasExternalIntegrationSettingsDatadog200Response response = 
+        api.getDbaasExternalIntegrationSettingsDatadog(integrationId);
         
         // TODO: test validations
     }
@@ -4590,6 +4608,24 @@ public class ExoscaleApiTest {
         CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = null;
         Operation response = 
         api.updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * [BETA] Manage Datadog integration settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasExternalIntegrationSettingsDatadogTest() throws ApiException {
+        UUID integrationId = null;
+        GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response = null;
+        Operation response = 
+        api.updateDbaasExternalIntegrationSettingsDatadog(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
         
         // TODO: test validations
     }

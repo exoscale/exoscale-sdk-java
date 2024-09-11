@@ -101,6 +101,7 @@ import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
 import com.exoscale.sdk.model.GetDbaasCaCertificate200Response;
+import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Response;
 import com.exoscale.sdk.model.GetDbaasServiceLogsRequest;
 import com.exoscale.sdk.model.GetDbaasServiceMetrics200Response;
 import com.exoscale.sdk.model.GetDbaasServiceMetricsRequest;
@@ -10511,6 +10512,88 @@ public class ExoscaleApi {
 
     String localVarPath = "/dbaas-external-integration/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Get Datadog integration settings
+   * @param integrationId  (required)
+   * @return GetDbaasExternalIntegrationSettingsDatadog200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog(UUID integrationId) throws ApiException {
+    ApiResponse<GetDbaasExternalIntegrationSettingsDatadog200Response> localVarResponse = getDbaasExternalIntegrationSettingsDatadogWithHttpInfo(integrationId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Get Datadog integration settings
+   * @param integrationId  (required)
+   * @return ApiResponse&lt;GetDbaasExternalIntegrationSettingsDatadog200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<GetDbaasExternalIntegrationSettingsDatadog200Response> getDbaasExternalIntegrationSettingsDatadogWithHttpInfo(UUID integrationId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalIntegrationSettingsDatadogRequestBuilder(integrationId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasExternalIntegrationSettingsDatadog", localVarResponse);
+        }
+        return new ApiResponse<GetDbaasExternalIntegrationSettingsDatadog200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetDbaasExternalIntegrationSettingsDatadog200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasExternalIntegrationSettingsDatadogRequestBuilder(UUID integrationId) throws ApiException {
+    // verify the required parameter 'integrationId' is set
+    if (integrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'integrationId' when calling getDbaasExternalIntegrationSettingsDatadog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-integration-settings-datadog/{integration-id}"
+        .replace("{integration-id}", ApiClient.urlEncode(integrationId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -21999,6 +22082,100 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * [BETA] Manage Datadog integration settings
+   * @param integrationId  (required)
+   * @param getDbaasExternalIntegrationSettingsDatadog200Response  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasExternalIntegrationSettingsDatadog(UUID integrationId, GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalIntegrationSettingsDatadogWithHttpInfo(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * [BETA] Manage Datadog integration settings
+   * @param integrationId  (required)
+   * @param getDbaasExternalIntegrationSettingsDatadog200Response  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Operation> updateDbaasExternalIntegrationSettingsDatadogWithHttpInfo(UUID integrationId, GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalIntegrationSettingsDatadogRequestBuilder(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasExternalIntegrationSettingsDatadog", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasExternalIntegrationSettingsDatadogRequestBuilder(UUID integrationId, GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response) throws ApiException {
+    // verify the required parameter 'integrationId' is set
+    if (integrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'integrationId' when calling updateDbaasExternalIntegrationSettingsDatadog");
+    }
+    // verify the required parameter 'getDbaasExternalIntegrationSettingsDatadog200Response' is set
+    if (getDbaasExternalIntegrationSettingsDatadog200Response == null) {
+      throw new ApiException(400, "Missing the required parameter 'getDbaasExternalIntegrationSettingsDatadog200Response' when calling updateDbaasExternalIntegrationSettingsDatadog");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-external-integration-settings-datadog/{integration-id}"
+        .replace("{integration-id}", ApiClient.urlEncode(integrationId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(getDbaasExternalIntegrationSettingsDatadog200Response);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

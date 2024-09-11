@@ -72,6 +72,7 @@ docs/DbaasExternalEndpointDatadogOutput.md
 docs/DbaasExternalEndpointRsyslogOutput.md
 docs/DbaasExternalIntegration.md
 docs/DbaasIntegration.md
+docs/DbaasIntegrationSettingsDatadog.md
 docs/DbaasIntegrationType.md
 docs/DbaasIntegrationTypeSettings.md
 docs/DbaasKafkaAcls.md
@@ -161,6 +162,7 @@ docs/GenerateSksClusterKubeconfig200Response.md
 docs/GenericOAuthIntegration.md
 docs/GetConsoleProxyUrl200Response.md
 docs/GetDbaasCaCertificate200Response.md
+docs/GetDbaasExternalIntegrationSettingsDatadog200Response.md
 docs/GetDbaasServiceLogsRequest.md
 docs/GetDbaasServiceMetrics200Response.md
 docs/GetDbaasServiceMetricsRequest.md
@@ -426,6 +428,7 @@ src/main/java/com/exoscale/sdk/model/DbaasExternalEndpointDatadogOutput.java
 src/main/java/com/exoscale/sdk/model/DbaasExternalEndpointRsyslogOutput.java
 src/main/java/com/exoscale/sdk/model/DbaasExternalIntegration.java
 src/main/java/com/exoscale/sdk/model/DbaasIntegration.java
+src/main/java/com/exoscale/sdk/model/DbaasIntegrationSettingsDatadog.java
 src/main/java/com/exoscale/sdk/model/DbaasIntegrationType.java
 src/main/java/com/exoscale/sdk/model/DbaasIntegrationTypeSettings.java
 src/main/java/com/exoscale/sdk/model/DbaasKafkaAcls.java
@@ -514,6 +517,7 @@ src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.jav
 src/main/java/com/exoscale/sdk/model/GenericOAuthIntegration.java
 src/main/java/com/exoscale/sdk/model/GetConsoleProxyUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasCaCertificate200Response.java
+src/main/java/com/exoscale/sdk/model/GetDbaasExternalIntegrationSettingsDatadog200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasServiceLogsRequest.java
 src/main/java/com/exoscale/sdk/model/GetDbaasServiceMetrics200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasServiceMetricsRequest.java

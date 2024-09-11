@@ -2949,6 +2949,60 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-external-integration-settings-datadog/{integration-id}:
+    get:
+      description: "[BETA] Get Datadog integration settings"
+      operationId: get-dbaas-external-integration-settings-datadog
+      parameters:
+      - explode: false
+        in: path
+        name: integration-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_dbaas_external_integration_settings_datadog_200_response'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: "[BETA] Manage Datadog integration settings"
+      operationId: update-dbaas-external-integration-settings-datadog
+      parameters:
+      - explode: false
+        in: path
+        name: integration-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/get_dbaas_external_integration_settings_datadog_200_response'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /security-group/{id}:attach:
     put:
       description: ""
@@ -25454,6 +25508,20 @@ components:
       - logs
       - metrics
       type: string
+    dbaas-integration-settings-datadog:
+      example:
+        datadog-dbm-enabled: true
+        datadog-pgbouncer-enabled: true
+      properties:
+        datadog-dbm-enabled:
+          description: "Database monitoring: view query metrics, explain plans, and\
+            \ execution details. Correlate queries with host metrics."
+          type: boolean
+        datadog-pgbouncer-enabled:
+          description: Integrate PgBouncer with Datadog to track connection pool metrics
+            and monitor application traffic.
+          type: boolean
+      type: object
     template:
       description: Instance template
       example:
@@ -39160,6 +39228,15 @@ components:
           type: string
       required:
       - username
+      type: object
+    get_dbaas_external_integration_settings_datadog_200_response:
+      example:
+        settings:
+          datadog-dbm-enabled: true
+          datadog-pgbouncer-enabled: true
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas-integration-settings-datadog'
       type: object
     scale_sks_nodepool_request:
       properties:
