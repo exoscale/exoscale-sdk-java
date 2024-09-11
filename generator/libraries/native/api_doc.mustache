@@ -43,31 +43,37 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        // Initialize parameters
         {{#allParams}}
+        // Initialize parameter/s
         {{#isUuid}}
         UUID {{paramName}} = UUID.randomUUID(); // Replace with correct UUID
         {{/isUuid}}
-        {{#isRequestObject}}
-        {{{dataType}}} {{{paramName}}} = new {{{dataType}}}()
-        {{#required}}
-         .{{{fieldName}}}("{{{example}}}") // Required field: {{{description}}}
-        {{/required}}
-        {{/isRequestObject}}
         {{^isUuid}}{{^isRequestObject}}
+        // Add all the required fields
         {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
         {{/isRequestObject}}{{/isUuid}}
         {{/allParams}}
-
 
         // Invoke the API method
         {{#returnType}}
         {{#asyncNative}}
         CompletableFuture<{{{returnType}}}> result = client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
         {{/asyncNative}}
-        {{^asyncNative}}
+        {{#allParams}}
+        {{#isString}}
+        {{#isUuid}}
+        {{returnType}} result = client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+        {{/isUuid}}
+        {{/isString}}
+
+        {{^isString}}
+        {{^isUuid}}
         Operation operation = client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
         client.wait(operation);
+        {{/isUuid}}
+        {{/isString}}
+        {{/allParams}}
+        {{^asyncNative}}
         {{/asyncNative}}
         {{/returnType}}
 
@@ -79,7 +85,6 @@ public class Example {
         client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
         {{/asyncNative}}
         {{/returnType}}
-
     }
 }
 ```
