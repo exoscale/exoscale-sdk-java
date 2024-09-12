@@ -29,11 +29,8 @@ All URIs are relative to *{{basePath}}*
 
 ```java
 // Import classes:
-import {{{invokerPackage}}}.ApiClient;
 import {{{invokerPackage}}}.ApiException;
-import {{{invokerPackage}}}.Configuration;{{#hasAuthMethods}}
-import {{{invokerPackage}}}.auth.*;{{/hasAuthMethods}}
-import {{{invokerPackage}}}.client.*;
+import {{{invokerPackage}}}.*;
 import {{{invokerPackage}}}.models.*;
 import {{{package}}}.{{{classname}}};{{#vendorExtensions.x-group-parameters}}
 import {{{package}}}.{{{classname}}}.*;{{/vendorExtensions.x-group-parameters}}
@@ -42,12 +39,29 @@ import java.util.concurrent.CompletableFuture;
 {{/asyncNative}}
 
 public class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        {{#allParams}}
+        {{^isString}}
+        {{^isUuid}}
+        {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}} please add at least all the required fields
+        {{/isUuid}}
+        {{/isString}}
+        {{^isUuid}}
+        {{#isString}}
+        {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
+        {{/isString}}
+        {{/isUuid}}
+        {{#isUuid}}
+        {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
+        {{/isUuid}}
+        {{/allParams}}
 
         try {
+            // Invoke the API method
             {{^vendorExtensions.x-group-parameters}}
-            {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
+            {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}client.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
             {{/vendorExtensions.x-group-parameters}}
             {{#vendorExtensions.x-group-parameters}}
             {{#hasParams}}
@@ -55,7 +69,7 @@ public class Example {
                 .{{paramName}}({{paramName}}){{/allParams}}
                 .build();
             {{/hasParams}}
-            {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}apiInstance.{{operationId}}({{#hasParams}}request{{/hasParams}});
+            {{#returnType}}{{#asyncNative}}CompletableFuture<{{{returnType}}}>{{/asyncNative}}{{^asyncNative}}{{{returnType}}}{{/asyncNative}} result = {{/returnType}}{{^returnType}}{{#asyncNative}}CompletableFuture<Void> result = {{/asyncNative}}{{/returnType}}client.{{operationId}}({{#hasParams}}request{{/hasParams}});
             {{/vendorExtensions.x-group-parameters}}
             {{#returnType}}
             System.out.println(result{{#asyncNative}}.get(){{/asyncNative}});
