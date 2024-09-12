@@ -89,20 +89,26 @@ jobs:
           mkdir -p sdk/target/
           mv /tmp/javadoc/* sdk/target/
 
-      - name: Clean current Javadoc folder before new extraction
+      - name: Clean current Javadoc and docs folders before new extraction
         if: env.CHANGED == 'true'
         run: |
+          rm -rf docs/*
           rm -rf javadoc/current/*
 
       - name: Extract Javadoc JAR dynamically and create version-specific folder
         if: env.CHANGED == 'true'
         run: |
+          mkdir -p docs
           mkdir -p javadoc/current
           mkdir -p javadoc/$new_version
           JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
           echo "Found Javadoc JAR: $JAR_FILE"
+          cp "$JAR_FILE" docs/
           cp "$JAR_FILE" javadoc/current/
           cp "$JAR_FILE" javadoc/$new_version/
+          cd docs/
+          jar -xvf $(basename "$JAR_FILE")
+          cd ..
           cd javadoc/current
           jar -xvf $(basename "$JAR_FILE")
           cd ../$new_version
