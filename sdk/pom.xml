@@ -5,13 +5,13 @@
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
     <name>sdk</name>
-    <version>0.0.10-ALPHA</version>
-    <url>https://github.com/exoscale/exoscale4j</url>
+    <version>0.0.11-ALPHA</version>
+    <url>https://github.com/exoscale/exoscale-sdk-java</url>
     <description>Java SDK for interacting with Exoscale Cloud Services.</description>
     <scm>
-        <connection>scm:git:git://github.com/exoscale4j.git</connection>
-        <developerConnection>scm:git:ssh://github.com/exoscale/exoscale4j.git</developerConnection>
-        <url>https://github.com/exoscale/exoscale4j</url>
+        <connection>scm:git:git://github.com/exoscale/exoscale-sdk-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com/exoscale/exoscale-sdk-java.git</developerConnection>
+        <url>https://github.com/exoscale/exoscale-sdk-java</url>
     </scm>
 
     <licenses>

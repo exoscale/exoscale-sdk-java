@@ -301,22 +301,21 @@ Add an external source as a member of a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AddExternalSourceToSecurityGroupRequest addExternalSourceToSecurityGroupRequest = new AddExternalSourceToSecurityGroupRequest(); // AddExternalSourceToSecurityGroupRequest | 
+        AddExternalSourceToSecurityGroupRequest addExternalSourceToSecurityGroupRequest = new AddExternalSourceToSecurityGroupRequest(); // AddExternalSourceToSecurityGroupRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.addExternalSourceToSecurityGroup(id, addExternalSourceToSecurityGroupRequest);
+            // Invoke the API method
+            Operation result = client.addExternalSourceToSecurityGroup(id, addExternalSourceToSecurityGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#addExternalSourceToSecurityGroup");
@@ -397,21 +396,20 @@ Set instance destruction protection
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.addInstanceProtection(id);
+            // Invoke the API method
+            Operation result = client.addInstanceProtection(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#addInstanceProtection");
@@ -490,22 +488,21 @@ Create a Security Group rule
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AddRuleToSecurityGroupRequest addRuleToSecurityGroupRequest = new AddRuleToSecurityGroupRequest(); // AddRuleToSecurityGroupRequest | 
+        AddRuleToSecurityGroupRequest addRuleToSecurityGroupRequest = new AddRuleToSecurityGroupRequest(); // AddRuleToSecurityGroupRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.addRuleToSecurityGroup(id, addRuleToSecurityGroupRequest);
+            // Invoke the API method
+            Operation result = client.addRuleToSecurityGroup(id, addRuleToSecurityGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#addRuleToSecurityGroup");
@@ -586,22 +583,21 @@ Add a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest = new AddServiceToLoadBalancerRequest(); // AddServiceToLoadBalancerRequest | 
+        AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest = new AddServiceToLoadBalancerRequest(); // AddServiceToLoadBalancerRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.addServiceToLoadBalancer(id, addServiceToLoadBalancerRequest);
+            // Invoke the API method
+            Operation result = client.addServiceToLoadBalancer(id, addServiceToLoadBalancerRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#addServiceToLoadBalancer");
@@ -682,22 +678,21 @@ Attach block storage volume to an instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest | 
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
+            // Invoke the API method
+            Operation result = client.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachBlockStorageVolumeToInstance");
@@ -778,22 +773,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String sourceServiceName = "sourceServiceName_example"; // String | 
-        AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest = new AttachDbaasServiceToEndpointRequest(); // AttachDbaasServiceToEndpointRequest | 
+        AttachDbaasServiceToEndpointRequest attachDbaasServiceToEndpointRequest = new AttachDbaasServiceToEndpointRequest(); // AttachDbaasServiceToEndpointRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.attachDbaasServiceToEndpoint(sourceServiceName, attachDbaasServiceToEndpointRequest);
+            // Invoke the API method
+            Operation result = client.attachDbaasServiceToEndpoint(sourceServiceName, attachDbaasServiceToEndpointRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachDbaasServiceToEndpoint");
@@ -874,22 +868,21 @@ Attach a Compute instance to an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest | 
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
+            // Invoke the API method
+            Operation result = client.attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachInstanceToElasticIp");
@@ -970,22 +963,21 @@ Attach a Compute instance to a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachInstanceToPrivateNetworkRequest attachInstanceToPrivateNetworkRequest = new AttachInstanceToPrivateNetworkRequest(); // AttachInstanceToPrivateNetworkRequest | 
+        AttachInstanceToPrivateNetworkRequest attachInstanceToPrivateNetworkRequest = new AttachInstanceToPrivateNetworkRequest(); // AttachInstanceToPrivateNetworkRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.attachInstanceToPrivateNetwork(id, attachInstanceToPrivateNetworkRequest);
+            // Invoke the API method
+            Operation result = client.attachInstanceToPrivateNetwork(id, attachInstanceToPrivateNetworkRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachInstanceToPrivateNetwork");
@@ -1066,22 +1058,21 @@ Attach a Compute instance to a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest | 
+        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.attachInstanceToSecurityGroup(id, detachInstanceFromPrivateNetworkRequest);
+            // Invoke the API method
+            Operation result = client.attachInstanceToSecurityGroup(id, detachInstanceFromPrivateNetworkRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachInstanceToSecurityGroup");
@@ -1162,22 +1153,21 @@ Copy a Template from a zone to another
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest | 
+        CopyTemplateRequest copyTemplateRequest = new CopyTemplateRequest(); // CopyTemplateRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.copyTemplate(id, copyTemplateRequest);
+            // Invoke the API method
+            Operation result = client.copyTemplate(id, copyTemplateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#copyTemplate");
@@ -1258,21 +1248,20 @@ Create an Anti-affinity Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateAntiAffinityGroupRequest createAntiAffinityGroupRequest = new CreateAntiAffinityGroupRequest(); // CreateAntiAffinityGroupRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateAntiAffinityGroupRequest createAntiAffinityGroupRequest = new CreateAntiAffinityGroupRequest(); // CreateAntiAffinityGroupRequest | 
         try {
-            Operation result = apiInstance.createAntiAffinityGroup(createAntiAffinityGroupRequest);
+            // Invoke the API method
+            Operation result = client.createAntiAffinityGroup(createAntiAffinityGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createAntiAffinityGroup");
@@ -1349,21 +1338,20 @@ Create a new API key
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateApiKeyRequest createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateApiKeyRequest createApiKeyRequest = new CreateApiKeyRequest(); // CreateApiKeyRequest | 
         try {
-            IamApiKeyCreated result = apiInstance.createApiKey(createApiKeyRequest);
+            // Invoke the API method
+            IamApiKeyCreated result = client.createApiKey(createApiKeyRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createApiKey");
@@ -1442,22 +1430,21 @@ Create a block storage snapshot
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        CreateBlockStorageSnapshotRequest createBlockStorageSnapshotRequest = new CreateBlockStorageSnapshotRequest(); // CreateBlockStorageSnapshotRequest | 
+        CreateBlockStorageSnapshotRequest createBlockStorageSnapshotRequest = new CreateBlockStorageSnapshotRequest(); // CreateBlockStorageSnapshotRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createBlockStorageSnapshot(id, createBlockStorageSnapshotRequest);
+            // Invoke the API method
+            Operation result = client.createBlockStorageSnapshot(id, createBlockStorageSnapshotRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createBlockStorageSnapshot");
@@ -1538,21 +1525,20 @@ Create a block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateBlockStorageVolumeRequest createBlockStorageVolumeRequest = new CreateBlockStorageVolumeRequest(); // CreateBlockStorageVolumeRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateBlockStorageVolumeRequest createBlockStorageVolumeRequest = new CreateBlockStorageVolumeRequest(); // CreateBlockStorageVolumeRequest | 
         try {
-            Operation result = apiInstance.createBlockStorageVolume(createBlockStorageVolumeRequest);
+            // Invoke the API method
+            Operation result = client.createBlockStorageVolume(createBlockStorageVolumeRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createBlockStorageVolume");
@@ -1631,22 +1617,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasExternalEndpointDatadog(name, createDbaasExternalEndpointDatadogRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasExternalEndpointDatadog(name, createDbaasExternalEndpointDatadogRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointDatadog");
@@ -1727,22 +1712,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasExternalEndpointElasticsearch(name, updateDbaasExternalEndpointElasticsearchRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasExternalEndpointElasticsearch(name, updateDbaasExternalEndpointElasticsearchRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointElasticsearch");
@@ -1823,22 +1807,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasExternalEndpointOpensearch(name, updateDbaasExternalEndpointOpensearchRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasExternalEndpointOpensearch(name, updateDbaasExternalEndpointOpensearchRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointOpensearch");
@@ -1919,22 +1902,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasExternalEndpointPrometheus(name, updateDbaasExternalEndpointPrometheusRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasExternalEndpointPrometheus(name, updateDbaasExternalEndpointPrometheusRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointPrometheus");
@@ -2015,22 +1997,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasExternalEndpointRsyslog(name, createDbaasExternalEndpointRsyslogRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasExternalEndpointRsyslog(name, createDbaasExternalEndpointRsyslogRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointRsyslog");
@@ -2111,21 +2092,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateDbaasIntegrationRequest createDbaasIntegrationRequest = new CreateDbaasIntegrationRequest(); // CreateDbaasIntegrationRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateDbaasIntegrationRequest createDbaasIntegrationRequest = new CreateDbaasIntegrationRequest(); // CreateDbaasIntegrationRequest | 
         try {
-            Operation result = apiInstance.createDbaasIntegration(createDbaasIntegrationRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasIntegration(createDbaasIntegrationRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasIntegration");
@@ -2202,22 +2182,21 @@ Add a Kafka Schema Registry ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasKafkaSchemaRegistryAclEntry dbaasKafkaSchemaRegistryAclEntry = new DbaasKafkaSchemaRegistryAclEntry(); // DbaasKafkaSchemaRegistryAclEntry | 
+        DbaasKafkaSchemaRegistryAclEntry dbaasKafkaSchemaRegistryAclEntry = new DbaasKafkaSchemaRegistryAclEntry(); // DbaasKafkaSchemaRegistryAclEntry |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasKafkaSchemaRegistryAclConfig(name, dbaasKafkaSchemaRegistryAclEntry);
+            // Invoke the API method
+            Operation result = client.createDbaasKafkaSchemaRegistryAclConfig(name, dbaasKafkaSchemaRegistryAclEntry);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasKafkaSchemaRegistryAclConfig");
@@ -2296,22 +2275,21 @@ Add a Kafka topic ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasKafkaTopicAclEntry dbaasKafkaTopicAclEntry = new DbaasKafkaTopicAclEntry(); // DbaasKafkaTopicAclEntry | 
+        DbaasKafkaTopicAclEntry dbaasKafkaTopicAclEntry = new DbaasKafkaTopicAclEntry(); // DbaasKafkaTopicAclEntry |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasKafkaTopicAclConfig(name, dbaasKafkaTopicAclEntry);
+            // Invoke the API method
+            Operation result = client.createDbaasKafkaTopicAclConfig(name, dbaasKafkaTopicAclEntry);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasKafkaTopicAclConfig");
@@ -2390,22 +2368,21 @@ Create a DBaaS Kafka user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest | 
+        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasKafkaUser(serviceName, createDbaasKafkaUserRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasKafkaUser(serviceName, createDbaasKafkaUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasKafkaUser");
@@ -2484,22 +2461,21 @@ Create a DBaaS MySQL database
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasMysqlDatabaseRequest createDbaasMysqlDatabaseRequest = new CreateDbaasMysqlDatabaseRequest(); // CreateDbaasMysqlDatabaseRequest | 
+        CreateDbaasMysqlDatabaseRequest createDbaasMysqlDatabaseRequest = new CreateDbaasMysqlDatabaseRequest(); // CreateDbaasMysqlDatabaseRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasMysqlDatabase(serviceName, createDbaasMysqlDatabaseRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasMysqlDatabase(serviceName, createDbaasMysqlDatabaseRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasMysqlDatabase");
@@ -2578,22 +2554,21 @@ Create a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasMysqlUserRequest createDbaasMysqlUserRequest = new CreateDbaasMysqlUserRequest(); // CreateDbaasMysqlUserRequest | 
+        CreateDbaasMysqlUserRequest createDbaasMysqlUserRequest = new CreateDbaasMysqlUserRequest(); // CreateDbaasMysqlUserRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasMysqlUser(serviceName, createDbaasMysqlUserRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasMysqlUser(serviceName, createDbaasMysqlUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasMysqlUser");
@@ -2672,22 +2647,21 @@ Create a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest | 
+        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasOpensearchUser(serviceName, createDbaasKafkaUserRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasOpensearchUser(serviceName, createDbaasKafkaUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasOpensearchUser");
@@ -2768,22 +2742,21 @@ Create a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasPgConnectionPoolRequest createDbaasPgConnectionPoolRequest = new CreateDbaasPgConnectionPoolRequest(); // CreateDbaasPgConnectionPoolRequest | 
+        CreateDbaasPgConnectionPoolRequest createDbaasPgConnectionPoolRequest = new CreateDbaasPgConnectionPoolRequest(); // CreateDbaasPgConnectionPoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasPgConnectionPool(serviceName, createDbaasPgConnectionPoolRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasPgConnectionPool(serviceName, createDbaasPgConnectionPoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasPgConnectionPool");
@@ -2862,22 +2835,21 @@ Create a DBaaS Postgres database
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasPgDatabaseRequest createDbaasPgDatabaseRequest = new CreateDbaasPgDatabaseRequest(); // CreateDbaasPgDatabaseRequest | 
+        CreateDbaasPgDatabaseRequest createDbaasPgDatabaseRequest = new CreateDbaasPgDatabaseRequest(); // CreateDbaasPgDatabaseRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasPgDatabase(serviceName, createDbaasPgDatabaseRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasPgDatabase(serviceName, createDbaasPgDatabaseRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasPgDatabase");
@@ -2958,22 +2930,21 @@ Check whether you can upgrade Postgres service to a newer version
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String service = "service_example"; // String | 
-        CreateDbaasPgUpgradeCheckRequest createDbaasPgUpgradeCheckRequest = new CreateDbaasPgUpgradeCheckRequest(); // CreateDbaasPgUpgradeCheckRequest | 
+        CreateDbaasPgUpgradeCheckRequest createDbaasPgUpgradeCheckRequest = new CreateDbaasPgUpgradeCheckRequest(); // CreateDbaasPgUpgradeCheckRequest |  please add at least all the required fields
+
         try {
-            DbaasTask result = apiInstance.createDbaasPgUpgradeCheck(service, createDbaasPgUpgradeCheckRequest);
+            // Invoke the API method
+            DbaasTask result = client.createDbaasPgUpgradeCheck(service, createDbaasPgUpgradeCheckRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasPgUpgradeCheck");
@@ -3052,22 +3023,21 @@ Create a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasPostgresUserRequest createDbaasPostgresUserRequest = new CreateDbaasPostgresUserRequest(); // CreateDbaasPostgresUserRequest | 
+        CreateDbaasPostgresUserRequest createDbaasPostgresUserRequest = new CreateDbaasPostgresUserRequest(); // CreateDbaasPostgresUserRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasPostgresUser(serviceName, createDbaasPostgresUserRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasPostgresUser(serviceName, createDbaasPostgresUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasPostgresUser");
@@ -3146,22 +3116,21 @@ Create a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest | 
+        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasRedisUser(serviceName, createDbaasKafkaUserRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasRedisUser(serviceName, createDbaasKafkaUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasRedisUser");
@@ -3242,22 +3211,21 @@ Create a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasServiceGrafanaRequest createDbaasServiceGrafanaRequest = new CreateDbaasServiceGrafanaRequest(); // CreateDbaasServiceGrafanaRequest | 
+        CreateDbaasServiceGrafanaRequest createDbaasServiceGrafanaRequest = new CreateDbaasServiceGrafanaRequest(); // CreateDbaasServiceGrafanaRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasServiceGrafana(name, createDbaasServiceGrafanaRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasServiceGrafana(name, createDbaasServiceGrafanaRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasServiceGrafana");
@@ -3338,22 +3306,21 @@ Create a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasServiceKafkaRequest createDbaasServiceKafkaRequest = new CreateDbaasServiceKafkaRequest(); // CreateDbaasServiceKafkaRequest | 
+        CreateDbaasServiceKafkaRequest createDbaasServiceKafkaRequest = new CreateDbaasServiceKafkaRequest(); // CreateDbaasServiceKafkaRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasServiceKafka(name, createDbaasServiceKafkaRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasServiceKafka(name, createDbaasServiceKafkaRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasServiceKafka");
@@ -3434,22 +3401,21 @@ Create a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasServiceMysqlRequest createDbaasServiceMysqlRequest = new CreateDbaasServiceMysqlRequest(); // CreateDbaasServiceMysqlRequest | 
+        CreateDbaasServiceMysqlRequest createDbaasServiceMysqlRequest = new CreateDbaasServiceMysqlRequest(); // CreateDbaasServiceMysqlRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasServiceMysql(name, createDbaasServiceMysqlRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasServiceMysql(name, createDbaasServiceMysqlRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasServiceMysql");
@@ -3530,22 +3496,21 @@ Create a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest = new CreateDbaasServiceOpensearchRequest(); // CreateDbaasServiceOpensearchRequest | 
+        CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest = new CreateDbaasServiceOpensearchRequest(); // CreateDbaasServiceOpensearchRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasServiceOpensearch(name, createDbaasServiceOpensearchRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasServiceOpensearch(name, createDbaasServiceOpensearchRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasServiceOpensearch");
@@ -3624,22 +3589,21 @@ Create a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasServicePgRequest createDbaasServicePgRequest = new CreateDbaasServicePgRequest(); // CreateDbaasServicePgRequest | 
+        CreateDbaasServicePgRequest createDbaasServicePgRequest = new CreateDbaasServicePgRequest(); // CreateDbaasServicePgRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasServicePg(name, createDbaasServicePgRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasServicePg(name, createDbaasServicePgRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasServicePg");
@@ -3720,22 +3684,21 @@ Create a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        CreateDbaasServiceRedisRequest createDbaasServiceRedisRequest = new CreateDbaasServiceRedisRequest(); // CreateDbaasServiceRedisRequest | 
+        CreateDbaasServiceRedisRequest createDbaasServiceRedisRequest = new CreateDbaasServiceRedisRequest(); // CreateDbaasServiceRedisRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasServiceRedis(name, createDbaasServiceRedisRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasServiceRedis(name, createDbaasServiceRedisRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasServiceRedis");
@@ -3816,22 +3779,21 @@ Create a DBaaS task to check migration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String service = "service_example"; // String | 
-        CreateDbaasTaskMigrationCheckRequest createDbaasTaskMigrationCheckRequest = new CreateDbaasTaskMigrationCheckRequest(); // CreateDbaasTaskMigrationCheckRequest | 
+        CreateDbaasTaskMigrationCheckRequest createDbaasTaskMigrationCheckRequest = new CreateDbaasTaskMigrationCheckRequest(); // CreateDbaasTaskMigrationCheckRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDbaasTaskMigrationCheck(service, createDbaasTaskMigrationCheckRequest);
+            // Invoke the API method
+            Operation result = client.createDbaasTaskMigrationCheck(service, createDbaasTaskMigrationCheckRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasTaskMigrationCheck");
@@ -3912,21 +3874,20 @@ Create DNS domain
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateDnsDomainRequest createDnsDomainRequest = new CreateDnsDomainRequest(); // CreateDnsDomainRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateDnsDomainRequest createDnsDomainRequest = new CreateDnsDomainRequest(); // CreateDnsDomainRequest | 
         try {
-            DnsDomain result = apiInstance.createDnsDomain(createDnsDomainRequest);
+            // Invoke the API method
+            DnsDomain result = client.createDnsDomain(createDnsDomainRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDnsDomain");
@@ -4005,22 +3966,21 @@ Create DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID domainId = UUID.randomUUID(); // UUID | 
-        CreateDnsDomainRecordRequest createDnsDomainRecordRequest = new CreateDnsDomainRecordRequest(); // CreateDnsDomainRecordRequest | 
+        CreateDnsDomainRecordRequest createDnsDomainRecordRequest = new CreateDnsDomainRecordRequest(); // CreateDnsDomainRecordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createDnsDomainRecord(domainId, createDnsDomainRecordRequest);
+            // Invoke the API method
+            Operation result = client.createDnsDomainRecord(domainId, createDnsDomainRecordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDnsDomainRecord");
@@ -4101,21 +4061,20 @@ Create an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateElasticIpRequest createElasticIpRequest = new CreateElasticIpRequest(); // CreateElasticIpRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateElasticIpRequest createElasticIpRequest = new CreateElasticIpRequest(); // CreateElasticIpRequest | 
         try {
-            Operation result = apiInstance.createElasticIp(createElasticIpRequest);
+            // Invoke the API method
+            Operation result = client.createElasticIp(createElasticIpRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createElasticIp");
@@ -4194,21 +4153,20 @@ Create IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateIamRoleRequest createIamRoleRequest = new CreateIamRoleRequest(); // CreateIamRoleRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateIamRoleRequest createIamRoleRequest = new CreateIamRoleRequest(); // CreateIamRoleRequest | 
         try {
-            Operation result = apiInstance.createIamRole(createIamRoleRequest);
+            // Invoke the API method
+            Operation result = client.createIamRole(createIamRoleRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createIamRole");
@@ -4287,21 +4245,20 @@ Create a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateInstanceRequest createInstanceRequest = new CreateInstanceRequest(); // CreateInstanceRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateInstanceRequest createInstanceRequest = new CreateInstanceRequest(); // CreateInstanceRequest | 
         try {
-            Operation result = apiInstance.createInstance(createInstanceRequest);
+            // Invoke the API method
+            Operation result = client.createInstance(createInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createInstance");
@@ -4380,21 +4337,20 @@ Create an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateInstancePoolRequest createInstancePoolRequest = new CreateInstancePoolRequest(); // CreateInstancePoolRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateInstancePoolRequest createInstancePoolRequest = new CreateInstancePoolRequest(); // CreateInstancePoolRequest | 
         try {
-            Operation result = apiInstance.createInstancePool(createInstancePoolRequest);
+            // Invoke the API method
+            Operation result = client.createInstancePool(createInstancePoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createInstancePool");
@@ -4473,21 +4429,20 @@ Create a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateLoadBalancerRequest createLoadBalancerRequest = new CreateLoadBalancerRequest(); // CreateLoadBalancerRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateLoadBalancerRequest createLoadBalancerRequest = new CreateLoadBalancerRequest(); // CreateLoadBalancerRequest | 
         try {
-            Operation result = apiInstance.createLoadBalancer(createLoadBalancerRequest);
+            // Invoke the API method
+            Operation result = client.createLoadBalancer(createLoadBalancerRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createLoadBalancer");
@@ -4566,21 +4521,20 @@ Create a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreatePrivateNetworkRequest createPrivateNetworkRequest = new CreatePrivateNetworkRequest(); // CreatePrivateNetworkRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreatePrivateNetworkRequest createPrivateNetworkRequest = new CreatePrivateNetworkRequest(); // CreatePrivateNetworkRequest | 
         try {
-            Operation result = apiInstance.createPrivateNetwork(createPrivateNetworkRequest);
+            // Invoke the API method
+            Operation result = client.createPrivateNetwork(createPrivateNetworkRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createPrivateNetwork");
@@ -4659,21 +4613,20 @@ Create a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateSecurityGroupRequest createSecurityGroupRequest = new CreateSecurityGroupRequest(); // CreateSecurityGroupRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateSecurityGroupRequest createSecurityGroupRequest = new CreateSecurityGroupRequest(); // CreateSecurityGroupRequest | 
         try {
-            Operation result = apiInstance.createSecurityGroup(createSecurityGroupRequest);
+            // Invoke the API method
+            Operation result = client.createSecurityGroup(createSecurityGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createSecurityGroup");
@@ -4752,21 +4705,20 @@ Create an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateSksClusterRequest createSksClusterRequest = new CreateSksClusterRequest(); // CreateSksClusterRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        CreateSksClusterRequest createSksClusterRequest = new CreateSksClusterRequest(); // CreateSksClusterRequest | 
         try {
-            Operation result = apiInstance.createSksCluster(createSksClusterRequest);
+            // Invoke the API method
+            Operation result = client.createSksCluster(createSksClusterRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createSksCluster");
@@ -4845,22 +4797,21 @@ Create a new SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        CreateSksNodepoolRequest createSksNodepoolRequest = new CreateSksNodepoolRequest(); // CreateSksNodepoolRequest | 
+        CreateSksNodepoolRequest createSksNodepoolRequest = new CreateSksNodepoolRequest(); // CreateSksNodepoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.createSksNodepool(id, createSksNodepoolRequest);
+            // Invoke the API method
+            Operation result = client.createSksNodepool(id, createSksNodepoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createSksNodepool");
@@ -4941,21 +4892,20 @@ Create a Snapshot of a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.createSnapshot(id);
+            // Invoke the API method
+            Operation result = client.createSnapshot(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createSnapshot");
@@ -5034,21 +4984,20 @@ Delete an Anti-affinity Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteAntiAffinityGroup(id);
+            // Invoke the API method
+            Operation result = client.deleteAntiAffinityGroup(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteAntiAffinityGroup");
@@ -5125,21 +5074,20 @@ Delete an API key
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String id = "id_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteApiKey(id);
+            // Invoke the API method
+            Operation result = client.deleteApiKey(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteApiKey");
@@ -5218,21 +5166,20 @@ Delete a block storage snapshot, data will be unrecoverable
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteBlockStorageSnapshot(id);
+            // Invoke the API method
+            Operation result = client.deleteBlockStorageSnapshot(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteBlockStorageSnapshot");
@@ -5311,21 +5258,20 @@ Delete a block storage volume, data will be unrecoverable
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteBlockStorageVolume(id);
+            // Invoke the API method
+            Operation result = client.deleteBlockStorageVolume(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteBlockStorageVolume");
@@ -5404,21 +5350,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDbaasExternalEndpointDatadog(id);
+            // Invoke the API method
+            Operation result = client.deleteDbaasExternalEndpointDatadog(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointDatadog");
@@ -5497,21 +5442,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDbaasExternalEndpointElasticsearch(id);
+            // Invoke the API method
+            Operation result = client.deleteDbaasExternalEndpointElasticsearch(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointElasticsearch");
@@ -5590,21 +5534,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDbaasExternalEndpointOpensearch(id);
+            // Invoke the API method
+            Operation result = client.deleteDbaasExternalEndpointOpensearch(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointOpensearch");
@@ -5683,21 +5626,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDbaasExternalEndpointPrometheus(id);
+            // Invoke the API method
+            Operation result = client.deleteDbaasExternalEndpointPrometheus(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointPrometheus");
@@ -5776,21 +5718,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDbaasExternalEndpointRsyslog(id);
+            // Invoke the API method
+            Operation result = client.deleteDbaasExternalEndpointRsyslog(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointRsyslog");
@@ -5869,21 +5810,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDbaasIntegration(id);
+            // Invoke the API method
+            Operation result = client.deleteDbaasIntegration(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasIntegration");
@@ -5960,22 +5900,21 @@ Delete a Kafka ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
         String aclId = "aclId_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasKafkaSchemaRegistryAclConfig(name, aclId);
+            // Invoke the API method
+            Operation result = client.deleteDbaasKafkaSchemaRegistryAclConfig(name, aclId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasKafkaSchemaRegistryAclConfig");
@@ -6054,22 +5993,21 @@ Delete a Kafka ACL entry
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
         String aclId = "aclId_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasKafkaTopicAclConfig(name, aclId);
+            // Invoke the API method
+            Operation result = client.deleteDbaasKafkaTopicAclConfig(name, aclId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasKafkaTopicAclConfig");
@@ -6148,22 +6086,21 @@ Delete a DBaaS kafka user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasKafkaUser(serviceName, username);
+            // Invoke the API method
+            Operation result = client.deleteDbaasKafkaUser(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasKafkaUser");
@@ -6242,22 +6179,21 @@ Delete a DBaaS MySQL database
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String databaseName = "databaseName_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasMysqlDatabase(serviceName, databaseName);
+            // Invoke the API method
+            Operation result = client.deleteDbaasMysqlDatabase(serviceName, databaseName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasMysqlDatabase");
@@ -6336,22 +6272,21 @@ Delete a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasMysqlUser(serviceName, username);
+            // Invoke the API method
+            Operation result = client.deleteDbaasMysqlUser(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasMysqlUser");
@@ -6430,22 +6365,21 @@ Delete a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasOpensearchUser(serviceName, username);
+            // Invoke the API method
+            Operation result = client.deleteDbaasOpensearchUser(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasOpensearchUser");
@@ -6526,22 +6460,21 @@ Delete a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String connectionPoolName = "connectionPoolName_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasPgConnectionPool(serviceName, connectionPoolName);
+            // Invoke the API method
+            Operation result = client.deleteDbaasPgConnectionPool(serviceName, connectionPoolName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasPgConnectionPool");
@@ -6620,22 +6553,21 @@ Delete a DBaaS Postgres database
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String databaseName = "databaseName_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasPgDatabase(serviceName, databaseName);
+            // Invoke the API method
+            Operation result = client.deleteDbaasPgDatabase(serviceName, databaseName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasPgDatabase");
@@ -6714,22 +6646,21 @@ Delete a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasPostgresUser(serviceName, username);
+            // Invoke the API method
+            Operation result = client.deleteDbaasPostgresUser(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasPostgresUser");
@@ -6808,22 +6739,21 @@ Delete a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasRedisUser(serviceName, username);
+            // Invoke the API method
+            Operation result = client.deleteDbaasRedisUser(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasRedisUser");
@@ -6904,21 +6834,20 @@ Delete a DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasService(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasService(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasService");
@@ -6995,21 +6924,20 @@ Delete a Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasServiceGrafana(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceGrafana(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceGrafana");
@@ -7086,21 +7014,20 @@ Delete a Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasServiceKafka(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceKafka(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceKafka");
@@ -7177,21 +7104,20 @@ Delete a MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasServiceMysql(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceMysql(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceMysql");
@@ -7268,21 +7194,20 @@ Delete a OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasServiceOpensearch(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceOpensearch(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceOpensearch");
@@ -7359,21 +7284,20 @@ Delete a Postgres service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasServicePg(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasServicePg(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasServicePg");
@@ -7450,21 +7374,20 @@ Delete a Redis service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteDbaasServiceRedis(name);
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceRedis(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceRedis");
@@ -7543,21 +7466,20 @@ Delete DNS Domain
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDnsDomain(id);
+            // Invoke the API method
+            Operation result = client.deleteDnsDomain(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDnsDomain");
@@ -7636,22 +7558,21 @@ Delete DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID domainId = UUID.randomUUID(); // UUID | 
         UUID recordId = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteDnsDomainRecord(domainId, recordId);
+            // Invoke the API method
+            Operation result = client.deleteDnsDomainRecord(domainId, recordId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDnsDomainRecord");
@@ -7732,21 +7653,20 @@ Delete an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteElasticIp(id);
+            // Invoke the API method
+            Operation result = client.deleteElasticIp(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteElasticIp");
@@ -7825,21 +7745,20 @@ Delete IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteIamRole(id);
+            // Invoke the API method
+            Operation result = client.deleteIamRole(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteIamRole");
@@ -7918,21 +7837,20 @@ Delete a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteInstance(id);
+            // Invoke the API method
+            Operation result = client.deleteInstance(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteInstance");
@@ -8011,21 +7929,20 @@ Delete an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteInstancePool(id);
+            // Invoke the API method
+            Operation result = client.deleteInstancePool(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteInstancePool");
@@ -8104,21 +8021,20 @@ Delete a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteLoadBalancer(id);
+            // Invoke the API method
+            Operation result = client.deleteLoadBalancer(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteLoadBalancer");
@@ -8197,22 +8113,21 @@ Delete a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID serviceId = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteLoadBalancerService(id, serviceId);
+            // Invoke the API method
+            Operation result = client.deleteLoadBalancerService(id, serviceId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteLoadBalancerService");
@@ -8293,21 +8208,20 @@ Delete a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deletePrivateNetwork(id);
+            // Invoke the API method
+            Operation result = client.deletePrivateNetwork(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deletePrivateNetwork");
@@ -8386,21 +8300,20 @@ Delete the PTR DNS record for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteReverseDnsElasticIp(id);
+            // Invoke the API method
+            Operation result = client.deleteReverseDnsElasticIp(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteReverseDnsElasticIp");
@@ -8479,21 +8392,20 @@ Delete the PTR DNS record for an instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteReverseDnsInstance(id);
+            // Invoke the API method
+            Operation result = client.deleteReverseDnsInstance(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteReverseDnsInstance");
@@ -8572,22 +8484,21 @@ Delete a Security Group rule
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID ruleId = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteRuleFromSecurityGroup(id, ruleId);
+            // Invoke the API method
+            Operation result = client.deleteRuleFromSecurityGroup(id, ruleId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteRuleFromSecurityGroup");
@@ -8668,21 +8579,20 @@ Delete a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteSecurityGroup(id);
+            // Invoke the API method
+            Operation result = client.deleteSecurityGroup(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSecurityGroup");
@@ -8761,21 +8671,20 @@ Delete an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteSksCluster(id);
+            // Invoke the API method
+            Operation result = client.deleteSksCluster(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSksCluster");
@@ -8854,22 +8763,21 @@ Delete an SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteSksNodepool(id, sksNodepoolId);
+            // Invoke the API method
+            Operation result = client.deleteSksNodepool(id, sksNodepoolId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSksNodepool");
@@ -8950,21 +8858,20 @@ Delete a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteSnapshot(id);
+            // Invoke the API method
+            Operation result = client.deleteSnapshot(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSnapshot");
@@ -9043,21 +8950,20 @@ Delete a SSH key
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.deleteSshKey(name);
+            // Invoke the API method
+            Operation result = client.deleteSshKey(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSshKey");
@@ -9136,21 +9042,20 @@ Delete a Template
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.deleteTemplate(id);
+            // Invoke the API method
+            Operation result = client.deleteTemplate(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteTemplate");
@@ -9229,21 +9134,20 @@ Detach block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.detachBlockStorageVolume(id);
+            // Invoke the API method
+            Operation result = client.detachBlockStorageVolume(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachBlockStorageVolume");
@@ -9322,22 +9226,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String sourceServiceName = "sourceServiceName_example"; // String | 
-        DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest = new DetachDbaasServiceFromEndpointRequest(); // DetachDbaasServiceFromEndpointRequest | 
+        DetachDbaasServiceFromEndpointRequest detachDbaasServiceFromEndpointRequest = new DetachDbaasServiceFromEndpointRequest(); // DetachDbaasServiceFromEndpointRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.detachDbaasServiceFromEndpoint(sourceServiceName, detachDbaasServiceFromEndpointRequest);
+            // Invoke the API method
+            Operation result = client.detachDbaasServiceFromEndpoint(sourceServiceName, detachDbaasServiceFromEndpointRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachDbaasServiceFromEndpoint");
@@ -9418,22 +9321,21 @@ Detach a Compute instance from an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest | 
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
+            // Invoke the API method
+            Operation result = client.detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachInstanceFromElasticIp");
@@ -9514,22 +9416,21 @@ Detach a Compute instance from a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest | 
+        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.detachInstanceFromPrivateNetwork(id, detachInstanceFromPrivateNetworkRequest);
+            // Invoke the API method
+            Operation result = client.detachInstanceFromPrivateNetwork(id, detachInstanceFromPrivateNetworkRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachInstanceFromPrivateNetwork");
@@ -9610,22 +9511,21 @@ Detach a Compute instance from a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest | 
+        DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = new DetachInstanceFromPrivateNetworkRequest(); // DetachInstanceFromPrivateNetworkRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.detachInstanceFromSecurityGroup(id, detachInstanceFromPrivateNetworkRequest);
+            // Invoke the API method
+            Operation result = client.detachInstanceFromSecurityGroup(id, detachInstanceFromPrivateNetworkRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachInstanceFromSecurityGroup");
@@ -9704,21 +9604,20 @@ Temporarily enable writes for MySQL services in read-only mode due to filled up 
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.enableDbaasMysqlWrites(name);
+            // Invoke the API method
+            Operation result = client.enableDbaasMysqlWrites(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#enableDbaasMysqlWrites");
@@ -9797,22 +9696,21 @@ This operation evicts the specified Compute instances member from the Instance P
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        EvictInstancePoolMembersRequest evictInstancePoolMembersRequest = new EvictInstancePoolMembersRequest(); // EvictInstancePoolMembersRequest | 
+        EvictInstancePoolMembersRequest evictInstancePoolMembersRequest = new EvictInstancePoolMembersRequest(); // EvictInstancePoolMembersRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.evictInstancePoolMembers(id, evictInstancePoolMembersRequest);
+            // Invoke the API method
+            Operation result = client.evictInstancePoolMembers(id, evictInstancePoolMembersRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#evictInstancePoolMembers");
@@ -9893,23 +9791,22 @@ This operation evicts the specified Compute instances member from the Nodepool, 
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        EvictSksNodepoolMembersRequest evictSksNodepoolMembersRequest = new EvictSksNodepoolMembersRequest(); // EvictSksNodepoolMembersRequest | 
+        EvictSksNodepoolMembersRequest evictSksNodepoolMembersRequest = new EvictSksNodepoolMembersRequest(); // EvictSksNodepoolMembersRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.evictSksNodepoolMembers(id, sksNodepoolId, evictSksNodepoolMembersRequest);
+            // Invoke the API method
+            Operation result = client.evictSksNodepoolMembers(id, sksNodepoolId, evictSksNodepoolMembersRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#evictSksNodepoolMembers");
@@ -9992,21 +9889,20 @@ Export a Snapshot
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.exportSnapshot(id);
+            // Invoke the API method
+            Operation result = client.exportSnapshot(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#exportSnapshot");
@@ -10085,22 +9981,21 @@ This operation returns a Kubeconfig file encoded in base64.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        SksKubeconfigRequest sksKubeconfigRequest = new SksKubeconfigRequest(); // SksKubeconfigRequest | 
+        SksKubeconfigRequest sksKubeconfigRequest = new SksKubeconfigRequest(); // SksKubeconfigRequest |  please add at least all the required fields
+
         try {
-            GenerateSksClusterKubeconfig200Response result = apiInstance.generateSksClusterKubeconfig(id, sksKubeconfigRequest);
+            // Invoke the API method
+            GenerateSksClusterKubeconfig200Response result = client.generateSksClusterKubeconfig(id, sksKubeconfigRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#generateSksClusterKubeconfig");
@@ -10181,21 +10076,20 @@ Retrieve Anti-affinity Group details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            AntiAffinityGroup result = apiInstance.getAntiAffinityGroup(id);
+            // Invoke the API method
+            AntiAffinityGroup result = client.getAntiAffinityGroup(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getAntiAffinityGroup");
@@ -10272,21 +10166,20 @@ Get API key
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String id = "id_example"; // String | 
+
         try {
-            IamApiKey result = apiInstance.getApiKey(id);
+            // Invoke the API method
+            IamApiKey result = client.getApiKey(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getApiKey");
@@ -10365,21 +10258,20 @@ Retrieve block storage snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            BlockStorageSnapshot result = apiInstance.getBlockStorageSnapshot(id);
+            // Invoke the API method
+            BlockStorageSnapshot result = client.getBlockStorageSnapshot(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getBlockStorageSnapshot");
@@ -10458,21 +10350,20 @@ Retrieve block storage volume details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            BlockStorageVolume result = apiInstance.getBlockStorageVolume(id);
+            // Invoke the API method
+            BlockStorageVolume result = client.getBlockStorageVolume(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getBlockStorageVolume");
@@ -10551,21 +10442,20 @@ Retrieve signed url valid for 60 seconds to connect via console-proxy websocket 
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            GetConsoleProxyUrl200Response result = apiInstance.getConsoleProxyUrl(id);
+            // Invoke the API method
+            GetConsoleProxyUrl200Response result = client.getConsoleProxyUrl(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getConsoleProxyUrl");
@@ -10644,20 +10534,19 @@ Returns a CA Certificate required to reach a DBaaS service through a TLS-protect
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasCaCertificate200Response result = apiInstance.getDbaasCaCertificate();
+            // Invoke the API method
+            GetDbaasCaCertificate200Response result = client.getDbaasCaCertificate();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasCaCertificate");
@@ -10730,21 +10619,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasExternalEndpointDatadogOutput result = apiInstance.getDbaasExternalEndpointDatadog(id);
+            // Invoke the API method
+            DbaasExternalEndpointDatadogOutput result = client.getDbaasExternalEndpointDatadog(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointDatadog");
@@ -10823,21 +10711,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasEndpointElasticsearchOutput result = apiInstance.getDbaasExternalEndpointElasticsearch(id);
+            // Invoke the API method
+            DbaasEndpointElasticsearchOutput result = client.getDbaasExternalEndpointElasticsearch(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointElasticsearch");
@@ -10916,21 +10803,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasEndpointOpensearchOutput result = apiInstance.getDbaasExternalEndpointOpensearch(id);
+            // Invoke the API method
+            DbaasEndpointOpensearchOutput result = client.getDbaasExternalEndpointOpensearch(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointOpensearch");
@@ -11009,21 +10895,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasEndpointExternalPrometheusOutput result = apiInstance.getDbaasExternalEndpointPrometheus(id);
+            // Invoke the API method
+            DbaasEndpointExternalPrometheusOutput result = client.getDbaasExternalEndpointPrometheus(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointPrometheus");
@@ -11102,21 +10987,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasExternalEndpointRsyslogOutput result = apiInstance.getDbaasExternalEndpointRsyslog(id);
+            // Invoke the API method
+            DbaasExternalEndpointRsyslogOutput result = client.getDbaasExternalEndpointRsyslog(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointRsyslog");
@@ -11195,21 +11079,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasExternalIntegration result = apiInstance.getDbaasExternalIntegration(id);
+            // Invoke the API method
+            DbaasExternalIntegration result = client.getDbaasExternalIntegration(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegration");
@@ -11288,21 +11171,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID integrationId = UUID.randomUUID(); // UUID | 
+
         try {
-            GetDbaasExternalIntegrationSettingsDatadog200Response result = apiInstance.getDbaasExternalIntegrationSettingsDatadog(integrationId);
+            // Invoke the API method
+            GetDbaasExternalIntegrationSettingsDatadog200Response result = client.getDbaasExternalIntegrationSettingsDatadog(integrationId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegrationSettingsDatadog");
@@ -11381,21 +11263,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasIntegration result = apiInstance.getDbaasIntegration(id);
+            // Invoke the API method
+            DbaasIntegration result = client.getDbaasIntegration(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasIntegration");
@@ -11472,21 +11353,20 @@ Get DBaaS kafka ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasKafkaAcls result = apiInstance.getDbaasKafkaAclConfig(name);
+            // Invoke the API method
+            DbaasKafkaAcls result = client.getDbaasKafkaAclConfig(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasKafkaAclConfig");
@@ -11565,21 +11445,20 @@ Get a DBaaS migration status
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasMigrationStatus result = apiInstance.getDbaasMigrationStatus(name);
+            // Invoke the API method
+            DbaasMigrationStatus result = client.getDbaasMigrationStatus(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasMigrationStatus");
@@ -11656,21 +11535,20 @@ Get DBaaS OpenSearch ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasOpensearchAclConfig result = apiInstance.getDbaasOpensearchAclConfig(name);
+            // Invoke the API method
+            DbaasOpensearchAclConfig result = client.getDbaasOpensearchAclConfig(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasOpensearchAclConfig");
@@ -11747,21 +11625,20 @@ Get a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasServiceGrafana result = apiInstance.getDbaasServiceGrafana(name);
+            // Invoke the API method
+            DbaasServiceGrafana result = client.getDbaasServiceGrafana(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceGrafana");
@@ -11838,21 +11715,20 @@ Get a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasServiceKafka result = apiInstance.getDbaasServiceKafka(name);
+            // Invoke the API method
+            DbaasServiceKafka result = client.getDbaasServiceKafka(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceKafka");
@@ -11931,22 +11807,21 @@ Get logs of DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        GetDbaasServiceLogsRequest getDbaasServiceLogsRequest = new GetDbaasServiceLogsRequest(); // GetDbaasServiceLogsRequest | 
+        GetDbaasServiceLogsRequest getDbaasServiceLogsRequest = new GetDbaasServiceLogsRequest(); // GetDbaasServiceLogsRequest |  please add at least all the required fields
+
         try {
-            DbaasServiceLogs result = apiInstance.getDbaasServiceLogs(serviceName, getDbaasServiceLogsRequest);
+            // Invoke the API method
+            DbaasServiceLogs result = client.getDbaasServiceLogs(serviceName, getDbaasServiceLogsRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceLogs");
@@ -12027,22 +11902,21 @@ Get metrics of DBaaS service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        GetDbaasServiceMetricsRequest getDbaasServiceMetricsRequest = new GetDbaasServiceMetricsRequest(); // GetDbaasServiceMetricsRequest | 
+        GetDbaasServiceMetricsRequest getDbaasServiceMetricsRequest = new GetDbaasServiceMetricsRequest(); // GetDbaasServiceMetricsRequest |  please add at least all the required fields
+
         try {
-            GetDbaasServiceMetrics200Response result = apiInstance.getDbaasServiceMetrics(serviceName, getDbaasServiceMetricsRequest);
+            // Invoke the API method
+            GetDbaasServiceMetrics200Response result = client.getDbaasServiceMetrics(serviceName, getDbaasServiceMetricsRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceMetrics");
@@ -12123,21 +11997,20 @@ Get a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasServiceMysql result = apiInstance.getDbaasServiceMysql(name);
+            // Invoke the API method
+            DbaasServiceMysql result = client.getDbaasServiceMysql(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceMysql");
@@ -12216,21 +12089,20 @@ Get a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasServiceOpensearch result = apiInstance.getDbaasServiceOpensearch(name);
+            // Invoke the API method
+            DbaasServiceOpensearch result = client.getDbaasServiceOpensearch(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceOpensearch");
@@ -12309,21 +12181,20 @@ Get a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasServicePg result = apiInstance.getDbaasServicePg(name);
+            // Invoke the API method
+            DbaasServicePg result = client.getDbaasServicePg(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServicePg");
@@ -12402,21 +12273,20 @@ Get a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            DbaasServiceRedis result = apiInstance.getDbaasServiceRedis(name);
+            // Invoke the API method
+            DbaasServiceRedis result = client.getDbaasServiceRedis(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceRedis");
@@ -12495,21 +12365,20 @@ Get a DBaaS service type
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceTypeName = "serviceTypeName_example"; // String | 
+
         try {
-            DbaasServiceType result = apiInstance.getDbaasServiceType(serviceTypeName);
+            // Invoke the API method
+            DbaasServiceType result = client.getDbaasServiceType(serviceTypeName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasServiceType");
@@ -12588,20 +12457,19 @@ Get DBaaS Grafana settings
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasSettingsGrafana200Response result = apiInstance.getDbaasSettingsGrafana();
+            // Invoke the API method
+            GetDbaasSettingsGrafana200Response result = client.getDbaasSettingsGrafana();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsGrafana");
@@ -12674,20 +12542,19 @@ Get DBaaS Kafka settings
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasSettingsKafka200Response result = apiInstance.getDbaasSettingsKafka();
+            // Invoke the API method
+            GetDbaasSettingsKafka200Response result = client.getDbaasSettingsKafka();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsKafka");
@@ -12760,20 +12627,19 @@ Get DBaaS MySQL settings
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasSettingsMysql200Response result = apiInstance.getDbaasSettingsMysql();
+            // Invoke the API method
+            GetDbaasSettingsMysql200Response result = client.getDbaasSettingsMysql();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsMysql");
@@ -12846,20 +12712,19 @@ Get DBaaS OpenSearch settings
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasSettingsOpensearch200Response result = apiInstance.getDbaasSettingsOpensearch();
+            // Invoke the API method
+            GetDbaasSettingsOpensearch200Response result = client.getDbaasSettingsOpensearch();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsOpensearch");
@@ -12932,20 +12797,19 @@ Get DBaaS PostgreSQL settings
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasSettingsPg200Response result = apiInstance.getDbaasSettingsPg();
+            // Invoke the API method
+            GetDbaasSettingsPg200Response result = client.getDbaasSettingsPg();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsPg");
@@ -13018,20 +12882,19 @@ Returns the default settings for Redis.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            GetDbaasSettingsRedis200Response result = apiInstance.getDbaasSettingsRedis();
+            // Invoke the API method
+            GetDbaasSettingsRedis200Response result = client.getDbaasSettingsRedis();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsRedis");
@@ -13104,22 +12967,21 @@ Get a DBaaS task
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String service = "service_example"; // String | 
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DbaasTask result = apiInstance.getDbaasTask(service, id);
+            // Invoke the API method
+            DbaasTask result = client.getDbaasTask(service, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasTask");
@@ -13200,21 +13062,20 @@ Retrieve Deploy Target details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DeployTarget result = apiInstance.getDeployTarget(id);
+            // Invoke the API method
+            DeployTarget result = client.getDeployTarget(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDeployTarget");
@@ -13293,21 +13154,20 @@ Retrieve DNS domain details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            DnsDomain result = apiInstance.getDnsDomain(id);
+            // Invoke the API method
+            DnsDomain result = client.getDnsDomain(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDnsDomain");
@@ -13386,22 +13246,21 @@ Retrieve DNS domain record details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID domainId = UUID.randomUUID(); // UUID | 
         UUID recordId = UUID.randomUUID(); // UUID | 
+
         try {
-            DnsDomainRecord result = apiInstance.getDnsDomainRecord(domainId, recordId);
+            // Invoke the API method
+            DnsDomainRecord result = client.getDnsDomainRecord(domainId, recordId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDnsDomainRecord");
@@ -13482,21 +13341,20 @@ Retrieve DNS domain zone file
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            GetDnsDomainZoneFile200Response result = apiInstance.getDnsDomainZoneFile(id);
+            // Invoke the API method
+            GetDnsDomainZoneFile200Response result = client.getDnsDomainZoneFile(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDnsDomainZoneFile");
@@ -13575,21 +13433,20 @@ Retrieve Elastic IP details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            ElasticIp result = apiInstance.getElasticIp(id);
+            // Invoke the API method
+            ElasticIp result = client.getElasticIp(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getElasticIp");
@@ -13668,20 +13525,19 @@ Retrieve IAM Organization Policy
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            IamPolicy result = apiInstance.getIamOrganizationPolicy();
+            // Invoke the API method
+            IamPolicy result = client.getIamOrganizationPolicy();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getIamOrganizationPolicy");
@@ -13754,21 +13610,20 @@ Retrieve IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            IamRole result = apiInstance.getIamRole(id);
+            // Invoke the API method
+            IamRole result = client.getIamRole(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getIamRole");
@@ -13847,21 +13702,20 @@ Retrieve Compute instance details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Instance result = apiInstance.getInstance(id);
+            // Invoke the API method
+            Instance result = client.getInstance(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getInstance");
@@ -13940,21 +13794,20 @@ Retrieve Instance Pool details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            InstancePool result = apiInstance.getInstancePool(id);
+            // Invoke the API method
+            InstancePool result = client.getInstancePool(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getInstancePool");
@@ -14033,21 +13886,20 @@ Retrieve Instance Type details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            InstanceType result = apiInstance.getInstanceType(id);
+            // Invoke the API method
+            InstanceType result = client.getInstanceType(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getInstanceType");
@@ -14126,21 +13978,20 @@ Retrieve Load Balancer details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            LoadBalancer result = apiInstance.getLoadBalancer(id);
+            // Invoke the API method
+            LoadBalancer result = client.getLoadBalancer(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getLoadBalancer");
@@ -14219,22 +14070,21 @@ Retrieve Load Balancer Service details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID serviceId = UUID.randomUUID(); // UUID | 
+
         try {
-            LoadBalancerService result = apiInstance.getLoadBalancerService(id, serviceId);
+            // Invoke the API method
+            LoadBalancerService result = client.getLoadBalancerService(id, serviceId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getLoadBalancerService");
@@ -14315,21 +14165,20 @@ Retrieve Operation details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.getOperation(id);
+            // Invoke the API method
+            Operation result = client.getOperation(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getOperation");
@@ -14408,20 +14257,19 @@ Retrieve an organization
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            Organization result = apiInstance.getOrganization();
+            // Invoke the API method
+            Organization result = client.getOrganization();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getOrganization");
@@ -14494,21 +14342,20 @@ Retrieve Private Network details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            PrivateNetwork result = apiInstance.getPrivateNetwork(id);
+            // Invoke the API method
+            PrivateNetwork result = client.getPrivateNetwork(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getPrivateNetwork");
@@ -14587,21 +14434,20 @@ Retrieve Resource Quota
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String entity = "entity_example"; // String | 
+
         try {
-            Quota result = apiInstance.getQuota(entity);
+            // Invoke the API method
+            Quota result = client.getQuota(entity);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getQuota");
@@ -14680,21 +14526,20 @@ Query the PTR DNS records for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            ReverseDnsRecord result = apiInstance.getReverseDnsElasticIp(id);
+            // Invoke the API method
+            ReverseDnsRecord result = client.getReverseDnsElasticIp(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getReverseDnsElasticIp");
@@ -14773,21 +14618,20 @@ Query the PTR DNS records for an instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            ReverseDnsRecord result = apiInstance.getReverseDnsInstance(id);
+            // Invoke the API method
+            ReverseDnsRecord result = client.getReverseDnsInstance(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getReverseDnsInstance");
@@ -14866,21 +14710,20 @@ Retrieve Security Group details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            SecurityGroup result = apiInstance.getSecurityGroup(id);
+            // Invoke the API method
+            SecurityGroup result = client.getSecurityGroup(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSecurityGroup");
@@ -14959,21 +14802,20 @@ Retrieve SKS cluster details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            SksCluster result = apiInstance.getSksCluster(id);
+            // Invoke the API method
+            SksCluster result = client.getSksCluster(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSksCluster");
@@ -15052,22 +14894,21 @@ This operation returns the certificate for the given SKS cluster authority encod
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String authority = "control-plane"; // String | 
+
         try {
-            GetSksClusterAuthorityCert200Response result = apiInstance.getSksClusterAuthorityCert(id, authority);
+            // Invoke the API method
+            GetSksClusterAuthorityCert200Response result = client.getSksClusterAuthorityCert(id, authority);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSksClusterAuthorityCert");
@@ -15148,21 +14989,20 @@ Helps troubleshoot common problems when deploying a kubernetes cluster. Inspecti
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Map<String, Object> result = apiInstance.getSksClusterInspection(id);
+            // Invoke the API method
+            Map<String, Object> result = client.getSksClusterInspection(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSksClusterInspection");
@@ -15241,22 +15081,21 @@ Retrieve SKS Nodepool details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
+
         try {
-            SksNodepool result = apiInstance.getSksNodepool(id, sksNodepoolId);
+            // Invoke the API method
+            SksNodepool result = client.getSksNodepool(id, sksNodepoolId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSksNodepool");
@@ -15337,21 +15176,20 @@ Retrieve Snapshot details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Snapshot result = apiInstance.getSnapshot(id);
+            // Invoke the API method
+            Snapshot result = client.getSnapshot(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSnapshot");
@@ -15430,22 +15268,21 @@ Generates Presigned Download URL for SOS object
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String bucket = "bucket_example"; // String | 
         String key = "key_example"; // String | 
+
         try {
-            GetSosPresignedUrl200Response result = apiInstance.getSosPresignedUrl(bucket, key);
+            // Invoke the API method
+            GetSosPresignedUrl200Response result = client.getSosPresignedUrl(bucket, key);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSosPresignedUrl");
@@ -15526,21 +15363,20 @@ Retrieve SSH key details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            SshKey result = apiInstance.getSshKey(name);
+            // Invoke the API method
+            SshKey result = client.getSshKey(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getSshKey");
@@ -15619,21 +15455,20 @@ Retrieve Template details
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Template result = apiInstance.getTemplate(id);
+            // Invoke the API method
+            Template result = client.getTemplate(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getTemplate");
@@ -15712,20 +15547,19 @@ List Anti-affinity Groups
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListAntiAffinityGroups200Response result = apiInstance.listAntiAffinityGroups();
+            // Invoke the API method
+            ListAntiAffinityGroups200Response result = client.listAntiAffinityGroups();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listAntiAffinityGroups");
@@ -15796,20 +15630,19 @@ List API keys
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListApiKeys200Response result = apiInstance.listApiKeys();
+            // Invoke the API method
+            ListApiKeys200Response result = client.listApiKeys();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listApiKeys");
@@ -15882,20 +15715,19 @@ List block storage snapshots
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListBlockStorageSnapshots200Response result = apiInstance.listBlockStorageSnapshots();
+            // Invoke the API method
+            ListBlockStorageSnapshots200Response result = client.listBlockStorageSnapshots();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listBlockStorageSnapshots");
@@ -15968,21 +15800,20 @@ List block storage volumes
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID instanceId = UUID.randomUUID(); // UUID | 
+
         try {
-            ListBlockStorageVolumes200Response result = apiInstance.listBlockStorageVolumes(instanceId);
+            // Invoke the API method
+            ListBlockStorageVolumes200Response result = client.listBlockStorageVolumes(instanceId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listBlockStorageVolumes");
@@ -16061,20 +15892,19 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDbaasExternalEndpointTypes200Response result = apiInstance.listDbaasExternalEndpointTypes();
+            // Invoke the API method
+            ListDbaasExternalEndpointTypes200Response result = client.listDbaasExternalEndpointTypes();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpointTypes");
@@ -16147,20 +15977,19 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDbaasExternalEndpoints200Response result = apiInstance.listDbaasExternalEndpoints();
+            // Invoke the API method
+            ListDbaasExternalEndpoints200Response result = client.listDbaasExternalEndpoints();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasExternalEndpoints");
@@ -16233,21 +16062,20 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
+
         try {
-            ListDbaasExternalIntegrations200Response result = apiInstance.listDbaasExternalIntegrations(serviceName);
+            // Invoke the API method
+            ListDbaasExternalIntegrations200Response result = client.listDbaasExternalIntegrations(serviceName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasExternalIntegrations");
@@ -16326,23 +16154,22 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String integrationType = "integrationType_example"; // String | 
         String sourceType = "sourceType_example"; // String | 
         String destType = "destType_example"; // String | 
+
         try {
-            ListDbaasIntegrationSettings200Response result = apiInstance.listDbaasIntegrationSettings(integrationType, sourceType, destType);
+            // Invoke the API method
+            ListDbaasIntegrationSettings200Response result = client.listDbaasIntegrationSettings(integrationType, sourceType, destType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasIntegrationSettings");
@@ -16425,20 +16252,19 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDbaasIntegrationTypes200Response result = apiInstance.listDbaasIntegrationTypes();
+            // Invoke the API method
+            ListDbaasIntegrationTypes200Response result = client.listDbaasIntegrationTypes();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasIntegrationTypes");
@@ -16511,20 +16337,19 @@ List available service types for DBaaS
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDbaasServiceTypes200Response result = apiInstance.listDbaasServiceTypes();
+            // Invoke the API method
+            ListDbaasServiceTypes200Response result = client.listDbaasServiceTypes();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasServiceTypes");
@@ -16597,20 +16422,19 @@ List DBaaS services
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDbaasServices200Response result = apiInstance.listDbaasServices();
+            // Invoke the API method
+            ListDbaasServices200Response result = client.listDbaasServices();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDbaasServices");
@@ -16683,20 +16507,19 @@ List Deploy Targets
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDeployTargets200Response result = apiInstance.listDeployTargets();
+            // Invoke the API method
+            ListDeployTargets200Response result = client.listDeployTargets();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDeployTargets");
@@ -16769,21 +16592,20 @@ List DNS domain records
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID domainId = UUID.randomUUID(); // UUID | 
+
         try {
-            ListDnsDomainRecords200Response result = apiInstance.listDnsDomainRecords(domainId);
+            // Invoke the API method
+            ListDnsDomainRecords200Response result = client.listDnsDomainRecords(domainId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDnsDomainRecords");
@@ -16862,20 +16684,19 @@ List DNS domains
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListDnsDomains200Response result = apiInstance.listDnsDomains();
+            // Invoke the API method
+            ListDnsDomains200Response result = client.listDnsDomains();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDnsDomains");
@@ -16948,20 +16769,19 @@ List Elastic IPs
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListElasticIps200Response result = apiInstance.listElasticIps();
+            // Invoke the API method
+            ListElasticIps200Response result = client.listElasticIps();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listElasticIps");
@@ -17034,22 +16854,21 @@ Retrieve Mutation Events for a given date range. Defaults to retrieving Events f
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        OffsetDateTime from = OffsetDateTime.now(); // OffsetDateTime |  please add at least all the required fields
+        OffsetDateTime to = OffsetDateTime.now(); // OffsetDateTime |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        OffsetDateTime from = OffsetDateTime.now(); // OffsetDateTime | 
-        OffsetDateTime to = OffsetDateTime.now(); // OffsetDateTime | 
         try {
-            List<Event> result = apiInstance.listEvents(from, to);
+            // Invoke the API method
+            List<Event> result = client.listEvents(from, to);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listEvents");
@@ -17130,20 +16949,19 @@ List IAM Roles
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListIamRoles200Response result = apiInstance.listIamRoles();
+            // Invoke the API method
+            ListIamRoles200Response result = client.listIamRoles();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listIamRoles");
@@ -17216,20 +17034,19 @@ List Instance Pools
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListInstancePools200Response result = apiInstance.listInstancePools();
+            // Invoke the API method
+            ListInstancePools200Response result = client.listInstancePools();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listInstancePools");
@@ -17302,20 +17119,19 @@ List Compute instance Types
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListInstanceTypes200Response result = apiInstance.listInstanceTypes();
+            // Invoke the API method
+            ListInstanceTypes200Response result = client.listInstanceTypes();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listInstanceTypes");
@@ -17388,23 +17204,22 @@ List Compute instances
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID managerId = UUID.randomUUID(); // UUID | 
         String managerType = "instance-pool"; // String | 
         String ipAddress = "ipAddress_example"; // String | 
+
         try {
-            ListInstances200Response result = apiInstance.listInstances(managerId, managerType, ipAddress);
+            // Invoke the API method
+            ListInstances200Response result = client.listInstances(managerId, managerType, ipAddress);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listInstances");
@@ -17487,20 +17302,19 @@ List Load Balancers
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListLoadBalancers200Response result = apiInstance.listLoadBalancers();
+            // Invoke the API method
+            ListLoadBalancers200Response result = client.listLoadBalancers();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listLoadBalancers");
@@ -17573,20 +17387,19 @@ List Private Networks
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListPrivateNetworks200Response result = apiInstance.listPrivateNetworks();
+            // Invoke the API method
+            ListPrivateNetworks200Response result = client.listPrivateNetworks();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listPrivateNetworks");
@@ -17659,20 +17472,19 @@ List Organization Quotas
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListQuotas200Response result = apiInstance.listQuotas();
+            // Invoke the API method
+            ListQuotas200Response result = client.listQuotas();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listQuotas");
@@ -17745,21 +17557,20 @@ Lists security groups. When visibility is set to public, lists public security g
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String visibility = "private"; // String | 
+
         try {
-            ListSecurityGroups200Response result = apiInstance.listSecurityGroups(visibility);
+            // Invoke the API method
+            ListSecurityGroups200Response result = client.listSecurityGroups(visibility);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSecurityGroups");
@@ -17838,21 +17649,20 @@ This operation returns the deprecated resources for a given cluster
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            List<Map<String, String>> result = apiInstance.listSksClusterDeprecatedResources(id);
+            // Invoke the API method
+            List<Map<String, String>> result = client.listSksClusterDeprecatedResources(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSksClusterDeprecatedResources");
@@ -17931,21 +17741,20 @@ List available versions for SKS clusters
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String includeDeprecated = "includeDeprecated_example"; // String | 
+
         try {
-            ListSksClusterVersions200Response result = apiInstance.listSksClusterVersions(includeDeprecated);
+            // Invoke the API method
+            ListSksClusterVersions200Response result = client.listSksClusterVersions(includeDeprecated);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSksClusterVersions");
@@ -18024,20 +17833,19 @@ List SKS clusters
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListSksClusters200Response result = apiInstance.listSksClusters();
+            // Invoke the API method
+            ListSksClusters200Response result = client.listSksClusters();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSksClusters");
@@ -18110,20 +17918,19 @@ List Snapshots
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListSnapshots200Response result = apiInstance.listSnapshots();
+            // Invoke the API method
+            ListSnapshots200Response result = client.listSnapshots();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSnapshots");
@@ -18196,20 +18003,19 @@ List SOS Buckets Usage
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListSosBucketsUsage200Response result = apiInstance.listSosBucketsUsage();
+            // Invoke the API method
+            ListSosBucketsUsage200Response result = client.listSosBucketsUsage();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSosBucketsUsage");
@@ -18282,20 +18088,19 @@ List SSH keys
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListSshKeys200Response result = apiInstance.listSshKeys();
+            // Invoke the API method
+            ListSshKeys200Response result = client.listSshKeys();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSshKeys");
@@ -18368,22 +18173,21 @@ List Templates
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String visibility = "private"; // String | 
         String family = "family_example"; // String | 
+
         try {
-            ListTemplates200Response result = apiInstance.listTemplates(visibility, family);
+            // Invoke the API method
+            ListTemplates200Response result = client.listTemplates(visibility, family);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listTemplates");
@@ -18464,20 +18268,19 @@ List Zones
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
         try {
-            ListZones200Response result = apiInstance.listZones();
+            // Invoke the API method
+            ListZones200Response result = client.listZones();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listZones");
@@ -18550,22 +18353,21 @@ Promote a Snapshot to a Template
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        PromoteSnapshotToTemplateRequest promoteSnapshotToTemplateRequest = new PromoteSnapshotToTemplateRequest(); // PromoteSnapshotToTemplateRequest | 
+        PromoteSnapshotToTemplateRequest promoteSnapshotToTemplateRequest = new PromoteSnapshotToTemplateRequest(); // PromoteSnapshotToTemplateRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.promoteSnapshotToTemplate(id, promoteSnapshotToTemplateRequest);
+            // Invoke the API method
+            Operation result = client.promoteSnapshotToTemplate(id, promoteSnapshotToTemplateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#promoteSnapshotToTemplate");
@@ -18646,21 +18448,20 @@ Reboot a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.rebootInstance(id);
+            // Invoke the API method
+            Operation result = client.rebootInstance(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#rebootInstance");
@@ -18739,21 +18540,20 @@ Import SSH key
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        RegisterSshKeyRequest registerSshKeyRequest = new RegisterSshKeyRequest(); // RegisterSshKeyRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        RegisterSshKeyRequest registerSshKeyRequest = new RegisterSshKeyRequest(); // RegisterSshKeyRequest | 
         try {
-            Operation result = apiInstance.registerSshKey(registerSshKeyRequest);
+            // Invoke the API method
+            Operation result = client.registerSshKey(registerSshKeyRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#registerSshKey");
@@ -18832,21 +18632,20 @@ Register a Template
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        RegisterTemplateRequest registerTemplateRequest = new RegisterTemplateRequest(); // RegisterTemplateRequest |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        RegisterTemplateRequest registerTemplateRequest = new RegisterTemplateRequest(); // RegisterTemplateRequest | 
         try {
-            Operation result = apiInstance.registerTemplate(registerTemplateRequest);
+            // Invoke the API method
+            Operation result = client.registerTemplate(registerTemplateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#registerTemplate");
@@ -18925,22 +18724,21 @@ Remove an external source from a Security Group
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        RemoveExternalSourceFromSecurityGroupRequest removeExternalSourceFromSecurityGroupRequest = new RemoveExternalSourceFromSecurityGroupRequest(); // RemoveExternalSourceFromSecurityGroupRequest | 
+        RemoveExternalSourceFromSecurityGroupRequest removeExternalSourceFromSecurityGroupRequest = new RemoveExternalSourceFromSecurityGroupRequest(); // RemoveExternalSourceFromSecurityGroupRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.removeExternalSourceFromSecurityGroup(id, removeExternalSourceFromSecurityGroupRequest);
+            // Invoke the API method
+            Operation result = client.removeExternalSourceFromSecurityGroup(id, removeExternalSourceFromSecurityGroupRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#removeExternalSourceFromSecurityGroup");
@@ -19021,21 +18819,20 @@ Remove instance destruction protection
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.removeInstanceProtection(id);
+            // Invoke the API method
+            Operation result = client.removeInstanceProtection(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#removeInstanceProtection");
@@ -19114,23 +18911,22 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            // Invoke the API method
+            Operation result = client.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasGrafanaUserPassword");
@@ -19213,23 +19009,22 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            // Invoke the API method
+            Operation result = client.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasKafkaUserPassword");
@@ -19312,23 +19107,22 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasMysqlUserPasswordRequest resetDbaasMysqlUserPasswordRequest = new ResetDbaasMysqlUserPasswordRequest(); // ResetDbaasMysqlUserPasswordRequest | 
+        ResetDbaasMysqlUserPasswordRequest resetDbaasMysqlUserPasswordRequest = new ResetDbaasMysqlUserPasswordRequest(); // ResetDbaasMysqlUserPasswordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetDbaasMysqlUserPassword(serviceName, username, resetDbaasMysqlUserPasswordRequest);
+            // Invoke the API method
+            Operation result = client.resetDbaasMysqlUserPassword(serviceName, username, resetDbaasMysqlUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasMysqlUserPassword");
@@ -19411,23 +19205,22 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            // Invoke the API method
+            Operation result = client.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasOpensearchUserPassword");
@@ -19510,23 +19303,22 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            // Invoke the API method
+            Operation result = client.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasPostgresUserPassword");
@@ -19609,23 +19401,22 @@ If no password is provided one will be generated automatically.
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest | 
+        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            // Invoke the API method
+            Operation result = client.resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasRedisUserPassword");
@@ -19708,22 +19499,21 @@ Reset an Elastic IP field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String field = "description"; // String | 
+
         try {
-            Operation result = apiInstance.resetElasticIpField(id, field);
+            // Invoke the API method
+            Operation result = client.resetElasticIpField(id, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetElasticIpField");
@@ -19804,22 +19594,21 @@ This operation re-installs a Compute instance to a base template. If target temp
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        ResetInstanceRequest resetInstanceRequest = new ResetInstanceRequest(); // ResetInstanceRequest | 
+        ResetInstanceRequest resetInstanceRequest = new ResetInstanceRequest(); // ResetInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resetInstance(id, resetInstanceRequest);
+            // Invoke the API method
+            Operation result = client.resetInstance(id, resetInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetInstance");
@@ -19900,22 +19689,21 @@ Reset Instance field
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String field = "labels"; // String | 
+
         try {
-            Operation result = apiInstance.resetInstanceField(id, field);
+            // Invoke the API method
+            Operation result = client.resetInstanceField(id, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetInstanceField");
@@ -19996,21 +19784,20 @@ Reset a compute instance password
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.resetInstancePassword(id);
+            // Invoke the API method
+            Operation result = client.resetInstancePassword(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetInstancePassword");
@@ -20089,22 +19876,21 @@ Reset an Instance Pool field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String field = "anti-affinity-groups"; // String | 
+
         try {
-            Operation result = apiInstance.resetInstancePoolField(id, field);
+            // Invoke the API method
+            Operation result = client.resetInstancePoolField(id, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetInstancePoolField");
@@ -20185,22 +19971,21 @@ Reset a Load Balancer field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String field = "description"; // String | 
+
         try {
-            Operation result = apiInstance.resetLoadBalancerField(id, field);
+            // Invoke the API method
+            Operation result = client.resetLoadBalancerField(id, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetLoadBalancerField");
@@ -20281,23 +20066,22 @@ Reset a Load Balancer Service field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID serviceId = UUID.randomUUID(); // UUID | 
         String field = "description"; // String | 
+
         try {
-            Operation result = apiInstance.resetLoadBalancerServiceField(id, serviceId, field);
+            // Invoke the API method
+            Operation result = client.resetLoadBalancerServiceField(id, serviceId, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetLoadBalancerServiceField");
@@ -20380,22 +20164,21 @@ Reset Private Network field
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String field = "labels"; // String | 
+
         try {
-            Operation result = apiInstance.resetPrivateNetworkField(id, field);
+            // Invoke the API method
+            Operation result = client.resetPrivateNetworkField(id, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetPrivateNetworkField");
@@ -20476,22 +20259,21 @@ Reset an SKS cluster field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         String field = "description"; // String | 
+
         try {
-            Operation result = apiInstance.resetSksClusterField(id, field);
+            // Invoke the API method
+            Operation result = client.resetSksClusterField(id, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetSksClusterField");
@@ -20572,23 +20354,22 @@ Reset an SKS Nodepool field to its default value
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
         String field = "anti-affinity-groups"; // String | 
+
         try {
-            Operation result = apiInstance.resetSksNodepoolField(id, sksNodepoolId, field);
+            // Invoke the API method
+            Operation result = client.resetSksNodepoolField(id, sksNodepoolId, field);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetSksNodepoolField");
@@ -20671,22 +20452,21 @@ This operation resizes a Block storage volume. Note: the volume can only grow, c
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest = new ResizeBlockStorageVolumeRequest(); // ResizeBlockStorageVolumeRequest | 
+        ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest = new ResizeBlockStorageVolumeRequest(); // ResizeBlockStorageVolumeRequest |  please add at least all the required fields
+
         try {
-            BlockStorageVolume result = apiInstance.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
+            // Invoke the API method
+            BlockStorageVolume result = client.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resizeBlockStorageVolume");
@@ -20767,22 +20547,21 @@ This operation resizes a Compute instance&#39;s disk volume. Note: the disk can 
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        ResizeInstanceDiskRequest resizeInstanceDiskRequest = new ResizeInstanceDiskRequest(); // ResizeInstanceDiskRequest | 
+        ResizeInstanceDiskRequest resizeInstanceDiskRequest = new ResizeInstanceDiskRequest(); // ResizeInstanceDiskRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.resizeInstanceDisk(id, resizeInstanceDiskRequest);
+            // Invoke the API method
+            Operation result = client.resizeInstanceDisk(id, resizeInstanceDiskRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resizeInstanceDisk");
@@ -20861,22 +20640,21 @@ Reveal the secrets of a DBaaS Grafana user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            DbaasUserGrafanaSecrets result = apiInstance.revealDbaasGrafanaUserPassword(serviceName, username);
+            // Invoke the API method
+            DbaasUserGrafanaSecrets result = client.revealDbaasGrafanaUserPassword(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasGrafanaUserPassword");
@@ -20955,21 +20733,20 @@ Reveal the secrets for DBaaS Kafka Connect
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
+
         try {
-            DbaasUserKafkaConnectSecrets result = apiInstance.revealDbaasKafkaConnectPassword(serviceName);
+            // Invoke the API method
+            DbaasUserKafkaConnectSecrets result = client.revealDbaasKafkaConnectPassword(serviceName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasKafkaConnectPassword");
@@ -21046,22 +20823,21 @@ Reveal the secrets of a DBaaS Kafka user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            DbaasUserKafkaSecrets result = apiInstance.revealDbaasKafkaUserPassword(serviceName, username);
+            // Invoke the API method
+            DbaasUserKafkaSecrets result = client.revealDbaasKafkaUserPassword(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasKafkaUserPassword");
@@ -21140,22 +20916,21 @@ Reveal the secrets of a DBaaS MySQL user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            DbaasUserMysqlSecrets result = apiInstance.revealDbaasMysqlUserPassword(serviceName, username);
+            // Invoke the API method
+            DbaasUserMysqlSecrets result = client.revealDbaasMysqlUserPassword(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasMysqlUserPassword");
@@ -21234,22 +21009,21 @@ Reveal the secrets of a DBaaS OpenSearch user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            DbaasUserOpensearchSecrets result = apiInstance.revealDbaasOpensearchUserPassword(serviceName, username);
+            // Invoke the API method
+            DbaasUserOpensearchSecrets result = client.revealDbaasOpensearchUserPassword(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasOpensearchUserPassword");
@@ -21328,22 +21102,21 @@ Reveal the secrets of a DBaaS Postgres user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            DbaasUserPostgresSecrets result = apiInstance.revealDbaasPostgresUserPassword(serviceName, username);
+            // Invoke the API method
+            DbaasUserPostgresSecrets result = client.revealDbaasPostgresUserPassword(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasPostgresUserPassword");
@@ -21422,22 +21195,21 @@ Reveal the secrets of a DBaaS Redis user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
+
         try {
-            DbaasUserRedisSecrets result = apiInstance.revealDbaasRedisUserPassword(serviceName, username);
+            // Invoke the API method
+            DbaasUserRedisSecrets result = client.revealDbaasRedisUserPassword(serviceName, username);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealDbaasRedisUserPassword");
@@ -21518,21 +21290,20 @@ Reveal the password used during instance creation or the latest password reset. 
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            InstancePassword result = apiInstance.revealInstancePassword(id);
+            // Invoke the API method
+            InstancePassword result = client.revealInstancePassword(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revealInstancePassword");
@@ -21611,22 +21382,21 @@ This operation reverts the snapshot to the Compute instance volume, restoring st
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID instanceId = UUID.randomUUID(); // UUID | 
-        RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest = new RevertInstanceToSnapshotRequest(); // RevertInstanceToSnapshotRequest | 
+        RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest = new RevertInstanceToSnapshotRequest(); // RevertInstanceToSnapshotRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.revertInstanceToSnapshot(instanceId, revertInstanceToSnapshotRequest);
+            // Invoke the API method
+            Operation result = client.revertInstanceToSnapshot(instanceId, revertInstanceToSnapshotRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#revertInstanceToSnapshot");
@@ -21707,21 +21477,20 @@ Rotate Exoscale CCM credentials
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.rotateSksCcmCredentials(id);
+            // Invoke the API method
+            Operation result = client.rotateSksCcmCredentials(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#rotateSksCcmCredentials");
@@ -21800,21 +21569,20 @@ Rotate operators certificate authority
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.rotateSksOperatorsCa(id);
+            // Invoke the API method
+            Operation result = client.rotateSksOperatorsCa(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#rotateSksOperatorsCa");
@@ -21893,22 +21661,21 @@ This operation changes the Compute instance&#39;s type. Note: the new Instance T
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        ScaleInstanceRequest scaleInstanceRequest = new ScaleInstanceRequest(); // ScaleInstanceRequest | 
+        ScaleInstanceRequest scaleInstanceRequest = new ScaleInstanceRequest(); // ScaleInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.scaleInstance(id, scaleInstanceRequest);
+            // Invoke the API method
+            Operation result = client.scaleInstance(id, scaleInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#scaleInstance");
@@ -21989,22 +21756,21 @@ Scale an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        ScaleInstancePoolRequest scaleInstancePoolRequest = new ScaleInstancePoolRequest(); // ScaleInstancePoolRequest | 
+        ScaleInstancePoolRequest scaleInstancePoolRequest = new ScaleInstancePoolRequest(); // ScaleInstancePoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.scaleInstancePool(id, scaleInstancePoolRequest);
+            // Invoke the API method
+            Operation result = client.scaleInstancePool(id, scaleInstancePoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#scaleInstancePool");
@@ -22085,23 +21851,22 @@ Scale a SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        ScaleSksNodepoolRequest scaleSksNodepoolRequest = new ScaleSksNodepoolRequest(); // ScaleSksNodepoolRequest | 
+        ScaleSksNodepoolRequest scaleSksNodepoolRequest = new ScaleSksNodepoolRequest(); // ScaleSksNodepoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.scaleSksNodepool(id, sksNodepoolId, scaleSksNodepoolRequest);
+            // Invoke the API method
+            Operation result = client.scaleSksNodepool(id, sksNodepoolId, scaleSksNodepoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#scaleSksNodepool");
@@ -22182,21 +21947,20 @@ Initiate Grafana maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.startDbaasGrafanaMaintenance(name);
+            // Invoke the API method
+            Operation result = client.startDbaasGrafanaMaintenance(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startDbaasGrafanaMaintenance");
@@ -22273,21 +22037,20 @@ Initiate Kafka maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.startDbaasKafkaMaintenance(name);
+            // Invoke the API method
+            Operation result = client.startDbaasKafkaMaintenance(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startDbaasKafkaMaintenance");
@@ -22364,21 +22127,20 @@ Initiate MySQL maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.startDbaasMysqlMaintenance(name);
+            // Invoke the API method
+            Operation result = client.startDbaasMysqlMaintenance(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startDbaasMysqlMaintenance");
@@ -22455,21 +22217,20 @@ Initiate OpenSearch maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.startDbaasOpensearchMaintenance(name);
+            // Invoke the API method
+            Operation result = client.startDbaasOpensearchMaintenance(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startDbaasOpensearchMaintenance");
@@ -22546,21 +22307,20 @@ Initiate PostgreSQL maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.startDbaasPgMaintenance(name);
+            // Invoke the API method
+            Operation result = client.startDbaasPgMaintenance(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startDbaasPgMaintenance");
@@ -22637,21 +22397,20 @@ Initiate Redis maintenance update
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.startDbaasRedisMaintenance(name);
+            // Invoke the API method
+            Operation result = client.startDbaasRedisMaintenance(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startDbaasRedisMaintenance");
@@ -22730,22 +22489,21 @@ This operation starts a virtual machine, potentially using a rescue profile if s
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        StartInstanceRequest startInstanceRequest = new StartInstanceRequest(); // StartInstanceRequest | 
+        StartInstanceRequest startInstanceRequest = new StartInstanceRequest(); // StartInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.startInstance(id, startInstanceRequest);
+            // Invoke the API method
+            Operation result = client.startInstance(id, startInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#startInstance");
@@ -22824,21 +22582,20 @@ Stop a DBaaS MySQL migration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.stopDbaasMysqlMigration(name);
+            // Invoke the API method
+            Operation result = client.stopDbaasMysqlMigration(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#stopDbaasMysqlMigration");
@@ -22915,21 +22672,20 @@ Stop a DBaaS PostgreSQL migration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.stopDbaasPgMigration(name);
+            // Invoke the API method
+            Operation result = client.stopDbaasPgMigration(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#stopDbaasPgMigration");
@@ -23006,21 +22762,20 @@ Stop a DBaaS Redis migration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
+
         try {
-            Operation result = apiInstance.stopDbaasRedisMigration(name);
+            // Invoke the API method
+            Operation result = client.stopDbaasRedisMigration(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#stopDbaasRedisMigration");
@@ -23099,21 +22854,20 @@ Stop a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.stopInstance(id);
+            // Invoke the API method
+            Operation result = client.stopInstance(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#stopInstance");
@@ -23192,22 +22946,21 @@ Update block storage volume snapshot
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateBlockStorageSnapshotRequest updateBlockStorageSnapshotRequest = new UpdateBlockStorageSnapshotRequest(); // UpdateBlockStorageSnapshotRequest | 
+        UpdateBlockStorageSnapshotRequest updateBlockStorageSnapshotRequest = new UpdateBlockStorageSnapshotRequest(); // UpdateBlockStorageSnapshotRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateBlockStorageSnapshot(id, updateBlockStorageSnapshotRequest);
+            // Invoke the API method
+            Operation result = client.updateBlockStorageSnapshot(id, updateBlockStorageSnapshotRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateBlockStorageSnapshot");
@@ -23288,22 +23041,21 @@ Update block storage volume
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateBlockStorageVolumeRequest updateBlockStorageVolumeRequest = new UpdateBlockStorageVolumeRequest(); // UpdateBlockStorageVolumeRequest | 
+        UpdateBlockStorageVolumeRequest updateBlockStorageVolumeRequest = new UpdateBlockStorageVolumeRequest(); // UpdateBlockStorageVolumeRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateBlockStorageVolume(id, updateBlockStorageVolumeRequest);
+            // Invoke the API method
+            Operation result = client.updateBlockStorageVolume(id, updateBlockStorageVolumeRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateBlockStorageVolume");
@@ -23384,22 +23136,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest | 
+        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = new CreateDbaasExternalEndpointDatadogRequest(); // CreateDbaasExternalEndpointDatadogRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasExternalEndpointDatadog(id, createDbaasExternalEndpointDatadogRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasExternalEndpointDatadog(id, createDbaasExternalEndpointDatadogRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointDatadog");
@@ -23480,22 +23231,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest | 
+        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = new UpdateDbaasExternalEndpointElasticsearchRequest(); // UpdateDbaasExternalEndpointElasticsearchRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasExternalEndpointElasticsearch(id, updateDbaasExternalEndpointElasticsearchRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasExternalEndpointElasticsearch(id, updateDbaasExternalEndpointElasticsearchRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointElasticsearch");
@@ -23576,22 +23326,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest | 
+        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = new UpdateDbaasExternalEndpointOpensearchRequest(); // UpdateDbaasExternalEndpointOpensearchRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasExternalEndpointOpensearch(id, updateDbaasExternalEndpointOpensearchRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasExternalEndpointOpensearch(id, updateDbaasExternalEndpointOpensearchRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointOpensearch");
@@ -23672,22 +23421,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest | 
+        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = new UpdateDbaasExternalEndpointPrometheusRequest(); // UpdateDbaasExternalEndpointPrometheusRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasExternalEndpointPrometheus(id, updateDbaasExternalEndpointPrometheusRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasExternalEndpointPrometheus(id, updateDbaasExternalEndpointPrometheusRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointPrometheus");
@@ -23768,22 +23516,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest | 
+        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = new CreateDbaasExternalEndpointRsyslogRequest(); // CreateDbaasExternalEndpointRsyslogRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointRsyslog");
@@ -23864,22 +23611,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID integrationId = UUID.randomUUID(); // UUID | 
-        GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response = new GetDbaasExternalIntegrationSettingsDatadog200Response(); // GetDbaasExternalIntegrationSettingsDatadog200Response | 
+        GetDbaasExternalIntegrationSettingsDatadog200Response getDbaasExternalIntegrationSettingsDatadog200Response = new GetDbaasExternalIntegrationSettingsDatadog200Response(); // GetDbaasExternalIntegrationSettingsDatadog200Response |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasExternalIntegrationSettingsDatadog(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
+            // Invoke the API method
+            Operation result = client.updateDbaasExternalIntegrationSettingsDatadog(integrationId, getDbaasExternalIntegrationSettingsDatadog200Response);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalIntegrationSettingsDatadog");
@@ -23960,22 +23706,21 @@ No authorization required
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateDbaasIntegrationRequest updateDbaasIntegrationRequest = new UpdateDbaasIntegrationRequest(); // UpdateDbaasIntegrationRequest | 
+        UpdateDbaasIntegrationRequest updateDbaasIntegrationRequest = new UpdateDbaasIntegrationRequest(); // UpdateDbaasIntegrationRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasIntegration(id, updateDbaasIntegrationRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasIntegration(id, updateDbaasIntegrationRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasIntegration");
@@ -24054,22 +23799,21 @@ Create a DBaaS OpenSearch ACL configuration
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasOpensearchAclConfig dbaasOpensearchAclConfig = new DbaasOpensearchAclConfig(); // DbaasOpensearchAclConfig | 
+        DbaasOpensearchAclConfig dbaasOpensearchAclConfig = new DbaasOpensearchAclConfig(); // DbaasOpensearchAclConfig |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasOpensearchAclConfig(name, dbaasOpensearchAclConfig);
+            // Invoke the API method
+            Operation result = client.updateDbaasOpensearchAclConfig(name, dbaasOpensearchAclConfig);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasOpensearchAclConfig");
@@ -24150,23 +23894,22 @@ Update a DBaaS PostgreSQL connection pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String connectionPoolName = "connectionPoolName_example"; // String | 
-        UpdateDbaasPgConnectionPoolRequest updateDbaasPgConnectionPoolRequest = new UpdateDbaasPgConnectionPoolRequest(); // UpdateDbaasPgConnectionPoolRequest | 
+        UpdateDbaasPgConnectionPoolRequest updateDbaasPgConnectionPoolRequest = new UpdateDbaasPgConnectionPoolRequest(); // UpdateDbaasPgConnectionPoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasPgConnectionPool(serviceName, connectionPoolName, updateDbaasPgConnectionPoolRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasPgConnectionPool(serviceName, connectionPoolName, updateDbaasPgConnectionPoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasPgConnectionPool");
@@ -24247,23 +23990,22 @@ Update access control for one service user
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        UpdateDbaasPostgresAllowReplicationRequest updateDbaasPostgresAllowReplicationRequest = new UpdateDbaasPostgresAllowReplicationRequest(); // UpdateDbaasPostgresAllowReplicationRequest | 
+        UpdateDbaasPostgresAllowReplicationRequest updateDbaasPostgresAllowReplicationRequest = new UpdateDbaasPostgresAllowReplicationRequest(); // UpdateDbaasPostgresAllowReplicationRequest |  please add at least all the required fields
+
         try {
-            DbaasPostgresUsers result = apiInstance.updateDbaasPostgresAllowReplication(serviceName, username, updateDbaasPostgresAllowReplicationRequest);
+            // Invoke the API method
+            DbaasPostgresUsers result = client.updateDbaasPostgresAllowReplication(serviceName, username, updateDbaasPostgresAllowReplicationRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasPostgresAllowReplication");
@@ -24344,22 +24086,21 @@ Update a DBaaS Grafana service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasServiceGrafanaRequest updateDbaasServiceGrafanaRequest = new UpdateDbaasServiceGrafanaRequest(); // UpdateDbaasServiceGrafanaRequest | 
+        UpdateDbaasServiceGrafanaRequest updateDbaasServiceGrafanaRequest = new UpdateDbaasServiceGrafanaRequest(); // UpdateDbaasServiceGrafanaRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasServiceGrafana(name, updateDbaasServiceGrafanaRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceGrafana(name, updateDbaasServiceGrafanaRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceGrafana");
@@ -24440,22 +24181,21 @@ Update a DBaaS Kafka service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasServiceKafkaRequest updateDbaasServiceKafkaRequest = new UpdateDbaasServiceKafkaRequest(); // UpdateDbaasServiceKafkaRequest | 
+        UpdateDbaasServiceKafkaRequest updateDbaasServiceKafkaRequest = new UpdateDbaasServiceKafkaRequest(); // UpdateDbaasServiceKafkaRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasServiceKafka(name, updateDbaasServiceKafkaRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceKafka(name, updateDbaasServiceKafkaRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceKafka");
@@ -24536,22 +24276,21 @@ Update a DBaaS MySQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasServiceMysqlRequest updateDbaasServiceMysqlRequest = new UpdateDbaasServiceMysqlRequest(); // UpdateDbaasServiceMysqlRequest | 
+        UpdateDbaasServiceMysqlRequest updateDbaasServiceMysqlRequest = new UpdateDbaasServiceMysqlRequest(); // UpdateDbaasServiceMysqlRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasServiceMysql(name, updateDbaasServiceMysqlRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceMysql(name, updateDbaasServiceMysqlRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceMysql");
@@ -24632,22 +24371,21 @@ Update a DBaaS OpenSearch service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasServiceOpensearchRequest updateDbaasServiceOpensearchRequest = new UpdateDbaasServiceOpensearchRequest(); // UpdateDbaasServiceOpensearchRequest | 
+        UpdateDbaasServiceOpensearchRequest updateDbaasServiceOpensearchRequest = new UpdateDbaasServiceOpensearchRequest(); // UpdateDbaasServiceOpensearchRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasServiceOpensearch(name, updateDbaasServiceOpensearchRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceOpensearch(name, updateDbaasServiceOpensearchRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceOpensearch");
@@ -24728,22 +24466,21 @@ Update a DBaaS PostgreSQL service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasServicePgRequest updateDbaasServicePgRequest = new UpdateDbaasServicePgRequest(); // UpdateDbaasServicePgRequest | 
+        UpdateDbaasServicePgRequest updateDbaasServicePgRequest = new UpdateDbaasServicePgRequest(); // UpdateDbaasServicePgRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasServicePg(name, updateDbaasServicePgRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasServicePg(name, updateDbaasServicePgRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasServicePg");
@@ -24824,22 +24561,21 @@ Update a DBaaS Redis service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest = new UpdateDbaasServiceRedisRequest(); // UpdateDbaasServiceRedisRequest | 
+        UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest = new UpdateDbaasServiceRedisRequest(); // UpdateDbaasServiceRedisRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDbaasServiceRedis(name, updateDbaasServiceRedisRequest);
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceRedis(name, updateDbaasServiceRedisRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceRedis");
@@ -24920,23 +24656,22 @@ Update DNS domain record
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID domainId = UUID.randomUUID(); // UUID | 
         UUID recordId = UUID.randomUUID(); // UUID | 
-        UpdateDnsDomainRecordRequest updateDnsDomainRecordRequest = new UpdateDnsDomainRecordRequest(); // UpdateDnsDomainRecordRequest | 
+        UpdateDnsDomainRecordRequest updateDnsDomainRecordRequest = new UpdateDnsDomainRecordRequest(); // UpdateDnsDomainRecordRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateDnsDomainRecord(domainId, recordId, updateDnsDomainRecordRequest);
+            // Invoke the API method
+            Operation result = client.updateDnsDomainRecord(domainId, recordId, updateDnsDomainRecordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDnsDomainRecord");
@@ -25019,22 +24754,21 @@ Update an Elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateElasticIpRequest updateElasticIpRequest = new UpdateElasticIpRequest(); // UpdateElasticIpRequest | 
+        UpdateElasticIpRequest updateElasticIpRequest = new UpdateElasticIpRequest(); // UpdateElasticIpRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateElasticIp(id, updateElasticIpRequest);
+            // Invoke the API method
+            Operation result = client.updateElasticIp(id, updateElasticIpRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateElasticIp");
@@ -25115,21 +24849,20 @@ Update IAM Organization Policy
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy |  please add at least all the required fields
 
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
-        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy | 
         try {
-            Operation result = apiInstance.updateIamOrganizationPolicy(iamPolicy);
+            // Invoke the API method
+            Operation result = client.updateIamOrganizationPolicy(iamPolicy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateIamOrganizationPolicy");
@@ -25208,22 +24941,21 @@ Update IAM Role
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateIamRoleRequest updateIamRoleRequest = new UpdateIamRoleRequest(); // UpdateIamRoleRequest | 
+        UpdateIamRoleRequest updateIamRoleRequest = new UpdateIamRoleRequest(); // UpdateIamRoleRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateIamRole(id, updateIamRoleRequest);
+            // Invoke the API method
+            Operation result = client.updateIamRole(id, updateIamRoleRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateIamRole");
@@ -25304,22 +25036,21 @@ Update IAM Role Policy
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy | 
+        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateIamRolePolicy(id, iamPolicy);
+            // Invoke the API method
+            Operation result = client.updateIamRolePolicy(id, iamPolicy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateIamRolePolicy");
@@ -25400,22 +25131,21 @@ Update a Compute instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateInstanceRequest updateInstanceRequest = new UpdateInstanceRequest(); // UpdateInstanceRequest | 
+        UpdateInstanceRequest updateInstanceRequest = new UpdateInstanceRequest(); // UpdateInstanceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateInstance(id, updateInstanceRequest);
+            // Invoke the API method
+            Operation result = client.updateInstance(id, updateInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateInstance");
@@ -25496,22 +25226,21 @@ Update an Instance Pool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateInstancePoolRequest updateInstancePoolRequest = new UpdateInstancePoolRequest(); // UpdateInstancePoolRequest | 
+        UpdateInstancePoolRequest updateInstancePoolRequest = new UpdateInstancePoolRequest(); // UpdateInstancePoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateInstancePool(id, updateInstancePoolRequest);
+            // Invoke the API method
+            Operation result = client.updateInstancePool(id, updateInstancePoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateInstancePool");
@@ -25592,22 +25321,21 @@ Update a Load Balancer
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateLoadBalancerRequest updateLoadBalancerRequest = new UpdateLoadBalancerRequest(); // UpdateLoadBalancerRequest | 
+        UpdateLoadBalancerRequest updateLoadBalancerRequest = new UpdateLoadBalancerRequest(); // UpdateLoadBalancerRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateLoadBalancer(id, updateLoadBalancerRequest);
+            // Invoke the API method
+            Operation result = client.updateLoadBalancer(id, updateLoadBalancerRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateLoadBalancer");
@@ -25688,23 +25416,22 @@ Update a Load Balancer Service
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID serviceId = UUID.randomUUID(); // UUID | 
-        UpdateLoadBalancerServiceRequest updateLoadBalancerServiceRequest = new UpdateLoadBalancerServiceRequest(); // UpdateLoadBalancerServiceRequest | 
+        UpdateLoadBalancerServiceRequest updateLoadBalancerServiceRequest = new UpdateLoadBalancerServiceRequest(); // UpdateLoadBalancerServiceRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateLoadBalancerService(id, serviceId, updateLoadBalancerServiceRequest);
+            // Invoke the API method
+            Operation result = client.updateLoadBalancerService(id, serviceId, updateLoadBalancerServiceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateLoadBalancerService");
@@ -25787,22 +25514,21 @@ Update a Private Network
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdatePrivateNetworkRequest updatePrivateNetworkRequest = new UpdatePrivateNetworkRequest(); // UpdatePrivateNetworkRequest | 
+        UpdatePrivateNetworkRequest updatePrivateNetworkRequest = new UpdatePrivateNetworkRequest(); // UpdatePrivateNetworkRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updatePrivateNetwork(id, updatePrivateNetworkRequest);
+            // Invoke the API method
+            Operation result = client.updatePrivateNetwork(id, updatePrivateNetworkRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updatePrivateNetwork");
@@ -25883,22 +25609,21 @@ Update the IP address of an instance attached to a managed private network
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdatePrivateNetworkInstanceIpRequest updatePrivateNetworkInstanceIpRequest = new UpdatePrivateNetworkInstanceIpRequest(); // UpdatePrivateNetworkInstanceIpRequest | 
+        UpdatePrivateNetworkInstanceIpRequest updatePrivateNetworkInstanceIpRequest = new UpdatePrivateNetworkInstanceIpRequest(); // UpdatePrivateNetworkInstanceIpRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updatePrivateNetworkInstanceIp(id, updatePrivateNetworkInstanceIpRequest);
+            // Invoke the API method
+            Operation result = client.updatePrivateNetworkInstanceIp(id, updatePrivateNetworkInstanceIpRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updatePrivateNetworkInstanceIp");
@@ -25979,22 +25704,21 @@ Update/Create the PTR DNS record for an elastic IP
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = new UpdateReverseDnsElasticIpRequest(); // UpdateReverseDnsElasticIpRequest | 
+        UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = new UpdateReverseDnsElasticIpRequest(); // UpdateReverseDnsElasticIpRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateReverseDnsElasticIp(id, updateReverseDnsElasticIpRequest);
+            // Invoke the API method
+            Operation result = client.updateReverseDnsElasticIp(id, updateReverseDnsElasticIpRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateReverseDnsElasticIp");
@@ -26075,22 +25799,21 @@ Update/Create the PTR DNS record for an instance
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = new UpdateReverseDnsElasticIpRequest(); // UpdateReverseDnsElasticIpRequest | 
+        UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = new UpdateReverseDnsElasticIpRequest(); // UpdateReverseDnsElasticIpRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateReverseDnsInstance(id, updateReverseDnsElasticIpRequest);
+            // Invoke the API method
+            Operation result = client.updateReverseDnsInstance(id, updateReverseDnsElasticIpRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateReverseDnsInstance");
@@ -26171,22 +25894,21 @@ Update an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateSksClusterRequest updateSksClusterRequest = new UpdateSksClusterRequest(); // UpdateSksClusterRequest | 
+        UpdateSksClusterRequest updateSksClusterRequest = new UpdateSksClusterRequest(); // UpdateSksClusterRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateSksCluster(id, updateSksClusterRequest);
+            // Invoke the API method
+            Operation result = client.updateSksCluster(id, updateSksClusterRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateSksCluster");
@@ -26267,23 +25989,22 @@ Update an SKS Nodepool
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
         UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        UpdateSksNodepoolRequest updateSksNodepoolRequest = new UpdateSksNodepoolRequest(); // UpdateSksNodepoolRequest | 
+        UpdateSksNodepoolRequest updateSksNodepoolRequest = new UpdateSksNodepoolRequest(); // UpdateSksNodepoolRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateSksNodepool(id, sksNodepoolId, updateSksNodepoolRequest);
+            // Invoke the API method
+            Operation result = client.updateSksNodepool(id, sksNodepoolId, updateSksNodepoolRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateSksNodepool");
@@ -26366,22 +26087,21 @@ Update template attributes
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpdateTemplateRequest updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest | 
+        UpdateTemplateRequest updateTemplateRequest = new UpdateTemplateRequest(); // UpdateTemplateRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.updateTemplate(id, updateTemplateRequest);
+            // Invoke the API method
+            Operation result = client.updateTemplate(id, updateTemplateRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateTemplate");
@@ -26462,22 +26182,21 @@ Upgrade an SKS cluster
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        UpgradeSksClusterRequest upgradeSksClusterRequest = new UpgradeSksClusterRequest(); // UpgradeSksClusterRequest | 
+        UpgradeSksClusterRequest upgradeSksClusterRequest = new UpgradeSksClusterRequest(); // UpgradeSksClusterRequest |  please add at least all the required fields
+
         try {
-            Operation result = apiInstance.upgradeSksCluster(id, upgradeSksClusterRequest);
+            // Invoke the API method
+            Operation result = client.upgradeSksCluster(id, upgradeSksClusterRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#upgradeSksCluster");
@@ -26558,21 +26277,20 @@ Upgrade a SKS cluster to pro
 
 ```java
 // Import classes:
-import com.exoscale.sdk.client.ApiClient;
 import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.Configuration;
+import com.exoscale.sdk.client.*;
 import com.exoscale.sdk.client.models.*;
 import com.exoscale.sdk.api.ExoscaleApi;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api-ch-gva-2.exoscale.com/v2");
-
-        ExoscaleApi apiInstance = new ExoscaleApi(defaultClient);
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
+
         try {
-            Operation result = apiInstance.upgradeSksClusterServiceLevel(id);
+            // Invoke the API method
+            Operation result = client.upgradeSksClusterServiceLevel(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#upgradeSksClusterServiceLevel");
