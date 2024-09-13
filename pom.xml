@@ -35,11 +35,11 @@
                 <groupId>com.exoscale.sdk</groupId>
                 <artifactId>sdk</artifactId>
                 <artifactVersion>0.0.10-ALPHA</artifactVersion>
-                <artifactUrl>https://github.com/exoscale/exoscale4j</artifactUrl>
+                <artifactUrl>https://github.com/exoscale/exoscale-sdk-java</artifactUrl>
                 <artifactDescription>Java SDK for interacting with Exoscale Cloud Services.</artifactDescription>
-                <scmConnection>scm:git:git://github.com/exoscale4j.git</scmConnection>
-                <scmDeveloperConnection>scm:git:ssh://github.com/exoscale/exoscale4j.git</scmDeveloperConnection>
-                <scmUrl>https://github.com/exoscale/exoscale4j</scmUrl>
+                <scmConnection>scm:git:git://github.com/exoscale/exoscale-sdk-java.git</scmConnection>
+                <scmDeveloperConnection>scm:git:ssh://github.com/exoscale/exoscale-sdk-java.git</scmDeveloperConnection>
+                <scmUrl>https://github.com/exoscale/exoscale-sdk-java</scmUrl>
                 <licenseName>Apache License Version 2.0</licenseName>
                 <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
                 <developerName>Exoscale</developerName>
