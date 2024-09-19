@@ -13,6 +13,7 @@
 |**startIp** | **String** | Private Network start IP address |  [optional] |
 |**endIp** | **String** | Private Network end IP address |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**options** | [**PrivateNetworkOptions**](PrivateNetworkOptions.md) |  |  [optional] |
 
 
 

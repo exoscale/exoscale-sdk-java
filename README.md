@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2024-09-13T10:00:05.562983Z[Etc/UTC]
+- Build date: 2024-09-19T07:05:41.408442Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.11-ALPHA</version>
+    <version>0.0.12-ALPHA</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.11-ALPHA'
+  implementation 'com.exoscale.sdk:sdk:0.0.12-ALPHA'
 }
 ```
 
@@ -636,6 +636,7 @@ Class | Method | HTTP request | Description
  - [Organization](sdk/docs/Organization.md)
  - [PrivateNetwork](sdk/docs/PrivateNetwork.md)
  - [PrivateNetworkLease](sdk/docs/PrivateNetworkLease.md)
+ - [PrivateNetworkOptions](sdk/docs/PrivateNetworkOptions.md)
  - [PromoteSnapshotToTemplateRequest](sdk/docs/PromoteSnapshotToTemplateRequest.md)
  - [PublicIpAssignment](sdk/docs/PublicIpAssignment.md)
  - [Quota](sdk/docs/Quota.md)

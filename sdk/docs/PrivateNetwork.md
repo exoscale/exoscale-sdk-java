@@ -16,6 +16,7 @@ Private Network
 |**id** | **UUID** | Private Network ID |  [optional] [readonly] |
 |**vni** | **Long** | Private Network VXLAN ID |  [optional] |
 |**netmask** | **String** | Private Network netmask |  [optional] |
+|**options** | [**PrivateNetworkOptions**](PrivateNetworkOptions.md) |  |  [optional] |
 |**endIp** | **String** | Private Network end IP address |  [optional] |
 
 

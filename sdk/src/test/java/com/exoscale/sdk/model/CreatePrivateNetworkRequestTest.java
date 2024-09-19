@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.PrivateNetworkOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -85,6 +86,14 @@ public class CreatePrivateNetworkRequestTest {
     @Test
     public void labelsTest() {
         // TODO: test labels
+    }
+
+    /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        // TODO: test options
     }
 
 }

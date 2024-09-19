@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.PrivateNetworkLease;
+import com.exoscale.sdk.model.PrivateNetworkOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,6 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PrivateNetwork.JSON_PROPERTY_ID,
   PrivateNetwork.JSON_PROPERTY_VNI,
   PrivateNetwork.JSON_PROPERTY_NETMASK,
+  PrivateNetwork.JSON_PROPERTY_OPTIONS,
   PrivateNetwork.JSON_PROPERTY_END_IP
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -73,6 +75,9 @@ public class PrivateNetwork {
 
   public static final String JSON_PROPERTY_NETMASK = "netmask";
   private String netmask;
+
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private PrivateNetworkOptions options;
 
   public static final String JSON_PROPERTY_END_IP = "end-ip";
   private String endIp;
@@ -279,6 +284,31 @@ public class PrivateNetwork {
   }
 
 
+  public PrivateNetwork options(PrivateNetworkOptions options) {
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PrivateNetworkOptions getOptions() {
+    return options;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptions(PrivateNetworkOptions options) {
+    this.options = options;
+  }
+
+
   public PrivateNetwork endIp(String endIp) {
     this.endIp = endIp;
     return this;
@@ -324,12 +354,13 @@ public class PrivateNetwork {
         Objects.equals(this.id, privateNetwork.id) &&
         Objects.equals(this.vni, privateNetwork.vni) &&
         Objects.equals(this.netmask, privateNetwork.netmask) &&
+        Objects.equals(this.options, privateNetwork.options) &&
         Objects.equals(this.endIp, privateNetwork.endIp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, labels, name, startIp, leases, id, vni, netmask, endIp);
+    return Objects.hash(description, labels, name, startIp, leases, id, vni, netmask, options, endIp);
   }
 
   @Override
@@ -344,6 +375,7 @@ public class PrivateNetwork {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    vni: ").append(toIndentedString(vni)).append("\n");
     sb.append("    netmask: ").append(toIndentedString(netmask)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    endIp: ").append(toIndentedString(endIp)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -439,6 +471,11 @@ public class PrivateNetwork {
     // add `netmask` to the URL query string
     if (getNetmask() != null) {
       joiner.add(String.format("%snetmask%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetmask()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `options` to the URL query string
+    if (getOptions() != null) {
+      joiner.add(getOptions().toUrlQueryString(prefix + "options" + suffix));
     }
 
     // add `end-ip` to the URL query string

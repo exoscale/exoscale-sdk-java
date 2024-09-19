@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.PrivateNetworkLease;
+import com.exoscale.sdk.model.PrivateNetworkOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -105,6 +106,14 @@ public class PrivateNetworkTest {
     @Test
     public void netmaskTest() {
         // TODO: test netmask
+    }
+
+    /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        // TODO: test options
     }
 
     /**

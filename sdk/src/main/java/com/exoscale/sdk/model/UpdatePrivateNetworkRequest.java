@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.PrivateNetworkOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,7 +40,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdatePrivateNetworkRequest.JSON_PROPERTY_NETMASK,
   UpdatePrivateNetworkRequest.JSON_PROPERTY_START_IP,
   UpdatePrivateNetworkRequest.JSON_PROPERTY_END_IP,
-  UpdatePrivateNetworkRequest.JSON_PROPERTY_LABELS
+  UpdatePrivateNetworkRequest.JSON_PROPERTY_LABELS,
+  UpdatePrivateNetworkRequest.JSON_PROPERTY_OPTIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdatePrivateNetworkRequest {
@@ -60,6 +62,9 @@ public class UpdatePrivateNetworkRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private PrivateNetworkOptions options;
 
   public UpdatePrivateNetworkRequest() { 
   }
@@ -222,6 +227,31 @@ public class UpdatePrivateNetworkRequest {
   }
 
 
+  public UpdatePrivateNetworkRequest options(PrivateNetworkOptions options) {
+    this.options = options;
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PrivateNetworkOptions getOptions() {
+    return options;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptions(PrivateNetworkOptions options) {
+    this.options = options;
+  }
+
+
   /**
    * Return true if this update_private_network_request object is equal to o.
    */
@@ -239,12 +269,13 @@ public class UpdatePrivateNetworkRequest {
         Objects.equals(this.netmask, updatePrivateNetworkRequest.netmask) &&
         Objects.equals(this.startIp, updatePrivateNetworkRequest.startIp) &&
         Objects.equals(this.endIp, updatePrivateNetworkRequest.endIp) &&
-        Objects.equals(this.labels, updatePrivateNetworkRequest.labels);
+        Objects.equals(this.labels, updatePrivateNetworkRequest.labels) &&
+        Objects.equals(this.options, updatePrivateNetworkRequest.options);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, netmask, startIp, endIp, labels);
+    return Objects.hash(name, description, netmask, startIp, endIp, labels, options);
   }
 
   @Override
@@ -257,6 +288,7 @@ public class UpdatePrivateNetworkRequest {
     sb.append("    startIp: ").append(toIndentedString(startIp)).append("\n");
     sb.append("    endIp: ").append(toIndentedString(endIp)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -336,6 +368,11 @@ public class UpdatePrivateNetworkRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `options` to the URL query string
+    if (getOptions() != null) {
+      joiner.add(getOptions().toUrlQueryString(prefix + "options" + suffix));
     }
 
     return joiner.toString();

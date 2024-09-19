@@ -8398,6 +8398,13 @@ components:
           ip: ip
         netmask: netmask
         name: name
+        options:
+          dns-servers:
+          - dns-servers
+          - dns-servers
+          routers:
+          - routers
+          - routers
         description: description
         start-ip: start-ip
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -8443,6 +8450,8 @@ components:
           description: Private Network netmask
           format: ipv4
           type: string
+        options:
+          $ref: '#/components/schemas/private-network-options'
         end-ip:
           description: Private Network end IP address
           format: ipv4
@@ -9126,6 +9135,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9140,6 +9156,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10505,6 +10528,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10519,6 +10549,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14561,6 +14598,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14575,6 +14619,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15673,6 +15724,29 @@ components:
         schema-registry-acl:
           items:
             $ref: '#/components/schemas/dbaas-kafka-schema-registry-acl-entry'
+          type: array
+      type: object
+    private-network-options:
+      description: Private Network DHCP Options
+      example:
+        dns-servers:
+        - dns-servers
+        - dns-servers
+        routers:
+        - routers
+        - routers
+      properties:
+        routers:
+          description: Routers
+          items:
+            format: ipv4
+            type: string
+          type: array
+        dns-servers:
+          description: DNS Servers
+          items:
+            format: ipv4
+            type: string
           type: array
       type: object
     dbaas-service-pg:
@@ -17474,6 +17548,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17488,6 +17569,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18386,6 +18474,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18400,6 +18495,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19768,6 +19870,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19782,6 +19891,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20680,6 +20796,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20694,6 +20817,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22135,6 +22265,13 @@ components:
             ip: ip
           netmask: netmask
           name: name
+          options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            routers:
+            - routers
+            - routers
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22149,6 +22286,13 @@ components:
             ip: ip
           netmask: netmask
           name: name
+          options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            routers:
+            - routers
+            - routers
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23665,6 +23809,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23679,6 +23830,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24577,6 +24735,13 @@ components:
             ip: ip
           netmask: netmask
           name: name
+          options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            routers:
+            - routers
+            - routers
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24591,6 +24756,13 @@ components:
             ip: ip
           netmask: netmask
           name: name
+          options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            routers:
+            - routers
+            - routers
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29949,6 +30121,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29963,6 +30142,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31328,6 +31514,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31342,6 +31535,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -32716,6 +32916,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -32730,6 +32937,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -34095,6 +34309,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -34109,6 +34330,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -36128,6 +36356,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -36142,6 +36377,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -37485,6 +37727,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -37499,6 +37748,13 @@ components:
               ip: ip
             netmask: netmask
             name: name
+            options:
+              dns-servers:
+              - dns-servers
+              - dns-servers
+              routers:
+              - routers
+              - routers
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -38988,6 +39244,13 @@ components:
             ip: ip
           netmask: netmask
           name: name
+          options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            routers:
+            - routers
+            - routers
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -39002,6 +39265,13 @@ components:
             ip: ip
           netmask: netmask
           name: name
+          options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            routers:
+            - routers
+            - routers
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -39041,6 +39311,8 @@ components:
           additionalProperties:
             type: string
           type: object
+        options:
+          $ref: '#/components/schemas/private-network-options'
       required:
       - name
       type: object
@@ -39119,6 +39391,8 @@ components:
           additionalProperties:
             type: string
           type: object
+        options:
+          $ref: '#/components/schemas/private-network-options'
       type: object
     scale_instance_request:
       properties:
@@ -40329,6 +40603,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -40343,6 +40624,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -41241,6 +41529,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -41255,6 +41550,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -42623,6 +42925,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -42637,6 +42946,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -43535,6 +43851,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -43549,6 +43872,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -44933,6 +45263,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -44947,6 +45284,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -45845,6 +46189,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -45859,6 +46210,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -47227,6 +47585,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -47241,6 +47606,13 @@ components:
                   ip: ip
                 netmask: netmask
                 name: name
+                options:
+                  dns-servers:
+                  - dns-servers
+                  - dns-servers
+                  routers:
+                  - routers
+                  - routers
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -48139,6 +48511,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -48153,6 +48532,13 @@ components:
                 ip: ip
               netmask: netmask
               name: name
+              options:
+                dns-servers:
+                - dns-servers
+                - dns-servers
+                routers:
+                - routers
+                - routers
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91

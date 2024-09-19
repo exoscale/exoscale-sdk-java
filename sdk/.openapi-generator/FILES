@@ -271,6 +271,7 @@ docs/OperationReference.md
 docs/Organization.md
 docs/PrivateNetwork.md
 docs/PrivateNetworkLease.md
+docs/PrivateNetworkOptions.md
 docs/PromoteSnapshotToTemplateRequest.md
 docs/PublicIpAssignment.md
 docs/Quota.md
@@ -626,6 +627,7 @@ src/main/java/com/exoscale/sdk/model/OperationReference.java
 src/main/java/com/exoscale/sdk/model/Organization.java
 src/main/java/com/exoscale/sdk/model/PrivateNetwork.java
 src/main/java/com/exoscale/sdk/model/PrivateNetworkLease.java
+src/main/java/com/exoscale/sdk/model/PrivateNetworkOptions.java
 src/main/java/com/exoscale/sdk/model/PromoteSnapshotToTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/PublicIpAssignment.java
 src/main/java/com/exoscale/sdk/model/Quota.java
