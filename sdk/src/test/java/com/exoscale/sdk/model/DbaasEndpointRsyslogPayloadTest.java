@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.DbaasEndpointRsyslogPayloadSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,49 +25,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointOpensearch
+ * Model tests for DbaasEndpointRsyslogPayload
  */
-public class DbaasEndpointOpensearchTest {
-    private final DbaasEndpointOpensearch model = new DbaasEndpointOpensearch();
+public class DbaasEndpointRsyslogPayloadTest {
+    private final DbaasEndpointRsyslogPayload model = new DbaasEndpointRsyslogPayload();
 
     /**
-     * Model tests for DbaasEndpointOpensearch
+     * Model tests for DbaasEndpointRsyslogPayload
      */
     @Test
-    public void testDbaasEndpointOpensearch() {
-        // TODO: test DbaasEndpointOpensearch
+    public void testDbaasEndpointRsyslogPayload() {
+        // TODO: test DbaasEndpointRsyslogPayload
     }
 
     /**
-     * Test the property 'url'
+     * Test the property 'settings'
      */
     @Test
-    public void urlTest() {
-        // TODO: test url
-    }
-
-    /**
-     * Test the property 'indexPrefix'
-     */
-    @Test
-    public void indexPrefixTest() {
-        // TODO: test indexPrefix
-    }
-
-    /**
-     * Test the property 'indexDaysMax'
-     */
-    @Test
-    public void indexDaysMaxTest() {
-        // TODO: test indexDaysMax
-    }
-
-    /**
-     * Test the property 'timeout'
-     */
-    @Test
-    public void timeoutTest() {
-        // TODO: test timeout
+    public void settingsTest() {
+        // TODO: test settings
     }
 
 }

@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointOpensearch;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasExternalEndpointOpensearchRequest
+ * Model tests for DbaasEndpointOpensearchSecrets
  */
-public class UpdateDbaasExternalEndpointOpensearchRequestTest {
-    private final UpdateDbaasExternalEndpointOpensearchRequest model = new UpdateDbaasExternalEndpointOpensearchRequest();
+public class DbaasEndpointOpensearchSecretsTest {
+    private final DbaasEndpointOpensearchSecrets model = new DbaasEndpointOpensearchSecrets();
 
     /**
-     * Model tests for UpdateDbaasExternalEndpointOpensearchRequest
+     * Model tests for DbaasEndpointOpensearchSecrets
      */
     @Test
-    public void testUpdateDbaasExternalEndpointOpensearchRequest() {
-        // TODO: test UpdateDbaasExternalEndpointOpensearchRequest
+    public void testDbaasEndpointOpensearchSecrets() {
+        // TODO: test DbaasEndpointOpensearchSecrets
     }
 
     /**
-     * Test the property 'settings'
+     * Test the property 'ca'
      */
     @Test
-    public void settingsTest() {
-        // TODO: test settings
+    public void caTest() {
+        // TODO: test ca
     }
 
 }

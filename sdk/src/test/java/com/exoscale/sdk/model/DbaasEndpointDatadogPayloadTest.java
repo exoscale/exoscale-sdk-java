@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.DbaasEndpointDatadogPayloadSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,49 +25,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointOpensearch
+ * Model tests for DbaasEndpointDatadogPayload
  */
-public class DbaasEndpointOpensearchTest {
-    private final DbaasEndpointOpensearch model = new DbaasEndpointOpensearch();
+public class DbaasEndpointDatadogPayloadTest {
+    private final DbaasEndpointDatadogPayload model = new DbaasEndpointDatadogPayload();
 
     /**
-     * Model tests for DbaasEndpointOpensearch
+     * Model tests for DbaasEndpointDatadogPayload
      */
     @Test
-    public void testDbaasEndpointOpensearch() {
-        // TODO: test DbaasEndpointOpensearch
+    public void testDbaasEndpointDatadogPayload() {
+        // TODO: test DbaasEndpointDatadogPayload
     }
 
     /**
-     * Test the property 'url'
+     * Test the property 'settings'
      */
     @Test
-    public void urlTest() {
-        // TODO: test url
-    }
-
-    /**
-     * Test the property 'indexPrefix'
-     */
-    @Test
-    public void indexPrefixTest() {
-        // TODO: test indexPrefix
-    }
-
-    /**
-     * Test the property 'indexDaysMax'
-     */
-    @Test
-    public void indexDaysMaxTest() {
-        // TODO: test indexDaysMax
-    }
-
-    /**
-     * Test the property 'timeout'
-     */
-    @Test
-    public void timeoutTest() {
-        // TODO: test timeout
+    public void settingsTest() {
+        // TODO: test settings
     }
 
 }

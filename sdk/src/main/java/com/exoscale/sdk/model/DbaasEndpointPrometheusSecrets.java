@@ -19,7 +19,6 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointPrometheus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,46 +29,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * UpdateDbaasExternalEndpointPrometheusRequest
+ * DbaasEndpointPrometheusSecrets
  */
 @JsonPropertyOrder({
-  UpdateDbaasExternalEndpointPrometheusRequest.JSON_PROPERTY_SETTINGS
+  DbaasEndpointPrometheusSecrets.JSON_PROPERTY_BASIC_AUTH_PASSWORD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class UpdateDbaasExternalEndpointPrometheusRequest {
-  public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointPrometheus settings;
+public class DbaasEndpointPrometheusSecrets {
+  public static final String JSON_PROPERTY_BASIC_AUTH_PASSWORD = "basic-auth-password";
+  private String basicAuthPassword;
 
-  public UpdateDbaasExternalEndpointPrometheusRequest() { 
+  public DbaasEndpointPrometheusSecrets() { 
   }
 
-  public UpdateDbaasExternalEndpointPrometheusRequest settings(DbaasEndpointPrometheus settings) {
-    this.settings = settings;
+  public DbaasEndpointPrometheusSecrets basicAuthPassword(String basicAuthPassword) {
+    this.basicAuthPassword = basicAuthPassword;
     return this;
   }
 
    /**
-   * Get settings
-   * @return settings
+   * Prometheus basic authentication password
+   * @return basicAuthPassword
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointPrometheus getSettings() {
-    return settings;
+  public String getBasicAuthPassword() {
+    return basicAuthPassword;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointPrometheus settings) {
-    this.settings = settings;
+  public void setBasicAuthPassword(String basicAuthPassword) {
+    this.basicAuthPassword = basicAuthPassword;
   }
 
 
   /**
-   * Return true if this update_dbaas_external_endpoint_prometheus_request object is equal to o.
+   * Return true if this dbaas-endpoint-prometheus-secrets object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,20 +78,20 @@ public class UpdateDbaasExternalEndpointPrometheusRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = (UpdateDbaasExternalEndpointPrometheusRequest) o;
-    return Objects.equals(this.settings, updateDbaasExternalEndpointPrometheusRequest.settings);
+    DbaasEndpointPrometheusSecrets dbaasEndpointPrometheusSecrets = (DbaasEndpointPrometheusSecrets) o;
+    return Objects.equals(this.basicAuthPassword, dbaasEndpointPrometheusSecrets.basicAuthPassword);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings);
+    return Objects.hash(basicAuthPassword);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateDbaasExternalEndpointPrometheusRequest {\n");
-    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("class DbaasEndpointPrometheusSecrets {\n");
+    sb.append("    basicAuthPassword: ").append(toIndentedString(basicAuthPassword)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +139,9 @@ public class UpdateDbaasExternalEndpointPrometheusRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `settings` to the URL query string
-    if (getSettings() != null) {
-      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
+    // add `basic-auth-password` to the URL query string
+    if (getBasicAuthPassword() != null) {
+      joiner.add(String.format("%sbasic-auth-password%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBasicAuthPassword()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

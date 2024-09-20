@@ -1,13 +1,13 @@
 
 
-# DbaasEndpointPrometheus
+# DbaasEndpointElasticsearchSecrets
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**basicAuthUsername** | **String** | Prometheus basic authentication username |  [optional] |
+|**ca** | **String** | PEM encoded CA certificate |  [optional] |
 
 
 

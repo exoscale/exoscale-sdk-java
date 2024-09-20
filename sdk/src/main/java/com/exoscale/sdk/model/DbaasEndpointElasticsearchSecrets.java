@@ -29,46 +29,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointPrometheus
+ * DbaasEndpointElasticsearchSecrets
  */
 @JsonPropertyOrder({
-  DbaasEndpointPrometheus.JSON_PROPERTY_BASIC_AUTH_USERNAME
+  DbaasEndpointElasticsearchSecrets.JSON_PROPERTY_CA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasEndpointPrometheus {
-  public static final String JSON_PROPERTY_BASIC_AUTH_USERNAME = "basic-auth-username";
-  private String basicAuthUsername;
+public class DbaasEndpointElasticsearchSecrets {
+  public static final String JSON_PROPERTY_CA = "ca";
+  private String ca;
 
-  public DbaasEndpointPrometheus() { 
+  public DbaasEndpointElasticsearchSecrets() { 
   }
 
-  public DbaasEndpointPrometheus basicAuthUsername(String basicAuthUsername) {
-    this.basicAuthUsername = basicAuthUsername;
+  public DbaasEndpointElasticsearchSecrets ca(String ca) {
+    this.ca = ca;
     return this;
   }
 
    /**
-   * Prometheus basic authentication username
-   * @return basicAuthUsername
+   * PEM encoded CA certificate
+   * @return ca
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_USERNAME)
+  @JsonProperty(JSON_PROPERTY_CA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBasicAuthUsername() {
-    return basicAuthUsername;
+  public String getCa() {
+    return ca;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_USERNAME)
+  @JsonProperty(JSON_PROPERTY_CA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBasicAuthUsername(String basicAuthUsername) {
-    this.basicAuthUsername = basicAuthUsername;
+  public void setCa(String ca) {
+    this.ca = ca;
   }
 
 
   /**
-   * Return true if this dbaas-endpoint-prometheus object is equal to o.
+   * Return true if this dbaas-endpoint-elasticsearch-secrets object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +78,20 @@ public class DbaasEndpointPrometheus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointPrometheus dbaasEndpointPrometheus = (DbaasEndpointPrometheus) o;
-    return Objects.equals(this.basicAuthUsername, dbaasEndpointPrometheus.basicAuthUsername);
+    DbaasEndpointElasticsearchSecrets dbaasEndpointElasticsearchSecrets = (DbaasEndpointElasticsearchSecrets) o;
+    return Objects.equals(this.ca, dbaasEndpointElasticsearchSecrets.ca);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicAuthUsername);
+    return Objects.hash(ca);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointPrometheus {\n");
-    sb.append("    basicAuthUsername: ").append(toIndentedString(basicAuthUsername)).append("\n");
+    sb.append("class DbaasEndpointElasticsearchSecrets {\n");
+    sb.append("    ca: ").append(toIndentedString(ca)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +139,9 @@ public class DbaasEndpointPrometheus {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `basic-auth-username` to the URL query string
-    if (getBasicAuthUsername() != null) {
-      joiner.add(String.format("%sbasic-auth-username%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBasicAuthUsername()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `ca` to the URL query string
+    if (getCa() != null) {
+      joiner.add(String.format("%sca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

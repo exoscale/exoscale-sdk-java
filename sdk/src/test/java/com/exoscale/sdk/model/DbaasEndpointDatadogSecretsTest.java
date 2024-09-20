@@ -24,49 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointOpensearch
+ * Model tests for DbaasEndpointDatadogSecrets
  */
-public class DbaasEndpointOpensearchTest {
-    private final DbaasEndpointOpensearch model = new DbaasEndpointOpensearch();
+public class DbaasEndpointDatadogSecretsTest {
+    private final DbaasEndpointDatadogSecrets model = new DbaasEndpointDatadogSecrets();
 
     /**
-     * Model tests for DbaasEndpointOpensearch
+     * Model tests for DbaasEndpointDatadogSecrets
      */
     @Test
-    public void testDbaasEndpointOpensearch() {
-        // TODO: test DbaasEndpointOpensearch
+    public void testDbaasEndpointDatadogSecrets() {
+        // TODO: test DbaasEndpointDatadogSecrets
     }
 
     /**
-     * Test the property 'url'
+     * Test the property 'datadogApiKey'
      */
     @Test
-    public void urlTest() {
-        // TODO: test url
-    }
-
-    /**
-     * Test the property 'indexPrefix'
-     */
-    @Test
-    public void indexPrefixTest() {
-        // TODO: test indexPrefix
-    }
-
-    /**
-     * Test the property 'indexDaysMax'
-     */
-    @Test
-    public void indexDaysMaxTest() {
-        // TODO: test indexDaysMax
-    }
-
-    /**
-     * Test the property 'timeout'
-     */
-    @Test
-    public void timeoutTest() {
-        // TODO: test timeout
+    public void datadogApiKeyTest() {
+        // TODO: test datadogApiKey
     }
 
 }

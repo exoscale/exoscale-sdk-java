@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointElasticsearch;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +24,33 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasExternalEndpointElasticsearchRequest
+ * Model tests for DbaasEndpointPrometheusPayloadSettings
  */
-public class UpdateDbaasExternalEndpointElasticsearchRequestTest {
-    private final UpdateDbaasExternalEndpointElasticsearchRequest model = new UpdateDbaasExternalEndpointElasticsearchRequest();
+public class DbaasEndpointPrometheusPayloadSettingsTest {
+    private final DbaasEndpointPrometheusPayloadSettings model = new DbaasEndpointPrometheusPayloadSettings();
 
     /**
-     * Model tests for UpdateDbaasExternalEndpointElasticsearchRequest
+     * Model tests for DbaasEndpointPrometheusPayloadSettings
      */
     @Test
-    public void testUpdateDbaasExternalEndpointElasticsearchRequest() {
-        // TODO: test UpdateDbaasExternalEndpointElasticsearchRequest
+    public void testDbaasEndpointPrometheusPayloadSettings() {
+        // TODO: test DbaasEndpointPrometheusPayloadSettings
     }
 
     /**
-     * Test the property 'settings'
+     * Test the property 'basicAuthPassword'
      */
     @Test
-    public void settingsTest() {
-        // TODO: test settings
+    public void basicAuthPasswordTest() {
+        // TODO: test basicAuthPassword
+    }
+
+    /**
+     * Test the property 'basicAuthUsername'
+     */
+    @Test
+    public void basicAuthUsernameTest() {
+        // TODO: test basicAuthUsername
     }
 
 }

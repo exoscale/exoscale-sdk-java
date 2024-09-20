@@ -45,12 +45,4 @@ public class DbaasEndpointPrometheusTest {
         // TODO: test basicAuthUsername
     }
 
-    /**
-     * Test the property 'basicAuthPassword'
-     */
-    @Test
-    public void basicAuthPasswordTest() {
-        // TODO: test basicAuthPassword
-    }
-
 }

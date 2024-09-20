@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointPrometheus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +24,57 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasExternalEndpointPrometheusRequest
+ * Model tests for DbaasEndpointElasticsearchPayloadSettings
  */
-public class UpdateDbaasExternalEndpointPrometheusRequestTest {
-    private final UpdateDbaasExternalEndpointPrometheusRequest model = new UpdateDbaasExternalEndpointPrometheusRequest();
+public class DbaasEndpointElasticsearchPayloadSettingsTest {
+    private final DbaasEndpointElasticsearchPayloadSettings model = new DbaasEndpointElasticsearchPayloadSettings();
 
     /**
-     * Model tests for UpdateDbaasExternalEndpointPrometheusRequest
+     * Model tests for DbaasEndpointElasticsearchPayloadSettings
      */
     @Test
-    public void testUpdateDbaasExternalEndpointPrometheusRequest() {
-        // TODO: test UpdateDbaasExternalEndpointPrometheusRequest
+    public void testDbaasEndpointElasticsearchPayloadSettings() {
+        // TODO: test DbaasEndpointElasticsearchPayloadSettings
     }
 
     /**
-     * Test the property 'settings'
+     * Test the property 'ca'
      */
     @Test
-    public void settingsTest() {
-        // TODO: test settings
+    public void caTest() {
+        // TODO: test ca
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
+    }
+
+    /**
+     * Test the property 'indexPrefix'
+     */
+    @Test
+    public void indexPrefixTest() {
+        // TODO: test indexPrefix
+    }
+
+    /**
+     * Test the property 'indexDaysMax'
+     */
+    @Test
+    public void indexDaysMaxTest() {
+        // TODO: test indexDaysMax
+    }
+
+    /**
+     * Test the property 'timeout'
+     */
+    @Test
+    public void timeoutTest() {
+        // TODO: test timeout
     }
 
 }

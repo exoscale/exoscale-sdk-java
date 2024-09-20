@@ -24,17 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointOpensearch
+ * Model tests for DbaasEndpointOpensearchPayloadSettings
  */
-public class DbaasEndpointOpensearchTest {
-    private final DbaasEndpointOpensearch model = new DbaasEndpointOpensearch();
+public class DbaasEndpointOpensearchPayloadSettingsTest {
+    private final DbaasEndpointOpensearchPayloadSettings model = new DbaasEndpointOpensearchPayloadSettings();
 
     /**
-     * Model tests for DbaasEndpointOpensearch
+     * Model tests for DbaasEndpointOpensearchPayloadSettings
      */
     @Test
-    public void testDbaasEndpointOpensearch() {
-        // TODO: test DbaasEndpointOpensearch
+    public void testDbaasEndpointOpensearchPayloadSettings() {
+        // TODO: test DbaasEndpointOpensearchPayloadSettings
+    }
+
+    /**
+     * Test the property 'ca'
+     */
+    @Test
+    public void caTest() {
+        // TODO: test ca
     }
 
     /**

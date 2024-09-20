@@ -29,16 +29,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointElasticsearch
+ * DbaasEndpointElasticsearchPayloadSettings
  */
 @JsonPropertyOrder({
-  DbaasEndpointElasticsearch.JSON_PROPERTY_URL,
-  DbaasEndpointElasticsearch.JSON_PROPERTY_INDEX_PREFIX,
-  DbaasEndpointElasticsearch.JSON_PROPERTY_INDEX_DAYS_MAX,
-  DbaasEndpointElasticsearch.JSON_PROPERTY_TIMEOUT
+  DbaasEndpointElasticsearchPayloadSettings.JSON_PROPERTY_CA,
+  DbaasEndpointElasticsearchPayloadSettings.JSON_PROPERTY_URL,
+  DbaasEndpointElasticsearchPayloadSettings.JSON_PROPERTY_INDEX_PREFIX,
+  DbaasEndpointElasticsearchPayloadSettings.JSON_PROPERTY_INDEX_DAYS_MAX,
+  DbaasEndpointElasticsearchPayloadSettings.JSON_PROPERTY_TIMEOUT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasEndpointElasticsearch {
+public class DbaasEndpointElasticsearchPayloadSettings {
+  public static final String JSON_PROPERTY_CA = "ca";
+  private String ca;
+
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
@@ -51,10 +55,35 @@ public class DbaasEndpointElasticsearch {
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
   private Long timeout;
 
-  public DbaasEndpointElasticsearch() { 
+  public DbaasEndpointElasticsearchPayloadSettings() { 
   }
 
-  public DbaasEndpointElasticsearch url(String url) {
+  public DbaasEndpointElasticsearchPayloadSettings ca(String ca) {
+    this.ca = ca;
+    return this;
+  }
+
+   /**
+   * PEM encoded CA certificate
+   * @return ca
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCa() {
+    return ca;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCa(String ca) {
+    this.ca = ca;
+  }
+
+
+  public DbaasEndpointElasticsearchPayloadSettings url(String url) {
     this.url = url;
     return this;
   }
@@ -79,7 +108,7 @@ public class DbaasEndpointElasticsearch {
   }
 
 
-  public DbaasEndpointElasticsearch indexPrefix(String indexPrefix) {
+  public DbaasEndpointElasticsearchPayloadSettings indexPrefix(String indexPrefix) {
     this.indexPrefix = indexPrefix;
     return this;
   }
@@ -104,7 +133,7 @@ public class DbaasEndpointElasticsearch {
   }
 
 
-  public DbaasEndpointElasticsearch indexDaysMax(Long indexDaysMax) {
+  public DbaasEndpointElasticsearchPayloadSettings indexDaysMax(Long indexDaysMax) {
     this.indexDaysMax = indexDaysMax;
     return this;
   }
@@ -131,7 +160,7 @@ public class DbaasEndpointElasticsearch {
   }
 
 
-  public DbaasEndpointElasticsearch timeout(Long timeout) {
+  public DbaasEndpointElasticsearchPayloadSettings timeout(Long timeout) {
     this.timeout = timeout;
     return this;
   }
@@ -159,7 +188,7 @@ public class DbaasEndpointElasticsearch {
 
 
   /**
-   * Return true if this dbaas-endpoint-elasticsearch object is equal to o.
+   * Return true if this dbaas_endpoint_elasticsearch_payload_settings object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -169,22 +198,24 @@ public class DbaasEndpointElasticsearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointElasticsearch dbaasEndpointElasticsearch = (DbaasEndpointElasticsearch) o;
-    return Objects.equals(this.url, dbaasEndpointElasticsearch.url) &&
-        Objects.equals(this.indexPrefix, dbaasEndpointElasticsearch.indexPrefix) &&
-        Objects.equals(this.indexDaysMax, dbaasEndpointElasticsearch.indexDaysMax) &&
-        Objects.equals(this.timeout, dbaasEndpointElasticsearch.timeout);
+    DbaasEndpointElasticsearchPayloadSettings dbaasEndpointElasticsearchPayloadSettings = (DbaasEndpointElasticsearchPayloadSettings) o;
+    return Objects.equals(this.ca, dbaasEndpointElasticsearchPayloadSettings.ca) &&
+        Objects.equals(this.url, dbaasEndpointElasticsearchPayloadSettings.url) &&
+        Objects.equals(this.indexPrefix, dbaasEndpointElasticsearchPayloadSettings.indexPrefix) &&
+        Objects.equals(this.indexDaysMax, dbaasEndpointElasticsearchPayloadSettings.indexDaysMax) &&
+        Objects.equals(this.timeout, dbaasEndpointElasticsearchPayloadSettings.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, indexPrefix, indexDaysMax, timeout);
+    return Objects.hash(ca, url, indexPrefix, indexDaysMax, timeout);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointElasticsearch {\n");
+    sb.append("class DbaasEndpointElasticsearchPayloadSettings {\n");
+    sb.append("    ca: ").append(toIndentedString(ca)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    indexPrefix: ").append(toIndentedString(indexPrefix)).append("\n");
     sb.append("    indexDaysMax: ").append(toIndentedString(indexDaysMax)).append("\n");
@@ -235,6 +266,11 @@ public class DbaasEndpointElasticsearch {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `ca` to the URL query string
+    if (getCa() != null) {
+      joiner.add(String.format("%sca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `url` to the URL query string
     if (getUrl() != null) {

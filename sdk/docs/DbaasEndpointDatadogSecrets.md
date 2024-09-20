@@ -1,13 +1,13 @@
 
 
-# DbaasEndpointPrometheus
+# DbaasEndpointDatadogSecrets
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**basicAuthUsername** | **String** | Prometheus basic authentication username |  [optional] |
+|**datadogApiKey** | **String** | Datadog API key |  |
 
 
 

@@ -29,20 +29,49 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointPrometheus
+ * DbaasEndpointPrometheusPayloadSettings
  */
 @JsonPropertyOrder({
-  DbaasEndpointPrometheus.JSON_PROPERTY_BASIC_AUTH_USERNAME
+  DbaasEndpointPrometheusPayloadSettings.JSON_PROPERTY_BASIC_AUTH_PASSWORD,
+  DbaasEndpointPrometheusPayloadSettings.JSON_PROPERTY_BASIC_AUTH_USERNAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasEndpointPrometheus {
+public class DbaasEndpointPrometheusPayloadSettings {
+  public static final String JSON_PROPERTY_BASIC_AUTH_PASSWORD = "basic-auth-password";
+  private String basicAuthPassword;
+
   public static final String JSON_PROPERTY_BASIC_AUTH_USERNAME = "basic-auth-username";
   private String basicAuthUsername;
 
-  public DbaasEndpointPrometheus() { 
+  public DbaasEndpointPrometheusPayloadSettings() { 
   }
 
-  public DbaasEndpointPrometheus basicAuthUsername(String basicAuthUsername) {
+  public DbaasEndpointPrometheusPayloadSettings basicAuthPassword(String basicAuthPassword) {
+    this.basicAuthPassword = basicAuthPassword;
+    return this;
+  }
+
+   /**
+   * Prometheus basic authentication password
+   * @return basicAuthPassword
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBasicAuthPassword() {
+    return basicAuthPassword;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBasicAuthPassword(String basicAuthPassword) {
+    this.basicAuthPassword = basicAuthPassword;
+  }
+
+
+  public DbaasEndpointPrometheusPayloadSettings basicAuthUsername(String basicAuthUsername) {
     this.basicAuthUsername = basicAuthUsername;
     return this;
   }
@@ -68,7 +97,7 @@ public class DbaasEndpointPrometheus {
 
 
   /**
-   * Return true if this dbaas-endpoint-prometheus object is equal to o.
+   * Return true if this dbaas_endpoint_prometheus_payload_settings object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,19 +107,21 @@ public class DbaasEndpointPrometheus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointPrometheus dbaasEndpointPrometheus = (DbaasEndpointPrometheus) o;
-    return Objects.equals(this.basicAuthUsername, dbaasEndpointPrometheus.basicAuthUsername);
+    DbaasEndpointPrometheusPayloadSettings dbaasEndpointPrometheusPayloadSettings = (DbaasEndpointPrometheusPayloadSettings) o;
+    return Objects.equals(this.basicAuthPassword, dbaasEndpointPrometheusPayloadSettings.basicAuthPassword) &&
+        Objects.equals(this.basicAuthUsername, dbaasEndpointPrometheusPayloadSettings.basicAuthUsername);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicAuthUsername);
+    return Objects.hash(basicAuthPassword, basicAuthUsername);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointPrometheus {\n");
+    sb.append("class DbaasEndpointPrometheusPayloadSettings {\n");
+    sb.append("    basicAuthPassword: ").append(toIndentedString(basicAuthPassword)).append("\n");
     sb.append("    basicAuthUsername: ").append(toIndentedString(basicAuthUsername)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -138,6 +169,11 @@ public class DbaasEndpointPrometheus {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `basic-auth-password` to the URL query string
+    if (getBasicAuthPassword() != null) {
+      joiner.add(String.format("%sbasic-auth-password%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBasicAuthPassword()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `basic-auth-username` to the URL query string
     if (getBasicAuthUsername() != null) {

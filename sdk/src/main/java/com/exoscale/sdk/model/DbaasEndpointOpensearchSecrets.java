@@ -19,7 +19,6 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointElasticsearch;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,46 +29,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * UpdateDbaasExternalEndpointElasticsearchRequest
+ * DbaasEndpointOpensearchSecrets
  */
 @JsonPropertyOrder({
-  UpdateDbaasExternalEndpointElasticsearchRequest.JSON_PROPERTY_SETTINGS
+  DbaasEndpointOpensearchSecrets.JSON_PROPERTY_CA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class UpdateDbaasExternalEndpointElasticsearchRequest {
-  public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointElasticsearch settings;
+public class DbaasEndpointOpensearchSecrets {
+  public static final String JSON_PROPERTY_CA = "ca";
+  private String ca;
 
-  public UpdateDbaasExternalEndpointElasticsearchRequest() { 
+  public DbaasEndpointOpensearchSecrets() { 
   }
 
-  public UpdateDbaasExternalEndpointElasticsearchRequest settings(DbaasEndpointElasticsearch settings) {
-    this.settings = settings;
+  public DbaasEndpointOpensearchSecrets ca(String ca) {
+    this.ca = ca;
     return this;
   }
 
    /**
-   * Get settings
-   * @return settings
+   * PEM encoded CA certificate
+   * @return ca
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(JSON_PROPERTY_CA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointElasticsearch getSettings() {
-    return settings;
+  public String getCa() {
+    return ca;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
+  @JsonProperty(JSON_PROPERTY_CA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointElasticsearch settings) {
-    this.settings = settings;
+  public void setCa(String ca) {
+    this.ca = ca;
   }
 
 
   /**
-   * Return true if this update_dbaas_external_endpoint_elasticsearch_request object is equal to o.
+   * Return true if this dbaas-endpoint-opensearch-secrets object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,20 +78,20 @@ public class UpdateDbaasExternalEndpointElasticsearchRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = (UpdateDbaasExternalEndpointElasticsearchRequest) o;
-    return Objects.equals(this.settings, updateDbaasExternalEndpointElasticsearchRequest.settings);
+    DbaasEndpointOpensearchSecrets dbaasEndpointOpensearchSecrets = (DbaasEndpointOpensearchSecrets) o;
+    return Objects.equals(this.ca, dbaasEndpointOpensearchSecrets.ca);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(settings);
+    return Objects.hash(ca);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateDbaasExternalEndpointElasticsearchRequest {\n");
-    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+    sb.append("class DbaasEndpointOpensearchSecrets {\n");
+    sb.append("    ca: ").append(toIndentedString(ca)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +139,9 @@ public class UpdateDbaasExternalEndpointElasticsearchRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `settings` to the URL query string
-    if (getSettings() != null) {
-      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
+    // add `ca` to the URL query string
+    if (getCa() != null) {
+      joiner.add(String.format("%sca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

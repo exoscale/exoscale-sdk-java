@@ -25,41 +25,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointRsyslog
+ * Model tests for DbaasEndpointRsyslogPayloadSettings
  */
-public class DbaasEndpointRsyslogTest {
-    private final DbaasEndpointRsyslog model = new DbaasEndpointRsyslog();
+public class DbaasEndpointRsyslogPayloadSettingsTest {
+    private final DbaasEndpointRsyslogPayloadSettings model = new DbaasEndpointRsyslogPayloadSettings();
 
     /**
-     * Model tests for DbaasEndpointRsyslog
+     * Model tests for DbaasEndpointRsyslogPayloadSettings
      */
     @Test
-    public void testDbaasEndpointRsyslog() {
-        // TODO: test DbaasEndpointRsyslog
-    }
-
-    /**
-     * Test the property 'server'
-     */
-    @Test
-    public void serverTest() {
-        // TODO: test server
-    }
-
-    /**
-     * Test the property 'port'
-     */
-    @Test
-    public void portTest() {
-        // TODO: test port
-    }
-
-    /**
-     * Test the property 'tls'
-     */
-    @Test
-    public void tlsTest() {
-        // TODO: test tls
+    public void testDbaasEndpointRsyslogPayloadSettings() {
+        // TODO: test DbaasEndpointRsyslogPayloadSettings
     }
 
     /**
@@ -71,11 +47,59 @@ public class DbaasEndpointRsyslogTest {
     }
 
     /**
+     * Test the property 'key'
+     */
+    @Test
+    public void keyTest() {
+        // TODO: test key
+    }
+
+    /**
      * Test the property 'logline'
      */
     @Test
     public void loglineTest() {
         // TODO: test logline
+    }
+
+    /**
+     * Test the property 'server'
+     */
+    @Test
+    public void serverTest() {
+        // TODO: test server
+    }
+
+    /**
+     * Test the property 'ca'
+     */
+    @Test
+    public void caTest() {
+        // TODO: test ca
+    }
+
+    /**
+     * Test the property 'cert'
+     */
+    @Test
+    public void certTest() {
+        // TODO: test cert
+    }
+
+    /**
+     * Test the property 'tls'
+     */
+    @Test
+    public void tlsTest() {
+        // TODO: test tls
+    }
+
+    /**
+     * Test the property 'port'
+     */
+    @Test
+    public void portTest() {
+        // TODO: test port
     }
 
     /**

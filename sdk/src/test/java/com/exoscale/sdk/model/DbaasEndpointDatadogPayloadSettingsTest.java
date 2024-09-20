@@ -28,17 +28,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointDatadog
+ * Model tests for DbaasEndpointDatadogPayloadSettings
  */
-public class DbaasEndpointDatadogTest {
-    private final DbaasEndpointDatadog model = new DbaasEndpointDatadog();
+public class DbaasEndpointDatadogPayloadSettingsTest {
+    private final DbaasEndpointDatadogPayloadSettings model = new DbaasEndpointDatadogPayloadSettings();
 
     /**
-     * Model tests for DbaasEndpointDatadog
+     * Model tests for DbaasEndpointDatadogPayloadSettings
      */
     @Test
-    public void testDbaasEndpointDatadog() {
-        // TODO: test DbaasEndpointDatadog
+    public void testDbaasEndpointDatadogPayloadSettings() {
+        // TODO: test DbaasEndpointDatadogPayloadSettings
+    }
+
+    /**
+     * Test the property 'datadogApiKey'
+     */
+    @Test
+    public void datadogApiKeyTest() {
+        // TODO: test datadogApiKey
     }
 
     /**

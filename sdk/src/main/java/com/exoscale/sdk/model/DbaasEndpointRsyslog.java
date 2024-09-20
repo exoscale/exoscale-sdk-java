@@ -33,42 +33,30 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DbaasEndpointRsyslog
  */
 @JsonPropertyOrder({
-  DbaasEndpointRsyslog.JSON_PROPERTY_FORMAT,
-  DbaasEndpointRsyslog.JSON_PROPERTY_KEY,
-  DbaasEndpointRsyslog.JSON_PROPERTY_LOGLINE,
   DbaasEndpointRsyslog.JSON_PROPERTY_SERVER,
-  DbaasEndpointRsyslog.JSON_PROPERTY_CA,
-  DbaasEndpointRsyslog.JSON_PROPERTY_CERT,
-  DbaasEndpointRsyslog.JSON_PROPERTY_TLS,
   DbaasEndpointRsyslog.JSON_PROPERTY_PORT,
+  DbaasEndpointRsyslog.JSON_PROPERTY_TLS,
+  DbaasEndpointRsyslog.JSON_PROPERTY_FORMAT,
+  DbaasEndpointRsyslog.JSON_PROPERTY_LOGLINE,
   DbaasEndpointRsyslog.JSON_PROPERTY_SD,
   DbaasEndpointRsyslog.JSON_PROPERTY_MAX_MESSAGE_SIZE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasEndpointRsyslog {
-  public static final String JSON_PROPERTY_FORMAT = "format";
-  private EnumRsyslogFormat format;
-
-  public static final String JSON_PROPERTY_KEY = "key";
-  private String key;
-
-  public static final String JSON_PROPERTY_LOGLINE = "logline";
-  private String logline;
-
   public static final String JSON_PROPERTY_SERVER = "server";
   private String server;
 
-  public static final String JSON_PROPERTY_CA = "ca";
-  private String ca;
-
-  public static final String JSON_PROPERTY_CERT = "cert";
-  private String cert;
+  public static final String JSON_PROPERTY_PORT = "port";
+  private Long port;
 
   public static final String JSON_PROPERTY_TLS = "tls";
   private Boolean tls;
 
-  public static final String JSON_PROPERTY_PORT = "port";
-  private Long port;
+  public static final String JSON_PROPERTY_FORMAT = "format";
+  private EnumRsyslogFormat format;
+
+  public static final String JSON_PROPERTY_LOGLINE = "logline";
+  private String logline;
 
   public static final String JSON_PROPERTY_SD = "sd";
   private String sd;
@@ -78,81 +66,6 @@ public class DbaasEndpointRsyslog {
 
   public DbaasEndpointRsyslog() { 
   }
-
-  public DbaasEndpointRsyslog format(EnumRsyslogFormat format) {
-    this.format = format;
-    return this;
-  }
-
-   /**
-   * Get format
-   * @return format
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public EnumRsyslogFormat getFormat() {
-    return format;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FORMAT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFormat(EnumRsyslogFormat format) {
-    this.format = format;
-  }
-
-
-  public DbaasEndpointRsyslog key(String key) {
-    this.key = key;
-    return this;
-  }
-
-   /**
-   * PEM encoded client key
-   * @return key
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getKey() {
-    return key;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-
-  public DbaasEndpointRsyslog logline(String logline) {
-    this.logline = logline;
-    return this;
-  }
-
-   /**
-   * Custom syslog message format
-   * @return logline
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOGLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getLogline() {
-    return logline;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LOGLINE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogline(String logline) {
-    this.logline = logline;
-  }
-
 
   public DbaasEndpointRsyslog server(String server) {
     this.server = server;
@@ -179,53 +92,30 @@ public class DbaasEndpointRsyslog {
   }
 
 
-  public DbaasEndpointRsyslog ca(String ca) {
-    this.ca = ca;
+  public DbaasEndpointRsyslog port(Long port) {
+    this.port = port;
     return this;
   }
 
    /**
-   * PEM encoded CA certificate
-   * @return ca
+   * Rsyslog server port
+   * minimum: 1
+   * maximum: 65535
+   * @return port
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getCa() {
-    return ca;
+  public Long getPort() {
+    return port;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCa(String ca) {
-    this.ca = ca;
-  }
-
-
-  public DbaasEndpointRsyslog cert(String cert) {
-    this.cert = cert;
-    return this;
-  }
-
-   /**
-   * PEM encoded client certificate
-   * @return cert
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CERT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCert() {
-    return cert;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CERT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCert(String cert) {
-    this.cert = cert;
+  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPort(Long port) {
+    this.port = port;
   }
 
 
@@ -254,30 +144,53 @@ public class DbaasEndpointRsyslog {
   }
 
 
-  public DbaasEndpointRsyslog port(Long port) {
-    this.port = port;
+  public DbaasEndpointRsyslog format(EnumRsyslogFormat format) {
+    this.format = format;
     return this;
   }
 
    /**
-   * Rsyslog server port
-   * minimum: 1
-   * maximum: 65535
-   * @return port
+   * Get format
+   * @return format
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonProperty(JSON_PROPERTY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Long getPort() {
-    return port;
+  public EnumRsyslogFormat getFormat() {
+    return format;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonProperty(JSON_PROPERTY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPort(Long port) {
-    this.port = port;
+  public void setFormat(EnumRsyslogFormat format) {
+    this.format = format;
+  }
+
+
+  public DbaasEndpointRsyslog logline(String logline) {
+    this.logline = logline;
+    return this;
+  }
+
+   /**
+   * Custom syslog message format
+   * @return logline
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLogline() {
+    return logline;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOGLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLogline(String logline) {
+    this.logline = logline;
   }
 
 
@@ -345,35 +258,29 @@ public class DbaasEndpointRsyslog {
       return false;
     }
     DbaasEndpointRsyslog dbaasEndpointRsyslog = (DbaasEndpointRsyslog) o;
-    return Objects.equals(this.format, dbaasEndpointRsyslog.format) &&
-        Objects.equals(this.key, dbaasEndpointRsyslog.key) &&
-        Objects.equals(this.logline, dbaasEndpointRsyslog.logline) &&
-        Objects.equals(this.server, dbaasEndpointRsyslog.server) &&
-        Objects.equals(this.ca, dbaasEndpointRsyslog.ca) &&
-        Objects.equals(this.cert, dbaasEndpointRsyslog.cert) &&
-        Objects.equals(this.tls, dbaasEndpointRsyslog.tls) &&
+    return Objects.equals(this.server, dbaasEndpointRsyslog.server) &&
         Objects.equals(this.port, dbaasEndpointRsyslog.port) &&
+        Objects.equals(this.tls, dbaasEndpointRsyslog.tls) &&
+        Objects.equals(this.format, dbaasEndpointRsyslog.format) &&
+        Objects.equals(this.logline, dbaasEndpointRsyslog.logline) &&
         Objects.equals(this.sd, dbaasEndpointRsyslog.sd) &&
         Objects.equals(this.maxMessageSize, dbaasEndpointRsyslog.maxMessageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, key, logline, server, ca, cert, tls, port, sd, maxMessageSize);
+    return Objects.hash(server, port, tls, format, logline, sd, maxMessageSize);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbaasEndpointRsyslog {\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    logline: ").append(toIndentedString(logline)).append("\n");
     sb.append("    server: ").append(toIndentedString(server)).append("\n");
-    sb.append("    ca: ").append(toIndentedString(ca)).append("\n");
-    sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
-    sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("    logline: ").append(toIndentedString(logline)).append("\n");
     sb.append("    sd: ").append(toIndentedString(sd)).append("\n");
     sb.append("    maxMessageSize: ").append(toIndentedString(maxMessageSize)).append("\n");
     sb.append("}");
@@ -423,34 +330,14 @@ public class DbaasEndpointRsyslog {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `format` to the URL query string
-    if (getFormat() != null) {
-      joiner.add(String.format("%sformat%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFormat()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `key` to the URL query string
-    if (getKey() != null) {
-      joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `logline` to the URL query string
-    if (getLogline() != null) {
-      joiner.add(String.format("%slogline%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLogline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `server` to the URL query string
     if (getServer() != null) {
       joiner.add(String.format("%sserver%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getServer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `ca` to the URL query string
-    if (getCa() != null) {
-      joiner.add(String.format("%sca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `cert` to the URL query string
-    if (getCert() != null) {
-      joiner.add(String.format("%scert%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCert()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `port` to the URL query string
+    if (getPort() != null) {
+      joiner.add(String.format("%sport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tls` to the URL query string
@@ -458,9 +345,14 @@ public class DbaasEndpointRsyslog {
       joiner.add(String.format("%stls%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTls()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `port` to the URL query string
-    if (getPort() != null) {
-      joiner.add(String.format("%sport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `format` to the URL query string
+    if (getFormat() != null) {
+      joiner.add(String.format("%sformat%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFormat()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `logline` to the URL query string
+    if (getLogline() != null) {
+      joiner.add(String.format("%slogline%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLogline()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sd` to the URL query string

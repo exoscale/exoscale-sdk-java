@@ -54,14 +54,6 @@ public class DbaasEndpointElasticsearchTest {
     }
 
     /**
-     * Test the property 'ca'
-     */
-    @Test
-    public void caTest() {
-        // TODO: test ca
-    }
-
-    /**
      * Test the property 'indexDaysMax'
      */
     @Test

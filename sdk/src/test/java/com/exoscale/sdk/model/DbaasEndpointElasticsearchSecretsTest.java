@@ -24,49 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasEndpointOpensearch
+ * Model tests for DbaasEndpointElasticsearchSecrets
  */
-public class DbaasEndpointOpensearchTest {
-    private final DbaasEndpointOpensearch model = new DbaasEndpointOpensearch();
+public class DbaasEndpointElasticsearchSecretsTest {
+    private final DbaasEndpointElasticsearchSecrets model = new DbaasEndpointElasticsearchSecrets();
 
     /**
-     * Model tests for DbaasEndpointOpensearch
+     * Model tests for DbaasEndpointElasticsearchSecrets
      */
     @Test
-    public void testDbaasEndpointOpensearch() {
-        // TODO: test DbaasEndpointOpensearch
+    public void testDbaasEndpointElasticsearchSecrets() {
+        // TODO: test DbaasEndpointElasticsearchSecrets
     }
 
     /**
-     * Test the property 'url'
+     * Test the property 'ca'
      */
     @Test
-    public void urlTest() {
-        // TODO: test url
-    }
-
-    /**
-     * Test the property 'indexPrefix'
-     */
-    @Test
-    public void indexPrefixTest() {
-        // TODO: test indexPrefix
-    }
-
-    /**
-     * Test the property 'indexDaysMax'
-     */
-    @Test
-    public void indexDaysMaxTest() {
-        // TODO: test indexDaysMax
-    }
-
-    /**
-     * Test the property 'timeout'
-     */
-    @Test
-    public void timeoutTest() {
-        // TODO: test timeout
+    public void caTest() {
+        // TODO: test ca
     }
 
 }

@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointDatadog;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateDbaasExternalEndpointDatadogRequest
+ * Model tests for DbaasEndpointPrometheusSecrets
  */
-public class CreateDbaasExternalEndpointDatadogRequestTest {
-    private final CreateDbaasExternalEndpointDatadogRequest model = new CreateDbaasExternalEndpointDatadogRequest();
+public class DbaasEndpointPrometheusSecretsTest {
+    private final DbaasEndpointPrometheusSecrets model = new DbaasEndpointPrometheusSecrets();
 
     /**
-     * Model tests for CreateDbaasExternalEndpointDatadogRequest
+     * Model tests for DbaasEndpointPrometheusSecrets
      */
     @Test
-    public void testCreateDbaasExternalEndpointDatadogRequest() {
-        // TODO: test CreateDbaasExternalEndpointDatadogRequest
+    public void testDbaasEndpointPrometheusSecrets() {
+        // TODO: test DbaasEndpointPrometheusSecrets
     }
 
     /**
-     * Test the property 'settings'
+     * Test the property 'basicAuthPassword'
      */
     @Test
-    public void settingsTest() {
-        // TODO: test settings
+    public void basicAuthPasswordTest() {
+        // TODO: test basicAuthPassword
     }
 
 }

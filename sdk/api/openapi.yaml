@@ -814,7 +814,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/update_dbaas_external_endpoint_prometheus_request'
+              $ref: '#/components/schemas/dbaas-endpoint-prometheus-payload'
         required: true
       responses:
         "200":
@@ -1217,7 +1217,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/create_dbaas_external_endpoint_rsyslog_request'
+              $ref: '#/components/schemas/dbaas-endpoint-rsyslog-payload'
         required: true
       responses:
         "200":
@@ -1728,7 +1728,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/create_dbaas_external_endpoint_rsyslog_request'
+              $ref: '#/components/schemas/dbaas-endpoint-rsyslog-payload'
         required: true
       responses:
         "200":
@@ -3336,7 +3336,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/update_dbaas_external_endpoint_opensearch_request'
+              $ref: '#/components/schemas/dbaas-endpoint-opensearch-payload'
         required: true
       responses:
         "200":
@@ -3800,7 +3800,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/update_dbaas_external_endpoint_opensearch_request'
+              $ref: '#/components/schemas/dbaas-endpoint-opensearch-payload'
         required: true
       responses:
         "200":
@@ -4526,7 +4526,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/create_dbaas_external_endpoint_datadog_request'
+              $ref: '#/components/schemas/dbaas-endpoint-datadog-payload'
         required: true
       responses:
         "200":
@@ -5090,7 +5090,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/update_dbaas_external_endpoint_elasticsearch_request'
+              $ref: '#/components/schemas/dbaas-endpoint-elasticsearch-payload'
         required: true
       responses:
         "200":
@@ -5144,7 +5144,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/update_dbaas_external_endpoint_prometheus_request'
+              $ref: '#/components/schemas/dbaas-endpoint-prometheus-payload'
         required: true
       responses:
         "200":
@@ -6353,7 +6353,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/update_dbaas_external_endpoint_elasticsearch_request'
+              $ref: '#/components/schemas/dbaas-endpoint-elasticsearch-payload'
         required: true
       responses:
         "200":
@@ -6958,7 +6958,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/create_dbaas_external_endpoint_datadog_request'
+              $ref: '#/components/schemas/dbaas-endpoint-datadog-payload'
         required: true
       responses:
         "200":
@@ -7584,6 +7584,17 @@ components:
       - name
       - state
       type: object
+    dbaas-endpoint-datadog-secrets:
+      properties:
+        datadog-api-key:
+          description: Datadog API key
+          maxLength: 256
+          minLength: 1
+          pattern: "^[A-Za-z0-9]{1,256}$"
+          type: string
+      required:
+      - datadog-api-key
+      type: object
     json-schema-schema-registry:
       additionalProperties: false
       example:
@@ -7620,7 +7631,6 @@ components:
         index-prefix: index-prefix
         index-days-max: 801
         url: url
-        ca: ca
         timeout: 76
       properties:
         url:
@@ -7633,10 +7643,6 @@ components:
           maxLength: 1000
           minLength: 1
           pattern: "^[a-z0-9][a-z0-9-_.]+$"
-          type: string
-        ca:
-          description: PEM encoded CA certificate
-          maxLength: 16384
           type: string
         index-days-max:
           description: Maximum number of days of logs to keep
@@ -7799,6 +7805,11 @@ components:
           - egress
           type: string
       type: object
+    dbaas-endpoint-prometheus-payload:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas_endpoint_prometheus_payload_settings'
+      type: object
     enum-component-route:
       enum:
       - dynamic
@@ -7812,7 +7823,6 @@ components:
           index-prefix: index-prefix
           index-days-max: 801
           url: url
-          ca: ca
           timeout: 76
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -7836,7 +7846,6 @@ components:
           index-prefix: index-prefix
           index-days-max: 801
           url: url
-          ca: ca
           timeout: 76
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -8459,45 +8468,19 @@ components:
       type: object
     dbaas-endpoint-rsyslog:
       example:
-        logline: logline
         server: server
+        logline: logline
         sd: sd
         max-message-size: 1294387172
         port: 5249
         format: null
-        cert: cert
         tls: true
-        key: key
-        ca: ca
       properties:
-        format:
-          $ref: '#/components/schemas/enum-rsyslog-format'
-        key:
-          description: PEM encoded client key
-          maxLength: 16384
-          type: string
-        logline:
-          description: Custom syslog message format
-          maxLength: 512
-          minLength: 1
-          pattern: "^[ -~\\t]+$"
-          type: string
         server:
           description: Rsyslog server IP address or hostname
           maxLength: 255
           minLength: 4
           type: string
-        ca:
-          description: PEM encoded CA certificate
-          maxLength: 16384
-          type: string
-        cert:
-          description: PEM encoded client certificate
-          maxLength: 16384
-          type: string
-        tls:
-          description: Require TLS
-          type: boolean
         port:
           description: Rsyslog server port
           exclusiveMaximum: false
@@ -8506,6 +8489,17 @@ components:
           maximum: 65535
           minimum: 1
           type: integer
+        tls:
+          description: Require TLS
+          type: boolean
+        format:
+          $ref: '#/components/schemas/enum-rsyslog-format'
+        logline:
+          description: Custom syslog message format
+          maxLength: 512
+          minLength: 1
+          pattern: "^[ -~\\t]+$"
+          type: string
         sd:
           description: Structured data block for log message
           maxLength: 1024
@@ -12750,6 +12744,11 @@ components:
           type: integer
       title: PGBouncer connection pooling settings
       type: object
+    dbaas-endpoint-opensearch-payload:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas_endpoint_opensearch_payload_settings'
+      type: object
     load-balancer-server-status:
       description: Load Balancer Service status
       example:
@@ -13455,7 +13454,6 @@ components:
     dbaas-endpoint-external-prometheus-output:
       example:
         settings:
-          basic-auth-password: basic-auth-password
           basic-auth-username: basic-auth-username
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -13631,6 +13629,21 @@ components:
         instance:
           $ref: '#/components/schemas/instance'
       type: object
+    dbaas-endpoint-rsyslog-secrets:
+      properties:
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        cert:
+          description: PEM encoded client certificate
+          maxLength: 16384
+          type: string
+        key:
+          description: PEM encoded client key
+          maxLength: 16384
+          type: string
+      type: object
     dbaas-user-kafka-secrets:
       description: Kafka User secrets
       example:
@@ -13654,6 +13667,14 @@ components:
           type: string
         access-key:
           description: Kafka access key
+          type: string
+      type: object
+    dbaas-endpoint-prometheus-secrets:
+      properties:
+        basic-auth-password:
+          description: Prometheus basic authentication password
+          maxLength: 64
+          minLength: 8
           type: string
       type: object
     event:
@@ -15532,6 +15553,13 @@ components:
             $ref: '#/components/schemas/access-key-resource'
           type: array
       type: object
+    dbaas-endpoint-opensearch-secrets:
+      properties:
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+      type: object
     dbaas-service-update:
       description: Update waiting to be installed
       example:
@@ -16431,7 +16459,6 @@ components:
         index-prefix: index-prefix
         index-days-max: 801
         url: url
-        ca: ca
         timeout: 76
       properties:
         url:
@@ -16444,10 +16471,6 @@ components:
           maxLength: 1000
           minLength: 1
           pattern: "^[a-z0-9][a-z0-9-_.]+$"
-          type: string
-        ca:
-          description: PEM encoded CA certificate
-          maxLength: 16384
           type: string
         index-days-max:
           description: Maximum number of days of logs to keep
@@ -16472,7 +16495,6 @@ components:
     dbaas-external-endpoint-datadog-output:
       example:
         settings:
-          datadog-api-key: datadog-api-key
           kafka-consumer-stats-timeout: 181
           kafka-consumer-check-instances: 8
           site: null
@@ -16498,6 +16520,11 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/dbaas-endpoint-datadog'
+      type: object
+    dbaas-endpoint-rsyslog-payload:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas_endpoint_rsyslog_payload_settings'
       type: object
     sos-bucket-usage:
       description: SOS Bucket usage
@@ -16957,6 +16984,13 @@ components:
       maxLength: 63
       minLength: 0
       type: string
+    dbaas-endpoint-elasticsearch-secrets:
+      properties:
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+      type: object
     dbaas-user-grafana-secrets:
       description: Grafana User secrets
       example:
@@ -27561,16 +27595,13 @@ components:
     dbaas-external-endpoint-rsyslog-output:
       example:
         settings:
-          logline: logline
           server: server
+          logline: logline
           sd: sd
           max-message-size: 1294387172
           port: 5249
           format: null
-          cert: cert
           tls: true
-          key: key
-          ca: ca
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type: null
@@ -27599,6 +27630,16 @@ components:
         password:
           description: Postgres password
           type: string
+      type: object
+    dbaas-endpoint-elasticsearch-payload:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas_endpoint_elasticsearch_payload_settings'
+      type: object
+    dbaas-endpoint-datadog-payload:
+      properties:
+        settings:
+          $ref: '#/components/schemas/dbaas_endpoint_datadog_payload_settings'
       type: object
     dbaas-service-type-name:
       maxLength: 64
@@ -28571,7 +28612,6 @@ components:
       type: object
     dbaas-endpoint-datadog:
       example:
-        datadog-api-key: datadog-api-key
         kafka-consumer-stats-timeout: 181
         kafka-consumer-check-instances: 8
         site: null
@@ -28583,12 +28623,6 @@ components:
         - comment: comment
           tag: tag
       properties:
-        datadog-api-key:
-          description: Datadog API key
-          maxLength: 256
-          minLength: 1
-          pattern: "^[A-Za-z0-9]{1,256}$"
-          type: string
         site:
           $ref: '#/components/schemas/enum-datadog-site'
         datadog-tags:
@@ -28626,12 +28660,10 @@ components:
           minimum: 200
           type: integer
       required:
-      - datadog-api-key
       - site
       type: object
     dbaas-endpoint-prometheus:
       example:
-        basic-auth-password: basic-auth-password
         basic-auth-username: basic-auth-username
       properties:
         basic-auth-username:
@@ -28639,11 +28671,6 @@ components:
           maxLength: 32
           minLength: 5
           pattern: "^[a-z0-9\\-@_]{5,32}$"
-          type: string
-        basic-auth-password:
-          description: Prometheus basic authentication password
-          maxLength: 64
-          minLength: 8
           type: string
       type: object
     iam-service-policy:
@@ -35285,11 +35312,6 @@ components:
       - database-name
       - name
       type: object
-    update_dbaas_external_endpoint_prometheus_request:
-      properties:
-        settings:
-          $ref: '#/components/schemas/dbaas-endpoint-prometheus'
-      type: object
     update_dbaas_service_mysql_request_maintenance:
       description: Automatic maintenance settings
       properties:
@@ -38652,11 +38674,6 @@ components:
       - size
       - template
       type: object
-    create_dbaas_external_endpoint_rsyslog_request:
-      properties:
-        settings:
-          $ref: '#/components/schemas/dbaas-endpoint-rsyslog'
-      type: object
     generate_sks_cluster_kubeconfig_200_response:
       example:
         kubeconfig: kubeconfig
@@ -39590,11 +39607,6 @@ components:
       required:
       - database-name
       type: object
-    update_dbaas_external_endpoint_opensearch_request:
-      properties:
-        settings:
-          $ref: '#/components/schemas/dbaas-endpoint-opensearch'
-      type: object
     add_rule_to_security_group_request_icmp:
       description: "ICMP details (default: -1 (ANY))"
       properties:
@@ -39846,11 +39858,6 @@ components:
           type: string
       required:
       - cidr
-      type: object
-    create_dbaas_external_endpoint_datadog_request:
-      properties:
-        settings:
-          $ref: '#/components/schemas/dbaas-endpoint-datadog'
       type: object
     list_sos_buckets_usage_200_response:
       example:
@@ -49406,11 +49413,6 @@ components:
       - name
       - version
       type: object
-    update_dbaas_external_endpoint_elasticsearch_request:
-      properties:
-        settings:
-          $ref: '#/components/schemas/dbaas-endpoint-elasticsearch'
-      type: object
     get_console_proxy_url_200_response:
       example:
         path: path
@@ -51317,6 +51319,20 @@ components:
           minimum: -1
           type: integer
       type: object
+    dbaas_endpoint_prometheus_payload_settings:
+      properties:
+        basic-auth-password:
+          description: Prometheus basic authentication password
+          maxLength: 64
+          minLength: 8
+          type: string
+        basic-auth-username:
+          description: Prometheus basic authentication username
+          maxLength: 32
+          minLength: 5
+          pattern: "^[a-z0-9\\-@_]{5,32}$"
+          type: string
+      type: object
     Azure_AD_OAuth_integration:
       additionalProperties: false
       example:
@@ -52077,6 +52093,43 @@ components:
           type: number
       title: Background (BG) writer settings
       type: object
+    dbaas_endpoint_opensearch_payload_settings:
+      properties:
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        url:
+          description: OpenSearch connection URL
+          maxLength: 2048
+          minLength: 12
+          type: string
+        index-prefix:
+          description: OpenSearch index prefix
+          maxLength: 1000
+          minLength: 1
+          pattern: "^[a-z0-9][a-z0-9-_.]+$"
+          type: string
+        index-days-max:
+          description: Maximum number of days of logs to keep
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 10000
+          minimum: 1
+          type: integer
+        timeout:
+          description: OpenSearch request timeout limit
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 120.0
+          minimum: 10.0
+          type: integer
+      required:
+      - index-prefix
+      - url
+      type: object
     dbaas_service_mysql_connection_info:
       description: MySQL connection information properties
       example:
@@ -52440,6 +52493,62 @@ components:
         status:
           $ref: '#/components/schemas/enum-migration-status'
       type: object
+    dbaas_endpoint_rsyslog_payload_settings:
+      properties:
+        format:
+          $ref: '#/components/schemas/enum-rsyslog-format'
+        key:
+          description: PEM encoded client key
+          maxLength: 16384
+          type: string
+        logline:
+          description: Custom syslog message format
+          maxLength: 512
+          minLength: 1
+          pattern: "^[ -~\\t]+$"
+          type: string
+        server:
+          description: Rsyslog server IP address or hostname
+          maxLength: 255
+          minLength: 4
+          type: string
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        cert:
+          description: PEM encoded client certificate
+          maxLength: 16384
+          type: string
+        tls:
+          description: Require TLS
+          type: boolean
+        port:
+          description: Rsyslog server port
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 65535
+          minimum: 1
+          type: integer
+        sd:
+          description: Structured data block for log message
+          maxLength: 1024
+          type: string
+        max-message-size:
+          description: Rsyslog max message size
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 2147483647
+          minimum: 2048
+          type: integer
+      required:
+      - format
+      - port
+      - server
+      - tls
+      type: object
     dbaas_integration_type_settings:
       description: A JSON schema of additional settings of the integration.
       example:
@@ -52658,6 +52767,91 @@ components:
           type: string
         dashboard-uri:
           type: string
+      type: object
+    dbaas_endpoint_elasticsearch_payload_settings:
+      properties:
+        ca:
+          description: PEM encoded CA certificate
+          maxLength: 16384
+          type: string
+        url:
+          description: Elasticsearch connection URL
+          maxLength: 2048
+          minLength: 12
+          type: string
+        index-prefix:
+          description: Elasticsearch index prefix
+          maxLength: 1000
+          minLength: 1
+          pattern: "^[a-z0-9][a-z0-9-_.]+$"
+          type: string
+        index-days-max:
+          description: Maximum number of days of logs to keep
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 10000
+          minimum: 1
+          type: integer
+        timeout:
+          description: Elasticsearch request timeout limit
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 120.0
+          minimum: 10.0
+          type: integer
+      required:
+      - index-prefix
+      - url
+      type: object
+    dbaas_endpoint_datadog_payload_settings:
+      properties:
+        datadog-api-key:
+          description: Datadog API key
+          maxLength: 256
+          minLength: 1
+          pattern: "^[A-Za-z0-9]{1,256}$"
+          type: string
+        site:
+          $ref: '#/components/schemas/enum-datadog-site'
+        datadog-tags:
+          description: Custom tags provided by user
+          items:
+            $ref: '#/components/schemas/dbaas-datadog-tag'
+          type: array
+        disable-consumer-stats:
+          description: Disable consumer group metrics
+          type: boolean
+        kafka-consumer-check-instances:
+          description: Number of separate instances to fetch kafka consumer statistics
+            with
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 100
+          minimum: 1
+          type: integer
+        kafka-consumer-stats-timeout:
+          description: Number of seconds that datadog will wait to get consumer statistics
+            from brokers
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 300
+          minimum: 2
+          type: integer
+        max-partition-contexts:
+          description: Maximum number of partition contexts to send
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 200000
+          minimum: 200
+          type: integer
+      required:
+      - datadog-api-key
+      - site
       type: object
     Opensearch_Email_Sender_Settings:
       example:

@@ -34,7 +34,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   DbaasEndpointOpensearch.JSON_PROPERTY_URL,
   DbaasEndpointOpensearch.JSON_PROPERTY_INDEX_PREFIX,
-  DbaasEndpointOpensearch.JSON_PROPERTY_CA,
   DbaasEndpointOpensearch.JSON_PROPERTY_INDEX_DAYS_MAX,
   DbaasEndpointOpensearch.JSON_PROPERTY_TIMEOUT
 })
@@ -45,9 +44,6 @@ public class DbaasEndpointOpensearch {
 
   public static final String JSON_PROPERTY_INDEX_PREFIX = "index-prefix";
   private String indexPrefix;
-
-  public static final String JSON_PROPERTY_CA = "ca";
-  private String ca;
 
   public static final String JSON_PROPERTY_INDEX_DAYS_MAX = "index-days-max";
   private Long indexDaysMax;
@@ -105,31 +101,6 @@ public class DbaasEndpointOpensearch {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIndexPrefix(String indexPrefix) {
     this.indexPrefix = indexPrefix;
-  }
-
-
-  public DbaasEndpointOpensearch ca(String ca) {
-    this.ca = ca;
-    return this;
-  }
-
-   /**
-   * PEM encoded CA certificate
-   * @return ca
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getCa() {
-    return ca;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCa(String ca) {
-    this.ca = ca;
   }
 
 
@@ -201,14 +172,13 @@ public class DbaasEndpointOpensearch {
     DbaasEndpointOpensearch dbaasEndpointOpensearch = (DbaasEndpointOpensearch) o;
     return Objects.equals(this.url, dbaasEndpointOpensearch.url) &&
         Objects.equals(this.indexPrefix, dbaasEndpointOpensearch.indexPrefix) &&
-        Objects.equals(this.ca, dbaasEndpointOpensearch.ca) &&
         Objects.equals(this.indexDaysMax, dbaasEndpointOpensearch.indexDaysMax) &&
         Objects.equals(this.timeout, dbaasEndpointOpensearch.timeout);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(url, indexPrefix, ca, indexDaysMax, timeout);
+    return Objects.hash(url, indexPrefix, indexDaysMax, timeout);
   }
 
   @Override
@@ -217,7 +187,6 @@ public class DbaasEndpointOpensearch {
     sb.append("class DbaasEndpointOpensearch {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    indexPrefix: ").append(toIndentedString(indexPrefix)).append("\n");
-    sb.append("    ca: ").append(toIndentedString(ca)).append("\n");
     sb.append("    indexDaysMax: ").append(toIndentedString(indexDaysMax)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("}");
@@ -275,11 +244,6 @@ public class DbaasEndpointOpensearch {
     // add `index-prefix` to the URL query string
     if (getIndexPrefix() != null) {
       joiner.add(String.format("%sindex-prefix%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndexPrefix()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `ca` to the URL query string
-    if (getCa() != null) {
-      joiner.add(String.format("%sca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `index-days-max` to the URL query string

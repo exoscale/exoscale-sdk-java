@@ -29,46 +29,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointPrometheus
+ * DbaasEndpointDatadogSecrets
  */
 @JsonPropertyOrder({
-  DbaasEndpointPrometheus.JSON_PROPERTY_BASIC_AUTH_USERNAME
+  DbaasEndpointDatadogSecrets.JSON_PROPERTY_DATADOG_API_KEY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasEndpointPrometheus {
-  public static final String JSON_PROPERTY_BASIC_AUTH_USERNAME = "basic-auth-username";
-  private String basicAuthUsername;
+public class DbaasEndpointDatadogSecrets {
+  public static final String JSON_PROPERTY_DATADOG_API_KEY = "datadog-api-key";
+  private String datadogApiKey;
 
-  public DbaasEndpointPrometheus() { 
+  public DbaasEndpointDatadogSecrets() { 
   }
 
-  public DbaasEndpointPrometheus basicAuthUsername(String basicAuthUsername) {
-    this.basicAuthUsername = basicAuthUsername;
+  public DbaasEndpointDatadogSecrets datadogApiKey(String datadogApiKey) {
+    this.datadogApiKey = datadogApiKey;
     return this;
   }
 
    /**
-   * Prometheus basic authentication username
-   * @return basicAuthUsername
+   * Datadog API key
+   * @return datadogApiKey
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getBasicAuthUsername() {
-    return basicAuthUsername;
+  public String getDatadogApiKey() {
+    return datadogApiKey;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBasicAuthUsername(String basicAuthUsername) {
-    this.basicAuthUsername = basicAuthUsername;
+  @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDatadogApiKey(String datadogApiKey) {
+    this.datadogApiKey = datadogApiKey;
   }
 
 
   /**
-   * Return true if this dbaas-endpoint-prometheus object is equal to o.
+   * Return true if this dbaas-endpoint-datadog-secrets object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +78,20 @@ public class DbaasEndpointPrometheus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointPrometheus dbaasEndpointPrometheus = (DbaasEndpointPrometheus) o;
-    return Objects.equals(this.basicAuthUsername, dbaasEndpointPrometheus.basicAuthUsername);
+    DbaasEndpointDatadogSecrets dbaasEndpointDatadogSecrets = (DbaasEndpointDatadogSecrets) o;
+    return Objects.equals(this.datadogApiKey, dbaasEndpointDatadogSecrets.datadogApiKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicAuthUsername);
+    return Objects.hash(datadogApiKey);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointPrometheus {\n");
-    sb.append("    basicAuthUsername: ").append(toIndentedString(basicAuthUsername)).append("\n");
+    sb.append("class DbaasEndpointDatadogSecrets {\n");
+    sb.append("    datadogApiKey: ").append(toIndentedString(datadogApiKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +139,9 @@ public class DbaasEndpointPrometheus {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `basic-auth-username` to the URL query string
-    if (getBasicAuthUsername() != null) {
-      joiner.add(String.format("%sbasic-auth-username%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBasicAuthUsername()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `datadog-api-key` to the URL query string
+    if (getDatadogApiKey() != null) {
+      joiner.add(String.format("%sdatadog-api-key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDatadogApiKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

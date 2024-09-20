@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2024-09-19T07:05:41.408442Z[Etc/UTC]
+- Build date: 2024-09-20T07:06:16.645494Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.12-ALPHA</version>
+    <version>0.0.13-ALPHA</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.12-ALPHA'
+  implementation 'com.exoscale.sdk:sdk:0.0.13-ALPHA'
 }
 ```
 
@@ -394,8 +394,6 @@ Class | Method | HTTP request | Description
  - [CreateApiKeyRequest](sdk/docs/CreateApiKeyRequest.md)
  - [CreateBlockStorageSnapshotRequest](sdk/docs/CreateBlockStorageSnapshotRequest.md)
  - [CreateBlockStorageVolumeRequest](sdk/docs/CreateBlockStorageVolumeRequest.md)
- - [CreateDbaasExternalEndpointDatadogRequest](sdk/docs/CreateDbaasExternalEndpointDatadogRequest.md)
- - [CreateDbaasExternalEndpointRsyslogRequest](sdk/docs/CreateDbaasExternalEndpointRsyslogRequest.md)
  - [CreateDbaasIntegrationRequest](sdk/docs/CreateDbaasIntegrationRequest.md)
  - [CreateDbaasKafkaUserRequest](sdk/docs/CreateDbaasKafkaUserRequest.md)
  - [CreateDbaasMysqlDatabaseRequest](sdk/docs/CreateDbaasMysqlDatabaseRequest.md)
@@ -426,13 +424,28 @@ Class | Method | HTTP request | Description
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
  - [DbaasDatadogTag](sdk/docs/DbaasDatadogTag.md)
  - [DbaasEndpointDatadog](sdk/docs/DbaasEndpointDatadog.md)
+ - [DbaasEndpointDatadogPayload](sdk/docs/DbaasEndpointDatadogPayload.md)
+ - [DbaasEndpointDatadogPayloadSettings](sdk/docs/DbaasEndpointDatadogPayloadSettings.md)
+ - [DbaasEndpointDatadogSecrets](sdk/docs/DbaasEndpointDatadogSecrets.md)
  - [DbaasEndpointElasticsearch](sdk/docs/DbaasEndpointElasticsearch.md)
  - [DbaasEndpointElasticsearchOutput](sdk/docs/DbaasEndpointElasticsearchOutput.md)
+ - [DbaasEndpointElasticsearchPayload](sdk/docs/DbaasEndpointElasticsearchPayload.md)
+ - [DbaasEndpointElasticsearchPayloadSettings](sdk/docs/DbaasEndpointElasticsearchPayloadSettings.md)
+ - [DbaasEndpointElasticsearchSecrets](sdk/docs/DbaasEndpointElasticsearchSecrets.md)
  - [DbaasEndpointExternalPrometheusOutput](sdk/docs/DbaasEndpointExternalPrometheusOutput.md)
  - [DbaasEndpointOpensearch](sdk/docs/DbaasEndpointOpensearch.md)
  - [DbaasEndpointOpensearchOutput](sdk/docs/DbaasEndpointOpensearchOutput.md)
+ - [DbaasEndpointOpensearchPayload](sdk/docs/DbaasEndpointOpensearchPayload.md)
+ - [DbaasEndpointOpensearchPayloadSettings](sdk/docs/DbaasEndpointOpensearchPayloadSettings.md)
+ - [DbaasEndpointOpensearchSecrets](sdk/docs/DbaasEndpointOpensearchSecrets.md)
  - [DbaasEndpointPrometheus](sdk/docs/DbaasEndpointPrometheus.md)
+ - [DbaasEndpointPrometheusPayload](sdk/docs/DbaasEndpointPrometheusPayload.md)
+ - [DbaasEndpointPrometheusPayloadSettings](sdk/docs/DbaasEndpointPrometheusPayloadSettings.md)
+ - [DbaasEndpointPrometheusSecrets](sdk/docs/DbaasEndpointPrometheusSecrets.md)
  - [DbaasEndpointRsyslog](sdk/docs/DbaasEndpointRsyslog.md)
+ - [DbaasEndpointRsyslogPayload](sdk/docs/DbaasEndpointRsyslogPayload.md)
+ - [DbaasEndpointRsyslogPayloadSettings](sdk/docs/DbaasEndpointRsyslogPayloadSettings.md)
+ - [DbaasEndpointRsyslogSecrets](sdk/docs/DbaasEndpointRsyslogSecrets.md)
  - [DbaasExternalEndpoint](sdk/docs/DbaasExternalEndpoint.md)
  - [DbaasExternalEndpointDatadogOutput](sdk/docs/DbaasExternalEndpointDatadogOutput.md)
  - [DbaasExternalEndpointRsyslogOutput](sdk/docs/DbaasExternalEndpointRsyslogOutput.md)
@@ -672,9 +685,6 @@ Class | Method | HTTP request | Description
  - [Template](sdk/docs/Template.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](sdk/docs/UpdateBlockStorageVolumeRequest.md)
- - [UpdateDbaasExternalEndpointElasticsearchRequest](sdk/docs/UpdateDbaasExternalEndpointElasticsearchRequest.md)
- - [UpdateDbaasExternalEndpointOpensearchRequest](sdk/docs/UpdateDbaasExternalEndpointOpensearchRequest.md)
- - [UpdateDbaasExternalEndpointPrometheusRequest](sdk/docs/UpdateDbaasExternalEndpointPrometheusRequest.md)
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)
  - [UpdateDbaasPgConnectionPoolRequest](sdk/docs/UpdateDbaasPgConnectionPoolRequest.md)
  - [UpdateDbaasPostgresAllowReplicationRequest](sdk/docs/UpdateDbaasPostgresAllowReplicationRequest.md)

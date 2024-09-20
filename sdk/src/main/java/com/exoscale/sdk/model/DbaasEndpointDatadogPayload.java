@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.DbaasEndpointDatadogPayloadSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,46 +30,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointPrometheus
+ * DbaasEndpointDatadogPayload
  */
 @JsonPropertyOrder({
-  DbaasEndpointPrometheus.JSON_PROPERTY_BASIC_AUTH_USERNAME
+  DbaasEndpointDatadogPayload.JSON_PROPERTY_SETTINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasEndpointPrometheus {
-  public static final String JSON_PROPERTY_BASIC_AUTH_USERNAME = "basic-auth-username";
-  private String basicAuthUsername;
+public class DbaasEndpointDatadogPayload {
+  public static final String JSON_PROPERTY_SETTINGS = "settings";
+  private DbaasEndpointDatadogPayloadSettings settings;
 
-  public DbaasEndpointPrometheus() { 
+  public DbaasEndpointDatadogPayload() { 
   }
 
-  public DbaasEndpointPrometheus basicAuthUsername(String basicAuthUsername) {
-    this.basicAuthUsername = basicAuthUsername;
+  public DbaasEndpointDatadogPayload settings(DbaasEndpointDatadogPayloadSettings settings) {
+    this.settings = settings;
     return this;
   }
 
    /**
-   * Prometheus basic authentication username
-   * @return basicAuthUsername
+   * Get settings
+   * @return settings
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_USERNAME)
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getBasicAuthUsername() {
-    return basicAuthUsername;
+  public DbaasEndpointDatadogPayloadSettings getSettings() {
+    return settings;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BASIC_AUTH_USERNAME)
+  @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBasicAuthUsername(String basicAuthUsername) {
-    this.basicAuthUsername = basicAuthUsername;
+  public void setSettings(DbaasEndpointDatadogPayloadSettings settings) {
+    this.settings = settings;
   }
 
 
   /**
-   * Return true if this dbaas-endpoint-prometheus object is equal to o.
+   * Return true if this dbaas-endpoint-datadog-payload object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +79,20 @@ public class DbaasEndpointPrometheus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointPrometheus dbaasEndpointPrometheus = (DbaasEndpointPrometheus) o;
-    return Objects.equals(this.basicAuthUsername, dbaasEndpointPrometheus.basicAuthUsername);
+    DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = (DbaasEndpointDatadogPayload) o;
+    return Objects.equals(this.settings, dbaasEndpointDatadogPayload.settings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicAuthUsername);
+    return Objects.hash(settings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointPrometheus {\n");
-    sb.append("    basicAuthUsername: ").append(toIndentedString(basicAuthUsername)).append("\n");
+    sb.append("class DbaasEndpointDatadogPayload {\n");
+    sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +140,9 @@ public class DbaasEndpointPrometheus {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `basic-auth-username` to the URL query string
-    if (getBasicAuthUsername() != null) {
-      joiner.add(String.format("%sbasic-auth-username%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBasicAuthUsername()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `settings` to the URL query string
+    if (getSettings() != null) {
+      joiner.add(getSettings().toUrlQueryString(prefix + "settings" + suffix));
     }
 
     return joiner.toString();

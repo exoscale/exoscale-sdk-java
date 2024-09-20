@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointOpensearch;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogPayloadSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,20 +30,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * UpdateDbaasExternalEndpointOpensearchRequest
+ * DbaasEndpointRsyslogPayload
  */
 @JsonPropertyOrder({
-  UpdateDbaasExternalEndpointOpensearchRequest.JSON_PROPERTY_SETTINGS
+  DbaasEndpointRsyslogPayload.JSON_PROPERTY_SETTINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class UpdateDbaasExternalEndpointOpensearchRequest {
+public class DbaasEndpointRsyslogPayload {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointOpensearch settings;
+  private DbaasEndpointRsyslogPayloadSettings settings;
 
-  public UpdateDbaasExternalEndpointOpensearchRequest() { 
+  public DbaasEndpointRsyslogPayload() { 
   }
 
-  public UpdateDbaasExternalEndpointOpensearchRequest settings(DbaasEndpointOpensearch settings) {
+  public DbaasEndpointRsyslogPayload settings(DbaasEndpointRsyslogPayloadSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -56,20 +56,20 @@ public class UpdateDbaasExternalEndpointOpensearchRequest {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointOpensearch getSettings() {
+  public DbaasEndpointRsyslogPayloadSettings getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointOpensearch settings) {
+  public void setSettings(DbaasEndpointRsyslogPayloadSettings settings) {
     this.settings = settings;
   }
 
 
   /**
-   * Return true if this update_dbaas_external_endpoint_opensearch_request object is equal to o.
+   * Return true if this dbaas-endpoint-rsyslog-payload object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,8 +79,8 @@ public class UpdateDbaasExternalEndpointOpensearchRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = (UpdateDbaasExternalEndpointOpensearchRequest) o;
-    return Objects.equals(this.settings, updateDbaasExternalEndpointOpensearchRequest.settings);
+    DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = (DbaasEndpointRsyslogPayload) o;
+    return Objects.equals(this.settings, dbaasEndpointRsyslogPayload.settings);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class UpdateDbaasExternalEndpointOpensearchRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateDbaasExternalEndpointOpensearchRequest {\n");
+    sb.append("class DbaasEndpointRsyslogPayload {\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
     return sb.toString();

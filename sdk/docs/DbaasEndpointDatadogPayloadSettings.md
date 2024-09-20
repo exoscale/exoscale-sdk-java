@@ -1,12 +1,13 @@
 
 
-# DbaasEndpointDatadog
+# DbaasEndpointDatadogPayloadSettings
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**datadogApiKey** | **String** | Datadog API key |  |
 |**site** | **EnumDatadogSite** |  |  |
 |**datadogTags** | [**List&lt;DbaasDatadogTag&gt;**](DbaasDatadogTag.md) | Custom tags provided by user |  [optional] |
 |**disableConsumerStats** | **Boolean** | Disable consumer group metrics |  [optional] |

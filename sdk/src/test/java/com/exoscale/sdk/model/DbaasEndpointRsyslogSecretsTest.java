@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointRsyslog;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +24,41 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateDbaasExternalEndpointRsyslogRequest
+ * Model tests for DbaasEndpointRsyslogSecrets
  */
-public class CreateDbaasExternalEndpointRsyslogRequestTest {
-    private final CreateDbaasExternalEndpointRsyslogRequest model = new CreateDbaasExternalEndpointRsyslogRequest();
+public class DbaasEndpointRsyslogSecretsTest {
+    private final DbaasEndpointRsyslogSecrets model = new DbaasEndpointRsyslogSecrets();
 
     /**
-     * Model tests for CreateDbaasExternalEndpointRsyslogRequest
+     * Model tests for DbaasEndpointRsyslogSecrets
      */
     @Test
-    public void testCreateDbaasExternalEndpointRsyslogRequest() {
-        // TODO: test CreateDbaasExternalEndpointRsyslogRequest
+    public void testDbaasEndpointRsyslogSecrets() {
+        // TODO: test DbaasEndpointRsyslogSecrets
     }
 
     /**
-     * Test the property 'settings'
+     * Test the property 'ca'
      */
     @Test
-    public void settingsTest() {
-        // TODO: test settings
+    public void caTest() {
+        // TODO: test ca
+    }
+
+    /**
+     * Test the property 'cert'
+     */
+    @Test
+    public void certTest() {
+        // TODO: test cert
+    }
+
+    /**
+     * Test the property 'key'
+     */
+    @Test
+    public void keyTest() {
+        // TODO: test key
     }
 
 }

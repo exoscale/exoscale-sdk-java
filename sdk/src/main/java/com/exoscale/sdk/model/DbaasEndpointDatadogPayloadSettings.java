@@ -33,18 +33,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasEndpointDatadog
+ * DbaasEndpointDatadogPayloadSettings
  */
 @JsonPropertyOrder({
-  DbaasEndpointDatadog.JSON_PROPERTY_SITE,
-  DbaasEndpointDatadog.JSON_PROPERTY_DATADOG_TAGS,
-  DbaasEndpointDatadog.JSON_PROPERTY_DISABLE_CONSUMER_STATS,
-  DbaasEndpointDatadog.JSON_PROPERTY_KAFKA_CONSUMER_CHECK_INSTANCES,
-  DbaasEndpointDatadog.JSON_PROPERTY_KAFKA_CONSUMER_STATS_TIMEOUT,
-  DbaasEndpointDatadog.JSON_PROPERTY_MAX_PARTITION_CONTEXTS
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_DATADOG_API_KEY,
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_SITE,
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_DATADOG_TAGS,
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_DISABLE_CONSUMER_STATS,
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_KAFKA_CONSUMER_CHECK_INSTANCES,
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_KAFKA_CONSUMER_STATS_TIMEOUT,
+  DbaasEndpointDatadogPayloadSettings.JSON_PROPERTY_MAX_PARTITION_CONTEXTS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasEndpointDatadog {
+public class DbaasEndpointDatadogPayloadSettings {
+  public static final String JSON_PROPERTY_DATADOG_API_KEY = "datadog-api-key";
+  private String datadogApiKey;
+
   public static final String JSON_PROPERTY_SITE = "site";
   private EnumDatadogSite site;
 
@@ -63,10 +67,35 @@ public class DbaasEndpointDatadog {
   public static final String JSON_PROPERTY_MAX_PARTITION_CONTEXTS = "max-partition-contexts";
   private Long maxPartitionContexts;
 
-  public DbaasEndpointDatadog() { 
+  public DbaasEndpointDatadogPayloadSettings() { 
   }
 
-  public DbaasEndpointDatadog site(EnumDatadogSite site) {
+  public DbaasEndpointDatadogPayloadSettings datadogApiKey(String datadogApiKey) {
+    this.datadogApiKey = datadogApiKey;
+    return this;
+  }
+
+   /**
+   * Datadog API key
+   * @return datadogApiKey
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getDatadogApiKey() {
+    return datadogApiKey;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDatadogApiKey(String datadogApiKey) {
+    this.datadogApiKey = datadogApiKey;
+  }
+
+
+  public DbaasEndpointDatadogPayloadSettings site(EnumDatadogSite site) {
     this.site = site;
     return this;
   }
@@ -91,12 +120,12 @@ public class DbaasEndpointDatadog {
   }
 
 
-  public DbaasEndpointDatadog datadogTags(List<DbaasDatadogTag> datadogTags) {
+  public DbaasEndpointDatadogPayloadSettings datadogTags(List<DbaasDatadogTag> datadogTags) {
     this.datadogTags = datadogTags;
     return this;
   }
 
-  public DbaasEndpointDatadog addDatadogTagsItem(DbaasDatadogTag datadogTagsItem) {
+  public DbaasEndpointDatadogPayloadSettings addDatadogTagsItem(DbaasDatadogTag datadogTagsItem) {
     if (this.datadogTags == null) {
       this.datadogTags = new ArrayList<>();
     }
@@ -124,7 +153,7 @@ public class DbaasEndpointDatadog {
   }
 
 
-  public DbaasEndpointDatadog disableConsumerStats(Boolean disableConsumerStats) {
+  public DbaasEndpointDatadogPayloadSettings disableConsumerStats(Boolean disableConsumerStats) {
     this.disableConsumerStats = disableConsumerStats;
     return this;
   }
@@ -149,7 +178,7 @@ public class DbaasEndpointDatadog {
   }
 
 
-  public DbaasEndpointDatadog kafkaConsumerCheckInstances(Long kafkaConsumerCheckInstances) {
+  public DbaasEndpointDatadogPayloadSettings kafkaConsumerCheckInstances(Long kafkaConsumerCheckInstances) {
     this.kafkaConsumerCheckInstances = kafkaConsumerCheckInstances;
     return this;
   }
@@ -176,7 +205,7 @@ public class DbaasEndpointDatadog {
   }
 
 
-  public DbaasEndpointDatadog kafkaConsumerStatsTimeout(Long kafkaConsumerStatsTimeout) {
+  public DbaasEndpointDatadogPayloadSettings kafkaConsumerStatsTimeout(Long kafkaConsumerStatsTimeout) {
     this.kafkaConsumerStatsTimeout = kafkaConsumerStatsTimeout;
     return this;
   }
@@ -203,7 +232,7 @@ public class DbaasEndpointDatadog {
   }
 
 
-  public DbaasEndpointDatadog maxPartitionContexts(Long maxPartitionContexts) {
+  public DbaasEndpointDatadogPayloadSettings maxPartitionContexts(Long maxPartitionContexts) {
     this.maxPartitionContexts = maxPartitionContexts;
     return this;
   }
@@ -231,7 +260,7 @@ public class DbaasEndpointDatadog {
 
 
   /**
-   * Return true if this dbaas-endpoint-datadog object is equal to o.
+   * Return true if this dbaas_endpoint_datadog_payload_settings object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -241,24 +270,26 @@ public class DbaasEndpointDatadog {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasEndpointDatadog dbaasEndpointDatadog = (DbaasEndpointDatadog) o;
-    return Objects.equals(this.site, dbaasEndpointDatadog.site) &&
-        Objects.equals(this.datadogTags, dbaasEndpointDatadog.datadogTags) &&
-        Objects.equals(this.disableConsumerStats, dbaasEndpointDatadog.disableConsumerStats) &&
-        Objects.equals(this.kafkaConsumerCheckInstances, dbaasEndpointDatadog.kafkaConsumerCheckInstances) &&
-        Objects.equals(this.kafkaConsumerStatsTimeout, dbaasEndpointDatadog.kafkaConsumerStatsTimeout) &&
-        Objects.equals(this.maxPartitionContexts, dbaasEndpointDatadog.maxPartitionContexts);
+    DbaasEndpointDatadogPayloadSettings dbaasEndpointDatadogPayloadSettings = (DbaasEndpointDatadogPayloadSettings) o;
+    return Objects.equals(this.datadogApiKey, dbaasEndpointDatadogPayloadSettings.datadogApiKey) &&
+        Objects.equals(this.site, dbaasEndpointDatadogPayloadSettings.site) &&
+        Objects.equals(this.datadogTags, dbaasEndpointDatadogPayloadSettings.datadogTags) &&
+        Objects.equals(this.disableConsumerStats, dbaasEndpointDatadogPayloadSettings.disableConsumerStats) &&
+        Objects.equals(this.kafkaConsumerCheckInstances, dbaasEndpointDatadogPayloadSettings.kafkaConsumerCheckInstances) &&
+        Objects.equals(this.kafkaConsumerStatsTimeout, dbaasEndpointDatadogPayloadSettings.kafkaConsumerStatsTimeout) &&
+        Objects.equals(this.maxPartitionContexts, dbaasEndpointDatadogPayloadSettings.maxPartitionContexts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(site, datadogTags, disableConsumerStats, kafkaConsumerCheckInstances, kafkaConsumerStatsTimeout, maxPartitionContexts);
+    return Objects.hash(datadogApiKey, site, datadogTags, disableConsumerStats, kafkaConsumerCheckInstances, kafkaConsumerStatsTimeout, maxPartitionContexts);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasEndpointDatadog {\n");
+    sb.append("class DbaasEndpointDatadogPayloadSettings {\n");
+    sb.append("    datadogApiKey: ").append(toIndentedString(datadogApiKey)).append("\n");
     sb.append("    site: ").append(toIndentedString(site)).append("\n");
     sb.append("    datadogTags: ").append(toIndentedString(datadogTags)).append("\n");
     sb.append("    disableConsumerStats: ").append(toIndentedString(disableConsumerStats)).append("\n");
@@ -311,6 +342,11 @@ public class DbaasEndpointDatadog {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `datadog-api-key` to the URL query string
+    if (getDatadogApiKey() != null) {
+      joiner.add(String.format("%sdatadog-api-key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDatadogApiKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `site` to the URL query string
     if (getSite() != null) {

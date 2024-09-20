@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointDatadog;
+import com.exoscale.sdk.model.DbaasEndpointPrometheusPayloadSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,20 +30,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * CreateDbaasExternalEndpointDatadogRequest
+ * DbaasEndpointPrometheusPayload
  */
 @JsonPropertyOrder({
-  CreateDbaasExternalEndpointDatadogRequest.JSON_PROPERTY_SETTINGS
+  DbaasEndpointPrometheusPayload.JSON_PROPERTY_SETTINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateDbaasExternalEndpointDatadogRequest {
+public class DbaasEndpointPrometheusPayload {
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointDatadog settings;
+  private DbaasEndpointPrometheusPayloadSettings settings;
 
-  public CreateDbaasExternalEndpointDatadogRequest() { 
+  public DbaasEndpointPrometheusPayload() { 
   }
 
-  public CreateDbaasExternalEndpointDatadogRequest settings(DbaasEndpointDatadog settings) {
+  public DbaasEndpointPrometheusPayload settings(DbaasEndpointPrometheusPayloadSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -56,20 +56,20 @@ public class CreateDbaasExternalEndpointDatadogRequest {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointDatadog getSettings() {
+  public DbaasEndpointPrometheusPayloadSettings getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointDatadog settings) {
+  public void setSettings(DbaasEndpointPrometheusPayloadSettings settings) {
     this.settings = settings;
   }
 
 
   /**
-   * Return true if this create_dbaas_external_endpoint_datadog_request object is equal to o.
+   * Return true if this dbaas-endpoint-prometheus-payload object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,8 +79,8 @@ public class CreateDbaasExternalEndpointDatadogRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = (CreateDbaasExternalEndpointDatadogRequest) o;
-    return Objects.equals(this.settings, createDbaasExternalEndpointDatadogRequest.settings);
+    DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload = (DbaasEndpointPrometheusPayload) o;
+    return Objects.equals(this.settings, dbaasEndpointPrometheusPayload.settings);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class CreateDbaasExternalEndpointDatadogRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateDbaasExternalEndpointDatadogRequest {\n");
+    sb.append("class DbaasEndpointPrometheusPayload {\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
     return sb.toString();

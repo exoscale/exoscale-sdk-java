@@ -28,8 +28,6 @@ import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.CreateBlockStorageVolumeRequest;
-import com.exoscale.sdk.model.CreateDbaasExternalEndpointDatadogRequest;
-import com.exoscale.sdk.model.CreateDbaasExternalEndpointRsyslogRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
@@ -56,9 +54,14 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.DbaasEndpointDatadogPayload;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchOutput;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchPayload;
 import com.exoscale.sdk.model.DbaasEndpointExternalPrometheusOutput;
 import com.exoscale.sdk.model.DbaasEndpointOpensearchOutput;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchPayload;
+import com.exoscale.sdk.model.DbaasEndpointPrometheusPayload;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogPayload;
 import com.exoscale.sdk.model.DbaasExternalEndpointDatadogOutput;
 import com.exoscale.sdk.model.DbaasExternalEndpointRsyslogOutput;
 import com.exoscale.sdk.model.DbaasExternalIntegration;
@@ -180,9 +183,6 @@ import com.exoscale.sdk.model.Template;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
-import com.exoscale.sdk.model.UpdateDbaasExternalEndpointElasticsearchRequest;
-import com.exoscale.sdk.model.UpdateDbaasExternalEndpointOpensearchRequest;
-import com.exoscale.sdk.model.UpdateDbaasExternalEndpointPrometheusRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.UpdateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.UpdateDbaasPostgresAllowReplicationRequest;
@@ -484,9 +484,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointDatadogTest() throws ApiException {
         String name = null;
-        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = null;
+        DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = null;
         Operation response = 
-        api.createDbaasExternalEndpointDatadog(name, createDbaasExternalEndpointDatadogRequest);
+        api.createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogPayload);
         
         // TODO: test validations
     }
@@ -502,9 +502,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointElasticsearchTest() throws ApiException {
         String name = null;
-        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = null;
+        DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload = null;
         Operation response = 
-        api.createDbaasExternalEndpointElasticsearch(name, updateDbaasExternalEndpointElasticsearchRequest);
+        api.createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchPayload);
         
         // TODO: test validations
     }
@@ -520,9 +520,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointOpensearchTest() throws ApiException {
         String name = null;
-        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = null;
+        DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload = null;
         Operation response = 
-        api.createDbaasExternalEndpointOpensearch(name, updateDbaasExternalEndpointOpensearchRequest);
+        api.createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchPayload);
         
         // TODO: test validations
     }
@@ -538,9 +538,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointPrometheusTest() throws ApiException {
         String name = null;
-        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = null;
+        DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload = null;
         Operation response = 
-        api.createDbaasExternalEndpointPrometheus(name, updateDbaasExternalEndpointPrometheusRequest);
+        api.createDbaasExternalEndpointPrometheus(name, dbaasEndpointPrometheusPayload);
         
         // TODO: test validations
     }
@@ -556,9 +556,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointRsyslogTest() throws ApiException {
         String name = null;
-        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = null;
+        DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = null;
         Operation response = 
-        api.createDbaasExternalEndpointRsyslog(name, createDbaasExternalEndpointRsyslogRequest);
+        api.createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogPayload);
         
         // TODO: test validations
     }
@@ -4533,9 +4533,9 @@ public class ExoscaleApiTest {
     @Test
     public void updateDbaasExternalEndpointDatadogTest() throws ApiException {
         UUID id = null;
-        CreateDbaasExternalEndpointDatadogRequest createDbaasExternalEndpointDatadogRequest = null;
+        DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = null;
         Operation response = 
-        api.updateDbaasExternalEndpointDatadog(id, createDbaasExternalEndpointDatadogRequest);
+        api.updateDbaasExternalEndpointDatadog(id, dbaasEndpointDatadogPayload);
         
         // TODO: test validations
     }
@@ -4551,9 +4551,9 @@ public class ExoscaleApiTest {
     @Test
     public void updateDbaasExternalEndpointElasticsearchTest() throws ApiException {
         UUID id = null;
-        UpdateDbaasExternalEndpointElasticsearchRequest updateDbaasExternalEndpointElasticsearchRequest = null;
+        DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload = null;
         Operation response = 
-        api.updateDbaasExternalEndpointElasticsearch(id, updateDbaasExternalEndpointElasticsearchRequest);
+        api.updateDbaasExternalEndpointElasticsearch(id, dbaasEndpointElasticsearchPayload);
         
         // TODO: test validations
     }
@@ -4569,9 +4569,9 @@ public class ExoscaleApiTest {
     @Test
     public void updateDbaasExternalEndpointOpensearchTest() throws ApiException {
         UUID id = null;
-        UpdateDbaasExternalEndpointOpensearchRequest updateDbaasExternalEndpointOpensearchRequest = null;
+        DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload = null;
         Operation response = 
-        api.updateDbaasExternalEndpointOpensearch(id, updateDbaasExternalEndpointOpensearchRequest);
+        api.updateDbaasExternalEndpointOpensearch(id, dbaasEndpointOpensearchPayload);
         
         // TODO: test validations
     }
@@ -4587,9 +4587,9 @@ public class ExoscaleApiTest {
     @Test
     public void updateDbaasExternalEndpointPrometheusTest() throws ApiException {
         UUID id = null;
-        UpdateDbaasExternalEndpointPrometheusRequest updateDbaasExternalEndpointPrometheusRequest = null;
+        DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload = null;
         Operation response = 
-        api.updateDbaasExternalEndpointPrometheus(id, updateDbaasExternalEndpointPrometheusRequest);
+        api.updateDbaasExternalEndpointPrometheus(id, dbaasEndpointPrometheusPayload);
         
         // TODO: test validations
     }
@@ -4605,9 +4605,9 @@ public class ExoscaleApiTest {
     @Test
     public void updateDbaasExternalEndpointRsyslogTest() throws ApiException {
         UUID id = null;
-        CreateDbaasExternalEndpointRsyslogRequest createDbaasExternalEndpointRsyslogRequest = null;
+        DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = null;
         Operation response = 
-        api.updateDbaasExternalEndpointRsyslog(id, createDbaasExternalEndpointRsyslogRequest);
+        api.updateDbaasExternalEndpointRsyslog(id, dbaasEndpointRsyslogPayload);
         
         // TODO: test validations
     }
