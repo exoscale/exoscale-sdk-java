@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointDatadog;
+import com.exoscale.sdk.model.DbaasExternalEndpointDatadogOutputSettings;
 import com.exoscale.sdk.model.EnumExternalEndpointTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,7 +52,7 @@ public class DbaasExternalEndpointDatadogOutput {
   private UUID id;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointDatadog settings;
+  private DbaasExternalEndpointDatadogOutputSettings settings;
 
   public DbaasExternalEndpointDatadogOutput() { 
   }
@@ -132,7 +132,7 @@ public class DbaasExternalEndpointDatadogOutput {
   }
 
 
-  public DbaasExternalEndpointDatadogOutput settings(DbaasEndpointDatadog settings) {
+  public DbaasExternalEndpointDatadogOutput settings(DbaasExternalEndpointDatadogOutputSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -145,14 +145,14 @@ public class DbaasExternalEndpointDatadogOutput {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointDatadog getSettings() {
+  public DbaasExternalEndpointDatadogOutputSettings getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointDatadog settings) {
+  public void setSettings(DbaasExternalEndpointDatadogOutputSettings settings) {
     this.settings = settings;
   }
 

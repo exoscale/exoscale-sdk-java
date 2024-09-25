@@ -13,7 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasEndpointElasticsearch;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchOptionalFields;
 import com.exoscale.sdk.model.EnumExternalEndpointTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

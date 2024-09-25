@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointRsyslog;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogOptionalFields;
 import com.exoscale.sdk.model.EnumExternalEndpointTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,7 +52,7 @@ public class DbaasExternalEndpointRsyslogOutput {
   private UUID id;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointRsyslog settings;
+  private DbaasEndpointRsyslogOptionalFields settings;
 
   public DbaasExternalEndpointRsyslogOutput() { 
   }
@@ -132,7 +132,7 @@ public class DbaasExternalEndpointRsyslogOutput {
   }
 
 
-  public DbaasExternalEndpointRsyslogOutput settings(DbaasEndpointRsyslog settings) {
+  public DbaasExternalEndpointRsyslogOutput settings(DbaasEndpointRsyslogOptionalFields settings) {
     this.settings = settings;
     return this;
   }
@@ -145,14 +145,14 @@ public class DbaasExternalEndpointRsyslogOutput {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointRsyslog getSettings() {
+  public DbaasEndpointRsyslogOptionalFields getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointRsyslog settings) {
+  public void setSettings(DbaasEndpointRsyslogOptionalFields settings) {
     this.settings = settings;
   }
 

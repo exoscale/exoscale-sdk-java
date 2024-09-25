@@ -64,11 +64,11 @@ public class DbaasExternalIntegrationTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'integrationId'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void integrationIdTest() {
+        // TODO: test integrationId
     }
 
     /**

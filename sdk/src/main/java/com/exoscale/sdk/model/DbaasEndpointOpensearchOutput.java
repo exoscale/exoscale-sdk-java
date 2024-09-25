@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointOpensearch;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchOptionalFields;
 import com.exoscale.sdk.model.EnumExternalEndpointTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,7 +52,7 @@ public class DbaasEndpointOpensearchOutput {
   private UUID id;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointOpensearch settings;
+  private DbaasEndpointOpensearchOptionalFields settings;
 
   public DbaasEndpointOpensearchOutput() { 
   }
@@ -132,7 +132,7 @@ public class DbaasEndpointOpensearchOutput {
   }
 
 
-  public DbaasEndpointOpensearchOutput settings(DbaasEndpointOpensearch settings) {
+  public DbaasEndpointOpensearchOutput settings(DbaasEndpointOpensearchOptionalFields settings) {
     this.settings = settings;
     return this;
   }
@@ -145,14 +145,14 @@ public class DbaasEndpointOpensearchOutput {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointOpensearch getSettings() {
+  public DbaasEndpointOpensearchOptionalFields getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointOpensearch settings) {
+  public void setSettings(DbaasEndpointOpensearchOptionalFields settings) {
     this.settings = settings;
   }
 

@@ -58,11 +58,11 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
-| [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{id} |  |
-| [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} |  |
-| [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{id} |  |
-| [**deleteDbaasExternalEndpointPrometheus**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{id} |  |
-| [**deleteDbaasExternalEndpointRsyslog**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
+| [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
+| [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
+| [**deleteDbaasExternalEndpointPrometheus**](ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{endpoint-id} |  |
+| [**deleteDbaasExternalEndpointRsyslog**](ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{endpoint-id} |  |
 | [**deleteDbaasIntegration**](ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} |  |
 | [**deleteDbaasKafkaSchemaRegistryAclConfig**](ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry |
 | [**deleteDbaasKafkaTopicAclConfig**](ExoscaleApi.md#deleteDbaasKafkaTopicAclConfig) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry |
@@ -115,12 +115,12 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getBlockStorageVolume**](ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details |
 | [**getConsoleProxyUrl**](ExoscaleApi.md#getConsoleProxyUrl) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console. |
 | [**getDbaasCaCertificate**](ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
-| [**getDbaasExternalEndpointDatadog**](ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{id} |  |
-| [**getDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{id} |  |
-| [**getDbaasExternalEndpointOpensearch**](ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{id} |  |
-| [**getDbaasExternalEndpointPrometheus**](ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{id} |  |
-| [**getDbaasExternalEndpointRsyslog**](ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{id} |  |
-| [**getDbaasExternalIntegration**](ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} |  |
+| [**getDbaasExternalEndpointDatadog**](ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
+| [**getDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
+| [**getDbaasExternalEndpointOpensearch**](ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
+| [**getDbaasExternalEndpointPrometheus**](ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{endpoint-id} |  |
+| [**getDbaasExternalEndpointRsyslog**](ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{endpoint-id} |  |
+| [**getDbaasExternalIntegration**](ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{integration-id} |  |
 | [**getDbaasExternalIntegrationSettingsDatadog**](ExoscaleApi.md#getDbaasExternalIntegrationSettingsDatadog) | **GET** /dbaas-external-integration-settings-datadog/{integration-id} |  |
 | [**getDbaasIntegration**](ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} |  |
 | [**getDbaasKafkaAclConfig**](ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
@@ -252,11 +252,11 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
-| [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{id} |  |
-| [**updateDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} |  |
-| [**updateDbaasExternalEndpointOpensearch**](ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{id} |  |
-| [**updateDbaasExternalEndpointPrometheus**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{id} |  |
-| [**updateDbaasExternalEndpointRsyslog**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} |  |
+| [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
+| [**updateDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
+| [**updateDbaasExternalEndpointOpensearch**](ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
+| [**updateDbaasExternalEndpointPrometheus**](ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{endpoint-id} |  |
+| [**updateDbaasExternalEndpointRsyslog**](ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{endpoint-id} |  |
 | [**updateDbaasExternalIntegrationSettingsDatadog**](ExoscaleApi.md#updateDbaasExternalIntegrationSettingsDatadog) | **POST** /dbaas-external-integration-settings-datadog/{integration-id} |  |
 | [**updateDbaasIntegration**](ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} |  |
 | [**updateDbaasOpensearchAclConfig**](ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
@@ -1607,7 +1607,7 @@ No authorization required
 
 ## createDbaasExternalEndpointDatadog
 
-> Operation createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogPayload)
+> Operation createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogInputCreate)
 
 
 
@@ -1627,11 +1627,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = new DbaasEndpointDatadogPayload(); // DbaasEndpointDatadogPayload |  please add at least all the required fields
+        DbaasEndpointDatadogInputCreate dbaasEndpointDatadogInputCreate = new DbaasEndpointDatadogInputCreate(); // DbaasEndpointDatadogInputCreate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogPayload);
+            Operation result = client.createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogInputCreate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointDatadog");
@@ -1650,7 +1650,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointDatadogPayload** | [**DbaasEndpointDatadogPayload**](DbaasEndpointDatadogPayload.md)|  | |
+| **dbaasEndpointDatadogInputCreate** | [**DbaasEndpointDatadogInputCreate**](DbaasEndpointDatadogInputCreate.md)|  | |
 
 ### Return type
 
@@ -1678,7 +1678,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointDatadogPayload** | [**DbaasEndpointDatadogPayload**](DbaasEndpointDatadogPayload.md)|  | |
+| **dbaasEndpointDatadogInputCreate** | [**DbaasEndpointDatadogInputCreate**](DbaasEndpointDatadogInputCreate.md)|  | |
 
 ### Return type
 
@@ -1702,7 +1702,7 @@ No authorization required
 
 ## createDbaasExternalEndpointElasticsearch
 
-> Operation createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchPayload)
+> Operation createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchInputCreate)
 
 
 
@@ -1722,11 +1722,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload = new DbaasEndpointElasticsearchPayload(); // DbaasEndpointElasticsearchPayload |  please add at least all the required fields
+        DbaasEndpointElasticsearchInputCreate dbaasEndpointElasticsearchInputCreate = new DbaasEndpointElasticsearchInputCreate(); // DbaasEndpointElasticsearchInputCreate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchPayload);
+            Operation result = client.createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchInputCreate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointElasticsearch");
@@ -1745,7 +1745,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointElasticsearchPayload** | [**DbaasEndpointElasticsearchPayload**](DbaasEndpointElasticsearchPayload.md)|  | |
+| **dbaasEndpointElasticsearchInputCreate** | [**DbaasEndpointElasticsearchInputCreate**](DbaasEndpointElasticsearchInputCreate.md)|  | |
 
 ### Return type
 
@@ -1773,7 +1773,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointElasticsearchPayload** | [**DbaasEndpointElasticsearchPayload**](DbaasEndpointElasticsearchPayload.md)|  | |
+| **dbaasEndpointElasticsearchInputCreate** | [**DbaasEndpointElasticsearchInputCreate**](DbaasEndpointElasticsearchInputCreate.md)|  | |
 
 ### Return type
 
@@ -1797,7 +1797,7 @@ No authorization required
 
 ## createDbaasExternalEndpointOpensearch
 
-> Operation createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchPayload)
+> Operation createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchInputCreate)
 
 
 
@@ -1817,11 +1817,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload = new DbaasEndpointOpensearchPayload(); // DbaasEndpointOpensearchPayload |  please add at least all the required fields
+        DbaasEndpointOpensearchInputCreate dbaasEndpointOpensearchInputCreate = new DbaasEndpointOpensearchInputCreate(); // DbaasEndpointOpensearchInputCreate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchPayload);
+            Operation result = client.createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchInputCreate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointOpensearch");
@@ -1840,7 +1840,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointOpensearchPayload** | [**DbaasEndpointOpensearchPayload**](DbaasEndpointOpensearchPayload.md)|  | |
+| **dbaasEndpointOpensearchInputCreate** | [**DbaasEndpointOpensearchInputCreate**](DbaasEndpointOpensearchInputCreate.md)|  | |
 
 ### Return type
 
@@ -1868,7 +1868,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointOpensearchPayload** | [**DbaasEndpointOpensearchPayload**](DbaasEndpointOpensearchPayload.md)|  | |
+| **dbaasEndpointOpensearchInputCreate** | [**DbaasEndpointOpensearchInputCreate**](DbaasEndpointOpensearchInputCreate.md)|  | |
 
 ### Return type
 
@@ -1987,7 +1987,7 @@ No authorization required
 
 ## createDbaasExternalEndpointRsyslog
 
-> Operation createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogPayload)
+> Operation createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogInputCreate)
 
 
 
@@ -2007,11 +2007,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String name = "name_example"; // String | 
-        DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = new DbaasEndpointRsyslogPayload(); // DbaasEndpointRsyslogPayload |  please add at least all the required fields
+        DbaasEndpointRsyslogInputCreate dbaasEndpointRsyslogInputCreate = new DbaasEndpointRsyslogInputCreate(); // DbaasEndpointRsyslogInputCreate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogPayload);
+            Operation result = client.createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogInputCreate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasExternalEndpointRsyslog");
@@ -2030,7 +2030,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointRsyslogPayload** | [**DbaasEndpointRsyslogPayload**](DbaasEndpointRsyslogPayload.md)|  | |
+| **dbaasEndpointRsyslogInputCreate** | [**DbaasEndpointRsyslogInputCreate**](DbaasEndpointRsyslogInputCreate.md)|  | |
 
 ### Return type
 
@@ -2058,7 +2058,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
-| **dbaasEndpointRsyslogPayload** | [**DbaasEndpointRsyslogPayload**](DbaasEndpointRsyslogPayload.md)|  | |
+| **dbaasEndpointRsyslogInputCreate** | [**DbaasEndpointRsyslogInputCreate**](DbaasEndpointRsyslogInputCreate.md)|  | |
 
 ### Return type
 
@@ -5340,7 +5340,7 @@ No authorization required
 
 ## deleteDbaasExternalEndpointDatadog
 
-> Operation deleteDbaasExternalEndpointDatadog(id)
+> Operation deleteDbaasExternalEndpointDatadog(endpointId)
 
 
 
@@ -5359,11 +5359,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            Operation result = client.deleteDbaasExternalEndpointDatadog(id);
+            Operation result = client.deleteDbaasExternalEndpointDatadog(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointDatadog");
@@ -5381,7 +5381,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5408,7 +5408,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5432,7 +5432,7 @@ No authorization required
 
 ## deleteDbaasExternalEndpointElasticsearch
 
-> Operation deleteDbaasExternalEndpointElasticsearch(id)
+> Operation deleteDbaasExternalEndpointElasticsearch(endpointId)
 
 
 
@@ -5451,11 +5451,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            Operation result = client.deleteDbaasExternalEndpointElasticsearch(id);
+            Operation result = client.deleteDbaasExternalEndpointElasticsearch(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointElasticsearch");
@@ -5473,7 +5473,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5500,7 +5500,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5524,7 +5524,7 @@ No authorization required
 
 ## deleteDbaasExternalEndpointOpensearch
 
-> Operation deleteDbaasExternalEndpointOpensearch(id)
+> Operation deleteDbaasExternalEndpointOpensearch(endpointId)
 
 
 
@@ -5543,11 +5543,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            Operation result = client.deleteDbaasExternalEndpointOpensearch(id);
+            Operation result = client.deleteDbaasExternalEndpointOpensearch(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointOpensearch");
@@ -5565,7 +5565,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5592,7 +5592,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5616,7 +5616,7 @@ No authorization required
 
 ## deleteDbaasExternalEndpointPrometheus
 
-> Operation deleteDbaasExternalEndpointPrometheus(id)
+> Operation deleteDbaasExternalEndpointPrometheus(endpointId)
 
 
 
@@ -5635,11 +5635,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            Operation result = client.deleteDbaasExternalEndpointPrometheus(id);
+            Operation result = client.deleteDbaasExternalEndpointPrometheus(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointPrometheus");
@@ -5657,7 +5657,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5684,7 +5684,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5708,7 +5708,7 @@ No authorization required
 
 ## deleteDbaasExternalEndpointRsyslog
 
-> Operation deleteDbaasExternalEndpointRsyslog(id)
+> Operation deleteDbaasExternalEndpointRsyslog(endpointId)
 
 
 
@@ -5727,11 +5727,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            Operation result = client.deleteDbaasExternalEndpointRsyslog(id);
+            Operation result = client.deleteDbaasExternalEndpointRsyslog(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasExternalEndpointRsyslog");
@@ -5749,7 +5749,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -5776,7 +5776,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10609,7 +10609,7 @@ No authorization required
 
 ## getDbaasExternalEndpointDatadog
 
-> DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(id)
+> DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(endpointId)
 
 
 
@@ -10628,11 +10628,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            DbaasExternalEndpointDatadogOutput result = client.getDbaasExternalEndpointDatadog(id);
+            DbaasExternalEndpointDatadogOutput result = client.getDbaasExternalEndpointDatadog(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointDatadog");
@@ -10650,7 +10650,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10677,7 +10677,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10701,7 +10701,7 @@ No authorization required
 
 ## getDbaasExternalEndpointElasticsearch
 
-> DbaasEndpointElasticsearchOutput getDbaasExternalEndpointElasticsearch(id)
+> DbaasEndpointElasticsearchOutput getDbaasExternalEndpointElasticsearch(endpointId)
 
 
 
@@ -10720,11 +10720,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            DbaasEndpointElasticsearchOutput result = client.getDbaasExternalEndpointElasticsearch(id);
+            DbaasEndpointElasticsearchOutput result = client.getDbaasExternalEndpointElasticsearch(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointElasticsearch");
@@ -10742,7 +10742,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10769,7 +10769,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10793,7 +10793,7 @@ No authorization required
 
 ## getDbaasExternalEndpointOpensearch
 
-> DbaasEndpointOpensearchOutput getDbaasExternalEndpointOpensearch(id)
+> DbaasEndpointOpensearchOutput getDbaasExternalEndpointOpensearch(endpointId)
 
 
 
@@ -10812,11 +10812,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            DbaasEndpointOpensearchOutput result = client.getDbaasExternalEndpointOpensearch(id);
+            DbaasEndpointOpensearchOutput result = client.getDbaasExternalEndpointOpensearch(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointOpensearch");
@@ -10834,7 +10834,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10861,7 +10861,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10885,7 +10885,7 @@ No authorization required
 
 ## getDbaasExternalEndpointPrometheus
 
-> DbaasEndpointExternalPrometheusOutput getDbaasExternalEndpointPrometheus(id)
+> DbaasEndpointExternalPrometheusOutput getDbaasExternalEndpointPrometheus(endpointId)
 
 
 
@@ -10904,11 +10904,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            DbaasEndpointExternalPrometheusOutput result = client.getDbaasExternalEndpointPrometheus(id);
+            DbaasEndpointExternalPrometheusOutput result = client.getDbaasExternalEndpointPrometheus(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointPrometheus");
@@ -10926,7 +10926,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10953,7 +10953,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -10977,7 +10977,7 @@ No authorization required
 
 ## getDbaasExternalEndpointRsyslog
 
-> DbaasExternalEndpointRsyslogOutput getDbaasExternalEndpointRsyslog(id)
+> DbaasExternalEndpointRsyslogOutput getDbaasExternalEndpointRsyslog(endpointId)
 
 
 
@@ -10996,11 +10996,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            DbaasExternalEndpointRsyslogOutput result = client.getDbaasExternalEndpointRsyslog(id);
+            DbaasExternalEndpointRsyslogOutput result = client.getDbaasExternalEndpointRsyslog(endpointId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalEndpointRsyslog");
@@ -11018,7 +11018,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -11045,7 +11045,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 
 ### Return type
 
@@ -11069,7 +11069,7 @@ No authorization required
 
 ## getDbaasExternalIntegration
 
-> DbaasExternalIntegration getDbaasExternalIntegration(id)
+> DbaasExternalIntegration getDbaasExternalIntegration(integrationId)
 
 
 
@@ -11088,11 +11088,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID integrationId = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            DbaasExternalIntegration result = client.getDbaasExternalIntegration(id);
+            DbaasExternalIntegration result = client.getDbaasExternalIntegration(integrationId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDbaasExternalIntegration");
@@ -11110,7 +11110,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **integrationId** | **UUID**|  | |
 
 ### Return type
 
@@ -11137,7 +11137,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **integrationId** | **UUID**|  | |
 
 ### Return type
 
@@ -23126,7 +23126,7 @@ No authorization required
 
 ## updateDbaasExternalEndpointDatadog
 
-> Operation updateDbaasExternalEndpointDatadog(id, dbaasEndpointDatadogPayload)
+> Operation updateDbaasExternalEndpointDatadog(endpointId, dbaasEndpointDatadogInputUpdate)
 
 
 
@@ -23145,12 +23145,12 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = new DbaasEndpointDatadogPayload(); // DbaasEndpointDatadogPayload |  please add at least all the required fields
+        UUID endpointId = UUID.randomUUID(); // UUID | 
+        DbaasEndpointDatadogInputUpdate dbaasEndpointDatadogInputUpdate = new DbaasEndpointDatadogInputUpdate(); // DbaasEndpointDatadogInputUpdate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.updateDbaasExternalEndpointDatadog(id, dbaasEndpointDatadogPayload);
+            Operation result = client.updateDbaasExternalEndpointDatadog(endpointId, dbaasEndpointDatadogInputUpdate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointDatadog");
@@ -23168,8 +23168,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointDatadogPayload** | [**DbaasEndpointDatadogPayload**](DbaasEndpointDatadogPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointDatadogInputUpdate** | [**DbaasEndpointDatadogInputUpdate**](DbaasEndpointDatadogInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23196,8 +23196,8 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointDatadogPayload** | [**DbaasEndpointDatadogPayload**](DbaasEndpointDatadogPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointDatadogInputUpdate** | [**DbaasEndpointDatadogInputUpdate**](DbaasEndpointDatadogInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23221,7 +23221,7 @@ No authorization required
 
 ## updateDbaasExternalEndpointElasticsearch
 
-> Operation updateDbaasExternalEndpointElasticsearch(id, dbaasEndpointElasticsearchPayload)
+> Operation updateDbaasExternalEndpointElasticsearch(endpointId, dbaasEndpointElasticsearchInputUpdate)
 
 
 
@@ -23240,12 +23240,12 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload = new DbaasEndpointElasticsearchPayload(); // DbaasEndpointElasticsearchPayload |  please add at least all the required fields
+        UUID endpointId = UUID.randomUUID(); // UUID | 
+        DbaasEndpointElasticsearchInputUpdate dbaasEndpointElasticsearchInputUpdate = new DbaasEndpointElasticsearchInputUpdate(); // DbaasEndpointElasticsearchInputUpdate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.updateDbaasExternalEndpointElasticsearch(id, dbaasEndpointElasticsearchPayload);
+            Operation result = client.updateDbaasExternalEndpointElasticsearch(endpointId, dbaasEndpointElasticsearchInputUpdate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointElasticsearch");
@@ -23263,8 +23263,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointElasticsearchPayload** | [**DbaasEndpointElasticsearchPayload**](DbaasEndpointElasticsearchPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointElasticsearchInputUpdate** | [**DbaasEndpointElasticsearchInputUpdate**](DbaasEndpointElasticsearchInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23291,8 +23291,8 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointElasticsearchPayload** | [**DbaasEndpointElasticsearchPayload**](DbaasEndpointElasticsearchPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointElasticsearchInputUpdate** | [**DbaasEndpointElasticsearchInputUpdate**](DbaasEndpointElasticsearchInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23316,7 +23316,7 @@ No authorization required
 
 ## updateDbaasExternalEndpointOpensearch
 
-> Operation updateDbaasExternalEndpointOpensearch(id, dbaasEndpointOpensearchPayload)
+> Operation updateDbaasExternalEndpointOpensearch(endpointId, dbaasEndpointOpensearchInputUpdate)
 
 
 
@@ -23335,12 +23335,12 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload = new DbaasEndpointOpensearchPayload(); // DbaasEndpointOpensearchPayload |  please add at least all the required fields
+        UUID endpointId = UUID.randomUUID(); // UUID | 
+        DbaasEndpointOpensearchInputUpdate dbaasEndpointOpensearchInputUpdate = new DbaasEndpointOpensearchInputUpdate(); // DbaasEndpointOpensearchInputUpdate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.updateDbaasExternalEndpointOpensearch(id, dbaasEndpointOpensearchPayload);
+            Operation result = client.updateDbaasExternalEndpointOpensearch(endpointId, dbaasEndpointOpensearchInputUpdate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointOpensearch");
@@ -23358,8 +23358,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointOpensearchPayload** | [**DbaasEndpointOpensearchPayload**](DbaasEndpointOpensearchPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointOpensearchInputUpdate** | [**DbaasEndpointOpensearchInputUpdate**](DbaasEndpointOpensearchInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23386,8 +23386,8 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointOpensearchPayload** | [**DbaasEndpointOpensearchPayload**](DbaasEndpointOpensearchPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointOpensearchInputUpdate** | [**DbaasEndpointOpensearchInputUpdate**](DbaasEndpointOpensearchInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23411,7 +23411,7 @@ No authorization required
 
 ## updateDbaasExternalEndpointPrometheus
 
-> Operation updateDbaasExternalEndpointPrometheus(id, dbaasEndpointPrometheusPayload)
+> Operation updateDbaasExternalEndpointPrometheus(endpointId, dbaasEndpointPrometheusPayload)
 
 
 
@@ -23430,12 +23430,12 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
+        UUID endpointId = UUID.randomUUID(); // UUID | 
         DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload = new DbaasEndpointPrometheusPayload(); // DbaasEndpointPrometheusPayload |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.updateDbaasExternalEndpointPrometheus(id, dbaasEndpointPrometheusPayload);
+            Operation result = client.updateDbaasExternalEndpointPrometheus(endpointId, dbaasEndpointPrometheusPayload);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointPrometheus");
@@ -23453,7 +23453,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 | **dbaasEndpointPrometheusPayload** | [**DbaasEndpointPrometheusPayload**](DbaasEndpointPrometheusPayload.md)|  | |
 
 ### Return type
@@ -23481,7 +23481,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
+| **endpointId** | **UUID**|  | |
 | **dbaasEndpointPrometheusPayload** | [**DbaasEndpointPrometheusPayload**](DbaasEndpointPrometheusPayload.md)|  | |
 
 ### Return type
@@ -23506,7 +23506,7 @@ No authorization required
 
 ## updateDbaasExternalEndpointRsyslog
 
-> Operation updateDbaasExternalEndpointRsyslog(id, dbaasEndpointRsyslogPayload)
+> Operation updateDbaasExternalEndpointRsyslog(endpointId, dbaasEndpointRsyslogInputUpdate)
 
 
 
@@ -23525,12 +23525,12 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = new DbaasEndpointRsyslogPayload(); // DbaasEndpointRsyslogPayload |  please add at least all the required fields
+        UUID endpointId = UUID.randomUUID(); // UUID | 
+        DbaasEndpointRsyslogInputUpdate dbaasEndpointRsyslogInputUpdate = new DbaasEndpointRsyslogInputUpdate(); // DbaasEndpointRsyslogInputUpdate |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.updateDbaasExternalEndpointRsyslog(id, dbaasEndpointRsyslogPayload);
+            Operation result = client.updateDbaasExternalEndpointRsyslog(endpointId, dbaasEndpointRsyslogInputUpdate);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#updateDbaasExternalEndpointRsyslog");
@@ -23548,8 +23548,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointRsyslogPayload** | [**DbaasEndpointRsyslogPayload**](DbaasEndpointRsyslogPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointRsyslogInputUpdate** | [**DbaasEndpointRsyslogInputUpdate**](DbaasEndpointRsyslogInputUpdate.md)|  | |
 
 ### Return type
 
@@ -23576,8 +23576,8 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **dbaasEndpointRsyslogPayload** | [**DbaasEndpointRsyslogPayload**](DbaasEndpointRsyslogPayload.md)|  | |
+| **endpointId** | **UUID**|  | |
+| **dbaasEndpointRsyslogInputUpdate** | [**DbaasEndpointRsyslogInputUpdate**](DbaasEndpointRsyslogInputUpdate.md)|  | |
 
 ### Return type
 

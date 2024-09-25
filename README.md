@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2024-09-20T07:06:16.645494Z[Etc/UTC]
+- Build date: 2024-09-25T07:06:12.003175Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.13-ALPHA</version>
+    <version>0.0.14-ALPHA</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.13-ALPHA'
+  implementation 'com.exoscale.sdk:sdk:0.0.14-ALPHA'
 }
 ```
 
@@ -137,11 +137,11 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
 *ExoscaleApi* | [**deleteBlockStorageVolume**](sdk/docs/ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
-*ExoscaleApi* | [**deleteDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{id} | 
-*ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{id} | 
-*ExoscaleApi* | [**deleteDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{id} | 
-*ExoscaleApi* | [**deleteDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{id} | 
-*ExoscaleApi* | [**deleteDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointPrometheus) | **DELETE** /dbaas-external-endpoint-prometheus/{endpoint-id} | 
+*ExoscaleApi* | [**deleteDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointRsyslog) | **DELETE** /dbaas-external-endpoint-rsyslog/{endpoint-id} | 
 *ExoscaleApi* | [**deleteDbaasIntegration**](sdk/docs/ExoscaleApi.md#deleteDbaasIntegration) | **DELETE** /dbaas-integration/{id} | 
 *ExoscaleApi* | [**deleteDbaasKafkaSchemaRegistryAclConfig**](sdk/docs/ExoscaleApi.md#deleteDbaasKafkaSchemaRegistryAclConfig) | **DELETE** /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id} | Delete a Kafka ACL entry
 *ExoscaleApi* | [**deleteDbaasKafkaTopicAclConfig**](sdk/docs/ExoscaleApi.md#deleteDbaasKafkaTopicAclConfig) | **DELETE** /dbaas-kafka/{name}/topic/acl-config/{acl-id} | Delete a Kafka ACL entry
@@ -194,12 +194,12 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getBlockStorageVolume**](sdk/docs/ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details
 *ExoscaleApi* | [**getConsoleProxyUrl**](sdk/docs/ExoscaleApi.md#getConsoleProxyUrl) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console.
 *ExoscaleApi* | [**getDbaasCaCertificate**](sdk/docs/ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
-*ExoscaleApi* | [**getDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{id} | 
-*ExoscaleApi* | [**getDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{id} | 
-*ExoscaleApi* | [**getDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{id} | 
-*ExoscaleApi* | [**getDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{id} | 
-*ExoscaleApi* | [**getDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{id} | 
-*ExoscaleApi* | [**getDbaasExternalIntegration**](sdk/docs/ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{endpoint-id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{endpoint-id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointPrometheus) | **GET** /dbaas-external-endpoint-prometheus/{endpoint-id} | 
+*ExoscaleApi* | [**getDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointRsyslog) | **GET** /dbaas-external-endpoint-rsyslog/{endpoint-id} | 
+*ExoscaleApi* | [**getDbaasExternalIntegration**](sdk/docs/ExoscaleApi.md#getDbaasExternalIntegration) | **GET** /dbaas-external-integration/{integration-id} | 
 *ExoscaleApi* | [**getDbaasExternalIntegrationSettingsDatadog**](sdk/docs/ExoscaleApi.md#getDbaasExternalIntegrationSettingsDatadog) | **GET** /dbaas-external-integration-settings-datadog/{integration-id} | 
 *ExoscaleApi* | [**getDbaasIntegration**](sdk/docs/ExoscaleApi.md#getDbaasIntegration) | **GET** /dbaas-integration/{id} | 
 *ExoscaleApi* | [**getDbaasKafkaAclConfig**](sdk/docs/ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
@@ -331,11 +331,11 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**stopInstance**](sdk/docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
 *ExoscaleApi* | [**updateBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](sdk/docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
-*ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{id} | 
-*ExoscaleApi* | [**updateDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{id} | 
-*ExoscaleApi* | [**updateDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{id} | 
-*ExoscaleApi* | [**updateDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{id} | 
-*ExoscaleApi* | [**updateDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointElasticsearch) | **PUT** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointOpensearch) | **PUT** /dbaas-external-endpoint-opensearch/{endpoint-id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointPrometheus**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointPrometheus) | **PUT** /dbaas-external-endpoint-prometheus/{endpoint-id} | 
+*ExoscaleApi* | [**updateDbaasExternalEndpointRsyslog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointRsyslog) | **PUT** /dbaas-external-endpoint-rsyslog/{endpoint-id} | 
 *ExoscaleApi* | [**updateDbaasExternalIntegrationSettingsDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalIntegrationSettingsDatadog) | **POST** /dbaas-external-integration-settings-datadog/{integration-id} | 
 *ExoscaleApi* | [**updateDbaasIntegration**](sdk/docs/ExoscaleApi.md#updateDbaasIntegration) | **PUT** /dbaas-integration/{id} | 
 *ExoscaleApi* | [**updateDbaasOpensearchAclConfig**](sdk/docs/ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
@@ -423,31 +423,44 @@ Class | Method | HTTP request | Description
  - [CreateSksNodepoolRequest](sdk/docs/CreateSksNodepoolRequest.md)
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
  - [DbaasDatadogTag](sdk/docs/DbaasDatadogTag.md)
- - [DbaasEndpointDatadog](sdk/docs/DbaasEndpointDatadog.md)
- - [DbaasEndpointDatadogPayload](sdk/docs/DbaasEndpointDatadogPayload.md)
- - [DbaasEndpointDatadogPayloadSettings](sdk/docs/DbaasEndpointDatadogPayloadSettings.md)
- - [DbaasEndpointDatadogSecrets](sdk/docs/DbaasEndpointDatadogSecrets.md)
+ - [DbaasEndpointDatadogCommon](sdk/docs/DbaasEndpointDatadogCommon.md)
+ - [DbaasEndpointDatadogInputCreate](sdk/docs/DbaasEndpointDatadogInputCreate.md)
+ - [DbaasEndpointDatadogInputCreateSettings](sdk/docs/DbaasEndpointDatadogInputCreateSettings.md)
+ - [DbaasEndpointDatadogInputUpdate](sdk/docs/DbaasEndpointDatadogInputUpdate.md)
+ - [DbaasEndpointDatadogInputUpdateSettings](sdk/docs/DbaasEndpointDatadogInputUpdateSettings.md)
+ - [DbaasEndpointDatadogSettings](sdk/docs/DbaasEndpointDatadogSettings.md)
  - [DbaasEndpointElasticsearch](sdk/docs/DbaasEndpointElasticsearch.md)
+ - [DbaasEndpointElasticsearchInputCreate](sdk/docs/DbaasEndpointElasticsearchInputCreate.md)
+ - [DbaasEndpointElasticsearchInputCreateSettings](sdk/docs/DbaasEndpointElasticsearchInputCreateSettings.md)
+ - [DbaasEndpointElasticsearchInputUpdate](sdk/docs/DbaasEndpointElasticsearchInputUpdate.md)
+ - [DbaasEndpointElasticsearchInputUpdateSettings](sdk/docs/DbaasEndpointElasticsearchInputUpdateSettings.md)
+ - [DbaasEndpointElasticsearchOptionalFields](sdk/docs/DbaasEndpointElasticsearchOptionalFields.md)
  - [DbaasEndpointElasticsearchOutput](sdk/docs/DbaasEndpointElasticsearchOutput.md)
- - [DbaasEndpointElasticsearchPayload](sdk/docs/DbaasEndpointElasticsearchPayload.md)
- - [DbaasEndpointElasticsearchPayloadSettings](sdk/docs/DbaasEndpointElasticsearchPayloadSettings.md)
  - [DbaasEndpointElasticsearchSecrets](sdk/docs/DbaasEndpointElasticsearchSecrets.md)
  - [DbaasEndpointExternalPrometheusOutput](sdk/docs/DbaasEndpointExternalPrometheusOutput.md)
+ - [DbaasEndpointExternalPrometheusOutputSettings](sdk/docs/DbaasEndpointExternalPrometheusOutputSettings.md)
  - [DbaasEndpointOpensearch](sdk/docs/DbaasEndpointOpensearch.md)
+ - [DbaasEndpointOpensearchInputCreate](sdk/docs/DbaasEndpointOpensearchInputCreate.md)
+ - [DbaasEndpointOpensearchInputCreateSettings](sdk/docs/DbaasEndpointOpensearchInputCreateSettings.md)
+ - [DbaasEndpointOpensearchInputUpdate](sdk/docs/DbaasEndpointOpensearchInputUpdate.md)
+ - [DbaasEndpointOpensearchInputUpdateSettings](sdk/docs/DbaasEndpointOpensearchInputUpdateSettings.md)
+ - [DbaasEndpointOpensearchOptionalFields](sdk/docs/DbaasEndpointOpensearchOptionalFields.md)
  - [DbaasEndpointOpensearchOutput](sdk/docs/DbaasEndpointOpensearchOutput.md)
- - [DbaasEndpointOpensearchPayload](sdk/docs/DbaasEndpointOpensearchPayload.md)
- - [DbaasEndpointOpensearchPayloadSettings](sdk/docs/DbaasEndpointOpensearchPayloadSettings.md)
  - [DbaasEndpointOpensearchSecrets](sdk/docs/DbaasEndpointOpensearchSecrets.md)
  - [DbaasEndpointPrometheus](sdk/docs/DbaasEndpointPrometheus.md)
  - [DbaasEndpointPrometheusPayload](sdk/docs/DbaasEndpointPrometheusPayload.md)
  - [DbaasEndpointPrometheusPayloadSettings](sdk/docs/DbaasEndpointPrometheusPayloadSettings.md)
  - [DbaasEndpointPrometheusSecrets](sdk/docs/DbaasEndpointPrometheusSecrets.md)
  - [DbaasEndpointRsyslog](sdk/docs/DbaasEndpointRsyslog.md)
- - [DbaasEndpointRsyslogPayload](sdk/docs/DbaasEndpointRsyslogPayload.md)
- - [DbaasEndpointRsyslogPayloadSettings](sdk/docs/DbaasEndpointRsyslogPayloadSettings.md)
+ - [DbaasEndpointRsyslogInputCreate](sdk/docs/DbaasEndpointRsyslogInputCreate.md)
+ - [DbaasEndpointRsyslogInputCreateSettings](sdk/docs/DbaasEndpointRsyslogInputCreateSettings.md)
+ - [DbaasEndpointRsyslogInputUpdate](sdk/docs/DbaasEndpointRsyslogInputUpdate.md)
+ - [DbaasEndpointRsyslogInputUpdateSettings](sdk/docs/DbaasEndpointRsyslogInputUpdateSettings.md)
+ - [DbaasEndpointRsyslogOptionalFields](sdk/docs/DbaasEndpointRsyslogOptionalFields.md)
  - [DbaasEndpointRsyslogSecrets](sdk/docs/DbaasEndpointRsyslogSecrets.md)
  - [DbaasExternalEndpoint](sdk/docs/DbaasExternalEndpoint.md)
  - [DbaasExternalEndpointDatadogOutput](sdk/docs/DbaasExternalEndpointDatadogOutput.md)
+ - [DbaasExternalEndpointDatadogOutputSettings](sdk/docs/DbaasExternalEndpointDatadogOutputSettings.md)
  - [DbaasExternalEndpointRsyslogOutput](sdk/docs/DbaasExternalEndpointRsyslogOutput.md)
  - [DbaasExternalIntegration](sdk/docs/DbaasExternalIntegration.md)
  - [DbaasIntegration](sdk/docs/DbaasIntegration.md)

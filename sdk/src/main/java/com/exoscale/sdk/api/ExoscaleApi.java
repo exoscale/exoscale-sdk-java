@@ -58,14 +58,18 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
-import com.exoscale.sdk.model.DbaasEndpointDatadogPayload;
+import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchOutput;
-import com.exoscale.sdk.model.DbaasEndpointElasticsearchPayload;
 import com.exoscale.sdk.model.DbaasEndpointExternalPrometheusOutput;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointOpensearchOutput;
-import com.exoscale.sdk.model.DbaasEndpointOpensearchPayload;
 import com.exoscale.sdk.model.DbaasEndpointPrometheusPayload;
-import com.exoscale.sdk.model.DbaasEndpointRsyslogPayload;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogInputUpdate;
 import com.exoscale.sdk.model.DbaasExternalEndpointDatadogOutput;
 import com.exoscale.sdk.model.DbaasExternalEndpointRsyslogOutput;
 import com.exoscale.sdk.model.DbaasExternalIntegration;
@@ -1561,12 +1565,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create DataDog external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointDatadogPayload  (required)
+   * @param dbaasEndpointDatadogInputCreate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation createDbaasExternalEndpointDatadog(String name, DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointDatadogWithHttpInfo(name, dbaasEndpointDatadogPayload);
+  public Operation createDbaasExternalEndpointDatadog(String name, DbaasEndpointDatadogInputCreate dbaasEndpointDatadogInputCreate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointDatadogWithHttpInfo(name, dbaasEndpointDatadogInputCreate);
     return localVarResponse.getData();
   }
 
@@ -1574,12 +1578,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create DataDog external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointDatadogPayload  (required)
+   * @param dbaasEndpointDatadogInputCreate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> createDbaasExternalEndpointDatadogWithHttpInfo(String name, DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointDatadogRequestBuilder(name, dbaasEndpointDatadogPayload);
+  private ApiResponse<Operation> createDbaasExternalEndpointDatadogWithHttpInfo(String name, DbaasEndpointDatadogInputCreate dbaasEndpointDatadogInputCreate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointDatadogRequestBuilder(name, dbaasEndpointDatadogInputCreate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1607,14 +1611,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder createDbaasExternalEndpointDatadogRequestBuilder(String name, DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload) throws ApiException {
+  private HttpRequest.Builder createDbaasExternalEndpointDatadogRequestBuilder(String name, DbaasEndpointDatadogInputCreate dbaasEndpointDatadogInputCreate) throws ApiException {
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointDatadog");
     }
-    // verify the required parameter 'dbaasEndpointDatadogPayload' is set
-    if (dbaasEndpointDatadogPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointDatadogPayload' when calling createDbaasExternalEndpointDatadog");
+    // verify the required parameter 'dbaasEndpointDatadogInputCreate' is set
+    if (dbaasEndpointDatadogInputCreate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointDatadogInputCreate' when calling createDbaasExternalEndpointDatadog");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -1625,7 +1629,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointDatadogPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointDatadogInputCreate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1655,12 +1659,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create ElasticSearch Logs external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointElasticsearchPayload  (required)
+   * @param dbaasEndpointElasticsearchInputCreate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation createDbaasExternalEndpointElasticsearch(String name, DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointElasticsearchWithHttpInfo(name, dbaasEndpointElasticsearchPayload);
+  public Operation createDbaasExternalEndpointElasticsearch(String name, DbaasEndpointElasticsearchInputCreate dbaasEndpointElasticsearchInputCreate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointElasticsearchWithHttpInfo(name, dbaasEndpointElasticsearchInputCreate);
     return localVarResponse.getData();
   }
 
@@ -1668,12 +1672,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create ElasticSearch Logs external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointElasticsearchPayload  (required)
+   * @param dbaasEndpointElasticsearchInputCreate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> createDbaasExternalEndpointElasticsearchWithHttpInfo(String name, DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointElasticsearchRequestBuilder(name, dbaasEndpointElasticsearchPayload);
+  private ApiResponse<Operation> createDbaasExternalEndpointElasticsearchWithHttpInfo(String name, DbaasEndpointElasticsearchInputCreate dbaasEndpointElasticsearchInputCreate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointElasticsearchRequestBuilder(name, dbaasEndpointElasticsearchInputCreate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1701,14 +1705,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder createDbaasExternalEndpointElasticsearchRequestBuilder(String name, DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload) throws ApiException {
+  private HttpRequest.Builder createDbaasExternalEndpointElasticsearchRequestBuilder(String name, DbaasEndpointElasticsearchInputCreate dbaasEndpointElasticsearchInputCreate) throws ApiException {
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointElasticsearch");
     }
-    // verify the required parameter 'dbaasEndpointElasticsearchPayload' is set
-    if (dbaasEndpointElasticsearchPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointElasticsearchPayload' when calling createDbaasExternalEndpointElasticsearch");
+    // verify the required parameter 'dbaasEndpointElasticsearchInputCreate' is set
+    if (dbaasEndpointElasticsearchInputCreate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointElasticsearchInputCreate' when calling createDbaasExternalEndpointElasticsearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -1719,7 +1723,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointElasticsearchPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointElasticsearchInputCreate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1749,12 +1753,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create OpenSearch Logs external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointOpensearchPayload  (required)
+   * @param dbaasEndpointOpensearchInputCreate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation createDbaasExternalEndpointOpensearch(String name, DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointOpensearchWithHttpInfo(name, dbaasEndpointOpensearchPayload);
+  public Operation createDbaasExternalEndpointOpensearch(String name, DbaasEndpointOpensearchInputCreate dbaasEndpointOpensearchInputCreate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointOpensearchWithHttpInfo(name, dbaasEndpointOpensearchInputCreate);
     return localVarResponse.getData();
   }
 
@@ -1762,12 +1766,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create OpenSearch Logs external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointOpensearchPayload  (required)
+   * @param dbaasEndpointOpensearchInputCreate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> createDbaasExternalEndpointOpensearchWithHttpInfo(String name, DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointOpensearchRequestBuilder(name, dbaasEndpointOpensearchPayload);
+  private ApiResponse<Operation> createDbaasExternalEndpointOpensearchWithHttpInfo(String name, DbaasEndpointOpensearchInputCreate dbaasEndpointOpensearchInputCreate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointOpensearchRequestBuilder(name, dbaasEndpointOpensearchInputCreate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1795,14 +1799,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder createDbaasExternalEndpointOpensearchRequestBuilder(String name, DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload) throws ApiException {
+  private HttpRequest.Builder createDbaasExternalEndpointOpensearchRequestBuilder(String name, DbaasEndpointOpensearchInputCreate dbaasEndpointOpensearchInputCreate) throws ApiException {
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointOpensearch");
     }
-    // verify the required parameter 'dbaasEndpointOpensearchPayload' is set
-    if (dbaasEndpointOpensearchPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointOpensearchPayload' when calling createDbaasExternalEndpointOpensearch");
+    // verify the required parameter 'dbaasEndpointOpensearchInputCreate' is set
+    if (dbaasEndpointOpensearchInputCreate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointOpensearchInputCreate' when calling createDbaasExternalEndpointOpensearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -1813,7 +1817,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointOpensearchPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointOpensearchInputCreate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1937,12 +1941,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create RSyslog external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointRsyslogPayload  (required)
+   * @param dbaasEndpointRsyslogInputCreate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation createDbaasExternalEndpointRsyslog(String name, DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointRsyslogWithHttpInfo(name, dbaasEndpointRsyslogPayload);
+  public Operation createDbaasExternalEndpointRsyslog(String name, DbaasEndpointRsyslogInputCreate dbaasEndpointRsyslogInputCreate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasExternalEndpointRsyslogWithHttpInfo(name, dbaasEndpointRsyslogInputCreate);
     return localVarResponse.getData();
   }
 
@@ -1950,12 +1954,12 @@ public class ExoscaleApi {
    * 
    * [BETA] Create RSyslog external integration endpoint
    * @param name  (required)
-   * @param dbaasEndpointRsyslogPayload  (required)
+   * @param dbaasEndpointRsyslogInputCreate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> createDbaasExternalEndpointRsyslogWithHttpInfo(String name, DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointRsyslogRequestBuilder(name, dbaasEndpointRsyslogPayload);
+  private ApiResponse<Operation> createDbaasExternalEndpointRsyslogWithHttpInfo(String name, DbaasEndpointRsyslogInputCreate dbaasEndpointRsyslogInputCreate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasExternalEndpointRsyslogRequestBuilder(name, dbaasEndpointRsyslogInputCreate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1983,14 +1987,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder createDbaasExternalEndpointRsyslogRequestBuilder(String name, DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload) throws ApiException {
+  private HttpRequest.Builder createDbaasExternalEndpointRsyslogRequestBuilder(String name, DbaasEndpointRsyslogInputCreate dbaasEndpointRsyslogInputCreate) throws ApiException {
     // verify the required parameter 'name' is set
     if (name == null) {
       throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasExternalEndpointRsyslog");
     }
-    // verify the required parameter 'dbaasEndpointRsyslogPayload' is set
-    if (dbaasEndpointRsyslogPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointRsyslogPayload' when calling createDbaasExternalEndpointRsyslog");
+    // verify the required parameter 'dbaasEndpointRsyslogInputCreate' is set
+    if (dbaasEndpointRsyslogInputCreate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointRsyslogInputCreate' when calling createDbaasExternalEndpointRsyslog");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -2001,7 +2005,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointRsyslogPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointRsyslogInputCreate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -5190,24 +5194,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Delete DataDog external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteDbaasExternalEndpointDatadog(UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointDatadogWithHttpInfo(id);
+  public Operation deleteDbaasExternalEndpointDatadog(UUID endpointId) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointDatadogWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Delete DataDog external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointDatadogRequestBuilder(id);
+  private ApiResponse<Operation> deleteDbaasExternalEndpointDatadogWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointDatadogRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -5235,17 +5239,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDbaasExternalEndpointDatadogRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointDatadog");
+  private HttpRequest.Builder deleteDbaasExternalEndpointDatadogRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling deleteDbaasExternalEndpointDatadog");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-datadog/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-datadog/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -5272,24 +5276,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Delete ElasticSearch logs external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteDbaasExternalEndpointElasticsearch(UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointElasticsearchWithHttpInfo(id);
+  public Operation deleteDbaasExternalEndpointElasticsearch(UUID endpointId) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointElasticsearchWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Delete ElasticSearch logs external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointElasticsearchRequestBuilder(id);
+  private ApiResponse<Operation> deleteDbaasExternalEndpointElasticsearchWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointElasticsearchRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -5317,17 +5321,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDbaasExternalEndpointElasticsearchRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointElasticsearch");
+  private HttpRequest.Builder deleteDbaasExternalEndpointElasticsearchRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling deleteDbaasExternalEndpointElasticsearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -5354,24 +5358,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Delete OpenSearch logs external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteDbaasExternalEndpointOpensearch(UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointOpensearchWithHttpInfo(id);
+  public Operation deleteDbaasExternalEndpointOpensearch(UUID endpointId) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointOpensearchWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Delete OpenSearch logs external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointOpensearchRequestBuilder(id);
+  private ApiResponse<Operation> deleteDbaasExternalEndpointOpensearchWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointOpensearchRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -5399,17 +5403,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDbaasExternalEndpointOpensearchRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointOpensearch");
+  private HttpRequest.Builder deleteDbaasExternalEndpointOpensearchRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling deleteDbaasExternalEndpointOpensearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-opensearch/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -5436,24 +5440,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Delete Prometheus external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteDbaasExternalEndpointPrometheus(UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointPrometheusWithHttpInfo(id);
+  public Operation deleteDbaasExternalEndpointPrometheus(UUID endpointId) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointPrometheusWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Delete Prometheus external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointPrometheusRequestBuilder(id);
+  private ApiResponse<Operation> deleteDbaasExternalEndpointPrometheusWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointPrometheusRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -5481,17 +5485,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDbaasExternalEndpointPrometheusRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointPrometheus");
+  private HttpRequest.Builder deleteDbaasExternalEndpointPrometheusRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling deleteDbaasExternalEndpointPrometheus");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-prometheus/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -5518,24 +5522,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Delete RSyslog external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteDbaasExternalEndpointRsyslog(UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointRsyslogWithHttpInfo(id);
+  public Operation deleteDbaasExternalEndpointRsyslog(UUID endpointId) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasExternalEndpointRsyslogWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Delete RSyslog external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointRsyslogRequestBuilder(id);
+  private ApiResponse<Operation> deleteDbaasExternalEndpointRsyslogWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasExternalEndpointRsyslogRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -5563,17 +5567,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDbaasExternalEndpointRsyslogRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDbaasExternalEndpointRsyslog");
+  private HttpRequest.Builder deleteDbaasExternalEndpointRsyslogRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling deleteDbaasExternalEndpointRsyslog");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-rsyslog/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -10046,24 +10050,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Get DataDog external endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return DbaasExternalEndpointDatadogOutput
    * @throws ApiException if fails to make API call
    */
-  public DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(UUID id) throws ApiException {
-    ApiResponse<DbaasExternalEndpointDatadogOutput> localVarResponse = getDbaasExternalEndpointDatadogWithHttpInfo(id);
+  public DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(UUID endpointId) throws ApiException {
+    ApiResponse<DbaasExternalEndpointDatadogOutput> localVarResponse = getDbaasExternalEndpointDatadogWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Get DataDog external endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;DbaasExternalEndpointDatadogOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadogWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointDatadogRequestBuilder(id);
+  private ApiResponse<DbaasExternalEndpointDatadogOutput> getDbaasExternalEndpointDatadogWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointDatadogRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10091,17 +10095,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDbaasExternalEndpointDatadogRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointDatadog");
+  private HttpRequest.Builder getDbaasExternalEndpointDatadogRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getDbaasExternalEndpointDatadog");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-datadog/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-datadog/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -10128,24 +10132,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Get ElasticSearch Logs external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return DbaasEndpointElasticsearchOutput
    * @throws ApiException if fails to make API call
    */
-  public DbaasEndpointElasticsearchOutput getDbaasExternalEndpointElasticsearch(UUID id) throws ApiException {
-    ApiResponse<DbaasEndpointElasticsearchOutput> localVarResponse = getDbaasExternalEndpointElasticsearchWithHttpInfo(id);
+  public DbaasEndpointElasticsearchOutput getDbaasExternalEndpointElasticsearch(UUID endpointId) throws ApiException {
+    ApiResponse<DbaasEndpointElasticsearchOutput> localVarResponse = getDbaasExternalEndpointElasticsearchWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Get ElasticSearch Logs external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;DbaasEndpointElasticsearchOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointElasticsearchRequestBuilder(id);
+  private ApiResponse<DbaasEndpointElasticsearchOutput> getDbaasExternalEndpointElasticsearchWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointElasticsearchRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10173,17 +10177,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDbaasExternalEndpointElasticsearchRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointElasticsearch");
+  private HttpRequest.Builder getDbaasExternalEndpointElasticsearchRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getDbaasExternalEndpointElasticsearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -10210,24 +10214,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Get OpenSearch Logs external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return DbaasEndpointOpensearchOutput
    * @throws ApiException if fails to make API call
    */
-  public DbaasEndpointOpensearchOutput getDbaasExternalEndpointOpensearch(UUID id) throws ApiException {
-    ApiResponse<DbaasEndpointOpensearchOutput> localVarResponse = getDbaasExternalEndpointOpensearchWithHttpInfo(id);
+  public DbaasEndpointOpensearchOutput getDbaasExternalEndpointOpensearch(UUID endpointId) throws ApiException {
+    ApiResponse<DbaasEndpointOpensearchOutput> localVarResponse = getDbaasExternalEndpointOpensearchWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Get OpenSearch Logs external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;DbaasEndpointOpensearchOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearchWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointOpensearchRequestBuilder(id);
+  private ApiResponse<DbaasEndpointOpensearchOutput> getDbaasExternalEndpointOpensearchWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointOpensearchRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10255,17 +10259,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDbaasExternalEndpointOpensearchRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointOpensearch");
+  private HttpRequest.Builder getDbaasExternalEndpointOpensearchRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getDbaasExternalEndpointOpensearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-opensearch/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -10292,24 +10296,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Get Prometheus external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return DbaasEndpointExternalPrometheusOutput
    * @throws ApiException if fails to make API call
    */
-  public DbaasEndpointExternalPrometheusOutput getDbaasExternalEndpointPrometheus(UUID id) throws ApiException {
-    ApiResponse<DbaasEndpointExternalPrometheusOutput> localVarResponse = getDbaasExternalEndpointPrometheusWithHttpInfo(id);
+  public DbaasEndpointExternalPrometheusOutput getDbaasExternalEndpointPrometheus(UUID endpointId) throws ApiException {
+    ApiResponse<DbaasEndpointExternalPrometheusOutput> localVarResponse = getDbaasExternalEndpointPrometheusWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Get Prometheus external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;DbaasEndpointExternalPrometheusOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheusWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointPrometheusRequestBuilder(id);
+  private ApiResponse<DbaasEndpointExternalPrometheusOutput> getDbaasExternalEndpointPrometheusWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointPrometheusRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10337,17 +10341,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDbaasExternalEndpointPrometheusRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointPrometheus");
+  private HttpRequest.Builder getDbaasExternalEndpointPrometheusRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getDbaasExternalEndpointPrometheus");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-prometheus/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -10374,24 +10378,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Get RSyslog external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return DbaasExternalEndpointRsyslogOutput
    * @throws ApiException if fails to make API call
    */
-  public DbaasExternalEndpointRsyslogOutput getDbaasExternalEndpointRsyslog(UUID id) throws ApiException {
-    ApiResponse<DbaasExternalEndpointRsyslogOutput> localVarResponse = getDbaasExternalEndpointRsyslogWithHttpInfo(id);
+  public DbaasExternalEndpointRsyslogOutput getDbaasExternalEndpointRsyslog(UUID endpointId) throws ApiException {
+    ApiResponse<DbaasExternalEndpointRsyslogOutput> localVarResponse = getDbaasExternalEndpointRsyslogWithHttpInfo(endpointId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Get RSyslog external integration endpoint settings
-   * @param id  (required)
+   * @param endpointId  (required)
    * @return ApiResponse&lt;DbaasExternalEndpointRsyslogOutput&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslogWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointRsyslogRequestBuilder(id);
+  private ApiResponse<DbaasExternalEndpointRsyslogOutput> getDbaasExternalEndpointRsyslogWithHttpInfo(UUID endpointId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalEndpointRsyslogRequestBuilder(endpointId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10419,17 +10423,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDbaasExternalEndpointRsyslogRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalEndpointRsyslog");
+  private HttpRequest.Builder getDbaasExternalEndpointRsyslogRequestBuilder(UUID endpointId) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling getDbaasExternalEndpointRsyslog");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-rsyslog/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -10456,24 +10460,24 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Get a DBaaS external integration
-   * @param id  (required)
+   * @param integrationId  (required)
    * @return DbaasExternalIntegration
    * @throws ApiException if fails to make API call
    */
-  public DbaasExternalIntegration getDbaasExternalIntegration(UUID id) throws ApiException {
-    ApiResponse<DbaasExternalIntegration> localVarResponse = getDbaasExternalIntegrationWithHttpInfo(id);
+  public DbaasExternalIntegration getDbaasExternalIntegration(UUID integrationId) throws ApiException {
+    ApiResponse<DbaasExternalIntegration> localVarResponse = getDbaasExternalIntegrationWithHttpInfo(integrationId);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Get a DBaaS external integration
-   * @param id  (required)
+   * @param integrationId  (required)
    * @return ApiResponse&lt;DbaasExternalIntegration&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegrationWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalIntegrationRequestBuilder(id);
+  private ApiResponse<DbaasExternalIntegration> getDbaasExternalIntegrationWithHttpInfo(UUID integrationId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasExternalIntegrationRequestBuilder(integrationId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10501,17 +10505,17 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDbaasExternalIntegrationRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDbaasExternalIntegration");
+  private HttpRequest.Builder getDbaasExternalIntegrationRequestBuilder(UUID integrationId) throws ApiException {
+    // verify the required parameter 'integrationId' is set
+    if (integrationId == null) {
+      throw new ApiException(400, "Missing the required parameter 'integrationId' when calling getDbaasExternalIntegration");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-integration/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-integration/{integration-id}"
+        .replace("{integration-id}", ApiClient.urlEncode(integrationId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -21623,26 +21627,26 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Update DataDog external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointDatadogPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointDatadogInputUpdate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation updateDbaasExternalEndpointDatadog(UUID id, DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointDatadogWithHttpInfo(id, dbaasEndpointDatadogPayload);
+  public Operation updateDbaasExternalEndpointDatadog(UUID endpointId, DbaasEndpointDatadogInputUpdate dbaasEndpointDatadogInputUpdate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointDatadogWithHttpInfo(endpointId, dbaasEndpointDatadogInputUpdate);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Update DataDog external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointDatadogPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointDatadogInputUpdate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> updateDbaasExternalEndpointDatadogWithHttpInfo(UUID id, DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointDatadogRequestBuilder(id, dbaasEndpointDatadogPayload);
+  private ApiResponse<Operation> updateDbaasExternalEndpointDatadogWithHttpInfo(UUID endpointId, DbaasEndpointDatadogInputUpdate dbaasEndpointDatadogInputUpdate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointDatadogRequestBuilder(endpointId, dbaasEndpointDatadogInputUpdate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -21670,25 +21674,25 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder updateDbaasExternalEndpointDatadogRequestBuilder(UUID id, DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointDatadog");
+  private HttpRequest.Builder updateDbaasExternalEndpointDatadogRequestBuilder(UUID endpointId, DbaasEndpointDatadogInputUpdate dbaasEndpointDatadogInputUpdate) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateDbaasExternalEndpointDatadog");
     }
-    // verify the required parameter 'dbaasEndpointDatadogPayload' is set
-    if (dbaasEndpointDatadogPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointDatadogPayload' when calling updateDbaasExternalEndpointDatadog");
+    // verify the required parameter 'dbaasEndpointDatadogInputUpdate' is set
+    if (dbaasEndpointDatadogInputUpdate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointDatadogInputUpdate' when calling updateDbaasExternalEndpointDatadog");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-datadog/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-datadog/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointDatadogPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointDatadogInputUpdate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -21717,26 +21721,26 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Update ElasticSearch Logs external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointElasticsearchPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointElasticsearchInputUpdate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation updateDbaasExternalEndpointElasticsearch(UUID id, DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointElasticsearchWithHttpInfo(id, dbaasEndpointElasticsearchPayload);
+  public Operation updateDbaasExternalEndpointElasticsearch(UUID endpointId, DbaasEndpointElasticsearchInputUpdate dbaasEndpointElasticsearchInputUpdate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointElasticsearchWithHttpInfo(endpointId, dbaasEndpointElasticsearchInputUpdate);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Update ElasticSearch Logs external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointElasticsearchPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointElasticsearchInputUpdate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> updateDbaasExternalEndpointElasticsearchWithHttpInfo(UUID id, DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointElasticsearchRequestBuilder(id, dbaasEndpointElasticsearchPayload);
+  private ApiResponse<Operation> updateDbaasExternalEndpointElasticsearchWithHttpInfo(UUID endpointId, DbaasEndpointElasticsearchInputUpdate dbaasEndpointElasticsearchInputUpdate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointElasticsearchRequestBuilder(endpointId, dbaasEndpointElasticsearchInputUpdate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -21764,25 +21768,25 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder updateDbaasExternalEndpointElasticsearchRequestBuilder(UUID id, DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointElasticsearch");
+  private HttpRequest.Builder updateDbaasExternalEndpointElasticsearchRequestBuilder(UUID endpointId, DbaasEndpointElasticsearchInputUpdate dbaasEndpointElasticsearchInputUpdate) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateDbaasExternalEndpointElasticsearch");
     }
-    // verify the required parameter 'dbaasEndpointElasticsearchPayload' is set
-    if (dbaasEndpointElasticsearchPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointElasticsearchPayload' when calling updateDbaasExternalEndpointElasticsearch");
+    // verify the required parameter 'dbaasEndpointElasticsearchInputUpdate' is set
+    if (dbaasEndpointElasticsearchInputUpdate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointElasticsearchInputUpdate' when calling updateDbaasExternalEndpointElasticsearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-elasticsearch/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointElasticsearchPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointElasticsearchInputUpdate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -21811,26 +21815,26 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Update OpenSearch Logs external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointOpensearchPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointOpensearchInputUpdate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation updateDbaasExternalEndpointOpensearch(UUID id, DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointOpensearchWithHttpInfo(id, dbaasEndpointOpensearchPayload);
+  public Operation updateDbaasExternalEndpointOpensearch(UUID endpointId, DbaasEndpointOpensearchInputUpdate dbaasEndpointOpensearchInputUpdate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointOpensearchWithHttpInfo(endpointId, dbaasEndpointOpensearchInputUpdate);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Update OpenSearch Logs external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointOpensearchPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointOpensearchInputUpdate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> updateDbaasExternalEndpointOpensearchWithHttpInfo(UUID id, DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointOpensearchRequestBuilder(id, dbaasEndpointOpensearchPayload);
+  private ApiResponse<Operation> updateDbaasExternalEndpointOpensearchWithHttpInfo(UUID endpointId, DbaasEndpointOpensearchInputUpdate dbaasEndpointOpensearchInputUpdate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointOpensearchRequestBuilder(endpointId, dbaasEndpointOpensearchInputUpdate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -21858,25 +21862,25 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder updateDbaasExternalEndpointOpensearchRequestBuilder(UUID id, DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointOpensearch");
+  private HttpRequest.Builder updateDbaasExternalEndpointOpensearchRequestBuilder(UUID endpointId, DbaasEndpointOpensearchInputUpdate dbaasEndpointOpensearchInputUpdate) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateDbaasExternalEndpointOpensearch");
     }
-    // verify the required parameter 'dbaasEndpointOpensearchPayload' is set
-    if (dbaasEndpointOpensearchPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointOpensearchPayload' when calling updateDbaasExternalEndpointOpensearch");
+    // verify the required parameter 'dbaasEndpointOpensearchInputUpdate' is set
+    if (dbaasEndpointOpensearchInputUpdate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointOpensearchInputUpdate' when calling updateDbaasExternalEndpointOpensearch");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-opensearch/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-opensearch/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointOpensearchPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointOpensearchInputUpdate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -21905,26 +21909,26 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Update Prometheus external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @param dbaasEndpointPrometheusPayload  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation updateDbaasExternalEndpointPrometheus(UUID id, DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointPrometheusWithHttpInfo(id, dbaasEndpointPrometheusPayload);
+  public Operation updateDbaasExternalEndpointPrometheus(UUID endpointId, DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointPrometheusWithHttpInfo(endpointId, dbaasEndpointPrometheusPayload);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Update Prometheus external integration endpoint
-   * @param id  (required)
+   * @param endpointId  (required)
    * @param dbaasEndpointPrometheusPayload  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> updateDbaasExternalEndpointPrometheusWithHttpInfo(UUID id, DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointPrometheusRequestBuilder(id, dbaasEndpointPrometheusPayload);
+  private ApiResponse<Operation> updateDbaasExternalEndpointPrometheusWithHttpInfo(UUID endpointId, DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointPrometheusRequestBuilder(endpointId, dbaasEndpointPrometheusPayload);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -21952,10 +21956,10 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder updateDbaasExternalEndpointPrometheusRequestBuilder(UUID id, DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointPrometheus");
+  private HttpRequest.Builder updateDbaasExternalEndpointPrometheusRequestBuilder(UUID endpointId, DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateDbaasExternalEndpointPrometheus");
     }
     // verify the required parameter 'dbaasEndpointPrometheusPayload' is set
     if (dbaasEndpointPrometheusPayload == null) {
@@ -21965,8 +21969,8 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-prometheus/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-prometheus/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
           try{
@@ -21999,26 +22003,26 @@ public class ExoscaleApi {
   /**
    * 
    * [BETA] Update RSyslog external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointRsyslogPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointRsyslogInputUpdate  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation updateDbaasExternalEndpointRsyslog(UUID id, DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload) throws ApiException {
-    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointRsyslogWithHttpInfo(id, dbaasEndpointRsyslogPayload);
+  public Operation updateDbaasExternalEndpointRsyslog(UUID endpointId, DbaasEndpointRsyslogInputUpdate dbaasEndpointRsyslogInputUpdate) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasExternalEndpointRsyslogWithHttpInfo(endpointId, dbaasEndpointRsyslogInputUpdate);
     return localVarResponse.getData();
   }
 
   /**
    * 
    * [BETA] Update RSyslog external integration endpoint
-   * @param id  (required)
-   * @param dbaasEndpointRsyslogPayload  (required)
+   * @param endpointId  (required)
+   * @param dbaasEndpointRsyslogInputUpdate  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> updateDbaasExternalEndpointRsyslogWithHttpInfo(UUID id, DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointRsyslogRequestBuilder(id, dbaasEndpointRsyslogPayload);
+  private ApiResponse<Operation> updateDbaasExternalEndpointRsyslogWithHttpInfo(UUID endpointId, DbaasEndpointRsyslogInputUpdate dbaasEndpointRsyslogInputUpdate) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasExternalEndpointRsyslogRequestBuilder(endpointId, dbaasEndpointRsyslogInputUpdate);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -22046,25 +22050,25 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder updateDbaasExternalEndpointRsyslogRequestBuilder(UUID id, DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDbaasExternalEndpointRsyslog");
+  private HttpRequest.Builder updateDbaasExternalEndpointRsyslogRequestBuilder(UUID endpointId, DbaasEndpointRsyslogInputUpdate dbaasEndpointRsyslogInputUpdate) throws ApiException {
+    // verify the required parameter 'endpointId' is set
+    if (endpointId == null) {
+      throw new ApiException(400, "Missing the required parameter 'endpointId' when calling updateDbaasExternalEndpointRsyslog");
     }
-    // verify the required parameter 'dbaasEndpointRsyslogPayload' is set
-    if (dbaasEndpointRsyslogPayload == null) {
-      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointRsyslogPayload' when calling updateDbaasExternalEndpointRsyslog");
+    // verify the required parameter 'dbaasEndpointRsyslogInputUpdate' is set
+    if (dbaasEndpointRsyslogInputUpdate == null) {
+      throw new ApiException(400, "Missing the required parameter 'dbaasEndpointRsyslogInputUpdate' when calling updateDbaasExternalEndpointRsyslog");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-external-endpoint-rsyslog/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
+    String localVarPath = "/dbaas-external-endpoint-rsyslog/{endpoint-id}"
+        .replace("{endpoint-id}", ApiClient.urlEncode(endpointId.toString()));
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointRsyslogPayload);
+          requestBody = memberVarObjectMapper.writeValueAsString(dbaasEndpointRsyslogInputUpdate);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

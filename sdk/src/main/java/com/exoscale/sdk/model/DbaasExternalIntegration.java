@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasExternalIntegration.JSON_PROPERTY_DESCRIPTION,
   DbaasExternalIntegration.JSON_PROPERTY_DEST_ENDPOINT_NAME,
   DbaasExternalIntegration.JSON_PROPERTY_DEST_ENDPOINT_ID,
-  DbaasExternalIntegration.JSON_PROPERTY_ID,
+  DbaasExternalIntegration.JSON_PROPERTY_INTEGRATION_ID,
   DbaasExternalIntegration.JSON_PROPERTY_STATUS,
   DbaasExternalIntegration.JSON_PROPERTY_SOURCE_SERVICE_NAME,
   DbaasExternalIntegration.JSON_PROPERTY_SOURCE_SERVICE_TYPE,
@@ -54,8 +54,8 @@ public class DbaasExternalIntegration {
   public static final String JSON_PROPERTY_DEST_ENDPOINT_ID = "dest-endpoint-id";
   private String destEndpointId;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_INTEGRATION_ID = "integration-id";
+  private UUID integrationId;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -147,28 +147,28 @@ public class DbaasExternalIntegration {
   }
 
 
-  public DbaasExternalIntegration id(UUID id) {
-    this.id = id;
+  public DbaasExternalIntegration integrationId(UUID integrationId) {
+    this.integrationId = integrationId;
     return this;
   }
 
    /**
    * Endpoint integration UUID
-   * @return id
+   * @return integrationId
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
-    return id;
+  public UUID getIntegrationId() {
+    return integrationId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(UUID id) {
-    this.id = id;
+  public void setIntegrationId(UUID integrationId) {
+    this.integrationId = integrationId;
   }
 
 
@@ -287,7 +287,7 @@ public class DbaasExternalIntegration {
     return Objects.equals(this.description, dbaasExternalIntegration.description) &&
         Objects.equals(this.destEndpointName, dbaasExternalIntegration.destEndpointName) &&
         Objects.equals(this.destEndpointId, dbaasExternalIntegration.destEndpointId) &&
-        Objects.equals(this.id, dbaasExternalIntegration.id) &&
+        Objects.equals(this.integrationId, dbaasExternalIntegration.integrationId) &&
         Objects.equals(this.status, dbaasExternalIntegration.status) &&
         Objects.equals(this.sourceServiceName, dbaasExternalIntegration.sourceServiceName) &&
         Objects.equals(this.sourceServiceType, dbaasExternalIntegration.sourceServiceType) &&
@@ -296,7 +296,7 @@ public class DbaasExternalIntegration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, destEndpointName, destEndpointId, id, status, sourceServiceName, sourceServiceType, type);
+    return Objects.hash(description, destEndpointName, destEndpointId, integrationId, status, sourceServiceName, sourceServiceType, type);
   }
 
   @Override
@@ -306,7 +306,7 @@ public class DbaasExternalIntegration {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destEndpointName: ").append(toIndentedString(destEndpointName)).append("\n");
     sb.append("    destEndpointId: ").append(toIndentedString(destEndpointId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    sourceServiceName: ").append(toIndentedString(sourceServiceName)).append("\n");
     sb.append("    sourceServiceType: ").append(toIndentedString(sourceServiceType)).append("\n");
@@ -373,9 +373,9 @@ public class DbaasExternalIntegration {
       joiner.add(String.format("%sdest-endpoint-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDestEndpointId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `integration-id` to the URL query string
+    if (getIntegrationId() != null) {
+      joiner.add(String.format("%sintegration-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIntegrationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string

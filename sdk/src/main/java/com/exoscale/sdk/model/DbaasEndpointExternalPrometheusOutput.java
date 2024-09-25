@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointPrometheus;
+import com.exoscale.sdk.model.DbaasEndpointExternalPrometheusOutputSettings;
 import com.exoscale.sdk.model.EnumExternalEndpointTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,7 +52,7 @@ public class DbaasEndpointExternalPrometheusOutput {
   private UUID id;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointPrometheus settings;
+  private DbaasEndpointExternalPrometheusOutputSettings settings;
 
   public DbaasEndpointExternalPrometheusOutput() { 
   }
@@ -132,7 +132,7 @@ public class DbaasEndpointExternalPrometheusOutput {
   }
 
 
-  public DbaasEndpointExternalPrometheusOutput settings(DbaasEndpointPrometheus settings) {
+  public DbaasEndpointExternalPrometheusOutput settings(DbaasEndpointExternalPrometheusOutputSettings settings) {
     this.settings = settings;
     return this;
   }
@@ -145,14 +145,14 @@ public class DbaasEndpointExternalPrometheusOutput {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointPrometheus getSettings() {
+  public DbaasEndpointExternalPrometheusOutputSettings getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointPrometheus settings) {
+  public void setSettings(DbaasEndpointExternalPrometheusOutputSettings settings) {
     this.settings = settings;
   }
 

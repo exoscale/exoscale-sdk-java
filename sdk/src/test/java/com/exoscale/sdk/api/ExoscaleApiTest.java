@@ -54,14 +54,18 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
-import com.exoscale.sdk.model.DbaasEndpointDatadogPayload;
+import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchOutput;
-import com.exoscale.sdk.model.DbaasEndpointElasticsearchPayload;
 import com.exoscale.sdk.model.DbaasEndpointExternalPrometheusOutput;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointOpensearchInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointOpensearchOutput;
-import com.exoscale.sdk.model.DbaasEndpointOpensearchPayload;
 import com.exoscale.sdk.model.DbaasEndpointPrometheusPayload;
-import com.exoscale.sdk.model.DbaasEndpointRsyslogPayload;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogInputCreate;
+import com.exoscale.sdk.model.DbaasEndpointRsyslogInputUpdate;
 import com.exoscale.sdk.model.DbaasExternalEndpointDatadogOutput;
 import com.exoscale.sdk.model.DbaasExternalEndpointRsyslogOutput;
 import com.exoscale.sdk.model.DbaasExternalIntegration;
@@ -484,9 +488,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointDatadogTest() throws ApiException {
         String name = null;
-        DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = null;
+        DbaasEndpointDatadogInputCreate dbaasEndpointDatadogInputCreate = null;
         Operation response = 
-        api.createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogPayload);
+        api.createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogInputCreate);
         
         // TODO: test validations
     }
@@ -502,9 +506,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointElasticsearchTest() throws ApiException {
         String name = null;
-        DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload = null;
+        DbaasEndpointElasticsearchInputCreate dbaasEndpointElasticsearchInputCreate = null;
         Operation response = 
-        api.createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchPayload);
+        api.createDbaasExternalEndpointElasticsearch(name, dbaasEndpointElasticsearchInputCreate);
         
         // TODO: test validations
     }
@@ -520,9 +524,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointOpensearchTest() throws ApiException {
         String name = null;
-        DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload = null;
+        DbaasEndpointOpensearchInputCreate dbaasEndpointOpensearchInputCreate = null;
         Operation response = 
-        api.createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchPayload);
+        api.createDbaasExternalEndpointOpensearch(name, dbaasEndpointOpensearchInputCreate);
         
         // TODO: test validations
     }
@@ -556,9 +560,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasExternalEndpointRsyslogTest() throws ApiException {
         String name = null;
-        DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = null;
+        DbaasEndpointRsyslogInputCreate dbaasEndpointRsyslogInputCreate = null;
         Operation response = 
-        api.createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogPayload);
+        api.createDbaasExternalEndpointRsyslog(name, dbaasEndpointRsyslogInputCreate);
         
         // TODO: test validations
     }
@@ -1188,9 +1192,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void deleteDbaasExternalEndpointDatadogTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         Operation response = 
-        api.deleteDbaasExternalEndpointDatadog(id);
+        api.deleteDbaasExternalEndpointDatadog(endpointId);
         
         // TODO: test validations
     }
@@ -1205,9 +1209,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void deleteDbaasExternalEndpointElasticsearchTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         Operation response = 
-        api.deleteDbaasExternalEndpointElasticsearch(id);
+        api.deleteDbaasExternalEndpointElasticsearch(endpointId);
         
         // TODO: test validations
     }
@@ -1222,9 +1226,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void deleteDbaasExternalEndpointOpensearchTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         Operation response = 
-        api.deleteDbaasExternalEndpointOpensearch(id);
+        api.deleteDbaasExternalEndpointOpensearch(endpointId);
         
         // TODO: test validations
     }
@@ -1239,9 +1243,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void deleteDbaasExternalEndpointPrometheusTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         Operation response = 
-        api.deleteDbaasExternalEndpointPrometheus(id);
+        api.deleteDbaasExternalEndpointPrometheus(endpointId);
         
         // TODO: test validations
     }
@@ -1256,9 +1260,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void deleteDbaasExternalEndpointRsyslogTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         Operation response = 
-        api.deleteDbaasExternalEndpointRsyslog(id);
+        api.deleteDbaasExternalEndpointRsyslog(endpointId);
         
         // TODO: test validations
     }
@@ -2178,9 +2182,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDbaasExternalEndpointDatadogTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         DbaasExternalEndpointDatadogOutput response = 
-        api.getDbaasExternalEndpointDatadog(id);
+        api.getDbaasExternalEndpointDatadog(endpointId);
         
         // TODO: test validations
     }
@@ -2195,9 +2199,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDbaasExternalEndpointElasticsearchTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         DbaasEndpointElasticsearchOutput response = 
-        api.getDbaasExternalEndpointElasticsearch(id);
+        api.getDbaasExternalEndpointElasticsearch(endpointId);
         
         // TODO: test validations
     }
@@ -2212,9 +2216,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDbaasExternalEndpointOpensearchTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         DbaasEndpointOpensearchOutput response = 
-        api.getDbaasExternalEndpointOpensearch(id);
+        api.getDbaasExternalEndpointOpensearch(endpointId);
         
         // TODO: test validations
     }
@@ -2229,9 +2233,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDbaasExternalEndpointPrometheusTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         DbaasEndpointExternalPrometheusOutput response = 
-        api.getDbaasExternalEndpointPrometheus(id);
+        api.getDbaasExternalEndpointPrometheus(endpointId);
         
         // TODO: test validations
     }
@@ -2246,9 +2250,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDbaasExternalEndpointRsyslogTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         DbaasExternalEndpointRsyslogOutput response = 
-        api.getDbaasExternalEndpointRsyslog(id);
+        api.getDbaasExternalEndpointRsyslog(endpointId);
         
         // TODO: test validations
     }
@@ -2263,9 +2267,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDbaasExternalIntegrationTest() throws ApiException {
-        UUID id = null;
+        UUID integrationId = null;
         DbaasExternalIntegration response = 
-        api.getDbaasExternalIntegration(id);
+        api.getDbaasExternalIntegration(integrationId);
         
         // TODO: test validations
     }
@@ -4532,10 +4536,10 @@ public class ExoscaleApiTest {
      */
     @Test
     public void updateDbaasExternalEndpointDatadogTest() throws ApiException {
-        UUID id = null;
-        DbaasEndpointDatadogPayload dbaasEndpointDatadogPayload = null;
+        UUID endpointId = null;
+        DbaasEndpointDatadogInputUpdate dbaasEndpointDatadogInputUpdate = null;
         Operation response = 
-        api.updateDbaasExternalEndpointDatadog(id, dbaasEndpointDatadogPayload);
+        api.updateDbaasExternalEndpointDatadog(endpointId, dbaasEndpointDatadogInputUpdate);
         
         // TODO: test validations
     }
@@ -4550,10 +4554,10 @@ public class ExoscaleApiTest {
      */
     @Test
     public void updateDbaasExternalEndpointElasticsearchTest() throws ApiException {
-        UUID id = null;
-        DbaasEndpointElasticsearchPayload dbaasEndpointElasticsearchPayload = null;
+        UUID endpointId = null;
+        DbaasEndpointElasticsearchInputUpdate dbaasEndpointElasticsearchInputUpdate = null;
         Operation response = 
-        api.updateDbaasExternalEndpointElasticsearch(id, dbaasEndpointElasticsearchPayload);
+        api.updateDbaasExternalEndpointElasticsearch(endpointId, dbaasEndpointElasticsearchInputUpdate);
         
         // TODO: test validations
     }
@@ -4568,10 +4572,10 @@ public class ExoscaleApiTest {
      */
     @Test
     public void updateDbaasExternalEndpointOpensearchTest() throws ApiException {
-        UUID id = null;
-        DbaasEndpointOpensearchPayload dbaasEndpointOpensearchPayload = null;
+        UUID endpointId = null;
+        DbaasEndpointOpensearchInputUpdate dbaasEndpointOpensearchInputUpdate = null;
         Operation response = 
-        api.updateDbaasExternalEndpointOpensearch(id, dbaasEndpointOpensearchPayload);
+        api.updateDbaasExternalEndpointOpensearch(endpointId, dbaasEndpointOpensearchInputUpdate);
         
         // TODO: test validations
     }
@@ -4586,10 +4590,10 @@ public class ExoscaleApiTest {
      */
     @Test
     public void updateDbaasExternalEndpointPrometheusTest() throws ApiException {
-        UUID id = null;
+        UUID endpointId = null;
         DbaasEndpointPrometheusPayload dbaasEndpointPrometheusPayload = null;
         Operation response = 
-        api.updateDbaasExternalEndpointPrometheus(id, dbaasEndpointPrometheusPayload);
+        api.updateDbaasExternalEndpointPrometheus(endpointId, dbaasEndpointPrometheusPayload);
         
         // TODO: test validations
     }
@@ -4604,10 +4608,10 @@ public class ExoscaleApiTest {
      */
     @Test
     public void updateDbaasExternalEndpointRsyslogTest() throws ApiException {
-        UUID id = null;
-        DbaasEndpointRsyslogPayload dbaasEndpointRsyslogPayload = null;
+        UUID endpointId = null;
+        DbaasEndpointRsyslogInputUpdate dbaasEndpointRsyslogInputUpdate = null;
         Operation response = 
-        api.updateDbaasExternalEndpointRsyslog(id, dbaasEndpointRsyslogPayload);
+        api.updateDbaasExternalEndpointRsyslog(endpointId, dbaasEndpointRsyslogInputUpdate);
         
         // TODO: test validations
     }

@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.DbaasEndpointElasticsearch;
+import com.exoscale.sdk.model.DbaasEndpointElasticsearchOptionalFields;
 import com.exoscale.sdk.model.EnumExternalEndpointTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,7 +52,7 @@ public class DbaasEndpointElasticsearchOutput {
   private UUID id;
 
   public static final String JSON_PROPERTY_SETTINGS = "settings";
-  private DbaasEndpointElasticsearch settings;
+  private DbaasEndpointElasticsearchOptionalFields settings;
 
   public DbaasEndpointElasticsearchOutput() { 
   }
@@ -132,7 +132,7 @@ public class DbaasEndpointElasticsearchOutput {
   }
 
 
-  public DbaasEndpointElasticsearchOutput settings(DbaasEndpointElasticsearch settings) {
+  public DbaasEndpointElasticsearchOutput settings(DbaasEndpointElasticsearchOptionalFields settings) {
     this.settings = settings;
     return this;
   }
@@ -145,14 +145,14 @@ public class DbaasEndpointElasticsearchOutput {
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasEndpointElasticsearch getSettings() {
+  public DbaasEndpointElasticsearchOptionalFields getSettings() {
     return settings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSettings(DbaasEndpointElasticsearch settings) {
+  public void setSettings(DbaasEndpointElasticsearchOptionalFields settings) {
     this.settings = settings;
   }
 
