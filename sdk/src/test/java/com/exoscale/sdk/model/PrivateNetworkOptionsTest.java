@@ -55,4 +55,20 @@ public class PrivateNetworkOptionsTest {
         // TODO: test dnsServers
     }
 
+    /**
+     * Test the property 'ntpServers'
+     */
+    @Test
+    public void ntpServersTest() {
+        // TODO: test ntpServers
+    }
+
+    /**
+     * Test the property 'domainSearch'
+     */
+    @Test
+    public void domainSearchTest() {
+        // TODO: test domainSearch
+    }
+
 }

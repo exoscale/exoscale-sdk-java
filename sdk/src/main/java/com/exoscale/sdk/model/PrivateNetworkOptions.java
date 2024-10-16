@@ -35,7 +35,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   PrivateNetworkOptions.JSON_PROPERTY_ROUTERS,
-  PrivateNetworkOptions.JSON_PROPERTY_DNS_SERVERS
+  PrivateNetworkOptions.JSON_PROPERTY_DNS_SERVERS,
+  PrivateNetworkOptions.JSON_PROPERTY_NTP_SERVERS,
+  PrivateNetworkOptions.JSON_PROPERTY_DOMAIN_SEARCH
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class PrivateNetworkOptions {
@@ -44,6 +46,12 @@ public class PrivateNetworkOptions {
 
   public static final String JSON_PROPERTY_DNS_SERVERS = "dns-servers";
   private List<String> dnsServers;
+
+  public static final String JSON_PROPERTY_NTP_SERVERS = "ntp-servers";
+  private List<String> ntpServers;
+
+  public static final String JSON_PROPERTY_DOMAIN_SEARCH = "domain-search";
+  private List<String> domainSearch;
 
   public PrivateNetworkOptions() { 
   }
@@ -114,6 +122,72 @@ public class PrivateNetworkOptions {
   }
 
 
+  public PrivateNetworkOptions ntpServers(List<String> ntpServers) {
+    this.ntpServers = ntpServers;
+    return this;
+  }
+
+  public PrivateNetworkOptions addNtpServersItem(String ntpServersItem) {
+    if (this.ntpServers == null) {
+      this.ntpServers = new ArrayList<>();
+    }
+    this.ntpServers.add(ntpServersItem);
+    return this;
+  }
+
+   /**
+   * NTP Servers
+   * @return ntpServers
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NTP_SERVERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getNtpServers() {
+    return ntpServers;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NTP_SERVERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNtpServers(List<String> ntpServers) {
+    this.ntpServers = ntpServers;
+  }
+
+
+  public PrivateNetworkOptions domainSearch(List<String> domainSearch) {
+    this.domainSearch = domainSearch;
+    return this;
+  }
+
+  public PrivateNetworkOptions addDomainSearchItem(String domainSearchItem) {
+    if (this.domainSearch == null) {
+      this.domainSearch = new ArrayList<>();
+    }
+    this.domainSearch.add(domainSearchItem);
+    return this;
+  }
+
+   /**
+   * Domain search list, limited to 255 octets
+   * @return domainSearch
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DOMAIN_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getDomainSearch() {
+    return domainSearch;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DOMAIN_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDomainSearch(List<String> domainSearch) {
+    this.domainSearch = domainSearch;
+  }
+
+
   /**
    * Return true if this private-network-options object is equal to o.
    */
@@ -127,12 +201,14 @@ public class PrivateNetworkOptions {
     }
     PrivateNetworkOptions privateNetworkOptions = (PrivateNetworkOptions) o;
     return Objects.equals(this.routers, privateNetworkOptions.routers) &&
-        Objects.equals(this.dnsServers, privateNetworkOptions.dnsServers);
+        Objects.equals(this.dnsServers, privateNetworkOptions.dnsServers) &&
+        Objects.equals(this.ntpServers, privateNetworkOptions.ntpServers) &&
+        Objects.equals(this.domainSearch, privateNetworkOptions.domainSearch);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(routers, dnsServers);
+    return Objects.hash(routers, dnsServers, ntpServers, domainSearch);
   }
 
   @Override
@@ -141,6 +217,8 @@ public class PrivateNetworkOptions {
     sb.append("class PrivateNetworkOptions {\n");
     sb.append("    routers: ").append(toIndentedString(routers)).append("\n");
     sb.append("    dnsServers: ").append(toIndentedString(dnsServers)).append("\n");
+    sb.append("    ntpServers: ").append(toIndentedString(ntpServers)).append("\n");
+    sb.append("    domainSearch: ").append(toIndentedString(domainSearch)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -203,6 +281,24 @@ public class PrivateNetworkOptions {
         joiner.add(String.format("%sdns-servers%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
             URLEncoder.encode(String.valueOf(getDnsServers().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `ntp-servers` to the URL query string
+    if (getNtpServers() != null) {
+      for (int i = 0; i < getNtpServers().size(); i++) {
+        joiner.add(String.format("%sntp-servers%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getNtpServers().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `domain-search` to the URL query string
+    if (getDomainSearch() != null) {
+      for (int i = 0; i < getDomainSearch().size(); i++) {
+        joiner.add(String.format("%sdomain-search%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getDomainSearch().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

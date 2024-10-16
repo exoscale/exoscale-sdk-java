@@ -8405,9 +8405,15 @@ components:
           dns-servers:
           - dns-servers
           - dns-servers
+          ntp-servers:
+          - ntp-servers
+          - ntp-servers
           routers:
           - routers
           - routers
+          domain-search:
+          - domain-search
+          - domain-search
         description: description
         start-ip: start-ip
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9119,9 +9125,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -9140,9 +9152,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10512,9 +10530,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -10533,9 +10557,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14604,9 +14634,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14625,9 +14661,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -15746,9 +15788,15 @@ components:
         dns-servers:
         - dns-servers
         - dns-servers
+        ntp-servers:
+        - ntp-servers
+        - ntp-servers
         routers:
         - routers
         - routers
+        domain-search:
+        - domain-search
+        - domain-search
       properties:
         routers:
           description: Routers
@@ -15760,6 +15808,17 @@ components:
           description: DNS Servers
           items:
             format: ipv4
+            type: string
+          type: array
+        ntp-servers:
+          description: NTP Servers
+          items:
+            format: ipv4
+            type: string
+          type: array
+        domain-search:
+          description: "Domain search list, limited to 255 octets"
+          items:
             type: string
           type: array
       type: object
@@ -17614,9 +17673,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17635,9 +17700,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18540,9 +18611,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18561,9 +18638,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19936,9 +20019,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19957,9 +20046,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20862,9 +20957,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20883,9 +20984,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22331,9 +22438,15 @@ components:
             dns-servers:
             - dns-servers
             - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
             routers:
             - routers
             - routers
+            domain-search:
+            - domain-search
+            - domain-search
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22352,9 +22465,15 @@ components:
             dns-servers:
             - dns-servers
             - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
             routers:
             - routers
             - routers
+            domain-search:
+            - domain-search
+            - domain-search
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23912,9 +24031,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23933,9 +24058,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24838,9 +24969,15 @@ components:
             dns-servers:
             - dns-servers
             - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
             routers:
             - routers
             - routers
+            domain-search:
+            - domain-search
+            - domain-search
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24859,9 +24996,15 @@ components:
             dns-servers:
             - dns-servers
             - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
             routers:
             - routers
             - routers
+            domain-search:
+            - domain-search
+            - domain-search
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30248,9 +30391,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30269,9 +30418,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31641,9 +31796,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31662,9 +31823,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -33043,9 +33210,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -33064,9 +33237,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -34436,9 +34615,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -34457,9 +34642,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -36478,9 +36669,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -36499,9 +36696,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -37849,9 +38052,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -37870,9 +38079,15 @@ components:
               dns-servers:
               - dns-servers
               - dns-servers
+              ntp-servers:
+              - ntp-servers
+              - ntp-servers
               routers:
               - routers
               - routers
+              domain-search:
+              - domain-search
+              - domain-search
             description: description
             start-ip: start-ip
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -39361,9 +39576,15 @@ components:
             dns-servers:
             - dns-servers
             - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
             routers:
             - routers
             - routers
+            domain-search:
+            - domain-search
+            - domain-search
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -39382,9 +39603,15 @@ components:
             dns-servers:
             - dns-servers
             - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
             routers:
             - routers
             - routers
+            domain-search:
+            - domain-search
+            - domain-search
           description: description
           start-ip: start-ip
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -40710,9 +40937,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -40731,9 +40964,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -41636,9 +41875,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -41657,9 +41902,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -43032,9 +43283,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -43053,9 +43310,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -43958,9 +44221,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -43979,9 +44248,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -45370,9 +45645,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -45391,9 +45672,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -46296,9 +46583,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -46317,9 +46610,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -47692,9 +47991,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -47713,9 +48018,15 @@ components:
                   dns-servers:
                   - dns-servers
                   - dns-servers
+                  ntp-servers:
+                  - ntp-servers
+                  - ntp-servers
                   routers:
                   - routers
                   - routers
+                  domain-search:
+                  - domain-search
+                  - domain-search
                 description: description
                 start-ip: start-ip
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -48618,9 +48929,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -48639,9 +48956,15 @@ components:
                 dns-servers:
                 - dns-servers
                 - dns-servers
+                ntp-servers:
+                - ntp-servers
+                - ntp-servers
                 routers:
                 - routers
                 - routers
+                domain-search:
+                - domain-search
+                - domain-search
               description: description
               start-ip: start-ip
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
