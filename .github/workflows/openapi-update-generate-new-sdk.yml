@@ -3,7 +3,7 @@ name: Update bundled openapi definition & Generate SDK
 on:
   push:
     branches:
-      - main
+      - sdk-versioning
   workflow_dispatch:
   schedule:
    - cron: '0 7 * * *'  # At 07:00 every day
@@ -35,11 +35,34 @@ jobs:
         run: |
           current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
           echo "Current version: $current_version"
-          IFS='.-' read -r -a parts <<< "$current_version"
-          new_patch=$((parts[2] + 1))
-          new_version="${parts[0]}.${parts[1]}.$new_patch-${parts[3]}"
+
+          unique_id=$(date +%Y%m%d%H%M%S)
+          if [[ "$current_version" == *"SNAPSHOT"* ]]; then
+            echo "Current version is a SNAPSHOT."
+            base_version=$(echo "$current_version" | sed -E 's/-SNAPSHOT-.*//')
+            new_version="${base_version}-SNAPSHOT-${unique_id}"
+          else
+            echo "Current version is the last release."
+            IFS='.-' read -r -a parts <<< "$current_version"'
+            major=${parts[0]}
+            minor=${parts[1]}
+            patch=${parts[2]}
+            qualifier=${parts[3]}
+            
+            new_patch=$((patch + 1))
+
+            if [ -z "$qualifier" ]; then
+              base_version="${major}.${minor}.${new_patch}"
+            else
+              base_version="${major}.${minor}.${new_patch}-${qualifier}"
+            fi
+            
+            new_version="${base_version}-SNAPSHOT-${unique_id}"
+          fi
+
           echo "New version: $new_version"
           xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$new_version" pom.xml
+          
           echo "new_version=$new_version" >> $GITHUB_ENV
           echo "Updated version to $new_version"
 
