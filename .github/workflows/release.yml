@@ -13,23 +13,107 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: elkezza-sdk-versioning  # Change 'main' before the merge
           fetch-depth: 0
+
+      - name: Install xmlstarlet
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
+
+      - name: Get tag name
+        id: tag
+        run: |
+          TAG_NAME=$(git describe --tags)
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+      - name: Update version numbers in files
+        run: |
+          BASE_VERSION=${TAG_NAME#v}
+          echo "Base version: $BASE_VERSION"
+          xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$BASE_VERSION" pom.xml
+
+          sed -i "s/<version>.*<\/version>/<version>$BASE_VERSION<\/version>/g" README.md
+          sed -i "s/'com.exoscale.sdk:sdk:.*'/'com.exoscale.sdk:sdk:$BASE_VERSION'/g" README.md
+
+          CONFIG_FILE="sdk/src/main/java/com/exoscale/sdk/client/Configuration.java"
+          sed -i "s/public static final String VERSION = \".*\";/public static final String VERSION = \"$BASE_VERSION\";/g" "$CONFIG_FILE"
+
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add pom.xml README.md "$CONFIG_FILE"
+          git commit -m "Update version to $BASE_VERSION for release"
+          git push
+
 
       - name: Set up GitHub CLI
         uses: sersoft-gmbh/setup-gh-cli-action@v2
         with:
           version: stable
 
-      - name: Create GitHub Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG_NAME=$(git describe --tags)
-          RELEASE_TITLE="Release ${TAG_NAME}"
-          RELEASE_NOTES="See the [CHANGELOG](https://github.com/exoscale/exoscale4j/blob/main/CHANGELOG.md) for details."
-          gh release create "${TAG_NAME}" --title "${RELEASE_TITLE}" --notes "${RELEASE_NOTES}"
 
+      - name: Build and install SDK
+        run: |
+          mvn clean install
+          cd sdk
+          mvn install
+          cd ..
+          
+      - name: Check target folder for JavaDocs
+        run: ls -lR sdk/target/
+
+      - name: Copy Javadoc JAR to a temporary location
+        run: |
+          echo "Checking target folder for JavaDocs"
+          ls -lR sdk/target/
+          mkdir -p /tmp/javadoc
+          cp sdk/target/*-javadoc.jar /tmp/javadoc/
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages-test       # Change to gh-pages before the merge
+          
+      - name: Move Javadoc JAR back to working directory
+        run: |
+          mkdir -p sdk/target/
+          mv /tmp/javadoc/* sdk/target/
+
+      - name: Clean current Javadoc and docs folders before new extraction
+        run: |
+          rm -rf docs/*
+          rm -rf javadoc/current/*
+
+      - name: Extract Javadoc JAR dynamically and create version-specific folder
+        run: |
+          mkdir -p docs
+          mkdir -p javadoc/current
+          mkdir -p javadoc/$BASE_VERSION
+          JAR_FILE=$(find sdk/target -name '*-javadoc.jar' | head -n 1)
+          echo "Found Javadoc JAR: $JAR_FILE"
+          cp "$JAR_FILE" docs/
+          cp "$JAR_FILE" javadoc/current/
+          cp "$JAR_FILE" javadoc/$BASE_VERSION/
+          cd docs/
+          jar -xvf $(basename "$JAR_FILE")
+          cd ..
+          cd javadoc/current
+          jar -xvf $(basename "$JAR_FILE")
+          cd ../$BASE_VERSION
+          jar -xvf $(basename "$JAR_FILE")
+
+      - name: Append new version to index.html files
+        run: |
+          sed -i '/<ul>/a \ \ \ \ \ \ \ \ <li><a href="javadoc/'"$BASE_VERSION"'">'"$BASE_VERSION"'</a></li>' index.html
+          sed -i '/<ul>/a \ \ \ \ \ \ \ \ <li><a href="'$BASE_VERSION'">'"$BASE_VERSION"'</a></li>' javadoc/index.html
+
+
+      - name: Commit and push JavaDocs
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add .
+          git commit -m "Update JavaDocs for $BASE_VERSION"
+          git push
+
+    
       # Set up JDK 11
       - name: Set up JDK 11
         uses: actions/setup-java@v4
@@ -47,3 +131,12 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD}}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME=$(git describe --tags)
+          RELEASE_TITLE="Release ${TAG_NAME}"
+          RELEASE_NOTES="See the [CHANGELOG](https://github.com/exoscale/exoscale4j/blob/main/CHANGELOG.md) for details."
+          gh release create "${TAG_NAME}" --title "${RELEASE_TITLE}" --notes "${RELEASE_NOTES}"
