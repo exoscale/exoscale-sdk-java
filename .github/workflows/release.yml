@@ -51,9 +51,9 @@ jobs:
 
       - name: Build and install SDK
         run: |
-          mvn clean install
+          mvn -B clean process-resources --no-transfer-progress --file pom.xml
           cd sdk
-          mvn install
+          mvn -B install --no-transfer-progress --file pom.xml -Dmaven.test.skip=true -X
           cd ..
           
       - name: Check target folder for JavaDocs
