@@ -33,12 +33,17 @@ jobs:
           sed -i "s/<version>.*<\/version>/<version>$BASE_VERSION<\/version>/g" README.md
           sed -i "s/'com.exoscale.sdk:sdk:.*'/'com.exoscale.sdk:sdk:$BASE_VERSION'/g" README.md
 
+          
+          sed -i "s/<version>.*<\/version>/<version>$BASE_VERSION<\/version>/g" sdk/README.md
+          sed -i "s/'com.exoscale.sdk:sdk:.*'/'com.exoscale.sdk:sdk:$BASE_VERSION'/g" sdk/README.md
+
+
           CONFIG_FILE="sdk/src/main/java/com/exoscale/sdk/client/Configuration.java"
           sed -i "s/public static final String VERSION = \".*\";/public static final String VERSION = \"$BASE_VERSION\";/g" "$CONFIG_FILE"
 
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
-          git add pom.xml README.md "$CONFIG_FILE"
+          git add pom.xml README.md sdk/README.md "$CONFIG_FILE"
           git commit -m "Update version to $BASE_VERSION for release" || true
           git push
 
