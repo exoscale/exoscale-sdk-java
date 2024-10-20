@@ -20,10 +20,11 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
       - name: Get tag name
-        id: tag
         run: |
-          TAG_NAME=$(git describe --tags)
+          TAG_NAME=${GITHUB_REF##*/}
+          echo "TAG_NAME=$TAG_NAME"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+          
       - name: Update version numbers in files
         run: |
           BASE_VERSION=${TAG_NAME#v}
