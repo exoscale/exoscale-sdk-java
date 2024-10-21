@@ -16,12 +16,13 @@ jobs:
           ref: elkezza-sdk-versioning  # Change 'main' before the merge
           fetch-depth: 0
 
+
       - name: Install xmlstarlet
         run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
       - name: Get tag name
         run: |
-          TAG_NAME=${GITHUB_REF##*/}
+          TAG_NAME=${GITHUB_REF#refs/tags/}
           echo "TAG_NAME=$TAG_NAME"
           echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
           
