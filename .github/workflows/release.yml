@@ -106,7 +106,7 @@ jobs:
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
+          ref: gh-pages-test #change to 'main' before merge
           
       - name: Move Javadoc JAR back to working directory
         run: |
