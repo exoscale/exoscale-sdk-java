@@ -43,8 +43,8 @@ jobs:
           CONFIG_FILE="sdk/src/main/java/com/exoscale/sdk/client/Configuration.java"
           sed -i "s/public static final String VERSION = \".*\";/public static final String VERSION = \"$BASE_VERSION\";/g" "$CONFIG_FILE"
 
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.name "Exoscale"
+          git config user.email "operation+build@exoscale.net"
           git add pom.xml README.md sdk/README.md "$CONFIG_FILE"
           git commit -m "Update version to $BASE_VERSION for release" || true
           git push
