@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: elkezza-sdk-versioning  # Change 'main' before the merge
+          ref: main
           fetch-depth: 0
 
 
@@ -105,7 +105,7 @@ jobs:
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
-          ref: gh-pages-test #change to 'main' before merge
+          ref: gh-pages
           
       - name: Move Javadoc JAR back to working directory
         run: |
