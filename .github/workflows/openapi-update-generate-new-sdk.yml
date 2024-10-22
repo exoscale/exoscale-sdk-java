@@ -94,8 +94,8 @@ jobs:
       - name: Commit and push changes if OpenAPI definition has changed
         if: env.CHANGED == 'true'
         run: |-
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.name "Exoscale"
+          git config user.email "operation+build@exoscale.net"
           git add .
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
@@ -147,8 +147,8 @@ jobs:
       - name: Commit and push JavaDocs
         if: env.CHANGED == 'true'
         run: |-
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.name "Exoscale"
+          git config user.email "operation+build@exoscale.net"
           git add .
           git commit -m "Update JavaDocs for $new_version"
           git push
