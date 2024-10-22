@@ -36,7 +36,7 @@ jobs:
           current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
           echo "Current version: $current_version"
 
-          unique_id=$(date +%Y%m%d%H%M%S)
+          unique_id=$(git rev-parse --short HEAD)
           if [[ "$current_version" == *"SNAPSHOT"* ]]; then
             echo "Current version is a SNAPSHOT."
             base_version=$(echo "$current_version" | sed -E 's/-SNAPSHOT-.*//')
