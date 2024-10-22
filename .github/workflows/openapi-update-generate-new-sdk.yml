@@ -1,9 +1,9 @@
 name: Update bundled openapi definition & Generate SDK
 
 on:
-  push:
-    branches:
-      - main
+  #push:
+    #branches:
+      #- main
   workflow_dispatch:
   schedule:
    - cron: '0 7 * * *'  # At 07:00 every day
