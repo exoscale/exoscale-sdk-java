@@ -87,9 +87,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG_NAME=$(git describe --tags)
           RELEASE_TITLE="Release ${TAG_NAME}"
-          RELEASE_NOTES="See the [CHANGELOG](https://github.com/exoscale/exoscale4j/blob/main/CHANGELOG.md) for details."
+          RELEASE_NOTES="See the [CHANGELOG](https://github.com/exoscale/exoscale-sdk-java/blob/main/CHANGELOG.md) for details."
           gh release create "${TAG_NAME}" --title "${RELEASE_TITLE}" --notes "${RELEASE_NOTES}"
 
           
