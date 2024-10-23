@@ -19,9 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -41,19 +39,19 @@ public class DbaasPlanTest {
     }
 
     /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
      * Test the property 'nodeCount'
      */
     @Test
     public void nodeCountTest() {
         // TODO: test nodeCount
-    }
-
-    /**
-     * Test the property 'backupConfig'
-     */
-    @Test
-    public void backupConfigTest() {
-        // TODO: test backupConfig
     }
 
     /**
@@ -65,14 +63,6 @@ public class DbaasPlanTest {
     }
 
     /**
-     * Test the property 'family'
-     */
-    @Test
-    public void familyTest() {
-        // TODO: test family
-    }
-
-    /**
      * Test the property 'diskSpace'
      */
     @Test
@@ -81,19 +71,11 @@ public class DbaasPlanTest {
     }
 
     /**
-     * Test the property 'authorized'
+     * Test the property 'nodeMemory'
      */
     @Test
-    public void authorizedTest() {
-        // TODO: test authorized
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
+    public void nodeMemoryTest() {
+        // TODO: test nodeMemory
     }
 
     /**
@@ -105,19 +87,19 @@ public class DbaasPlanTest {
     }
 
     /**
-     * Test the property 'zones'
+     * Test the property 'backupConfig'
      */
     @Test
-    public void zonesTest() {
-        // TODO: test zones
+    public void backupConfigTest() {
+        // TODO: test backupConfig
     }
 
     /**
-     * Test the property 'nodeMemory'
+     * Test the property 'authorized'
      */
     @Test
-    public void nodeMemoryTest() {
-        // TODO: test nodeMemory
+    public void authorizedTest() {
+        // TODO: test authorized
     }
 
 }

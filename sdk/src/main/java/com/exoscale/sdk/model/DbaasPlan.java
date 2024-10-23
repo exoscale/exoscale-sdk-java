@@ -25,9 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -35,71 +33,78 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DBaaS plan
  */
 @JsonPropertyOrder({
-  DbaasPlan.JSON_PROPERTY_NODE_COUNT,
-  DbaasPlan.JSON_PROPERTY_BACKUP_CONFIG,
-  DbaasPlan.JSON_PROPERTY_NODE_CPU_COUNT,
-  DbaasPlan.JSON_PROPERTY_FAMILY,
-  DbaasPlan.JSON_PROPERTY_DISK_SPACE,
-  DbaasPlan.JSON_PROPERTY_AUTHORIZED,
   DbaasPlan.JSON_PROPERTY_NAME,
+  DbaasPlan.JSON_PROPERTY_NODE_COUNT,
+  DbaasPlan.JSON_PROPERTY_NODE_CPU_COUNT,
+  DbaasPlan.JSON_PROPERTY_DISK_SPACE,
+  DbaasPlan.JSON_PROPERTY_NODE_MEMORY,
   DbaasPlan.JSON_PROPERTY_MAX_MEMORY_PERCENT,
-  DbaasPlan.JSON_PROPERTY_ZONES,
-  DbaasPlan.JSON_PROPERTY_NODE_MEMORY
+  DbaasPlan.JSON_PROPERTY_BACKUP_CONFIG,
+  DbaasPlan.JSON_PROPERTY_AUTHORIZED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasPlan {
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
   public static final String JSON_PROPERTY_NODE_COUNT = "node-count";
   private Long nodeCount;
-
-  public static final String JSON_PROPERTY_BACKUP_CONFIG = "backup-config";
-  private DbaasBackupConfig backupConfig;
 
   public static final String JSON_PROPERTY_NODE_CPU_COUNT = "node-cpu-count";
   private Long nodeCpuCount;
 
-  public static final String JSON_PROPERTY_FAMILY = "family";
-  private String family;
-
   public static final String JSON_PROPERTY_DISK_SPACE = "disk-space";
   private Long diskSpace;
 
-  public static final String JSON_PROPERTY_AUTHORIZED = "authorized";
-  private Boolean authorized;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_NODE_MEMORY = "node-memory";
+  private Long nodeMemory;
 
   public static final String JSON_PROPERTY_MAX_MEMORY_PERCENT = "max-memory-percent";
   private Long maxMemoryPercent;
 
-  public static final String JSON_PROPERTY_ZONES = "zones";
-  private List<String> zones;
+  public static final String JSON_PROPERTY_BACKUP_CONFIG = "backup-config";
+  private DbaasBackupConfig backupConfig;
 
-  public static final String JSON_PROPERTY_NODE_MEMORY = "node-memory";
-  private Long nodeMemory;
+  public static final String JSON_PROPERTY_AUTHORIZED = "authorized";
+  private Boolean authorized;
 
   public DbaasPlan() { 
   }
 
   @JsonCreator
   public DbaasPlan(
+    @JsonProperty(JSON_PROPERTY_NAME) String name, 
     @JsonProperty(JSON_PROPERTY_NODE_COUNT) Long nodeCount, 
     @JsonProperty(JSON_PROPERTY_NODE_CPU_COUNT) Long nodeCpuCount, 
     @JsonProperty(JSON_PROPERTY_DISK_SPACE) Long diskSpace, 
-    @JsonProperty(JSON_PROPERTY_AUTHORIZED) Boolean authorized, 
-    @JsonProperty(JSON_PROPERTY_NAME) String name, 
+    @JsonProperty(JSON_PROPERTY_NODE_MEMORY) Long nodeMemory, 
     @JsonProperty(JSON_PROPERTY_MAX_MEMORY_PERCENT) Long maxMemoryPercent, 
-    @JsonProperty(JSON_PROPERTY_NODE_MEMORY) Long nodeMemory
+    @JsonProperty(JSON_PROPERTY_AUTHORIZED) Boolean authorized
   ) {
   this();
+    this.name = name;
     this.nodeCount = nodeCount;
     this.nodeCpuCount = nodeCpuCount;
     this.diskSpace = diskSpace;
-    this.authorized = authorized;
-    this.name = name;
-    this.maxMemoryPercent = maxMemoryPercent;
     this.nodeMemory = nodeMemory;
+    this.maxMemoryPercent = maxMemoryPercent;
+    this.authorized = authorized;
   }
+
+   /**
+   * DBaaS plan name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+
 
    /**
    * DBaaS plan node count
@@ -112,6 +117,69 @@ public class DbaasPlan {
 
   public Long getNodeCount() {
     return nodeCount;
+  }
+
+
+
+
+   /**
+   * DBaaS plan CPU count per node
+   * minimum: 0
+   * @return nodeCpuCount
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NODE_CPU_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getNodeCpuCount() {
+    return nodeCpuCount;
+  }
+
+
+
+
+   /**
+   * DBaaS plan disk space
+   * @return diskSpace
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISK_SPACE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getDiskSpace() {
+    return diskSpace;
+  }
+
+
+
+
+   /**
+   * DBaaS plan memory count per node
+   * minimum: 0
+   * @return nodeMemory
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NODE_MEMORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getNodeMemory() {
+    return nodeMemory;
+  }
+
+
+
+
+   /**
+   * DBaaS plan max memory allocated percentage
+   * minimum: 0
+   * @return maxMemoryPercent
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_MEMORY_PERCENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMaxMemoryPercent() {
+    return maxMemoryPercent;
   }
 
 
@@ -143,62 +211,6 @@ public class DbaasPlan {
 
 
    /**
-   * DBaaS plan CPU count per node
-   * minimum: 0
-   * @return nodeCpuCount
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NODE_CPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getNodeCpuCount() {
-    return nodeCpuCount;
-  }
-
-
-
-
-  public DbaasPlan family(String family) {
-    this.family = family;
-    return this;
-  }
-
-   /**
-   * Instance family subset which the service can use
-   * @return family
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getFamily() {
-    return family;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFamily(String family) {
-    this.family = family;
-  }
-
-
-   /**
-   * DBaaS plan disk space
-   * @return diskSpace
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISK_SPACE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getDiskSpace() {
-    return diskSpace;
-  }
-
-
-
-
-   /**
    * Requires authorization or publicly available
    * @return authorized
   **/
@@ -208,86 +220,6 @@ public class DbaasPlan {
 
   public Boolean getAuthorized() {
     return authorized;
-  }
-
-
-
-
-   /**
-   * DBaaS plan name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-
-
-   /**
-   * DBaaS plan max memory allocated percentage
-   * minimum: 0
-   * @return maxMemoryPercent
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_MEMORY_PERCENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getMaxMemoryPercent() {
-    return maxMemoryPercent;
-  }
-
-
-
-
-  public DbaasPlan zones(List<String> zones) {
-    this.zones = zones;
-    return this;
-  }
-
-  public DbaasPlan addZonesItem(String zonesItem) {
-    if (this.zones == null) {
-      this.zones = new ArrayList<>();
-    }
-    this.zones.add(zonesItem);
-    return this;
-  }
-
-   /**
-   * Zones where the plan is available
-   * @return zones
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ZONES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getZones() {
-    return zones;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ZONES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setZones(List<String> zones) {
-    this.zones = zones;
-  }
-
-
-   /**
-   * DBaaS plan memory count per node
-   * minimum: 0
-   * @return nodeMemory
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NODE_MEMORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getNodeMemory() {
-    return nodeMemory;
   }
 
 
@@ -305,37 +237,33 @@ public class DbaasPlan {
       return false;
     }
     DbaasPlan dbaasPlan = (DbaasPlan) o;
-    return Objects.equals(this.nodeCount, dbaasPlan.nodeCount) &&
-        Objects.equals(this.backupConfig, dbaasPlan.backupConfig) &&
+    return Objects.equals(this.name, dbaasPlan.name) &&
+        Objects.equals(this.nodeCount, dbaasPlan.nodeCount) &&
         Objects.equals(this.nodeCpuCount, dbaasPlan.nodeCpuCount) &&
-        Objects.equals(this.family, dbaasPlan.family) &&
         Objects.equals(this.diskSpace, dbaasPlan.diskSpace) &&
-        Objects.equals(this.authorized, dbaasPlan.authorized) &&
-        Objects.equals(this.name, dbaasPlan.name) &&
+        Objects.equals(this.nodeMemory, dbaasPlan.nodeMemory) &&
         Objects.equals(this.maxMemoryPercent, dbaasPlan.maxMemoryPercent) &&
-        Objects.equals(this.zones, dbaasPlan.zones) &&
-        Objects.equals(this.nodeMemory, dbaasPlan.nodeMemory);
+        Objects.equals(this.backupConfig, dbaasPlan.backupConfig) &&
+        Objects.equals(this.authorized, dbaasPlan.authorized);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeCount, backupConfig, nodeCpuCount, family, diskSpace, authorized, name, maxMemoryPercent, zones, nodeMemory);
+    return Objects.hash(name, nodeCount, nodeCpuCount, diskSpace, nodeMemory, maxMemoryPercent, backupConfig, authorized);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbaasPlan {\n");
-    sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
-    sb.append("    backupConfig: ").append(toIndentedString(backupConfig)).append("\n");
-    sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
-    sb.append("    family: ").append(toIndentedString(family)).append("\n");
-    sb.append("    diskSpace: ").append(toIndentedString(diskSpace)).append("\n");
-    sb.append("    authorized: ").append(toIndentedString(authorized)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    maxMemoryPercent: ").append(toIndentedString(maxMemoryPercent)).append("\n");
-    sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
+    sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
+    sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
+    sb.append("    diskSpace: ").append(toIndentedString(diskSpace)).append("\n");
     sb.append("    nodeMemory: ").append(toIndentedString(nodeMemory)).append("\n");
+    sb.append("    maxMemoryPercent: ").append(toIndentedString(maxMemoryPercent)).append("\n");
+    sb.append("    backupConfig: ").append(toIndentedString(backupConfig)).append("\n");
+    sb.append("    authorized: ").append(toIndentedString(authorized)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -383,14 +311,14 @@ public class DbaasPlan {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `node-count` to the URL query string
     if (getNodeCount() != null) {
       joiner.add(String.format("%snode-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `backup-config` to the URL query string
-    if (getBackupConfig() != null) {
-      joiner.add(getBackupConfig().toUrlQueryString(prefix + "backup-config" + suffix));
     }
 
     // add `node-cpu-count` to the URL query string
@@ -398,24 +326,14 @@ public class DbaasPlan {
       joiner.add(String.format("%snode-cpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeCpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `family` to the URL query string
-    if (getFamily() != null) {
-      joiner.add(String.format("%sfamily%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFamily()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `disk-space` to the URL query string
     if (getDiskSpace() != null) {
       joiner.add(String.format("%sdisk-space%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSpace()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `authorized` to the URL query string
-    if (getAuthorized() != null) {
-      joiner.add(String.format("%sauthorized%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAuthorized()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `node-memory` to the URL query string
+    if (getNodeMemory() != null) {
+      joiner.add(String.format("%snode-memory%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeMemory()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `max-memory-percent` to the URL query string
@@ -423,18 +341,14 @@ public class DbaasPlan {
       joiner.add(String.format("%smax-memory-percent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxMemoryPercent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `zones` to the URL query string
-    if (getZones() != null) {
-      for (int i = 0; i < getZones().size(); i++) {
-        joiner.add(String.format("%szones%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getZones().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+    // add `backup-config` to the URL query string
+    if (getBackupConfig() != null) {
+      joiner.add(getBackupConfig().toUrlQueryString(prefix + "backup-config" + suffix));
     }
 
-    // add `node-memory` to the URL query string
-    if (getNodeMemory() != null) {
-      joiner.add(String.format("%snode-memory%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeMemory()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `authorized` to the URL query string
+    if (getAuthorized() != null) {
+      joiner.add(String.format("%sauthorized%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAuthorized()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
