@@ -8157,8 +8157,7 @@ components:
         - available-versions
         - available-versions
         plans:
-        - disk-space: 1
-          backup-config:
+        - backup-config:
             recovery-mode: recovery-mode
             max-count: 0
             frequent-oldest-age-minutes: 0
@@ -8166,14 +8165,18 @@ components:
             interval: 0
             frequent-interval-minutes: 0
             infrequent-interval-minutes: 0
+          disk-space: 3
           max-memory-percent: 0
           node-count: 0
           node-cpu-count: 0
           node-memory: 0
           authorized: true
           name: name
-        - disk-space: 1
-          backup-config:
+          family: family
+          zones:
+          - zones
+          - zones
+        - backup-config:
             recovery-mode: recovery-mode
             max-count: 0
             frequent-oldest-age-minutes: 0
@@ -8181,12 +8184,17 @@ components:
             interval: 0
             frequent-interval-minutes: 0
             infrequent-interval-minutes: 0
+          disk-space: 3
           max-memory-percent: 0
           node-count: 0
           node-cpu-count: 0
           node-memory: 0
           authorized: true
           name: name
+          family: family
+          zones:
+          - zones
+          - zones
         name: name
         description: description
       properties:
@@ -15630,7 +15638,6 @@ components:
     dbaas-plan:
       description: DBaaS plan
       example:
-        disk-space: 1
         backup-config:
           recovery-mode: recovery-mode
           max-count: 0
@@ -15639,17 +15646,18 @@ components:
           interval: 0
           frequent-interval-minutes: 0
           infrequent-interval-minutes: 0
+        disk-space: 3
         max-memory-percent: 0
         node-count: 0
         node-cpu-count: 0
         node-memory: 0
         authorized: true
         name: name
+        family: family
+        zones:
+        - zones
+        - zones
       properties:
-        name:
-          description: DBaaS plan name
-          readOnly: true
-          type: string
         node-count:
           description: DBaaS plan node count
           exclusiveMinimum: true
@@ -15657,6 +15665,8 @@ components:
           minimum: 0
           readOnly: true
           type: integer
+        backup-config:
+          $ref: '#/components/schemas/dbaas-backup-config'
         node-cpu-count:
           description: DBaaS plan CPU count per node
           exclusiveMinimum: true
@@ -15664,18 +15674,22 @@ components:
           minimum: 0
           readOnly: true
           type: integer
+        family:
+          description: Instance family subset which the service can use
+          type: string
         disk-space:
           description: DBaaS plan disk space
           format: int64
           readOnly: true
           type: integer
-        node-memory:
-          description: DBaaS plan memory count per node
-          exclusiveMinimum: true
-          format: int64
-          minimum: 0
+        authorized:
+          description: Requires authorization or publicly available
           readOnly: true
-          type: integer
+          type: boolean
+        name:
+          description: DBaaS plan name
+          readOnly: true
+          type: string
         max-memory-percent:
           description: DBaaS plan max memory allocated percentage
           exclusiveMinimum: true
@@ -15683,12 +15697,18 @@ components:
           minimum: 0
           readOnly: true
           type: integer
-        backup-config:
-          $ref: '#/components/schemas/dbaas-backup-config'
-        authorized:
-          description: Requires authorization or publicly available
+        zones:
+          description: Zones where the plan is available
+          items:
+            type: string
+          type: array
+        node-memory:
+          description: DBaaS plan memory count per node
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
           readOnly: true
-          type: boolean
+          type: integer
       type: object
     dbaas-endpoint-opensearch-input-update:
       properties:
@@ -35856,8 +35876,7 @@ components:
           - available-versions
           - available-versions
           plans:
-          - disk-space: 1
-            backup-config:
+          - backup-config:
               recovery-mode: recovery-mode
               max-count: 0
               frequent-oldest-age-minutes: 0
@@ -35865,14 +35884,18 @@ components:
               interval: 0
               frequent-interval-minutes: 0
               infrequent-interval-minutes: 0
+            disk-space: 3
             max-memory-percent: 0
             node-count: 0
             node-cpu-count: 0
             node-memory: 0
             authorized: true
             name: name
-          - disk-space: 1
-            backup-config:
+            family: family
+            zones:
+            - zones
+            - zones
+          - backup-config:
               recovery-mode: recovery-mode
               max-count: 0
               frequent-oldest-age-minutes: 0
@@ -35880,12 +35903,17 @@ components:
               interval: 0
               frequent-interval-minutes: 0
               infrequent-interval-minutes: 0
+            disk-space: 3
             max-memory-percent: 0
             node-count: 0
             node-cpu-count: 0
             node-memory: 0
             authorized: true
             name: name
+            family: family
+            zones:
+            - zones
+            - zones
           name: name
           description: description
         - default-version: default-version
@@ -35893,8 +35921,7 @@ components:
           - available-versions
           - available-versions
           plans:
-          - disk-space: 1
-            backup-config:
+          - backup-config:
               recovery-mode: recovery-mode
               max-count: 0
               frequent-oldest-age-minutes: 0
@@ -35902,14 +35929,18 @@ components:
               interval: 0
               frequent-interval-minutes: 0
               infrequent-interval-minutes: 0
+            disk-space: 3
             max-memory-percent: 0
             node-count: 0
             node-cpu-count: 0
             node-memory: 0
             authorized: true
             name: name
-          - disk-space: 1
-            backup-config:
+            family: family
+            zones:
+            - zones
+            - zones
+          - backup-config:
               recovery-mode: recovery-mode
               max-count: 0
               frequent-oldest-age-minutes: 0
@@ -35917,12 +35948,17 @@ components:
               interval: 0
               frequent-interval-minutes: 0
               infrequent-interval-minutes: 0
+            disk-space: 3
             max-memory-percent: 0
             node-count: 0
             node-cpu-count: 0
             node-memory: 0
             authorized: true
             name: name
+            family: family
+            zones:
+            - zones
+            - zones
           name: name
           description: description
       properties:

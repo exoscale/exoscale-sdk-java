@@ -19,7 +19,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -39,51 +41,11 @@ public class DbaasPlanTest {
     }
 
     /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
      * Test the property 'nodeCount'
      */
     @Test
     public void nodeCountTest() {
         // TODO: test nodeCount
-    }
-
-    /**
-     * Test the property 'nodeCpuCount'
-     */
-    @Test
-    public void nodeCpuCountTest() {
-        // TODO: test nodeCpuCount
-    }
-
-    /**
-     * Test the property 'diskSpace'
-     */
-    @Test
-    public void diskSpaceTest() {
-        // TODO: test diskSpace
-    }
-
-    /**
-     * Test the property 'nodeMemory'
-     */
-    @Test
-    public void nodeMemoryTest() {
-        // TODO: test nodeMemory
-    }
-
-    /**
-     * Test the property 'maxMemoryPercent'
-     */
-    @Test
-    public void maxMemoryPercentTest() {
-        // TODO: test maxMemoryPercent
     }
 
     /**
@@ -95,11 +57,67 @@ public class DbaasPlanTest {
     }
 
     /**
+     * Test the property 'nodeCpuCount'
+     */
+    @Test
+    public void nodeCpuCountTest() {
+        // TODO: test nodeCpuCount
+    }
+
+    /**
+     * Test the property 'family'
+     */
+    @Test
+    public void familyTest() {
+        // TODO: test family
+    }
+
+    /**
+     * Test the property 'diskSpace'
+     */
+    @Test
+    public void diskSpaceTest() {
+        // TODO: test diskSpace
+    }
+
+    /**
      * Test the property 'authorized'
      */
     @Test
     public void authorizedTest() {
         // TODO: test authorized
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'maxMemoryPercent'
+     */
+    @Test
+    public void maxMemoryPercentTest() {
+        // TODO: test maxMemoryPercent
+    }
+
+    /**
+     * Test the property 'zones'
+     */
+    @Test
+    public void zonesTest() {
+        // TODO: test zones
+    }
+
+    /**
+     * Test the property 'nodeMemory'
+     */
+    @Test
+    public void nodeMemoryTest() {
+        // TODO: test nodeMemory
     }
 
 }
