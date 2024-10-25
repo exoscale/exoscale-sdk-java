@@ -1268,7 +1268,7 @@ components:
           description: Private Network netmask
         options:
           "$ref": "#/components/schemas/private-network-options"
-          description: Options
+          description: DHCP options
         end-ip:
           type: string
           format: ipv4
@@ -10599,7 +10599,7 @@ paths:
                   description: Resource labels
                 options:
                   "$ref": "#/components/schemas/private-network-options"
-                  description: Options
+                  description: DHCP options
               required:
               - name
       operationId: create-private-network
@@ -11157,7 +11157,7 @@ paths:
                   description: Resource labels
                 options:
                   "$ref": "#/components/schemas/private-network-options"
-                  description: Options
+                  description: DHCP options
       operationId: update-private-network
     get:
       tags:
