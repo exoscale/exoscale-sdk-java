@@ -1,9 +1,9 @@
 name: Update bundled openapi definition & Generate SDK
 
 on:
-  push:
-    branches:
-      - main
+  #push:
+    #branches:
+      #- main
   workflow_dispatch:
   schedule:
    - cron: '0 7 * * *'  # At 07:00 every day
@@ -35,11 +35,34 @@ jobs:
         run: |
           current_version=$(xmlstarlet sel -t -v "//*[local-name()='artifactVersion']" pom.xml)
           echo "Current version: $current_version"
-          IFS='.-' read -r -a parts <<< "$current_version"
-          new_patch=$((parts[2] + 1))
-          new_version="${parts[0]}.${parts[1]}.$new_patch-${parts[3]}"
+
+          unique_id=$(git rev-parse --short HEAD)
+          if [[ "$current_version" == *"SNAPSHOT"* ]]; then
+            echo "Current version is a SNAPSHOT."
+            base_version=$(echo "$current_version" | sed -E 's/-SNAPSHOT-.*//')
+            new_version="${base_version}-SNAPSHOT-${unique_id}"
+          else
+            echo "Current version is the last release."
+            IFS='.-' read -r -a parts <<< "$current_version"
+            major=${parts[0]}
+            minor=${parts[1]}
+            patch=${parts[2]}
+            qualifier=${parts[3]}
+            
+            new_patch=$((patch + 1))
+
+            if [ -z "$qualifier" ]; then
+              base_version="${major}.${minor}.${new_patch}"
+            else
+              base_version="${major}.${minor}.${new_patch}-${qualifier}"
+            fi
+            
+            new_version="${base_version}-SNAPSHOT-${unique_id}"
+          fi
+
           echo "New version: $new_version"
           xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$new_version" pom.xml
+          
           echo "new_version=$new_version" >> $GITHUB_ENV
           echo "Updated version to $new_version"
 
@@ -71,8 +94,8 @@ jobs:
       - name: Commit and push changes if OpenAPI definition has changed
         if: env.CHANGED == 'true'
         run: |-
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.name "Exoscale"
+          git config user.email "operation+build@exoscale.net"
           git add .
           timestamp=$(date -u)
           git commit -m "OpenAPI spec and SDK update: ${timestamp}" || exit 0
@@ -124,8 +147,8 @@ jobs:
       - name: Commit and push JavaDocs
         if: env.CHANGED == 'true'
         run: |-
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.name "Exoscale"
+          git config user.email "operation+build@exoscale.net"
           git add .
           git commit -m "Update JavaDocs for $new_version"
           git push
