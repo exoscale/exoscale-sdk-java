@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.2-ALPHA] - 2024-08-20
+
 ### Features
 
 - **GitHub Actions**: Added automation for regenerating the SDK when the specification changes.
