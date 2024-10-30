@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.3] - 2024-10-30
+
 ### Enhancements
 - **Javadoc Generation**: Improved automation and versioning of Javadoc generation (#6).
 - **GitHub Actions**: Improved handling of versioning in workflows, including `SNAPSHOT` tags based on release status (#10).
