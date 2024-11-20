@@ -147,6 +147,14 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'logOutput'
+     */
+    @Test
+    public void logOutputTest() {
+        // TODO: test logOutput
+    }
+
+    /**
      * Test the property 'netReadTimeout'
      */
     @Test

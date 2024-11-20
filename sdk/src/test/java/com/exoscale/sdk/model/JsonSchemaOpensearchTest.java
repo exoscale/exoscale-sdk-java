@@ -16,6 +16,8 @@ package com.exoscale.sdk.model;
 import com.exoscale.sdk.model.OpensearchEmailSenderSettings;
 import com.exoscale.sdk.model.OpensearchISMHistorySettings;
 import com.exoscale.sdk.model.OpensearchSecurityPluginSettings;
+import com.exoscale.sdk.model.SearchBackpressureSettings;
+import com.exoscale.sdk.model.ShardIndexingBackPressureSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -79,6 +81,14 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'indicesMemoryMaxIndexBufferSize'
+     */
+    @Test
+    public void indicesMemoryMaxIndexBufferSizeTest() {
+        // TODO: test indicesMemoryMaxIndexBufferSize
+    }
+
+    /**
      * Test the property 'indicesRecoveryMaxConcurrentFileChunks'
      */
     @Test
@@ -95,11 +105,43 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'searchBackpressure'
+     */
+    @Test
+    public void searchBackpressureTest() {
+        // TODO: test searchBackpressure
+    }
+
+    /**
+     * Test the property 'shardIndexingPressure'
+     */
+    @Test
+    public void shardIndexingPressureTest() {
+        // TODO: test shardIndexingPressure
+    }
+
+    /**
+     * Test the property 'knnMemoryCircuitBreakerEnabled'
+     */
+    @Test
+    public void knnMemoryCircuitBreakerEnabledTest() {
+        // TODO: test knnMemoryCircuitBreakerEnabled
+    }
+
+    /**
      * Test the property 'threadPoolSearchSize'
      */
     @Test
     public void threadPoolSearchSizeTest() {
         // TODO: test threadPoolSearchSize
+    }
+
+    /**
+     * Test the property 'indicesMemoryMinIndexBufferSize'
+     */
+    @Test
+    public void indicesMemoryMinIndexBufferSizeTest() {
+        // TODO: test indicesMemoryMinIndexBufferSize
     }
 
     /**
@@ -284,6 +326,14 @@ public class JsonSchemaOpensearchTest {
     @Test
     public void threadPoolSearchQueueSizeTest() {
         // TODO: test threadPoolSearchQueueSize
+    }
+
+    /**
+     * Test the property 'knnMemoryCircuitBreakerLimit'
+     */
+    @Test
+    public void knnMemoryCircuitBreakerLimitTest() {
+        // TODO: test knnMemoryCircuitBreakerLimit
     }
 
     /**

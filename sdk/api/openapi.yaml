@@ -7944,8 +7944,10 @@ components:
           client_secret: bfa6gea4f129076761dcba8ce5e1e406bd83af7b
           token_url: https://yourprovider.com/oauth/token
           client_id: b1ba0bf54a4c2c0a1c29
+        custom_domain: grafana.example.org
         alerting_error_or_timeout: alerting
         dataproxy_send_user_header: false
+        wal: false
         user_auto_assign_org_role: Viewer
         alerting_max_annotations_to_keep: 0
         dashboards_versions_to_keep: 20
@@ -8018,6 +8020,12 @@ components:
           example: true
           title: Enable or disable Grafana legacy alerting functionality. This should
             not be enabled with unified_alerting_enabled.
+          type: boolean
+        wal:
+          description: Setting to enable/disable Write-Ahead Logging. The default
+            value is false (disabled).
+          example: false
+          title: Write-Ahead Logging
           type: boolean
         unified_alerting_enabled:
           example: true
@@ -8127,6 +8135,14 @@ components:
           type: integer
         auth_generic_oauth:
           $ref: '#/components/schemas/Generic_OAuth_integration'
+        custom_domain:
+          description: Serve the web frontend using a custom CNAME pointing to the
+            Aiven DNS name
+          example: grafana.example.org
+          maxLength: 255
+          nullable: true
+          title: Custom domain
+          type: string
         alerting_error_or_timeout:
           enum:
           - alerting
@@ -12319,6 +12335,7 @@ components:
         innodb_lock_wait_timeout: 50
         innodb_print_all_deadlocks: true
         net_read_timeout: 30
+        log_output: INSIGHTS
         long_query_time: 10
         slow_query_log: true
         sort_buffer_size: 262144
@@ -12447,6 +12464,20 @@ components:
           minimum: 2
           title: connect_timeout
           type: integer
+        log_output:
+          description: "The slow log output destination when slow_query_log is ON.\
+            \ To enable MySQL AI Insights, choose INSIGHTS. To use MySQL AI Insights\
+            \ and the mysql.slow_log table at the same time, choose INSIGHTS,TABLE.\
+            \ To only use the mysql.slow_log table, choose TABLE. To silence slow\
+            \ logs, choose NONE."
+          enum:
+          - INSIGHTS
+          - "INSIGHTS,TABLE"
+          - NONE
+          - TABLE
+          example: INSIGHTS
+          title: log_output
+          type: string
         net_read_timeout:
           description: The number of seconds to wait for more data from a connection
             before aborting the read.
@@ -12688,6 +12719,7 @@ components:
         autodb_pool_size: 0
         server_lifetime: 3600
         autodb_idle_timeout: 3600
+        max_prepared_statements: 100
         min_pool_size: 0
         server_idle_timeout: 600
         autodb_pool_mode: session
@@ -12744,6 +12776,17 @@ components:
           minimum: 0
           title: Do not allow more than this many server connections per database
             (regardless of user). Setting it to 0 means unlimited.
+          type: integer
+        max_prepared_statements:
+          default: 100
+          example: 100
+          maximum: 3000
+          minimum: 0
+          title: "PgBouncer tracks protocol-level named prepared statements related\
+            \ commands sent by the client in transaction and statement pooling modes\
+            \ when max_prepared_statements is set to a non-zero value. Setting it\
+            \ to 0 disables prepared statements. max_prepared_statements defaults\
+            \ to 100, and its maximum is 3000."
           type: integer
         server_reset_query_always:
           default: false
@@ -12874,6 +12917,7 @@ components:
           innodb_lock_wait_timeout: 50
           innodb_print_all_deadlocks: true
           net_read_timeout: 30
+          log_output: INSIGHTS
           long_query_time: 10
           slow_query_log: true
           sort_buffer_size: 262144
@@ -13175,7 +13219,7 @@ components:
           consumer_enable_auto_commit: true
           consumer_request_max_bytes: 98369043
           simpleconsumer_pool_size_max: 145
-          consumer_request_timeout_ms: 21478
+          consumer_request_timeout_ms: 7
           name_strategy_validation: true
           name_strategy: topic_name
           producer_compression_type: gzip
@@ -15999,6 +16043,7 @@ components:
           autodb_pool_size: 0
           server_lifetime: 3600
           autodb_idle_timeout: 3600
+          max_prepared_statements: 100
           min_pool_size: 0
           server_idle_timeout: 600
           autodb_pool_mode: session
@@ -16989,7 +17034,7 @@ components:
         consumer_enable_auto_commit: true
         consumer_request_max_bytes: 98369043
         simpleconsumer_pool_size_max: 145
-        consumer_request_timeout_ms: 21478
+        consumer_request_timeout_ms: 7
         name_strategy_validation: true
         name_strategy: topic_name
         producer_compression_type: gzip
@@ -17081,8 +17126,6 @@ components:
           - 1000
           - 15000
           - 30000
-          maximum: 30000
-          minimum: 1000
           title: consumer.request.timeout.ms
           type: integer
       title: Kafka REST configuration
@@ -26205,8 +26248,10 @@ components:
             client_secret: bfa6gea4f129076761dcba8ce5e1e406bd83af7b
             token_url: https://yourprovider.com/oauth/token
             client_id: b1ba0bf54a4c2c0a1c29
+          custom_domain: grafana.example.org
           alerting_error_or_timeout: alerting
           dataproxy_send_user_header: false
+          wal: false
           user_auto_assign_org_role: Viewer
           alerting_max_annotations_to_keep: 0
           dashboards_versions_to_keep: 20
@@ -26966,10 +27011,11 @@ components:
         node-cpu-count: 0
         opensearch-settings:
           http_max_header_size: 8192
-          indices_queries_cache_size: 8
+          indices_queries_cache_size: 28
           thread_pool_search_throttled_size: 26
+          knn_memory_circuit_breaker_enabled: true
           script_max_compilations_rate: 75/5m
-          thread_pool_write_size: 115
+          thread_pool_write_size: 55
           ism-history:
             ism_history_enabled: true
             ism_history_rollover_check_period: 8
@@ -26978,10 +27024,10 @@ components:
             ism_history_rollover_retention_period: 30
             ism_history_max_age: 24
           http_max_initial_line_length: 4096
-          cluster_routing_allocation_node_concurrent_recoveries: 15
+          cluster_routing_allocation_node_concurrent_recoveries: 7
           action_auto_create_index_enabled: false
           override_main_response_version: true
-          indices_query_bool_max_clause_count: 1498
+          indices_query_bool_max_clause_count: 1950
           cluster_max_shards_per_node: 1000
           reindex_remote_whitelist:
           - anotherservice.aivencloud.com:12398
@@ -26990,18 +27036,20 @@ components:
           - anotherservice.aivencloud.com:12398
           - anotherservice.aivencloud.com:12398
           thread_pool_get_queue_size: 255
+          indices_memory_max_index_buffer_size: 212
           email-sender:
             email_sender_password: very-secure-mail-password
             email_sender_username: jane@example.com
             email_sender_name: alert-sender
-          thread_pool_search_queue_size: 1291
+          thread_pool_search_queue_size: 217
           enable_security_audit: true
           action_destructive_requires_name: true
-          thread_pool_search_throttled_queue_size: 1396
+          thread_pool_search_throttled_queue_size: 1454
           thread_pool_get_size: 94
-          indices_memory_index_buffer_size: 21
-          indices_recovery_max_bytes_per_sec: 308
-          thread_pool_write_queue_size: 243
+          indices_memory_index_buffer_size: 23
+          indices_recovery_max_bytes_per_sec: 148
+          thread_pool_write_queue_size: 618
+          knn_memory_circuit_breaker_limit: 50
           indices_recovery_max_concurrent_file_chunks: 2
           auth_failure_listeners:
             internal_authentication_backend_limiting:
@@ -27019,14 +27067,53 @@ components:
               max_tracked_clients: 100000
               type: ip
               time_window_seconds: 3600
-          thread_pool_search_size: 87
+          thread_pool_search_size: 114
+          indices_memory_min_index_buffer_size: 1585
           search_max_buckets: 10000
-          indices_fielddata_cache_size: 51
-          thread_pool_force_merge_size: 127
-          http_max_content_length: 1881634193
+          indices_fielddata_cache_size: 71
+          thread_pool_force_merge_size: 42
+          http_max_content_length: 1423451863
+          search_backpressure:
+            mode: monitor_only
+            search_task:
+              elapsed_time_millis_threshold: 0
+              heap_variance: 0.6878052220127876
+              heap_percent_threshold: 0.3353193347011243
+              cancellation_burst: 1.7143538047012306
+              cpu_time_millis_threshold: 0
+              cancellation_ratio: 0.6704019297950036
+              cancellation_rate: 0.6778324963048014
+              total_heap_percent_threshold: 0.1284659006116532
+              heap_moving_average_window_size: 0
+            node_duress:
+              heap_threshold: 0.11730742509559433
+              cpu_threshold: 0.7457744773683765
+              num_successive_breaches: 1
+            search_shard_task:
+              elapsed_time_millis_threshold: 0
+              heap_variance: 0.6683562403749608
+              heap_percent_threshold: 0.6438423552598547
+              cancellation_burst: 1.6965117697638845
+              cpu_time_millis_threshold: 0
+              cancellation_ratio: 0.9018348186070783
+              cancellation_rate: 0.9369310271410669
+              total_heap_percent_threshold: 0.5025004791520294
+              heap_moving_average_window_size: 0
+          shard_indexing_pressure:
+            primary_parameter:
+              node:
+                soft_limit: 0.7058770351582356
+              shard:
+                min_limit: 0.08851374739011653
+            enforced: true
+            operating_factor:
+              optimal: 0.010263654006109402
+              upper: 0.6519180951018382
+              lower: 0.46523964329332457
+            enabled: true
           thread_pool_analyze_size: 53
           plugins_alerting_filter_by_backend_roles: false
-          thread_pool_analyze_queue_size: 1340
+          thread_pool_analyze_queue_size: 50
         node-states:
         - role: standby
           name: name
@@ -27093,9 +27180,9 @@ components:
         name: name
         disk-size: 0
         opensearch-dashboards:
-          opensearch-request-timeout: 19773
+          opensearch-request-timeout: 110018
           enabled: true
-          max-old-space-size: 340
+          max-old-space-size: 148
         integrations:
         - settings: "{}"
           description: description
@@ -28448,10 +28535,11 @@ components:
       additionalProperties: false
       example:
         http_max_header_size: 8192
-        indices_queries_cache_size: 8
+        indices_queries_cache_size: 28
         thread_pool_search_throttled_size: 26
+        knn_memory_circuit_breaker_enabled: true
         script_max_compilations_rate: 75/5m
-        thread_pool_write_size: 115
+        thread_pool_write_size: 55
         ism-history:
           ism_history_enabled: true
           ism_history_rollover_check_period: 8
@@ -28460,10 +28548,10 @@ components:
           ism_history_rollover_retention_period: 30
           ism_history_max_age: 24
         http_max_initial_line_length: 4096
-        cluster_routing_allocation_node_concurrent_recoveries: 15
+        cluster_routing_allocation_node_concurrent_recoveries: 7
         action_auto_create_index_enabled: false
         override_main_response_version: true
-        indices_query_bool_max_clause_count: 1498
+        indices_query_bool_max_clause_count: 1950
         cluster_max_shards_per_node: 1000
         reindex_remote_whitelist:
         - anotherservice.aivencloud.com:12398
@@ -28472,18 +28560,20 @@ components:
         - anotherservice.aivencloud.com:12398
         - anotherservice.aivencloud.com:12398
         thread_pool_get_queue_size: 255
+        indices_memory_max_index_buffer_size: 212
         email-sender:
           email_sender_password: very-secure-mail-password
           email_sender_username: jane@example.com
           email_sender_name: alert-sender
-        thread_pool_search_queue_size: 1291
+        thread_pool_search_queue_size: 217
         enable_security_audit: true
         action_destructive_requires_name: true
-        thread_pool_search_throttled_queue_size: 1396
+        thread_pool_search_throttled_queue_size: 1454
         thread_pool_get_size: 94
-        indices_memory_index_buffer_size: 21
-        indices_recovery_max_bytes_per_sec: 308
-        thread_pool_write_queue_size: 243
+        indices_memory_index_buffer_size: 23
+        indices_recovery_max_bytes_per_sec: 148
+        thread_pool_write_queue_size: 618
+        knn_memory_circuit_breaker_limit: 50
         indices_recovery_max_concurrent_file_chunks: 2
         auth_failure_listeners:
           internal_authentication_backend_limiting:
@@ -28501,14 +28591,53 @@ components:
             max_tracked_clients: 100000
             type: ip
             time_window_seconds: 3600
-        thread_pool_search_size: 87
+        thread_pool_search_size: 114
+        indices_memory_min_index_buffer_size: 1585
         search_max_buckets: 10000
-        indices_fielddata_cache_size: 51
-        thread_pool_force_merge_size: 127
-        http_max_content_length: 1881634193
+        indices_fielddata_cache_size: 71
+        thread_pool_force_merge_size: 42
+        http_max_content_length: 1423451863
+        search_backpressure:
+          mode: monitor_only
+          search_task:
+            elapsed_time_millis_threshold: 0
+            heap_variance: 0.6878052220127876
+            heap_percent_threshold: 0.3353193347011243
+            cancellation_burst: 1.7143538047012306
+            cpu_time_millis_threshold: 0
+            cancellation_ratio: 0.6704019297950036
+            cancellation_rate: 0.6778324963048014
+            total_heap_percent_threshold: 0.1284659006116532
+            heap_moving_average_window_size: 0
+          node_duress:
+            heap_threshold: 0.11730742509559433
+            cpu_threshold: 0.7457744773683765
+            num_successive_breaches: 1
+          search_shard_task:
+            elapsed_time_millis_threshold: 0
+            heap_variance: 0.6683562403749608
+            heap_percent_threshold: 0.6438423552598547
+            cancellation_burst: 1.6965117697638845
+            cpu_time_millis_threshold: 0
+            cancellation_ratio: 0.9018348186070783
+            cancellation_rate: 0.9369310271410669
+            total_heap_percent_threshold: 0.5025004791520294
+            heap_moving_average_window_size: 0
+        shard_indexing_pressure:
+          primary_parameter:
+            node:
+              soft_limit: 0.7058770351582356
+            shard:
+              min_limit: 0.08851374739011653
+          enforced: true
+          operating_factor:
+            optimal: 0.010263654006109402
+            upper: 0.6519180951018382
+            lower: 0.46523964329332457
+          enabled: true
         thread_pool_analyze_size: 53
         plugins_alerting_filter_by_backend_roles: false
-        thread_pool_analyze_queue_size: 1340
+        thread_pool_analyze_queue_size: 50
       properties:
         thread_pool_search_throttled_size:
           description: Size for the thread pool. See documentation for exact details.
@@ -28541,6 +28670,14 @@ components:
           minimum: 10
           title: get thread pool queue size
           type: integer
+        indices_memory_max_index_buffer_size:
+          description: "Absolute value. Default is unbound. Doesn't work without indices.memory.index_buffer_size.\
+            \ Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size\
+            \ maximum hard limit."
+          maximum: 2048
+          minimum: 3
+          title: indices.memory.max_index_buffer_size
+          type: integer
         indices_recovery_max_concurrent_file_chunks:
           description: Number of file chunks sent in parallel for each recovery. Defaults
             to 2.
@@ -28557,6 +28694,15 @@ components:
           minimum: 3
           title: indices.queries.cache.size
           type: integer
+        search_backpressure:
+          $ref: '#/components/schemas/Search_Backpressure_Settings'
+        shard_indexing_pressure:
+          $ref: '#/components/schemas/Shard_indexing_back_pressure_settings'
+        knn_memory_circuit_breaker_enabled:
+          description: Enable or disable KNN memory circuit breaker. Defaults to true.
+          example: true
+          title: knn.memory.circuit_breaker.enabled
+          type: boolean
         thread_pool_search_size:
           description: Size for the thread pool. See documentation for exact details.
             Do note this may have maximum value depending on CPU count - value is
@@ -28564,6 +28710,14 @@ components:
           maximum: 128
           minimum: 1
           title: search thread pool size
+          type: integer
+        indices_memory_min_index_buffer_size:
+          description: "Absolute value. Default is 48mb. Doesn't work without indices.memory.index_buffer_size.\
+            \ Minimum amount of heap used for query cache, an absolute indices.memory.index_buffer_size\
+            \ minimal hard limit."
+          maximum: 2048
+          minimum: 3
+          title: indices.memory.min_index_buffer_size
           type: integer
         indices_recovery_max_bytes_per_sec:
           description: "Limits total inbound and outbound recovery traffic for each\
@@ -28721,6 +28875,14 @@ components:
           maximum: 2000
           minimum: 10
           title: search thread pool queue size
+          type: integer
+        knn_memory_circuit_breaker_limit:
+          description: Maximum amount of memory that can be used for KNN index. Defaults
+            to 50% of the JVM heap size.
+          example: 50
+          maximum: 100
+          minimum: 3
+          title: knn.memory.circuit_breaker.limit
           type: integer
         indices_query_bool_max_clause_count:
           description: "Maximum number of clauses Lucene BooleanQuery can have. The\
@@ -50669,9 +50831,9 @@ components:
     update_dbaas_service_opensearch_request_opensearch_dashboards:
       description: OpenSearch Dashboards settings
       example:
-        opensearch-request-timeout: 19773
+        opensearch-request-timeout: 110018
         enabled: true
-        max-old-space-size: 340
+        max-old-space-size: 148
       properties:
         opensearch-request-timeout:
           description: "Timeout in milliseconds for requests made by OpenSearch Dashboards\
@@ -53264,6 +53426,8 @@ components:
           maximum: 200000
           minimum: 200
           type: integer
+      required:
+      - datadog-api-key
       type: object
     dbaas_service_redis_connection_info:
       description: Redis connection information properties
@@ -53534,6 +53698,363 @@ components:
       required:
       - index-prefix
       - url
+      type: object
+    Node_duress_settings:
+      additionalProperties: false
+      example:
+        heap_threshold: 0.11730742509559433
+        cpu_threshold: 0.7457744773683765
+        num_successive_breaches: 1
+      properties:
+        cpu_threshold:
+          description: The CPU usage threshold (as a percentage) required for a node
+            to be considered to be under duress. Default is 0.9
+          maximum: 1.0
+          minimum: 0.0
+          title: The CPU usage threshold (as a percentage) required for a node to
+            be considered to be under duress
+          type: number
+        heap_threshold:
+          description: The heap usage threshold (as a percentage) required for a node
+            to be considered to be under duress. Default is 0.7
+          maximum: 1.0
+          minimum: 0.0
+          title: The heap usage threshold (as a percentage) required for a node to
+            be considered to be under duress
+          type: number
+        num_successive_breaches:
+          description: The number of successive limit breaches after which the node
+            is considered to be under duress. Default is 3
+          minimum: 1
+          title: The number of successive limit breaches after which the node is considered
+            to be under duress
+          type: integer
+      title: Node duress settings
+      type: object
+    Search_shard_settings:
+      additionalProperties: false
+      example:
+        elapsed_time_millis_threshold: 0
+        heap_variance: 0.6683562403749608
+        heap_percent_threshold: 0.6438423552598547
+        cancellation_burst: 1.6965117697638845
+        cpu_time_millis_threshold: 0
+        cancellation_ratio: 0.9018348186070783
+        cancellation_rate: 0.9369310271410669
+        total_heap_percent_threshold: 0.5025004791520294
+        heap_moving_average_window_size: 0
+      properties:
+        total_heap_percent_threshold:
+          description: The heap usage threshold (as a percentage) required for the
+            sum of heap usages of all search shard tasks before cancellation is applied.
+            Default is 0.5
+          maximum: 1.0
+          minimum: 0.0
+          title: The heap usage threshold (as a percentage) required for the sum of
+            heap usages of all search shard tasks before cancellation is applied
+          type: number
+        elapsed_time_millis_threshold:
+          description: The elapsed time threshold (in milliseconds) required for a
+            single search shard task before it is considered for cancellation. Default
+            is 30000
+          minimum: 0
+          title: The elapsed time threshold (in milliseconds) required for a single
+            search shard task before it is considered for cancellation
+          type: integer
+        cancellation_rate:
+          description: The maximum number of tasks to cancel per millisecond of elapsed
+            time. Default is 0.003
+          minimum: 0.0
+          title: The maximum number of tasks to cancel per millisecond of elapsed
+            time.
+          type: number
+        heap_variance:
+          description: The minimum variance required for a single search shard task’s
+            heap usage compared to the rolling average of previously completed tasks
+            before it is considered for cancellation. Default is 2.0
+          minimum: 0.0
+          title: The minimum variance required for a single search shard task’s heap
+            usage compared to the rolling average of previously completed tasks before
+            it is considered for cancellation
+          type: number
+        heap_moving_average_window_size:
+          description: The number of previously completed search shard tasks to consider
+            when calculating the rolling average of heap usage. Default is 100
+          minimum: 0
+          title: The number of previously completed search shard tasks to consider
+            when calculating the rolling average of heap usage
+          type: integer
+        cancellation_ratio:
+          description: "The maximum number of tasks to cancel, as a percentage of\
+            \ successful task completions. Default is 0.1"
+          maximum: 1.0
+          minimum: 0.0
+          title: The maximum number of tasks to cancel
+          type: number
+        heap_percent_threshold:
+          description: The heap usage threshold (as a percentage) required for a single
+            search shard task before it is considered for cancellation. Default is
+            0.5
+          maximum: 1.0
+          minimum: 0.0
+          title: The heap usage threshold (as a percentage) required for a single
+            search shard task before it is considered for cancellation
+          type: number
+        cpu_time_millis_threshold:
+          description: The CPU usage threshold (in milliseconds) required for a single
+            search shard task before it is considered for cancellation. Default is
+            15000
+          minimum: 0
+          title: The CPU usage threshold (in milliseconds) required for a single search
+            shard task before it is considered for cancellation
+          type: integer
+        cancellation_burst:
+          description: The maximum number of search tasks to cancel in a single iteration
+            of the observer thread. Default is 10.0
+          minimum: 1.0
+          title: The maximum number of search tasks to cancel in a single iteration
+            of the observer thread
+          type: number
+      title: Search shard settings
+      type: object
+    Search_task_settings:
+      additionalProperties: false
+      example:
+        elapsed_time_millis_threshold: 0
+        heap_variance: 0.6878052220127876
+        heap_percent_threshold: 0.3353193347011243
+        cancellation_burst: 1.7143538047012306
+        cpu_time_millis_threshold: 0
+        cancellation_ratio: 0.6704019297950036
+        cancellation_rate: 0.6778324963048014
+        total_heap_percent_threshold: 0.1284659006116532
+        heap_moving_average_window_size: 0
+      properties:
+        total_heap_percent_threshold:
+          description: The heap usage threshold (as a percentage) required for the
+            sum of heap usages of all search tasks before cancellation is applied.
+            Default is 0.5
+          maximum: 1.0
+          minimum: 0.0
+          title: The heap usage threshold (as a percentage) required for the sum of
+            heap usages of all search tasks before cancellation is applied
+          type: number
+        elapsed_time_millis_threshold:
+          description: The elapsed time threshold (in milliseconds) required for an
+            individual parent task before it is considered for cancellation. Default
+            is 45000
+          minimum: 0
+          title: The elapsed time threshold (in milliseconds) required for an individual
+            parent task before it is considered for cancellation
+          type: integer
+        cancellation_rate:
+          description: The maximum number of search tasks to cancel per millisecond
+            of elapsed time. Default is 0.003
+          minimum: 0.0
+          title: The maximum number of search tasks to cancel per millisecond of elapsed
+            time
+          type: number
+        heap_variance:
+          description: The heap usage variance required for an individual parent task
+            before it is considered for cancellation. A task is considered for cancellation
+            when taskHeapUsage is greater than or equal to heapUsageMovingAverage
+            * variance. Default is 2.0
+          minimum: 0.0
+          title: The heap usage variance required for an individual parent task before
+            it is considered for cancellation
+          type: number
+        heap_moving_average_window_size:
+          description: The window size used to calculate the rolling average of the
+            heap usage for the completed parent tasks. Default is 10
+          minimum: 0
+          title: The window size used to calculate the rolling average of the heap
+            usage for the completed parent tasks
+          type: integer
+        cancellation_ratio:
+          description: "The maximum number of search tasks to cancel, as a percentage\
+            \ of successful search task completions. Default is 0.1"
+          maximum: 1.0
+          minimum: 0.0
+          title: "The maximum number of search tasks to cancel, as a percentage of\
+            \ successful search task completions"
+          type: number
+        heap_percent_threshold:
+          description: The heap usage threshold (as a percentage) required for an
+            individual parent task before it is considered for cancellation. Default
+            is 0.2
+          maximum: 1.0
+          minimum: 0.0
+          title: The heap usage threshold (as a percentage) required for an individual
+            parent task before it is considered for cancellation
+          type: number
+        cpu_time_millis_threshold:
+          description: The CPU usage threshold (in milliseconds) required for an individual
+            parent task before it is considered for cancellation. Default is 30000
+          minimum: 0
+          title: The CPU usage threshold (in milliseconds) required for an individual
+            parent task before it is considered for cancellation
+          type: integer
+        cancellation_burst:
+          description: The maximum number of search tasks to cancel in a single iteration
+            of the observer thread. Default is 5.0
+          minimum: 1.0
+          title: The maximum number of search tasks to cancel in a single iteration
+            of the observer thread
+          type: number
+      title: Search task settings
+      type: object
+    Search_Backpressure_Settings:
+      additionalProperties: false
+      example:
+        mode: monitor_only
+        search_task:
+          elapsed_time_millis_threshold: 0
+          heap_variance: 0.6878052220127876
+          heap_percent_threshold: 0.3353193347011243
+          cancellation_burst: 1.7143538047012306
+          cpu_time_millis_threshold: 0
+          cancellation_ratio: 0.6704019297950036
+          cancellation_rate: 0.6778324963048014
+          total_heap_percent_threshold: 0.1284659006116532
+          heap_moving_average_window_size: 0
+        node_duress:
+          heap_threshold: 0.11730742509559433
+          cpu_threshold: 0.7457744773683765
+          num_successive_breaches: 1
+        search_shard_task:
+          elapsed_time_millis_threshold: 0
+          heap_variance: 0.6683562403749608
+          heap_percent_threshold: 0.6438423552598547
+          cancellation_burst: 1.6965117697638845
+          cpu_time_millis_threshold: 0
+          cancellation_ratio: 0.9018348186070783
+          cancellation_rate: 0.9369310271410669
+          total_heap_percent_threshold: 0.5025004791520294
+          heap_moving_average_window_size: 0
+      properties:
+        mode:
+          description: "The search backpressure mode. Valid values are monitor_only,\
+            \ enforced, or disabled. Default is monitor_only"
+          enum:
+          - monitor_only
+          - enforced
+          - disabled
+          title: The search backpressure mode
+          type: string
+        node_duress:
+          $ref: '#/components/schemas/Node_duress_settings'
+        search_shard_task:
+          $ref: '#/components/schemas/Search_shard_settings'
+        search_task:
+          $ref: '#/components/schemas/Search_task_settings'
+      title: Search Backpressure Settings
+      type: object
+    Primary_parameter_shard:
+      additionalProperties: false
+      example:
+        min_limit: 0.08851374739011653
+      properties:
+        min_limit:
+          description: "Specify the minimum assigned quota for a new shard in any\
+            \ role (coordinator, primary, or replica). Shard indexing backpressure\
+            \ increases or decreases this allocated quota based on the inflow of traffic\
+            \ for the shard. Default is 0.001"
+          minimum: 0.0
+          title: Shard min limit
+          type: number
+      type: object
+    Primary_parameter_node:
+      additionalProperties: false
+      example:
+        soft_limit: 0.7058770351582356
+      properties:
+        soft_limit:
+          description: Define the percentage of the node-level memory threshold that
+            acts as a soft indicator for strain on a node. Default is 0.7
+          minimum: 0.0
+          title: Node soft limit
+          type: number
+      type: object
+    Primary_parameter:
+      additionalProperties: false
+      example:
+        node:
+          soft_limit: 0.7058770351582356
+        shard:
+          min_limit: 0.08851374739011653
+      properties:
+        shard:
+          $ref: '#/components/schemas/Primary_parameter_shard'
+        node:
+          $ref: '#/components/schemas/Primary_parameter_node'
+      title: Primary parameter
+      type: object
+    Operating_factor:
+      additionalProperties: false
+      example:
+        optimal: 0.010263654006109402
+        upper: 0.6519180951018382
+        lower: 0.46523964329332457
+      properties:
+        upper:
+          description: "Specify the upper occupancy limit of the allocated quota of\
+            \ memory for the shard. If the total memory usage of a shard is above\
+            \ this limit, shard indexing backpressure increases the current allocated\
+            \ memory for that shard. Default is 0.95"
+          minimum: 0.0
+          title: Upper occupancy limit of the allocated quota of memory for the shard
+          type: number
+        optimal:
+          description: "Specify the optimal occupancy of the allocated quota of memory\
+            \ for the shard. If the total memory usage of a shard is at this level,\
+            \ shard indexing backpressure doesn’t change the current allocated memory\
+            \ for that shard. Default is 0.85"
+          minimum: 0.0
+          title: Optimal occupancy of the allocated quota of memory for the shard
+          type: number
+        lower:
+          description: "Specify the lower occupancy limit of the allocated quota of\
+            \ memory for the shard. If the total memory usage of a shard is below\
+            \ this limit, shard indexing backpressure decreases the current allocated\
+            \ memory for that shard. Default is 0.75"
+          minimum: 0.0
+          title: Lower occupancy limit of the allocated quota of memory for the shard
+          type: number
+      title: Operating factor
+      type: object
+    Shard_indexing_back_pressure_settings:
+      additionalProperties: false
+      example:
+        primary_parameter:
+          node:
+            soft_limit: 0.7058770351582356
+          shard:
+            min_limit: 0.08851374739011653
+        enforced: true
+        operating_factor:
+          optimal: 0.010263654006109402
+          upper: 0.6519180951018382
+          lower: 0.46523964329332457
+        enabled: true
+      properties:
+        primary_parameter:
+          $ref: '#/components/schemas/Primary_parameter'
+        operating_factor:
+          $ref: '#/components/schemas/Operating_factor'
+        enforced:
+          description: "Run shard indexing backpressure in shadow mode or enforced\
+            \ mode. In shadow mode (value set as false), shard indexing backpressure\
+            \ tracks all granular-level metrics, but it doesn’t actually reject any\
+            \ indexing requests. In enforced mode (value set as true), shard indexing\
+            \ backpressure rejects any requests to the cluster that might cause a\
+            \ dip in its performance. Default is false"
+          title: Run shard indexing backpressure in shadow mode or enforced mode
+          type: boolean
+        enabled:
+          description: Enable or disable shard indexing backpressure. Default is false
+          title: Enable or disable shard indexing backpressure
+          type: boolean
+      title: Shard indexing back pressure settings
       type: object
     Opensearch_Email_Sender_Settings:
       example:

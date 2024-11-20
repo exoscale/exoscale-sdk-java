@@ -11,9 +11,14 @@
 |**threadPoolAnalyzeSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolGetSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolGetQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
+|**indicesMemoryMaxIndexBufferSize** | **Integer** | Absolute value. Default is unbound. Doesn&#39;t work without indices.memory.index_buffer_size. Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size maximum hard limit. |  [optional] |
 |**indicesRecoveryMaxConcurrentFileChunks** | **Integer** | Number of file chunks sent in parallel for each recovery. Defaults to 2. |  [optional] |
 |**indicesQueriesCacheSize** | **Integer** | Percentage value. Default is 10%. Maximum amount of heap used for query cache. This is an expert setting. Too low value will decrease query performance and increase performance for other operations; too high value will cause issues with other OpenSearch functionality. |  [optional] |
+|**searchBackpressure** | [**SearchBackpressureSettings**](SearchBackpressureSettings.md) |  |  [optional] |
+|**shardIndexingPressure** | [**ShardIndexingBackPressureSettings**](ShardIndexingBackPressureSettings.md) |  |  [optional] |
+|**knnMemoryCircuitBreakerEnabled** | **Boolean** | Enable or disable KNN memory circuit breaker. Defaults to true. |  [optional] |
 |**threadPoolSearchSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
+|**indicesMemoryMinIndexBufferSize** | **Integer** | Absolute value. Default is 48mb. Doesn&#39;t work without indices.memory.index_buffer_size. Minimum amount of heap used for query cache, an absolute indices.memory.index_buffer_size minimal hard limit. |  [optional] |
 |**indicesRecoveryMaxBytesPerSec** | **Integer** | Limits total inbound and outbound recovery traffic for each node. Applies to both peer recoveries as well as snapshot recoveries (i.e., restores from a snapshot). Defaults to 40mb |  [optional] |
 |**httpMaxInitialLineLength** | **Integer** | The max length of an HTTP URL, in bytes |  [optional] |
 |**enableSecurityAudit** | **Boolean** |  |  [optional] |
@@ -37,6 +42,7 @@
 |**httpMaxContentLength** | **Integer** | Maximum content length for HTTP requests to the OpenSearch HTTP API, in bytes. |  [optional] |
 |**threadPoolWriteSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolSearchQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
+|**knnMemoryCircuitBreakerLimit** | **Integer** | Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size. |  [optional] |
 |**indicesQueryBoolMaxClauseCount** | **Integer** | Maximum number of clauses Lucene BooleanQuery can have. The default value (1024) is relatively high, and increasing it may cause performance issues. Investigate other approaches first before increasing this value. |  [optional] |
 |**threadPoolSearchThrottledQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
 |**clusterMaxShardsPerNode** | **Integer** | Controls the number of shards allowed in the cluster per data node |  [optional] |

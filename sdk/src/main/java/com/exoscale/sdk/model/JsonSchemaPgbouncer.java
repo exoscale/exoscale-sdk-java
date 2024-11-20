@@ -40,6 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaPgbouncer.JSON_PROPERTY_AUTODB_POOL_MODE,
   JsonSchemaPgbouncer.JSON_PROPERTY_SERVER_IDLE_TIMEOUT,
   JsonSchemaPgbouncer.JSON_PROPERTY_AUTODB_MAX_DB_CONNECTIONS,
+  JsonSchemaPgbouncer.JSON_PROPERTY_MAX_PREPARED_STATEMENTS,
   JsonSchemaPgbouncer.JSON_PROPERTY_SERVER_RESET_QUERY_ALWAYS,
   JsonSchemaPgbouncer.JSON_PROPERTY_AUTODB_POOL_SIZE,
   JsonSchemaPgbouncer.JSON_PROPERTY_AUTODB_IDLE_TIMEOUT
@@ -135,6 +136,9 @@ public class JsonSchemaPgbouncer {
 
   public static final String JSON_PROPERTY_AUTODB_MAX_DB_CONNECTIONS = "autodb_max_db_connections";
   private Integer autodbMaxDbConnections;
+
+  public static final String JSON_PROPERTY_MAX_PREPARED_STATEMENTS = "max_prepared_statements";
+  private Integer maxPreparedStatements = 100;
 
   public static final String JSON_PROPERTY_SERVER_RESET_QUERY_ALWAYS = "server_reset_query_always";
   private Boolean serverResetQueryAlways = false;
@@ -314,6 +318,33 @@ public class JsonSchemaPgbouncer {
   }
 
 
+  public JsonSchemaPgbouncer maxPreparedStatements(Integer maxPreparedStatements) {
+    this.maxPreparedStatements = maxPreparedStatements;
+    return this;
+  }
+
+   /**
+   * Get maxPreparedStatements
+   * minimum: 0
+   * maximum: 3000
+   * @return maxPreparedStatements
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_PREPARED_STATEMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxPreparedStatements() {
+    return maxPreparedStatements;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_PREPARED_STATEMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxPreparedStatements(Integer maxPreparedStatements) {
+    this.maxPreparedStatements = maxPreparedStatements;
+  }
+
+
   public JsonSchemaPgbouncer serverResetQueryAlways(Boolean serverResetQueryAlways) {
     this.serverResetQueryAlways = serverResetQueryAlways;
     return this;
@@ -411,6 +442,7 @@ public class JsonSchemaPgbouncer {
         Objects.equals(this.autodbPoolMode, jsonSchemaPgbouncer.autodbPoolMode) &&
         Objects.equals(this.serverIdleTimeout, jsonSchemaPgbouncer.serverIdleTimeout) &&
         Objects.equals(this.autodbMaxDbConnections, jsonSchemaPgbouncer.autodbMaxDbConnections) &&
+        Objects.equals(this.maxPreparedStatements, jsonSchemaPgbouncer.maxPreparedStatements) &&
         Objects.equals(this.serverResetQueryAlways, jsonSchemaPgbouncer.serverResetQueryAlways) &&
         Objects.equals(this.autodbPoolSize, jsonSchemaPgbouncer.autodbPoolSize) &&
         Objects.equals(this.autodbIdleTimeout, jsonSchemaPgbouncer.autodbIdleTimeout);
@@ -418,7 +450,7 @@ public class JsonSchemaPgbouncer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minPoolSize, ignoreStartupParameters, serverLifetime, autodbPoolMode, serverIdleTimeout, autodbMaxDbConnections, serverResetQueryAlways, autodbPoolSize, autodbIdleTimeout);
+    return Objects.hash(minPoolSize, ignoreStartupParameters, serverLifetime, autodbPoolMode, serverIdleTimeout, autodbMaxDbConnections, maxPreparedStatements, serverResetQueryAlways, autodbPoolSize, autodbIdleTimeout);
   }
 
   @Override
@@ -431,6 +463,7 @@ public class JsonSchemaPgbouncer {
     sb.append("    autodbPoolMode: ").append(toIndentedString(autodbPoolMode)).append("\n");
     sb.append("    serverIdleTimeout: ").append(toIndentedString(serverIdleTimeout)).append("\n");
     sb.append("    autodbMaxDbConnections: ").append(toIndentedString(autodbMaxDbConnections)).append("\n");
+    sb.append("    maxPreparedStatements: ").append(toIndentedString(maxPreparedStatements)).append("\n");
     sb.append("    serverResetQueryAlways: ").append(toIndentedString(serverResetQueryAlways)).append("\n");
     sb.append("    autodbPoolSize: ").append(toIndentedString(autodbPoolSize)).append("\n");
     sb.append("    autodbIdleTimeout: ").append(toIndentedString(autodbIdleTimeout)).append("\n");
@@ -513,6 +546,11 @@ public class JsonSchemaPgbouncer {
     // add `autodb_max_db_connections` to the URL query string
     if (getAutodbMaxDbConnections() != null) {
       joiner.add(String.format("%sautodb_max_db_connections%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutodbMaxDbConnections()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `max_prepared_statements` to the URL query string
+    if (getMaxPreparedStatements() != null) {
+      joiner.add(String.format("%smax_prepared_statements%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxPreparedStatements()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `server_reset_query_always` to the URL query string

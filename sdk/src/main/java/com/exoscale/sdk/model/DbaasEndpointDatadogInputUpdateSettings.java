@@ -79,9 +79,9 @@ public class DbaasEndpointDatadogInputUpdateSettings {
    * Datadog API key
    * @return datadogApiKey
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDatadogApiKey() {
     return datadogApiKey;
@@ -89,7 +89,7 @@ public class DbaasEndpointDatadogInputUpdateSettings {
 
 
   @JsonProperty(JSON_PROPERTY_DATADOG_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDatadogApiKey(String datadogApiKey) {
     this.datadogApiKey = datadogApiKey;
   }

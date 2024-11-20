@@ -49,6 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaGrafana.JSON_PROPERTY_METRICS_ENABLED,
   JsonSchemaGrafana.JSON_PROPERTY_AUTH_AZUREAD,
   JsonSchemaGrafana.JSON_PROPERTY_ALERTING_ENABLED,
+  JsonSchemaGrafana.JSON_PROPERTY_WAL,
   JsonSchemaGrafana.JSON_PROPERTY_UNIFIED_ALERTING_ENABLED,
   JsonSchemaGrafana.JSON_PROPERTY_AUTH_GITHUB,
   JsonSchemaGrafana.JSON_PROPERTY_USER_AUTO_ASSIGN_ORG,
@@ -71,6 +72,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaGrafana.JSON_PROPERTY_OAUTH_ALLOW_INSECURE_EMAIL_LOOKUP,
   JsonSchemaGrafana.JSON_PROPERTY_ALERTING_MAX_ANNOTATIONS_TO_KEEP,
   JsonSchemaGrafana.JSON_PROPERTY_AUTH_GENERIC_OAUTH,
+  JsonSchemaGrafana.JSON_PROPERTY_CUSTOM_DOMAIN,
   JsonSchemaGrafana.JSON_PROPERTY_ALERTING_ERROR_OR_TIMEOUT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -129,6 +131,9 @@ public class JsonSchemaGrafana {
 
   public static final String JSON_PROPERTY_ALERTING_ENABLED = "alerting_enabled";
   private Boolean alertingEnabled;
+
+  public static final String JSON_PROPERTY_WAL = "wal";
+  private Boolean wal;
 
   public static final String JSON_PROPERTY_UNIFIED_ALERTING_ENABLED = "unified_alerting_enabled";
   private Boolean unifiedAlertingEnabled;
@@ -271,6 +276,9 @@ public class JsonSchemaGrafana {
 
   public static final String JSON_PROPERTY_AUTH_GENERIC_OAUTH = "auth_generic_oauth";
   private GenericOAuthIntegration authGenericOauth;
+
+  public static final String JSON_PROPERTY_CUSTOM_DOMAIN = "custom_domain";
+  private JsonNullable<String> customDomain = JsonNullable.<String>undefined();
 
   /**
    * Gets or Sets alertingErrorOrTimeout
@@ -460,6 +468,31 @@ public class JsonSchemaGrafana {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAlertingEnabled(Boolean alertingEnabled) {
     this.alertingEnabled = alertingEnabled;
+  }
+
+
+  public JsonSchemaGrafana wal(Boolean wal) {
+    this.wal = wal;
+    return this;
+  }
+
+   /**
+   * Setting to enable/disable Write-Ahead Logging. The default value is false (disabled).
+   * @return wal
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getWal() {
+    return wal;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWal(Boolean wal) {
+    this.wal = wal;
   }
 
 
@@ -1027,6 +1060,39 @@ public class JsonSchemaGrafana {
   }
 
 
+  public JsonSchemaGrafana customDomain(String customDomain) {
+    this.customDomain = JsonNullable.<String>of(customDomain);
+    return this;
+  }
+
+   /**
+   * Serve the web frontend using a custom CNAME pointing to the Aiven DNS name
+   * @return customDomain
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getCustomDomain() {
+        return customDomain.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_DOMAIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getCustomDomain_JsonNullable() {
+    return customDomain;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CUSTOM_DOMAIN)
+  public void setCustomDomain_JsonNullable(JsonNullable<String> customDomain) {
+    this.customDomain = customDomain;
+  }
+
+  public void setCustomDomain(String customDomain) {
+    this.customDomain = JsonNullable.<String>of(customDomain);
+  }
+
+
   public JsonSchemaGrafana alertingErrorOrTimeout(AlertingErrorOrTimeoutEnum alertingErrorOrTimeout) {
     this.alertingErrorOrTimeout = alertingErrorOrTimeout;
     return this;
@@ -1070,6 +1136,7 @@ public class JsonSchemaGrafana {
         Objects.equals(this.metricsEnabled, jsonSchemaGrafana.metricsEnabled) &&
         Objects.equals(this.authAzuread, jsonSchemaGrafana.authAzuread) &&
         Objects.equals(this.alertingEnabled, jsonSchemaGrafana.alertingEnabled) &&
+        Objects.equals(this.wal, jsonSchemaGrafana.wal) &&
         Objects.equals(this.unifiedAlertingEnabled, jsonSchemaGrafana.unifiedAlertingEnabled) &&
         Objects.equals(this.authGithub, jsonSchemaGrafana.authGithub) &&
         Objects.equals(this.userAutoAssignOrg, jsonSchemaGrafana.userAutoAssignOrg) &&
@@ -1092,6 +1159,7 @@ public class JsonSchemaGrafana {
         Objects.equals(this.oauthAllowInsecureEmailLookup, jsonSchemaGrafana.oauthAllowInsecureEmailLookup) &&
         Objects.equals(this.alertingMaxAnnotationsToKeep, jsonSchemaGrafana.alertingMaxAnnotationsToKeep) &&
         Objects.equals(this.authGenericOauth, jsonSchemaGrafana.authGenericOauth) &&
+        equalsNullable(this.customDomain, jsonSchemaGrafana.customDomain) &&
         Objects.equals(this.alertingErrorOrTimeout, jsonSchemaGrafana.alertingErrorOrTimeout);
   }
 
@@ -1101,7 +1169,7 @@ public class JsonSchemaGrafana {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowEmbedding, cookieSamesite, dashboardPreviewsEnabled, metricsEnabled, authAzuread, alertingEnabled, unifiedAlertingEnabled, authGithub, userAutoAssignOrg, dataproxySendUserHeader, googleAnalyticsUaId, dashboardsVersionsToKeep, editorsCanAdmin, smtpServer, authGitlab, alertingNodataOrNullvalues, authBasicEnabled, dateFormats, hashCodeNullable(serviceLog), disableGravatar, userAutoAssignOrgRole, dataproxyTimeout, viewersCanEdit, dashboardsMinRefreshInterval, authGoogle, oauthAllowInsecureEmailLookup, alertingMaxAnnotationsToKeep, authGenericOauth, alertingErrorOrTimeout);
+    return Objects.hash(allowEmbedding, cookieSamesite, dashboardPreviewsEnabled, metricsEnabled, authAzuread, alertingEnabled, wal, unifiedAlertingEnabled, authGithub, userAutoAssignOrg, dataproxySendUserHeader, googleAnalyticsUaId, dashboardsVersionsToKeep, editorsCanAdmin, smtpServer, authGitlab, alertingNodataOrNullvalues, authBasicEnabled, dateFormats, hashCodeNullable(serviceLog), disableGravatar, userAutoAssignOrgRole, dataproxyTimeout, viewersCanEdit, dashboardsMinRefreshInterval, authGoogle, oauthAllowInsecureEmailLookup, alertingMaxAnnotationsToKeep, authGenericOauth, hashCodeNullable(customDomain), alertingErrorOrTimeout);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1121,6 +1189,7 @@ public class JsonSchemaGrafana {
     sb.append("    metricsEnabled: ").append(toIndentedString(metricsEnabled)).append("\n");
     sb.append("    authAzuread: ").append(toIndentedString(authAzuread)).append("\n");
     sb.append("    alertingEnabled: ").append(toIndentedString(alertingEnabled)).append("\n");
+    sb.append("    wal: ").append(toIndentedString(wal)).append("\n");
     sb.append("    unifiedAlertingEnabled: ").append(toIndentedString(unifiedAlertingEnabled)).append("\n");
     sb.append("    authGithub: ").append(toIndentedString(authGithub)).append("\n");
     sb.append("    userAutoAssignOrg: ").append(toIndentedString(userAutoAssignOrg)).append("\n");
@@ -1143,6 +1212,7 @@ public class JsonSchemaGrafana {
     sb.append("    oauthAllowInsecureEmailLookup: ").append(toIndentedString(oauthAllowInsecureEmailLookup)).append("\n");
     sb.append("    alertingMaxAnnotationsToKeep: ").append(toIndentedString(alertingMaxAnnotationsToKeep)).append("\n");
     sb.append("    authGenericOauth: ").append(toIndentedString(authGenericOauth)).append("\n");
+    sb.append("    customDomain: ").append(toIndentedString(customDomain)).append("\n");
     sb.append("    alertingErrorOrTimeout: ").append(toIndentedString(alertingErrorOrTimeout)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1219,6 +1289,11 @@ public class JsonSchemaGrafana {
     // add `alerting_enabled` to the URL query string
     if (getAlertingEnabled() != null) {
       joiner.add(String.format("%salerting_enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAlertingEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `wal` to the URL query string
+    if (getWal() != null) {
+      joiner.add(String.format("%swal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWal()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `unified_alerting_enabled` to the URL query string
@@ -1329,6 +1404,11 @@ public class JsonSchemaGrafana {
     // add `auth_generic_oauth` to the URL query string
     if (getAuthGenericOauth() != null) {
       joiner.add(getAuthGenericOauth().toUrlQueryString(prefix + "auth_generic_oauth" + suffix));
+    }
+
+    // add `custom_domain` to the URL query string
+    if (getCustomDomain() != null) {
+      joiner.add(String.format("%scustom_domain%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomDomain()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `alerting_error_or_timeout` to the URL query string

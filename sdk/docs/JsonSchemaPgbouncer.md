@@ -14,6 +14,7 @@ System-wide settings for pgbouncer.
 |**autodbPoolMode** | [**AutodbPoolModeEnum**](#AutodbPoolModeEnum) |  |  [optional] |
 |**serverIdleTimeout** | **Integer** |  |  [optional] |
 |**autodbMaxDbConnections** | **Integer** |  |  [optional] |
+|**maxPreparedStatements** | **Integer** |  |  [optional] |
 |**serverResetQueryAlways** | **Boolean** |  |  [optional] |
 |**autodbPoolSize** | **Integer** |  |  [optional] |
 |**autodbIdleTimeout** | **Integer** |  |  [optional] |

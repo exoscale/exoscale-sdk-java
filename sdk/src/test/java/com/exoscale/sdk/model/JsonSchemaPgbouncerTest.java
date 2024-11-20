@@ -88,6 +88,14 @@ public class JsonSchemaPgbouncerTest {
     }
 
     /**
+     * Test the property 'maxPreparedStatements'
+     */
+    @Test
+    public void maxPreparedStatementsTest() {
+        // TODO: test maxPreparedStatements
+    }
+
+    /**
      * Test the property 'serverResetQueryAlways'
      */
     @Test

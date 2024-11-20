@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2024-10-28T08:41:02.544039Z[Etc/UTC]
+- Build date: 2024-11-20T07:05:59.912098Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT-6fba3a2</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.3'
+  implementation 'com.exoscale.sdk:sdk:0.0.4-SNAPSHOT-6fba3a2'
 }
 ```
 
@@ -654,12 +654,17 @@ Class | Method | HTTP request | Description
  - [LoadBalancerService](sdk/docs/LoadBalancerService.md)
  - [LoadBalancerServiceHealthcheck](sdk/docs/LoadBalancerServiceHealthcheck.md)
  - [Manager](sdk/docs/Manager.md)
+ - [NodeDuressSettings](sdk/docs/NodeDuressSettings.md)
  - [OpensearchEmailSenderSettings](sdk/docs/OpensearchEmailSenderSettings.md)
  - [OpensearchISMHistorySettings](sdk/docs/OpensearchISMHistorySettings.md)
  - [OpensearchSecurityPluginSettings](sdk/docs/OpensearchSecurityPluginSettings.md)
+ - [OperatingFactor](sdk/docs/OperatingFactor.md)
  - [Operation](sdk/docs/Operation.md)
  - [OperationReference](sdk/docs/OperationReference.md)
  - [Organization](sdk/docs/Organization.md)
+ - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
+ - [PrimaryParameterNode](sdk/docs/PrimaryParameterNode.md)
+ - [PrimaryParameterShard](sdk/docs/PrimaryParameterShard.md)
  - [PrivateNetwork](sdk/docs/PrivateNetwork.md)
  - [PrivateNetworkLease](sdk/docs/PrivateNetworkLease.md)
  - [PrivateNetworkOptions](sdk/docs/PrivateNetworkOptions.md)
@@ -681,10 +686,14 @@ Class | Method | HTTP request | Description
  - [ScaleInstancePoolRequest](sdk/docs/ScaleInstancePoolRequest.md)
  - [ScaleInstanceRequest](sdk/docs/ScaleInstanceRequest.md)
  - [ScaleSksNodepoolRequest](sdk/docs/ScaleSksNodepoolRequest.md)
+ - [SearchBackpressureSettings](sdk/docs/SearchBackpressureSettings.md)
+ - [SearchShardSettings](sdk/docs/SearchShardSettings.md)
+ - [SearchTaskSettings](sdk/docs/SearchTaskSettings.md)
  - [SecurityGroup](sdk/docs/SecurityGroup.md)
  - [SecurityGroupResource](sdk/docs/SecurityGroupResource.md)
  - [SecurityGroupRule](sdk/docs/SecurityGroupRule.md)
  - [SecurityGroupRuleIcmp](sdk/docs/SecurityGroupRuleIcmp.md)
+ - [ShardIndexingBackPressureSettings](sdk/docs/ShardIndexingBackPressureSettings.md)
  - [SksCluster](sdk/docs/SksCluster.md)
  - [SksKubeconfigRequest](sdk/docs/SksKubeconfigRequest.md)
  - [SksNodepool](sdk/docs/SksNodepool.md)

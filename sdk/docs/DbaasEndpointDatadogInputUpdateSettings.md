@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**datadogApiKey** | **String** | Datadog API key |  [optional] |
+|**datadogApiKey** | **String** | Datadog API key |  |
 |**site** | **EnumDatadogSite** |  |  [optional] |
 |**datadogTags** | [**List&lt;DbaasDatadogTag&gt;**](DbaasDatadogTag.md) | Custom tags provided by user |  [optional] |
 |**disableConsumerStats** | **Boolean** | Disable consumer group metrics |  [optional] |

@@ -50,6 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaMysql.JSON_PROPERTY_TMP_TABLE_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_SLOW_QUERY_LOG,
   JsonSchemaMysql.JSON_PROPERTY_CONNECT_TIMEOUT,
+  JsonSchemaMysql.JSON_PROPERTY_LOG_OUTPUT,
   JsonSchemaMysql.JSON_PROPERTY_NET_READ_TIMEOUT,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_LOCK_WAIT_TIMEOUT,
   JsonSchemaMysql.JSON_PROPERTY_WAIT_TIMEOUT,
@@ -143,6 +144,48 @@ public class JsonSchemaMysql {
 
   public static final String JSON_PROPERTY_CONNECT_TIMEOUT = "connect_timeout";
   private Integer connectTimeout;
+
+  /**
+   * The slow log output destination when slow_query_log is ON. To enable MySQL AI Insights, choose INSIGHTS. To use MySQL AI Insights and the mysql.slow_log table at the same time, choose INSIGHTS,TABLE. To only use the mysql.slow_log table, choose TABLE. To silence slow logs, choose NONE.
+   */
+  public enum LogOutputEnum {
+    INSIGHTS("INSIGHTS"),
+    
+    INSIGHTS_TABLE("INSIGHTS,TABLE"),
+    
+    NONE("NONE"),
+    
+    TABLE("TABLE");
+
+    private String value;
+
+    LogOutputEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static LogOutputEnum fromValue(String value) {
+      for (LogOutputEnum b : LogOutputEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_LOG_OUTPUT = "log_output";
+  private LogOutputEnum logOutput;
 
   public static final String JSON_PROPERTY_NET_READ_TIMEOUT = "net_read_timeout";
   private Integer netReadTimeout;
@@ -540,6 +583,31 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setConnectTimeout(Integer connectTimeout) {
     this.connectTimeout = connectTimeout;
+  }
+
+
+  public JsonSchemaMysql logOutput(LogOutputEnum logOutput) {
+    this.logOutput = logOutput;
+    return this;
+  }
+
+   /**
+   * The slow log output destination when slow_query_log is ON. To enable MySQL AI Insights, choose INSIGHTS. To use MySQL AI Insights and the mysql.slow_log table at the same time, choose INSIGHTS,TABLE. To only use the mysql.slow_log table, choose TABLE. To silence slow logs, choose NONE.
+   * @return logOutput
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LogOutputEnum getLogOutput() {
+    return logOutput;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOG_OUTPUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLogOutput(LogOutputEnum logOutput) {
+    this.logOutput = logOutput;
   }
 
 
@@ -1025,6 +1093,7 @@ public class JsonSchemaMysql {
         Objects.equals(this.tmpTableSize, jsonSchemaMysql.tmpTableSize) &&
         Objects.equals(this.slowQueryLog, jsonSchemaMysql.slowQueryLog) &&
         Objects.equals(this.connectTimeout, jsonSchemaMysql.connectTimeout) &&
+        Objects.equals(this.logOutput, jsonSchemaMysql.logOutput) &&
         Objects.equals(this.netReadTimeout, jsonSchemaMysql.netReadTimeout) &&
         Objects.equals(this.innodbLockWaitTimeout, jsonSchemaMysql.innodbLockWaitTimeout) &&
         Objects.equals(this.waitTimeout, jsonSchemaMysql.waitTimeout) &&
@@ -1050,7 +1119,7 @@ public class JsonSchemaMysql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(netWriteTimeout, internalTmpMemStorageEngine, sqlMode, informationSchemaStatsExpiry, sortBufferSize, innodbThreadConcurrency, innodbWriteIoThreads, innodbFtMinTokenSize, innodbChangeBufferMaxSize, innodbFlushNeighbors, tmpTableSize, slowQueryLog, connectTimeout, netReadTimeout, innodbLockWaitTimeout, waitTimeout, innodbRollbackOnTimeout, groupConcatMaxLen, netBufferLength, innodbPrintAllDeadlocks, innodbOnlineAlterLogMaxSize, interactiveTimeout, innodbLogBufferSize, maxAllowedPacket, maxHeapTableSize, hashCodeNullable(innodbFtServerStopwordTable), innodbReadIoThreads, sqlRequirePrimaryKey, defaultTimeZone, longQueryTime);
+    return Objects.hash(netWriteTimeout, internalTmpMemStorageEngine, sqlMode, informationSchemaStatsExpiry, sortBufferSize, innodbThreadConcurrency, innodbWriteIoThreads, innodbFtMinTokenSize, innodbChangeBufferMaxSize, innodbFlushNeighbors, tmpTableSize, slowQueryLog, connectTimeout, logOutput, netReadTimeout, innodbLockWaitTimeout, waitTimeout, innodbRollbackOnTimeout, groupConcatMaxLen, netBufferLength, innodbPrintAllDeadlocks, innodbOnlineAlterLogMaxSize, interactiveTimeout, innodbLogBufferSize, maxAllowedPacket, maxHeapTableSize, hashCodeNullable(innodbFtServerStopwordTable), innodbReadIoThreads, sqlRequirePrimaryKey, defaultTimeZone, longQueryTime);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1077,6 +1146,7 @@ public class JsonSchemaMysql {
     sb.append("    tmpTableSize: ").append(toIndentedString(tmpTableSize)).append("\n");
     sb.append("    slowQueryLog: ").append(toIndentedString(slowQueryLog)).append("\n");
     sb.append("    connectTimeout: ").append(toIndentedString(connectTimeout)).append("\n");
+    sb.append("    logOutput: ").append(toIndentedString(logOutput)).append("\n");
     sb.append("    netReadTimeout: ").append(toIndentedString(netReadTimeout)).append("\n");
     sb.append("    innodbLockWaitTimeout: ").append(toIndentedString(innodbLockWaitTimeout)).append("\n");
     sb.append("    waitTimeout: ").append(toIndentedString(waitTimeout)).append("\n");
@@ -1204,6 +1274,11 @@ public class JsonSchemaMysql {
     // add `connect_timeout` to the URL query string
     if (getConnectTimeout() != null) {
       joiner.add(String.format("%sconnect_timeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getConnectTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `log_output` to the URL query string
+    if (getLogOutput() != null) {
+      joiner.add(String.format("%slog_output%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLogOutput()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `net_read_timeout` to the URL query string

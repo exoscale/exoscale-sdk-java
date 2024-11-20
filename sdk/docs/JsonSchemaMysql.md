@@ -20,6 +20,7 @@
 |**tmpTableSize** | **Integer** | Limits the size of internal in-memory tables. Also set max_heap_table_size. Default is 16777216 (16M) |  [optional] |
 |**slowQueryLog** | **Boolean** | Slow query log enables capturing of slow queries. Setting slow_query_log to false also truncates the mysql.slow_log table. Default is off |  [optional] |
 |**connectTimeout** | **Integer** | The number of seconds that the mysqld server waits for a connect packet before responding with Bad handshake |  [optional] |
+|**logOutput** | [**LogOutputEnum**](#LogOutputEnum) | The slow log output destination when slow_query_log is ON. To enable MySQL AI Insights, choose INSIGHTS. To use MySQL AI Insights and the mysql.slow_log table at the same time, choose INSIGHTS,TABLE. To only use the mysql.slow_log table, choose TABLE. To silence slow logs, choose NONE. |  [optional] |
 |**netReadTimeout** | **Integer** | The number of seconds to wait for more data from a connection before aborting the read. |  [optional] |
 |**innodbLockWaitTimeout** | **Integer** | The length of time in seconds an InnoDB transaction waits for a row lock before giving up. Default is 120. |  [optional] |
 |**waitTimeout** | **Integer** | The number of seconds the server waits for activity on a noninteractive connection before closing it. |  [optional] |
@@ -46,6 +47,17 @@
 |---- | -----|
 | TEMPTABLE | &quot;TempTable&quot; |
 | MEMORY | &quot;MEMORY&quot; |
+
+
+
+## Enum: LogOutputEnum
+
+| Name | Value |
+|---- | -----|
+| INSIGHTS | &quot;INSIGHTS&quot; |
+| INSIGHTS_TABLE | &quot;INSIGHTS,TABLE&quot; |
+| NONE | &quot;NONE&quot; |
+| TABLE | &quot;TABLE&quot; |
 
 
 

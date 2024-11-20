@@ -472,8 +472,6 @@ public class JsonSchemaKafkaRest {
 
    /**
    * The maximum total time to wait for messages for a request if the maximum number of messages has not yet been reached
-   * minimum: 1000
-   * maximum: 30000
    * @return consumerRequestTimeoutMs
   **/
   @javax.annotation.Nullable

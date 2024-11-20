@@ -13,6 +13,7 @@
 |**metricsEnabled** | **Boolean** |  |  [optional] |
 |**authAzuread** | [**AzureADOAuthIntegration**](AzureADOAuthIntegration.md) |  |  [optional] |
 |**alertingEnabled** | **Boolean** |  |  [optional] |
+|**wal** | **Boolean** | Setting to enable/disable Write-Ahead Logging. The default value is false (disabled). |  [optional] |
 |**unifiedAlertingEnabled** | **Boolean** |  |  [optional] |
 |**authGithub** | [**GithubAuthIntegration**](GithubAuthIntegration.md) |  |  [optional] |
 |**userAutoAssignOrg** | **Boolean** |  |  [optional] |
@@ -35,6 +36,7 @@
 |**oauthAllowInsecureEmailLookup** | **Boolean** |  |  [optional] |
 |**alertingMaxAnnotationsToKeep** | **Integer** |  |  [optional] |
 |**authGenericOauth** | [**GenericOAuthIntegration**](GenericOAuthIntegration.md) |  |  [optional] |
+|**customDomain** | **String** | Serve the web frontend using a custom CNAME pointing to the Aiven DNS name |  [optional] |
 |**alertingErrorOrTimeout** | [**AlertingErrorOrTimeoutEnum**](#AlertingErrorOrTimeoutEnum) |  |  [optional] |
 
 

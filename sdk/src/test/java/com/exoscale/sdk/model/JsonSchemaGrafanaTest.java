@@ -97,6 +97,14 @@ public class JsonSchemaGrafanaTest {
     }
 
     /**
+     * Test the property 'wal'
+     */
+    @Test
+    public void walTest() {
+        // TODO: test wal
+    }
+
+    /**
      * Test the property 'unifiedAlertingEnabled'
      */
     @Test
@@ -270,6 +278,14 @@ public class JsonSchemaGrafanaTest {
     @Test
     public void authGenericOauthTest() {
         // TODO: test authGenericOauth
+    }
+
+    /**
+     * Test the property 'customDomain'
+     */
+    @Test
+    public void customDomainTest() {
+        // TODO: test customDomain
     }
 
     /**

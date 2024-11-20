@@ -22,6 +22,8 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.OpensearchEmailSenderSettings;
 import com.exoscale.sdk.model.OpensearchISMHistorySettings;
 import com.exoscale.sdk.model.OpensearchSecurityPluginSettings;
+import com.exoscale.sdk.model.SearchBackpressureSettings;
+import com.exoscale.sdk.model.ShardIndexingBackPressureSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -45,9 +47,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_ANALYZE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_GET_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_GET_QUEUE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_RECOVERY_MAX_CONCURRENT_FILE_CHUNKS,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_QUERIES_CACHE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_SEARCH_BACKPRESSURE,
+  JsonSchemaOpensearch.JSON_PROPERTY_SHARD_INDEXING_PRESSURE,
+  JsonSchemaOpensearch.JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_MIN_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_RECOVERY_MAX_BYTES_PER_SEC,
   JsonSchemaOpensearch.JSON_PROPERTY_HTTP_MAX_INITIAL_LINE_LENGTH,
   JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_SECURITY_AUDIT,
@@ -71,6 +78,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_HTTP_MAX_CONTENT_LENGTH,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_WRITE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_QUEUE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_LIMIT,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_QUERY_BOOL_MAX_CLAUSE_COUNT,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_THROTTLED_QUEUE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_CLUSTER_MAX_SHARDS_PER_NODE
@@ -89,14 +97,29 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_THREAD_POOL_GET_QUEUE_SIZE = "thread_pool_get_queue_size";
   private Integer threadPoolGetQueueSize;
 
+  public static final String JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE = "indices_memory_max_index_buffer_size";
+  private Integer indicesMemoryMaxIndexBufferSize;
+
   public static final String JSON_PROPERTY_INDICES_RECOVERY_MAX_CONCURRENT_FILE_CHUNKS = "indices_recovery_max_concurrent_file_chunks";
   private Integer indicesRecoveryMaxConcurrentFileChunks;
 
   public static final String JSON_PROPERTY_INDICES_QUERIES_CACHE_SIZE = "indices_queries_cache_size";
   private Integer indicesQueriesCacheSize;
 
+  public static final String JSON_PROPERTY_SEARCH_BACKPRESSURE = "search_backpressure";
+  private SearchBackpressureSettings searchBackpressure;
+
+  public static final String JSON_PROPERTY_SHARD_INDEXING_PRESSURE = "shard_indexing_pressure";
+  private ShardIndexingBackPressureSettings shardIndexingPressure;
+
+  public static final String JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED = "knn_memory_circuit_breaker_enabled";
+  private Boolean knnMemoryCircuitBreakerEnabled;
+
   public static final String JSON_PROPERTY_THREAD_POOL_SEARCH_SIZE = "thread_pool_search_size";
   private Integer threadPoolSearchSize;
+
+  public static final String JSON_PROPERTY_INDICES_MEMORY_MIN_INDEX_BUFFER_SIZE = "indices_memory_min_index_buffer_size";
+  private Integer indicesMemoryMinIndexBufferSize;
 
   public static final String JSON_PROPERTY_INDICES_RECOVERY_MAX_BYTES_PER_SEC = "indices_recovery_max_bytes_per_sec";
   private Integer indicesRecoveryMaxBytesPerSec;
@@ -166,6 +189,9 @@ public class JsonSchemaOpensearch {
 
   public static final String JSON_PROPERTY_THREAD_POOL_SEARCH_QUEUE_SIZE = "thread_pool_search_queue_size";
   private Integer threadPoolSearchQueueSize;
+
+  public static final String JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_LIMIT = "knn_memory_circuit_breaker_limit";
+  private Integer knnMemoryCircuitBreakerLimit;
 
   public static final String JSON_PROPERTY_INDICES_QUERY_BOOL_MAX_CLAUSE_COUNT = "indices_query_bool_max_clause_count";
   private Integer indicesQueryBoolMaxClauseCount;
@@ -287,6 +313,33 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch indicesMemoryMaxIndexBufferSize(Integer indicesMemoryMaxIndexBufferSize) {
+    this.indicesMemoryMaxIndexBufferSize = indicesMemoryMaxIndexBufferSize;
+    return this;
+  }
+
+   /**
+   * Absolute value. Default is unbound. Doesn&#39;t work without indices.memory.index_buffer_size. Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size maximum hard limit.
+   * minimum: 3
+   * maximum: 2048
+   * @return indicesMemoryMaxIndexBufferSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIndicesMemoryMaxIndexBufferSize() {
+    return indicesMemoryMaxIndexBufferSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIndicesMemoryMaxIndexBufferSize(Integer indicesMemoryMaxIndexBufferSize) {
+    this.indicesMemoryMaxIndexBufferSize = indicesMemoryMaxIndexBufferSize;
+  }
+
+
   public JsonSchemaOpensearch indicesRecoveryMaxConcurrentFileChunks(Integer indicesRecoveryMaxConcurrentFileChunks) {
     this.indicesRecoveryMaxConcurrentFileChunks = indicesRecoveryMaxConcurrentFileChunks;
     return this;
@@ -341,6 +394,81 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch searchBackpressure(SearchBackpressureSettings searchBackpressure) {
+    this.searchBackpressure = searchBackpressure;
+    return this;
+  }
+
+   /**
+   * Get searchBackpressure
+   * @return searchBackpressure
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEARCH_BACKPRESSURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SearchBackpressureSettings getSearchBackpressure() {
+    return searchBackpressure;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_BACKPRESSURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchBackpressure(SearchBackpressureSettings searchBackpressure) {
+    this.searchBackpressure = searchBackpressure;
+  }
+
+
+  public JsonSchemaOpensearch shardIndexingPressure(ShardIndexingBackPressureSettings shardIndexingPressure) {
+    this.shardIndexingPressure = shardIndexingPressure;
+    return this;
+  }
+
+   /**
+   * Get shardIndexingPressure
+   * @return shardIndexingPressure
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHARD_INDEXING_PRESSURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ShardIndexingBackPressureSettings getShardIndexingPressure() {
+    return shardIndexingPressure;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SHARD_INDEXING_PRESSURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShardIndexingPressure(ShardIndexingBackPressureSettings shardIndexingPressure) {
+    this.shardIndexingPressure = shardIndexingPressure;
+  }
+
+
+  public JsonSchemaOpensearch knnMemoryCircuitBreakerEnabled(Boolean knnMemoryCircuitBreakerEnabled) {
+    this.knnMemoryCircuitBreakerEnabled = knnMemoryCircuitBreakerEnabled;
+    return this;
+  }
+
+   /**
+   * Enable or disable KNN memory circuit breaker. Defaults to true.
+   * @return knnMemoryCircuitBreakerEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getKnnMemoryCircuitBreakerEnabled() {
+    return knnMemoryCircuitBreakerEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKnnMemoryCircuitBreakerEnabled(Boolean knnMemoryCircuitBreakerEnabled) {
+    this.knnMemoryCircuitBreakerEnabled = knnMemoryCircuitBreakerEnabled;
+  }
+
+
   public JsonSchemaOpensearch threadPoolSearchSize(Integer threadPoolSearchSize) {
     this.threadPoolSearchSize = threadPoolSearchSize;
     return this;
@@ -365,6 +493,33 @@ public class JsonSchemaOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreadPoolSearchSize(Integer threadPoolSearchSize) {
     this.threadPoolSearchSize = threadPoolSearchSize;
+  }
+
+
+  public JsonSchemaOpensearch indicesMemoryMinIndexBufferSize(Integer indicesMemoryMinIndexBufferSize) {
+    this.indicesMemoryMinIndexBufferSize = indicesMemoryMinIndexBufferSize;
+    return this;
+  }
+
+   /**
+   * Absolute value. Default is 48mb. Doesn&#39;t work without indices.memory.index_buffer_size. Minimum amount of heap used for query cache, an absolute indices.memory.index_buffer_size minimal hard limit.
+   * minimum: 3
+   * maximum: 2048
+   * @return indicesMemoryMinIndexBufferSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDICES_MEMORY_MIN_INDEX_BUFFER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIndicesMemoryMinIndexBufferSize() {
+    return indicesMemoryMinIndexBufferSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INDICES_MEMORY_MIN_INDEX_BUFFER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIndicesMemoryMinIndexBufferSize(Integer indicesMemoryMinIndexBufferSize) {
+    this.indicesMemoryMinIndexBufferSize = indicesMemoryMinIndexBufferSize;
   }
 
 
@@ -1013,6 +1168,33 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch knnMemoryCircuitBreakerLimit(Integer knnMemoryCircuitBreakerLimit) {
+    this.knnMemoryCircuitBreakerLimit = knnMemoryCircuitBreakerLimit;
+    return this;
+  }
+
+   /**
+   * Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size.
+   * minimum: 3
+   * maximum: 100
+   * @return knnMemoryCircuitBreakerLimit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getKnnMemoryCircuitBreakerLimit() {
+    return knnMemoryCircuitBreakerLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKnnMemoryCircuitBreakerLimit(Integer knnMemoryCircuitBreakerLimit) {
+    this.knnMemoryCircuitBreakerLimit = knnMemoryCircuitBreakerLimit;
+  }
+
+
   public JsonSchemaOpensearch indicesQueryBoolMaxClauseCount(Integer indicesQueryBoolMaxClauseCount) {
     this.indicesQueryBoolMaxClauseCount = indicesQueryBoolMaxClauseCount;
     return this;
@@ -1110,9 +1292,14 @@ public class JsonSchemaOpensearch {
         Objects.equals(this.threadPoolAnalyzeSize, jsonSchemaOpensearch.threadPoolAnalyzeSize) &&
         Objects.equals(this.threadPoolGetSize, jsonSchemaOpensearch.threadPoolGetSize) &&
         Objects.equals(this.threadPoolGetQueueSize, jsonSchemaOpensearch.threadPoolGetQueueSize) &&
+        Objects.equals(this.indicesMemoryMaxIndexBufferSize, jsonSchemaOpensearch.indicesMemoryMaxIndexBufferSize) &&
         Objects.equals(this.indicesRecoveryMaxConcurrentFileChunks, jsonSchemaOpensearch.indicesRecoveryMaxConcurrentFileChunks) &&
         Objects.equals(this.indicesQueriesCacheSize, jsonSchemaOpensearch.indicesQueriesCacheSize) &&
+        Objects.equals(this.searchBackpressure, jsonSchemaOpensearch.searchBackpressure) &&
+        Objects.equals(this.shardIndexingPressure, jsonSchemaOpensearch.shardIndexingPressure) &&
+        Objects.equals(this.knnMemoryCircuitBreakerEnabled, jsonSchemaOpensearch.knnMemoryCircuitBreakerEnabled) &&
         Objects.equals(this.threadPoolSearchSize, jsonSchemaOpensearch.threadPoolSearchSize) &&
+        Objects.equals(this.indicesMemoryMinIndexBufferSize, jsonSchemaOpensearch.indicesMemoryMinIndexBufferSize) &&
         Objects.equals(this.indicesRecoveryMaxBytesPerSec, jsonSchemaOpensearch.indicesRecoveryMaxBytesPerSec) &&
         Objects.equals(this.httpMaxInitialLineLength, jsonSchemaOpensearch.httpMaxInitialLineLength) &&
         Objects.equals(this.enableSecurityAudit, jsonSchemaOpensearch.enableSecurityAudit) &&
@@ -1136,6 +1323,7 @@ public class JsonSchemaOpensearch {
         Objects.equals(this.httpMaxContentLength, jsonSchemaOpensearch.httpMaxContentLength) &&
         Objects.equals(this.threadPoolWriteSize, jsonSchemaOpensearch.threadPoolWriteSize) &&
         Objects.equals(this.threadPoolSearchQueueSize, jsonSchemaOpensearch.threadPoolSearchQueueSize) &&
+        Objects.equals(this.knnMemoryCircuitBreakerLimit, jsonSchemaOpensearch.knnMemoryCircuitBreakerLimit) &&
         Objects.equals(this.indicesQueryBoolMaxClauseCount, jsonSchemaOpensearch.indicesQueryBoolMaxClauseCount) &&
         Objects.equals(this.threadPoolSearchThrottledQueueSize, jsonSchemaOpensearch.threadPoolSearchThrottledQueueSize) &&
         Objects.equals(this.clusterMaxShardsPerNode, jsonSchemaOpensearch.clusterMaxShardsPerNode);
@@ -1147,7 +1335,7 @@ public class JsonSchemaOpensearch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(threadPoolSearchThrottledSize, threadPoolAnalyzeSize, threadPoolGetSize, threadPoolGetQueueSize, indicesRecoveryMaxConcurrentFileChunks, indicesQueriesCacheSize, threadPoolSearchSize, indicesRecoveryMaxBytesPerSec, httpMaxInitialLineLength, enableSecurityAudit, threadPoolWriteQueueSize, scriptMaxCompilationsRate, hashCodeNullable(searchMaxBuckets), hashCodeNullable(reindexRemoteWhitelist), overrideMainResponseVersion, httpMaxHeaderSize, emailSender, hashCodeNullable(indicesFielddataCacheSize), hashCodeNullable(actionDestructiveRequiresName), pluginsAlertingFilterByBackendRoles, indicesMemoryIndexBufferSize, threadPoolForceMergeSize, authFailureListeners, ismHistory, clusterRoutingAllocationNodeConcurrentRecoveries, threadPoolAnalyzeQueueSize, actionAutoCreateIndexEnabled, httpMaxContentLength, threadPoolWriteSize, threadPoolSearchQueueSize, indicesQueryBoolMaxClauseCount, threadPoolSearchThrottledQueueSize, clusterMaxShardsPerNode);
+    return Objects.hash(threadPoolSearchThrottledSize, threadPoolAnalyzeSize, threadPoolGetSize, threadPoolGetQueueSize, indicesMemoryMaxIndexBufferSize, indicesRecoveryMaxConcurrentFileChunks, indicesQueriesCacheSize, searchBackpressure, shardIndexingPressure, knnMemoryCircuitBreakerEnabled, threadPoolSearchSize, indicesMemoryMinIndexBufferSize, indicesRecoveryMaxBytesPerSec, httpMaxInitialLineLength, enableSecurityAudit, threadPoolWriteQueueSize, scriptMaxCompilationsRate, hashCodeNullable(searchMaxBuckets), hashCodeNullable(reindexRemoteWhitelist), overrideMainResponseVersion, httpMaxHeaderSize, emailSender, hashCodeNullable(indicesFielddataCacheSize), hashCodeNullable(actionDestructiveRequiresName), pluginsAlertingFilterByBackendRoles, indicesMemoryIndexBufferSize, threadPoolForceMergeSize, authFailureListeners, ismHistory, clusterRoutingAllocationNodeConcurrentRecoveries, threadPoolAnalyzeQueueSize, actionAutoCreateIndexEnabled, httpMaxContentLength, threadPoolWriteSize, threadPoolSearchQueueSize, knnMemoryCircuitBreakerLimit, indicesQueryBoolMaxClauseCount, threadPoolSearchThrottledQueueSize, clusterMaxShardsPerNode);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1165,9 +1353,14 @@ public class JsonSchemaOpensearch {
     sb.append("    threadPoolAnalyzeSize: ").append(toIndentedString(threadPoolAnalyzeSize)).append("\n");
     sb.append("    threadPoolGetSize: ").append(toIndentedString(threadPoolGetSize)).append("\n");
     sb.append("    threadPoolGetQueueSize: ").append(toIndentedString(threadPoolGetQueueSize)).append("\n");
+    sb.append("    indicesMemoryMaxIndexBufferSize: ").append(toIndentedString(indicesMemoryMaxIndexBufferSize)).append("\n");
     sb.append("    indicesRecoveryMaxConcurrentFileChunks: ").append(toIndentedString(indicesRecoveryMaxConcurrentFileChunks)).append("\n");
     sb.append("    indicesQueriesCacheSize: ").append(toIndentedString(indicesQueriesCacheSize)).append("\n");
+    sb.append("    searchBackpressure: ").append(toIndentedString(searchBackpressure)).append("\n");
+    sb.append("    shardIndexingPressure: ").append(toIndentedString(shardIndexingPressure)).append("\n");
+    sb.append("    knnMemoryCircuitBreakerEnabled: ").append(toIndentedString(knnMemoryCircuitBreakerEnabled)).append("\n");
     sb.append("    threadPoolSearchSize: ").append(toIndentedString(threadPoolSearchSize)).append("\n");
+    sb.append("    indicesMemoryMinIndexBufferSize: ").append(toIndentedString(indicesMemoryMinIndexBufferSize)).append("\n");
     sb.append("    indicesRecoveryMaxBytesPerSec: ").append(toIndentedString(indicesRecoveryMaxBytesPerSec)).append("\n");
     sb.append("    httpMaxInitialLineLength: ").append(toIndentedString(httpMaxInitialLineLength)).append("\n");
     sb.append("    enableSecurityAudit: ").append(toIndentedString(enableSecurityAudit)).append("\n");
@@ -1191,6 +1384,7 @@ public class JsonSchemaOpensearch {
     sb.append("    httpMaxContentLength: ").append(toIndentedString(httpMaxContentLength)).append("\n");
     sb.append("    threadPoolWriteSize: ").append(toIndentedString(threadPoolWriteSize)).append("\n");
     sb.append("    threadPoolSearchQueueSize: ").append(toIndentedString(threadPoolSearchQueueSize)).append("\n");
+    sb.append("    knnMemoryCircuitBreakerLimit: ").append(toIndentedString(knnMemoryCircuitBreakerLimit)).append("\n");
     sb.append("    indicesQueryBoolMaxClauseCount: ").append(toIndentedString(indicesQueryBoolMaxClauseCount)).append("\n");
     sb.append("    threadPoolSearchThrottledQueueSize: ").append(toIndentedString(threadPoolSearchThrottledQueueSize)).append("\n");
     sb.append("    clusterMaxShardsPerNode: ").append(toIndentedString(clusterMaxShardsPerNode)).append("\n");
@@ -1261,6 +1455,11 @@ public class JsonSchemaOpensearch {
       joiner.add(String.format("%sthread_pool_get_queue_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolGetQueueSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `indices_memory_max_index_buffer_size` to the URL query string
+    if (getIndicesMemoryMaxIndexBufferSize() != null) {
+      joiner.add(String.format("%sindices_memory_max_index_buffer_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndicesMemoryMaxIndexBufferSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `indices_recovery_max_concurrent_file_chunks` to the URL query string
     if (getIndicesRecoveryMaxConcurrentFileChunks() != null) {
       joiner.add(String.format("%sindices_recovery_max_concurrent_file_chunks%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndicesRecoveryMaxConcurrentFileChunks()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1271,9 +1470,29 @@ public class JsonSchemaOpensearch {
       joiner.add(String.format("%sindices_queries_cache_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndicesQueriesCacheSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `search_backpressure` to the URL query string
+    if (getSearchBackpressure() != null) {
+      joiner.add(getSearchBackpressure().toUrlQueryString(prefix + "search_backpressure" + suffix));
+    }
+
+    // add `shard_indexing_pressure` to the URL query string
+    if (getShardIndexingPressure() != null) {
+      joiner.add(getShardIndexingPressure().toUrlQueryString(prefix + "shard_indexing_pressure" + suffix));
+    }
+
+    // add `knn_memory_circuit_breaker_enabled` to the URL query string
+    if (getKnnMemoryCircuitBreakerEnabled() != null) {
+      joiner.add(String.format("%sknn_memory_circuit_breaker_enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKnnMemoryCircuitBreakerEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `thread_pool_search_size` to the URL query string
     if (getThreadPoolSearchSize() != null) {
       joiner.add(String.format("%sthread_pool_search_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolSearchSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `indices_memory_min_index_buffer_size` to the URL query string
+    if (getIndicesMemoryMinIndexBufferSize() != null) {
+      joiner.add(String.format("%sindices_memory_min_index_buffer_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndicesMemoryMinIndexBufferSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `indices_recovery_max_bytes_per_sec` to the URL query string
@@ -1393,6 +1612,11 @@ public class JsonSchemaOpensearch {
     // add `thread_pool_search_queue_size` to the URL query string
     if (getThreadPoolSearchQueueSize() != null) {
       joiner.add(String.format("%sthread_pool_search_queue_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolSearchQueueSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `knn_memory_circuit_breaker_limit` to the URL query string
+    if (getKnnMemoryCircuitBreakerLimit() != null) {
+      joiner.add(String.format("%sknn_memory_circuit_breaker_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKnnMemoryCircuitBreakerLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `indices_query_bool_max_clause_count` to the URL query string
