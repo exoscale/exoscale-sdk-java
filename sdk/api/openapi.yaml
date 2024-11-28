@@ -23484,11 +23484,12 @@ components:
             $ref: '#/components/schemas/dbaas-datadog-tag'
           type: array
         disable-consumer-stats:
-          description: Disable consumer group metrics
+          description: Disable kafka consumer group metrics. Applies only when attached
+            to kafka services.
           type: boolean
         kafka-consumer-check-instances:
           description: Number of separate instances to fetch kafka consumer statistics
-            with
+            with. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -23497,7 +23498,7 @@ components:
           type: integer
         kafka-consumer-stats-timeout:
           description: Number of seconds that datadog will wait to get consumer statistics
-            from brokers
+            from brokers. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -23505,7 +23506,8 @@ components:
           minimum: 2
           type: integer
         max-partition-contexts:
-          description: Maximum number of partition contexts to send
+          description: Maximum number of partition contexts to send. Applies only
+            when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53229,11 +53231,12 @@ components:
             $ref: '#/components/schemas/dbaas-datadog-tag'
           type: array
         disable-consumer-stats:
-          description: Disable consumer group metrics
+          description: Disable kafka consumer group metrics. Applies only when attached
+            to kafka services.
           type: boolean
         kafka-consumer-check-instances:
           description: Number of separate instances to fetch kafka consumer statistics
-            with
+            with. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53242,7 +53245,7 @@ components:
           type: integer
         kafka-consumer-stats-timeout:
           description: Number of seconds that datadog will wait to get consumer statistics
-            from brokers
+            from brokers. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53250,7 +53253,8 @@ components:
           minimum: 2
           type: integer
         max-partition-contexts:
-          description: Maximum number of partition contexts to send
+          description: Maximum number of partition contexts to send. Applies only
+            when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53274,11 +53278,12 @@ components:
             $ref: '#/components/schemas/dbaas-datadog-tag'
           type: array
         disable-consumer-stats:
-          description: Disable consumer group metrics
+          description: Disable kafka consumer group metrics. Applies only when attached
+            to kafka services.
           type: boolean
         kafka-consumer-check-instances:
           description: Number of separate instances to fetch kafka consumer statistics
-            with
+            with. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53287,7 +53292,7 @@ components:
           type: integer
         kafka-consumer-stats-timeout:
           description: Number of seconds that datadog will wait to get consumer statistics
-            from brokers
+            from brokers. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53295,7 +53300,8 @@ components:
           minimum: 2
           type: integer
         max-partition-contexts:
-          description: Maximum number of partition contexts to send
+          description: Maximum number of partition contexts to send. Applies only
+            when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53398,11 +53404,12 @@ components:
             $ref: '#/components/schemas/dbaas-datadog-tag'
           type: array
         disable-consumer-stats:
-          description: Disable consumer group metrics
+          description: Disable kafka consumer group metrics. Applies only when attached
+            to kafka services.
           type: boolean
         kafka-consumer-check-instances:
           description: Number of separate instances to fetch kafka consumer statistics
-            with
+            with. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53411,7 +53418,7 @@ components:
           type: integer
         kafka-consumer-stats-timeout:
           description: Number of seconds that datadog will wait to get consumer statistics
-            from brokers
+            from brokers. Applies only when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64
@@ -53419,7 +53426,8 @@ components:
           minimum: 2
           type: integer
         max-partition-contexts:
-          description: Maximum number of partition contexts to send
+          description: Maximum number of partition contexts to send. Applies only
+            when attached to kafka services.
           exclusiveMaximum: false
           exclusiveMinimum: false
           format: int64

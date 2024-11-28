@@ -100,7 +100,7 @@ public class DbaasEndpointDatadogCommon {
   }
 
    /**
-   * Disable consumer group metrics
+   * Disable kafka consumer group metrics. Applies only when attached to kafka services.
    * @return disableConsumerStats
   **/
   @javax.annotation.Nullable
@@ -125,7 +125,7 @@ public class DbaasEndpointDatadogCommon {
   }
 
    /**
-   * Number of separate instances to fetch kafka consumer statistics with
+   * Number of separate instances to fetch kafka consumer statistics with. Applies only when attached to kafka services.
    * minimum: 1
    * maximum: 100
    * @return kafkaConsumerCheckInstances
@@ -152,7 +152,7 @@ public class DbaasEndpointDatadogCommon {
   }
 
    /**
-   * Number of seconds that datadog will wait to get consumer statistics from brokers
+   * Number of seconds that datadog will wait to get consumer statistics from brokers. Applies only when attached to kafka services.
    * minimum: 2
    * maximum: 300
    * @return kafkaConsumerStatsTimeout
@@ -179,7 +179,7 @@ public class DbaasEndpointDatadogCommon {
   }
 
    /**
-   * Maximum number of partition contexts to send
+   * Maximum number of partition contexts to send. Applies only when attached to kafka services.
    * minimum: 200
    * maximum: 200000
    * @return maxPartitionContexts
