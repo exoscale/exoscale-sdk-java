@@ -12667,9 +12667,11 @@ components:
           description: Instance type family
           enum:
           - gpu3
+          - gpu3080ti
           - gpu2
           - gpu
           - memory
+          - gpua5000
           - storage
           - standard
           - colossus
