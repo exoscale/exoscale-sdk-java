@@ -40523,7 +40523,7 @@ components:
       properties:
         name:
           description: SSH key name
-          pattern: "^[a-zA-Z]{1}[a-zA-Z0-9._-]{0,254}$"
+          pattern: "^[a-zA-Z0-9]{1}[a-zA-Z0-9._-]{0,254}$"
           type: string
         public-key:
           description: Public key value
