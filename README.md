@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.4-SNAPSHOT-47dc9da</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.4-SNAPSHOT-47dc9da'
+  implementation 'com.exoscale.sdk:sdk:0.0.4'
 }
 ```
 
