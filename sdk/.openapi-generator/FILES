@@ -55,6 +55,7 @@ docs/CreatePrivateNetworkRequest.md
 docs/CreateSecurityGroupRequest.md
 docs/CreateSksClusterRequest.md
 docs/CreateSksNodepoolRequest.md
+docs/CreateUserRequest.md
 docs/DbaasBackupConfig.md
 docs/DbaasDatadogTag.md
 docs/DbaasEndpointDatadogCommon.md
@@ -283,6 +284,7 @@ docs/ListSnapshots200Response.md
 docs/ListSosBucketsUsage200Response.md
 docs/ListSshKeys200Response.md
 docs/ListTemplates200Response.md
+docs/ListUsers200Response.md
 docs/ListZones200Response.md
 docs/LoadBalancer.md
 docs/LoadBalancerServerStatus.md
@@ -372,6 +374,7 @@ docs/UpdateReverseDnsElasticIpRequest.md
 docs/UpdateSksClusterRequest.md
 docs/UpdateSksNodepoolRequest.md
 docs/UpdateTemplateRequest.md
+docs/UpdateUserRoleRequest.md
 docs/UpgradeSksClusterRequest.md
 docs/User.md
 docs/WriteAheadLogWALSettings.md
@@ -444,6 +447,7 @@ src/main/java/com/exoscale/sdk/model/CreatePrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksNodepoolRequest.java
+src/main/java/com/exoscale/sdk/model/CreateUserRequest.java
 src/main/java/com/exoscale/sdk/model/DbaasBackupConfig.java
 src/main/java/com/exoscale/sdk/model/DbaasDatadogTag.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadogCommon.java
@@ -671,6 +675,7 @@ src/main/java/com/exoscale/sdk/model/ListSnapshots200Response.java
 src/main/java/com/exoscale/sdk/model/ListSosBucketsUsage200Response.java
 src/main/java/com/exoscale/sdk/model/ListSshKeys200Response.java
 src/main/java/com/exoscale/sdk/model/ListTemplates200Response.java
+src/main/java/com/exoscale/sdk/model/ListUsers200Response.java
 src/main/java/com/exoscale/sdk/model/ListZones200Response.java
 src/main/java/com/exoscale/sdk/model/LoadBalancer.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServerStatus.java
@@ -760,6 +765,7 @@ src/main/java/com/exoscale/sdk/model/UpdateReverseDnsElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSksNodepoolRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateTemplateRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateUserRoleRequest.java
 src/main/java/com/exoscale/sdk/model/UpgradeSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/User.java
 src/main/java/com/exoscale/sdk/model/WriteAheadLogWALSettings.java

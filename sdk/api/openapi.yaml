@@ -4124,6 +4124,58 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /user/{id}:
+    delete:
+      operationId: delete-user
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Delete User
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      operationId: update-user-role
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_user_role_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Update a User's IAM role
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /reverse-dns/instance/{id}:
     delete:
       description: ""
@@ -7335,6 +7387,42 @@ paths:
       summary: Reset Private Network field
       tags:
       - exoscale
+      x-accepts: application/json
+  /user:
+    get:
+      operationId: list-users
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_users_200_response'
+          description: "200"
+      summary: List Users
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      operationId: create-user
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_user_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Create a User
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /sks-cluster/{id}/upgrade:
     put:
@@ -40341,6 +40429,11 @@ components:
       required:
       - target-zone
       type: object
+    update_user_role_request:
+      properties:
+        role:
+          $ref: '#/components/schemas/iam-role'
+      type: object
     evict_instance_pool_members_request:
       properties:
         instances:
@@ -51845,6 +51938,87 @@ components:
           $ref: '#/components/schemas/iam-policy'
       required:
       - name
+      type: object
+    list_users_200_response:
+      example:
+        users:
+        - two-factor-authentication: true
+          role:
+            permissions:
+            - bypass-governance-retention
+            - bypass-governance-retention
+            editable: true
+            name: name
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            labels:
+              key: labels
+            policy:
+              services:
+                key:
+                  rules:
+                  - expression: expression
+                    action: allow
+                    resources:
+                    - resources
+                    - resources
+                  - expression: expression
+                    action: allow
+                    resources:
+                    - resources
+                    - resources
+                  type: rules
+              default-service-strategy: allow
+          pending: true
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sso: true
+          email: email
+        - two-factor-authentication: true
+          role:
+            permissions:
+            - bypass-governance-retention
+            - bypass-governance-retention
+            editable: true
+            name: name
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            labels:
+              key: labels
+            policy:
+              services:
+                key:
+                  rules:
+                  - expression: expression
+                    action: allow
+                    resources:
+                    - resources
+                    - resources
+                  - expression: expression
+                    action: allow
+                    resources:
+                    - resources
+                    - resources
+                  type: rules
+              default-service-strategy: allow
+          pending: true
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          sso: true
+          email: email
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/user'
+          type: array
+      type: object
+    create_user_request:
+      properties:
+        email:
+          description: User Email
+          type: string
+        role:
+          $ref: '#/components/schemas/iam-role'
+      required:
+      - email
       type: object
     upgrade_sks_cluster_request:
       properties:

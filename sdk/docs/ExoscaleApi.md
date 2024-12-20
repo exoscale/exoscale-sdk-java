@@ -54,6 +54,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createSksCluster**](ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster |
 | [**createSksNodepool**](ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
+| [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
@@ -99,6 +100,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteSnapshot**](ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot |
 | [**deleteSshKey**](ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key |
 | [**deleteTemplate**](ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template |
+| [**deleteUser**](ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User |
 | [**detachBlockStorageVolume**](ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
 | [**detachDbaasServiceFromEndpoint**](ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
@@ -200,6 +202,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listSosBucketsUsage**](ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage |
 | [**listSshKeys**](ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys |
 | [**listTemplates**](ExoscaleApi.md#listTemplates) | **GET** /template | List Templates |
+| [**listUsers**](ExoscaleApi.md#listUsers) | **GET** /user | List Users |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
 | [**rebootInstance**](ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance |
@@ -284,6 +287,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateSksCluster**](ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster |
 | [**updateSksNodepool**](ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool |
 | [**updateTemplate**](ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes |
+| [**updateUserRole**](ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role |
 | [**upgradeSksCluster**](ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster |
 | [**upgradeSksClusterServiceLevel**](ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro |
 
@@ -4972,6 +4976,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## createUser
+
+> Operation createUser(createUserRequest)
+
+Create a User
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateUserRequest createUserRequest = new CreateUserRequest(); // CreateUserRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createUser(createUserRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createUserRequest** | [**CreateUserRequest**](CreateUserRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createUserRequest** | [**CreateUserRequest**](CreateUserRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## deleteAntiAffinityGroup
 
 > Operation deleteAntiAffinityGroup(id)
@@ -9059,6 +9153,96 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteTemplate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteUser
+
+> Operation deleteUser(id)
+
+Delete User
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteUser(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteUser");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -18256,6 +18440,89 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listUsers
+
+> ListUsers200Response listUsers()
+
+List Users
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            ListUsers200Response result = client.listUsers();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListUsers200Response**](ListUsers200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListUsers200Response**](ListUsers200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listZones
 
 > ListZones200Response listZones()
@@ -26149,6 +26416,99 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **updateTemplateRequest** | [**UpdateTemplateRequest**](UpdateTemplateRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateUserRole
+
+> Operation updateUserRole(id, updateUserRoleRequest)
+
+Update a User&#39;s IAM role
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateUserRoleRequest updateUserRoleRequest = new UpdateUserRoleRequest(); // UpdateUserRoleRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.updateUserRole(id, updateUserRoleRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateUserRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateUserRoleRequest** | [**UpdateUserRoleRequest**](UpdateUserRoleRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateUserRoleRequest** | [**UpdateUserRoleRequest**](UpdateUserRoleRequest.md)|  | |
 
 ### Return type
 

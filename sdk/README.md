@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2024-12-17T07:06:17.810639Z[Etc/UTC]
+- Build date: 2024-12-20T07:06:06.911069Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-6c5a0db</version>
+    <version>0.0.5-SNAPSHOT-e1d5a83</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-6c5a0db'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-e1d5a83'
 }
 ```
 
@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createSksCluster**](sdk/docs/ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster
 *ExoscaleApi* | [**createSksNodepool**](sdk/docs/ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
 *ExoscaleApi* | [**createSnapshot**](sdk/docs/ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
+*ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
 *ExoscaleApi* | [**deleteAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
@@ -178,6 +179,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteSnapshot**](sdk/docs/ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot
 *ExoscaleApi* | [**deleteSshKey**](sdk/docs/ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key
 *ExoscaleApi* | [**deleteTemplate**](sdk/docs/ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template
+*ExoscaleApi* | [**deleteUser**](sdk/docs/ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User
 *ExoscaleApi* | [**detachBlockStorageVolume**](sdk/docs/ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume
 *ExoscaleApi* | [**detachDbaasServiceFromEndpoint**](sdk/docs/ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach | 
 *ExoscaleApi* | [**detachInstanceFromElasticIp**](sdk/docs/ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
@@ -279,6 +281,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listSosBucketsUsage**](sdk/docs/ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage
 *ExoscaleApi* | [**listSshKeys**](sdk/docs/ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys
 *ExoscaleApi* | [**listTemplates**](sdk/docs/ExoscaleApi.md#listTemplates) | **GET** /template | List Templates
+*ExoscaleApi* | [**listUsers**](sdk/docs/ExoscaleApi.md#listUsers) | **GET** /user | List Users
 *ExoscaleApi* | [**listZones**](sdk/docs/ExoscaleApi.md#listZones) | **GET** /zone | List Zones
 *ExoscaleApi* | [**promoteSnapshotToTemplate**](sdk/docs/ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
 *ExoscaleApi* | [**rebootInstance**](sdk/docs/ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
@@ -363,6 +366,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateSksCluster**](sdk/docs/ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster
 *ExoscaleApi* | [**updateSksNodepool**](sdk/docs/ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
 *ExoscaleApi* | [**updateTemplate**](sdk/docs/ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes
+*ExoscaleApi* | [**updateUserRole**](sdk/docs/ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role
 *ExoscaleApi* | [**upgradeSksCluster**](sdk/docs/ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster
 *ExoscaleApi* | [**upgradeSksClusterServiceLevel**](sdk/docs/ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro
 
@@ -421,6 +425,7 @@ Class | Method | HTTP request | Description
  - [CreateSecurityGroupRequest](sdk/docs/CreateSecurityGroupRequest.md)
  - [CreateSksClusterRequest](sdk/docs/CreateSksClusterRequest.md)
  - [CreateSksNodepoolRequest](sdk/docs/CreateSksNodepoolRequest.md)
+ - [CreateUserRequest](sdk/docs/CreateUserRequest.md)
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
  - [DbaasDatadogTag](sdk/docs/DbaasDatadogTag.md)
  - [DbaasEndpointDatadogCommon](sdk/docs/DbaasEndpointDatadogCommon.md)
@@ -648,6 +653,7 @@ Class | Method | HTTP request | Description
  - [ListSosBucketsUsage200Response](sdk/docs/ListSosBucketsUsage200Response.md)
  - [ListSshKeys200Response](sdk/docs/ListSshKeys200Response.md)
  - [ListTemplates200Response](sdk/docs/ListTemplates200Response.md)
+ - [ListUsers200Response](sdk/docs/ListUsers200Response.md)
  - [ListZones200Response](sdk/docs/ListZones200Response.md)
  - [LoadBalancer](sdk/docs/LoadBalancer.md)
  - [LoadBalancerServerStatus](sdk/docs/LoadBalancerServerStatus.md)
@@ -737,6 +743,7 @@ Class | Method | HTTP request | Description
  - [UpdateSksClusterRequest](sdk/docs/UpdateSksClusterRequest.md)
  - [UpdateSksNodepoolRequest](sdk/docs/UpdateSksNodepoolRequest.md)
  - [UpdateTemplateRequest](sdk/docs/UpdateTemplateRequest.md)
+ - [UpdateUserRoleRequest](sdk/docs/UpdateUserRoleRequest.md)
  - [UpgradeSksClusterRequest](sdk/docs/UpgradeSksClusterRequest.md)
  - [User](sdk/docs/User.md)
  - [WriteAheadLogWALSettings](sdk/docs/WriteAheadLogWALSettings.md)

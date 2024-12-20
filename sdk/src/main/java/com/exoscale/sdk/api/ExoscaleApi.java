@@ -58,6 +58,7 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
@@ -158,6 +159,7 @@ import com.exoscale.sdk.model.ListSnapshots200Response;
 import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
+import com.exoscale.sdk.model.ListUsers200Response;
 import com.exoscale.sdk.model.ListZones200Response;
 import com.exoscale.sdk.model.LoadBalancer;
 import com.exoscale.sdk.model.LoadBalancerService;
@@ -213,6 +215,7 @@ import com.exoscale.sdk.model.UpdateReverseDnsElasticIpRequest;
 import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
 import com.exoscale.sdk.model.UpdateTemplateRequest;
+import com.exoscale.sdk.model.UpdateUserRoleRequest;
 import com.exoscale.sdk.model.UpgradeSksClusterRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -4864,6 +4867,93 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Create a User
+   * 
+   * @param createUserRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createUser(CreateUserRequest createUserRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createUserWithHttpInfo(createUserRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create a User
+   * 
+   * @param createUserRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createUserWithHttpInfo(CreateUserRequest createUserRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createUserRequestBuilder(createUserRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createUser", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createUserRequestBuilder(CreateUserRequest createUserRequest) throws ApiException {
+    // verify the required parameter 'createUserRequest' is set
+    if (createUserRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createUserRequest' when calling createUser");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/user";
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createUserRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Delete an Anti-affinity Group
    * 
    * @param id  (required)
@@ -8627,6 +8717,88 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/template/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Delete User
+   * 
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteUser(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteUserWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete User
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteUserWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteUserRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteUser", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteUserRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteUser");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/user/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -16981,6 +17153,81 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * List Users
+   * 
+   * @return ListUsers200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListUsers200Response listUsers() throws ApiException {
+    ApiResponse<ListUsers200Response> localVarResponse = listUsersWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List Users
+   * 
+   * @return ApiResponse&lt;ListUsers200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListUsers200Response> listUsersWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listUsersRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listUsers", localVarResponse);
+        }
+        return new ApiResponse<ListUsers200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListUsers200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listUsersRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/user";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Zones
    * 
    * @return ListZones200Response
@@ -24635,6 +24882,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateTemplateRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update a User&#39;s IAM role
+   * 
+   * @param id  (required)
+   * @param updateUserRoleRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateUserRole(UUID id, UpdateUserRoleRequest updateUserRoleRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateUserRoleWithHttpInfo(id, updateUserRoleRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update a User&#39;s IAM role
+   * 
+   * @param id  (required)
+   * @param updateUserRoleRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateUserRoleWithHttpInfo(UUID id, UpdateUserRoleRequest updateUserRoleRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateUserRoleRequestBuilder(id, updateUserRoleRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateUserRole", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateUserRoleRequestBuilder(UUID id, UpdateUserRoleRequest updateUserRoleRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateUserRole");
+    }
+    // verify the required parameter 'updateUserRoleRequest' is set
+    if (updateUserRoleRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateUserRoleRequest' when calling updateUserRole");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/user/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateUserRoleRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

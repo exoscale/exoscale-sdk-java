@@ -54,6 +54,7 @@ import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
@@ -154,6 +155,7 @@ import com.exoscale.sdk.model.ListSnapshots200Response;
 import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
+import com.exoscale.sdk.model.ListUsers200Response;
 import com.exoscale.sdk.model.ListZones200Response;
 import com.exoscale.sdk.model.LoadBalancer;
 import com.exoscale.sdk.model.LoadBalancerService;
@@ -209,6 +211,7 @@ import com.exoscale.sdk.model.UpdateReverseDnsElasticIpRequest;
 import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
 import com.exoscale.sdk.model.UpdateTemplateRequest;
+import com.exoscale.sdk.model.UpdateUserRoleRequest;
 import com.exoscale.sdk.model.UpgradeSksClusterRequest;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -1115,6 +1118,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Create a User
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createUserTest() throws ApiException {
+        CreateUserRequest createUserRequest = null;
+        Operation response = 
+        api.createUser(createUserRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Delete an Anti-affinity Group
      *
      * 
@@ -1889,6 +1909,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.deleteTemplate(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete User
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteUserTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteUser(id);
         
         // TODO: test validations
     }
@@ -3603,6 +3640,22 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * List Users
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listUsersTest() throws ApiException {
+        ListUsers200Response response = 
+        api.listUsers();
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List Zones
      *
      * 
@@ -5102,6 +5155,24 @@ public class ExoscaleApiTest {
         UpdateTemplateRequest updateTemplateRequest = null;
         Operation response = 
         api.updateTemplate(id, updateTemplateRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a User&#39;s IAM role
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateUserRoleTest() throws ApiException {
+        UUID id = null;
+        UpdateUserRoleRequest updateUserRoleRequest = null;
+        Operation response = 
+        api.updateUserRole(id, updateUserRoleRequest);
         
         // TODO: test validations
     }
