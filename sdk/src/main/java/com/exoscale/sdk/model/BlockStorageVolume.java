@@ -250,7 +250,7 @@ public class BlockStorageVolume {
 
    /**
    * Volume size
-   * minimum: 10
+   * minimum: 1
    * @return size
   **/
   @javax.annotation.Nullable

@@ -89,7 +89,7 @@ public class CreateBlockStorageVolumeRequest {
 
    /**
    * Volume size in GiB.                             When a snapshot ID is supplied, this defaults to the size of the source volume, but can be set to a larger value.
-   * minimum: 10
+   * minimum: 1
    * @return size
   **/
   @javax.annotation.Nullable

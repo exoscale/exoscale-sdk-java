@@ -49,7 +49,7 @@ public class ResizeBlockStorageVolumeRequest {
 
    /**
    * Volume size in GiB
-   * minimum: 11
+   * minimum: 0
    * @return size
   **/
   @javax.annotation.Nonnull

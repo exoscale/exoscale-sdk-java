@@ -27951,7 +27951,7 @@ components:
     block-storage-snapshot:
       description: Block storage snapshot
       example:
-        size: 10
+        size: 1
         name: name
         block-storage-volume:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -27976,7 +27976,7 @@ components:
           description: Snapshot size
           exclusiveMinimum: false
           format: int64
-          minimum: 10
+          minimum: 1
           type: integer
         volume-size:
           description: Original Volume size
@@ -29066,7 +29066,7 @@ components:
         blocksize: 0
         instance:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        size: 10
+        size: 1
         block-storage-snapshots:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29106,7 +29106,7 @@ components:
           description: Volume size
           exclusiveMinimum: false
           format: int64
-          minimum: 10
+          minimum: 1
           type: integer
         blocksize:
           description: Volume block size
@@ -40064,7 +40064,7 @@ components:
     list_block_storage_snapshots_200_response:
       example:
         block-storage-snapshots:
-        - size: 10
+        - size: 1
           name: name
           block-storage-volume:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -40074,7 +40074,7 @@ components:
           volume-size: 0
           labels:
             key: labels
-        - size: 10
+        - size: 1
           name: name
           block-storage-volume:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -40464,7 +40464,7 @@ components:
           description: Volume size in GiB
           exclusiveMinimum: false
           format: int64
-          minimum: 11
+          minimum: 0
           type: integer
       required:
       - size
@@ -52034,7 +52034,7 @@ components:
         - blocksize: 0
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 10
+          size: 1
           block-storage-snapshots:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -52047,7 +52047,7 @@ components:
         - blocksize: 0
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 10
+          size: 1
           block-storage-snapshots:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -52075,7 +52075,7 @@ components:
                                         When a snapshot ID is supplied, this defaults to the size of the source volume, but can be set to a larger value.
           exclusiveMinimum: false
           format: int64
-          minimum: 10
+          minimum: 1
           type: integer
         labels:
           additionalProperties:
