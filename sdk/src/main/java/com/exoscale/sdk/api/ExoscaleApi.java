@@ -27,6 +27,7 @@ import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
+import com.exoscale.sdk.model.BlockStorageVolumeDetails;
 import com.exoscale.sdk.model.CopyTemplateRequest;
 import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
@@ -9984,11 +9985,11 @@ public class ExoscaleApi {
    * Retrieve block storage volume details
    * 
    * @param id  (required)
-   * @return BlockStorageVolume
+   * @return BlockStorageVolumeDetails
    * @throws ApiException if fails to make API call
    */
-  public BlockStorageVolume getBlockStorageVolume(UUID id) throws ApiException {
-    ApiResponse<BlockStorageVolume> localVarResponse = getBlockStorageVolumeWithHttpInfo(id);
+  public BlockStorageVolumeDetails getBlockStorageVolume(UUID id) throws ApiException {
+    ApiResponse<BlockStorageVolumeDetails> localVarResponse = getBlockStorageVolumeWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
@@ -9996,10 +9997,10 @@ public class ExoscaleApi {
    * Retrieve block storage volume details
    * 
    * @param id  (required)
-   * @return ApiResponse&lt;BlockStorageVolume&gt;
+   * @return ApiResponse&lt;BlockStorageVolumeDetails&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<BlockStorageVolume> getBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<BlockStorageVolumeDetails> getBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getBlockStorageVolumeRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10012,10 +10013,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getBlockStorageVolume", localVarResponse);
         }
-        return new ApiResponse<BlockStorageVolume>(
+        return new ApiResponse<BlockStorageVolumeDetails>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<BlockStorageVolume>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<BlockStorageVolumeDetails>() {}) // closes the InputStream
         );
       } finally {
       }

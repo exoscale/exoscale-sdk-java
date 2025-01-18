@@ -4488,6 +4488,63 @@ components:
           readOnly: true
           description: Operation status
       description: Operation
+    block-storage-volume-details:
+      type: object
+      properties:
+        labels:
+          "$ref": "#/components/schemas/labels"
+          description: Resource labels
+        instance:
+          "$ref": "#/components/schemas/instance-target"
+          description: Volume attached instance, if any
+        name:
+          type: string
+          maxLength: 255
+          minLength: 1
+          description: Volume name
+        state:
+          type: string
+          enum:
+          - snapshotting
+          - deleted
+          - creating
+          - detached
+          - deleting
+          - attaching
+          - error
+          - attached
+          - detaching
+          readOnly: true
+          description: Volume state
+        size:
+          type: integer
+          format: int64
+          minimum: 1
+          exclusiveMinimum: false
+          description: Volume size
+        blocksize:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: false
+          readOnly: true
+          description: Volume block size
+        block-storage-snapshots:
+          type: array
+          items:
+            "$ref": "#/components/schemas/block-storage-snapshot-target"
+          description: Volume snapshots, if any
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Volume ID
+        created-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Volume creation date
+      description: Block storage volume
     iam-api-key-created:
       type: object
       properties:
@@ -7925,17 +7982,21 @@ components:
     block-storage-volume:
       type: object
       properties:
-        labels:
-          "$ref": "#/components/schemas/labels"
-          description: Resource labels
-        instance:
-          "$ref": "#/components/schemas/instance-target"
-          description: Volume attached instance, if any
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Volume ID
         name:
           type: string
           maxLength: 255
           minLength: 1
           description: Volume name
+        created-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Volume creation date
         state:
           type: string
           enum:
@@ -7963,21 +8024,12 @@ components:
           exclusiveMinimum: false
           readOnly: true
           description: Volume block size
-        block-storage-snapshots:
-          type: array
-          items:
-            "$ref": "#/components/schemas/block-storage-snapshot-target"
-          description: Volume snapshots, if any
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-          description: Volume ID
-        created-at:
-          type: string
-          format: date-time
-          readOnly: true
-          description: Volume creation date
+        labels:
+          "$ref": "#/components/schemas/labels"
+          description: Resource labels
+        instance:
+          "$ref": "#/components/schemas/instance-target"
+          description: Volume attached instance, if any
       description: Block storage volume
     enum-migration-method:
       type: string
@@ -11234,7 +11286,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/block-storage-volume"
+                "$ref": "#/components/schemas/block-storage-volume-details"
       description: ''
       parameters:
       - in: path

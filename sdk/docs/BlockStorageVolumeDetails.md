@@ -1,6 +1,6 @@
 
 
-# BlockStorageVolume
+# BlockStorageVolumeDetails
 
 Block storage volume
 
@@ -8,14 +8,15 @@ Block storage volume
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Volume ID |  [optional] [readonly] |
+|**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**instance** | [**InstanceTarget**](InstanceTarget.md) |  |  [optional] |
 |**name** | **String** | Volume name |  [optional] |
-|**createdAt** | **OffsetDateTime** | Volume creation date |  [optional] [readonly] |
 |**state** | [**StateEnum**](#StateEnum) | Volume state |  [optional] [readonly] |
 |**size** | **Long** | Volume size |  [optional] |
 |**blocksize** | **Long** | Volume block size |  [optional] [readonly] |
-|**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**instance** | [**InstanceTarget**](InstanceTarget.md) |  |  [optional] |
+|**blockStorageSnapshots** | [**List&lt;BlockStorageSnapshotTarget&gt;**](BlockStorageSnapshotTarget.md) | Volume snapshots, if any |  [optional] |
+|**id** | **UUID** | Volume ID |  [optional] [readonly] |
+|**createdAt** | **OffsetDateTime** | Volume creation date |  [optional] [readonly] |
 
 
 

@@ -21,6 +21,7 @@ docs/BackgroundBGWriterSettings.md
 docs/BlockStorageSnapshot.md
 docs/BlockStorageSnapshotTarget.md
 docs/BlockStorageVolume.md
+docs/BlockStorageVolumeDetails.md
 docs/BlockStorageVolumeTarget.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
@@ -413,6 +414,7 @@ src/main/java/com/exoscale/sdk/model/BackgroundBGWriterSettings.java
 src/main/java/com/exoscale/sdk/model/BlockStorageSnapshot.java
 src/main/java/com/exoscale/sdk/model/BlockStorageSnapshotTarget.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolume.java
+src/main/java/com/exoscale/sdk/model/BlockStorageVolumeDetails.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolumeTarget.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java

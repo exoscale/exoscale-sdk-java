@@ -10524,7 +10524,7 @@ No authorization required
 
 ## getBlockStorageVolume
 
-> BlockStorageVolume getBlockStorageVolume(id)
+> BlockStorageVolumeDetails getBlockStorageVolume(id)
 
 Retrieve block storage volume details
 
@@ -10547,7 +10547,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            BlockStorageVolume result = client.getBlockStorageVolume(id);
+            BlockStorageVolumeDetails result = client.getBlockStorageVolume(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getBlockStorageVolume");
@@ -10569,7 +10569,7 @@ public class Example {
 
 ### Return type
 
-[**BlockStorageVolume**](BlockStorageVolume.md)
+[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)
 
 
 ### Authorization
@@ -10596,7 +10596,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**BlockStorageVolume**](BlockStorageVolume.md)>
+ApiResponse<[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)>
 
 
 ### Authorization

@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.BlockStorageSnapshotTarget;
 import com.exoscale.sdk.model.InstanceTarget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,8 +21,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.Assert;
@@ -29,25 +32,33 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for BlockStorageVolume
+ * Model tests for BlockStorageVolumeDetails
  */
-public class BlockStorageVolumeTest {
-    private final BlockStorageVolume model = new BlockStorageVolume();
+public class BlockStorageVolumeDetailsTest {
+    private final BlockStorageVolumeDetails model = new BlockStorageVolumeDetails();
 
     /**
-     * Model tests for BlockStorageVolume
+     * Model tests for BlockStorageVolumeDetails
      */
     @Test
-    public void testBlockStorageVolume() {
-        // TODO: test BlockStorageVolume
+    public void testBlockStorageVolumeDetails() {
+        // TODO: test BlockStorageVolumeDetails
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'labels'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void labelsTest() {
+        // TODO: test labels
+    }
+
+    /**
+     * Test the property 'instance'
+     */
+    @Test
+    public void instanceTest() {
+        // TODO: test instance
     }
 
     /**
@@ -56,14 +67,6 @@ public class BlockStorageVolumeTest {
     @Test
     public void nameTest() {
         // TODO: test name
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
     }
 
     /**
@@ -91,19 +94,27 @@ public class BlockStorageVolumeTest {
     }
 
     /**
-     * Test the property 'labels'
+     * Test the property 'blockStorageSnapshots'
      */
     @Test
-    public void labelsTest() {
-        // TODO: test labels
+    public void blockStorageSnapshotsTest() {
+        // TODO: test blockStorageSnapshots
     }
 
     /**
-     * Test the property 'instance'
+     * Test the property 'id'
      */
     @Test
-    public void instanceTest() {
-        // TODO: test instance
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
 }
