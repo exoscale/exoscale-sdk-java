@@ -40,19 +40,11 @@ public class DnsDomainRecordTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'updatedAt'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'priority'
-     */
-    @Test
-    public void priorityTest() {
-        // TODO: test priority
+    public void updatedAtTest() {
+        // TODO: test updatedAt
     }
 
     /**
@@ -61,6 +53,14 @@ public class DnsDomainRecordTest {
     @Test
     public void contentTest() {
         // TODO: test content
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
@@ -80,11 +80,19 @@ public class DnsDomainRecordTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'priority'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void priorityTest() {
+        // TODO: test priority
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
@@ -96,11 +104,11 @@ public class DnsDomainRecordTest {
     }
 
     /**
-     * Test the property 'updatedAt'
+     * Test the property 'systemRecord'
      */
     @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
+    public void systemRecordTest() {
+        // TODO: test systemRecord
     }
 
 }

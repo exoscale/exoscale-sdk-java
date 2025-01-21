@@ -34,25 +34,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DNS domain record
  */
 @JsonPropertyOrder({
-  DnsDomainRecord.JSON_PROPERTY_ID,
-  DnsDomainRecord.JSON_PROPERTY_PRIORITY,
+  DnsDomainRecord.JSON_PROPERTY_UPDATED_AT,
   DnsDomainRecord.JSON_PROPERTY_CONTENT,
+  DnsDomainRecord.JSON_PROPERTY_NAME,
   DnsDomainRecord.JSON_PROPERTY_TYPE,
   DnsDomainRecord.JSON_PROPERTY_TTL,
-  DnsDomainRecord.JSON_PROPERTY_NAME,
+  DnsDomainRecord.JSON_PROPERTY_PRIORITY,
+  DnsDomainRecord.JSON_PROPERTY_ID,
   DnsDomainRecord.JSON_PROPERTY_CREATED_AT,
-  DnsDomainRecord.JSON_PROPERTY_UPDATED_AT
+  DnsDomainRecord.JSON_PROPERTY_SYSTEM_RECORD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DnsDomainRecord {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
-  public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private Long priority;
+  public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
+  private OffsetDateTime updatedAt;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
   private String content;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   /**
    * DNS domain record type
@@ -123,69 +124,48 @@ public class DnsDomainRecord {
   public static final String JSON_PROPERTY_TTL = "ttl";
   private Long ttl;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private Long priority;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
-  private OffsetDateTime updatedAt;
+  public static final String JSON_PROPERTY_SYSTEM_RECORD = "system-record";
+  private Boolean systemRecord;
 
   public DnsDomainRecord() { 
   }
 
   @JsonCreator
   public DnsDomainRecord(
+    @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
-    @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt
+    @JsonProperty(JSON_PROPERTY_SYSTEM_RECORD) Boolean systemRecord
   ) {
   this();
+    this.updatedAt = updatedAt;
     this.id = id;
     this.createdAt = createdAt;
-    this.updatedAt = updatedAt;
+    this.systemRecord = systemRecord;
   }
 
    /**
-   * DNS domain record ID
-   * @return id
+   * DNS domain record update date
+   * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
-    return id;
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
   }
 
 
-
-
-  public DnsDomainRecord priority(Long priority) {
-    this.priority = priority;
-    return this;
-  }
-
-   /**
-   * DNS domain record priority
-   * minimum: 0
-   * @return priority
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getPriority() {
-    return priority;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriority(Long priority) {
-    this.priority = priority;
-  }
 
 
   public DnsDomainRecord content(String content) {
@@ -210,6 +190,31 @@ public class DnsDomainRecord {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setContent(String content) {
     this.content = content;
+  }
+
+
+  public DnsDomainRecord name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * DNS domain record name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -264,29 +269,45 @@ public class DnsDomainRecord {
   }
 
 
-  public DnsDomainRecord name(String name) {
-    this.name = name;
+  public DnsDomainRecord priority(Long priority) {
+    this.priority = priority;
     return this;
   }
 
    /**
-   * DNS domain record name
-   * @return name
+   * DNS domain record priority
+   * minimum: 0
+   * @return priority
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public Long getPriority() {
+    return priority;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+  public void setPriority(Long priority) {
+    this.priority = priority;
   }
+
+
+   /**
+   * DNS domain record ID
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
 
 
    /**
@@ -305,15 +326,15 @@ public class DnsDomainRecord {
 
 
    /**
-   * DNS domain record update date
-   * @return updatedAt
+   * DNS domain record system status
+   * @return systemRecord
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonProperty(JSON_PROPERTY_SYSTEM_RECORD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
+  public Boolean getSystemRecord() {
+    return systemRecord;
   }
 
 
@@ -331,33 +352,35 @@ public class DnsDomainRecord {
       return false;
     }
     DnsDomainRecord dnsDomainRecord = (DnsDomainRecord) o;
-    return Objects.equals(this.id, dnsDomainRecord.id) &&
-        Objects.equals(this.priority, dnsDomainRecord.priority) &&
+    return Objects.equals(this.updatedAt, dnsDomainRecord.updatedAt) &&
         Objects.equals(this.content, dnsDomainRecord.content) &&
+        Objects.equals(this.name, dnsDomainRecord.name) &&
         Objects.equals(this.type, dnsDomainRecord.type) &&
         Objects.equals(this.ttl, dnsDomainRecord.ttl) &&
-        Objects.equals(this.name, dnsDomainRecord.name) &&
+        Objects.equals(this.priority, dnsDomainRecord.priority) &&
+        Objects.equals(this.id, dnsDomainRecord.id) &&
         Objects.equals(this.createdAt, dnsDomainRecord.createdAt) &&
-        Objects.equals(this.updatedAt, dnsDomainRecord.updatedAt);
+        Objects.equals(this.systemRecord, dnsDomainRecord.systemRecord);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, priority, content, type, ttl, name, createdAt, updatedAt);
+    return Objects.hash(updatedAt, content, name, type, ttl, priority, id, createdAt, systemRecord);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DnsDomainRecord {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    systemRecord: ").append(toIndentedString(systemRecord)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -405,19 +428,19 @@ public class DnsDomainRecord {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `priority` to the URL query string
-    if (getPriority() != null) {
-      joiner.add(String.format("%spriority%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPriority()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `updated-at` to the URL query string
+    if (getUpdatedAt() != null) {
+      joiner.add(String.format("%supdated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `content` to the URL query string
     if (getContent() != null) {
       joiner.add(String.format("%scontent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `type` to the URL query string
@@ -430,9 +453,14 @@ public class DnsDomainRecord {
       joiner.add(String.format("%sttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `priority` to the URL query string
+    if (getPriority() != null) {
+      joiner.add(String.format("%spriority%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPriority()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string
@@ -440,9 +468,9 @@ public class DnsDomainRecord {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `updated-at` to the URL query string
-    if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `system-record` to the URL query string
+    if (getSystemRecord() != null) {
+      joiner.add(String.format("%ssystem-record%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSystemRecord()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

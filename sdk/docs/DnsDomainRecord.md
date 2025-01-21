@@ -8,14 +8,15 @@ DNS domain record
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | DNS domain record ID |  [optional] [readonly] |
-|**priority** | **Long** | DNS domain record priority |  [optional] |
+|**updatedAt** | **OffsetDateTime** | DNS domain record update date |  [optional] [readonly] |
 |**content** | **String** | DNS domain record content |  [optional] |
+|**name** | **String** | DNS domain record name |  [optional] |
 |**type** | [**TypeEnum**](#TypeEnum) | DNS domain record type |  [optional] |
 |**ttl** | **Long** | DNS domain record TTL |  [optional] |
-|**name** | **String** | DNS domain record name |  [optional] |
+|**priority** | **Long** | DNS domain record priority |  [optional] |
+|**id** | **UUID** | DNS domain record ID |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | DNS domain record creation date |  [optional] [readonly] |
-|**updatedAt** | **OffsetDateTime** | DNS domain record update date |  [optional] [readonly] |
+|**systemRecord** | **Boolean** | DNS domain record system status |  [optional] [readonly] |
 
 
 

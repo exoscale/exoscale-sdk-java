@@ -20709,7 +20709,7 @@ No authorization required
 
 ## resizeBlockStorageVolume
 
-> BlockStorageVolume resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest)
+> BlockStorageVolumeDetails resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest)
 
 Resize a block storage volume
 
@@ -20733,7 +20733,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            BlockStorageVolume result = client.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
+            BlockStorageVolumeDetails result = client.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resizeBlockStorageVolume");
@@ -20756,7 +20756,7 @@ public class Example {
 
 ### Return type
 
-[**BlockStorageVolume**](BlockStorageVolume.md)
+[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)
 
 
 ### Authorization
@@ -20784,7 +20784,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**BlockStorageVolume**](BlockStorageVolume.md)>
+ApiResponse<[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)>
 
 
 ### Authorization

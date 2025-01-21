@@ -4496,7 +4496,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/block-storage-volume'
+                $ref: '#/components/schemas/block-storage-volume-details'
           description: "200"
       summary: Resize a block storage volume
       tags:
@@ -28538,25 +28538,23 @@ components:
         updated-at: 2000-01-23T04:56:07.000+00:00
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
+        system-record: true
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        priority: 0
         type: NS
+        priority: 0
         ttl: 0
         content: content
       properties:
-        id:
-          description: DNS domain record ID
-          format: uuid
+        updated-at:
+          description: DNS domain record update date
+          format: date-time
           readOnly: true
           type: string
-        priority:
-          description: DNS domain record priority
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
         content:
           description: DNS domain record content
+          type: string
+        name:
+          description: DNS domain record name
           type: string
         type:
           description: DNS domain record type
@@ -28584,19 +28582,26 @@ components:
           format: int64
           minimum: 0
           type: integer
-        name:
-          description: DNS domain record name
+        priority:
+          description: DNS domain record priority
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        id:
+          description: DNS domain record ID
+          format: uuid
+          readOnly: true
           type: string
         created-at:
           description: DNS domain record creation date
           format: date-time
           readOnly: true
           type: string
-        updated-at:
-          description: DNS domain record update date
-          format: date-time
+        system-record:
+          description: DNS domain record system status
           readOnly: true
-          type: string
+          type: boolean
       type: object
     organization:
       description: Organization
@@ -39351,17 +39356,19 @@ components:
         - updated-at: 2000-01-23T04:56:07.000+00:00
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
+          system-record: true
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          priority: 0
           type: NS
+          priority: 0
           ttl: 0
           content: content
         - updated-at: 2000-01-23T04:56:07.000+00:00
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
+          system-record: true
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          priority: 0
           type: NS
+          priority: 0
           ttl: 0
           content: content
       properties:

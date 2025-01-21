@@ -7047,20 +7047,17 @@ components:
     dns-domain-record:
       type: object
       properties:
-        id:
+        updated-at:
           type: string
-          format: uuid
+          format: date-time
           readOnly: true
-          description: DNS domain record ID
-        priority:
-          type: integer
-          format: int64
-          minimum: 0
-          exclusiveMinimum: false
-          description: DNS domain record priority
+          description: DNS domain record update date
         content:
           type: string
           description: DNS domain record content
+        name:
+          type: string
+          description: DNS domain record name
         type:
           type: string
           enum:
@@ -7087,19 +7084,26 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: DNS domain record TTL
-        name:
+        priority:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: false
+          description: DNS domain record priority
+        id:
           type: string
-          description: DNS domain record name
+          format: uuid
+          readOnly: true
+          description: DNS domain record ID
         created-at:
           type: string
           format: date-time
           readOnly: true
           description: DNS domain record creation date
-        updated-at:
-          type: string
-          format: date-time
+        system-record:
+          type: boolean
           readOnly: true
-          description: DNS domain record update date
+          description: DNS domain record system status
       description: DNS domain record
     organization:
       type: object
@@ -13430,7 +13434,7 @@ paths:
           content:
             application/json:
               schema:
-                "$ref": "#/components/schemas/block-storage-volume"
+                "$ref": "#/components/schemas/block-storage-volume-details"
       description: 'This operation resizes a Block storage volume. Note: the volume
         can only grow, cannot be shrunk.'
       parameters:
