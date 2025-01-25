@@ -22,7 +22,7 @@ import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
-import com.exoscale.sdk.model.BlockStorageVolumeDetails;
+import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
 import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
@@ -2170,7 +2170,7 @@ public class ExoscaleApiTest {
     @Test
     public void getBlockStorageVolumeTest() throws ApiException {
         UUID id = null;
-        BlockStorageVolumeDetails response = 
+        BlockStorageVolume response = 
         api.getBlockStorageVolume(id);
         
         // TODO: test validations
@@ -4082,7 +4082,7 @@ public class ExoscaleApiTest {
     public void resizeBlockStorageVolumeTest() throws ApiException {
         UUID id = null;
         ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest = null;
-        BlockStorageVolumeDetails response = 
+        BlockStorageVolume response = 
         api.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
         
         // TODO: test validations

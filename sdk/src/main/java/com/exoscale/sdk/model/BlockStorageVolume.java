@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.BlockStorageSnapshotTarget;
 import com.exoscale.sdk.model.InstanceTarget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,8 +27,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,25 +40,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Block storage volume
  */
 @JsonPropertyOrder({
-  BlockStorageVolume.JSON_PROPERTY_ID,
+  BlockStorageVolume.JSON_PROPERTY_LABELS,
+  BlockStorageVolume.JSON_PROPERTY_INSTANCE,
   BlockStorageVolume.JSON_PROPERTY_NAME,
-  BlockStorageVolume.JSON_PROPERTY_CREATED_AT,
   BlockStorageVolume.JSON_PROPERTY_STATE,
   BlockStorageVolume.JSON_PROPERTY_SIZE,
   BlockStorageVolume.JSON_PROPERTY_BLOCKSIZE,
-  BlockStorageVolume.JSON_PROPERTY_LABELS,
-  BlockStorageVolume.JSON_PROPERTY_INSTANCE
+  BlockStorageVolume.JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS,
+  BlockStorageVolume.JSON_PROPERTY_ID,
+  BlockStorageVolume.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class BlockStorageVolume {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_INSTANCE = "instance";
+  private InstanceTarget instance;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
 
   /**
    * Volume state
@@ -115,140 +119,31 @@ public class BlockStorageVolume {
   public static final String JSON_PROPERTY_BLOCKSIZE = "blocksize";
   private Long blocksize;
 
-  public static final String JSON_PROPERTY_LABELS = "labels";
-  private Map<String, String> labels = new HashMap<>();
+  public static final String JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS = "block-storage-snapshots";
+  private List<BlockStorageSnapshotTarget> blockStorageSnapshots;
 
-  public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private InstanceTarget instance;
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
+  private OffsetDateTime createdAt;
 
   public BlockStorageVolume() { 
   }
 
   @JsonCreator
   public BlockStorageVolume(
-    @JsonProperty(JSON_PROPERTY_ID) UUID id, 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
-    @JsonProperty(JSON_PROPERTY_BLOCKSIZE) Long blocksize
+    @JsonProperty(JSON_PROPERTY_BLOCKSIZE) Long blocksize, 
+    @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
-    this.id = id;
-    this.createdAt = createdAt;
     this.state = state;
     this.blocksize = blocksize;
+    this.id = id;
+    this.createdAt = createdAt;
   }
-
-   /**
-   * Volume ID
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-
-
-  public BlockStorageVolume name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Volume name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-   /**
-   * Volume creation date
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-
-
-   /**
-   * Volume state
-   * @return state
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public StateEnum getState() {
-    return state;
-  }
-
-
-
-
-  public BlockStorageVolume size(Long size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Volume size
-   * minimum: 1
-   * @return size
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getSize() {
-    return size;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSize(Long size) {
-    this.size = size;
-  }
-
-
-   /**
-   * Volume block size
-   * minimum: 0
-   * @return blocksize
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BLOCKSIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getBlocksize() {
-    return blocksize;
-  }
-
-
-
 
   public BlockStorageVolume labels(Map<String, String> labels) {
     this.labels = labels;
@@ -308,6 +203,151 @@ public class BlockStorageVolume {
   }
 
 
+  public BlockStorageVolume name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Volume name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+   /**
+   * Volume state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StateEnum getState() {
+    return state;
+  }
+
+
+
+
+  public BlockStorageVolume size(Long size) {
+    this.size = size;
+    return this;
+  }
+
+   /**
+   * Volume size
+   * minimum: 1
+   * @return size
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getSize() {
+    return size;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSize(Long size) {
+    this.size = size;
+  }
+
+
+   /**
+   * Volume block size
+   * minimum: 0
+   * @return blocksize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCKSIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getBlocksize() {
+    return blocksize;
+  }
+
+
+
+
+  public BlockStorageVolume blockStorageSnapshots(List<BlockStorageSnapshotTarget> blockStorageSnapshots) {
+    this.blockStorageSnapshots = blockStorageSnapshots;
+    return this;
+  }
+
+  public BlockStorageVolume addBlockStorageSnapshotsItem(BlockStorageSnapshotTarget blockStorageSnapshotsItem) {
+    if (this.blockStorageSnapshots == null) {
+      this.blockStorageSnapshots = new ArrayList<>();
+    }
+    this.blockStorageSnapshots.add(blockStorageSnapshotsItem);
+    return this;
+  }
+
+   /**
+   * Volume snapshots, if any
+   * @return blockStorageSnapshots
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<BlockStorageSnapshotTarget> getBlockStorageSnapshots() {
+    return blockStorageSnapshots;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBlockStorageSnapshots(List<BlockStorageSnapshotTarget> blockStorageSnapshots) {
+    this.blockStorageSnapshots = blockStorageSnapshots;
+  }
+
+
+   /**
+   * Volume ID
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+
+
+   /**
+   * Volume creation date
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+
+
   /**
    * Return true if this block-storage-volume object is equal to o.
    */
@@ -320,33 +360,35 @@ public class BlockStorageVolume {
       return false;
     }
     BlockStorageVolume blockStorageVolume = (BlockStorageVolume) o;
-    return Objects.equals(this.id, blockStorageVolume.id) &&
+    return Objects.equals(this.labels, blockStorageVolume.labels) &&
+        Objects.equals(this.instance, blockStorageVolume.instance) &&
         Objects.equals(this.name, blockStorageVolume.name) &&
-        Objects.equals(this.createdAt, blockStorageVolume.createdAt) &&
         Objects.equals(this.state, blockStorageVolume.state) &&
         Objects.equals(this.size, blockStorageVolume.size) &&
         Objects.equals(this.blocksize, blockStorageVolume.blocksize) &&
-        Objects.equals(this.labels, blockStorageVolume.labels) &&
-        Objects.equals(this.instance, blockStorageVolume.instance);
+        Objects.equals(this.blockStorageSnapshots, blockStorageVolume.blockStorageSnapshots) &&
+        Objects.equals(this.id, blockStorageVolume.id) &&
+        Objects.equals(this.createdAt, blockStorageVolume.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createdAt, state, size, blocksize, labels, instance);
+    return Objects.hash(labels, instance, name, state, size, blocksize, blockStorageSnapshots, id, createdAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BlockStorageVolume {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    blocksize: ").append(toIndentedString(blocksize)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-    sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
+    sb.append("    blockStorageSnapshots: ").append(toIndentedString(blockStorageSnapshots)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -394,19 +436,23 @@ public class BlockStorageVolume {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      for (String _key : getLabels().keySet()) {
+        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `instance` to the URL query string
+    if (getInstance() != null) {
+      joiner.add(getInstance().toUrlQueryString(prefix + "instance" + suffix));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `created-at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `state` to the URL query string
@@ -424,18 +470,24 @@ public class BlockStorageVolume {
       joiner.add(String.format("%sblocksize%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBlocksize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `labels` to the URL query string
-    if (getLabels() != null) {
-      for (String _key : getLabels().keySet()) {
-        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `block-storage-snapshots` to the URL query string
+    if (getBlockStorageSnapshots() != null) {
+      for (int i = 0; i < getBlockStorageSnapshots().size(); i++) {
+        if (getBlockStorageSnapshots().get(i) != null) {
+          joiner.add(getBlockStorageSnapshots().get(i).toUrlQueryString(String.format("%sblock-storage-snapshots%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
     }
 
-    // add `instance` to the URL query string
-    if (getInstance() != null) {
-      joiner.add(getInstance().toUrlQueryString(prefix + "instance" + suffix));
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `created-at` to the URL query string
+    if (getCreatedAt() != null) {
+      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

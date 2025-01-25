@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-01-21T07:05:56.703339453Z[Etc/UTC]
+- Build date: 2025-01-25T07:05:32.211129520Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c7b81f6</version>
+    <version>0.0.5-SNAPSHOT-d3a0138</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c7b81f6'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d3a0138'
 }
 ```
 
@@ -391,7 +391,6 @@ Class | Method | HTTP request | Description
  - [BlockStorageSnapshot](sdk/docs/BlockStorageSnapshot.md)
  - [BlockStorageSnapshotTarget](sdk/docs/BlockStorageSnapshotTarget.md)
  - [BlockStorageVolume](sdk/docs/BlockStorageVolume.md)
- - [BlockStorageVolumeDetails](sdk/docs/BlockStorageVolumeDetails.md)
  - [BlockStorageVolumeTarget](sdk/docs/BlockStorageVolumeTarget.md)
  - [ConfigureLogCleanerForTopicCompaction](sdk/docs/ConfigureLogCleanerForTopicCompaction.md)
  - [CopyTemplateRequest](sdk/docs/CopyTemplateRequest.md)

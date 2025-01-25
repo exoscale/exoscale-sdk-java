@@ -2458,7 +2458,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/block-storage-volume-details'
+                $ref: '#/components/schemas/block-storage-volume'
           description: "200"
       summary: Retrieve block storage volume details
       tags:
@@ -4496,7 +4496,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/block-storage-volume-details'
+                $ref: '#/components/schemas/block-storage-volume'
           description: "200"
       summary: Resize a block storage volume
       tags:
@@ -16562,77 +16562,6 @@ components:
           - pending
           - success
           - timeout
-          readOnly: true
-          type: string
-      type: object
-    block-storage-volume-details:
-      description: Block storage volume
-      example:
-        blocksize: 0
-        instance:
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        size: 1
-        block-storage-snapshots:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        name: name
-        created-at: 2000-01-23T04:56:07.000+00:00
-        state: snapshotting
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        labels:
-          key: labels
-      properties:
-        labels:
-          additionalProperties:
-            type: string
-          type: object
-        instance:
-          $ref: '#/components/schemas/instance-target'
-        name:
-          description: Volume name
-          maxLength: 255
-          minLength: 1
-          type: string
-        state:
-          description: Volume state
-          enum:
-          - snapshotting
-          - deleted
-          - creating
-          - detached
-          - deleting
-          - attaching
-          - error
-          - attached
-          - detaching
-          readOnly: true
-          type: string
-        size:
-          description: Volume size
-          exclusiveMinimum: false
-          format: int64
-          minimum: 1
-          type: integer
-        blocksize:
-          description: Volume block size
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          readOnly: true
-          type: integer
-        block-storage-snapshots:
-          description: "Volume snapshots, if any"
-          items:
-            $ref: '#/components/schemas/block-storage-snapshot-target'
-          type: array
-        id:
-          description: Volume ID
-          format: uuid
-          readOnly: true
-          type: string
-        created-at:
-          description: Volume creation date
-          format: date-time
           readOnly: true
           type: string
       type: object
@@ -29143,27 +29072,26 @@ components:
         instance:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         size: 1
+        block-storage-snapshots:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         state: snapshotting
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         labels:
           key: labels
       properties:
-        id:
-          description: Volume ID
-          format: uuid
-          readOnly: true
-          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        instance:
+          $ref: '#/components/schemas/instance-target'
         name:
           description: Volume name
           maxLength: 255
           minLength: 1
-          type: string
-        created-at:
-          description: Volume creation date
-          format: date-time
-          readOnly: true
           type: string
         state:
           description: Volume state
@@ -29192,12 +29120,21 @@ components:
           minimum: 0
           readOnly: true
           type: integer
-        labels:
-          additionalProperties:
-            type: string
-          type: object
-        instance:
-          $ref: '#/components/schemas/instance-target'
+        block-storage-snapshots:
+          description: "Volume snapshots, if any"
+          items:
+            $ref: '#/components/schemas/block-storage-snapshot-target'
+          type: array
+        id:
+          description: Volume ID
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Volume creation date
+          format: date-time
+          readOnly: true
+          type: string
       type: object
     enum-migration-method:
       enum:
@@ -52105,20 +52042,26 @@ components:
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 1
+          block-storage-snapshots:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           state: snapshotting
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           labels:
             key: labels
         - blocksize: 0
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 1
+          block-storage-snapshots:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           state: snapshotting
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           labels:
             key: labels
       properties:

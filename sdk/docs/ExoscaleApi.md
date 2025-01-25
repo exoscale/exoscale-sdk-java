@@ -10524,7 +10524,7 @@ No authorization required
 
 ## getBlockStorageVolume
 
-> BlockStorageVolumeDetails getBlockStorageVolume(id)
+> BlockStorageVolume getBlockStorageVolume(id)
 
 Retrieve block storage volume details
 
@@ -10547,7 +10547,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            BlockStorageVolumeDetails result = client.getBlockStorageVolume(id);
+            BlockStorageVolume result = client.getBlockStorageVolume(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getBlockStorageVolume");
@@ -10569,7 +10569,7 @@ public class Example {
 
 ### Return type
 
-[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)
+[**BlockStorageVolume**](BlockStorageVolume.md)
 
 
 ### Authorization
@@ -10596,7 +10596,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)>
+ApiResponse<[**BlockStorageVolume**](BlockStorageVolume.md)>
 
 
 ### Authorization
@@ -20709,7 +20709,7 @@ No authorization required
 
 ## resizeBlockStorageVolume
 
-> BlockStorageVolumeDetails resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest)
+> BlockStorageVolume resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest)
 
 Resize a block storage volume
 
@@ -20733,7 +20733,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            BlockStorageVolumeDetails result = client.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
+            BlockStorageVolume result = client.resizeBlockStorageVolume(id, resizeBlockStorageVolumeRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resizeBlockStorageVolume");
@@ -20756,7 +20756,7 @@ public class Example {
 
 ### Return type
 
-[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)
+[**BlockStorageVolume**](BlockStorageVolume.md)
 
 
 ### Authorization
@@ -20784,7 +20784,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**BlockStorageVolumeDetails**](BlockStorageVolumeDetails.md)>
+ApiResponse<[**BlockStorageVolume**](BlockStorageVolume.md)>
 
 
 ### Authorization

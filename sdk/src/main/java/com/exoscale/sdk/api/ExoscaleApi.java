@@ -26,7 +26,7 @@ import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
-import com.exoscale.sdk.model.BlockStorageVolumeDetails;
+import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
 import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
@@ -9984,11 +9984,11 @@ public class ExoscaleApi {
    * Retrieve block storage volume details
    * 
    * @param id  (required)
-   * @return BlockStorageVolumeDetails
+   * @return BlockStorageVolume
    * @throws ApiException if fails to make API call
    */
-  public BlockStorageVolumeDetails getBlockStorageVolume(UUID id) throws ApiException {
-    ApiResponse<BlockStorageVolumeDetails> localVarResponse = getBlockStorageVolumeWithHttpInfo(id);
+  public BlockStorageVolume getBlockStorageVolume(UUID id) throws ApiException {
+    ApiResponse<BlockStorageVolume> localVarResponse = getBlockStorageVolumeWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
@@ -9996,10 +9996,10 @@ public class ExoscaleApi {
    * Retrieve block storage volume details
    * 
    * @param id  (required)
-   * @return ApiResponse&lt;BlockStorageVolumeDetails&gt;
+   * @return ApiResponse&lt;BlockStorageVolume&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<BlockStorageVolumeDetails> getBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<BlockStorageVolume> getBlockStorageVolumeWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getBlockStorageVolumeRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10012,10 +10012,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getBlockStorageVolume", localVarResponse);
         }
-        return new ApiResponse<BlockStorageVolumeDetails>(
+        return new ApiResponse<BlockStorageVolume>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<BlockStorageVolumeDetails>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<BlockStorageVolume>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -19341,11 +19341,11 @@ public class ExoscaleApi {
    * This operation resizes a Block storage volume. Note: the volume can only grow, cannot be shrunk.
    * @param id  (required)
    * @param resizeBlockStorageVolumeRequest  (required)
-   * @return BlockStorageVolumeDetails
+   * @return BlockStorageVolume
    * @throws ApiException if fails to make API call
    */
-  public BlockStorageVolumeDetails resizeBlockStorageVolume(UUID id, ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest) throws ApiException {
-    ApiResponse<BlockStorageVolumeDetails> localVarResponse = resizeBlockStorageVolumeWithHttpInfo(id, resizeBlockStorageVolumeRequest);
+  public BlockStorageVolume resizeBlockStorageVolume(UUID id, ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest) throws ApiException {
+    ApiResponse<BlockStorageVolume> localVarResponse = resizeBlockStorageVolumeWithHttpInfo(id, resizeBlockStorageVolumeRequest);
     return localVarResponse.getData();
   }
 
@@ -19354,10 +19354,10 @@ public class ExoscaleApi {
    * This operation resizes a Block storage volume. Note: the volume can only grow, cannot be shrunk.
    * @param id  (required)
    * @param resizeBlockStorageVolumeRequest  (required)
-   * @return ApiResponse&lt;BlockStorageVolumeDetails&gt;
+   * @return ApiResponse&lt;BlockStorageVolume&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<BlockStorageVolumeDetails> resizeBlockStorageVolumeWithHttpInfo(UUID id, ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest) throws ApiException {
+  private ApiResponse<BlockStorageVolume> resizeBlockStorageVolumeWithHttpInfo(UUID id, ResizeBlockStorageVolumeRequest resizeBlockStorageVolumeRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resizeBlockStorageVolumeRequestBuilder(id, resizeBlockStorageVolumeRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -19370,10 +19370,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("resizeBlockStorageVolume", localVarResponse);
         }
-        return new ApiResponse<BlockStorageVolumeDetails>(
+        return new ApiResponse<BlockStorageVolume>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<BlockStorageVolumeDetails>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<BlockStorageVolume>() {}) // closes the InputStream
         );
       } finally {
       }
