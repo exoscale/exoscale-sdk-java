@@ -148,6 +148,8 @@ docs/DbaasServiceRedisUsersInner.md
 docs/DbaasServiceRedisUsersInnerAccessControl.md
 docs/DbaasServiceType.md
 docs/DbaasServiceUpdate.md
+docs/DbaasServiceValkey.md
+docs/DbaasServiceValkeyConnectionInfo.md
 docs/DbaasTask.md
 docs/DbaasTaskResultCodesInner.md
 docs/DbaasUserGrafanaSecrets.md
@@ -250,6 +252,7 @@ docs/JsonSchemaPglookout.md
 docs/JsonSchemaRedis.md
 docs/JsonSchemaSchemaRegistry.md
 docs/JsonSchemaTimescaledb.md
+docs/JsonSchemaValkey.md
 docs/KubeletImageGc.md
 docs/ListAntiAffinityGroups200Response.md
 docs/ListApiKeys200Response.md
@@ -540,6 +543,8 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceRedisUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceRedisUsersInnerAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceType.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceUpdate.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceValkey.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyConnectionInfo.java
 src/main/java/com/exoscale/sdk/model/DbaasTask.java
 src/main/java/com/exoscale/sdk/model/DbaasTaskResultCodesInner.java
 src/main/java/com/exoscale/sdk/model/DbaasUserGrafanaSecrets.java
@@ -641,6 +646,7 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaPglookout.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaRedis.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaSchemaRegistry.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaTimescaledb.java
+src/main/java/com/exoscale/sdk/model/JsonSchemaValkey.java
 src/main/java/com/exoscale/sdk/model/KubeletImageGc.java
 src/main/java/com/exoscale/sdk/model/ListAntiAffinityGroups200Response.java
 src/main/java/com/exoscale/sdk/model/ListApiKeys200Response.java

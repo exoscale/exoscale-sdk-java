@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-01-25T07:05:32.211129520Z[Etc/UTC]
+- Build date: 2025-02-06T07:06:06.523447483Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d3a0138</version>
+    <version>0.0.5-SNAPSHOT-13b959b</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d3a0138'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-13b959b'
 }
 ```
 
@@ -518,6 +518,8 @@ Class | Method | HTTP request | Description
  - [DbaasServiceRedisUsersInnerAccessControl](sdk/docs/DbaasServiceRedisUsersInnerAccessControl.md)
  - [DbaasServiceType](sdk/docs/DbaasServiceType.md)
  - [DbaasServiceUpdate](sdk/docs/DbaasServiceUpdate.md)
+ - [DbaasServiceValkey](sdk/docs/DbaasServiceValkey.md)
+ - [DbaasServiceValkeyConnectionInfo](sdk/docs/DbaasServiceValkeyConnectionInfo.md)
  - [DbaasTask](sdk/docs/DbaasTask.md)
  - [DbaasTaskResultCodesInner](sdk/docs/DbaasTaskResultCodesInner.md)
  - [DbaasUserGrafanaSecrets](sdk/docs/DbaasUserGrafanaSecrets.md)
@@ -619,6 +621,7 @@ Class | Method | HTTP request | Description
  - [JsonSchemaRedis](sdk/docs/JsonSchemaRedis.md)
  - [JsonSchemaSchemaRegistry](sdk/docs/JsonSchemaSchemaRegistry.md)
  - [JsonSchemaTimescaledb](sdk/docs/JsonSchemaTimescaledb.md)
+ - [JsonSchemaValkey](sdk/docs/JsonSchemaValkey.md)
  - [KubeletImageGc](sdk/docs/KubeletImageGc.md)
  - [ListAntiAffinityGroups200Response](sdk/docs/ListAntiAffinityGroups200Response.md)
  - [ListApiKeys200Response](sdk/docs/ListApiKeys200Response.md)

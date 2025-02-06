@@ -13604,6 +13604,100 @@ components:
       - plan
       - type
       type: object
+    json-schema-valkey:
+      properties:
+        ssl:
+          default: true
+          title: Require SSL to access Valkey
+          type: boolean
+        lfu_log_factor:
+          default: 10
+          maximum: 100
+          minimum: 0
+          title: Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies
+          type: integer
+        maxmemory_policy:
+          default: noeviction
+          enum:
+          - noeviction
+          - allkeys-lru
+          - volatile-lru
+          - allkeys-random
+          - volatile-random
+          - volatile-ttl
+          - volatile-lfu
+          - allkeys-lfu
+          nullable: true
+          title: Valkey maxmemory-policy
+          type: string
+        io_threads:
+          description: Set Valkey IO thread count. Changing this will cause a restart
+            of the Valkey service.
+          example: 1
+          maximum: 32
+          minimum: 1
+          title: Valkey IO thread count
+          type: integer
+        lfu_decay_time:
+          default: 1
+          maximum: 120
+          minimum: 1
+          title: LFU maxmemory-policy counter decay time in minutes
+          type: integer
+        pubsub_client_output_buffer_limit:
+          description: "Set output buffer limit for pub / sub clients in MB. The value\
+            \ is the hard limit, the soft limit is 1/4 of the hard limit. When setting\
+            \ the limit, be mindful of the available memory in the selected service\
+            \ plan."
+          example: 64
+          maximum: 512
+          minimum: 32
+          title: Pub/sub client output buffer hard limit in MB
+          type: integer
+        notify_keyspace_events:
+          default: ""
+          maxLength: 32
+          pattern: "^[KEg\\$lshzxentdmA]*$"
+          title: Set notify-keyspace-events option
+          type: string
+        persistence:
+          description: "When persistence is 'rdb', Valkey does RDB dumps each 10 minutes\
+            \ if any key is changed. Also RDB dumps are done according to backup schedule\
+            \ for backup purposes. When persistence is 'off', no RDB dumps and backups\
+            \ are done, so data can be lost at any moment if service is restarted\
+            \ for any reason, or if service is powered off. Also service can't be\
+            \ forked."
+          enum:
+          - "off"
+          - rdb
+          title: Valkey persistence
+          type: string
+        timeout:
+          default: 300
+          maximum: 31536000
+          minimum: 0
+          title: Valkey idle connection timeout in seconds
+          type: integer
+        acl_channels_default:
+          description: "Determines default pub/sub channels' ACL for new users if\
+            \ ACL is not supplied. When this option is not defined, all_channels is\
+            \ assumed to keep backward compatibility. This option doesn't affect Valkey\
+            \ configuration acl-pubsub-default."
+          enum:
+          - allchannels
+          - resetchannels
+          title: Default ACL for pub/sub channels used when Valkey user is created
+          type: string
+        number_of_databases:
+          description: Set number of Valkey databases. Changing this will cause a
+            restart of the Valkey service.
+          example: 16
+          maximum: 128
+          minimum: 1
+          title: Number of Valkey databases
+          type: integer
+      title: Valkey settings
+      type: object
     dbaas-endpoint-external-prometheus-output:
       example:
         settings:
@@ -28253,6 +28347,114 @@ components:
         plan:
           description: Subscription plan
           type: string
+      required:
+      - name
+      - plan
+      - type
+      type: object
+    dbaas-service-valkey:
+      properties:
+        updated-at:
+          description: Service last update timestamp (ISO 8601)
+          format: date-time
+          type: string
+        node-count:
+          description: Number of service nodes in the active plan
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        connection-info:
+          $ref: '#/components/schemas/dbaas_service_valkey_connection_info'
+        node-cpu-count:
+          description: Number of CPUs for each node
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        integrations:
+          description: Service integrations
+          items:
+            $ref: '#/components/schemas/dbaas-integration'
+          type: array
+        zone:
+          description: The zone where the service is running
+          type: string
+        node-states:
+          description: State of individual service nodes
+          items:
+            $ref: '#/components/schemas/dbaas-node-state'
+          type: array
+        name:
+          maxLength: 63
+          minLength: 0
+          type: string
+        type:
+          maxLength: 64
+          minLength: 0
+          type: string
+        state:
+          $ref: '#/components/schemas/enum-service-state'
+        valkey-settings:
+          $ref: '#/components/schemas/json-schema-valkey'
+        ip-filter:
+          description: Allowed CIDR address blocks for incoming connections
+          items:
+            type: string
+          type: array
+        backups:
+          description: List of backups for the service
+          items:
+            $ref: '#/components/schemas/dbaas-service-backup'
+          type: array
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
+        notifications:
+          description: Service notifications
+          items:
+            $ref: '#/components/schemas/dbaas-service-notification'
+          type: array
+        components:
+          description: Service component information objects
+          items:
+            $ref: '#/components/schemas/dbaas_service_redis_components_inner'
+          type: array
+        maintenance:
+          $ref: '#/components/schemas/dbaas-service-maintenance'
+        disk-size:
+          description: TODO UNIT disk space for data storage
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        node-memory:
+          description: TODO UNIT of memory for each node
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        uri:
+          description: URI for connecting to the service (may be absent)
+          type: string
+        uri-params:
+          description: service_uri parameterized into key-value pairs
+          type: object
+        version:
+          description: Valkey version
+          type: string
+        created-at:
+          description: Service creation timestamp (ISO 8601)
+          format: date-time
+          type: string
+        plan:
+          description: Subscription plan
+          type: string
+        users:
+          description: List of service users
+          items:
+            $ref: '#/components/schemas/dbaas_service_redis_users_inner'
+          type: array
       required:
       - name
       - plan
@@ -53889,6 +54091,20 @@ components:
       required:
       - index-prefix
       - url
+      type: object
+    dbaas_service_valkey_connection_info:
+      description: Valkey connection information properties
+      properties:
+        uri:
+          items:
+            type: string
+          type: array
+        password:
+          type: string
+        slave:
+          items:
+            type: string
+          type: array
       type: object
     Node_duress_settings:
       additionalProperties: false
