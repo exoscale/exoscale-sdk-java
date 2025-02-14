@@ -13,7 +13,9 @@
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
 |**oidc** | [**SksOidc**](SksOidc.md) |  |  [optional] |
 |**name** | **String** | Cluster name |  |
+|**enableKubeProxy** | **Boolean** | Indicates whether to deploy the Kubernetes network proxy. When unspecified, defaults to &#x60;true&#x60; unless Cilium CNI is selected |  [optional] |
 |**level** | [**LevelEnum**](#LevelEnum) | Cluster service level |  |
+|**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
 |**version** | **String** | Control plane Kubernetes version |  |
 

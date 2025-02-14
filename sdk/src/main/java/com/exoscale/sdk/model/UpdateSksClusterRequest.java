@@ -47,7 +47,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateSksClusterRequest.JSON_PROPERTY_LABELS,
   UpdateSksClusterRequest.JSON_PROPERTY_OIDC,
   UpdateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
-  UpdateSksClusterRequest.JSON_PROPERTY_ADDONS
+  UpdateSksClusterRequest.JSON_PROPERTY_ADDONS,
+  UpdateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateSksClusterRequest {
@@ -105,6 +106,9 @@ public class UpdateSksClusterRequest {
 
   public static final String JSON_PROPERTY_ADDONS = "addons";
   private Set<AddonsEnum> addons;
+
+  public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
+  private JsonNullable<Set<String>> featureGates = JsonNullable.<Set<String>>undefined();
 
   public UpdateSksClusterRequest() { 
   }
@@ -284,6 +288,51 @@ public class UpdateSksClusterRequest {
   }
 
 
+  public UpdateSksClusterRequest featureGates(Set<String> featureGates) {
+    this.featureGates = JsonNullable.<Set<String>>of(featureGates);
+    return this;
+  }
+
+  public UpdateSksClusterRequest addFeatureGatesItem(String featureGatesItem) {
+    if (this.featureGates == null || !this.featureGates.isPresent()) {
+      this.featureGates = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.featureGates.get().add(featureGatesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * A list of Kubernetes-only Alpha features to enable for API server component
+   * @return featureGates
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getFeatureGates() {
+        return featureGates.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getFeatureGates_JsonNullable() {
+    return featureGates;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  public void setFeatureGates_JsonNullable(JsonNullable<Set<String>> featureGates) {
+    this.featureGates = featureGates;
+  }
+
+  public void setFeatureGates(Set<String> featureGates) {
+    this.featureGates = JsonNullable.<Set<String>>of(featureGates);
+  }
+
+
   /**
    * Return true if this update_sks_cluster_request object is equal to o.
    */
@@ -301,7 +350,8 @@ public class UpdateSksClusterRequest {
         Objects.equals(this.labels, updateSksClusterRequest.labels) &&
         Objects.equals(this.oidc, updateSksClusterRequest.oidc) &&
         Objects.equals(this.autoUpgrade, updateSksClusterRequest.autoUpgrade) &&
-        Objects.equals(this.addons, updateSksClusterRequest.addons);
+        Objects.equals(this.addons, updateSksClusterRequest.addons) &&
+        equalsNullable(this.featureGates, updateSksClusterRequest.featureGates);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -310,7 +360,7 @@ public class UpdateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons);
+    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons, hashCodeNullable(featureGates));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -330,6 +380,7 @@ public class UpdateSksClusterRequest {
     sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
+    sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -411,6 +462,17 @@ public class UpdateSksClusterRequest {
       int i = 0;
       for (AddonsEnum _item : getAddons()) {
         joiner.add(String.format("%saddons%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
+    }
+
+    // add `feature-gates` to the URL query string
+    if (getFeatureGates() != null) {
+      int i = 0;
+      for (String _item : getFeatureGates()) {
+        joiner.add(String.format("%sfeature-gates%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
             URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }

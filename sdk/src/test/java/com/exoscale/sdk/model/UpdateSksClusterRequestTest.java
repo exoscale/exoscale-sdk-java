@@ -95,4 +95,12 @@ public class UpdateSksClusterRequestTest {
         // TODO: test addons
     }
 
+    /**
+     * Test the property 'featureGates'
+     */
+    @Test
+    public void featureGatesTest() {
+        // TODO: test featureGates
+    }
+
 }

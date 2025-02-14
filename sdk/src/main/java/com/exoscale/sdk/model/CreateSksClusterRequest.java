@@ -48,7 +48,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
   CreateSksClusterRequest.JSON_PROPERTY_OIDC,
   CreateSksClusterRequest.JSON_PROPERTY_NAME,
+  CreateSksClusterRequest.JSON_PROPERTY_ENABLE_KUBE_PROXY,
   CreateSksClusterRequest.JSON_PROPERTY_LEVEL,
+  CreateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
   CreateSksClusterRequest.JSON_PROPERTY_ADDONS,
   CreateSksClusterRequest.JSON_PROPERTY_VERSION
 })
@@ -107,6 +109,9 @@ public class CreateSksClusterRequest {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_ENABLE_KUBE_PROXY = "enable-kube-proxy";
+  private Boolean enableKubeProxy;
+
   /**
    * Cluster service level
    */
@@ -144,6 +149,9 @@ public class CreateSksClusterRequest {
 
   public static final String JSON_PROPERTY_LEVEL = "level";
   private LevelEnum level;
+
+  public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
+  private JsonNullable<Set<String>> featureGates = JsonNullable.<Set<String>>undefined();
 
   /**
    * Gets or Sets addons
@@ -357,6 +365,31 @@ public class CreateSksClusterRequest {
   }
 
 
+  public CreateSksClusterRequest enableKubeProxy(Boolean enableKubeProxy) {
+    this.enableKubeProxy = enableKubeProxy;
+    return this;
+  }
+
+   /**
+   * Indicates whether to deploy the Kubernetes network proxy. When unspecified, defaults to &#x60;true&#x60; unless Cilium CNI is selected
+   * @return enableKubeProxy
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_KUBE_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableKubeProxy() {
+    return enableKubeProxy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_KUBE_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableKubeProxy(Boolean enableKubeProxy) {
+    this.enableKubeProxy = enableKubeProxy;
+  }
+
+
   public CreateSksClusterRequest level(LevelEnum level) {
     this.level = level;
     return this;
@@ -379,6 +412,51 @@ public class CreateSksClusterRequest {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLevel(LevelEnum level) {
     this.level = level;
+  }
+
+
+  public CreateSksClusterRequest featureGates(Set<String> featureGates) {
+    this.featureGates = JsonNullable.<Set<String>>of(featureGates);
+    return this;
+  }
+
+  public CreateSksClusterRequest addFeatureGatesItem(String featureGatesItem) {
+    if (this.featureGates == null || !this.featureGates.isPresent()) {
+      this.featureGates = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.featureGates.get().add(featureGatesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * A list of Kubernetes-only Alpha features to enable for API server component
+   * @return featureGates
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getFeatureGates() {
+        return featureGates.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getFeatureGates_JsonNullable() {
+    return featureGates;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  public void setFeatureGates_JsonNullable(JsonNullable<Set<String>> featureGates) {
+    this.featureGates = featureGates;
+  }
+
+  public void setFeatureGates(Set<String> featureGates) {
+    this.featureGates = JsonNullable.<Set<String>>of(featureGates);
   }
 
 
@@ -459,7 +537,9 @@ public class CreateSksClusterRequest {
         Objects.equals(this.autoUpgrade, createSksClusterRequest.autoUpgrade) &&
         Objects.equals(this.oidc, createSksClusterRequest.oidc) &&
         Objects.equals(this.name, createSksClusterRequest.name) &&
+        Objects.equals(this.enableKubeProxy, createSksClusterRequest.enableKubeProxy) &&
         Objects.equals(this.level, createSksClusterRequest.level) &&
+        equalsNullable(this.featureGates, createSksClusterRequest.featureGates) &&
         Objects.equals(this.addons, createSksClusterRequest.addons) &&
         Objects.equals(this.version, createSksClusterRequest.version);
   }
@@ -470,7 +550,7 @@ public class CreateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, oidc, name, level, addons, version);
+    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, oidc, name, enableKubeProxy, level, hashCodeNullable(featureGates), addons, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -490,7 +570,9 @@ public class CreateSksClusterRequest {
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    enableKubeProxy: ").append(toIndentedString(enableKubeProxy)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
@@ -574,9 +656,25 @@ public class CreateSksClusterRequest {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `enable-kube-proxy` to the URL query string
+    if (getEnableKubeProxy() != null) {
+      joiner.add(String.format("%senable-kube-proxy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableKubeProxy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `level` to the URL query string
     if (getLevel() != null) {
       joiner.add(String.format("%slevel%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLevel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `feature-gates` to the URL query string
+    if (getFeatureGates() != null) {
+      int i = 0;
+      for (String _item : getFeatureGates()) {
+        joiner.add(String.format("%sfeature-gates%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     // add `addons` to the URL query string

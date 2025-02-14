@@ -50312,12 +50312,24 @@ components:
           maxLength: 255
           minLength: 1
           type: string
+        enable-kube-proxy:
+          description: "Indicates whether to deploy the Kubernetes network proxy.\
+            \ When unspecified, defaults to `true` unless Cilium CNI is selected"
+          type: boolean
         level:
           description: Cluster service level
           enum:
           - starter
           - pro
           type: string
+        feature-gates:
+          description: A list of Kubernetes-only Alpha features to enable for API
+            server component
+          items:
+            type: string
+          nullable: true
+          type: array
+          uniqueItems: true
         addons:
           description: Cluster addons
           items:
@@ -50387,6 +50399,14 @@ components:
             - exoscale-container-storage-interface
             - metrics-server
             type: string
+          type: array
+          uniqueItems: true
+        feature-gates:
+          description: A list of Kubernetes-only Alpha features to enable for API
+            server component
+          items:
+            type: string
+          nullable: true
           type: array
           uniqueItems: true
       type: object

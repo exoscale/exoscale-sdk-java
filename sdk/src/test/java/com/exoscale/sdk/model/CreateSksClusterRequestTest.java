@@ -96,11 +96,27 @@ public class CreateSksClusterRequestTest {
     }
 
     /**
+     * Test the property 'enableKubeProxy'
+     */
+    @Test
+    public void enableKubeProxyTest() {
+        // TODO: test enableKubeProxy
+    }
+
+    /**
      * Test the property 'level'
      */
     @Test
     public void levelTest() {
         // TODO: test level
+    }
+
+    /**
+     * Test the property 'featureGates'
+     */
+    @Test
+    public void featureGatesTest() {
+        // TODO: test featureGates
     }
 
     /**
