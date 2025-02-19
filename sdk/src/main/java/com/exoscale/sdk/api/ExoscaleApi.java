@@ -18524,6 +18524,81 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Reset IAM Organization Policy
+   * 
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation resetIamOrganizationPolicy() throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetIamOrganizationPolicyWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reset IAM Organization Policy
+   * 
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> resetIamOrganizationPolicyWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetIamOrganizationPolicyRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("resetIamOrganizationPolicy", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder resetIamOrganizationPolicyRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/iam-organization-policy:reset";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Reset a Compute instance to a base/target template
    * This operation re-installs a Compute instance to a base template. If target template is provided it will be used to recreated instance from. Warning: the operation wipes all data stored on the disk.
    * @param id  (required)

@@ -50,7 +50,9 @@ public class UpdateIamRoleRequest {
    * Gets or Sets permissions
    */
   public enum PermissionsEnum {
-    BYPASS_GOVERNANCE_RETENTION("bypass-governance-retention");
+    BYPASS_GOVERNANCE_RETENTION("bypass-governance-retention"),
+    
+    RESET_IAM_ORGANIZATION_POLICY("reset-iam-organization-policy");
 
     private String value;
 

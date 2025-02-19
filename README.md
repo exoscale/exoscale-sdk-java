@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-02-14T07:05:53.195485374Z[Etc/UTC]
+- Build date: 2025-02-19T07:06:03.970766986Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-30538fb</version>
+    <version>0.0.5-SNAPSHOT-1562fcb</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-30538fb'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-1562fcb'
 }
 ```
 
@@ -296,6 +296,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resetDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user
 *ExoscaleApi* | [**resetDbaasRedisUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user
 *ExoscaleApi* | [**resetElasticIpField**](sdk/docs/ExoscaleApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value
+*ExoscaleApi* | [**resetIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#resetIamOrganizationPolicy) | **POST** /iam-organization-policy:reset | Reset IAM Organization Policy
 *ExoscaleApi* | [**resetInstance**](sdk/docs/ExoscaleApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template
 *ExoscaleApi* | [**resetInstanceField**](sdk/docs/ExoscaleApi.md#resetInstanceField) | **DELETE** /instance/{id}/{field} | Reset Instance field
 *ExoscaleApi* | [**resetInstancePassword**](sdk/docs/ExoscaleApi.md#resetInstancePassword) | **PUT** /instance/{id}:reset-password | Reset a compute instance password

@@ -217,6 +217,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resetDbaasPostgresUserPassword**](ExoscaleApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user |
 | [**resetDbaasRedisUserPassword**](ExoscaleApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user |
 | [**resetElasticIpField**](ExoscaleApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value |
+| [**resetIamOrganizationPolicy**](ExoscaleApi.md#resetIamOrganizationPolicy) | **POST** /iam-organization-policy:reset | Reset IAM Organization Policy |
 | [**resetInstance**](ExoscaleApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template |
 | [**resetInstanceField**](ExoscaleApi.md#resetInstanceField) | **DELETE** /instance/{id}/{field} | Reset Instance field |
 | [**resetInstancePassword**](ExoscaleApi.md#resetInstancePassword) | **PUT** /instance/{id}:reset-password | Reset a compute instance password |
@@ -19828,6 +19829,91 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **field** | **String**|  | [enum: description] |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## resetIamOrganizationPolicy
+
+> Operation resetIamOrganizationPolicy()
+
+Reset IAM Organization Policy
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            Operation result = client.resetIamOrganizationPolicy();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#resetIamOrganizationPolicy");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
 
 ### Return type
 

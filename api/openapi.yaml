@@ -6819,6 +6819,7 @@ components:
             type: string
             enum:
             - bypass-governance-retention
+            - reset-iam-organization-policy
           uniqueItems: true
           description: IAM Role permissions
         labels:
@@ -12773,6 +12774,7 @@ paths:
                     type: string
                     enum:
                     - bypass-governance-retention
+                    - reset-iam-organization-policy
                   uniqueItems: true
                   description: IAM Role permissions
                 labels:
@@ -15737,6 +15739,21 @@ paths:
           "$ref": "#/components/schemas/dbaas-user-username"
       summary: Reveal the secrets of a DBaaS Postgres user
       operationId: reveal-dbaas-postgres-user-password
+  "/iam-organization-policy:reset":
+    post:
+      tags:
+      - iam
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/operation"
+      description: ''
+      parameters: []
+      summary: Reset IAM Organization Policy
+      operationId: reset-iam-organization-policy
   "/dbaas-settings-opensearch":
     get:
       tags:
@@ -18004,6 +18021,7 @@ paths:
                     type: string
                     enum:
                     - bypass-governance-retention
+                    - reset-iam-organization-policy
                   uniqueItems: true
                   description: IAM Role permissions
                 editable:

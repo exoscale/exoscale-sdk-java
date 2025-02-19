@@ -3908,6 +3908,22 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Reset IAM Organization Policy
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resetIamOrganizationPolicyTest() throws ApiException {
+        Operation response = 
+        api.resetIamOrganizationPolicy();
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reset a Compute instance to a base/target template
      *
      * This operation re-installs a Compute instance to a base template. If target template is provided it will be used to recreated instance from. Warning: the operation wipes all data stored on the disk.

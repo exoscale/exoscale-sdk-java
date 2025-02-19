@@ -6235,6 +6235,22 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /iam-organization-policy:reset:
+    post:
+      description: ""
+      operationId: reset-iam-organization-policy
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Reset IAM Organization Policy
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-settings-opensearch:
     get:
       description: Get DBaaS OpenSearch settings
@@ -28230,6 +28246,7 @@ components:
           items:
             enum:
             - bypass-governance-retention
+            - reset-iam-organization-policy
             type: string
           type: array
           uniqueItems: true
@@ -40552,6 +40569,7 @@ components:
           items:
             enum:
             - bypass-governance-retention
+            - reset-iam-organization-policy
             type: string
           type: array
           uniqueItems: true
@@ -52152,6 +52170,7 @@ components:
           items:
             enum:
             - bypass-governance-retention
+            - reset-iam-organization-policy
             type: string
           type: array
           uniqueItems: true
