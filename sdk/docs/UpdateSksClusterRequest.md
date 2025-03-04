@@ -14,6 +14,7 @@
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
 |**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |
+|**enableOperatorsCa** | **Boolean** | Add or remove the operators certificate authority (CA) from the list of trusted CAs of the api server. The default value is true |  [optional] |
 
 
 

@@ -103,4 +103,12 @@ public class UpdateSksClusterRequestTest {
         // TODO: test featureGates
     }
 
+    /**
+     * Test the property 'enableOperatorsCa'
+     */
+    @Test
+    public void enableOperatorsCaTest() {
+        // TODO: test enableOperatorsCa
+    }
+
 }

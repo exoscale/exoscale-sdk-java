@@ -50427,6 +50427,10 @@ components:
           nullable: true
           type: array
           uniqueItems: true
+        enable-operators-ca:
+          description: Add or remove the operators certificate authority (CA) from
+            the list of trusted CAs of the api server. The default value is true
+          type: boolean
       type: object
     list_quotas_200_response:
       example:

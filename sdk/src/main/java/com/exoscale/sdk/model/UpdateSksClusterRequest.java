@@ -48,7 +48,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateSksClusterRequest.JSON_PROPERTY_OIDC,
   UpdateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
   UpdateSksClusterRequest.JSON_PROPERTY_ADDONS,
-  UpdateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES
+  UpdateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
+  UpdateSksClusterRequest.JSON_PROPERTY_ENABLE_OPERATORS_CA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateSksClusterRequest {
@@ -109,6 +110,9 @@ public class UpdateSksClusterRequest {
 
   public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
   private JsonNullable<Set<String>> featureGates = JsonNullable.<Set<String>>undefined();
+
+  public static final String JSON_PROPERTY_ENABLE_OPERATORS_CA = "enable-operators-ca";
+  private Boolean enableOperatorsCa;
 
   public UpdateSksClusterRequest() { 
   }
@@ -333,6 +337,31 @@ public class UpdateSksClusterRequest {
   }
 
 
+  public UpdateSksClusterRequest enableOperatorsCa(Boolean enableOperatorsCa) {
+    this.enableOperatorsCa = enableOperatorsCa;
+    return this;
+  }
+
+   /**
+   * Add or remove the operators certificate authority (CA) from the list of trusted CAs of the api server. The default value is true
+   * @return enableOperatorsCa
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableOperatorsCa() {
+    return enableOperatorsCa;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableOperatorsCa(Boolean enableOperatorsCa) {
+    this.enableOperatorsCa = enableOperatorsCa;
+  }
+
+
   /**
    * Return true if this update_sks_cluster_request object is equal to o.
    */
@@ -351,7 +380,8 @@ public class UpdateSksClusterRequest {
         Objects.equals(this.oidc, updateSksClusterRequest.oidc) &&
         Objects.equals(this.autoUpgrade, updateSksClusterRequest.autoUpgrade) &&
         Objects.equals(this.addons, updateSksClusterRequest.addons) &&
-        equalsNullable(this.featureGates, updateSksClusterRequest.featureGates);
+        equalsNullable(this.featureGates, updateSksClusterRequest.featureGates) &&
+        Objects.equals(this.enableOperatorsCa, updateSksClusterRequest.enableOperatorsCa);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -360,7 +390,7 @@ public class UpdateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons, hashCodeNullable(featureGates));
+    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons, hashCodeNullable(featureGates), enableOperatorsCa);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -381,6 +411,7 @@ public class UpdateSksClusterRequest {
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
+    sb.append("    enableOperatorsCa: ").append(toIndentedString(enableOperatorsCa)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -477,6 +508,11 @@ public class UpdateSksClusterRequest {
             URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
       i++;
+    }
+
+    // add `enable-operators-ca` to the URL query string
+    if (getEnableOperatorsCa() != null) {
+      joiner.add(String.format("%senable-operators-ca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableOperatorsCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
