@@ -41,7 +41,9 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasServiceOpensearch**](ExoscaleApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service |
 | [**createDbaasServicePg**](ExoscaleApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service |
 | [**createDbaasServiceRedis**](ExoscaleApi.md#createDbaasServiceRedis) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service |
+| [**createDbaasServiceValkey**](ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service |
 | [**createDbaasTaskMigrationCheck**](ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} |  |
+| [**createDbaasValkeyUser**](ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user |
 | [**createDnsDomain**](ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain |
 | [**createDnsDomainRecord**](ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
 | [**createElasticIp**](ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP |
@@ -82,6 +84,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasServiceOpensearch**](ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service |
 | [**deleteDbaasServicePg**](ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service |
 | [**deleteDbaasServiceRedis**](ExoscaleApi.md#deleteDbaasServiceRedis) | **DELETE** /dbaas-redis/{name} | Delete a Redis service |
+| [**deleteDbaasServiceValkey**](ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service |
+| [**deleteDbaasValkeyUser**](ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user |
 | [**deleteDnsDomain**](ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
 | [**deleteDnsDomainRecord**](ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
 | [**deleteElasticIp**](ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP |
@@ -137,6 +141,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasServicePg**](ExoscaleApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service |
 | [**getDbaasServiceRedis**](ExoscaleApi.md#getDbaasServiceRedis) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service |
 | [**getDbaasServiceType**](ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type |
+| [**getDbaasServiceValkey**](ExoscaleApi.md#getDbaasServiceValkey) | **GET** /dbaas-valkey/{name} |  |
 | [**getDbaasSettingsGrafana**](ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings |
 | [**getDbaasSettingsKafka**](ExoscaleApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings |
 | [**getDbaasSettingsMysql**](ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings |
@@ -216,6 +221,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resetDbaasOpensearchUserPassword**](ExoscaleApi.md#resetDbaasOpensearchUserPassword) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user |
 | [**resetDbaasPostgresUserPassword**](ExoscaleApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user |
 | [**resetDbaasRedisUserPassword**](ExoscaleApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user |
+| [**resetDbaasValkeyUserPassword**](ExoscaleApi.md#resetDbaasValkeyUserPassword) | **PUT** /dbaas-valkey/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Valkey user |
 | [**resetElasticIpField**](ExoscaleApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value |
 | [**resetIamOrganizationPolicy**](ExoscaleApi.md#resetIamOrganizationPolicy) | **POST** /iam-organization-policy:reset | Reset IAM Organization Policy |
 | [**resetInstance**](ExoscaleApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template |
@@ -236,6 +242,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDbaasOpensearchUserPassword**](ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user |
 | [**revealDbaasPostgresUserPassword**](ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
 | [**revealDbaasRedisUserPassword**](ExoscaleApi.md#revealDbaasRedisUserPassword) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user |
+| [**revealDbaasValkeyUserPassword**](ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
@@ -249,10 +256,13 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**startDbaasOpensearchMaintenance**](ExoscaleApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update |
 | [**startDbaasPgMaintenance**](ExoscaleApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update |
 | [**startDbaasRedisMaintenance**](ExoscaleApi.md#startDbaasRedisMaintenance) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update |
+| [**startDbaasRedisToValkeyUpgrade**](ExoscaleApi.md#startDbaasRedisToValkeyUpgrade) | **PUT** /dbaas-redis/{name}/upgrade-type | Initiate Redis upgrade to Valkey |
+| [**startDbaasValkeyMaintenance**](ExoscaleApi.md#startDbaasValkeyMaintenance) | **PUT** /dbaas-valkey/{name}/maintenance/start | Initiate Valkey maintenance update |
 | [**startInstance**](ExoscaleApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance |
 | [**stopDbaasMysqlMigration**](ExoscaleApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration |
 | [**stopDbaasPgMigration**](ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
 | [**stopDbaasRedisMigration**](ExoscaleApi.md#stopDbaasRedisMigration) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration |
+| [**stopDbaasValkeyMigration**](ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration |
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
@@ -272,6 +282,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDbaasServiceOpensearch**](ExoscaleApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service |
 | [**updateDbaasServicePg**](ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service |
 | [**updateDbaasServiceRedis**](ExoscaleApi.md#updateDbaasServiceRedis) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service |
+| [**updateDbaasServiceValkey**](ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} |  |
 | [**updateDnsDomainRecord**](ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
 | [**updateElasticIp**](ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP |
 | [**updateIamOrganizationPolicy**](ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy |
@@ -3772,6 +3783,101 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## createDbaasServiceValkey
+
+> Operation createDbaasServiceValkey(name, createDbaasServiceValkeyRequest)
+
+Create a DBaaS Valkey service
+
+Create a DBaaS Valkey service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+        CreateDbaasServiceValkeyRequest createDbaasServiceValkeyRequest = new CreateDbaasServiceValkeyRequest(); // CreateDbaasServiceValkeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createDbaasServiceValkey(name, createDbaasServiceValkeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceValkey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasServiceValkeyRequest** | [**CreateDbaasServiceValkeyRequest**](CreateDbaasServiceValkeyRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasServiceValkeyRequest** | [**CreateDbaasServiceValkeyRequest**](CreateDbaasServiceValkeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## createDbaasTaskMigrationCheck
 
 > Operation createDbaasTaskMigrationCheck(service, createDbaasTaskMigrationCheckRequest)
@@ -3846,6 +3952,99 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **service** | **String**|  | |
 | **createDbaasTaskMigrationCheckRequest** | [**CreateDbaasTaskMigrationCheckRequest**](CreateDbaasTaskMigrationCheckRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasValkeyUser
+
+> Operation createDbaasValkeyUser(serviceName, createDbaasKafkaUserRequest)
+
+Create a DBaaS Valkey user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createDbaasValkeyUser(serviceName, createDbaasKafkaUserRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasValkeyUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **createDbaasKafkaUserRequest** | [**CreateDbaasKafkaUserRequest**](CreateDbaasKafkaUserRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **createDbaasKafkaUserRequest** | [**CreateDbaasKafkaUserRequest**](CreateDbaasKafkaUserRequest.md)|  | |
 
 ### Return type
 
@@ -7528,6 +7727,189 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasServiceValkey
+
+> Operation deleteDbaasServiceValkey(name)
+
+Delete a Valkey service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceValkey(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceValkey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasValkeyUser
+
+> Operation deleteDbaasValkeyUser(serviceName, username)
+
+Delete a DBaaS Valkey user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDbaasValkeyUser(serviceName, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasValkeyUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
 
 ### Return type
 
@@ -12613,6 +12995,98 @@ No authorization required
 ### Return type
 
 ApiResponse<[**DbaasServiceType**](DbaasServiceType.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasServiceValkey
+
+> DbaasServiceValkey getDbaasServiceValkey(name)
+
+
+
+Get a DBaaS Valkey service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasServiceValkey result = client.getDbaasServiceValkey(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceValkey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**DbaasServiceValkey**](DbaasServiceValkey.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasServiceValkey**](DbaasServiceValkey.md)>
 
 
 ### Authorization
@@ -19169,7 +19643,7 @@ No authorization required
 
 ## resetDbaasGrafanaUserPassword
 
-> Operation resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+> Operation resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
 Reset the credentials of a DBaaS Grafana user
 
@@ -19190,11 +19664,11 @@ public class Example {
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            Operation result = client.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasGrafanaUserPassword");
@@ -19214,7 +19688,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19243,7 +19717,7 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19267,7 +19741,7 @@ No authorization required
 
 ## resetDbaasKafkaUserPassword
 
-> Operation resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+> Operation resetDbaasKafkaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
 Reset the credentials of a DBaaS Kafka user
 
@@ -19288,11 +19762,11 @@ public class Example {
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            Operation result = client.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasKafkaUserPassword");
@@ -19312,7 +19786,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19341,7 +19815,7 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19463,7 +19937,7 @@ No authorization required
 
 ## resetDbaasOpensearchUserPassword
 
-> Operation resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+> Operation resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
 Reset the credentials of a DBaaS OpenSearch user
 
@@ -19484,11 +19958,11 @@ public class Example {
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            Operation result = client.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasOpensearchUserPassword");
@@ -19508,7 +19982,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19537,7 +20011,7 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19561,7 +20035,7 @@ No authorization required
 
 ## resetDbaasPostgresUserPassword
 
-> Operation resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+> Operation resetDbaasPostgresUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
 Reset the credentials of a DBaaS Postgres user
 
@@ -19582,11 +20056,11 @@ public class Example {
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            Operation result = client.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasPostgresUserPassword");
@@ -19606,7 +20080,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19635,7 +20109,7 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19659,7 +20133,7 @@ No authorization required
 
 ## resetDbaasRedisUserPassword
 
-> Operation resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest)
+> Operation resetDbaasRedisUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
 Reset the credentials of a DBaaS Redis user
 
@@ -19680,11 +20154,11 @@ public class Example {
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
         String username = "username_example"; // String | 
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = new ResetDbaasGrafanaUserPasswordRequest(); // ResetDbaasGrafanaUserPasswordRequest |  please add at least all the required fields
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+            Operation result = client.resetDbaasRedisUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasRedisUserPassword");
@@ -19704,7 +20178,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -19733,7 +20207,105 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **username** | **String**|  | |
-| **resetDbaasGrafanaUserPasswordRequest** | [**ResetDbaasGrafanaUserPasswordRequest**](ResetDbaasGrafanaUserPasswordRequest.md)|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## resetDbaasValkeyUserPassword
+
+> Operation resetDbaasValkeyUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
+
+Reset the credentials of a DBaaS Valkey user
+
+If no password is provided one will be generated automatically.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.resetDbaasValkeyUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#resetDbaasValkeyUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
 
 ### Return type
 
@@ -21631,6 +22203,99 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## revealDbaasValkeyUserPassword
+
+> DbaasUserValkeySecrets revealDbaasValkeyUserPassword(serviceName, username)
+
+Reveal the secrets of a DBaaS Valkey user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasUserValkeySecrets result = client.revealDbaasValkeyUserPassword(serviceName, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revealDbaasValkeyUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+[**DbaasUserValkeySecrets**](DbaasUserValkeySecrets.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasUserValkeySecrets**](DbaasUserValkeySecrets.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## revealInstancePassword
 
 > InstancePassword revealInstancePassword(id)
@@ -22830,6 +23495,186 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## startDbaasRedisToValkeyUpgrade
+
+> Operation startDbaasRedisToValkeyUpgrade(name)
+
+Initiate Redis upgrade to Valkey
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.startDbaasRedisToValkeyUpgrade(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#startDbaasRedisToValkeyUpgrade");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## startDbaasValkeyMaintenance
+
+> Operation startDbaasValkeyMaintenance(name)
+
+Initiate Valkey maintenance update
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.startDbaasValkeyMaintenance(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#startDbaasValkeyMaintenance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## startInstance
 
 > Operation startInstance(id, startInstanceRequest)
@@ -23132,6 +23977,96 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#stopDbaasRedisMigration");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## stopDbaasValkeyMigration
+
+> Operation stopDbaasValkeyMigration(name)
+
+Stop a DBaaS Valkey migration
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.stopDbaasValkeyMigration(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#stopDbaasValkeyMigration");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -24976,6 +25911,101 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
 | **updateDbaasServiceRedisRequest** | [**UpdateDbaasServiceRedisRequest**](UpdateDbaasServiceRedisRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasServiceValkey
+
+> Operation updateDbaasServiceValkey(name, updateDbaasServiceValkeyRequest)
+
+
+
+Update a DBaaS Valkey service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+        UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest = new UpdateDbaasServiceValkeyRequest(); // UpdateDbaasServiceValkeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceValkey(name, updateDbaasServiceValkeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceValkey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasServiceValkeyRequest** | [**UpdateDbaasServiceValkeyRequest**](UpdateDbaasServiceValkeyRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasServiceValkeyRequest** | [**UpdateDbaasServiceValkeyRequest**](UpdateDbaasServiceValkeyRequest.md)|  | |
 
 ### Return type
 

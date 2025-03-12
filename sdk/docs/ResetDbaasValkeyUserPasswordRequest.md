@@ -1,6 +1,6 @@
 
 
-# ResetDbaasGrafanaUserPasswordRequest
+# ResetDbaasValkeyUserPasswordRequest
 
 
 ## Properties

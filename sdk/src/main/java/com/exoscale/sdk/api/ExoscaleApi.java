@@ -46,6 +46,7 @@ import com.exoscale.sdk.model.CreateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceRedisRequest;
+import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
@@ -89,6 +90,7 @@ import com.exoscale.sdk.model.DbaasServiceOpensearch;
 import com.exoscale.sdk.model.DbaasServicePg;
 import com.exoscale.sdk.model.DbaasServiceRedis;
 import com.exoscale.sdk.model.DbaasServiceType;
+import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
 import com.exoscale.sdk.model.DbaasUserGrafanaSecrets;
 import com.exoscale.sdk.model.DbaasUserKafkaConnectSecrets;
@@ -97,6 +99,7 @@ import com.exoscale.sdk.model.DbaasUserMysqlSecrets;
 import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserRedisSecrets;
+import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
@@ -172,8 +175,8 @@ import com.exoscale.sdk.model.Quota;
 import com.exoscale.sdk.model.RegisterSshKeyRequest;
 import com.exoscale.sdk.model.RegisterTemplateRequest;
 import com.exoscale.sdk.model.RemoveExternalSourceFromSecurityGroupRequest;
-import com.exoscale.sdk.model.ResetDbaasGrafanaUserPasswordRequest;
 import com.exoscale.sdk.model.ResetDbaasMysqlUserPasswordRequest;
+import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
@@ -202,6 +205,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceRedisRequest;
+import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
 import com.exoscale.sdk.model.UpdateIamRoleRequest;
@@ -3720,6 +3724,100 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Create a DBaaS Valkey service
+   * Create a DBaaS Valkey service
+   * @param name  (required)
+   * @param createDbaasServiceValkeyRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasServiceValkey(String name, CreateDbaasServiceValkeyRequest createDbaasServiceValkeyRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasServiceValkeyWithHttpInfo(name, createDbaasServiceValkeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create a DBaaS Valkey service
+   * Create a DBaaS Valkey service
+   * @param name  (required)
+   * @param createDbaasServiceValkeyRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createDbaasServiceValkeyWithHttpInfo(String name, CreateDbaasServiceValkeyRequest createDbaasServiceValkeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasServiceValkeyRequestBuilder(name, createDbaasServiceValkeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasServiceValkey", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasServiceValkeyRequestBuilder(String name, CreateDbaasServiceValkeyRequest createDbaasServiceValkeyRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasServiceValkey");
+    }
+    // verify the required parameter 'createDbaasServiceValkeyRequest' is set
+    if (createDbaasServiceValkeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasServiceValkeyRequest' when calling createDbaasServiceValkey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasServiceValkeyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * 
    * Create a DBaaS task to check migration
    * @param service  (required)
@@ -3788,6 +3886,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createDbaasTaskMigrationCheckRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Create a DBaaS Valkey user
+   * 
+   * @param serviceName  (required)
+   * @param createDbaasKafkaUserRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasValkeyUser(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasValkeyUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create a DBaaS Valkey user
+   * 
+   * @param serviceName  (required)
+   * @param createDbaasKafkaUserRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createDbaasValkeyUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasValkeyUserRequestBuilder(serviceName, createDbaasKafkaUserRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasValkeyUser", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasValkeyUserRequestBuilder(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling createDbaasValkeyUser");
+    }
+    // verify the required parameter 'createDbaasKafkaUserRequest' is set
+    if (createDbaasKafkaUserRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasKafkaUserRequest' when calling createDbaasValkeyUser");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{service-name}/user"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasKafkaUserRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -7214,6 +7406,177 @@ public class ExoscaleApi {
 
     String localVarPath = "/dbaas-redis/{name}"
         .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Delete a Valkey service
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasServiceValkey(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasServiceValkeyWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete a Valkey service
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteDbaasServiceValkeyWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceValkeyRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasServiceValkey", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasServiceValkeyRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling deleteDbaasServiceValkey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Delete a DBaaS Valkey user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasValkeyUser(String serviceName, String username) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasValkeyUserWithHttpInfo(serviceName, username);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete a DBaaS Valkey user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteDbaasValkeyUserWithHttpInfo(String serviceName, String username) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasValkeyUserRequestBuilder(serviceName, username);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasValkeyUser", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasValkeyUserRequestBuilder(String serviceName, String username) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling deleteDbaasValkeyUser");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling deleteDbaasValkeyUser");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{service-name}/user/{username}"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -11860,6 +12223,88 @@ public class ExoscaleApi {
 
     String localVarPath = "/dbaas-service-type/{service-type-name}"
         .replace("{service-type-name}", ApiClient.urlEncode(serviceTypeName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * Get a DBaaS Valkey service
+   * @param name  (required)
+   * @return DbaasServiceValkey
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasServiceValkey getDbaasServiceValkey(String name) throws ApiException {
+    ApiResponse<DbaasServiceValkey> localVarResponse = getDbaasServiceValkeyWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * Get a DBaaS Valkey service
+   * @param name  (required)
+   * @return ApiResponse&lt;DbaasServiceValkey&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasServiceValkey> getDbaasServiceValkeyWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasServiceValkeyRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasServiceValkey", localVarResponse);
+        }
+        return new ApiResponse<DbaasServiceValkey>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasServiceValkey>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasServiceValkeyRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling getDbaasServiceValkey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -17833,12 +18278,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasGrafanaUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  public Operation resetDbaasGrafanaUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasGrafanaUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -17847,12 +18292,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> resetDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasGrafanaUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  private ApiResponse<Operation> resetDbaasGrafanaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasGrafanaUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -17880,7 +18325,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasGrafanaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasGrafanaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasGrafanaUserPassword");
@@ -17889,9 +18334,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasGrafanaUserPassword");
     }
-    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
-    if (resetDbaasGrafanaUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasGrafanaUserPassword");
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasGrafanaUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -17903,7 +18348,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -17934,12 +18379,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasKafkaUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  public Operation resetDbaasKafkaUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasKafkaUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -17948,12 +18393,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> resetDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasKafkaUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  private ApiResponse<Operation> resetDbaasKafkaUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasKafkaUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -17981,7 +18426,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasKafkaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasKafkaUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasKafkaUserPassword");
@@ -17990,9 +18435,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasKafkaUserPassword");
     }
-    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
-    if (resetDbaasGrafanaUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasKafkaUserPassword");
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasKafkaUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -18004,7 +18449,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -18136,12 +18581,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasOpensearchUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  public Operation resetDbaasOpensearchUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasOpensearchUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -18150,12 +18595,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> resetDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasOpensearchUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  private ApiResponse<Operation> resetDbaasOpensearchUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasOpensearchUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -18183,7 +18628,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasOpensearchUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasOpensearchUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasOpensearchUserPassword");
@@ -18192,9 +18637,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasOpensearchUserPassword");
     }
-    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
-    if (resetDbaasGrafanaUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasOpensearchUserPassword");
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasOpensearchUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -18206,7 +18651,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -18237,12 +18682,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasPostgresUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  public Operation resetDbaasPostgresUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasPostgresUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -18251,12 +18696,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> resetDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasPostgresUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  private ApiResponse<Operation> resetDbaasPostgresUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasPostgresUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -18284,7 +18729,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasPostgresUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasPostgresUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasPostgresUserPassword");
@@ -18293,9 +18738,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasPostgresUserPassword");
     }
-    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
-    if (resetDbaasGrafanaUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasPostgresUserPassword");
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasPostgresUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -18307,7 +18752,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -18338,12 +18783,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasRedisUserPassword(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  public Operation resetDbaasRedisUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasRedisUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -18352,12 +18797,12 @@ public class ExoscaleApi {
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
    * @param username  (required)
-   * @param resetDbaasGrafanaUserPasswordRequest  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> resetDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = resetDbaasRedisUserPasswordRequestBuilder(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+  private ApiResponse<Operation> resetDbaasRedisUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasRedisUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -18385,7 +18830,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder resetDbaasRedisUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest) throws ApiException {
+  private HttpRequest.Builder resetDbaasRedisUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasRedisUserPassword");
@@ -18394,9 +18839,9 @@ public class ExoscaleApi {
     if (username == null) {
       throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasRedisUserPassword");
     }
-    // verify the required parameter 'resetDbaasGrafanaUserPasswordRequest' is set
-    if (resetDbaasGrafanaUserPasswordRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'resetDbaasGrafanaUserPasswordRequest' when calling resetDbaasRedisUserPassword");
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasRedisUserPassword");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -18408,7 +18853,108 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasGrafanaUserPasswordRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Reset the credentials of a DBaaS Valkey user
+   * If no password is provided one will be generated automatically.
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation resetDbaasValkeyUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasValkeyUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reset the credentials of a DBaaS Valkey user
+   * If no password is provided one will be generated automatically.
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> resetDbaasValkeyUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasValkeyUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("resetDbaasValkeyUserPassword", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder resetDbaasValkeyUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasValkeyUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasValkeyUserPassword");
+    }
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasValkeyUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{service-name}/user/{username}/password/reset"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -20216,6 +20762,95 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Reveal the secrets of a DBaaS Valkey user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return DbaasUserValkeySecrets
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasUserValkeySecrets revealDbaasValkeyUserPassword(String serviceName, String username) throws ApiException {
+    ApiResponse<DbaasUserValkeySecrets> localVarResponse = revealDbaasValkeyUserPasswordWithHttpInfo(serviceName, username);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reveal the secrets of a DBaaS Valkey user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return ApiResponse&lt;DbaasUserValkeySecrets&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasUserValkeySecrets> revealDbaasValkeyUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = revealDbaasValkeyUserPasswordRequestBuilder(serviceName, username);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("revealDbaasValkeyUserPassword", localVarResponse);
+        }
+        return new ApiResponse<DbaasUserValkeySecrets>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserValkeySecrets>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder revealDbaasValkeyUserPasswordRequestBuilder(String serviceName, String username) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling revealDbaasValkeyUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling revealDbaasValkeyUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{service-name}/user/{username}/password/reveal"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Reveal the password used during instance creation or the latest password reset.
    * Reveal the password used during instance creation or the latest password reset.             This is only available for VMs created against templates having the &#x60;password-enabled&#x60;             property set to &#x60;true&#x60;.              Passwords are transiently stored for at most 24 hours and intended to be retrieved shortly after             creation or resets.
    * @param id  (required)
@@ -21337,6 +21972,170 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Initiate Redis upgrade to Valkey
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation startDbaasRedisToValkeyUpgrade(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = startDbaasRedisToValkeyUpgradeWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Initiate Redis upgrade to Valkey
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> startDbaasRedisToValkeyUpgradeWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = startDbaasRedisToValkeyUpgradeRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("startDbaasRedisToValkeyUpgrade", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder startDbaasRedisToValkeyUpgradeRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling startDbaasRedisToValkeyUpgrade");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-redis/{name}/upgrade-type"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Initiate Valkey maintenance update
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation startDbaasValkeyMaintenance(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = startDbaasValkeyMaintenanceWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Initiate Valkey maintenance update
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> startDbaasValkeyMaintenanceWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = startDbaasValkeyMaintenanceRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("startDbaasValkeyMaintenance", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder startDbaasValkeyMaintenanceRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling startDbaasValkeyMaintenance");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{name}/maintenance/start"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Start a Compute instance
    * This operation starts a virtual machine, potentially using a rescue profile if specified
    * @param id  (required)
@@ -21652,6 +22451,88 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/dbaas-redis/{name}/migration/stop"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Stop a DBaaS Valkey migration
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation stopDbaasValkeyMigration(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = stopDbaasValkeyMigrationWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Stop a DBaaS Valkey migration
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> stopDbaasValkeyMigrationWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = stopDbaasValkeyMigrationRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("stopDbaasValkeyMigration", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder stopDbaasValkeyMigrationRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling stopDbaasValkeyMigration");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{name}/migration/stop"
         .replace("{name}", ApiClient.urlEncode(name.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -23439,6 +24320,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasServiceRedisRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * Update a DBaaS Valkey service
+   * @param name  (required)
+   * @param updateDbaasServiceValkeyRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasServiceValkey(String name, UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasServiceValkeyWithHttpInfo(name, updateDbaasServiceValkeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * Update a DBaaS Valkey service
+   * @param name  (required)
+   * @param updateDbaasServiceValkeyRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateDbaasServiceValkeyWithHttpInfo(String name, UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceValkeyRequestBuilder(name, updateDbaasServiceValkeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasServiceValkey", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasServiceValkeyRequestBuilder(String name, UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling updateDbaasServiceValkey");
+    }
+    // verify the required parameter 'updateDbaasServiceValkeyRequest' is set
+    if (updateDbaasServiceValkeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasServiceValkeyRequest' when calling updateDbaasServiceValkey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasServiceValkeyRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

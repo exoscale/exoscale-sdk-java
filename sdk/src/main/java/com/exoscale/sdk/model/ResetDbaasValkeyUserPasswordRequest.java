@@ -29,20 +29,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * ResetDbaasGrafanaUserPasswordRequest
+ * ResetDbaasValkeyUserPasswordRequest
  */
 @JsonPropertyOrder({
-  ResetDbaasGrafanaUserPasswordRequest.JSON_PROPERTY_PASSWORD
+  ResetDbaasValkeyUserPasswordRequest.JSON_PROPERTY_PASSWORD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ResetDbaasGrafanaUserPasswordRequest {
+public class ResetDbaasValkeyUserPasswordRequest {
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
-  public ResetDbaasGrafanaUserPasswordRequest() { 
+  public ResetDbaasValkeyUserPasswordRequest() { 
   }
 
-  public ResetDbaasGrafanaUserPasswordRequest password(String password) {
+  public ResetDbaasValkeyUserPasswordRequest password(String password) {
     this.password = password;
     return this;
   }
@@ -68,7 +68,7 @@ public class ResetDbaasGrafanaUserPasswordRequest {
 
 
   /**
-   * Return true if this reset_dbaas_grafana_user_password_request object is equal to o.
+   * Return true if this reset_dbaas_valkey_user_password_request object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,8 +78,8 @@ public class ResetDbaasGrafanaUserPasswordRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = (ResetDbaasGrafanaUserPasswordRequest) o;
-    return Objects.equals(this.password, resetDbaasGrafanaUserPasswordRequest.password);
+    ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = (ResetDbaasValkeyUserPasswordRequest) o;
+    return Objects.equals(this.password, resetDbaasValkeyUserPasswordRequest.password);
   }
 
   @Override
@@ -90,7 +90,7 @@ public class ResetDbaasGrafanaUserPasswordRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ResetDbaasGrafanaUserPasswordRequest {\n");
+    sb.append("class ResetDbaasValkeyUserPasswordRequest {\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();

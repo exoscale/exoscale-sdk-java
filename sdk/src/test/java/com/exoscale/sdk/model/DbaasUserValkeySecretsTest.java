@@ -24,17 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ResetDbaasGrafanaUserPasswordRequest
+ * Model tests for DbaasUserValkeySecrets
  */
-public class ResetDbaasGrafanaUserPasswordRequestTest {
-    private final ResetDbaasGrafanaUserPasswordRequest model = new ResetDbaasGrafanaUserPasswordRequest();
+public class DbaasUserValkeySecretsTest {
+    private final DbaasUserValkeySecrets model = new DbaasUserValkeySecrets();
 
     /**
-     * Model tests for ResetDbaasGrafanaUserPasswordRequest
+     * Model tests for DbaasUserValkeySecrets
      */
     @Test
-    public void testResetDbaasGrafanaUserPasswordRequest() {
-        // TODO: test ResetDbaasGrafanaUserPasswordRequest
+    public void testDbaasUserValkeySecrets() {
+        // TODO: test DbaasUserValkeySecrets
+    }
+
+    /**
+     * Test the property 'username'
+     */
+    @Test
+    public void usernameTest() {
+        // TODO: test username
     }
 
     /**

@@ -43,6 +43,7 @@ docs/CreateDbaasServiceMysqlRequestIntegrationsInner.md
 docs/CreateDbaasServiceOpensearchRequest.md
 docs/CreateDbaasServicePgRequest.md
 docs/CreateDbaasServiceRedisRequest.md
+docs/CreateDbaasServiceValkeyRequest.md
 docs/CreateDbaasTaskMigrationCheckRequest.md
 docs/CreateDnsDomainRecordRequest.md
 docs/CreateDnsDomainRequest.md
@@ -159,6 +160,7 @@ docs/DbaasUserMysqlSecrets.md
 docs/DbaasUserOpensearchSecrets.md
 docs/DbaasUserPostgresSecrets.md
 docs/DbaasUserRedisSecrets.md
+docs/DbaasUserValkeySecrets.md
 docs/DeployTarget.md
 docs/DetachDbaasServiceFromEndpointRequest.md
 docs/DetachInstanceFromPrivateNetworkRequest.md
@@ -314,8 +316,8 @@ docs/Quota.md
 docs/RegisterSshKeyRequest.md
 docs/RegisterTemplateRequest.md
 docs/RemoveExternalSourceFromSecurityGroupRequest.md
-docs/ResetDbaasGrafanaUserPasswordRequest.md
 docs/ResetDbaasMysqlUserPasswordRequest.md
+docs/ResetDbaasValkeyUserPasswordRequest.md
 docs/ResetInstanceRequest.md
 docs/ResizeBlockStorageVolumeRequest.md
 docs/ResizeInstanceDiskRequest.md
@@ -363,6 +365,7 @@ docs/UpdateDbaasServiceOpensearchRequestIndexTemplate.md
 docs/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md
 docs/UpdateDbaasServicePgRequest.md
 docs/UpdateDbaasServiceRedisRequest.md
+docs/UpdateDbaasServiceValkeyRequest.md
 docs/UpdateDnsDomainRecordRequest.md
 docs/UpdateElasticIpRequest.md
 docs/UpdateIamRoleRequest.md
@@ -438,6 +441,7 @@ src/main/java/com/exoscale/sdk/model/CreateDbaasServiceMysqlRequestIntegrationsI
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceOpensearchRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServicePgRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceRedisRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasTaskMigrationCheckRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDnsDomainRequest.java
@@ -554,6 +558,7 @@ src/main/java/com/exoscale/sdk/model/DbaasUserMysqlSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserOpensearchSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserPostgresSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserRedisSecrets.java
+src/main/java/com/exoscale/sdk/model/DbaasUserValkeySecrets.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java
 src/main/java/com/exoscale/sdk/model/DetachDbaasServiceFromEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/DetachInstanceFromPrivateNetworkRequest.java
@@ -708,8 +713,8 @@ src/main/java/com/exoscale/sdk/model/Quota.java
 src/main/java/com/exoscale/sdk/model/RegisterSshKeyRequest.java
 src/main/java/com/exoscale/sdk/model/RegisterTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/RemoveExternalSourceFromSecurityGroupRequest.java
-src/main/java/com/exoscale/sdk/model/ResetDbaasGrafanaUserPasswordRequest.java
 src/main/java/com/exoscale/sdk/model/ResetDbaasMysqlUserPasswordRequest.java
+src/main/java/com/exoscale/sdk/model/ResetDbaasValkeyUserPasswordRequest.java
 src/main/java/com/exoscale/sdk/model/ResetInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeInstanceDiskRequest.java
@@ -757,6 +762,7 @@ src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestIndexTem
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServicePgRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceRedisRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateIamRoleRequest.java

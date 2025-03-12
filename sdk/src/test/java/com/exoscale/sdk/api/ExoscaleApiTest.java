@@ -42,6 +42,7 @@ import com.exoscale.sdk.model.CreateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceRedisRequest;
+import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
@@ -85,6 +86,7 @@ import com.exoscale.sdk.model.DbaasServiceOpensearch;
 import com.exoscale.sdk.model.DbaasServicePg;
 import com.exoscale.sdk.model.DbaasServiceRedis;
 import com.exoscale.sdk.model.DbaasServiceType;
+import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
 import com.exoscale.sdk.model.DbaasUserGrafanaSecrets;
 import com.exoscale.sdk.model.DbaasUserKafkaConnectSecrets;
@@ -93,6 +95,7 @@ import com.exoscale.sdk.model.DbaasUserMysqlSecrets;
 import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserRedisSecrets;
+import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
@@ -168,8 +171,8 @@ import com.exoscale.sdk.model.Quota;
 import com.exoscale.sdk.model.RegisterSshKeyRequest;
 import com.exoscale.sdk.model.RegisterTemplateRequest;
 import com.exoscale.sdk.model.RemoveExternalSourceFromSecurityGroupRequest;
-import com.exoscale.sdk.model.ResetDbaasGrafanaUserPasswordRequest;
 import com.exoscale.sdk.model.ResetDbaasMysqlUserPasswordRequest;
+import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
@@ -198,6 +201,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceRedisRequest;
+import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
 import com.exoscale.sdk.model.UpdateIamRoleRequest;
@@ -894,6 +898,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Create a DBaaS Valkey service
+     *
+     * Create a DBaaS Valkey service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasServiceValkeyTest() throws ApiException {
+        String name = null;
+        CreateDbaasServiceValkeyRequest createDbaasServiceValkeyRequest = null;
+        Operation response = 
+        api.createDbaasServiceValkey(name, createDbaasServiceValkeyRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * 
      *
      * Create a DBaaS task to check migration
@@ -907,6 +929,24 @@ public class ExoscaleApiTest {
         CreateDbaasTaskMigrationCheckRequest createDbaasTaskMigrationCheckRequest = null;
         Operation response = 
         api.createDbaasTaskMigrationCheck(service, createDbaasTaskMigrationCheckRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a DBaaS Valkey user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasValkeyUserTest() throws ApiException {
+        String serviceName = null;
+        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = null;
+        Operation response = 
+        api.createDbaasValkeyUser(serviceName, createDbaasKafkaUserRequest);
         
         // TODO: test validations
     }
@@ -1599,6 +1639,41 @@ public class ExoscaleApiTest {
         String name = null;
         Operation response = 
         api.deleteDbaasServiceRedis(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a Valkey service
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasServiceValkeyTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.deleteDbaasServiceValkey(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete a DBaaS Valkey user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasValkeyUserTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        Operation response = 
+        api.deleteDbaasValkeyUser(serviceName, username);
         
         // TODO: test validations
     }
@@ -2547,6 +2622,23 @@ public class ExoscaleApiTest {
         String serviceTypeName = null;
         DbaasServiceType response = 
         api.getDbaasServiceType(serviceTypeName);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Get a DBaaS Valkey service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasServiceValkeyTest() throws ApiException {
+        String name = null;
+        DbaasServiceValkey response = 
+        api.getDbaasServiceValkey(name);
         
         // TODO: test validations
     }
@@ -3787,9 +3879,9 @@ public class ExoscaleApiTest {
     public void resetDbaasGrafanaUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+        api.resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3806,9 +3898,9 @@ public class ExoscaleApiTest {
     public void resetDbaasKafkaUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+        api.resetDbaasKafkaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3844,9 +3936,9 @@ public class ExoscaleApiTest {
     public void resetDbaasOpensearchUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+        api.resetDbaasOpensearchUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3863,9 +3955,9 @@ public class ExoscaleApiTest {
     public void resetDbaasPostgresUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+        api.resetDbaasPostgresUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -3882,9 +3974,28 @@ public class ExoscaleApiTest {
     public void resetDbaasRedisUserPasswordTest() throws ApiException {
         String serviceName = null;
         String username = null;
-        ResetDbaasGrafanaUserPasswordRequest resetDbaasGrafanaUserPasswordRequest = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
         Operation response = 
-        api.resetDbaasRedisUserPassword(serviceName, username, resetDbaasGrafanaUserPasswordRequest);
+        api.resetDbaasRedisUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Reset the credentials of a DBaaS Valkey user
+     *
+     * If no password is provided one will be generated automatically.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resetDbaasValkeyUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
+        Operation response = 
+        api.resetDbaasValkeyUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
         
         // TODO: test validations
     }
@@ -4248,6 +4359,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Reveal the secrets of a DBaaS Valkey user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealDbaasValkeyUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        DbaasUserValkeySecrets response = 
+        api.revealDbaasValkeyUserPassword(serviceName, username);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reveal the password used during instance creation or the latest password reset.
      *
      * Reveal the password used during instance creation or the latest password reset.             This is only available for VMs created against templates having the &#x60;password-enabled&#x60;             property set to &#x60;true&#x60;.              Passwords are transiently stored for at most 24 hours and intended to be retrieved shortly after             creation or resets.
@@ -4474,6 +4603,40 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Initiate Redis upgrade to Valkey
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void startDbaasRedisToValkeyUpgradeTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.startDbaasRedisToValkeyUpgrade(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Initiate Valkey maintenance update
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void startDbaasValkeyMaintenanceTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.startDbaasValkeyMaintenance(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Start a Compute instance
      *
      * This operation starts a virtual machine, potentially using a rescue profile if specified
@@ -4538,6 +4701,23 @@ public class ExoscaleApiTest {
         String name = null;
         Operation response = 
         api.stopDbaasRedisMigration(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Stop a DBaaS Valkey migration
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void stopDbaasValkeyMigrationTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.stopDbaasValkeyMigration(name);
         
         // TODO: test validations
     }
@@ -4881,6 +5061,24 @@ public class ExoscaleApiTest {
         UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest = null;
         Operation response = 
         api.updateDbaasServiceRedis(name, updateDbaasServiceRedisRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Update a DBaaS Valkey service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasServiceValkeyTest() throws ApiException {
+        String name = null;
+        UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest = null;
+        Operation response = 
+        api.updateDbaasServiceValkey(name, updateDbaasServiceValkeyRequest);
         
         // TODO: test validations
     }

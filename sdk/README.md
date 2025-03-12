@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-03-04T07:07:23.198698181Z[Etc/UTC]
+- Build date: 2025-03-12T07:06:30.187028577Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-159d8b7</version>
+    <version>0.0.5-SNAPSHOT-c929e51</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-159d8b7'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c929e51'
 }
 ```
 
@@ -120,7 +120,9 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service
 *ExoscaleApi* | [**createDbaasServicePg**](sdk/docs/ExoscaleApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service
 *ExoscaleApi* | [**createDbaasServiceRedis**](sdk/docs/ExoscaleApi.md#createDbaasServiceRedis) | **POST** /dbaas-redis/{name} | Create a DBaaS Redis service
+*ExoscaleApi* | [**createDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service
 *ExoscaleApi* | [**createDbaasTaskMigrationCheck**](sdk/docs/ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} | 
+*ExoscaleApi* | [**createDbaasValkeyUser**](sdk/docs/ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user
 *ExoscaleApi* | [**createDnsDomain**](sdk/docs/ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain
 *ExoscaleApi* | [**createDnsDomainRecord**](sdk/docs/ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record
 *ExoscaleApi* | [**createElasticIp**](sdk/docs/ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP
@@ -161,6 +163,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
 *ExoscaleApi* | [**deleteDbaasServicePg**](sdk/docs/ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
 *ExoscaleApi* | [**deleteDbaasServiceRedis**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceRedis) | **DELETE** /dbaas-redis/{name} | Delete a Redis service
+*ExoscaleApi* | [**deleteDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service
+*ExoscaleApi* | [**deleteDbaasValkeyUser**](sdk/docs/ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user
 *ExoscaleApi* | [**deleteDnsDomain**](sdk/docs/ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain
 *ExoscaleApi* | [**deleteDnsDomainRecord**](sdk/docs/ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record
 *ExoscaleApi* | [**deleteElasticIp**](sdk/docs/ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP
@@ -216,6 +220,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasServicePg**](sdk/docs/ExoscaleApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service
 *ExoscaleApi* | [**getDbaasServiceRedis**](sdk/docs/ExoscaleApi.md#getDbaasServiceRedis) | **GET** /dbaas-redis/{name} | Get a DBaaS Redis service
 *ExoscaleApi* | [**getDbaasServiceType**](sdk/docs/ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
+*ExoscaleApi* | [**getDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#getDbaasServiceValkey) | **GET** /dbaas-valkey/{name} | 
 *ExoscaleApi* | [**getDbaasSettingsGrafana**](sdk/docs/ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
 *ExoscaleApi* | [**getDbaasSettingsKafka**](sdk/docs/ExoscaleApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings
 *ExoscaleApi* | [**getDbaasSettingsMysql**](sdk/docs/ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
@@ -295,6 +300,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resetDbaasOpensearchUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasOpensearchUserPassword) | **PUT** /dbaas-opensearch/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS OpenSearch user
 *ExoscaleApi* | [**resetDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasPostgresUserPassword) | **PUT** /dbaas-postgres/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Postgres user
 *ExoscaleApi* | [**resetDbaasRedisUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasRedisUserPassword) | **PUT** /dbaas-redis/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Redis user
+*ExoscaleApi* | [**resetDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasValkeyUserPassword) | **PUT** /dbaas-valkey/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Valkey user
 *ExoscaleApi* | [**resetElasticIpField**](sdk/docs/ExoscaleApi.md#resetElasticIpField) | **DELETE** /elastic-ip/{id}/{field} | Reset an Elastic IP field to its default value
 *ExoscaleApi* | [**resetIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#resetIamOrganizationPolicy) | **POST** /iam-organization-policy:reset | Reset IAM Organization Policy
 *ExoscaleApi* | [**resetInstance**](sdk/docs/ExoscaleApi.md#resetInstance) | **PUT** /instance/{id}:reset | Reset a Compute instance to a base/target template
@@ -315,6 +321,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDbaasOpensearchUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
 *ExoscaleApi* | [**revealDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
 *ExoscaleApi* | [**revealDbaasRedisUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasRedisUserPassword) | **GET** /dbaas-redis/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Redis user
+*ExoscaleApi* | [**revealDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
@@ -328,10 +335,13 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**startDbaasOpensearchMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update
 *ExoscaleApi* | [**startDbaasPgMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update
 *ExoscaleApi* | [**startDbaasRedisMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasRedisMaintenance) | **PUT** /dbaas-redis/{name}/maintenance/start | Initiate Redis maintenance update
+*ExoscaleApi* | [**startDbaasRedisToValkeyUpgrade**](sdk/docs/ExoscaleApi.md#startDbaasRedisToValkeyUpgrade) | **PUT** /dbaas-redis/{name}/upgrade-type | Initiate Redis upgrade to Valkey
+*ExoscaleApi* | [**startDbaasValkeyMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasValkeyMaintenance) | **PUT** /dbaas-valkey/{name}/maintenance/start | Initiate Valkey maintenance update
 *ExoscaleApi* | [**startInstance**](sdk/docs/ExoscaleApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance
 *ExoscaleApi* | [**stopDbaasMysqlMigration**](sdk/docs/ExoscaleApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration
 *ExoscaleApi* | [**stopDbaasPgMigration**](sdk/docs/ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
 *ExoscaleApi* | [**stopDbaasRedisMigration**](sdk/docs/ExoscaleApi.md#stopDbaasRedisMigration) | **POST** /dbaas-redis/{name}/migration/stop | Stop a DBaaS Redis migration
+*ExoscaleApi* | [**stopDbaasValkeyMigration**](sdk/docs/ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration
 *ExoscaleApi* | [**stopInstance**](sdk/docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
 *ExoscaleApi* | [**updateBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](sdk/docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
@@ -351,6 +361,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service
 *ExoscaleApi* | [**updateDbaasServicePg**](sdk/docs/ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
 *ExoscaleApi* | [**updateDbaasServiceRedis**](sdk/docs/ExoscaleApi.md#updateDbaasServiceRedis) | **PUT** /dbaas-redis/{name} | Update a DBaaS Redis service
+*ExoscaleApi* | [**updateDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} | 
 *ExoscaleApi* | [**updateDnsDomainRecord**](sdk/docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
 *ExoscaleApi* | [**updateIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy
@@ -414,6 +425,7 @@ Class | Method | HTTP request | Description
  - [CreateDbaasServiceOpensearchRequest](sdk/docs/CreateDbaasServiceOpensearchRequest.md)
  - [CreateDbaasServicePgRequest](sdk/docs/CreateDbaasServicePgRequest.md)
  - [CreateDbaasServiceRedisRequest](sdk/docs/CreateDbaasServiceRedisRequest.md)
+ - [CreateDbaasServiceValkeyRequest](sdk/docs/CreateDbaasServiceValkeyRequest.md)
  - [CreateDbaasTaskMigrationCheckRequest](sdk/docs/CreateDbaasTaskMigrationCheckRequest.md)
  - [CreateDnsDomainRecordRequest](sdk/docs/CreateDnsDomainRecordRequest.md)
  - [CreateDnsDomainRequest](sdk/docs/CreateDnsDomainRequest.md)
@@ -530,6 +542,7 @@ Class | Method | HTTP request | Description
  - [DbaasUserOpensearchSecrets](sdk/docs/DbaasUserOpensearchSecrets.md)
  - [DbaasUserPostgresSecrets](sdk/docs/DbaasUserPostgresSecrets.md)
  - [DbaasUserRedisSecrets](sdk/docs/DbaasUserRedisSecrets.md)
+ - [DbaasUserValkeySecrets](sdk/docs/DbaasUserValkeySecrets.md)
  - [DeployTarget](sdk/docs/DeployTarget.md)
  - [DetachDbaasServiceFromEndpointRequest](sdk/docs/DetachDbaasServiceFromEndpointRequest.md)
  - [DetachInstanceFromPrivateNetworkRequest](sdk/docs/DetachInstanceFromPrivateNetworkRequest.md)
@@ -684,8 +697,8 @@ Class | Method | HTTP request | Description
  - [RegisterSshKeyRequest](sdk/docs/RegisterSshKeyRequest.md)
  - [RegisterTemplateRequest](sdk/docs/RegisterTemplateRequest.md)
  - [RemoveExternalSourceFromSecurityGroupRequest](sdk/docs/RemoveExternalSourceFromSecurityGroupRequest.md)
- - [ResetDbaasGrafanaUserPasswordRequest](sdk/docs/ResetDbaasGrafanaUserPasswordRequest.md)
  - [ResetDbaasMysqlUserPasswordRequest](sdk/docs/ResetDbaasMysqlUserPasswordRequest.md)
+ - [ResetDbaasValkeyUserPasswordRequest](sdk/docs/ResetDbaasValkeyUserPasswordRequest.md)
  - [ResetInstanceRequest](sdk/docs/ResetInstanceRequest.md)
  - [ResizeBlockStorageVolumeRequest](sdk/docs/ResizeBlockStorageVolumeRequest.md)
  - [ResizeInstanceDiskRequest](sdk/docs/ResizeInstanceDiskRequest.md)
@@ -733,6 +746,7 @@ Class | Method | HTTP request | Description
  - [UpdateDbaasServiceOpensearchRequestOpensearchDashboards](sdk/docs/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md)
  - [UpdateDbaasServicePgRequest](sdk/docs/UpdateDbaasServicePgRequest.md)
  - [UpdateDbaasServiceRedisRequest](sdk/docs/UpdateDbaasServiceRedisRequest.md)
+ - [UpdateDbaasServiceValkeyRequest](sdk/docs/UpdateDbaasServiceValkeyRequest.md)
  - [UpdateDnsDomainRecordRequest](sdk/docs/UpdateDnsDomainRecordRequest.md)
  - [UpdateElasticIpRequest](sdk/docs/UpdateElasticIpRequest.md)
  - [UpdateIamRoleRequest](sdk/docs/UpdateIamRoleRequest.md)

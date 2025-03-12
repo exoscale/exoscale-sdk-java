@@ -406,6 +406,28 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-valkey/{name}/migration/stop:
+    post:
+      operationId: stop-dbaas-valkey-migration
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Stop a DBaaS Valkey migration
+      tags:
+      - exoscale
+      x-accepts: application/json
   /reverse-dns/elastic-ip/{id}:
     delete:
       description: ""
@@ -3050,6 +3072,43 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-valkey/{service-name}/user/{username}/password/reset:
+    put:
+      description: If no password is provided one will be generated automatically.
+      operationId: reset-dbaas-valkey-user-password
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-user-username'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Reset the credentials of a DBaaS Valkey user
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-external-integration-settings-datadog/{integration-id}:
     get:
       description: "[BETA] Get Datadog integration settings"
@@ -4309,7 +4368,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
         required: true
       responses:
         "200":
@@ -4394,6 +4453,35 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-valkey/{service-name}/user/{username}:
+    delete:
+      operationId: delete-dbaas-valkey-user
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-user-username'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Delete a DBaaS Valkey user
+      tags:
+      - exoscale
       x-accepts: application/json
   /dbaas-kafka/{name}/schema-registry/acl-config/{acl-id}:
     delete:
@@ -4661,7 +4749,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
         required: true
       responses:
         "200":
@@ -5616,6 +5704,108 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-valkey/{name}:
+    delete:
+      operationId: delete-dbaas-service-valkey
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Delete a Valkey service
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: Get a DBaaS Valkey service
+      operationId: get-dbaas-service-valkey
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-service-valkey'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: Create a DBaaS Valkey service
+      operationId: create-dbaas-service-valkey
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_service_valkey_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Create a DBaaS Valkey service
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
+    put:
+      description: Update a DBaaS Valkey service
+      operationId: update-dbaas-service-valkey
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_service_valkey_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-redis/{name}/migration/stop:
     post:
       operationId: stop-dbaas-redis-migration
@@ -6506,6 +6696,28 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-redis/{name}/upgrade-type:
+    put:
+      operationId: start-dbaas-redis-to-valkey-upgrade
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Initiate Redis upgrade to Valkey
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-external-endpoint-elasticsearch/{name}:
     post:
       description: "[BETA] Create ElasticSearch Logs external integration endpoint"
@@ -6559,7 +6771,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
         required: true
       responses:
         "200":
@@ -6640,7 +6852,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
         required: true
       responses:
         "200":
@@ -6680,6 +6892,28 @@ paths:
                 $ref: '#/components/schemas/dbaas-user-opensearch-secrets'
           description: "200"
       summary: Reveal the secrets of a DBaaS OpenSearch user
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /dbaas-valkey/{name}/maintenance/start:
+    put:
+      operationId: start-dbaas-valkey-maintenance
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Initiate Valkey maintenance update
       tags:
       - exoscale
       x-accepts: application/json
@@ -6963,6 +7197,35 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-valkey/{service-name}/user/{username}/password/reveal:
+    get:
+      operationId: reveal-dbaas-valkey-user-password
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-user-username'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-user-valkey-secrets'
+          description: "200"
+      summary: Reveal the secrets of a DBaaS Valkey user
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-postgres/{name}:
     delete:
       operationId: delete-dbaas-service-pg
@@ -7060,6 +7323,35 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Update a DBaaS PostgreSQL service
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
+  /dbaas-valkey/{service-name}/user:
+    post:
+      operationId: create-dbaas-valkey-user
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_kafka_user_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Create a DBaaS Valkey user
       tags:
       - exoscale
       x-content-type: application/json
@@ -7624,7 +7916,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/reset_dbaas_grafana_user_password_request'
+              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
         required: true
       responses:
         "200":
@@ -7955,6 +8247,19 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/dbaas-endpoint-elasticsearch-optional-fields'
+      type: object
+    dbaas-user-valkey-secrets:
+      description: Valkey User secrets
+      example:
+        password: password
+        username: username
+      properties:
+        username:
+          description: Valkey username
+          type: string
+        password:
+          description: Valkey password
+          type: string
       type: object
     dbaas-endpoint-rsyslog-input-update:
       properties:
@@ -13621,6 +13926,18 @@ components:
       - type
       type: object
     json-schema-valkey:
+      example:
+        pubsub_client_output_buffer_limit: 64
+        lfu_decay_time: 71
+        number_of_databases: 16
+        lfu_log_factor: 14
+        persistence: "off"
+        io_threads: 1
+        ssl: true
+        maxmemory_policy: noeviction
+        timeout: 17778031
+        acl_channels_default: allchannels
+        notify_keyspace_events: ""
       properties:
         ssl:
           default: true
@@ -28370,6 +28687,171 @@ components:
       - type
       type: object
     dbaas-service-valkey:
+      example:
+        components:
+        - component: component
+          route: null
+          port: 15087
+          usage: null
+          host: host
+          ssl: true
+        - component: component
+          route: null
+          port: 15087
+          usage: null
+          host: host
+          ssl: true
+        node-memory: 0
+        ip-filter:
+        - ip-filter
+        - ip-filter
+        type: type
+        uri-params: "{}"
+        zone: zone
+        node-cpu-count: 0
+        node-states:
+        - role: standby
+          name: name
+          state: leaving
+          progress-updates:
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+        - role: standby
+          name: name
+          state: leaving
+          progress-updates:
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+        created-at: 2000-01-23T04:56:07.000+00:00
+        state: null
+        valkey-settings:
+          pubsub_client_output_buffer_limit: 64
+          lfu_decay_time: 71
+          number_of_databases: 16
+          lfu_log_factor: 14
+          persistence: "off"
+          io_threads: 1
+          ssl: true
+          maxmemory_policy: noeviction
+          timeout: 17778031
+          acl_channels_default: allchannels
+          notify_keyspace_events: ""
+        plan: plan
+        connection-info:
+          slave:
+          - slave
+          - slave
+          password: password
+          uri:
+          - uri
+          - uri
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        uri: uri
+        version: version
+        users:
+        - password: password
+          type: type
+          access-control:
+            channels:
+            - channels
+            - channels
+            keys:
+            - keys
+            - keys
+            categories:
+            - categories
+            - categories
+            commands:
+            - commands
+            - commands
+          username: username
+        - password: password
+          type: type
+          access-control:
+            channels:
+            - channels
+            - channels
+            keys:
+            - keys
+            - keys
+            categories:
+            - categories
+            - categories
+            commands:
+            - commands
+            - commands
+          username: username
+        node-count: 0
+        termination-protection: true
+        name: name
+        disk-size: 0
+        integrations:
+        - settings: "{}"
+          description: description
+          is-active: true
+          source: source
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+          dest: dest
+          is-enabled: true
+          status: status
+        - settings: "{}"
+          description: description
+          is-active: true
+          source: source
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+          dest: dest
+          is-enabled: true
+          status: status
+        maintenance:
+          time: time
+          updates:
+          - start-at: 2000-01-23T04:56:07.000+00:00
+            description: description
+            start-after: 2000-01-23T04:56:07.000+00:00
+            deadline: 2000-01-23T04:56:07.000+00:00
+          - start-at: 2000-01-23T04:56:07.000+00:00
+            description: description
+            start-after: 2000-01-23T04:56:07.000+00:00
+            deadline: 2000-01-23T04:56:07.000+00:00
+          dow: saturday
+        notifications:
+        - metadata: "{}"
+          level: warning
+          message: message
+          type: service_powered_off_removal
+        - metadata: "{}"
+          level: warning
+          message: message
+          type: service_powered_off_removal
+        backups:
+        - data-size: 0
+          backup-time: 2000-01-23T04:56:07.000+00:00
+          backup-name: backup-name
+        - data-size: 0
+          backup-time: 2000-01-23T04:56:07.000+00:00
+          backup-name: backup-name
       properties:
         updated-at:
           description: Service last update timestamp (ISO 8601)
@@ -40368,6 +40850,13 @@ components:
       required:
       - username
       type: object
+    reset_dbaas_valkey_user_password_request:
+      properties:
+        password:
+          maxLength: 256
+          minLength: 8
+          type: string
+      type: object
     get_dbaas_external_integration_settings_datadog_200_response:
       example:
         settings:
@@ -40668,13 +41157,6 @@ components:
             format: uuid
             type: string
           type: array
-      type: object
-    reset_dbaas_grafana_user_password_request:
-      properties:
-        password:
-          maxLength: 256
-          minLength: 8
-          type: string
       type: object
     evict_sks_nodepool_members_request:
       properties:
@@ -50616,6 +51098,61 @@ components:
             type: string
           type: object
       type: object
+    update_dbaas_service_valkey_request:
+      properties:
+        maintenance:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
+        plan:
+          description: Subscription plan
+          maxLength: 128
+          minLength: 1
+          type: string
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
+        ip-filter:
+          description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
+          items:
+            type: string
+          type: array
+        migration:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
+        valkey-settings:
+          $ref: '#/components/schemas/json-schema-valkey'
+      type: object
+    create_dbaas_service_valkey_request:
+      properties:
+        maintenance:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
+        plan:
+          description: Subscription plan
+          maxLength: 128
+          minLength: 1
+          type: string
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
+        ip-filter:
+          description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
+          items:
+            type: string
+          type: array
+        migration:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
+        valkey-settings:
+          $ref: '#/components/schemas/json-schema-valkey'
+        fork-from-service:
+          maxLength: 63
+          minLength: 0
+          type: string
+        recovery-backup-name:
+          description: Name of a backup to recover from for services that support
+            backup names
+          minLength: 1
+          type: string
+      required:
+      - plan
+      type: object
     update_instance_request:
       properties:
         name:
@@ -54137,6 +54674,14 @@ components:
       type: object
     dbaas_service_valkey_connection_info:
       description: Valkey connection information properties
+      example:
+        slave:
+        - slave
+        - slave
+        password: password
+        uri:
+        - uri
+        - uri
       properties:
         uri:
           items:
