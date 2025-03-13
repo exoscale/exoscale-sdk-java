@@ -122,6 +122,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsRedis200Response;
+import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
@@ -12755,6 +12756,81 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/dbaas-settings-redis";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Get DBaaS Valkey settings
+   * Returns the default settings for Valkey.
+   * @return GetDbaasSettingsValkey200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetDbaasSettingsValkey200Response getDbaasSettingsValkey() throws ApiException {
+    ApiResponse<GetDbaasSettingsValkey200Response> localVarResponse = getDbaasSettingsValkeyWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get DBaaS Valkey settings
+   * Returns the default settings for Valkey.
+   * @return ApiResponse&lt;GetDbaasSettingsValkey200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetDbaasSettingsValkey200Response> getDbaasSettingsValkeyWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsValkeyRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasSettingsValkey", localVarResponse);
+        }
+        return new ApiResponse<GetDbaasSettingsValkey200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetDbaasSettingsValkey200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasSettingsValkeyRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-settings-valkey";
       String requestBody = null;
       String authorizationValue;
 

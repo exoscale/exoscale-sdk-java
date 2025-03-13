@@ -118,6 +118,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsRedis200Response;
+import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
@@ -2735,6 +2736,22 @@ public class ExoscaleApiTest {
     public void getDbaasSettingsRedisTest() throws ApiException {
         GetDbaasSettingsRedis200Response response = 
         api.getDbaasSettingsRedis();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Get DBaaS Valkey settings
+     *
+     * Returns the default settings for Valkey.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasSettingsValkeyTest() throws ApiException {
+        GetDbaasSettingsValkey200Response response = 
+        api.getDbaasSettingsValkey();
         
         // TODO: test validations
     }

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-03-12T07:06:30.187028577Z[Etc/UTC]
+- Build date: 2025-03-13T07:06:24.317695876Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c929e51</version>
+    <version>0.0.5-SNAPSHOT-4170e70</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c929e51'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4170e70'
 }
 ```
 
@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasSettingsOpensearch**](sdk/docs/ExoscaleApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings
 *ExoscaleApi* | [**getDbaasSettingsPg**](sdk/docs/ExoscaleApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings
 *ExoscaleApi* | [**getDbaasSettingsRedis**](sdk/docs/ExoscaleApi.md#getDbaasSettingsRedis) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings
+*ExoscaleApi* | [**getDbaasSettingsValkey**](sdk/docs/ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings
 *ExoscaleApi* | [**getDbaasTask**](sdk/docs/ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
 *ExoscaleApi* | [**getDeployTarget**](sdk/docs/ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
 *ExoscaleApi* | [**getDnsDomain**](sdk/docs/ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details
@@ -602,6 +603,9 @@ Class | Method | HTTP request | Description
  - [GetDbaasSettingsRedis200Response](sdk/docs/GetDbaasSettingsRedis200Response.md)
  - [GetDbaasSettingsRedis200ResponseSettings](sdk/docs/GetDbaasSettingsRedis200ResponseSettings.md)
  - [GetDbaasSettingsRedis200ResponseSettingsRedis](sdk/docs/GetDbaasSettingsRedis200ResponseSettingsRedis.md)
+ - [GetDbaasSettingsValkey200Response](sdk/docs/GetDbaasSettingsValkey200Response.md)
+ - [GetDbaasSettingsValkey200ResponseSettings](sdk/docs/GetDbaasSettingsValkey200ResponseSettings.md)
+ - [GetDbaasSettingsValkey200ResponseSettingsValkey](sdk/docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)

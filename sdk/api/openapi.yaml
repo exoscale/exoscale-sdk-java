@@ -3320,6 +3320,22 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-settings-valkey:
+    get:
+      description: Returns the default settings for Valkey.
+      operationId: get-dbaas-settings-valkey
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_dbaas_settings_valkey_200_response'
+          description: "200"
+      summary: Get DBaaS Valkey settings
+      tags:
+      - exoscale
+      x-accepts: application/json
   /api-key/{id}:
     delete:
       operationId: delete-api-key
@@ -40916,6 +40932,46 @@ components:
       properties:
         settings:
           $ref: '#/components/schemas/get_dbaas_settings_mysql_200_response_settings'
+      type: object
+    get_dbaas_settings_valkey_200_response_settings_valkey:
+      description: Valkey configuration values
+      example:
+        additionalProperties: true
+        type: type
+        title: title
+        properties: "{}"
+      properties:
+        properties:
+          type: object
+        additionalProperties:
+          type: boolean
+        type:
+          type: string
+        title:
+          type: string
+      type: object
+    get_dbaas_settings_valkey_200_response_settings:
+      example:
+        valkey:
+          additionalProperties: true
+          type: type
+          title: title
+          properties: "{}"
+      properties:
+        valkey:
+          $ref: '#/components/schemas/get_dbaas_settings_valkey_200_response_settings_valkey'
+      type: object
+    get_dbaas_settings_valkey_200_response:
+      example:
+        settings:
+          valkey:
+            additionalProperties: true
+            type: type
+            title: title
+            properties: "{}"
+      properties:
+        settings:
+          $ref: '#/components/schemas/get_dbaas_settings_valkey_200_response_settings'
       type: object
     create_dbaas_pg_database_request:
       properties:

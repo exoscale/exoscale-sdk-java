@@ -221,6 +221,9 @@ docs/GetDbaasSettingsPg200ResponseSettingsTimescaledb.md
 docs/GetDbaasSettingsRedis200Response.md
 docs/GetDbaasSettingsRedis200ResponseSettings.md
 docs/GetDbaasSettingsRedis200ResponseSettingsRedis.md
+docs/GetDbaasSettingsValkey200Response.md
+docs/GetDbaasSettingsValkey200ResponseSettings.md
+docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
 docs/GetDnsDomainZoneFile200Response.md
 docs/GetSksClusterAuthorityCert200Response.md
 docs/GetSosPresignedUrl200Response.md
@@ -618,6 +621,9 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsTimesc
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsRedis200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsRedis200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsRedis200ResponseSettingsRedis.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200Response.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
 src/main/java/com/exoscale/sdk/model/GetSksClusterAuthorityCert200Response.java
 src/main/java/com/exoscale/sdk/model/GetSosPresignedUrl200Response.java

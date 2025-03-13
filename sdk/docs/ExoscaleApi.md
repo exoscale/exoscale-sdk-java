@@ -148,6 +148,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasSettingsOpensearch**](ExoscaleApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings |
 | [**getDbaasSettingsPg**](ExoscaleApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings |
 | [**getDbaasSettingsRedis**](ExoscaleApi.md#getDbaasSettingsRedis) | **GET** /dbaas-settings-redis | Get DBaaS Redis settings |
+| [**getDbaasSettingsValkey**](ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings |
 | [**getDbaasTask**](ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
 | [**getDeployTarget**](ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
 | [**getDnsDomain**](ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
@@ -13597,6 +13598,91 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiResponse<[**GetDbaasSettingsRedis200Response**](GetDbaasSettingsRedis200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasSettingsValkey
+
+> GetDbaasSettingsValkey200Response getDbaasSettingsValkey()
+
+Get DBaaS Valkey settings
+
+Returns the default settings for Valkey.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            GetDbaasSettingsValkey200Response result = client.getDbaasSettingsValkey();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsValkey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetDbaasSettingsValkey200Response**](GetDbaasSettingsValkey200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**GetDbaasSettingsValkey200Response**](GetDbaasSettingsValkey200Response.md)>
 
 
 ### Authorization
