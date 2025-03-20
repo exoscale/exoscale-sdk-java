@@ -109,7 +109,7 @@ public class UpdateSksClusterRequest {
   private Set<AddonsEnum> addons;
 
   public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
-  private JsonNullable<Set<String>> featureGates = JsonNullable.<Set<String>>undefined();
+  private Set<String> featureGates;
 
   public static final String JSON_PROPERTY_ENABLE_OPERATORS_CA = "enable-operators-ca";
   private Boolean enableOperatorsCa;
@@ -293,19 +293,15 @@ public class UpdateSksClusterRequest {
 
 
   public UpdateSksClusterRequest featureGates(Set<String> featureGates) {
-    this.featureGates = JsonNullable.<Set<String>>of(featureGates);
+    this.featureGates = featureGates;
     return this;
   }
 
   public UpdateSksClusterRequest addFeatureGatesItem(String featureGatesItem) {
-    if (this.featureGates == null || !this.featureGates.isPresent()) {
-      this.featureGates = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    if (this.featureGates == null) {
+      this.featureGates = new LinkedHashSet<>();
     }
-    try {
-      this.featureGates.get().add(featureGatesItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.featureGates.add(featureGatesItem);
     return this;
   }
 
@@ -314,26 +310,19 @@ public class UpdateSksClusterRequest {
    * @return featureGates
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Set<String> getFeatureGates() {
-        return featureGates.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<String>> getFeatureGates_JsonNullable() {
+  public Set<String> getFeatureGates() {
     return featureGates;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
-  public void setFeatureGates_JsonNullable(JsonNullable<Set<String>> featureGates) {
-    this.featureGates = featureGates;
-  }
 
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFeatureGates(Set<String> featureGates) {
-    this.featureGates = JsonNullable.<Set<String>>of(featureGates);
+    this.featureGates = featureGates;
   }
 
 
@@ -380,7 +369,7 @@ public class UpdateSksClusterRequest {
         Objects.equals(this.oidc, updateSksClusterRequest.oidc) &&
         Objects.equals(this.autoUpgrade, updateSksClusterRequest.autoUpgrade) &&
         Objects.equals(this.addons, updateSksClusterRequest.addons) &&
-        equalsNullable(this.featureGates, updateSksClusterRequest.featureGates) &&
+        Objects.equals(this.featureGates, updateSksClusterRequest.featureGates) &&
         Objects.equals(this.enableOperatorsCa, updateSksClusterRequest.enableOperatorsCa);
   }
 
@@ -390,7 +379,7 @@ public class UpdateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons, hashCodeNullable(featureGates), enableOperatorsCa);
+    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons, featureGates, enableOperatorsCa);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
