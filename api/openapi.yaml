@@ -14922,6 +14922,7 @@ paths:
     get:
       tags:
       - quotas
+      - ccm
       responses:
         '200':
           description: '200'
