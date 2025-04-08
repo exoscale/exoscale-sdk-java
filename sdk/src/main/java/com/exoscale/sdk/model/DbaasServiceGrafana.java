@@ -26,6 +26,7 @@ import com.exoscale.sdk.model.DbaasServiceGrafanaConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaGrafana;
@@ -50,6 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceGrafana.JSON_PROPERTY_NODE_COUNT,
   DbaasServiceGrafana.JSON_PROPERTY_CONNECTION_INFO,
   DbaasServiceGrafana.JSON_PROPERTY_NODE_CPU_COUNT,
+  DbaasServiceGrafana.JSON_PROPERTY_PROMETHEUS_URI,
   DbaasServiceGrafana.JSON_PROPERTY_INTEGRATIONS,
   DbaasServiceGrafana.JSON_PROPERTY_ZONE,
   DbaasServiceGrafana.JSON_PROPERTY_NODE_STATES,
@@ -88,6 +90,9 @@ public class DbaasServiceGrafana {
 
   public static final String JSON_PROPERTY_NODE_CPU_COUNT = "node-cpu-count";
   private Long nodeCpuCount;
+
+  public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
+  private DbaasServiceMysqlPrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -279,6 +284,31 @@ public class DbaasServiceGrafana {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNodeCpuCount(Long nodeCpuCount) {
     this.nodeCpuCount = nodeCpuCount;
+  }
+
+
+  public DbaasServiceGrafana prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
+    return this;
+  }
+
+   /**
+   * Get prometheusUri
+   * @return prometheusUri
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+    return prometheusUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
   }
 
 
@@ -882,6 +912,7 @@ public class DbaasServiceGrafana {
         Objects.equals(this.nodeCount, dbaasServiceGrafana.nodeCount) &&
         Objects.equals(this.connectionInfo, dbaasServiceGrafana.connectionInfo) &&
         Objects.equals(this.nodeCpuCount, dbaasServiceGrafana.nodeCpuCount) &&
+        Objects.equals(this.prometheusUri, dbaasServiceGrafana.prometheusUri) &&
         Objects.equals(this.integrations, dbaasServiceGrafana.integrations) &&
         Objects.equals(this.zone, dbaasServiceGrafana.zone) &&
         Objects.equals(this.nodeStates, dbaasServiceGrafana.nodeStates) &&
@@ -907,7 +938,7 @@ public class DbaasServiceGrafana {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, updatedAt, nodeCount, connectionInfo, nodeCpuCount, integrations, zone, nodeStates, name, type, state, grafanaSettings, ipFilter, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users);
+    return Objects.hash(description, updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, grafanaSettings, ipFilter, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users);
   }
 
   @Override
@@ -919,6 +950,7 @@ public class DbaasServiceGrafana {
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
+    sb.append("    prometheusUri: ").append(toIndentedString(prometheusUri)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    nodeStates: ").append(toIndentedString(nodeStates)).append("\n");
@@ -1010,6 +1042,11 @@ public class DbaasServiceGrafana {
     // add `node-cpu-count` to the URL query string
     if (getNodeCpuCount() != null) {
       joiner.add(String.format("%snode-cpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeCpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `prometheus-uri` to the URL query string
+    if (getPrometheusUri() != null) {
+      joiner.add(getPrometheusUri().toUrlQueryString(prefix + "prometheus-uri" + suffix));
     }
 
     // add `integrations` to the URL query string

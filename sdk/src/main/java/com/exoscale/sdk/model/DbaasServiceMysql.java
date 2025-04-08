@@ -26,6 +26,7 @@ import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlBackupSchedule;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceMysqlConnectionInfo;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceMysqlUsersInner;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.EnumServiceState;
@@ -51,6 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceMysql.JSON_PROPERTY_CONNECTION_INFO,
   DbaasServiceMysql.JSON_PROPERTY_BACKUP_SCHEDULE,
   DbaasServiceMysql.JSON_PROPERTY_NODE_CPU_COUNT,
+  DbaasServiceMysql.JSON_PROPERTY_PROMETHEUS_URI,
   DbaasServiceMysql.JSON_PROPERTY_INTEGRATIONS,
   DbaasServiceMysql.JSON_PROPERTY_ZONE,
   DbaasServiceMysql.JSON_PROPERTY_NODE_STATES,
@@ -90,6 +92,9 @@ public class DbaasServiceMysql {
 
   public static final String JSON_PROPERTY_NODE_CPU_COUNT = "node-cpu-count";
   private Long nodeCpuCount;
+
+  public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
+  private DbaasServiceMysqlPrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -284,6 +289,31 @@ public class DbaasServiceMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNodeCpuCount(Long nodeCpuCount) {
     this.nodeCpuCount = nodeCpuCount;
+  }
+
+
+  public DbaasServiceMysql prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
+    return this;
+  }
+
+   /**
+   * Get prometheusUri
+   * @return prometheusUri
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+    return prometheusUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
   }
 
 
@@ -920,6 +950,7 @@ public class DbaasServiceMysql {
         Objects.equals(this.connectionInfo, dbaasServiceMysql.connectionInfo) &&
         Objects.equals(this.backupSchedule, dbaasServiceMysql.backupSchedule) &&
         Objects.equals(this.nodeCpuCount, dbaasServiceMysql.nodeCpuCount) &&
+        Objects.equals(this.prometheusUri, dbaasServiceMysql.prometheusUri) &&
         Objects.equals(this.integrations, dbaasServiceMysql.integrations) &&
         Objects.equals(this.zone, dbaasServiceMysql.zone) &&
         Objects.equals(this.nodeStates, dbaasServiceMysql.nodeStates) &&
@@ -946,7 +977,7 @@ public class DbaasServiceMysql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, nodeCount, connectionInfo, backupSchedule, nodeCpuCount, integrations, zone, nodeStates, name, type, state, databases, ipFilter, backups, terminationProtection, notifications, components, mysqlSettings, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users);
+    return Objects.hash(updatedAt, nodeCount, connectionInfo, backupSchedule, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, databases, ipFilter, backups, terminationProtection, notifications, components, mysqlSettings, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users);
   }
 
   @Override
@@ -958,6 +989,7 @@ public class DbaasServiceMysql {
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    backupSchedule: ").append(toIndentedString(backupSchedule)).append("\n");
     sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
+    sb.append("    prometheusUri: ").append(toIndentedString(prometheusUri)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    nodeStates: ").append(toIndentedString(nodeStates)).append("\n");
@@ -1050,6 +1082,11 @@ public class DbaasServiceMysql {
     // add `node-cpu-count` to the URL query string
     if (getNodeCpuCount() != null) {
       joiner.add(String.format("%snode-cpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeCpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `prometheus-uri` to the URL query string
+    if (getPrometheusUri() != null) {
+      joiner.add(getPrometheusUri().toUrlQueryString(prefix + "prometheus-uri" + suffix));
     }
 
     // add `integrations` to the URL query string

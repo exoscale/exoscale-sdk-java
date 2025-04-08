@@ -25,6 +25,7 @@ import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServiceOpensearchConnectionInfo;
 import com.exoscale.sdk.model.EnumServiceState;
@@ -54,6 +55,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceOpensearch.JSON_PROPERTY_NODE_COUNT,
   DbaasServiceOpensearch.JSON_PROPERTY_CONNECTION_INFO,
   DbaasServiceOpensearch.JSON_PROPERTY_NODE_CPU_COUNT,
+  DbaasServiceOpensearch.JSON_PROPERTY_PROMETHEUS_URI,
   DbaasServiceOpensearch.JSON_PROPERTY_INTEGRATIONS,
   DbaasServiceOpensearch.JSON_PROPERTY_ZONE,
   DbaasServiceOpensearch.JSON_PROPERTY_NODE_STATES,
@@ -99,6 +101,9 @@ public class DbaasServiceOpensearch {
 
   public static final String JSON_PROPERTY_NODE_CPU_COUNT = "node-cpu-count";
   private Long nodeCpuCount;
+
+  public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
+  private DbaasServiceMysqlPrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -328,6 +333,31 @@ public class DbaasServiceOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNodeCpuCount(Long nodeCpuCount) {
     this.nodeCpuCount = nodeCpuCount;
+  }
+
+
+  public DbaasServiceOpensearch prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
+    return this;
+  }
+
+   /**
+   * Get prometheusUri
+   * @return prometheusUri
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+    return prometheusUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
   }
 
 
@@ -1040,6 +1070,7 @@ public class DbaasServiceOpensearch {
         Objects.equals(this.nodeCount, dbaasServiceOpensearch.nodeCount) &&
         Objects.equals(this.connectionInfo, dbaasServiceOpensearch.connectionInfo) &&
         Objects.equals(this.nodeCpuCount, dbaasServiceOpensearch.nodeCpuCount) &&
+        Objects.equals(this.prometheusUri, dbaasServiceOpensearch.prometheusUri) &&
         Objects.equals(this.integrations, dbaasServiceOpensearch.integrations) &&
         Objects.equals(this.zone, dbaasServiceOpensearch.zone) &&
         Objects.equals(this.nodeStates, dbaasServiceOpensearch.nodeStates) &&
@@ -1069,7 +1100,7 @@ public class DbaasServiceOpensearch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, maxIndexCount, updatedAt, nodeCount, connectionInfo, nodeCpuCount, integrations, zone, nodeStates, name, keepIndexRefreshInterval, type, state, ipFilter, backups, terminationProtection, notifications, components, indexPatterns, maintenance, indexTemplate, diskSize, nodeMemory, uri, opensearchSettings, uriParams, version, createdAt, plan, opensearchDashboards, users);
+    return Objects.hash(description, maxIndexCount, updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, keepIndexRefreshInterval, type, state, ipFilter, backups, terminationProtection, notifications, components, indexPatterns, maintenance, indexTemplate, diskSize, nodeMemory, uri, opensearchSettings, uriParams, version, createdAt, plan, opensearchDashboards, users);
   }
 
   @Override
@@ -1082,6 +1113,7 @@ public class DbaasServiceOpensearch {
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
+    sb.append("    prometheusUri: ").append(toIndentedString(prometheusUri)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    nodeStates: ").append(toIndentedString(nodeStates)).append("\n");
@@ -1182,6 +1214,11 @@ public class DbaasServiceOpensearch {
     // add `node-cpu-count` to the URL query string
     if (getNodeCpuCount() != null) {
       joiner.add(String.format("%snode-cpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeCpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `prometheus-uri` to the URL query string
+    if (getPrometheusUri() != null) {
+      joiner.add(getPrometheusUri().toUrlQueryString(prefix + "prometheus-uri" + suffix));
     }
 
     // add `integrations` to the URL query string

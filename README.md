@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-03-21T07:06:24.868637604Z[Etc/UTC]
+- Build date: 2025-04-08T07:08:12.059012225Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-4d849cb</version>
+    <version>0.0.5-SNAPSHOT-fe65247</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4d849cb'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-fe65247'
 }
 ```
 
@@ -517,6 +517,7 @@ Class | Method | HTTP request | Description
  - [DbaasServiceMysqlBackupSchedule](sdk/docs/DbaasServiceMysqlBackupSchedule.md)
  - [DbaasServiceMysqlComponentsInner](sdk/docs/DbaasServiceMysqlComponentsInner.md)
  - [DbaasServiceMysqlConnectionInfo](sdk/docs/DbaasServiceMysqlConnectionInfo.md)
+ - [DbaasServiceMysqlPrometheusUri](sdk/docs/DbaasServiceMysqlPrometheusUri.md)
  - [DbaasServiceMysqlUsersInner](sdk/docs/DbaasServiceMysqlUsersInner.md)
  - [DbaasServiceNotification](sdk/docs/DbaasServiceNotification.md)
  - [DbaasServiceOpensearch](sdk/docs/DbaasServiceOpensearch.md)

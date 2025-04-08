@@ -13,6 +13,7 @@
 |**connectionInfo** | [**DbaasServicePgConnectionInfo**](DbaasServicePgConnectionInfo.md) |  |  [optional] |
 |**backupSchedule** | [**DbaasServiceMysqlBackupSchedule**](DbaasServiceMysqlBackupSchedule.md) |  |  [optional] |
 |**nodeCpuCount** | **Long** | Number of CPUs for each node |  [optional] |
+|**prometheusUri** | [**DbaasServiceMysqlPrometheusUri**](DbaasServiceMysqlPrometheusUri.md) |  |  |
 |**integrations** | [**List&lt;DbaasIntegration&gt;**](DbaasIntegration.md) | Service integrations |  [optional] |
 |**zone** | **String** | The zone where the service is running |  [optional] |
 |**nodeStates** | [**List&lt;DbaasNodeState&gt;**](DbaasNodeState.md) | State of individual service nodes |  [optional] |

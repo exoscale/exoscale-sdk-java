@@ -134,6 +134,7 @@ docs/DbaasServiceMysql.md
 docs/DbaasServiceMysqlBackupSchedule.md
 docs/DbaasServiceMysqlComponentsInner.md
 docs/DbaasServiceMysqlConnectionInfo.md
+docs/DbaasServiceMysqlPrometheusUri.md
 docs/DbaasServiceMysqlUsersInner.md
 docs/DbaasServiceNotification.md
 docs/DbaasServiceOpensearch.md
@@ -535,6 +536,7 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceMysql.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlBackupSchedule.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlComponentsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlConnectionInfo.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlPrometheusUri.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceNotification.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceOpensearch.java

@@ -17,6 +17,7 @@ import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServiceRedisComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceRedisConnectionInfo;
@@ -80,6 +81,14 @@ public class DbaasServiceRedisTest {
     @Test
     public void nodeCpuCountTest() {
         // TODO: test nodeCpuCount
+    }
+
+    /**
+     * Test the property 'prometheusUri'
+     */
+    @Test
+    public void prometheusUriTest() {
+        // TODO: test prometheusUri
     }
 
     /**

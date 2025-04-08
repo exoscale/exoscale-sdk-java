@@ -27,6 +27,7 @@ import com.exoscale.sdk.model.DbaasServiceKafkaComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceKafkaConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceKafkaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaKafka;
@@ -55,6 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceKafka.JSON_PROPERTY_CONNECTION_INFO,
   DbaasServiceKafka.JSON_PROPERTY_NODE_CPU_COUNT,
   DbaasServiceKafka.JSON_PROPERTY_KAFKA_REST_ENABLED,
+  DbaasServiceKafka.JSON_PROPERTY_PROMETHEUS_URI,
   DbaasServiceKafka.JSON_PROPERTY_INTEGRATIONS,
   DbaasServiceKafka.JSON_PROPERTY_ZONE,
   DbaasServiceKafka.JSON_PROPERTY_NODE_STATES,
@@ -101,6 +103,9 @@ public class DbaasServiceKafka {
 
   public static final String JSON_PROPERTY_KAFKA_REST_ENABLED = "kafka-rest-enabled";
   private Boolean kafkaRestEnabled;
+
+  public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
+  private DbaasServiceMysqlPrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -332,6 +337,31 @@ public class DbaasServiceKafka {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKafkaRestEnabled(Boolean kafkaRestEnabled) {
     this.kafkaRestEnabled = kafkaRestEnabled;
+  }
+
+
+  public DbaasServiceKafka prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
+    return this;
+  }
+
+   /**
+   * Get prometheusUri
+   * @return prometheusUri
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+    return prometheusUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
   }
 
 
@@ -1061,6 +1091,7 @@ public class DbaasServiceKafka {
         Objects.equals(this.connectionInfo, dbaasServiceKafka.connectionInfo) &&
         Objects.equals(this.nodeCpuCount, dbaasServiceKafka.nodeCpuCount) &&
         Objects.equals(this.kafkaRestEnabled, dbaasServiceKafka.kafkaRestEnabled) &&
+        Objects.equals(this.prometheusUri, dbaasServiceKafka.prometheusUri) &&
         Objects.equals(this.integrations, dbaasServiceKafka.integrations) &&
         Objects.equals(this.zone, dbaasServiceKafka.zone) &&
         Objects.equals(this.nodeStates, dbaasServiceKafka.nodeStates) &&
@@ -1091,7 +1122,7 @@ public class DbaasServiceKafka {
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, authenticationMethods, nodeCount, connectionInfo, nodeCpuCount, kafkaRestEnabled, integrations, zone, nodeStates, name, kafkaConnectEnabled, type, state, ipFilter, schemaRegistrySettings, backups, kafkaRestSettings, terminationProtection, notifications, kafkaConnectSettings, components, maintenance, kafkaSettings, diskSize, nodeMemory, uri, uriParams, schemaRegistryEnabled, version, createdAt, plan, users);
+    return Objects.hash(updatedAt, authenticationMethods, nodeCount, connectionInfo, nodeCpuCount, kafkaRestEnabled, prometheusUri, integrations, zone, nodeStates, name, kafkaConnectEnabled, type, state, ipFilter, schemaRegistrySettings, backups, kafkaRestSettings, terminationProtection, notifications, kafkaConnectSettings, components, maintenance, kafkaSettings, diskSize, nodeMemory, uri, uriParams, schemaRegistryEnabled, version, createdAt, plan, users);
   }
 
   @Override
@@ -1104,6 +1135,7 @@ public class DbaasServiceKafka {
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
     sb.append("    kafkaRestEnabled: ").append(toIndentedString(kafkaRestEnabled)).append("\n");
+    sb.append("    prometheusUri: ").append(toIndentedString(prometheusUri)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    nodeStates: ").append(toIndentedString(nodeStates)).append("\n");
@@ -1205,6 +1237,11 @@ public class DbaasServiceKafka {
     // add `kafka-rest-enabled` to the URL query string
     if (getKafkaRestEnabled() != null) {
       joiner.add(String.format("%skafka-rest-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKafkaRestEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `prometheus-uri` to the URL query string
+    if (getPrometheusUri() != null) {
+      joiner.add(getPrometheusUri().toUrlQueryString(prefix + "prometheus-uri" + suffix));
     }
 
     // add `integrations` to the URL query string

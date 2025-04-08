@@ -25,6 +25,7 @@ import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlBackupSchedule;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServicePgConnectionInfo;
 import com.exoscale.sdk.model.DbaasServicePgConnectionPoolsInner;
@@ -57,6 +58,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServicePg.JSON_PROPERTY_CONNECTION_INFO,
   DbaasServicePg.JSON_PROPERTY_BACKUP_SCHEDULE,
   DbaasServicePg.JSON_PROPERTY_NODE_CPU_COUNT,
+  DbaasServicePg.JSON_PROPERTY_PROMETHEUS_URI,
   DbaasServicePg.JSON_PROPERTY_INTEGRATIONS,
   DbaasServicePg.JSON_PROPERTY_ZONE,
   DbaasServicePg.JSON_PROPERTY_NODE_STATES,
@@ -106,6 +108,9 @@ public class DbaasServicePg {
 
   public static final String JSON_PROPERTY_NODE_CPU_COUNT = "node-cpu-count";
   private Long nodeCpuCount;
+
+  public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
+  private DbaasServiceMysqlPrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -346,6 +351,31 @@ public class DbaasServicePg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNodeCpuCount(Long nodeCpuCount) {
     this.nodeCpuCount = nodeCpuCount;
+  }
+
+
+  public DbaasServicePg prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
+    return this;
+  }
+
+   /**
+   * Get prometheusUri
+   * @return prometheusUri
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+    return prometheusUri;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+    this.prometheusUri = prometheusUri;
   }
 
 
@@ -1171,6 +1201,7 @@ public class DbaasServicePg {
         Objects.equals(this.connectionInfo, dbaasServicePg.connectionInfo) &&
         Objects.equals(this.backupSchedule, dbaasServicePg.backupSchedule) &&
         Objects.equals(this.nodeCpuCount, dbaasServicePg.nodeCpuCount) &&
+        Objects.equals(this.prometheusUri, dbaasServicePg.prometheusUri) &&
         Objects.equals(this.integrations, dbaasServicePg.integrations) &&
         Objects.equals(this.zone, dbaasServicePg.zone) &&
         Objects.equals(this.nodeStates, dbaasServicePg.nodeStates) &&
@@ -1204,7 +1235,7 @@ public class DbaasServicePg {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pgbouncerSettings, updatedAt, nodeCount, connectionInfo, backupSchedule, nodeCpuCount, integrations, zone, nodeStates, name, connectionPools, type, state, timescaledbSettings, databases, ipFilter, backups, terminationProtection, notifications, components, synchronousReplication, pglookoutSettings, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, workMem, sharedBuffersPercentage, pgSettings, maxConnections, users);
+    return Objects.hash(pgbouncerSettings, updatedAt, nodeCount, connectionInfo, backupSchedule, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, connectionPools, type, state, timescaledbSettings, databases, ipFilter, backups, terminationProtection, notifications, components, synchronousReplication, pglookoutSettings, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, workMem, sharedBuffersPercentage, pgSettings, maxConnections, users);
   }
 
   @Override
@@ -1217,6 +1248,7 @@ public class DbaasServicePg {
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
     sb.append("    backupSchedule: ").append(toIndentedString(backupSchedule)).append("\n");
     sb.append("    nodeCpuCount: ").append(toIndentedString(nodeCpuCount)).append("\n");
+    sb.append("    prometheusUri: ").append(toIndentedString(prometheusUri)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    nodeStates: ").append(toIndentedString(nodeStates)).append("\n");
@@ -1321,6 +1353,11 @@ public class DbaasServicePg {
     // add `node-cpu-count` to the URL query string
     if (getNodeCpuCount() != null) {
       joiner.add(String.format("%snode-cpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeCpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `prometheus-uri` to the URL query string
+    if (getPrometheusUri() != null) {
+      joiner.add(getPrometheusUri().toUrlQueryString(prefix + "prometheus-uri" + suffix));
     }
 
     // add `integrations` to the URL query string

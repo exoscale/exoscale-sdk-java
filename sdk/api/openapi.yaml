@@ -13320,12 +13320,12 @@ components:
         components:
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         node-memory: 0
@@ -13421,6 +13421,9 @@ components:
           - uri
           - uri
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -13504,6 +13507,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -13595,6 +13600,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     dbaas-service-kafka:
@@ -13701,6 +13707,9 @@ components:
           access-key: access-key
           registry-uri: registry-uri
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -13841,6 +13850,8 @@ components:
         kafka-rest-enabled:
           description: Whether Kafka REST is enabled
           type: boolean
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -13939,6 +13950,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     json-schema-valkey:
@@ -16424,12 +16436,12 @@ components:
         components:
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         shared-buffers-percentage: 57
@@ -16581,6 +16593,9 @@ components:
           server_idle_timeout: 600
           autodb_pool_mode: session
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -16668,6 +16683,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -16797,6 +16814,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     dbaas-integration:
@@ -26647,12 +26665,12 @@ components:
         components:
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         node-memory: 0
@@ -26834,6 +26852,9 @@ components:
           uri: uri
           username: username
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -26916,6 +26937,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -27002,6 +27025,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     enum-migration-status:
@@ -27305,6 +27329,9 @@ components:
           - uri
           - uri
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -27410,6 +27437,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -27496,6 +27525,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     zone-name:
@@ -27522,12 +27552,12 @@ components:
         components:
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         - component: component
           route: null
-          port: 23697
+          port: 13284
           usage: null
           host: host
         node-memory: 0
@@ -27701,6 +27731,9 @@ components:
           - uri
           username: username
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -27794,6 +27827,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -27901,6 +27936,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     manager:
@@ -28782,6 +28818,9 @@ components:
           - uri
           - uri
         updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         uri: uri
         version: version
         users:
@@ -28887,6 +28926,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
         integrations:
           description: Service integrations
           items:
@@ -28973,6 +29014,7 @@ components:
       required:
       - name
       - plan
+      - prometheus-uri
       - type
       type: object
     json-schema-timescaledb:
@@ -53872,11 +53914,27 @@ components:
           minimum: 0
           type: integer
       type: object
+    dbaas_service_mysql_prometheus_uri:
+      description: Prometheus integration URI
+      example:
+        port: 36944
+        host: host
+      properties:
+        host:
+          type: string
+        port:
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 65535
+          minimum: 0
+          type: integer
+      type: object
     dbaas_service_mysql_components_inner:
       example:
         component: component
         route: null
-        port: 23697
+        port: 13284
         usage: null
         host: host
       properties:

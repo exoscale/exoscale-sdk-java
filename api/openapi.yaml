@@ -2903,6 +2903,19 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of CPUs for each node
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -3032,6 +3045,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     dbaas-service-kafka:
       type: object
       properties:
@@ -3082,6 +3096,19 @@ components:
         kafka-rest-enabled:
           type: boolean
           description: Whether Kafka REST is enabled
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -3230,6 +3257,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     json-schema-valkey:
       properties:
         ssl:
@@ -4196,6 +4224,19 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of CPUs for each node
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -4400,6 +4441,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     dbaas-integration:
       type: object
       properties:
@@ -5642,6 +5684,19 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of CPUs for each node
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -5764,6 +5819,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     enum-migration-status:
       type: string
       enum:
@@ -6020,6 +6076,19 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of CPUs for each node
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -6167,6 +6236,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     zone-name:
       type: string
       enum:
@@ -6270,6 +6340,19 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of CPUs for each node
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -6485,6 +6568,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     manager:
       type: object
       properties:
@@ -6942,6 +7026,19 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of CPUs for each node
+        prometheus-uri:
+          type: object
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+              format: int64
+              minimum: 0
+              maximum: 65535
+              exclusiveMinimum: false
+              exclusiveMaximum: false
+          description: Prometheus integration URI
         integrations:
           type: array
           items:
@@ -7089,6 +7186,7 @@ components:
       - name
       - plan
       - type
+      - prometheus-uri
     json-schema-timescaledb:
       description: System-wide settings for the timescaledb extension
       properties:

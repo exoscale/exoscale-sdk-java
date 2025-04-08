@@ -19,6 +19,7 @@ import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServiceOpensearchConnectionInfo;
 import com.exoscale.sdk.model.EnumServiceState;
@@ -99,6 +100,14 @@ public class DbaasServiceOpensearchTest {
     @Test
     public void nodeCpuCountTest() {
         // TODO: test nodeCpuCount
+    }
+
+    /**
+     * Test the property 'prometheusUri'
+     */
+    @Test
+    public void prometheusUriTest() {
+        // TODO: test prometheusUri
     }
 
     /**

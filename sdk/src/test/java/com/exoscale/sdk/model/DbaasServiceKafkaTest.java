@@ -21,6 +21,7 @@ import com.exoscale.sdk.model.DbaasServiceKafkaComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceKafkaConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceKafkaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
+import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaKafka;
@@ -100,6 +101,14 @@ public class DbaasServiceKafkaTest {
     @Test
     public void kafkaRestEnabledTest() {
         // TODO: test kafkaRestEnabled
+    }
+
+    /**
+     * Test the property 'prometheusUri'
+     */
+    @Test
+    public void prometheusUriTest() {
+        // TODO: test prometheusUri
     }
 
     /**
