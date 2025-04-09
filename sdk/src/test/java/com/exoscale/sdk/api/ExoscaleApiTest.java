@@ -2113,6 +2113,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [Beta] Enable tpm for the instance.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void enableTpmTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.enableTpm(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Evict Instance Pool members
      *
      * This operation evicts the specified Compute instances member from the Instance Pool, shrinking it to &#x60;&amp;lt;current pool size&amp;gt; - &amp;lt;# evicted members&amp;gt;&#x60;.

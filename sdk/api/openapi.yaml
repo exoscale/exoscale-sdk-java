@@ -2183,6 +2183,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /instance/{id}:enable-tpm:
+    post:
+      description: ""
+      operationId: enable-tpm
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[Beta] Enable tpm for the instance."
+      tags:
+      - exoscale
+      x-accepts: application/json
   /organization:
     get:
       description: ""
@@ -13092,6 +13116,7 @@ components:
           description: Instance type family
           enum:
           - gpu3
+          - gpua30
           - gpu3080ti
           - gpu2
           - gpu
@@ -52707,6 +52732,9 @@ components:
           maxLength: 32768
           minLength: 1
           type: string
+        tpm-enabled:
+          description: "[Beta] Enable Trusted Platform Module (TPM)"
+          type: boolean
         deploy-target:
           $ref: '#/components/schemas/deploy-target'
         ipv6-enabled:

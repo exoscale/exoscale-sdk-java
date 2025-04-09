@@ -42,6 +42,7 @@ Compute instance type
 | Name | Value |
 |---- | -----|
 | GPU3 | &quot;gpu3&quot; |
+| GPUA30 | &quot;gpua30&quot; |
 | GPU3080TI | &quot;gpu3080ti&quot; |
 | GPU2 | &quot;gpu2&quot; |
 | GPU | &quot;gpu&quot; |

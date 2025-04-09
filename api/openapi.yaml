@@ -2667,6 +2667,7 @@ components:
           type: string
           enum:
           - gpu3
+          - gpua30
           - gpu3080ti
           - gpu2
           - gpu
@@ -11403,6 +11404,27 @@ paths:
                   description: 'Boot in Rescue Mode, using named profile (supported:
                     netboot, netboot-efi)'
       operationId: start-instance
+  "/instance/{id}:enable-tpm":
+    post:
+      tags:
+      - instance
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/operation"
+      description: ''
+      parameters:
+      - in: path
+        required: true
+        name: id
+        schema:
+          type: string
+          format: uuid
+      summary: "[Beta] Enable tpm for the instance."
+      operationId: enable-tpm
   "/organization":
     get:
       tags:
@@ -18444,6 +18466,9 @@ paths:
                   maxLength: 32768
                   minLength: 1
                   description: Instance Cloud-init user-data (base64 encoded)
+                tpm-enabled:
+                  type: boolean
+                  description: "[Beta] Enable Trusted Platform Module (TPM)"
                 deploy-target:
                   "$ref": "#/components/schemas/deploy-target"
                   description: Instance Deploy Target

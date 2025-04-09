@@ -112,6 +112,8 @@ public class InstanceType {
   public enum FamilyEnum {
     GPU3("gpu3"),
     
+    GPUA30("gpua30"),
+    
     GPU3080TI("gpu3080ti"),
     
     GPU2("gpu2"),

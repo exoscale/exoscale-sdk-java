@@ -130,6 +130,14 @@ public class CreateInstanceRequestTest {
     }
 
     /**
+     * Test the property 'tpmEnabled'
+     */
+    @Test
+    public void tpmEnabledTest() {
+        // TODO: test tpmEnabled
+    }
+
+    /**
      * Test the property 'deployTarget'
      */
     @Test

@@ -54,6 +54,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateInstanceRequest.JSON_PROPERTY_TEMPLATE,
   CreateInstanceRequest.JSON_PROPERTY_SSH_KEY,
   CreateInstanceRequest.JSON_PROPERTY_USER_DATA,
+  CreateInstanceRequest.JSON_PROPERTY_TPM_ENABLED,
   CreateInstanceRequest.JSON_PROPERTY_DEPLOY_TARGET,
   CreateInstanceRequest.JSON_PROPERTY_IPV6_ENABLED,
   CreateInstanceRequest.JSON_PROPERTY_DISK_SIZE,
@@ -90,6 +91,9 @@ public class CreateInstanceRequest {
 
   public static final String JSON_PROPERTY_USER_DATA = "user-data";
   private String userData;
+
+  public static final String JSON_PROPERTY_TPM_ENABLED = "tpm-enabled";
+  private Boolean tpmEnabled;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
   private DeployTarget deployTarget;
@@ -382,6 +386,31 @@ public class CreateInstanceRequest {
   }
 
 
+  public CreateInstanceRequest tpmEnabled(Boolean tpmEnabled) {
+    this.tpmEnabled = tpmEnabled;
+    return this;
+  }
+
+   /**
+   * [Beta] Enable Trusted Platform Module (TPM)
+   * @return tpmEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TPM_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTpmEnabled() {
+    return tpmEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TPM_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTpmEnabled(Boolean tpmEnabled) {
+    this.tpmEnabled = tpmEnabled;
+  }
+
+
   public CreateInstanceRequest deployTarget(DeployTarget deployTarget) {
     this.deployTarget = deployTarget;
     return this;
@@ -515,6 +544,7 @@ public class CreateInstanceRequest {
         Objects.equals(this.template, createInstanceRequest.template) &&
         Objects.equals(this.sshKey, createInstanceRequest.sshKey) &&
         Objects.equals(this.userData, createInstanceRequest.userData) &&
+        Objects.equals(this.tpmEnabled, createInstanceRequest.tpmEnabled) &&
         Objects.equals(this.deployTarget, createInstanceRequest.deployTarget) &&
         Objects.equals(this.ipv6Enabled, createInstanceRequest.ipv6Enabled) &&
         Objects.equals(this.diskSize, createInstanceRequest.diskSize) &&
@@ -523,7 +553,7 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, sshKey, userData, deployTarget, ipv6Enabled, diskSize, sshKeys);
+    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, sshKeys);
   }
 
   @Override
@@ -540,6 +570,7 @@ public class CreateInstanceRequest {
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    sshKey: ").append(toIndentedString(sshKey)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
+    sb.append("    tpmEnabled: ").append(toIndentedString(tpmEnabled)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
@@ -657,6 +688,11 @@ public class CreateInstanceRequest {
     // add `user-data` to the URL query string
     if (getUserData() != null) {
       joiner.add(String.format("%suser-data%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUserData()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tpm-enabled` to the URL query string
+    if (getTpmEnabled() != null) {
+      joiner.add(String.format("%stpm-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTpmEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `deploy-target` to the URL query string
