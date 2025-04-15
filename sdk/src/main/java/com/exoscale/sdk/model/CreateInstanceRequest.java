@@ -52,6 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateInstanceRequest.JSON_PROPERTY_NAME,
   CreateInstanceRequest.JSON_PROPERTY_INSTANCE_TYPE,
   CreateInstanceRequest.JSON_PROPERTY_TEMPLATE,
+  CreateInstanceRequest.JSON_PROPERTY_SECUREBOOT_ENABLED,
   CreateInstanceRequest.JSON_PROPERTY_SSH_KEY,
   CreateInstanceRequest.JSON_PROPERTY_USER_DATA,
   CreateInstanceRequest.JSON_PROPERTY_TPM_ENABLED,
@@ -85,6 +86,9 @@ public class CreateInstanceRequest {
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private Template template;
+
+  public static final String JSON_PROPERTY_SECUREBOOT_ENABLED = "secureboot-enabled";
+  private Boolean securebootEnabled;
 
   public static final String JSON_PROPERTY_SSH_KEY = "ssh-key";
   private SshKey sshKey;
@@ -336,6 +340,31 @@ public class CreateInstanceRequest {
   }
 
 
+  public CreateInstanceRequest securebootEnabled(Boolean securebootEnabled) {
+    this.securebootEnabled = securebootEnabled;
+    return this;
+  }
+
+   /**
+   * [Beta] Enable secure boot
+   * @return securebootEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECUREBOOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSecurebootEnabled() {
+    return securebootEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECUREBOOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecurebootEnabled(Boolean securebootEnabled) {
+    this.securebootEnabled = securebootEnabled;
+  }
+
+
   public CreateInstanceRequest sshKey(SshKey sshKey) {
     this.sshKey = sshKey;
     return this;
@@ -542,6 +571,7 @@ public class CreateInstanceRequest {
         Objects.equals(this.name, createInstanceRequest.name) &&
         Objects.equals(this.instanceType, createInstanceRequest.instanceType) &&
         Objects.equals(this.template, createInstanceRequest.template) &&
+        Objects.equals(this.securebootEnabled, createInstanceRequest.securebootEnabled) &&
         Objects.equals(this.sshKey, createInstanceRequest.sshKey) &&
         Objects.equals(this.userData, createInstanceRequest.userData) &&
         Objects.equals(this.tpmEnabled, createInstanceRequest.tpmEnabled) &&
@@ -553,7 +583,7 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, sshKeys);
+    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, sshKeys);
   }
 
   @Override
@@ -568,6 +598,7 @@ public class CreateInstanceRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    securebootEnabled: ").append(toIndentedString(securebootEnabled)).append("\n");
     sb.append("    sshKey: ").append(toIndentedString(sshKey)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    tpmEnabled: ").append(toIndentedString(tpmEnabled)).append("\n");
@@ -678,6 +709,11 @@ public class CreateInstanceRequest {
     // add `template` to the URL query string
     if (getTemplate() != null) {
       joiner.add(getTemplate().toUrlQueryString(prefix + "template" + suffix));
+    }
+
+    // add `secureboot-enabled` to the URL query string
+    if (getSecurebootEnabled() != null) {
+      joiner.add(String.format("%ssecureboot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecurebootEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ssh-key` to the URL query string

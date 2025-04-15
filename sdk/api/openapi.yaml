@@ -52725,6 +52725,9 @@ components:
           $ref: '#/components/schemas/instance-type'
         template:
           $ref: '#/components/schemas/template'
+        secureboot-enabled:
+          description: "[Beta] Enable secure boot"
+          type: boolean
         ssh-key:
           $ref: '#/components/schemas/ssh-key'
         user-data:

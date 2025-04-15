@@ -114,6 +114,14 @@ public class CreateInstanceRequestTest {
     }
 
     /**
+     * Test the property 'securebootEnabled'
+     */
+    @Test
+    public void securebootEnabledTest() {
+        // TODO: test securebootEnabled
+    }
+
+    /**
      * Test the property 'sshKey'
      */
     @Test

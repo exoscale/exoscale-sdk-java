@@ -15,6 +15,7 @@
 |**name** | **String** | Instance name |  [optional] |
 |**instanceType** | [**InstanceType**](InstanceType.md) |  |  |
 |**template** | [**Template**](Template.md) |  |  |
+|**securebootEnabled** | **Boolean** | [Beta] Enable secure boot |  [optional] |
 |**sshKey** | [**SshKey**](SshKey.md) |  |  [optional] |
 |**userData** | **String** | Instance Cloud-init user-data (base64 encoded) |  [optional] |
 |**tpmEnabled** | **Boolean** | [Beta] Enable Trusted Platform Module (TPM) |  [optional] |
