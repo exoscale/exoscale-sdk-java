@@ -17733,6 +17733,8 @@ components:
     sks-cluster:
       description: SKS Cluster
       example:
+        enable-kube-proxy: true
+        enable-operators-ca: true
         nodepools:
         - template:
             visibility: private
@@ -22433,6 +22435,9 @@ components:
         auto-upgrade: true
         description: description
         version: version
+        feature-gates:
+        - feature-gates
+        - feature-gates
         labels:
           key: labels
         endpoint: endpoint
@@ -22465,6 +22470,10 @@ components:
           maxLength: 255
           minLength: 1
           type: string
+        enable-operators-ca:
+          description: Indicates whether to add operators certificate authority (CA)
+            as part of trusted CAs for the API server.
+          type: boolean
         state:
           description: Cluster state
           enum:
@@ -22478,6 +22487,9 @@ components:
           - error
           readOnly: true
           type: string
+        enable-kube-proxy:
+          description: Indicates whether to deploy the Kubernetes network proxy.
+          type: boolean
         nodepools:
           description: Cluster Nodepools
           items:
@@ -22490,6 +22502,13 @@ components:
           - starter
           - pro
           type: string
+        feature-gates:
+          description: A list of Kubernetes-only Alpha features to enable for API
+            server component
+          items:
+            type: string
+          type: array
+          uniqueItems: true
         addons:
           description: Cluster addons
           items:
@@ -41485,7 +41504,9 @@ components:
     list_sks_clusters_200_response:
       example:
         sks-clusters:
-        - nodepools:
+        - enable-kube-proxy: true
+          enable-operators-ca: true
+          nodepools:
           - template:
               visibility: private
               description: description
@@ -46185,6 +46206,9 @@ components:
           auto-upgrade: true
           description: description
           version: version
+          feature-gates:
+          - feature-gates
+          - feature-gates
           labels:
             key: labels
           endpoint: endpoint
@@ -46193,7 +46217,9 @@ components:
           state: rotating-ccm-credentials
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           cni: calico
-        - nodepools:
+        - enable-kube-proxy: true
+          enable-operators-ca: true
+          nodepools:
           - template:
               visibility: private
               description: description
@@ -50893,6 +50919,9 @@ components:
           auto-upgrade: true
           description: description
           version: version
+          feature-gates:
+          - feature-gates
+          - feature-gates
           labels:
             key: labels
           endpoint: endpoint

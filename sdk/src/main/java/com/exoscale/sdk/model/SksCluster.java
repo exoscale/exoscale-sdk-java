@@ -47,9 +47,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksCluster.JSON_PROPERTY_CNI,
   SksCluster.JSON_PROPERTY_AUTO_UPGRADE,
   SksCluster.JSON_PROPERTY_NAME,
+  SksCluster.JSON_PROPERTY_ENABLE_OPERATORS_CA,
   SksCluster.JSON_PROPERTY_STATE,
+  SksCluster.JSON_PROPERTY_ENABLE_KUBE_PROXY,
   SksCluster.JSON_PROPERTY_NODEPOOLS,
   SksCluster.JSON_PROPERTY_LEVEL,
+  SksCluster.JSON_PROPERTY_FEATURE_GATES,
   SksCluster.JSON_PROPERTY_ADDONS,
   SksCluster.JSON_PROPERTY_ID,
   SksCluster.JSON_PROPERTY_VERSION,
@@ -108,6 +111,9 @@ public class SksCluster {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_ENABLE_OPERATORS_CA = "enable-operators-ca";
+  private Boolean enableOperatorsCa;
+
   /**
    * Cluster state
    */
@@ -158,6 +164,9 @@ public class SksCluster {
   public static final String JSON_PROPERTY_STATE = "state";
   private StateEnum state;
 
+  public static final String JSON_PROPERTY_ENABLE_KUBE_PROXY = "enable-kube-proxy";
+  private Boolean enableKubeProxy;
+
   public static final String JSON_PROPERTY_NODEPOOLS = "nodepools";
   private List<SksNodepool> nodepools;
 
@@ -198,6 +207,9 @@ public class SksCluster {
 
   public static final String JSON_PROPERTY_LEVEL = "level";
   private LevelEnum level;
+
+  public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
+  private Set<String> featureGates;
 
   /**
    * Gets or Sets addons
@@ -403,6 +415,31 @@ public class SksCluster {
   }
 
 
+  public SksCluster enableOperatorsCa(Boolean enableOperatorsCa) {
+    this.enableOperatorsCa = enableOperatorsCa;
+    return this;
+  }
+
+   /**
+   * Indicates whether to add operators certificate authority (CA) as part of trusted CAs for the API server.
+   * @return enableOperatorsCa
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableOperatorsCa() {
+    return enableOperatorsCa;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableOperatorsCa(Boolean enableOperatorsCa) {
+    this.enableOperatorsCa = enableOperatorsCa;
+  }
+
+
    /**
    * Cluster state
    * @return state
@@ -416,6 +453,31 @@ public class SksCluster {
   }
 
 
+
+
+  public SksCluster enableKubeProxy(Boolean enableKubeProxy) {
+    this.enableKubeProxy = enableKubeProxy;
+    return this;
+  }
+
+   /**
+   * Indicates whether to deploy the Kubernetes network proxy.
+   * @return enableKubeProxy
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_KUBE_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableKubeProxy() {
+    return enableKubeProxy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_KUBE_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableKubeProxy(Boolean enableKubeProxy) {
+    this.enableKubeProxy = enableKubeProxy;
+  }
 
 
    /**
@@ -455,6 +517,40 @@ public class SksCluster {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLevel(LevelEnum level) {
     this.level = level;
+  }
+
+
+  public SksCluster featureGates(Set<String> featureGates) {
+    this.featureGates = featureGates;
+    return this;
+  }
+
+  public SksCluster addFeatureGatesItem(String featureGatesItem) {
+    if (this.featureGates == null) {
+      this.featureGates = new LinkedHashSet<>();
+    }
+    this.featureGates.add(featureGatesItem);
+    return this;
+  }
+
+   /**
+   * A list of Kubernetes-only Alpha features to enable for API server component
+   * @return featureGates
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getFeatureGates() {
+    return featureGates;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFeatureGates(Set<String> featureGates) {
+    this.featureGates = featureGates;
   }
 
 
@@ -579,9 +675,12 @@ public class SksCluster {
         Objects.equals(this.cni, sksCluster.cni) &&
         Objects.equals(this.autoUpgrade, sksCluster.autoUpgrade) &&
         Objects.equals(this.name, sksCluster.name) &&
+        Objects.equals(this.enableOperatorsCa, sksCluster.enableOperatorsCa) &&
         Objects.equals(this.state, sksCluster.state) &&
+        Objects.equals(this.enableKubeProxy, sksCluster.enableKubeProxy) &&
         Objects.equals(this.nodepools, sksCluster.nodepools) &&
         Objects.equals(this.level, sksCluster.level) &&
+        Objects.equals(this.featureGates, sksCluster.featureGates) &&
         Objects.equals(this.addons, sksCluster.addons) &&
         Objects.equals(this.id, sksCluster.id) &&
         Objects.equals(this.version, sksCluster.version) &&
@@ -591,7 +690,7 @@ public class SksCluster {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, labels, cni, autoUpgrade, name, state, nodepools, level, addons, id, version, createdAt, endpoint);
+    return Objects.hash(description, labels, cni, autoUpgrade, name, enableOperatorsCa, state, enableKubeProxy, nodepools, level, featureGates, addons, id, version, createdAt, endpoint);
   }
 
   @Override
@@ -603,9 +702,12 @@ public class SksCluster {
     sb.append("    cni: ").append(toIndentedString(cni)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    enableOperatorsCa: ").append(toIndentedString(enableOperatorsCa)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    enableKubeProxy: ").append(toIndentedString(enableKubeProxy)).append("\n");
     sb.append("    nodepools: ").append(toIndentedString(nodepools)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
+    sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -687,9 +789,19 @@ public class SksCluster {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `enable-operators-ca` to the URL query string
+    if (getEnableOperatorsCa() != null) {
+      joiner.add(String.format("%senable-operators-ca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableOperatorsCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `state` to the URL query string
     if (getState() != null) {
       joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `enable-kube-proxy` to the URL query string
+    if (getEnableKubeProxy() != null) {
+      joiner.add(String.format("%senable-kube-proxy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableKubeProxy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nodepools` to the URL query string
@@ -705,6 +817,17 @@ public class SksCluster {
     // add `level` to the URL query string
     if (getLevel() != null) {
       joiner.add(String.format("%slevel%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLevel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `feature-gates` to the URL query string
+    if (getFeatureGates() != null) {
+      int i = 0;
+      for (String _item : getFeatureGates()) {
+        joiner.add(String.format("%sfeature-gates%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     // add `addons` to the URL query string

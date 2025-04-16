@@ -13,9 +13,12 @@ SKS Cluster
 |**cni** | [**CniEnum**](#CniEnum) | Cluster CNI |  [optional] |
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
 |**name** | **String** | Cluster name |  [optional] |
+|**enableOperatorsCa** | **Boolean** | Indicates whether to add operators certificate authority (CA) as part of trusted CAs for the API server. |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Cluster state |  [optional] [readonly] |
+|**enableKubeProxy** | **Boolean** | Indicates whether to deploy the Kubernetes network proxy. |  [optional] |
 |**nodepools** | [**List&lt;SksNodepool&gt;**](SksNodepool.md) | Cluster Nodepools |  [optional] [readonly] |
 |**level** | [**LevelEnum**](#LevelEnum) | Cluster level |  [optional] |
+|**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
 |**id** | **UUID** | Cluster ID |  [optional] [readonly] |
 |**version** | **String** | Control plane Kubernetes version |  [optional] |

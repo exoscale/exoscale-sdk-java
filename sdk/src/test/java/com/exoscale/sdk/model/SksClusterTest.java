@@ -88,11 +88,27 @@ public class SksClusterTest {
     }
 
     /**
+     * Test the property 'enableOperatorsCa'
+     */
+    @Test
+    public void enableOperatorsCaTest() {
+        // TODO: test enableOperatorsCa
+    }
+
+    /**
      * Test the property 'state'
      */
     @Test
     public void stateTest() {
         // TODO: test state
+    }
+
+    /**
+     * Test the property 'enableKubeProxy'
+     */
+    @Test
+    public void enableKubeProxyTest() {
+        // TODO: test enableKubeProxy
     }
 
     /**
@@ -109,6 +125,14 @@ public class SksClusterTest {
     @Test
     public void levelTest() {
         // TODO: test level
+    }
+
+    /**
+     * Test the property 'featureGates'
+     */
+    @Test
+    public void featureGatesTest() {
+        // TODO: test featureGates
     }
 
     /**
