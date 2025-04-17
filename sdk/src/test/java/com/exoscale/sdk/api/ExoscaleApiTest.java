@@ -122,6 +122,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
+import com.exoscale.sdk.model.GetUsageReport200Response;
 import com.exoscale.sdk.model.IamApiKey;
 import com.exoscale.sdk.model.IamApiKeyCreated;
 import com.exoscale.sdk.model.IamPolicy;
@@ -3249,6 +3250,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         Template response = 
         api.getTemplate(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve organization usage reports
+     *
+     * Returns aggregated usage reports for an organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getUsageReportTest() throws ApiException {
+        String period = null;
+        GetUsageReport200Response response = 
+        api.getUsageReport(period);
         
         // TODO: test validations
     }

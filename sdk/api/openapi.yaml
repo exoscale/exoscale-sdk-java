@@ -543,6 +543,29 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /usage-report:
+    get:
+      description: Returns aggregated usage reports for an organization
+      operationId: get-usage-report
+      parameters:
+      - explode: true
+        in: query
+        name: period
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_usage_report_200_response'
+          description: "200"
+      summary: Retrieve organization usage reports
+      tags:
+      - exoscale
+      x-accepts: application/json
   /event:
     get:
       description: |-
@@ -30879,6 +30902,60 @@ components:
           type: string
       required:
       - name
+      type: object
+    get_usage_report_200_response_usage:
+      description: Usage
+      example:
+        product: product
+        unit: unit
+        quantity: quantity
+        variable: variable
+        description: description
+        from: from
+        to: to
+      properties:
+        from:
+          description: Period Start Date
+          readOnly: true
+          type: string
+        to:
+          description: Period End Date
+          readOnly: true
+          type: string
+        product:
+          description: Product
+          readOnly: true
+          type: string
+        variable:
+          description: Variable
+          readOnly: true
+          type: string
+        description:
+          description: Description
+          readOnly: true
+          type: string
+        quantity:
+          description: Quantity
+          readOnly: true
+          type: string
+        unit:
+          description: Unit
+          readOnly: true
+          type: string
+      type: object
+    get_usage_report_200_response:
+      example:
+        usage:
+          product: product
+          unit: unit
+          quantity: quantity
+          variable: variable
+          description: description
+          from: from
+          to: to
+      properties:
+        usage:
+          $ref: '#/components/schemas/get_usage_report_200_response_usage'
       type: object
     create_dbaas_pg_upgrade_check_request:
       properties:

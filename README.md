@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-04-16T07:06:43.209366998Z[Etc/UTC]
+- Build date: 2025-04-17T07:07:08.752386374Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-57f570d</version>
+    <version>0.0.5-SNAPSHOT-8f5f57e</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-57f570d'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-8f5f57e'
 }
 ```
 
@@ -257,6 +257,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getSosPresignedUrl**](sdk/docs/ExoscaleApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object
 *ExoscaleApi* | [**getSshKey**](sdk/docs/ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details
 *ExoscaleApi* | [**getTemplate**](sdk/docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
+*ExoscaleApi* | [**getUsageReport**](sdk/docs/ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports
 *ExoscaleApi* | [**listAntiAffinityGroups**](sdk/docs/ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
 *ExoscaleApi* | [**listApiKeys**](sdk/docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
 *ExoscaleApi* | [**listBlockStorageSnapshots**](sdk/docs/ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots
@@ -611,6 +612,8 @@ Class | Method | HTTP request | Description
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)
+ - [GetUsageReport200Response](sdk/docs/GetUsageReport200Response.md)
+ - [GetUsageReport200ResponseUsage](sdk/docs/GetUsageReport200ResponseUsage.md)
  - [GitLabAuthIntegration](sdk/docs/GitLabAuthIntegration.md)
  - [GithubAuthIntegration](sdk/docs/GithubAuthIntegration.md)
  - [GoogleAuthIntegration](sdk/docs/GoogleAuthIntegration.md)
