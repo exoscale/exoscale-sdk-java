@@ -19,13 +19,15 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.GetUsageReport200ResponseUsage;
+import com.exoscale.sdk.model.GetUsageReport200ResponseUsageInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -38,13 +40,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetUsageReport200Response {
   public static final String JSON_PROPERTY_USAGE = "usage";
-  private GetUsageReport200ResponseUsage usage;
+  private List<GetUsageReport200ResponseUsageInner> usage;
 
   public GetUsageReport200Response() { 
   }
 
-  public GetUsageReport200Response usage(GetUsageReport200ResponseUsage usage) {
+  public GetUsageReport200Response usage(List<GetUsageReport200ResponseUsageInner> usage) {
     this.usage = usage;
+    return this;
+  }
+
+  public GetUsageReport200Response addUsageItem(GetUsageReport200ResponseUsageInner usageItem) {
+    if (this.usage == null) {
+      this.usage = new ArrayList<>();
+    }
+    this.usage.add(usageItem);
     return this;
   }
 
@@ -56,14 +66,14 @@ public class GetUsageReport200Response {
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public GetUsageReport200ResponseUsage getUsage() {
+  public List<GetUsageReport200ResponseUsageInner> getUsage() {
     return usage;
   }
 
 
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsage(GetUsageReport200ResponseUsage usage) {
+  public void setUsage(List<GetUsageReport200ResponseUsageInner> usage) {
     this.usage = usage;
   }
 
@@ -142,7 +152,12 @@ public class GetUsageReport200Response {
 
     // add `usage` to the URL query string
     if (getUsage() != null) {
-      joiner.add(getUsage().toUrlQueryString(prefix + "usage" + suffix));
+      for (int i = 0; i < getUsage().size(); i++) {
+        if (getUsage().get(i) != null) {
+          joiner.add(getUsage().get(i).toUrlQueryString(String.format("%susage%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

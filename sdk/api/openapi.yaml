@@ -30903,7 +30903,7 @@ components:
       required:
       - name
       type: object
-    get_usage_report_200_response_usage:
+    get_usage_report_200_response_usage_inner:
       description: Usage
       example:
         product: product
@@ -30946,7 +30946,14 @@ components:
     get_usage_report_200_response:
       example:
         usage:
-          product: product
+        - product: product
+          unit: unit
+          quantity: quantity
+          variable: variable
+          description: description
+          from: from
+          to: to
+        - product: product
           unit: unit
           quantity: quantity
           variable: variable
@@ -30955,7 +30962,9 @@ components:
           to: to
       properties:
         usage:
-          $ref: '#/components/schemas/get_usage_report_200_response_usage'
+          items:
+            $ref: '#/components/schemas/get_usage_report_200_response_usage_inner'
+          type: array
       type: object
     create_dbaas_pg_upgrade_check_request:
       properties:

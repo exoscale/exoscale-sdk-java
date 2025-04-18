@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-04-17T07:07:08.752386374Z[Etc/UTC]
+- Build date: 2025-04-18T07:08:01.710812182Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-8f5f57e</version>
+    <version>0.0.5-SNAPSHOT-9cea2d0</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-8f5f57e'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9cea2d0'
 }
 ```
 
@@ -613,7 +613,7 @@ Class | Method | HTTP request | Description
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)
  - [GetUsageReport200Response](sdk/docs/GetUsageReport200Response.md)
- - [GetUsageReport200ResponseUsage](sdk/docs/GetUsageReport200ResponseUsage.md)
+ - [GetUsageReport200ResponseUsageInner](sdk/docs/GetUsageReport200ResponseUsageInner.md)
  - [GitLabAuthIntegration](sdk/docs/GitLabAuthIntegration.md)
  - [GithubAuthIntegration](sdk/docs/GithubAuthIntegration.md)
  - [GoogleAuthIntegration](sdk/docs/GoogleAuthIntegration.md)

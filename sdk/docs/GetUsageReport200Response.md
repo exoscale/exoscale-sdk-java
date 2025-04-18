@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**usage** | [**GetUsageReport200ResponseUsage**](GetUsageReport200ResponseUsage.md) |  |  [optional] |
+|**usage** | [**List&lt;GetUsageReport200ResponseUsageInner&gt;**](GetUsageReport200ResponseUsageInner.md) |  |  [optional] |
 
 
 

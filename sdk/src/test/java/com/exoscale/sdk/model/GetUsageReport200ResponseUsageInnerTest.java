@@ -24,17 +24,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetUsageReport200ResponseUsage
+ * Model tests for GetUsageReport200ResponseUsageInner
  */
-public class GetUsageReport200ResponseUsageTest {
-    private final GetUsageReport200ResponseUsage model = new GetUsageReport200ResponseUsage();
+public class GetUsageReport200ResponseUsageInnerTest {
+    private final GetUsageReport200ResponseUsageInner model = new GetUsageReport200ResponseUsageInner();
 
     /**
-     * Model tests for GetUsageReport200ResponseUsage
+     * Model tests for GetUsageReport200ResponseUsageInner
      */
     @Test
-    public void testGetUsageReport200ResponseUsage() {
-        // TODO: test GetUsageReport200ResponseUsage
+    public void testGetUsageReport200ResponseUsageInner() {
+        // TODO: test GetUsageReport200ResponseUsageInner
     }
 
     /**

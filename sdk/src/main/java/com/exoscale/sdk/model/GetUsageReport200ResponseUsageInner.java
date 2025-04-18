@@ -32,16 +32,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Usage
  */
 @JsonPropertyOrder({
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_FROM,
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_TO,
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_PRODUCT,
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_VARIABLE,
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_DESCRIPTION,
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_QUANTITY,
-  GetUsageReport200ResponseUsage.JSON_PROPERTY_UNIT
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_FROM,
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_TO,
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_PRODUCT,
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_VARIABLE,
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_DESCRIPTION,
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_QUANTITY,
+  GetUsageReport200ResponseUsageInner.JSON_PROPERTY_UNIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class GetUsageReport200ResponseUsage {
+public class GetUsageReport200ResponseUsageInner {
   public static final String JSON_PROPERTY_FROM = "from";
   private String from;
 
@@ -63,11 +63,11 @@ public class GetUsageReport200ResponseUsage {
   public static final String JSON_PROPERTY_UNIT = "unit";
   private String unit;
 
-  public GetUsageReport200ResponseUsage() { 
+  public GetUsageReport200ResponseUsageInner() { 
   }
 
   @JsonCreator
-  public GetUsageReport200ResponseUsage(
+  public GetUsageReport200ResponseUsageInner(
     @JsonProperty(JSON_PROPERTY_FROM) String from, 
     @JsonProperty(JSON_PROPERTY_TO) String to, 
     @JsonProperty(JSON_PROPERTY_PRODUCT) String product, 
@@ -192,7 +192,7 @@ public class GetUsageReport200ResponseUsage {
 
 
   /**
-   * Return true if this get_usage_report_200_response_usage object is equal to o.
+   * Return true if this get_usage_report_200_response_usage_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -202,14 +202,14 @@ public class GetUsageReport200ResponseUsage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetUsageReport200ResponseUsage getUsageReport200ResponseUsage = (GetUsageReport200ResponseUsage) o;
-    return Objects.equals(this.from, getUsageReport200ResponseUsage.from) &&
-        Objects.equals(this.to, getUsageReport200ResponseUsage.to) &&
-        Objects.equals(this.product, getUsageReport200ResponseUsage.product) &&
-        Objects.equals(this.variable, getUsageReport200ResponseUsage.variable) &&
-        Objects.equals(this.description, getUsageReport200ResponseUsage.description) &&
-        Objects.equals(this.quantity, getUsageReport200ResponseUsage.quantity) &&
-        Objects.equals(this.unit, getUsageReport200ResponseUsage.unit);
+    GetUsageReport200ResponseUsageInner getUsageReport200ResponseUsageInner = (GetUsageReport200ResponseUsageInner) o;
+    return Objects.equals(this.from, getUsageReport200ResponseUsageInner.from) &&
+        Objects.equals(this.to, getUsageReport200ResponseUsageInner.to) &&
+        Objects.equals(this.product, getUsageReport200ResponseUsageInner.product) &&
+        Objects.equals(this.variable, getUsageReport200ResponseUsageInner.variable) &&
+        Objects.equals(this.description, getUsageReport200ResponseUsageInner.description) &&
+        Objects.equals(this.quantity, getUsageReport200ResponseUsageInner.quantity) &&
+        Objects.equals(this.unit, getUsageReport200ResponseUsageInner.unit);
   }
 
   @Override
@@ -220,7 +220,7 @@ public class GetUsageReport200ResponseUsage {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetUsageReport200ResponseUsage {\n");
+    sb.append("class GetUsageReport200ResponseUsageInner {\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");

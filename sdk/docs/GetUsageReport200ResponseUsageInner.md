@@ -1,6 +1,6 @@
 
 
-# GetUsageReport200ResponseUsage
+# GetUsageReport200ResponseUsageInner
 
 Usage
 
