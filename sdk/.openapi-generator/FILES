@@ -226,6 +226,9 @@ docs/GetDbaasSettingsValkey200Response.md
 docs/GetDbaasSettingsValkey200ResponseSettings.md
 docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
 docs/GetDnsDomainZoneFile200Response.md
+docs/GetEnvImpact200Response.md
+docs/GetEnvImpact200ResponseEnvImpactValue.md
+docs/GetEnvImpact200ResponseEnvImpactValueTotal.md
 docs/GetSksClusterAuthorityCert200Response.md
 docs/GetSosPresignedUrl200Response.md
 docs/GetUsageReport200Response.md
@@ -629,6 +632,9 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
+src/main/java/com/exoscale/sdk/model/GetEnvImpact200Response.java
+src/main/java/com/exoscale/sdk/model/GetEnvImpact200ResponseEnvImpactValue.java
+src/main/java/com/exoscale/sdk/model/GetEnvImpact200ResponseEnvImpactValueTotal.java
 src/main/java/com/exoscale/sdk/model/GetSksClusterAuthorityCert200Response.java
 src/main/java/com/exoscale/sdk/model/GetSosPresignedUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetUsageReport200Response.java

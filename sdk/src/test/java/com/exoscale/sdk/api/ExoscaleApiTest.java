@@ -120,6 +120,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsRedis200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetEnvImpact200Response;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -2874,6 +2875,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         ElasticIp response = 
         api.getElasticIp(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Retrieve organization environmental impact reports
+     *
+     * [BETA] Returns environmental impact reports for an organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getEnvImpactTest() throws ApiException {
+        String period = null;
+        GetEnvImpact200Response response = 
+        api.getEnvImpact(period);
         
         // TODO: test validations
     }

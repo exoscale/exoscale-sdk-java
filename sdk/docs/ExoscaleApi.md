@@ -156,6 +156,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
 | [**getElasticIp**](ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details |
+| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact | Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
@@ -14335,6 +14336,98 @@ No authorization required
 ### Return type
 
 ApiResponse<[**ElasticIp**](ElasticIp.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getEnvImpact
+
+> GetEnvImpact200Response getEnvImpact(period)
+
+Retrieve organization environmental impact reports
+
+[BETA] Returns environmental impact reports for an organization
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String period = "period_example"; // String | 
+
+        try {
+            // Invoke the API method
+            GetEnvImpact200Response result = client.getEnvImpact(period);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getEnvImpact");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **period** | **String**|  | [optional] |
+
+### Return type
+
+[**GetEnvImpact200Response**](GetEnvImpact200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **period** | **String**|  | [optional] |
+
+### Return type
+
+ApiResponse<[**GetEnvImpact200Response**](GetEnvImpact200Response.md)>
 
 
 ### Authorization

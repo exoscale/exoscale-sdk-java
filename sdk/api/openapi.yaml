@@ -7993,6 +7993,29 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /env-impact:
+    get:
+      description: "[BETA] Returns environmental impact reports for an organization"
+      operationId: get-env-impact
+      parameters:
+      - explode: true
+        in: query
+        name: period
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_env_impact_200_response'
+          description: "200"
+      summary: Retrieve organization environmental impact reports
+      tags:
+      - exoscale
+      x-accepts: application/json
 components:
   schemas:
     dbaas-node-state:
@@ -53123,6 +53146,42 @@ components:
           type: string
       required:
       - id
+      type: object
+    get_env_impact_200_response_env_impact_value_total:
+      example:
+        amount: 0.8008281904610115
+        unit: unit
+      properties:
+        amount:
+          description: Impact Amount
+          readOnly: true
+          type: number
+        unit:
+          description: Impact Unit
+          readOnly: true
+          type: string
+      type: object
+    get_env_impact_200_response_env_impact_value:
+      example:
+        total:
+          amount: 0.8008281904610115
+          unit: unit
+      properties:
+        total:
+          $ref: '#/components/schemas/get_env_impact_200_response_env_impact_value_total'
+      type: object
+    get_env_impact_200_response:
+      example:
+        env_impact:
+          key:
+            total:
+              amount: 0.8008281904610115
+              unit: unit
+      properties:
+        env_impact:
+          additionalProperties:
+            $ref: '#/components/schemas/get_env_impact_200_response_env_impact_value'
+          type: object
       type: object
     dbaas_endpoint_elasticsearch_input_create_settings:
       properties:
