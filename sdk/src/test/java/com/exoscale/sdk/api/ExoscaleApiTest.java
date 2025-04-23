@@ -2880,7 +2880,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Retrieve organization environmental impact reports
+     * [BETA] Retrieve organization environmental impact reports
      *
      * [BETA] Returns environmental impact reports for an organization
      *

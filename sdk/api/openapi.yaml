@@ -8012,7 +8012,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/get_env_impact_200_response'
           description: "200"
-      summary: Retrieve organization environmental impact reports
+      summary: "[BETA] Retrieve organization environmental impact reports"
       tags:
       - exoscale
       x-accepts: application/json

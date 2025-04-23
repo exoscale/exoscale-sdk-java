@@ -13445,7 +13445,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Retrieve organization environmental impact reports
+   * [BETA] Retrieve organization environmental impact reports
    * [BETA] Returns environmental impact reports for an organization
    * @param period  (optional)
    * @return GetEnvImpact200Response
@@ -13457,7 +13457,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Retrieve organization environmental impact reports
+   * [BETA] Retrieve organization environmental impact reports
    * [BETA] Returns environmental impact reports for an organization
    * @param period  (optional)
    * @return ApiResponse&lt;GetEnvImpact200Response&gt;

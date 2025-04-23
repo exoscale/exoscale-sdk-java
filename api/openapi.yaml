@@ -19071,7 +19071,7 @@ paths:
         name: period
         schema:
           type: string
-      summary: Retrieve organization environmental impact reports
+      summary: "[BETA] Retrieve organization environmental impact reports"
       operationId: get-env-impact
 x-topics:
 - title: API Request Signature
