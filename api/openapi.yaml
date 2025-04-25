@@ -398,6 +398,10 @@ components:
               minLength: 5
               pattern: "^[a-z0-9\\-@_]{5,32}$"
               description: Prometheus basic authentication username
+    sks-nodepool-labels:
+      type: object
+      additionalProperties:
+        type: string
     enum-component-route:
       type: string
       enum:
@@ -5167,7 +5171,7 @@ components:
           maxLength: 255
           description: Cluster description
         labels:
-          "$ref": "#/components/schemas/labels"
+          "$ref": "#/components/schemas/sks-cluster-labels"
           description: Cluster labels
         cni:
           type: string
@@ -5464,7 +5468,7 @@ components:
             * IPv4 (`inet4`) addressing only;
             * IPv4 and IPv6 (`dual`) addressing.
         labels:
-          "$ref": "#/components/schemas/labels"
+          "$ref": "#/components/schemas/sks-nodepool-labels"
           description: Nodepool labels
         taints:
           "$ref": "#/components/schemas/sks-nodepool-taints"
@@ -5570,6 +5574,10 @@ components:
           description: Tag value
       required:
       - tag
+    sks-cluster-labels:
+      type: object
+      additionalProperties:
+        type: string
     enum-integration-types:
       type: string
       enum:
@@ -10922,7 +10930,7 @@ paths:
                     * IPv4 (`inet4`) addressing only;
                     * both IPv4 and IPv6 (`dual`) addressing.
                 labels:
-                  "$ref": "#/components/schemas/labels"
+                  "$ref": "#/components/schemas/sks-nodepool-labels"
                   description: Nodepool labels
                 taints:
                   "$ref": "#/components/schemas/sks-nodepool-taints"
@@ -14739,7 +14747,7 @@ paths:
                   nullable: true
                   description: Cluster description
                 labels:
-                  "$ref": "#/components/schemas/labels"
+                  "$ref": "#/components/schemas/sks-cluster-labels"
                   description: Cluster Labels
                 cni:
                   type: string
@@ -15074,7 +15082,7 @@ paths:
                   nullable: true
                   description: Cluster description
                 labels:
-                  "$ref": "#/components/schemas/labels"
+                  "$ref": "#/components/schemas/sks-cluster-labels"
                   description: Cluster labels
                 oidc:
                   "$ref": "#/components/schemas/sks-oidc"
@@ -16721,7 +16729,7 @@ paths:
                     * IPv4 (`inet4`) addressing only (default);
                     * both IPv4 and IPv6 (`dual`) addressing.
                 labels:
-                  "$ref": "#/components/schemas/labels"
+                  "$ref": "#/components/schemas/sks-nodepool-labels"
                   description: Nodepool labels
                 taints:
                   "$ref": "#/components/schemas/sks-nodepool-taints"

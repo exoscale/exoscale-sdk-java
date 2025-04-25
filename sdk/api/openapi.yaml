@@ -8281,6 +8281,10 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_prometheus_payload_settings'
       type: object
+    sks-nodepool-labels:
+      additionalProperties:
+        type: string
+      type: object
     enum-component-route:
       enum:
       - dynamic
@@ -26629,6 +26633,10 @@ components:
           type: string
       required:
       - tag
+      type: object
+    sks-cluster-labels:
+      additionalProperties:
+        type: string
       type: object
     enum-integration-types:
       enum:
