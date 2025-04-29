@@ -118,6 +118,8 @@ public class SksCluster {
    * Cluster state
    */
   public enum StateEnum {
+    ROTATING_CSI_CREDENTIALS("rotating-csi-credentials"),
+    
     ROTATING_CCM_CREDENTIALS("rotating-ccm-credentials"),
     
     CREATING("creating"),

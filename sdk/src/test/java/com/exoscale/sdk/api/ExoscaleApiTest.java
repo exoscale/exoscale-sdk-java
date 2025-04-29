@@ -4499,6 +4499,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Rotate Exoscale CSI credentials
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void rotateSksCsiCredentialsTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.rotateSksCsiCredentials(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Rotate operators certificate authority
      *
      * 

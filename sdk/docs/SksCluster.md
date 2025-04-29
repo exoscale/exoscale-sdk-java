@@ -40,6 +40,7 @@ SKS Cluster
 
 | Name | Value |
 |---- | -----|
+| ROTATING_CSI_CREDENTIALS | &quot;rotating-csi-credentials&quot; |
 | ROTATING_CCM_CREDENTIALS | &quot;rotating-ccm-credentials&quot; |
 | CREATING | &quot;creating&quot; |
 | UPGRADING | &quot;upgrading&quot; |

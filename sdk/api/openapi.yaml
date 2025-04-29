@@ -4408,6 +4408,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /sks-cluster/{id}/rotate-csi-credentials:
+    put:
+      description: ""
+      operationId: rotate-sks-csi-credentials
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Rotate Exoscale CSI credentials
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-grafana/{service-name}/user/{username}/password/reset:
     put:
       description: If no password is provided one will be generated automatically.
@@ -22493,7 +22517,7 @@ components:
         endpoint: endpoint
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
-        state: rotating-ccm-credentials
+        state: rotating-csi-credentials
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         cni: calico
       properties:
@@ -22527,6 +22551,7 @@ components:
         state:
           description: Cluster state
           enum:
+          - rotating-csi-credentials
           - rotating-ccm-credentials
           - creating
           - upgrading
@@ -46331,7 +46356,7 @@ components:
           endpoint: endpoint
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
-          state: rotating-ccm-credentials
+          state: rotating-csi-credentials
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           cni: calico
         - enable-kube-proxy: true
@@ -51044,7 +51069,7 @@ components:
           endpoint: endpoint
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
-          state: rotating-ccm-credentials
+          state: rotating-csi-credentials
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           cni: calico
       properties:
