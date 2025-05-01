@@ -51199,6 +51199,7 @@ components:
             server component
           items:
             type: string
+          nullable: true
           type: array
           uniqueItems: true
         enable-operators-ca:
