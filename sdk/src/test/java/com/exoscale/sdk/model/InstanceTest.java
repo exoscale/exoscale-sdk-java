@@ -136,6 +136,14 @@ public class InstanceTest {
     }
 
     /**
+     * Test the property 'securebootEnabled'
+     */
+    @Test
+    public void securebootEnabledTest() {
+        // TODO: test securebootEnabled
+    }
+
+    /**
      * Test the property 'sshKey'
      */
     @Test
@@ -165,6 +173,14 @@ public class InstanceTest {
     @Test
     public void managerTest() {
         // TODO: test manager
+    }
+
+    /**
+     * Test the property 'tpmEnabled'
+     */
+    @Test
+    public void tpmEnabledTest() {
+        // TODO: test tpmEnabled
     }
 
     /**

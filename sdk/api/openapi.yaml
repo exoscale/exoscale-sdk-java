@@ -9241,6 +9241,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -9342,6 +9343,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -9433,6 +9435,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -9534,6 +9537,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -9780,6 +9784,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -9881,6 +9886,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -9972,6 +9978,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -10073,6 +10080,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -10168,6 +10176,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -10269,6 +10278,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -10360,6 +10370,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -10461,6 +10472,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -10646,6 +10658,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -10747,6 +10760,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -10838,6 +10852,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -10939,6 +10954,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -11185,6 +11201,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -11286,6 +11303,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -11377,6 +11395,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -11478,6 +11497,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -11573,6 +11593,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -11674,6 +11695,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -11765,6 +11787,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -11866,6 +11889,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -14899,6 +14923,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -15000,6 +15025,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -15091,6 +15117,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -15192,6 +15219,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -15438,6 +15466,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -15539,6 +15568,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -15630,6 +15660,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -15731,6 +15762,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -15826,6 +15858,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -15927,6 +15960,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -16018,6 +16052,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -16119,6 +16154,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -17408,6 +17444,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           family: family
         public-ip-assignment: null
+        secureboot-enabled: true
         mac-address: mac-address
         ssh-keys:
         - name: name
@@ -17509,6 +17546,7 @@ components:
           - null
         labels:
           key: labels
+        tpm-enabled: true
         ipv6-address: ipv6-address
         snapshots:
         - instance: null
@@ -17582,6 +17620,9 @@ components:
           $ref: '#/components/schemas/template'
         state:
           $ref: '#/components/schemas/instance-state'
+        secureboot-enabled:
+          description: Indicates if the instance has secure boot enabled
+          type: boolean
         ssh-key:
           $ref: '#/components/schemas/ssh-key'
         user-data:
@@ -17594,6 +17635,9 @@ components:
           type: string
         manager:
           $ref: '#/components/schemas/manager'
+        tpm-enabled:
+          description: Indicates if the instance has tpm enabled
+          type: boolean
         deploy-target:
           $ref: '#/components/schemas/deploy-target'
         ipv6-address:
@@ -17957,6 +18001,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -18058,6 +18103,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -18149,6 +18195,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -18250,6 +18297,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -18496,6 +18544,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -18597,6 +18646,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -18688,6 +18738,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -18789,6 +18840,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -18884,6 +18936,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -18985,6 +19038,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -19076,6 +19130,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -19177,6 +19232,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -19437,6 +19493,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -19538,6 +19595,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -19629,6 +19687,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -19730,6 +19789,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -19825,6 +19885,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -19926,6 +19987,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -20017,6 +20079,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -20118,6 +20181,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -20303,6 +20367,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -20404,6 +20469,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -20495,6 +20561,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -20596,6 +20663,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -20842,6 +20910,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -20943,6 +21012,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -21034,6 +21104,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -21135,6 +21206,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -21230,6 +21302,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -21331,6 +21404,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -21422,6 +21496,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -21523,6 +21598,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -21783,6 +21859,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -21884,6 +21961,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -21975,6 +22053,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -22076,6 +22155,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -22171,6 +22251,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -22272,6 +22353,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -22363,6 +22445,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -22464,6 +22547,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -22740,6 +22824,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           public-ip-assignment: null
+          secureboot-enabled: true
           mac-address: mac-address
           ssh-keys:
           - name: name
@@ -22841,6 +22926,7 @@ components:
             - null
           labels:
             key: labels
+          tpm-enabled: true
           ipv6-address: ipv6-address
           snapshots:
           - instance: null
@@ -22932,6 +23018,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           public-ip-assignment: null
+          secureboot-enabled: true
           mac-address: mac-address
           ssh-keys:
           - name: name
@@ -23033,6 +23120,7 @@ components:
             - null
           labels:
             key: labels
+          tpm-enabled: true
           ipv6-address: ipv6-address
           snapshots:
           - instance: null
@@ -23279,6 +23367,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -23380,6 +23469,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -23471,6 +23561,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -23572,6 +23663,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -23667,6 +23759,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -23768,6 +23861,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -23859,6 +23953,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -23960,6 +24055,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -24335,6 +24431,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -24436,6 +24533,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -24527,6 +24625,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -24628,6 +24727,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -24874,6 +24974,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -24975,6 +25076,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -25066,6 +25168,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -25167,6 +25270,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -25262,6 +25366,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -25363,6 +25468,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -25454,6 +25560,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -25555,6 +25662,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -25815,6 +25923,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -25916,6 +26025,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -26007,6 +26117,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -26108,6 +26219,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -26203,6 +26315,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -26304,6 +26417,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -26395,6 +26509,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -26496,6 +26611,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -28197,6 +28313,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           public-ip-assignment: null
+          secureboot-enabled: true
           mac-address: mac-address
           ssh-keys:
           - name: name
@@ -28298,6 +28415,7 @@ components:
             - null
           labels:
             key: labels
+          tpm-enabled: true
           ipv6-address: ipv6-address
           snapshots:
           - instance: null
@@ -28389,6 +28507,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           public-ip-assignment: null
+          secureboot-enabled: true
           mac-address: mac-address
           ssh-keys:
           - name: name
@@ -28490,6 +28609,7 @@ components:
             - null
           labels:
             key: labels
+          tpm-enabled: true
           ipv6-address: ipv6-address
           snapshots:
           - instance: null
@@ -30220,6 +30340,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -30321,6 +30442,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -30412,6 +30534,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -30513,6 +30636,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -30608,6 +30732,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -30709,6 +30834,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -30800,6 +30926,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -30901,6 +31028,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -31184,6 +31312,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -31285,6 +31414,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -31376,6 +31506,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -31477,6 +31608,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -31723,6 +31855,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -31824,6 +31957,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -31915,6 +32049,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -32016,6 +32151,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -32111,6 +32247,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -32212,6 +32349,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -32303,6 +32441,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -32404,6 +32543,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -32589,6 +32729,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -32690,6 +32831,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -32781,6 +32923,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -32882,6 +33025,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -33128,6 +33272,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -33229,6 +33374,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -33320,6 +33466,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -33421,6 +33568,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -33516,6 +33664,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -33617,6 +33766,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -33708,6 +33858,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -33809,6 +33960,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -34003,6 +34155,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -34104,6 +34257,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -34195,6 +34349,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -34296,6 +34451,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -34542,6 +34698,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -34643,6 +34800,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -34734,6 +34892,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -34835,6 +34994,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -34930,6 +35090,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -35031,6 +35192,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -35122,6 +35284,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -35223,6 +35386,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -35408,6 +35572,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -35509,6 +35674,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -35600,6 +35766,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -35701,6 +35868,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -35947,6 +36115,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -36048,6 +36217,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -36139,6 +36309,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -36240,6 +36411,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -36335,6 +36507,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -36436,6 +36609,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -36527,6 +36701,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -36628,6 +36803,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -37478,6 +37654,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -37579,6 +37756,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -37670,6 +37848,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -37771,6 +37950,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -38017,6 +38197,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -38118,6 +38299,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -38209,6 +38391,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -38310,6 +38493,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -38405,6 +38589,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -38506,6 +38691,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -38597,6 +38783,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -38698,6 +38885,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -38861,6 +39049,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -38962,6 +39151,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -39053,6 +39243,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             public-ip-assignment: null
+            secureboot-enabled: true
             mac-address: mac-address
             ssh-keys:
             - name: name
@@ -39154,6 +39345,7 @@ components:
               - null
             labels:
               key: labels
+            tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
             - instance: null
@@ -39400,6 +39592,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -39501,6 +39694,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -39592,6 +39786,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -39693,6 +39888,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -39788,6 +39984,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -39889,6 +40086,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -39980,6 +40178,7 @@ components:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 family: family
               public-ip-assignment: null
+              secureboot-enabled: true
               mac-address: mac-address
               ssh-keys:
               - name: name
@@ -40081,6 +40280,7 @@ components:
                 - null
               labels:
                 key: labels
+              tpm-enabled: true
               ipv6-address: ipv6-address
               snapshots:
               - instance: null
@@ -41796,6 +41996,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -41897,6 +42098,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -41988,6 +42190,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -42089,6 +42292,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -42335,6 +42539,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -42436,6 +42641,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -42527,6 +42733,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -42628,6 +42835,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -42723,6 +42931,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -42824,6 +43033,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -42915,6 +43125,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -43016,6 +43227,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -43276,6 +43488,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -43377,6 +43590,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -43468,6 +43682,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -43569,6 +43784,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -43664,6 +43880,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -43765,6 +43982,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -43856,6 +44074,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -43957,6 +44176,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -44142,6 +44362,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -44243,6 +44464,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -44334,6 +44556,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -44435,6 +44658,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -44681,6 +44905,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -44782,6 +45007,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -44873,6 +45099,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -44974,6 +45201,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -45069,6 +45297,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -45170,6 +45399,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -45261,6 +45491,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -45362,6 +45593,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -45622,6 +45854,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -45723,6 +45956,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -45814,6 +46048,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -45915,6 +46150,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -46010,6 +46246,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -46111,6 +46348,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -46202,6 +46440,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -46303,6 +46542,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -46509,6 +46749,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -46610,6 +46851,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -46701,6 +46943,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -46802,6 +47045,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -47048,6 +47292,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -47149,6 +47394,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -47240,6 +47486,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -47341,6 +47588,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -47436,6 +47684,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -47537,6 +47786,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -47628,6 +47878,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -47729,6 +47980,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -47989,6 +48241,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -48090,6 +48343,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -48181,6 +48435,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -48282,6 +48537,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -48377,6 +48633,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -48478,6 +48735,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -48569,6 +48827,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -48670,6 +48929,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -48855,6 +49115,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -48956,6 +49217,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -49047,6 +49309,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -49148,6 +49411,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -49394,6 +49658,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -49495,6 +49760,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -49586,6 +49852,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -49687,6 +49954,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -49782,6 +50050,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -49883,6 +50152,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -49974,6 +50244,7 @@ components:
                     id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                     family: family
                   public-ip-assignment: null
+                  secureboot-enabled: true
                   mac-address: mac-address
                   ssh-keys:
                   - name: name
@@ -50075,6 +50346,7 @@ components:
                     - null
                   labels:
                     key: labels
+                  tpm-enabled: true
                   ipv6-address: ipv6-address
                   snapshots:
                   - instance: null
@@ -50335,6 +50607,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -50436,6 +50709,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -50527,6 +50801,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -50628,6 +50903,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -50723,6 +50999,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -50824,6 +51101,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null
@@ -50915,6 +51193,7 @@ components:
                   id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                   family: family
                 public-ip-assignment: null
+                secureboot-enabled: true
                 mac-address: mac-address
                 ssh-keys:
                 - name: name
@@ -51016,6 +51295,7 @@ components:
                   - null
                 labels:
                   key: labels
+                tpm-enabled: true
                 ipv6-address: ipv6-address
                 snapshots:
                 - instance: null

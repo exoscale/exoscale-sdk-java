@@ -18,10 +18,12 @@ Instance
 |**privateNetworks** | [**List&lt;ListInstances200ResponseInstancesInnerPrivateNetworksInner&gt;**](ListInstances200ResponseInstancesInnerPrivateNetworksInner.md) | Instance Private Networks |  [optional] |
 |**template** | [**Template**](Template.md) |  |  [optional] |
 |**state** | **InstanceState** |  |  [optional] |
+|**securebootEnabled** | **Boolean** | Indicates if the instance has secure boot enabled |  [optional] |
 |**sshKey** | [**SshKey**](SshKey.md) |  |  [optional] |
 |**userData** | **String** | Instance Cloud-init user-data (base64 encoded) |  [optional] |
 |**macAddress** | **String** | Instance MAC address |  [optional] [readonly] |
 |**manager** | [**Manager**](Manager.md) |  |  [optional] |
+|**tpmEnabled** | **Boolean** | Indicates if the instance has tpm enabled |  [optional] |
 |**deployTarget** | [**DeployTarget**](DeployTarget.md) |  |  [optional] |
 |**ipv6Address** | **String** | Instance IPv6 address |  [optional] [readonly] |
 |**id** | **UUID** | Instance ID |  [optional] [readonly] |

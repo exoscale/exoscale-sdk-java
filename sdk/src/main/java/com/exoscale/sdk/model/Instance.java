@@ -60,10 +60,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Instance.JSON_PROPERTY_PRIVATE_NETWORKS,
   Instance.JSON_PROPERTY_TEMPLATE,
   Instance.JSON_PROPERTY_STATE,
+  Instance.JSON_PROPERTY_SECUREBOOT_ENABLED,
   Instance.JSON_PROPERTY_SSH_KEY,
   Instance.JSON_PROPERTY_USER_DATA,
   Instance.JSON_PROPERTY_MAC_ADDRESS,
   Instance.JSON_PROPERTY_MANAGER,
+  Instance.JSON_PROPERTY_TPM_ENABLED,
   Instance.JSON_PROPERTY_DEPLOY_TARGET,
   Instance.JSON_PROPERTY_IPV6_ADDRESS,
   Instance.JSON_PROPERTY_ID,
@@ -105,6 +107,9 @@ public class Instance {
   public static final String JSON_PROPERTY_STATE = "state";
   private InstanceState state;
 
+  public static final String JSON_PROPERTY_SECUREBOOT_ENABLED = "secureboot-enabled";
+  private Boolean securebootEnabled;
+
   public static final String JSON_PROPERTY_SSH_KEY = "ssh-key";
   private SshKey sshKey;
 
@@ -116,6 +121,9 @@ public class Instance {
 
   public static final String JSON_PROPERTY_MANAGER = "manager";
   private Manager manager;
+
+  public static final String JSON_PROPERTY_TPM_ENABLED = "tpm-enabled";
+  private Boolean tpmEnabled;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
   private DeployTarget deployTarget;
@@ -450,6 +458,31 @@ public class Instance {
   }
 
 
+  public Instance securebootEnabled(Boolean securebootEnabled) {
+    this.securebootEnabled = securebootEnabled;
+    return this;
+  }
+
+   /**
+   * Indicates if the instance has secure boot enabled
+   * @return securebootEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECUREBOOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSecurebootEnabled() {
+    return securebootEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECUREBOOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSecurebootEnabled(Boolean securebootEnabled) {
+    this.securebootEnabled = securebootEnabled;
+  }
+
+
   public Instance sshKey(SshKey sshKey) {
     this.sshKey = sshKey;
     return this;
@@ -537,6 +570,31 @@ public class Instance {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setManager(Manager manager) {
     this.manager = manager;
+  }
+
+
+  public Instance tpmEnabled(Boolean tpmEnabled) {
+    this.tpmEnabled = tpmEnabled;
+    return this;
+  }
+
+   /**
+   * Indicates if the instance has tpm enabled
+   * @return tpmEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TPM_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTpmEnabled() {
+    return tpmEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TPM_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTpmEnabled(Boolean tpmEnabled) {
+    this.tpmEnabled = tpmEnabled;
   }
 
 
@@ -740,10 +798,12 @@ public class Instance {
         Objects.equals(this.privateNetworks, instance.privateNetworks) &&
         Objects.equals(this.template, instance.template) &&
         Objects.equals(this.state, instance.state) &&
+        Objects.equals(this.securebootEnabled, instance.securebootEnabled) &&
         Objects.equals(this.sshKey, instance.sshKey) &&
         Objects.equals(this.userData, instance.userData) &&
         Objects.equals(this.macAddress, instance.macAddress) &&
         Objects.equals(this.manager, instance.manager) &&
+        Objects.equals(this.tpmEnabled, instance.tpmEnabled) &&
         Objects.equals(this.deployTarget, instance.deployTarget) &&
         Objects.equals(this.ipv6Address, instance.ipv6Address) &&
         Objects.equals(this.id, instance.id) &&
@@ -756,7 +816,7 @@ public class Instance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, sshKey, userData, macAddress, manager, deployTarget, ipv6Address, id, snapshots, diskSize, sshKeys, createdAt, publicIp);
+    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, id, snapshots, diskSize, sshKeys, createdAt, publicIp);
   }
 
   @Override
@@ -773,10 +833,12 @@ public class Instance {
     sb.append("    privateNetworks: ").append(toIndentedString(privateNetworks)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    securebootEnabled: ").append(toIndentedString(securebootEnabled)).append("\n");
     sb.append("    sshKey: ").append(toIndentedString(sshKey)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    manager: ").append(toIndentedString(manager)).append("\n");
+    sb.append("    tpmEnabled: ").append(toIndentedString(tpmEnabled)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -906,6 +968,11 @@ public class Instance {
       joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `secureboot-enabled` to the URL query string
+    if (getSecurebootEnabled() != null) {
+      joiner.add(String.format("%ssecureboot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecurebootEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `ssh-key` to the URL query string
     if (getSshKey() != null) {
       joiner.add(getSshKey().toUrlQueryString(prefix + "ssh-key" + suffix));
@@ -924,6 +991,11 @@ public class Instance {
     // add `manager` to the URL query string
     if (getManager() != null) {
       joiner.add(getManager().toUrlQueryString(prefix + "manager" + suffix));
+    }
+
+    // add `tpm-enabled` to the URL query string
+    if (getTpmEnabled() != null) {
+      joiner.add(String.format("%stpm-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTpmEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `deploy-target` to the URL query string
