@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.Networking;
 import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,6 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksClusterRequest.JSON_PROPERTY_LABELS,
   CreateSksClusterRequest.JSON_PROPERTY_CNI,
   CreateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
+  CreateSksClusterRequest.JSON_PROPERTY_NETWORKING,
   CreateSksClusterRequest.JSON_PROPERTY_OIDC,
   CreateSksClusterRequest.JSON_PROPERTY_NAME,
   CreateSksClusterRequest.JSON_PROPERTY_ENABLE_KUBE_PROXY,
@@ -102,6 +104,9 @@ public class CreateSksClusterRequest {
 
   public static final String JSON_PROPERTY_AUTO_UPGRADE = "auto-upgrade";
   private Boolean autoUpgrade;
+
+  public static final String JSON_PROPERTY_NETWORKING = "networking";
+  private Networking networking;
 
   public static final String JSON_PROPERTY_OIDC = "oidc";
   private SksOidc oidc;
@@ -315,6 +320,31 @@ public class CreateSksClusterRequest {
   }
 
 
+  public CreateSksClusterRequest networking(Networking networking) {
+    this.networking = networking;
+    return this;
+  }
+
+   /**
+   * Get networking
+   * @return networking
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORKING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Networking getNetworking() {
+    return networking;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NETWORKING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNetworking(Networking networking) {
+    this.networking = networking;
+  }
+
+
   public CreateSksClusterRequest oidc(SksOidc oidc) {
     this.oidc = oidc;
     return this;
@@ -524,6 +554,7 @@ public class CreateSksClusterRequest {
         Objects.equals(this.labels, createSksClusterRequest.labels) &&
         Objects.equals(this.cni, createSksClusterRequest.cni) &&
         Objects.equals(this.autoUpgrade, createSksClusterRequest.autoUpgrade) &&
+        Objects.equals(this.networking, createSksClusterRequest.networking) &&
         Objects.equals(this.oidc, createSksClusterRequest.oidc) &&
         Objects.equals(this.name, createSksClusterRequest.name) &&
         Objects.equals(this.enableKubeProxy, createSksClusterRequest.enableKubeProxy) &&
@@ -539,7 +570,7 @@ public class CreateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, oidc, name, enableKubeProxy, level, featureGates, addons, version);
+    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, networking, oidc, name, enableKubeProxy, level, featureGates, addons, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -557,6 +588,7 @@ public class CreateSksClusterRequest {
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    cni: ").append(toIndentedString(cni)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
+    sb.append("    networking: ").append(toIndentedString(networking)).append("\n");
     sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    enableKubeProxy: ").append(toIndentedString(enableKubeProxy)).append("\n");
@@ -633,6 +665,11 @@ public class CreateSksClusterRequest {
     // add `auto-upgrade` to the URL query string
     if (getAutoUpgrade() != null) {
       joiner.add(String.format("%sauto-upgrade%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoUpgrade()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `networking` to the URL query string
+    if (getNetworking() != null) {
+      joiner.add(getNetworking().toUrlQueryString(prefix + "networking" + suffix));
     }
 
     // add `oidc` to the URL query string

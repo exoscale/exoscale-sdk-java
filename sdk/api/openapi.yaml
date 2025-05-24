@@ -17835,6 +17835,34 @@ components:
           maxLength: 16384
           type: string
       type: object
+    networking:
+      description: Cluster networking configuration.
+      properties:
+        cluster-cidr:
+          description: |-
+            CIDR Range for Pods in cluster. This must not overlap with any IP ranges assigned to pods. Max of two, comma-separated, dual-stack CIDRs is allowed.
+                          If not specified, defaults to 192.168.0.0/16.
+          type: string
+        service-cluster-ip-range:
+          description: |-
+            CIDR range for service cluster IPs. This must not overlap with any IP ranges assigned to nodes or pods. Max of two, comma-separated, dual-stack CIDRs is allowed.
+                          If not specified, defaults to 10.96.0.0/12.
+          type: string
+        node-cidr-mask-size-ipv4:
+          description: Mask size for node cidr in cluster. It must be larger than
+            the Pod CIDR subnet mask. Defaults to 24
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+        node-cidr-mask-size-ipv6:
+          description: Mask size for node cidr in cluster. It must be larger than
+            the Pod CIDR subnet mask. Defaults to 64
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+      type: object
     dbaas-user-grafana-secrets:
       description: Grafana User secrets
       example:
@@ -51379,6 +51407,8 @@ components:
           description: Enable auto upgrade of the control plane to the latest patch
             version available
           type: boolean
+        networking:
+          $ref: '#/components/schemas/networking'
         oidc:
           $ref: '#/components/schemas/sks-oidc'
         name:

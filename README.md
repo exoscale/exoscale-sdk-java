@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-05-09T07:07:31.215775649Z[Etc/UTC]
+- Build date: 2025-05-24T07:05:53.290758104Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-e505244</version>
+    <version>0.0.5-SNAPSHOT-76013d2</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-e505244'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-76013d2'
 }
 ```
 
@@ -691,6 +691,7 @@ Class | Method | HTTP request | Description
  - [LoadBalancerService](sdk/docs/LoadBalancerService.md)
  - [LoadBalancerServiceHealthcheck](sdk/docs/LoadBalancerServiceHealthcheck.md)
  - [Manager](sdk/docs/Manager.md)
+ - [Networking](sdk/docs/Networking.md)
  - [NodeDuressSettings](sdk/docs/NodeDuressSettings.md)
  - [OpensearchEmailSenderSettings](sdk/docs/OpensearchEmailSenderSettings.md)
  - [OpensearchISMHistorySettings](sdk/docs/OpensearchISMHistorySettings.md)

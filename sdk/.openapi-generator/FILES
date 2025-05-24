@@ -305,6 +305,7 @@ docs/LoadBalancerServerStatus.md
 docs/LoadBalancerService.md
 docs/LoadBalancerServiceHealthcheck.md
 docs/Manager.md
+docs/Networking.md
 docs/NodeDuressSettings.md
 docs/OpensearchEmailSenderSettings.md
 docs/OpensearchISMHistorySettings.md
@@ -711,6 +712,7 @@ src/main/java/com/exoscale/sdk/model/LoadBalancerServerStatus.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerService.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServiceHealthcheck.java
 src/main/java/com/exoscale/sdk/model/Manager.java
+src/main/java/com/exoscale/sdk/model/Networking.java
 src/main/java/com/exoscale/sdk/model/NodeDuressSettings.java
 src/main/java/com/exoscale/sdk/model/OpensearchEmailSenderSettings.java
 src/main/java/com/exoscale/sdk/model/OpensearchISMHistorySettings.java

@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.Networking;
 import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -77,6 +78,14 @@ public class CreateSksClusterRequestTest {
     @Test
     public void autoUpgradeTest() {
         // TODO: test autoUpgrade
+    }
+
+    /**
+     * Test the property 'networking'
+     */
+    @Test
+    public void networkingTest() {
+        // TODO: test networking
     }
 
     /**

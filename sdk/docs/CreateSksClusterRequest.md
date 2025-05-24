@@ -11,6 +11,7 @@
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**cni** | [**CniEnum**](#CniEnum) | Cluster CNI |  [optional] |
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
+|**networking** | [**Networking**](Networking.md) |  |  [optional] |
 |**oidc** | [**SksOidc**](SksOidc.md) |  |  [optional] |
 |**name** | **String** | Cluster name |  |
 |**enableKubeProxy** | **Boolean** | Indicates whether to deploy the Kubernetes network proxy. When unspecified, defaults to &#x60;true&#x60; unless Cilium CNI is selected |  [optional] |
