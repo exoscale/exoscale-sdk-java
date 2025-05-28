@@ -15,10 +15,10 @@
 |**name** | **String** | Instance name |  [optional] |
 |**instanceType** | [**InstanceType**](InstanceType.md) |  |  |
 |**template** | [**Template**](Template.md) |  |  |
-|**securebootEnabled** | **Boolean** | [Beta] Enable secure boot |  [optional] |
+|**securebootEnabled** | **Boolean** | Enable secure boot |  [optional] |
 |**sshKey** | [**SshKey**](SshKey.md) |  |  [optional] |
 |**userData** | **String** | Instance Cloud-init user-data (base64 encoded) |  [optional] |
-|**tpmEnabled** | **Boolean** | [Beta] Enable Trusted Platform Module (TPM) |  [optional] |
+|**tpmEnabled** | **Boolean** | Enable Trusted Platform Module (TPM) |  [optional] |
 |**deployTarget** | [**DeployTarget**](DeployTarget.md) |  |  [optional] |
 |**ipv6Enabled** | **Boolean** | Enable IPv6. DEPRECATED: use &#x60;public-ip-assignments&#x60;. |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  |

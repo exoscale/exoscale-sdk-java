@@ -111,7 +111,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**detachInstanceFromPrivateNetwork**](ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
 | [**detachInstanceFromSecurityGroup**](ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group |
 | [**enableDbaasMysqlWrites**](ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage |
-| [**enableTpm**](ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | [Beta] Enable tpm for the instance. |
+| [**enableTpm**](ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | Enable tpm for the instance. |
 | [**evictInstancePoolMembers**](ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members |
 | [**evictSksNodepoolMembers**](ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members |
 | [**exportSnapshot**](ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot |
@@ -10260,7 +10260,7 @@ No authorization required
 
 > Operation enableTpm(id)
 
-[Beta] Enable tpm for the instance.
+Enable tpm for the instance.
 
 
 

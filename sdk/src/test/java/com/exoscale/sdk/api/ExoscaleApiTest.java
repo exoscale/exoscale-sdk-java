@@ -2115,7 +2115,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [Beta] Enable tpm for the instance.
+     * Enable tpm for the instance.
      *
      * 
      *

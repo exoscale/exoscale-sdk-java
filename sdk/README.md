@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-05-24T07:05:53.290758104Z[Etc/UTC]
+- Build date: 2025-05-28T07:07:55.719413405Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-76013d2</version>
+    <version>0.0.5-SNAPSHOT-d238385</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-76013d2'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d238385'
 }
 ```
 
@@ -190,7 +190,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**detachInstanceFromPrivateNetwork**](sdk/docs/ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
 *ExoscaleApi* | [**detachInstanceFromSecurityGroup**](sdk/docs/ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group
 *ExoscaleApi* | [**enableDbaasMysqlWrites**](sdk/docs/ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage
-*ExoscaleApi* | [**enableTpm**](sdk/docs/ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | [Beta] Enable tpm for the instance.
+*ExoscaleApi* | [**enableTpm**](sdk/docs/ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | Enable tpm for the instance.
 *ExoscaleApi* | [**evictInstancePoolMembers**](sdk/docs/ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members
 *ExoscaleApi* | [**evictSksNodepoolMembers**](sdk/docs/ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members
 *ExoscaleApi* | [**exportSnapshot**](sdk/docs/ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot

@@ -9730,7 +9730,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [Beta] Enable tpm for the instance.
+   * Enable tpm for the instance.
    * 
    * @param id  (required)
    * @return Operation
@@ -9742,7 +9742,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [Beta] Enable tpm for the instance.
+   * Enable tpm for the instance.
    * 
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;

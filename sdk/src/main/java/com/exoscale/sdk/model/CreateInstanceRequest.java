@@ -346,7 +346,7 @@ public class CreateInstanceRequest {
   }
 
    /**
-   * [Beta] Enable secure boot
+   * Enable secure boot
    * @return securebootEnabled
   **/
   @javax.annotation.Nullable
@@ -421,7 +421,7 @@ public class CreateInstanceRequest {
   }
 
    /**
-   * [Beta] Enable Trusted Platform Module (TPM)
+   * Enable Trusted Platform Module (TPM)
    * @return tpmEnabled
   **/
   @javax.annotation.Nullable
