@@ -42,7 +42,9 @@ public enum ZoneName {
   
   BG_SOF_1("bg-sof-1"),
   
-  AT_VIE_2("at-vie-2");
+  AT_VIE_2("at-vie-2"),
+  
+  HR_ZAG_1("hr-zag-1");
 
   private String value;
 

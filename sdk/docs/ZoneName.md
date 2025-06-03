@@ -19,5 +19,7 @@
 
 * `AT_VIE_2` (value: `"at-vie-2"`)
 
+* `HR_ZAG_1` (value: `"hr-zag-1"`)
+
 
 

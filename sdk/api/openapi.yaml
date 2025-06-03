@@ -27804,6 +27804,7 @@ components:
       - de-fra-1
       - bg-sof-1
       - at-vie-2
+      - hr-zag-1
       type: string
     dbaas-endpoint-datadog-settings:
       properties:
