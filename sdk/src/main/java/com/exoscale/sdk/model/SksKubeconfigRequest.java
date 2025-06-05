@@ -47,7 +47,7 @@ public class SksKubeconfigRequest {
   private String user;
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private List<String> groups;
+  private List<String> groups = new ArrayList<>();
 
   public SksKubeconfigRequest() { 
   }
@@ -87,9 +87,9 @@ public class SksKubeconfigRequest {
    * User name in the generated Kubeconfig. The certificate present in the Kubeconfig will also have this name set for the CN field.
    * @return user
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getUser() {
     return user;
@@ -97,7 +97,7 @@ public class SksKubeconfigRequest {
 
 
   @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUser(String user) {
     this.user = user;
   }
@@ -120,9 +120,9 @@ public class SksKubeconfigRequest {
    * List of roles. The certificate present in the Kubeconfig will have these roles set in the Org field.
    * @return groups
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getGroups() {
     return groups;
@@ -130,7 +130,7 @@ public class SksKubeconfigRequest {
 
 
   @JsonProperty(JSON_PROPERTY_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGroups(List<String> groups) {
     this.groups = groups;
   }

@@ -12837,6 +12837,9 @@ components:
           items:
             type: string
           type: array
+      required:
+      - groups
+      - user
       type: object
     dbaas-service-notification:
       description: Service notifications
