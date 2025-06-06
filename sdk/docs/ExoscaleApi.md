@@ -4073,7 +4073,7 @@ No authorization required
 
 ## createDnsDomain
 
-> DnsDomain createDnsDomain(createDnsDomainRequest)
+> Operation createDnsDomain(createDnsDomainRequest)
 
 Create DNS domain
 
@@ -4096,7 +4096,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            DnsDomain result = client.createDnsDomain(createDnsDomainRequest);
+            Operation result = client.createDnsDomain(createDnsDomainRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDnsDomain");
@@ -4118,7 +4118,7 @@ public class Example {
 
 ### Return type
 
-[**DnsDomain**](DnsDomain.md)
+[**Operation**](Operation.md)
 
 
 ### Authorization
@@ -4145,7 +4145,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**DnsDomain**](DnsDomain.md)>
+ApiResponse<[**Operation**](Operation.md)>
 
 
 ### Authorization

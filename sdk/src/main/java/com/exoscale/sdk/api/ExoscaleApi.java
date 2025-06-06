@@ -4012,11 +4012,11 @@ public class ExoscaleApi {
    * Create DNS domain
    * 
    * @param createDnsDomainRequest  (required)
-   * @return DnsDomain
+   * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public DnsDomain createDnsDomain(CreateDnsDomainRequest createDnsDomainRequest) throws ApiException {
-    ApiResponse<DnsDomain> localVarResponse = createDnsDomainWithHttpInfo(createDnsDomainRequest);
+  public Operation createDnsDomain(CreateDnsDomainRequest createDnsDomainRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDnsDomainWithHttpInfo(createDnsDomainRequest);
     return localVarResponse.getData();
   }
 
@@ -4024,10 +4024,10 @@ public class ExoscaleApi {
    * Create DNS domain
    * 
    * @param createDnsDomainRequest  (required)
-   * @return ApiResponse&lt;DnsDomain&gt;
+   * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DnsDomain> createDnsDomainWithHttpInfo(CreateDnsDomainRequest createDnsDomainRequest) throws ApiException {
+  private ApiResponse<Operation> createDnsDomainWithHttpInfo(CreateDnsDomainRequest createDnsDomainRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDnsDomainRequestBuilder(createDnsDomainRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4040,10 +4040,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createDnsDomain", localVarResponse);
         }
-        return new ApiResponse<DnsDomain>(
+        return new ApiResponse<Operation>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DnsDomain>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
       }

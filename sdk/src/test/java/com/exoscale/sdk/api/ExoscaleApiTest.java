@@ -965,7 +965,7 @@ public class ExoscaleApiTest {
     @Test
     public void createDnsDomainTest() throws ApiException {
         CreateDnsDomainRequest createDnsDomainRequest = null;
-        DnsDomain response = 
+        Operation response = 
         api.createDnsDomain(createDnsDomainRequest);
         
         // TODO: test validations
