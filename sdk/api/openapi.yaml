@@ -41460,6 +41460,7 @@ components:
           format: int64
           maximum: 254
           minimum: -1
+          nullable: true
           type: integer
         type:
           exclusiveMaximum: false
@@ -41467,6 +41468,7 @@ components:
           format: int64
           maximum: 254
           minimum: -1
+          nullable: true
           type: integer
       type: object
     add_rule_to_security_group_request:

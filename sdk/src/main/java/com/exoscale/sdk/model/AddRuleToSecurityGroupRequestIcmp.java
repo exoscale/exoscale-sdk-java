@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -38,16 +42,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class AddRuleToSecurityGroupRequestIcmp {
   public static final String JSON_PROPERTY_CODE = "code";
-  private Long code;
+  private JsonNullable<Long> code = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private Long type;
+  private JsonNullable<Long> type = JsonNullable.<Long>undefined();
 
   public AddRuleToSecurityGroupRequestIcmp() { 
   }
 
   public AddRuleToSecurityGroupRequestIcmp code(Long code) {
-    this.code = code;
+    this.code = JsonNullable.<Long>of(code);
     return this;
   }
 
@@ -58,23 +62,31 @@ public class AddRuleToSecurityGroupRequestIcmp {
    * @return code
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getCode() {
-    return code;
+        return code.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCode(Long code) {
+
+  public JsonNullable<Long> getCode_JsonNullable() {
+    return code;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CODE)
+  public void setCode_JsonNullable(JsonNullable<Long> code) {
     this.code = code;
+  }
+
+  public void setCode(Long code) {
+    this.code = JsonNullable.<Long>of(code);
   }
 
 
   public AddRuleToSecurityGroupRequestIcmp type(Long type) {
-    this.type = type;
+    this.type = JsonNullable.<Long>of(type);
     return this;
   }
 
@@ -85,18 +97,26 @@ public class AddRuleToSecurityGroupRequestIcmp {
    * @return type
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getType() {
-    return type;
+        return type.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(Long type) {
+
+  public JsonNullable<Long> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<Long> type) {
     this.type = type;
+  }
+
+  public void setType(Long type) {
+    this.type = JsonNullable.<Long>of(type);
   }
 
 
@@ -112,13 +132,24 @@ public class AddRuleToSecurityGroupRequestIcmp {
       return false;
     }
     AddRuleToSecurityGroupRequestIcmp addRuleToSecurityGroupRequestIcmp = (AddRuleToSecurityGroupRequestIcmp) o;
-    return Objects.equals(this.code, addRuleToSecurityGroupRequestIcmp.code) &&
-        Objects.equals(this.type, addRuleToSecurityGroupRequestIcmp.type);
+    return equalsNullable(this.code, addRuleToSecurityGroupRequestIcmp.code) &&
+        equalsNullable(this.type, addRuleToSecurityGroupRequestIcmp.type);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, type);
+    return Objects.hash(hashCodeNullable(code), hashCodeNullable(type));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
