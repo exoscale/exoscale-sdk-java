@@ -19,73 +19,93 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.DbaasServiceValkeyUsersInnerAccessControl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Redis connection information properties
+ * DbaasServiceValkeyUsersInner
  */
 @JsonPropertyOrder({
-  DbaasServiceRedisConnectionInfo.JSON_PROPERTY_URI,
-  DbaasServiceRedisConnectionInfo.JSON_PROPERTY_PASSWORD,
-  DbaasServiceRedisConnectionInfo.JSON_PROPERTY_SLAVE
+  DbaasServiceValkeyUsersInner.JSON_PROPERTY_TYPE,
+  DbaasServiceValkeyUsersInner.JSON_PROPERTY_USERNAME,
+  DbaasServiceValkeyUsersInner.JSON_PROPERTY_PASSWORD,
+  DbaasServiceValkeyUsersInner.JSON_PROPERTY_ACCESS_CONTROL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceRedisConnectionInfo {
-  public static final String JSON_PROPERTY_URI = "uri";
-  private List<String> uri;
+public class DbaasServiceValkeyUsersInner {
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
+
+  public static final String JSON_PROPERTY_USERNAME = "username";
+  private String username;
 
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
-  public static final String JSON_PROPERTY_SLAVE = "slave";
-  private List<String> slave;
+  public static final String JSON_PROPERTY_ACCESS_CONTROL = "access-control";
+  private DbaasServiceValkeyUsersInnerAccessControl accessControl;
 
-  public DbaasServiceRedisConnectionInfo() { 
+  public DbaasServiceValkeyUsersInner() { 
   }
 
-  public DbaasServiceRedisConnectionInfo uri(List<String> uri) {
-    this.uri = uri;
-    return this;
-  }
-
-  public DbaasServiceRedisConnectionInfo addUriItem(String uriItem) {
-    if (this.uri == null) {
-      this.uri = new ArrayList<>();
-    }
-    this.uri.add(uriItem);
+  public DbaasServiceValkeyUsersInner type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get uri
-   * @return uri
+   * Get type
+   * @return type
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getUri() {
-    return uri;
+  public String getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_URI)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUri(List<String> uri) {
-    this.uri = uri;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
-  public DbaasServiceRedisConnectionInfo password(String password) {
+  public DbaasServiceValkeyUsersInner username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
+  public DbaasServiceValkeyUsersInner password(String password) {
     this.password = password;
     return this;
   }
@@ -110,41 +130,33 @@ public class DbaasServiceRedisConnectionInfo {
   }
 
 
-  public DbaasServiceRedisConnectionInfo slave(List<String> slave) {
-    this.slave = slave;
-    return this;
-  }
-
-  public DbaasServiceRedisConnectionInfo addSlaveItem(String slaveItem) {
-    if (this.slave == null) {
-      this.slave = new ArrayList<>();
-    }
-    this.slave.add(slaveItem);
+  public DbaasServiceValkeyUsersInner accessControl(DbaasServiceValkeyUsersInnerAccessControl accessControl) {
+    this.accessControl = accessControl;
     return this;
   }
 
    /**
-   * Get slave
-   * @return slave
+   * Get accessControl
+   * @return accessControl
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLAVE)
+  @JsonProperty(JSON_PROPERTY_ACCESS_CONTROL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getSlave() {
-    return slave;
+  public DbaasServiceValkeyUsersInnerAccessControl getAccessControl() {
+    return accessControl;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLAVE)
+  @JsonProperty(JSON_PROPERTY_ACCESS_CONTROL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSlave(List<String> slave) {
-    this.slave = slave;
+  public void setAccessControl(DbaasServiceValkeyUsersInnerAccessControl accessControl) {
+    this.accessControl = accessControl;
   }
 
 
   /**
-   * Return true if this dbaas_service_redis_connection_info object is equal to o.
+   * Return true if this dbaas_service_valkey_users_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -154,24 +166,26 @@ public class DbaasServiceRedisConnectionInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceRedisConnectionInfo dbaasServiceRedisConnectionInfo = (DbaasServiceRedisConnectionInfo) o;
-    return Objects.equals(this.uri, dbaasServiceRedisConnectionInfo.uri) &&
-        Objects.equals(this.password, dbaasServiceRedisConnectionInfo.password) &&
-        Objects.equals(this.slave, dbaasServiceRedisConnectionInfo.slave);
+    DbaasServiceValkeyUsersInner dbaasServiceValkeyUsersInner = (DbaasServiceValkeyUsersInner) o;
+    return Objects.equals(this.type, dbaasServiceValkeyUsersInner.type) &&
+        Objects.equals(this.username, dbaasServiceValkeyUsersInner.username) &&
+        Objects.equals(this.password, dbaasServiceValkeyUsersInner.password) &&
+        Objects.equals(this.accessControl, dbaasServiceValkeyUsersInner.accessControl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, password, slave);
+    return Objects.hash(type, username, password, accessControl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceRedisConnectionInfo {\n");
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+    sb.append("class DbaasServiceValkeyUsersInner {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    slave: ").append(toIndentedString(slave)).append("\n");
+    sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -219,13 +233,14 @@ public class DbaasServiceRedisConnectionInfo {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `uri` to the URL query string
-    if (getUri() != null) {
-      for (int i = 0; i < getUri().size(); i++) {
-        joiner.add(String.format("%suri%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getUri().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `username` to the URL query string
+    if (getUsername() != null) {
+      joiner.add(String.format("%susername%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsername()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `password` to the URL query string
@@ -233,13 +248,9 @@ public class DbaasServiceRedisConnectionInfo {
       joiner.add(String.format("%spassword%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPassword()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `slave` to the URL query string
-    if (getSlave() != null) {
-      for (int i = 0; i < getSlave().size(); i++) {
-        joiner.add(String.format("%sslave%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getSlave().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+    // add `access-control` to the URL query string
+    if (getAccessControl() != null) {
+      joiner.add(getAccessControl().toUrlQueryString(prefix + "access-control" + suffix));
     }
 
     return joiner.toString();

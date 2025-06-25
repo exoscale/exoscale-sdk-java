@@ -1,6 +1,6 @@
 
 
-# DbaasServiceRedisUsersInner
+# DbaasServiceValkeyUsersInner
 
 
 ## Properties
@@ -10,7 +10,7 @@
 |**type** | **String** |  |  [optional] |
 |**username** | **String** |  |  [optional] |
 |**password** | **String** |  |  [optional] |
-|**accessControl** | [**DbaasServiceRedisUsersInnerAccessControl**](DbaasServiceRedisUsersInnerAccessControl.md) |  |  [optional] |
+|**accessControl** | [**DbaasServiceValkeyUsersInnerAccessControl**](DbaasServiceValkeyUsersInnerAccessControl.md) |  |  [optional] |
 
 
 

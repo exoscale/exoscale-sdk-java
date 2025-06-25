@@ -1,6 +1,6 @@
 
 
-# DbaasServiceRedisUsersInnerAccessControl
+# DbaasServiceValkeyUsersInnerAccessControl
 
 
 ## Properties

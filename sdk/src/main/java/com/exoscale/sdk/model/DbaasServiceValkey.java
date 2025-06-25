@@ -25,9 +25,9 @@ import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
-import com.exoscale.sdk.model.DbaasServiceRedisComponentsInner;
-import com.exoscale.sdk.model.DbaasServiceRedisUsersInner;
+import com.exoscale.sdk.model.DbaasServiceValkeyComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceValkeyConnectionInfo;
+import com.exoscale.sdk.model.DbaasServiceValkeyUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaValkey;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -124,7 +124,7 @@ public class DbaasServiceValkey {
   private List<DbaasServiceNotification> notifications;
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
-  private List<DbaasServiceRedisComponentsInner> components;
+  private List<DbaasServiceValkeyComponentsInner> components;
 
   public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
   private DbaasServiceMaintenance maintenance;
@@ -151,7 +151,7 @@ public class DbaasServiceValkey {
   private String plan;
 
   public static final String JSON_PROPERTY_USERS = "users";
-  private List<DbaasServiceRedisUsersInner> users;
+  private List<DbaasServiceValkeyUsersInner> users;
 
   public DbaasServiceValkey() { 
   }
@@ -598,12 +598,12 @@ public class DbaasServiceValkey {
   }
 
 
-  public DbaasServiceValkey components(List<DbaasServiceRedisComponentsInner> components) {
+  public DbaasServiceValkey components(List<DbaasServiceValkeyComponentsInner> components) {
     this.components = components;
     return this;
   }
 
-  public DbaasServiceValkey addComponentsItem(DbaasServiceRedisComponentsInner componentsItem) {
+  public DbaasServiceValkey addComponentsItem(DbaasServiceValkeyComponentsInner componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -619,14 +619,14 @@ public class DbaasServiceValkey {
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasServiceRedisComponentsInner> getComponents() {
+  public List<DbaasServiceValkeyComponentsInner> getComponents() {
     return components;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponents(List<DbaasServiceRedisComponentsInner> components) {
+  public void setComponents(List<DbaasServiceValkeyComponentsInner> components) {
     this.components = components;
   }
 
@@ -833,12 +833,12 @@ public class DbaasServiceValkey {
   }
 
 
-  public DbaasServiceValkey users(List<DbaasServiceRedisUsersInner> users) {
+  public DbaasServiceValkey users(List<DbaasServiceValkeyUsersInner> users) {
     this.users = users;
     return this;
   }
 
-  public DbaasServiceValkey addUsersItem(DbaasServiceRedisUsersInner usersItem) {
+  public DbaasServiceValkey addUsersItem(DbaasServiceValkeyUsersInner usersItem) {
     if (this.users == null) {
       this.users = new ArrayList<>();
     }
@@ -854,14 +854,14 @@ public class DbaasServiceValkey {
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasServiceRedisUsersInner> getUsers() {
+  public List<DbaasServiceValkeyUsersInner> getUsers() {
     return users;
   }
 
 
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsers(List<DbaasServiceRedisUsersInner> users) {
+  public void setUsers(List<DbaasServiceValkeyUsersInner> users) {
     this.users = users;
   }
 

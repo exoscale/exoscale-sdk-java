@@ -1,6 +1,6 @@
 
 
-# DbaasServiceRedisComponentsInner
+# DbaasServiceValkeyComponentsInner
 
 
 ## Properties

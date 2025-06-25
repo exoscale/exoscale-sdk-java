@@ -23,7 +23,7 @@
 |**backups** | [**List&lt;DbaasServiceBackup&gt;**](DbaasServiceBackup.md) | List of backups for the service |  [optional] |
 |**terminationProtection** | **Boolean** | Service is protected against termination and powering off |  [optional] |
 |**notifications** | [**List&lt;DbaasServiceNotification&gt;**](DbaasServiceNotification.md) | Service notifications |  [optional] |
-|**components** | [**List&lt;DbaasServiceRedisComponentsInner&gt;**](DbaasServiceRedisComponentsInner.md) | Service component information objects |  [optional] |
+|**components** | [**List&lt;DbaasServiceValkeyComponentsInner&gt;**](DbaasServiceValkeyComponentsInner.md) | Service component information objects |  [optional] |
 |**maintenance** | [**DbaasServiceMaintenance**](DbaasServiceMaintenance.md) |  |  [optional] |
 |**diskSize** | **Long** | TODO UNIT disk space for data storage |  [optional] |
 |**nodeMemory** | **Long** | TODO UNIT of memory for each node |  [optional] |
@@ -32,7 +32,7 @@
 |**version** | **String** | Valkey version |  [optional] |
 |**createdAt** | **OffsetDateTime** | Service creation timestamp (ISO 8601) |  [optional] |
 |**plan** | **String** | Subscription plan |  |
-|**users** | [**List&lt;DbaasServiceRedisUsersInner&gt;**](DbaasServiceRedisUsersInner.md) | List of service users |  [optional] |
+|**users** | [**List&lt;DbaasServiceValkeyUsersInner&gt;**](DbaasServiceValkeyUsersInner.md) | List of service users |  [optional] |
 
 
 

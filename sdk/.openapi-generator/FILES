@@ -42,7 +42,6 @@ docs/CreateDbaasServiceMysqlRequest.md
 docs/CreateDbaasServiceMysqlRequestIntegrationsInner.md
 docs/CreateDbaasServiceOpensearchRequest.md
 docs/CreateDbaasServicePgRequest.md
-docs/CreateDbaasServiceRedisRequest.md
 docs/CreateDbaasServiceValkeyRequest.md
 docs/CreateDbaasTaskMigrationCheckRequest.md
 docs/CreateDnsDomainRecordRequest.md
@@ -143,15 +142,13 @@ docs/DbaasServicePg.md
 docs/DbaasServicePgConnectionInfo.md
 docs/DbaasServicePgConnectionPoolsInner.md
 docs/DbaasServicePgUsersInner.md
-docs/DbaasServiceRedis.md
-docs/DbaasServiceRedisComponentsInner.md
-docs/DbaasServiceRedisConnectionInfo.md
-docs/DbaasServiceRedisUsersInner.md
-docs/DbaasServiceRedisUsersInnerAccessControl.md
 docs/DbaasServiceType.md
 docs/DbaasServiceUpdate.md
 docs/DbaasServiceValkey.md
+docs/DbaasServiceValkeyComponentsInner.md
 docs/DbaasServiceValkeyConnectionInfo.md
+docs/DbaasServiceValkeyUsersInner.md
+docs/DbaasServiceValkeyUsersInnerAccessControl.md
 docs/DbaasTask.md
 docs/DbaasTaskResultCodesInner.md
 docs/DbaasUserGrafanaSecrets.md
@@ -160,7 +157,6 @@ docs/DbaasUserKafkaSecrets.md
 docs/DbaasUserMysqlSecrets.md
 docs/DbaasUserOpensearchSecrets.md
 docs/DbaasUserPostgresSecrets.md
-docs/DbaasUserRedisSecrets.md
 docs/DbaasUserValkeySecrets.md
 docs/DeployTarget.md
 docs/DetachDbaasServiceFromEndpointRequest.md
@@ -219,9 +215,6 @@ docs/GetDbaasSettingsPg200ResponseSettingsPg.md
 docs/GetDbaasSettingsPg200ResponseSettingsPgbouncer.md
 docs/GetDbaasSettingsPg200ResponseSettingsPglookout.md
 docs/GetDbaasSettingsPg200ResponseSettingsTimescaledb.md
-docs/GetDbaasSettingsRedis200Response.md
-docs/GetDbaasSettingsRedis200ResponseSettings.md
-docs/GetDbaasSettingsRedis200ResponseSettingsRedis.md
 docs/GetDbaasSettingsValkey200Response.md
 docs/GetDbaasSettingsValkey200ResponseSettings.md
 docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
@@ -260,7 +253,6 @@ docs/JsonSchemaOpensearch.md
 docs/JsonSchemaPg.md
 docs/JsonSchemaPgbouncer.md
 docs/JsonSchemaPglookout.md
-docs/JsonSchemaRedis.md
 docs/JsonSchemaSchemaRegistry.md
 docs/JsonSchemaTimescaledb.md
 docs/JsonSchemaValkey.md
@@ -374,7 +366,6 @@ docs/UpdateDbaasServiceOpensearchRequestIndexPatternsInner.md
 docs/UpdateDbaasServiceOpensearchRequestIndexTemplate.md
 docs/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md
 docs/UpdateDbaasServicePgRequest.md
-docs/UpdateDbaasServiceRedisRequest.md
 docs/UpdateDbaasServiceValkeyRequest.md
 docs/UpdateDnsDomainRecordRequest.md
 docs/UpdateElasticIpRequest.md
@@ -450,7 +441,6 @@ src/main/java/com/exoscale/sdk/model/CreateDbaasServiceMysqlRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceMysqlRequestIntegrationsInner.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceOpensearchRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServicePgRequest.java
-src/main/java/com/exoscale/sdk/model/CreateDbaasServiceRedisRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasTaskMigrationCheckRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDnsDomainRecordRequest.java
@@ -551,15 +541,13 @@ src/main/java/com/exoscale/sdk/model/DbaasServicePg.java
 src/main/java/com/exoscale/sdk/model/DbaasServicePgConnectionInfo.java
 src/main/java/com/exoscale/sdk/model/DbaasServicePgConnectionPoolsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServicePgUsersInner.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceRedis.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceRedisComponentsInner.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceRedisConnectionInfo.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceRedisUsersInner.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceRedisUsersInnerAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceType.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceUpdate.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkey.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyComponentsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyConnectionInfo.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyUsersInner.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyUsersInnerAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasTask.java
 src/main/java/com/exoscale/sdk/model/DbaasTaskResultCodesInner.java
 src/main/java/com/exoscale/sdk/model/DbaasUserGrafanaSecrets.java
@@ -568,7 +556,6 @@ src/main/java/com/exoscale/sdk/model/DbaasUserKafkaSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserMysqlSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserOpensearchSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserPostgresSecrets.java
-src/main/java/com/exoscale/sdk/model/DbaasUserRedisSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserValkeySecrets.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java
 src/main/java/com/exoscale/sdk/model/DetachDbaasServiceFromEndpointRequest.java
@@ -626,9 +613,6 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsPg.jav
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsPgbouncer.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsPglookout.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsTimescaledb.java
-src/main/java/com/exoscale/sdk/model/GetDbaasSettingsRedis200Response.java
-src/main/java/com/exoscale/sdk/model/GetDbaasSettingsRedis200ResponseSettings.java
-src/main/java/com/exoscale/sdk/model/GetDbaasSettingsRedis200ResponseSettingsRedis.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java
@@ -667,7 +651,6 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaOpensearch.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPg.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPgbouncer.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPglookout.java
-src/main/java/com/exoscale/sdk/model/JsonSchemaRedis.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaSchemaRegistry.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaTimescaledb.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaValkey.java
@@ -781,7 +764,6 @@ src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestIndexPat
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestIndexTemplate.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServicePgRequest.java
-src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceRedisRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateElasticIpRequest.java

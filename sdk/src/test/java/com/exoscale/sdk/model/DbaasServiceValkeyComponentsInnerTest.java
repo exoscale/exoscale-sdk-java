@@ -13,62 +13,78 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.EnumComponentRoute;
+import com.exoscale.sdk.model.EnumComponentUsage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceRedisUsersInnerAccessControl
+ * Model tests for DbaasServiceValkeyComponentsInner
  */
-public class DbaasServiceRedisUsersInnerAccessControlTest {
-    private final DbaasServiceRedisUsersInnerAccessControl model = new DbaasServiceRedisUsersInnerAccessControl();
+public class DbaasServiceValkeyComponentsInnerTest {
+    private final DbaasServiceValkeyComponentsInner model = new DbaasServiceValkeyComponentsInner();
 
     /**
-     * Model tests for DbaasServiceRedisUsersInnerAccessControl
+     * Model tests for DbaasServiceValkeyComponentsInner
      */
     @Test
-    public void testDbaasServiceRedisUsersInnerAccessControl() {
-        // TODO: test DbaasServiceRedisUsersInnerAccessControl
+    public void testDbaasServiceValkeyComponentsInner() {
+        // TODO: test DbaasServiceValkeyComponentsInner
     }
 
     /**
-     * Test the property 'categories'
+     * Test the property 'component'
      */
     @Test
-    public void categoriesTest() {
-        // TODO: test categories
+    public void componentTest() {
+        // TODO: test component
     }
 
     /**
-     * Test the property 'channels'
+     * Test the property 'host'
      */
     @Test
-    public void channelsTest() {
-        // TODO: test channels
+    public void hostTest() {
+        // TODO: test host
     }
 
     /**
-     * Test the property 'commands'
+     * Test the property 'port'
      */
     @Test
-    public void commandsTest() {
-        // TODO: test commands
+    public void portTest() {
+        // TODO: test port
     }
 
     /**
-     * Test the property 'keys'
+     * Test the property 'route'
      */
     @Test
-    public void keysTest() {
-        // TODO: test keys
+    public void routeTest() {
+        // TODO: test route
+    }
+
+    /**
+     * Test the property 'ssl'
+     */
+    @Test
+    public void sslTest() {
+        // TODO: test ssl
+    }
+
+    /**
+     * Test the property 'usage'
+     */
+    @Test
+    public void usageTest() {
+        // TODO: test usage
     }
 
 }

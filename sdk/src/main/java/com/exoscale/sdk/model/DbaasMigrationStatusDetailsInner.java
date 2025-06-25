@@ -61,7 +61,7 @@ public class DbaasMigrationStatusDetailsInner {
   }
 
    /**
-   * Migrated db name (PG) or number (Redis)
+   * Migrated db name (PG) or number (Valkey)
    * @return dbname
   **/
   @javax.annotation.Nullable

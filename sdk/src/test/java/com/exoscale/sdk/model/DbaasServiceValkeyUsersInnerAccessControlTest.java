@@ -18,55 +18,57 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetDbaasSettingsRedis200ResponseSettingsRedis
+ * Model tests for DbaasServiceValkeyUsersInnerAccessControl
  */
-public class GetDbaasSettingsRedis200ResponseSettingsRedisTest {
-    private final GetDbaasSettingsRedis200ResponseSettingsRedis model = new GetDbaasSettingsRedis200ResponseSettingsRedis();
+public class DbaasServiceValkeyUsersInnerAccessControlTest {
+    private final DbaasServiceValkeyUsersInnerAccessControl model = new DbaasServiceValkeyUsersInnerAccessControl();
 
     /**
-     * Model tests for GetDbaasSettingsRedis200ResponseSettingsRedis
+     * Model tests for DbaasServiceValkeyUsersInnerAccessControl
      */
     @Test
-    public void testGetDbaasSettingsRedis200ResponseSettingsRedis() {
-        // TODO: test GetDbaasSettingsRedis200ResponseSettingsRedis
+    public void testDbaasServiceValkeyUsersInnerAccessControl() {
+        // TODO: test DbaasServiceValkeyUsersInnerAccessControl
     }
 
     /**
-     * Test the property 'properties'
+     * Test the property 'categories'
      */
     @Test
-    public void propertiesTest() {
-        // TODO: test properties
+    public void categoriesTest() {
+        // TODO: test categories
     }
 
     /**
-     * Test the property 'additionalProperties'
+     * Test the property 'channels'
      */
     @Test
-    public void additionalPropertiesTest() {
-        // TODO: test additionalProperties
+    public void channelsTest() {
+        // TODO: test channels
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'commands'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void commandsTest() {
+        // TODO: test commands
     }
 
     /**
-     * Test the property 'title'
+     * Test the property 'keys'
      */
     @Test
-    public void titleTest() {
-        // TODO: test title
+    public void keysTest() {
+        // TODO: test keys
     }
 
 }

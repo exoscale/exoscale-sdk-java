@@ -31,16 +31,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasServiceRedisUsersInnerAccessControl
+ * DbaasServiceValkeyUsersInnerAccessControl
  */
 @JsonPropertyOrder({
-  DbaasServiceRedisUsersInnerAccessControl.JSON_PROPERTY_CATEGORIES,
-  DbaasServiceRedisUsersInnerAccessControl.JSON_PROPERTY_CHANNELS,
-  DbaasServiceRedisUsersInnerAccessControl.JSON_PROPERTY_COMMANDS,
-  DbaasServiceRedisUsersInnerAccessControl.JSON_PROPERTY_KEYS
+  DbaasServiceValkeyUsersInnerAccessControl.JSON_PROPERTY_CATEGORIES,
+  DbaasServiceValkeyUsersInnerAccessControl.JSON_PROPERTY_CHANNELS,
+  DbaasServiceValkeyUsersInnerAccessControl.JSON_PROPERTY_COMMANDS,
+  DbaasServiceValkeyUsersInnerAccessControl.JSON_PROPERTY_KEYS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceRedisUsersInnerAccessControl {
+public class DbaasServiceValkeyUsersInnerAccessControl {
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private List<String> categories;
 
@@ -53,15 +53,15 @@ public class DbaasServiceRedisUsersInnerAccessControl {
   public static final String JSON_PROPERTY_KEYS = "keys";
   private List<String> keys;
 
-  public DbaasServiceRedisUsersInnerAccessControl() { 
+  public DbaasServiceValkeyUsersInnerAccessControl() { 
   }
 
-  public DbaasServiceRedisUsersInnerAccessControl categories(List<String> categories) {
+  public DbaasServiceValkeyUsersInnerAccessControl categories(List<String> categories) {
     this.categories = categories;
     return this;
   }
 
-  public DbaasServiceRedisUsersInnerAccessControl addCategoriesItem(String categoriesItem) {
+  public DbaasServiceValkeyUsersInnerAccessControl addCategoriesItem(String categoriesItem) {
     if (this.categories == null) {
       this.categories = new ArrayList<>();
     }
@@ -89,12 +89,12 @@ public class DbaasServiceRedisUsersInnerAccessControl {
   }
 
 
-  public DbaasServiceRedisUsersInnerAccessControl channels(List<String> channels) {
+  public DbaasServiceValkeyUsersInnerAccessControl channels(List<String> channels) {
     this.channels = channels;
     return this;
   }
 
-  public DbaasServiceRedisUsersInnerAccessControl addChannelsItem(String channelsItem) {
+  public DbaasServiceValkeyUsersInnerAccessControl addChannelsItem(String channelsItem) {
     if (this.channels == null) {
       this.channels = new ArrayList<>();
     }
@@ -122,12 +122,12 @@ public class DbaasServiceRedisUsersInnerAccessControl {
   }
 
 
-  public DbaasServiceRedisUsersInnerAccessControl commands(List<String> commands) {
+  public DbaasServiceValkeyUsersInnerAccessControl commands(List<String> commands) {
     this.commands = commands;
     return this;
   }
 
-  public DbaasServiceRedisUsersInnerAccessControl addCommandsItem(String commandsItem) {
+  public DbaasServiceValkeyUsersInnerAccessControl addCommandsItem(String commandsItem) {
     if (this.commands == null) {
       this.commands = new ArrayList<>();
     }
@@ -155,12 +155,12 @@ public class DbaasServiceRedisUsersInnerAccessControl {
   }
 
 
-  public DbaasServiceRedisUsersInnerAccessControl keys(List<String> keys) {
+  public DbaasServiceValkeyUsersInnerAccessControl keys(List<String> keys) {
     this.keys = keys;
     return this;
   }
 
-  public DbaasServiceRedisUsersInnerAccessControl addKeysItem(String keysItem) {
+  public DbaasServiceValkeyUsersInnerAccessControl addKeysItem(String keysItem) {
     if (this.keys == null) {
       this.keys = new ArrayList<>();
     }
@@ -189,7 +189,7 @@ public class DbaasServiceRedisUsersInnerAccessControl {
 
 
   /**
-   * Return true if this dbaas_service_redis_users_inner_access_control object is equal to o.
+   * Return true if this dbaas_service_valkey_users_inner_access_control object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -199,11 +199,11 @@ public class DbaasServiceRedisUsersInnerAccessControl {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceRedisUsersInnerAccessControl dbaasServiceRedisUsersInnerAccessControl = (DbaasServiceRedisUsersInnerAccessControl) o;
-    return Objects.equals(this.categories, dbaasServiceRedisUsersInnerAccessControl.categories) &&
-        Objects.equals(this.channels, dbaasServiceRedisUsersInnerAccessControl.channels) &&
-        Objects.equals(this.commands, dbaasServiceRedisUsersInnerAccessControl.commands) &&
-        Objects.equals(this.keys, dbaasServiceRedisUsersInnerAccessControl.keys);
+    DbaasServiceValkeyUsersInnerAccessControl dbaasServiceValkeyUsersInnerAccessControl = (DbaasServiceValkeyUsersInnerAccessControl) o;
+    return Objects.equals(this.categories, dbaasServiceValkeyUsersInnerAccessControl.categories) &&
+        Objects.equals(this.channels, dbaasServiceValkeyUsersInnerAccessControl.channels) &&
+        Objects.equals(this.commands, dbaasServiceValkeyUsersInnerAccessControl.commands) &&
+        Objects.equals(this.keys, dbaasServiceValkeyUsersInnerAccessControl.keys);
   }
 
   @Override
@@ -214,7 +214,7 @@ public class DbaasServiceRedisUsersInnerAccessControl {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceRedisUsersInnerAccessControl {\n");
+    sb.append("class DbaasServiceValkeyUsersInnerAccessControl {\n");
     sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
     sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("    commands: ").append(toIndentedString(commands)).append("\n");

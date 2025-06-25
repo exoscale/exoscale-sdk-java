@@ -13,8 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.EnumComponentRoute;
-import com.exoscale.sdk.model.EnumComponentUsage;
+import com.exoscale.sdk.model.DbaasServiceValkeyUsersInnerAccessControl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,65 +25,49 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceRedisComponentsInner
+ * Model tests for DbaasServiceValkeyUsersInner
  */
-public class DbaasServiceRedisComponentsInnerTest {
-    private final DbaasServiceRedisComponentsInner model = new DbaasServiceRedisComponentsInner();
+public class DbaasServiceValkeyUsersInnerTest {
+    private final DbaasServiceValkeyUsersInner model = new DbaasServiceValkeyUsersInner();
 
     /**
-     * Model tests for DbaasServiceRedisComponentsInner
+     * Model tests for DbaasServiceValkeyUsersInner
      */
     @Test
-    public void testDbaasServiceRedisComponentsInner() {
-        // TODO: test DbaasServiceRedisComponentsInner
+    public void testDbaasServiceValkeyUsersInner() {
+        // TODO: test DbaasServiceValkeyUsersInner
     }
 
     /**
-     * Test the property 'component'
+     * Test the property 'type'
      */
     @Test
-    public void componentTest() {
-        // TODO: test component
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'host'
+     * Test the property 'username'
      */
     @Test
-    public void hostTest() {
-        // TODO: test host
+    public void usernameTest() {
+        // TODO: test username
     }
 
     /**
-     * Test the property 'port'
+     * Test the property 'password'
      */
     @Test
-    public void portTest() {
-        // TODO: test port
+    public void passwordTest() {
+        // TODO: test password
     }
 
     /**
-     * Test the property 'route'
+     * Test the property 'accessControl'
      */
     @Test
-    public void routeTest() {
-        // TODO: test route
-    }
-
-    /**
-     * Test the property 'ssl'
-     */
-    @Test
-    public void sslTest() {
-        // TODO: test ssl
-    }
-
-    /**
-     * Test the property 'usage'
-     */
-    @Test
-    public void usageTest() {
-        // TODO: test usage
+    public void accessControlTest() {
+        // TODO: test accessControl
     }
 
 }

@@ -14,7 +14,6 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.DbaasMigrationStatusDetailsInner;
-import com.exoscale.sdk.model.EnumMasterLinkStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -47,22 +46,6 @@ public class DbaasMigrationStatusTest {
     @Test
     public void errorTest() {
         // TODO: test error
-    }
-
-    /**
-     * Test the property 'masterLastIoSecondsAgo'
-     */
-    @Test
-    public void masterLastIoSecondsAgoTest() {
-        // TODO: test masterLastIoSecondsAgo
-    }
-
-    /**
-     * Test the property 'masterLinkStatus'
-     */
-    @Test
-    public void masterLinkStatusTest() {
-        // TODO: test masterLinkStatus
     }
 
     /**

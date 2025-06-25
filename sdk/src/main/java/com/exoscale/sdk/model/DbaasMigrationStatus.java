@@ -20,7 +20,6 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.DbaasMigrationStatusDetailsInner;
-import com.exoscale.sdk.model.EnumMasterLinkStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -37,8 +36,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   DbaasMigrationStatus.JSON_PROPERTY_ERROR,
-  DbaasMigrationStatus.JSON_PROPERTY_MASTER_LAST_IO_SECONDS_AGO,
-  DbaasMigrationStatus.JSON_PROPERTY_MASTER_LINK_STATUS,
   DbaasMigrationStatus.JSON_PROPERTY_METHOD,
   DbaasMigrationStatus.JSON_PROPERTY_STATUS,
   DbaasMigrationStatus.JSON_PROPERTY_DETAILS
@@ -47,12 +44,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class DbaasMigrationStatus {
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
-
-  public static final String JSON_PROPERTY_MASTER_LAST_IO_SECONDS_AGO = "master-last-io-seconds-ago";
-  private Long masterLastIoSecondsAgo;
-
-  public static final String JSON_PROPERTY_MASTER_LINK_STATUS = "master-link-status";
-  private EnumMasterLinkStatus masterLinkStatus;
 
   public static final String JSON_PROPERTY_METHOD = "method";
   private String method;
@@ -88,56 +79,6 @@ public class DbaasMigrationStatus {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setError(String error) {
     this.error = error;
-  }
-
-
-  public DbaasMigrationStatus masterLastIoSecondsAgo(Long masterLastIoSecondsAgo) {
-    this.masterLastIoSecondsAgo = masterLastIoSecondsAgo;
-    return this;
-  }
-
-   /**
-   * Redis only: how many seconds since last I/O with redis master
-   * @return masterLastIoSecondsAgo
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MASTER_LAST_IO_SECONDS_AGO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getMasterLastIoSecondsAgo() {
-    return masterLastIoSecondsAgo;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MASTER_LAST_IO_SECONDS_AGO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMasterLastIoSecondsAgo(Long masterLastIoSecondsAgo) {
-    this.masterLastIoSecondsAgo = masterLastIoSecondsAgo;
-  }
-
-
-  public DbaasMigrationStatus masterLinkStatus(EnumMasterLinkStatus masterLinkStatus) {
-    this.masterLinkStatus = masterLinkStatus;
-    return this;
-  }
-
-   /**
-   * Get masterLinkStatus
-   * @return masterLinkStatus
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MASTER_LINK_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public EnumMasterLinkStatus getMasterLinkStatus() {
-    return masterLinkStatus;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MASTER_LINK_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMasterLinkStatus(EnumMasterLinkStatus masterLinkStatus) {
-    this.masterLinkStatus = masterLinkStatus;
   }
 
 
@@ -237,8 +178,6 @@ public class DbaasMigrationStatus {
     }
     DbaasMigrationStatus dbaasMigrationStatus = (DbaasMigrationStatus) o;
     return Objects.equals(this.error, dbaasMigrationStatus.error) &&
-        Objects.equals(this.masterLastIoSecondsAgo, dbaasMigrationStatus.masterLastIoSecondsAgo) &&
-        Objects.equals(this.masterLinkStatus, dbaasMigrationStatus.masterLinkStatus) &&
         Objects.equals(this.method, dbaasMigrationStatus.method) &&
         Objects.equals(this.status, dbaasMigrationStatus.status) &&
         Objects.equals(this.details, dbaasMigrationStatus.details);
@@ -246,7 +185,7 @@ public class DbaasMigrationStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, masterLastIoSecondsAgo, masterLinkStatus, method, status, details);
+    return Objects.hash(error, method, status, details);
   }
 
   @Override
@@ -254,8 +193,6 @@ public class DbaasMigrationStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbaasMigrationStatus {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    masterLastIoSecondsAgo: ").append(toIndentedString(masterLastIoSecondsAgo)).append("\n");
-    sb.append("    masterLinkStatus: ").append(toIndentedString(masterLinkStatus)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
@@ -309,16 +246,6 @@ public class DbaasMigrationStatus {
     // add `error` to the URL query string
     if (getError() != null) {
       joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `master-last-io-seconds-ago` to the URL query string
-    if (getMasterLastIoSecondsAgo() != null) {
-      joiner.add(String.format("%smaster-last-io-seconds-ago%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMasterLastIoSecondsAgo()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `master-link-status` to the URL query string
-    if (getMasterLinkStatus() != null) {
-      joiner.add(String.format("%smaster-link-status%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMasterLinkStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `method` to the URL query string

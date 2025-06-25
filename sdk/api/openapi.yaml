@@ -724,35 +724,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /dbaas-redis/{service-name}/user/{username}/password/reveal:
-    get:
-      operationId: reveal-dbaas-redis-user-password
-      parameters:
-      - explode: false
-        in: path
-        name: service-name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      - explode: false
-        in: path
-        name: username
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-user-username'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/dbaas-user-redis-secrets'
-          description: "200"
-      summary: Reveal the secrets of a DBaaS Redis user
-      tags:
-      - exoscale
-      x-accepts: application/json
   /load-balancer:
     get:
       description: ""
@@ -1710,22 +1681,6 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
-  /dbaas-settings-redis:
-    get:
-      description: Returns the default settings for Redis.
-      operationId: get-dbaas-settings-redis
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/get_dbaas_settings_redis_200_response'
-          description: "200"
-      summary: Get DBaaS Redis settings
-      tags:
-      - exoscale
-      x-accepts: application/json
   /dbaas-kafka/{name}/schema-registry/acl-config:
     post:
       operationId: create-dbaas-kafka-schema-registry-acl-config
@@ -2243,35 +2198,6 @@ paths:
                 $ref: '#/components/schemas/organization'
           description: "200"
       summary: Retrieve an organization
-      tags:
-      - exoscale
-      x-accepts: application/json
-  /dbaas-redis/{service-name}/user/{username}:
-    delete:
-      operationId: delete-dbaas-redis-user
-      parameters:
-      - explode: false
-        in: path
-        name: service-name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      - explode: false
-        in: path
-        name: username
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-user-username'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Delete a DBaaS Redis user
       tags:
       - exoscale
       x-accepts: application/json
@@ -5893,28 +5819,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /dbaas-redis/{name}/migration/stop:
-    post:
-      operationId: stop-dbaas-redis-migration
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Stop a DBaaS Redis migration
-      tags:
-      - exoscale
-      x-accepts: application/json
   /instance/{id}:
     delete:
       description: ""
@@ -6783,28 +6687,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /dbaas-redis/{name}/upgrade-type:
-    put:
-      operationId: start-dbaas-redis-to-valkey-upgrade
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Initiate Redis upgrade to Valkey
-      tags:
-      - exoscale
-      x-accepts: application/json
   /dbaas-external-endpoint-elasticsearch/{name}:
     post:
       description: "[BETA] Create ElasticSearch Logs external integration endpoint"
@@ -6831,43 +6713,6 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: ""
-      tags:
-      - exoscale
-      x-content-type: application/json
-      x-accepts: application/json
-  /dbaas-redis/{service-name}/user/{username}/password/reset:
-    put:
-      description: If no password is provided one will be generated automatically.
-      operationId: reset-dbaas-redis-user-password
-      parameters:
-      - explode: false
-        in: path
-        name: service-name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      - explode: false
-        in: path
-        name: username
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-user-username'
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/reset_dbaas_valkey_user_password_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Reset the credentials of a DBaaS Redis user
       tags:
       - exoscale
       x-content-type: application/json
@@ -7178,108 +7023,6 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: ""
-      tags:
-      - exoscale
-      x-content-type: application/json
-      x-accepts: application/json
-  /dbaas-redis/{name}:
-    delete:
-      operationId: delete-dbaas-service-redis
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Delete a Redis service
-      tags:
-      - exoscale
-      x-accepts: application/json
-    get:
-      description: Get a DBaaS Redis service
-      operationId: get-dbaas-service-redis
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/dbaas-service-redis'
-          description: "200"
-      summary: Get a DBaaS Redis service
-      tags:
-      - exoscale
-      x-accepts: application/json
-    post:
-      description: Create a DBaaS Redis service
-      operationId: create-dbaas-service-redis
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/create_dbaas_service_redis_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Create a DBaaS Redis service
-      tags:
-      - exoscale
-      x-content-type: application/json
-      x-accepts: application/json
-    put:
-      description: Update a DBaaS Redis service
-      operationId: update-dbaas-service-redis
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/update_dbaas_service_redis_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Update a DBaaS Redis service
       tags:
       - exoscale
       x-content-type: application/json
@@ -7621,35 +7364,6 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
-  /dbaas-redis/{service-name}/user:
-    post:
-      operationId: create-dbaas-redis-user
-      parameters:
-      - explode: false
-        in: path
-        name: service-name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/create_dbaas_kafka_user_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Create a DBaaS Redis user
-      tags:
-      - exoscale
-      x-content-type: application/json
-      x-accepts: application/json
   /instance:
     get:
       description: ""
@@ -7849,28 +7563,6 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
-      x-accepts: application/json
-  /dbaas-redis/{name}/maintenance/start:
-    put:
-      operationId: start-dbaas-redis-maintenance
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Initiate Redis maintenance update
-      tags:
-      - exoscale
       x-accepts: application/json
   /block-storage:
     get:
@@ -14644,19 +14336,6 @@ components:
       - mode
       - port
       type: object
-    dbaas-user-redis-secrets:
-      description: Redis User secrets
-      example:
-        password: password
-        username: username
-      properties:
-        username:
-          description: Redis username
-          type: string
-        password:
-          description: Redis password
-          type: string
-      type: object
     dbaas-kafka-schema-registry-acl-entry:
       example:
         resource: resource
@@ -17258,7 +16937,6 @@ components:
       type: object
     dbaas-migration-status:
       example:
-        master-last-io-seconds-ago: 0
         method: method
         details:
         - dbname: dbname
@@ -17270,18 +16948,11 @@ components:
           error: error
           status: null
         error: error
-        master-link-status: null
         status: status
       properties:
         error:
           description: Error message in case that migration has failed
           type: string
-        master-last-io-seconds-ago:
-          description: "Redis only: how many seconds since last I/O with redis master"
-          format: int64
-          type: integer
-        master-link-status:
-          $ref: '#/components/schemas/enum-master-link-status'
         method:
           description: Migration method. Empty in case of multiple methods or error
           type: string
@@ -27519,285 +27190,6 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_datadog_input_update_settings'
       type: object
-    dbaas-service-redis:
-      example:
-        components:
-        - component: component
-          route: null
-          port: 15087
-          usage: null
-          host: host
-          ssl: true
-        - component: component
-          route: null
-          port: 15087
-          usage: null
-          host: host
-          ssl: true
-        node-memory: 0
-        ip-filter:
-        - ip-filter
-        - ip-filter
-        type: type
-        uri-params: "{}"
-        zone: zone
-        node-cpu-count: 0
-        node-states:
-        - role: standby
-          name: name
-          state: leaving
-          progress-updates:
-          - phase: stream
-            current: 0
-            unit: unit
-            min: 0
-            max: 0
-            completed: true
-          - phase: stream
-            current: 0
-            unit: unit
-            min: 0
-            max: 0
-            completed: true
-        - role: standby
-          name: name
-          state: leaving
-          progress-updates:
-          - phase: stream
-            current: 0
-            unit: unit
-            min: 0
-            max: 0
-            completed: true
-          - phase: stream
-            current: 0
-            unit: unit
-            min: 0
-            max: 0
-            completed: true
-        redis-settings:
-          pubsub_client_output_buffer_limit: 64
-          lfu_decay_time: 71
-          number_of_databases: 16
-          lfu_log_factor: 14
-          persistence: "off"
-          io_threads: 1
-          ssl: true
-          maxmemory_policy: noeviction
-          timeout: 17778031
-          acl_channels_default: allchannels
-          notify_keyspace_events: ""
-        created-at: 2000-01-23T04:56:07.000+00:00
-        state: null
-        plan: plan
-        connection-info:
-          slave:
-          - slave
-          - slave
-          password: password
-          uri:
-          - uri
-          - uri
-        updated-at: 2000-01-23T04:56:07.000+00:00
-        prometheus-uri:
-          port: 36944
-          host: host
-        uri: uri
-        version: version
-        users:
-        - password: password
-          type: type
-          access-control:
-            channels:
-            - channels
-            - channels
-            keys:
-            - keys
-            - keys
-            categories:
-            - categories
-            - categories
-            commands:
-            - commands
-            - commands
-          username: username
-        - password: password
-          type: type
-          access-control:
-            channels:
-            - channels
-            - channels
-            keys:
-            - keys
-            - keys
-            categories:
-            - categories
-            - categories
-            commands:
-            - commands
-            - commands
-          username: username
-        node-count: 0
-        termination-protection: true
-        name: name
-        disk-size: 0
-        integrations:
-        - settings: "{}"
-          description: description
-          is-active: true
-          source: source
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          type: type
-          dest: dest
-          is-enabled: true
-          status: status
-        - settings: "{}"
-          description: description
-          is-active: true
-          source: source
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          type: type
-          dest: dest
-          is-enabled: true
-          status: status
-        maintenance:
-          time: time
-          updates:
-          - start-at: 2000-01-23T04:56:07.000+00:00
-            description: description
-            start-after: 2000-01-23T04:56:07.000+00:00
-            deadline: 2000-01-23T04:56:07.000+00:00
-          - start-at: 2000-01-23T04:56:07.000+00:00
-            description: description
-            start-after: 2000-01-23T04:56:07.000+00:00
-            deadline: 2000-01-23T04:56:07.000+00:00
-          dow: saturday
-        notifications:
-        - metadata: "{}"
-          level: warning
-          message: message
-          type: service_powered_off_removal
-        - metadata: "{}"
-          level: warning
-          message: message
-          type: service_powered_off_removal
-        backups:
-        - data-size: 0
-          backup-time: 2000-01-23T04:56:07.000+00:00
-          backup-name: backup-name
-        - data-size: 0
-          backup-time: 2000-01-23T04:56:07.000+00:00
-          backup-name: backup-name
-      properties:
-        updated-at:
-          description: Service last update timestamp (ISO 8601)
-          format: date-time
-          type: string
-        node-count:
-          description: Number of service nodes in the active plan
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        connection-info:
-          $ref: '#/components/schemas/dbaas_service_redis_connection_info'
-        node-cpu-count:
-          description: Number of CPUs for each node
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        prometheus-uri:
-          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
-        integrations:
-          description: Service integrations
-          items:
-            $ref: '#/components/schemas/dbaas-integration'
-          type: array
-        zone:
-          description: The zone where the service is running
-          type: string
-        node-states:
-          description: State of individual service nodes
-          items:
-            $ref: '#/components/schemas/dbaas-node-state'
-          type: array
-        name:
-          maxLength: 63
-          minLength: 0
-          type: string
-        redis-settings:
-          $ref: '#/components/schemas/json-schema-redis'
-        type:
-          maxLength: 64
-          minLength: 0
-          type: string
-        state:
-          $ref: '#/components/schemas/enum-service-state'
-        ip-filter:
-          description: Allowed CIDR address blocks for incoming connections
-          items:
-            type: string
-          type: array
-        backups:
-          description: List of backups for the service
-          items:
-            $ref: '#/components/schemas/dbaas-service-backup'
-          type: array
-        termination-protection:
-          description: Service is protected against termination and powering off
-          type: boolean
-        notifications:
-          description: Service notifications
-          items:
-            $ref: '#/components/schemas/dbaas-service-notification'
-          type: array
-        components:
-          description: Service component information objects
-          items:
-            $ref: '#/components/schemas/dbaas_service_redis_components_inner'
-          type: array
-        maintenance:
-          $ref: '#/components/schemas/dbaas-service-maintenance'
-        disk-size:
-          description: TODO UNIT disk space for data storage
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        node-memory:
-          description: TODO UNIT of memory for each node
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        uri:
-          description: URI for connecting to the service (may be absent)
-          type: string
-        uri-params:
-          description: service_uri parameterized into key-value pairs
-          type: object
-        version:
-          description: Redis version
-          type: string
-        created-at:
-          description: Service creation timestamp (ISO 8601)
-          format: date-time
-          type: string
-        plan:
-          description: Subscription plan
-          type: string
-        users:
-          description: List of service users
-          items:
-            $ref: '#/components/schemas/dbaas_service_redis_users_inner'
-          type: array
-      required:
-      - name
-      - plan
-      - prometheus-uri
-      - type
-      type: object
     zone-name:
       enum:
       - ch-dk-2
@@ -29249,7 +28641,7 @@ components:
         components:
           description: Service component information objects
           items:
-            $ref: '#/components/schemas/dbaas_service_redis_components_inner'
+            $ref: '#/components/schemas/dbaas_service_valkey_components_inner'
           type: array
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
@@ -29284,7 +28676,7 @@ components:
         users:
           description: List of service users
           items:
-            $ref: '#/components/schemas/dbaas_service_redis_users_inner'
+            $ref: '#/components/schemas/dbaas_service_valkey_users_inner'
           type: array
       required:
       - name
@@ -29372,112 +28764,6 @@ components:
           maximum: 120.0
           minimum: 10.0
           type: integer
-      type: object
-    json-schema-redis:
-      example:
-        pubsub_client_output_buffer_limit: 64
-        lfu_decay_time: 71
-        number_of_databases: 16
-        lfu_log_factor: 14
-        persistence: "off"
-        io_threads: 1
-        ssl: true
-        maxmemory_policy: noeviction
-        timeout: 17778031
-        acl_channels_default: allchannels
-        notify_keyspace_events: ""
-      properties:
-        ssl:
-          default: true
-          title: Require SSL to access Redis
-          type: boolean
-        lfu_log_factor:
-          default: 10
-          maximum: 100
-          minimum: 0
-          title: Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies
-          type: integer
-        maxmemory_policy:
-          default: noeviction
-          enum:
-          - noeviction
-          - allkeys-lru
-          - volatile-lru
-          - allkeys-random
-          - volatile-random
-          - volatile-ttl
-          - volatile-lfu
-          - allkeys-lfu
-          nullable: true
-          title: Redis maxmemory-policy
-          type: string
-        io_threads:
-          description: Set Redis IO thread count. Changing this will cause a restart
-            of the Redis service.
-          example: 1
-          maximum: 32
-          minimum: 1
-          title: Redis IO thread count
-          type: integer
-        lfu_decay_time:
-          default: 1
-          maximum: 120
-          minimum: 1
-          title: LFU maxmemory-policy counter decay time in minutes
-          type: integer
-        pubsub_client_output_buffer_limit:
-          description: "Set output buffer limit for pub / sub clients in MB. The value\
-            \ is the hard limit, the soft limit is 1/4 of the hard limit. When setting\
-            \ the limit, be mindful of the available memory in the selected service\
-            \ plan."
-          example: 64
-          maximum: 512
-          minimum: 32
-          title: Pub/sub client output buffer hard limit in MB
-          type: integer
-        notify_keyspace_events:
-          default: ""
-          maxLength: 32
-          pattern: "^[KEg\\$lshzxentdmA]*$"
-          title: Set notify-keyspace-events option
-          type: string
-        persistence:
-          description: "When persistence is 'rdb', Redis does RDB dumps each 10 minutes\
-            \ if any key is changed. Also RDB dumps are done according to backup schedule\
-            \ for backup purposes. When persistence is 'off', no RDB dumps and backups\
-            \ are done, so data can be lost at any moment if service is restarted\
-            \ for any reason, or if service is powered off. Also service can't be\
-            \ forked."
-          enum:
-          - "off"
-          - rdb
-          title: Redis persistence
-          type: string
-        timeout:
-          default: 300
-          maximum: 31536000
-          minimum: 0
-          title: Redis idle connection timeout in seconds
-          type: integer
-        acl_channels_default:
-          description: "Determines default pub/sub channels' ACL for new users if\
-            \ ACL is not supplied. When this option is not defined, all_channels is\
-            \ assumed to keep backward compatibility. This option doesn't affect Redis\
-            \ configuration acl-pubsub-default."
-          enum:
-          - allchannels
-          - resetchannels
-          title: Default ACL for pub/sub channels used when Redis user is created
-          type: string
-        number_of_databases:
-          description: Set number of Redis databases. Changing this will cause a restart
-            of the Redis service.
-          example: 16
-          maximum: 128
-          minimum: 1
-          title: Number of Redis databases
-          type: integer
-      title: Redis settings
       type: object
     dbaas-external-endpoint:
       example:
@@ -40732,46 +40018,6 @@ components:
           type: string
       required:
       - plan
-      type: object
-    get_dbaas_settings_redis_200_response_settings_redis:
-      description: Redis configuration values
-      example:
-        additionalProperties: true
-        type: type
-        title: title
-        properties: "{}"
-      properties:
-        properties:
-          type: object
-        additionalProperties:
-          type: boolean
-        type:
-          type: string
-        title:
-          type: string
-      type: object
-    get_dbaas_settings_redis_200_response_settings:
-      example:
-        redis:
-          additionalProperties: true
-          type: type
-          title: title
-          properties: "{}"
-      properties:
-        redis:
-          $ref: '#/components/schemas/get_dbaas_settings_redis_200_response_settings_redis'
-      type: object
-    get_dbaas_settings_redis_200_response:
-      example:
-        settings:
-          redis:
-            additionalProperties: true
-            type: type
-            title: title
-            properties: "{}"
-      properties:
-        settings:
-          $ref: '#/components/schemas/get_dbaas_settings_redis_200_response_settings'
       type: object
     update_private_network_instance_ip_request_instance:
       properties:
@@ -52477,61 +51723,6 @@ components:
       required:
       - integration-id
       type: object
-    update_dbaas_service_redis_request:
-      properties:
-        maintenance:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
-        plan:
-          description: Subscription plan
-          maxLength: 128
-          minLength: 1
-          type: string
-        termination-protection:
-          description: Service is protected against termination and powering off
-          type: boolean
-        ip-filter:
-          description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
-          items:
-            type: string
-          type: array
-        migration:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
-        redis-settings:
-          $ref: '#/components/schemas/json-schema-redis'
-      type: object
-    create_dbaas_service_redis_request:
-      properties:
-        maintenance:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
-        plan:
-          description: Subscription plan
-          maxLength: 128
-          minLength: 1
-          type: string
-        termination-protection:
-          description: Service is protected against termination and powering off
-          type: boolean
-        ip-filter:
-          description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
-          items:
-            type: string
-          type: array
-        migration:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
-        redis-settings:
-          $ref: '#/components/schemas/json-schema-redis'
-        fork-from-service:
-          maxLength: 63
-          minLength: 0
-          type: string
-        recovery-backup-name:
-          description: Name of a backup to recover from for services that support
-            backup names
-          minLength: 1
-          type: string
-      required:
-      - plan
-      type: object
     update_dbaas_service_pg_request:
       properties:
         pgbouncer-settings:
@@ -54830,7 +54021,7 @@ components:
         status: null
       properties:
         dbname:
-          description: Migrated db name (PG) or number (Redis)
+          description: Migrated db name (PG) or number (Valkey)
           type: string
         error:
           description: Error message in case that migration has failed
@@ -55069,128 +54260,6 @@ components:
       required:
       - datadog-api-key
       type: object
-    dbaas_service_redis_connection_info:
-      description: Redis connection information properties
-      example:
-        slave:
-        - slave
-        - slave
-        password: password
-        uri:
-        - uri
-        - uri
-      properties:
-        uri:
-          items:
-            type: string
-          type: array
-        password:
-          type: string
-        slave:
-          items:
-            type: string
-          type: array
-      type: object
-    dbaas_service_redis_components_inner:
-      example:
-        component: component
-        route: null
-        port: 15087
-        usage: null
-        host: host
-        ssl: true
-      properties:
-        component:
-          description: Service component name
-          type: string
-        host:
-          description: DNS name for connecting to the service component
-          type: string
-        port:
-          description: Port number for connecting to the service component
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int64
-          maximum: 65535
-          minimum: 0
-          type: integer
-        route:
-          $ref: '#/components/schemas/enum-component-route'
-        ssl:
-          description: |-
-            Whether the endpoint is encrypted or accepts plaintext.
-                         By default endpoints are always encrypted and
-                         this property is only included for service components that may disable encryption.
-          type: boolean
-        usage:
-          $ref: '#/components/schemas/enum-component-usage'
-      required:
-      - component
-      - host
-      - port
-      - route
-      - usage
-      type: object
-    dbaas_service_redis_users_inner_access_control:
-      example:
-        channels:
-        - channels
-        - channels
-        keys:
-        - keys
-        - keys
-        categories:
-        - categories
-        - categories
-        commands:
-        - commands
-        - commands
-      properties:
-        categories:
-          items:
-            type: string
-          type: array
-        channels:
-          items:
-            type: string
-          type: array
-        commands:
-          items:
-            type: string
-          type: array
-        keys:
-          items:
-            type: string
-          type: array
-      type: object
-    dbaas_service_redis_users_inner:
-      example:
-        password: password
-        type: type
-        access-control:
-          channels:
-          - channels
-          - channels
-          keys:
-          - keys
-          - keys
-          categories:
-          - categories
-          - categories
-          commands:
-          - commands
-          - commands
-        username: username
-      properties:
-        type:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-        access-control:
-          $ref: '#/components/schemas/dbaas_service_redis_users_inner_access_control'
-      type: object
     dbaas_service_opensearch_connection_info:
       description: Opensearch connection information properties
       example:
@@ -55360,6 +54429,106 @@ components:
           items:
             type: string
           type: array
+      type: object
+    dbaas_service_valkey_components_inner:
+      example:
+        component: component
+        route: null
+        port: 15087
+        usage: null
+        host: host
+        ssl: true
+      properties:
+        component:
+          description: Service component name
+          type: string
+        host:
+          description: DNS name for connecting to the service component
+          type: string
+        port:
+          description: Port number for connecting to the service component
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 65535
+          minimum: 0
+          type: integer
+        route:
+          $ref: '#/components/schemas/enum-component-route'
+        ssl:
+          description: |-
+            Whether the endpoint is encrypted or accepts plaintext.
+                         By default endpoints are always encrypted and
+                         this property is only included for service components that may disable encryption.
+          type: boolean
+        usage:
+          $ref: '#/components/schemas/enum-component-usage'
+      required:
+      - component
+      - host
+      - port
+      - route
+      - usage
+      type: object
+    dbaas_service_valkey_users_inner_access_control:
+      example:
+        channels:
+        - channels
+        - channels
+        keys:
+        - keys
+        - keys
+        categories:
+        - categories
+        - categories
+        commands:
+        - commands
+        - commands
+      properties:
+        categories:
+          items:
+            type: string
+          type: array
+        channels:
+          items:
+            type: string
+          type: array
+        commands:
+          items:
+            type: string
+          type: array
+        keys:
+          items:
+            type: string
+          type: array
+      type: object
+    dbaas_service_valkey_users_inner:
+      example:
+        password: password
+        type: type
+        access-control:
+          channels:
+          - channels
+          - channels
+          keys:
+          - keys
+          - keys
+          categories:
+          - categories
+          - categories
+          commands:
+          - commands
+          - commands
+        username: username
+      properties:
+        type:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        access-control:
+          $ref: '#/components/schemas/dbaas_service_valkey_users_inner_access_control'
       type: object
     Node_duress_settings:
       additionalProperties: false

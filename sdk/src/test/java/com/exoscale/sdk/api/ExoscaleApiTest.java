@@ -41,7 +41,6 @@ import com.exoscale.sdk.model.CreateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
-import com.exoscale.sdk.model.CreateDbaasServiceRedisRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
@@ -84,7 +83,6 @@ import com.exoscale.sdk.model.DbaasServiceLogs;
 import com.exoscale.sdk.model.DbaasServiceMysql;
 import com.exoscale.sdk.model.DbaasServiceOpensearch;
 import com.exoscale.sdk.model.DbaasServicePg;
-import com.exoscale.sdk.model.DbaasServiceRedis;
 import com.exoscale.sdk.model.DbaasServiceType;
 import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
@@ -94,7 +92,6 @@ import com.exoscale.sdk.model.DbaasUserKafkaSecrets;
 import com.exoscale.sdk.model.DbaasUserMysqlSecrets;
 import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
-import com.exoscale.sdk.model.DbaasUserRedisSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
@@ -117,7 +114,6 @@ import com.exoscale.sdk.model.GetDbaasSettingsKafka200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
-import com.exoscale.sdk.model.GetDbaasSettingsRedis200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetEnvImpact200Response;
@@ -203,7 +199,6 @@ import com.exoscale.sdk.model.UpdateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
-import com.exoscale.sdk.model.UpdateDbaasServiceRedisRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
@@ -775,24 +770,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Create a DBaaS Redis user
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createDbaasRedisUserTest() throws ApiException {
-        String serviceName = null;
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = null;
-        Operation response = 
-        api.createDbaasRedisUser(serviceName, createDbaasKafkaUserRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * 
      *
      * Create a DBaaS Grafana service
@@ -878,24 +855,6 @@ public class ExoscaleApiTest {
         CreateDbaasServicePgRequest createDbaasServicePgRequest = null;
         Operation response = 
         api.createDbaasServicePg(name, createDbaasServicePgRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Create a DBaaS Redis service
-     *
-     * Create a DBaaS Redis service
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createDbaasServiceRedisTest() throws ApiException {
-        String name = null;
-        CreateDbaasServiceRedisRequest createDbaasServiceRedisRequest = null;
-        Operation response = 
-        api.createDbaasServiceRedis(name, createDbaasServiceRedisRequest);
         
         // TODO: test validations
     }
@@ -1510,24 +1469,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Delete a DBaaS Redis user
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteDbaasRedisUserTest() throws ApiException {
-        String serviceName = null;
-        String username = null;
-        Operation response = 
-        api.deleteDbaasRedisUser(serviceName, username);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Delete a DBaaS service
      *
      * Delete a DBaaS service
@@ -1625,23 +1566,6 @@ public class ExoscaleApiTest {
         String name = null;
         Operation response = 
         api.deleteDbaasServicePg(name);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Delete a Redis service
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteDbaasServiceRedisTest() throws ApiException {
-        String name = null;
-        Operation response = 
-        api.deleteDbaasServiceRedis(name);
         
         // TODO: test validations
     }
@@ -2613,23 +2537,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get a DBaaS Redis service
-     *
-     * Get a DBaaS Redis service
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getDbaasServiceRedisTest() throws ApiException {
-        String name = null;
-        DbaasServiceRedis response = 
-        api.getDbaasServiceRedis(name);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Get a DBaaS service type
      *
      * Get a DBaaS service type
@@ -2739,22 +2646,6 @@ public class ExoscaleApiTest {
     public void getDbaasSettingsPgTest() throws ApiException {
         GetDbaasSettingsPg200Response response = 
         api.getDbaasSettingsPg();
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Get DBaaS Redis settings
-     *
-     * Returns the default settings for Redis.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getDbaasSettingsRedisTest() throws ApiException {
-        GetDbaasSettingsRedis200Response response = 
-        api.getDbaasSettingsRedis();
         
         // TODO: test validations
     }
@@ -4033,25 +3924,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Reset the credentials of a DBaaS Redis user
-     *
-     * If no password is provided one will be generated automatically.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void resetDbaasRedisUserPasswordTest() throws ApiException {
-        String serviceName = null;
-        String username = null;
-        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
-        Operation response = 
-        api.resetDbaasRedisUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Reset the credentials of a DBaaS Valkey user
      *
      * If no password is provided one will be generated automatically.
@@ -4411,24 +4283,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Reveal the secrets of a DBaaS Redis user
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void revealDbaasRedisUserPasswordTest() throws ApiException {
-        String serviceName = null;
-        String username = null;
-        DbaasUserRedisSecrets response = 
-        api.revealDbaasRedisUserPassword(serviceName, username);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Reveal the secrets of a DBaaS Valkey user
      *
      * 
@@ -4673,40 +4527,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Initiate Redis maintenance update
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void startDbaasRedisMaintenanceTest() throws ApiException {
-        String name = null;
-        Operation response = 
-        api.startDbaasRedisMaintenance(name);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Initiate Redis upgrade to Valkey
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void startDbaasRedisToValkeyUpgradeTest() throws ApiException {
-        String name = null;
-        Operation response = 
-        api.startDbaasRedisToValkeyUpgrade(name);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Initiate Valkey maintenance update
      *
      * 
@@ -4771,23 +4591,6 @@ public class ExoscaleApiTest {
         String name = null;
         Operation response = 
         api.stopDbaasPgMigration(name);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Stop a DBaaS Redis migration
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void stopDbaasRedisMigrationTest() throws ApiException {
-        String name = null;
-        Operation response = 
-        api.stopDbaasRedisMigration(name);
         
         // TODO: test validations
     }
@@ -5130,24 +4933,6 @@ public class ExoscaleApiTest {
         UpdateDbaasServicePgRequest updateDbaasServicePgRequest = null;
         Operation response = 
         api.updateDbaasServicePg(name, updateDbaasServicePgRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Update a DBaaS Redis service
-     *
-     * Update a DBaaS Redis service
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateDbaasServiceRedisTest() throws ApiException {
-        String name = null;
-        UpdateDbaasServiceRedisRequest updateDbaasServiceRedisRequest = null;
-        Operation response = 
-        api.updateDbaasServiceRedis(name, updateDbaasServiceRedisRequest);
         
         // TODO: test validations
     }
