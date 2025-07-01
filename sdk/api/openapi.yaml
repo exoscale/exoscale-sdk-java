@@ -40935,7 +40935,7 @@ components:
       properties:
         size:
           description: Volume size in GiB
-          exclusiveMinimum: false
+          exclusiveMinimum: true
           format: int64
           minimum: 0
           type: integer

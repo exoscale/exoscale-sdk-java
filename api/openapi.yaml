@@ -13674,7 +13674,7 @@ paths:
                   type: integer
                   format: int64
                   minimum: 0
-                  exclusiveMinimum: false
+                  exclusiveMinimum: true
                   description: Volume size in GiB
               required:
               - size
@@ -15382,6 +15382,7 @@ paths:
                   description: Assign public IP to the Instance
                 labels:
                   "$ref": "#/components/schemas/labels"
+                  nullable: true
                   description: Resource labels
       operationId: update-instance
     get:
