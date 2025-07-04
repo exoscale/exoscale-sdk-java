@@ -134,7 +134,9 @@ public class SksCluster {
     
     UPDATING("updating"),
     
-    ERROR("error");
+    ERROR("error"),
+    
+    RESUMING("resuming");
 
     private String value;
 

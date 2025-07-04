@@ -22346,6 +22346,7 @@ components:
           - suspending
           - updating
           - error
+          - resuming
           readOnly: true
           type: string
         enable-kube-proxy:
@@ -50668,6 +50669,11 @@ components:
           maxLength: 255
           minLength: 1
           type: string
+        create-default-security-group:
+          description: Creates an ad-hoc security group based on the choice of the
+            selected CNI
+          nullable: true
+          type: boolean
         enable-kube-proxy:
           description: "Indicates whether to deploy the Kubernetes network proxy.\
             \ When unspecified, defaults to `true` unless Cilium CNI is selected"

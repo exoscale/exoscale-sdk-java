@@ -50,6 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksClusterRequest.JSON_PROPERTY_NETWORKING,
   CreateSksClusterRequest.JSON_PROPERTY_OIDC,
   CreateSksClusterRequest.JSON_PROPERTY_NAME,
+  CreateSksClusterRequest.JSON_PROPERTY_CREATE_DEFAULT_SECURITY_GROUP,
   CreateSksClusterRequest.JSON_PROPERTY_ENABLE_KUBE_PROXY,
   CreateSksClusterRequest.JSON_PROPERTY_LEVEL,
   CreateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
@@ -113,6 +114,9 @@ public class CreateSksClusterRequest {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_CREATE_DEFAULT_SECURITY_GROUP = "create-default-security-group";
+  private JsonNullable<Boolean> createDefaultSecurityGroup = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_ENABLE_KUBE_PROXY = "enable-kube-proxy";
   private Boolean enableKubeProxy;
@@ -395,6 +399,39 @@ public class CreateSksClusterRequest {
   }
 
 
+  public CreateSksClusterRequest createDefaultSecurityGroup(Boolean createDefaultSecurityGroup) {
+    this.createDefaultSecurityGroup = JsonNullable.<Boolean>of(createDefaultSecurityGroup);
+    return this;
+  }
+
+   /**
+   * Creates an ad-hoc security group based on the choice of the selected CNI
+   * @return createDefaultSecurityGroup
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getCreateDefaultSecurityGroup() {
+        return createDefaultSecurityGroup.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATE_DEFAULT_SECURITY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getCreateDefaultSecurityGroup_JsonNullable() {
+    return createDefaultSecurityGroup;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATE_DEFAULT_SECURITY_GROUP)
+  public void setCreateDefaultSecurityGroup_JsonNullable(JsonNullable<Boolean> createDefaultSecurityGroup) {
+    this.createDefaultSecurityGroup = createDefaultSecurityGroup;
+  }
+
+  public void setCreateDefaultSecurityGroup(Boolean createDefaultSecurityGroup) {
+    this.createDefaultSecurityGroup = JsonNullable.<Boolean>of(createDefaultSecurityGroup);
+  }
+
+
   public CreateSksClusterRequest enableKubeProxy(Boolean enableKubeProxy) {
     this.enableKubeProxy = enableKubeProxy;
     return this;
@@ -557,6 +594,7 @@ public class CreateSksClusterRequest {
         Objects.equals(this.networking, createSksClusterRequest.networking) &&
         Objects.equals(this.oidc, createSksClusterRequest.oidc) &&
         Objects.equals(this.name, createSksClusterRequest.name) &&
+        equalsNullable(this.createDefaultSecurityGroup, createSksClusterRequest.createDefaultSecurityGroup) &&
         Objects.equals(this.enableKubeProxy, createSksClusterRequest.enableKubeProxy) &&
         Objects.equals(this.level, createSksClusterRequest.level) &&
         Objects.equals(this.featureGates, createSksClusterRequest.featureGates) &&
@@ -570,7 +608,7 @@ public class CreateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, networking, oidc, name, enableKubeProxy, level, featureGates, addons, version);
+    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, networking, oidc, name, hashCodeNullable(createDefaultSecurityGroup), enableKubeProxy, level, featureGates, addons, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -591,6 +629,7 @@ public class CreateSksClusterRequest {
     sb.append("    networking: ").append(toIndentedString(networking)).append("\n");
     sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    createDefaultSecurityGroup: ").append(toIndentedString(createDefaultSecurityGroup)).append("\n");
     sb.append("    enableKubeProxy: ").append(toIndentedString(enableKubeProxy)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
@@ -680,6 +719,11 @@ public class CreateSksClusterRequest {
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `create-default-security-group` to the URL query string
+    if (getCreateDefaultSecurityGroup() != null) {
+      joiner.add(String.format("%screate-default-security-group%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateDefaultSecurityGroup()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `enable-kube-proxy` to the URL query string

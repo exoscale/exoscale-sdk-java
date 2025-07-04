@@ -105,6 +105,14 @@ public class CreateSksClusterRequestTest {
     }
 
     /**
+     * Test the property 'createDefaultSecurityGroup'
+     */
+    @Test
+    public void createDefaultSecurityGroupTest() {
+        // TODO: test createDefaultSecurityGroup
+    }
+
+    /**
      * Test the property 'enableKubeProxy'
      */
     @Test

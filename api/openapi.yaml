@@ -5224,6 +5224,7 @@ components:
           - suspending
           - updating
           - error
+          - resuming
           readOnly: true
           description: Cluster state
         enable-kube-proxy:
@@ -14447,6 +14448,11 @@ paths:
                   maxLength: 255
                   minLength: 1
                   description: Cluster name
+                create-default-security-group:
+                  type: boolean
+                  nullable: true
+                  description: Creates an ad-hoc security group based on the choice
+                    of the selected CNI
                 enable-kube-proxy:
                   type: boolean
                   description: Indicates whether to deploy the Kubernetes network

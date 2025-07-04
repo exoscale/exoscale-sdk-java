@@ -14,6 +14,7 @@
 |**networking** | [**Networking**](Networking.md) |  |  [optional] |
 |**oidc** | [**SksOidc**](SksOidc.md) |  |  [optional] |
 |**name** | **String** | Cluster name |  |
+|**createDefaultSecurityGroup** | **Boolean** | Creates an ad-hoc security group based on the choice of the selected CNI |  [optional] |
 |**enableKubeProxy** | **Boolean** | Indicates whether to deploy the Kubernetes network proxy. When unspecified, defaults to &#x60;true&#x60; unless Cilium CNI is selected |  [optional] |
 |**level** | [**LevelEnum**](#LevelEnum) | Cluster service level |  |
 |**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |

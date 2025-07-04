@@ -49,6 +49,7 @@ SKS Cluster
 | SUSPENDING | &quot;suspending&quot; |
 | UPDATING | &quot;updating&quot; |
 | ERROR | &quot;error&quot; |
+| RESUMING | &quot;resuming&quot; |
 
 
 
