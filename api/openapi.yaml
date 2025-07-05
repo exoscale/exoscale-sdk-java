@@ -1429,8 +1429,17 @@ components:
       description: Load Balancer
     sks-cluster-deprecated-resource:
       type: object
-      additionalProperties:
-        type: string
+      properties:
+        group:
+          type: string
+        version:
+          type: string
+        resource:
+          type: string
+        subresource:
+          type: string
+        removed-release:
+          type: string
     elastic-ip:
       type: object
       properties:

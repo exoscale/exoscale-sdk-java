@@ -182,6 +182,7 @@ import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.SecurityGroup;
 import com.exoscale.sdk.model.SksCluster;
+import com.exoscale.sdk.model.SksClusterDeprecatedResource;
 import com.exoscale.sdk.model.SksKubeconfigRequest;
 import com.exoscale.sdk.model.SksNodepool;
 import com.exoscale.sdk.model.Snapshot;
@@ -3587,7 +3588,7 @@ public class ExoscaleApiTest {
     @Test
     public void listSksClusterDeprecatedResourcesTest() throws ApiException {
         UUID id = null;
-        List<Map<String, String>> response = 
+        List<SksClusterDeprecatedResource> response = 
         api.listSksClusterDeprecatedResources(id);
         
         // TODO: test validations

@@ -18104,7 +18104,7 @@ No authorization required
 
 ## listSksClusterDeprecatedResources
 
-> List<Map<String, String>> listSksClusterDeprecatedResources(id)
+> List<SksClusterDeprecatedResource> listSksClusterDeprecatedResources(id)
 
 Resources that are scheduled to be removed in future kubernetes releases
 
@@ -18127,7 +18127,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            List<Map<String, String>> result = client.listSksClusterDeprecatedResources(id);
+            List<SksClusterDeprecatedResource> result = client.listSksClusterDeprecatedResources(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listSksClusterDeprecatedResources");
@@ -18149,7 +18149,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;Map&lt;String, String&gt;&gt;**](Map.md)
+[**List&lt;SksClusterDeprecatedResource&gt;**](SksClusterDeprecatedResource.md)
 
 
 ### Authorization
@@ -18176,7 +18176,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**List&lt;Map&lt;String, String&gt;&gt;**](Map.md)>
+ApiResponse<[**List&lt;SksClusterDeprecatedResource&gt;**](SksClusterDeprecatedResource.md)>
 
 
 ### Authorization

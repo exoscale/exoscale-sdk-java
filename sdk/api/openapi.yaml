@@ -11680,8 +11680,23 @@ components:
           type: object
       type: object
     sks-cluster-deprecated-resource:
-      additionalProperties:
-        type: string
+      example:
+        removed-release: removed-release
+        resource: resource
+        subresource: subresource
+        version: version
+        group: group
+      properties:
+        group:
+          type: string
+        version:
+          type: string
+        resource:
+          type: string
+        subresource:
+          type: string
+        removed-release:
+          type: string
       type: object
     elastic-ip:
       description: Elastic IP

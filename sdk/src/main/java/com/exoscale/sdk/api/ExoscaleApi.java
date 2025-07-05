@@ -186,6 +186,7 @@ import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.SecurityGroup;
 import com.exoscale.sdk.model.SksCluster;
+import com.exoscale.sdk.model.SksClusterDeprecatedResource;
 import com.exoscale.sdk.model.SksKubeconfigRequest;
 import com.exoscale.sdk.model.SksNodepool;
 import com.exoscale.sdk.model.Snapshot;
@@ -16854,11 +16855,11 @@ public class ExoscaleApi {
    * Resources that are scheduled to be removed in future kubernetes releases
    * This operation returns the deprecated resources for a given cluster
    * @param id  (required)
-   * @return List&lt;Map&lt;String, String&gt;&gt;
+   * @return List&lt;SksClusterDeprecatedResource&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Map<String, String>> listSksClusterDeprecatedResources(UUID id) throws ApiException {
-    ApiResponse<List<Map<String, String>>> localVarResponse = listSksClusterDeprecatedResourcesWithHttpInfo(id);
+  public List<SksClusterDeprecatedResource> listSksClusterDeprecatedResources(UUID id) throws ApiException {
+    ApiResponse<List<SksClusterDeprecatedResource>> localVarResponse = listSksClusterDeprecatedResourcesWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
@@ -16866,10 +16867,10 @@ public class ExoscaleApi {
    * Resources that are scheduled to be removed in future kubernetes releases
    * This operation returns the deprecated resources for a given cluster
    * @param id  (required)
-   * @return ApiResponse&lt;List&lt;Map&lt;String, String&gt;&gt;&gt;
+   * @return ApiResponse&lt;List&lt;SksClusterDeprecatedResource&gt;&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<List<Map<String, String>>> listSksClusterDeprecatedResourcesWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<List<SksClusterDeprecatedResource>> listSksClusterDeprecatedResourcesWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listSksClusterDeprecatedResourcesRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16882,10 +16883,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("listSksClusterDeprecatedResources", localVarResponse);
         }
-        return new ApiResponse<List<Map<String, String>>>(
+        return new ApiResponse<List<SksClusterDeprecatedResource>>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<Map<String, String>>>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<SksClusterDeprecatedResource>>() {}) // closes the InputStream
         );
       } finally {
       }
