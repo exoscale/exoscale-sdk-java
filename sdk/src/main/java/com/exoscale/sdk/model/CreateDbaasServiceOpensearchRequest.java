@@ -32,6 +32,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -56,7 +60,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateDbaasServiceOpensearchRequest {
   public static final String JSON_PROPERTY_MAX_INDEX_COUNT = "max-index-count";
-  private Long maxIndexCount;
+  private JsonNullable<Long> maxIndexCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_KEEP_INDEX_REFRESH_INTERVAL = "keep-index-refresh-interval";
   private Boolean keepIndexRefreshInterval;
@@ -98,7 +102,7 @@ public class CreateDbaasServiceOpensearchRequest {
   }
 
   public CreateDbaasServiceOpensearchRequest maxIndexCount(Long maxIndexCount) {
-    this.maxIndexCount = maxIndexCount;
+    this.maxIndexCount = JsonNullable.<Long>of(maxIndexCount);
     return this;
   }
 
@@ -108,18 +112,26 @@ public class CreateDbaasServiceOpensearchRequest {
    * @return maxIndexCount
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getMaxIndexCount() {
-    return maxIndexCount;
+        return maxIndexCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaxIndexCount(Long maxIndexCount) {
+
+  public JsonNullable<Long> getMaxIndexCount_JsonNullable() {
+    return maxIndexCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
+  public void setMaxIndexCount_JsonNullable(JsonNullable<Long> maxIndexCount) {
     this.maxIndexCount = maxIndexCount;
+  }
+
+  public void setMaxIndexCount(Long maxIndexCount) {
+    this.maxIndexCount = JsonNullable.<Long>of(maxIndexCount);
   }
 
 
@@ -451,7 +463,7 @@ public class CreateDbaasServiceOpensearchRequest {
       return false;
     }
     CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest = (CreateDbaasServiceOpensearchRequest) o;
-    return Objects.equals(this.maxIndexCount, createDbaasServiceOpensearchRequest.maxIndexCount) &&
+    return equalsNullable(this.maxIndexCount, createDbaasServiceOpensearchRequest.maxIndexCount) &&
         Objects.equals(this.keepIndexRefreshInterval, createDbaasServiceOpensearchRequest.keepIndexRefreshInterval) &&
         Objects.equals(this.ipFilter, createDbaasServiceOpensearchRequest.ipFilter) &&
         Objects.equals(this.terminationProtection, createDbaasServiceOpensearchRequest.terminationProtection) &&
@@ -466,9 +478,20 @@ public class CreateDbaasServiceOpensearchRequest {
         Objects.equals(this.opensearchDashboards, createDbaasServiceOpensearchRequest.opensearchDashboards);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(maxIndexCount, keepIndexRefreshInterval, ipFilter, terminationProtection, forkFromService, indexPatterns, maintenance, indexTemplate, opensearchSettings, version, recoveryBackupName, plan, opensearchDashboards);
+    return Objects.hash(hashCodeNullable(maxIndexCount), keepIndexRefreshInterval, ipFilter, terminationProtection, forkFromService, indexPatterns, maintenance, indexTemplate, opensearchSettings, version, recoveryBackupName, plan, opensearchDashboards);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -32,6 +32,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -54,7 +58,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceOpensearchRequest {
   public static final String JSON_PROPERTY_MAX_INDEX_COUNT = "max-index-count";
-  private Long maxIndexCount;
+  private JsonNullable<Long> maxIndexCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_KEEP_INDEX_REFRESH_INTERVAL = "keep-index-refresh-interval";
   private Boolean keepIndexRefreshInterval;
@@ -90,7 +94,7 @@ public class UpdateDbaasServiceOpensearchRequest {
   }
 
   public UpdateDbaasServiceOpensearchRequest maxIndexCount(Long maxIndexCount) {
-    this.maxIndexCount = maxIndexCount;
+    this.maxIndexCount = JsonNullable.<Long>of(maxIndexCount);
     return this;
   }
 
@@ -100,18 +104,26 @@ public class UpdateDbaasServiceOpensearchRequest {
    * @return maxIndexCount
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getMaxIndexCount() {
-    return maxIndexCount;
+        return maxIndexCount.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaxIndexCount(Long maxIndexCount) {
+
+  public JsonNullable<Long> getMaxIndexCount_JsonNullable() {
+    return maxIndexCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
+  public void setMaxIndexCount_JsonNullable(JsonNullable<Long> maxIndexCount) {
     this.maxIndexCount = maxIndexCount;
+  }
+
+  public void setMaxIndexCount(Long maxIndexCount) {
+    this.maxIndexCount = JsonNullable.<Long>of(maxIndexCount);
   }
 
 
@@ -393,7 +405,7 @@ public class UpdateDbaasServiceOpensearchRequest {
       return false;
     }
     UpdateDbaasServiceOpensearchRequest updateDbaasServiceOpensearchRequest = (UpdateDbaasServiceOpensearchRequest) o;
-    return Objects.equals(this.maxIndexCount, updateDbaasServiceOpensearchRequest.maxIndexCount) &&
+    return equalsNullable(this.maxIndexCount, updateDbaasServiceOpensearchRequest.maxIndexCount) &&
         Objects.equals(this.keepIndexRefreshInterval, updateDbaasServiceOpensearchRequest.keepIndexRefreshInterval) &&
         Objects.equals(this.ipFilter, updateDbaasServiceOpensearchRequest.ipFilter) &&
         Objects.equals(this.terminationProtection, updateDbaasServiceOpensearchRequest.terminationProtection) &&
@@ -406,9 +418,20 @@ public class UpdateDbaasServiceOpensearchRequest {
         Objects.equals(this.opensearchDashboards, updateDbaasServiceOpensearchRequest.opensearchDashboards);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(maxIndexCount, keepIndexRefreshInterval, ipFilter, terminationProtection, indexPatterns, maintenance, indexTemplate, opensearchSettings, version, plan, opensearchDashboards);
+    return Objects.hash(hashCodeNullable(maxIndexCount), keepIndexRefreshInterval, ipFilter, terminationProtection, indexPatterns, maintenance, indexTemplate, opensearchSettings, version, plan, opensearchDashboards);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

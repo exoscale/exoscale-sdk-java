@@ -13,56 +13,55 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.ThanosCompactorUserConfiguration;
+import com.exoscale.sdk.model.ThanosQueryFrontendUserConfiguration;
+import com.exoscale.sdk.model.ThanosQueryUserConfiguration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+ * Model tests for JsonSchemaThanos
  */
-public class UpdateDbaasServiceOpensearchRequestIndexPatternsInnerTest {
-    private final UpdateDbaasServiceOpensearchRequestIndexPatternsInner model = new UpdateDbaasServiceOpensearchRequestIndexPatternsInner();
+public class JsonSchemaThanosTest {
+    private final JsonSchemaThanos model = new JsonSchemaThanos();
 
     /**
-     * Model tests for UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+     * Model tests for JsonSchemaThanos
      */
     @Test
-    public void testUpdateDbaasServiceOpensearchRequestIndexPatternsInner() {
-        // TODO: test UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+    public void testJsonSchemaThanos() {
+        // TODO: test JsonSchemaThanos
     }
 
     /**
-     * Test the property 'maxIndexCount'
+     * Test the property 'compactor'
      */
     @Test
-    public void maxIndexCountTest() {
-        // TODO: test maxIndexCount
+    public void compactorTest() {
+        // TODO: test compactor
     }
 
     /**
-     * Test the property 'sortingAlgorithm'
+     * Test the property 'query'
      */
     @Test
-    public void sortingAlgorithmTest() {
-        // TODO: test sortingAlgorithm
+    public void queryTest() {
+        // TODO: test query
     }
 
     /**
-     * Test the property 'pattern'
+     * Test the property 'queryFrontend'
      */
     @Test
-    public void patternTest() {
-        // TODO: test pattern
+    public void queryFrontendTest() {
+        // TODO: test queryFrontend
     }
 
 }

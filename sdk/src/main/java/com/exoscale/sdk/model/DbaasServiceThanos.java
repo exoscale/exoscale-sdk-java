@@ -22,17 +22,13 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
-import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
-import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
-import com.exoscale.sdk.model.DbaasServiceOpensearchConnectionInfo;
-import com.exoscale.sdk.model.DbaasServiceOpensearchIndexTemplate;
+import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceThanosConnectionInfo;
 import com.exoscale.sdk.model.EnumServiceState;
-import com.exoscale.sdk.model.JsonSchemaOpensearch;
-import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequestIndexPatternsInner;
-import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequestOpensearchDashboards;
+import com.exoscale.sdk.model.JsonSchemaThanos;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,58 +38,39 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasServiceOpensearch
+ * DbaasServiceThanos
  */
 @JsonPropertyOrder({
-  DbaasServiceOpensearch.JSON_PROPERTY_DESCRIPTION,
-  DbaasServiceOpensearch.JSON_PROPERTY_MAX_INDEX_COUNT,
-  DbaasServiceOpensearch.JSON_PROPERTY_UPDATED_AT,
-  DbaasServiceOpensearch.JSON_PROPERTY_NODE_COUNT,
-  DbaasServiceOpensearch.JSON_PROPERTY_CONNECTION_INFO,
-  DbaasServiceOpensearch.JSON_PROPERTY_NODE_CPU_COUNT,
-  DbaasServiceOpensearch.JSON_PROPERTY_PROMETHEUS_URI,
-  DbaasServiceOpensearch.JSON_PROPERTY_INTEGRATIONS,
-  DbaasServiceOpensearch.JSON_PROPERTY_ZONE,
-  DbaasServiceOpensearch.JSON_PROPERTY_NODE_STATES,
-  DbaasServiceOpensearch.JSON_PROPERTY_NAME,
-  DbaasServiceOpensearch.JSON_PROPERTY_KEEP_INDEX_REFRESH_INTERVAL,
-  DbaasServiceOpensearch.JSON_PROPERTY_TYPE,
-  DbaasServiceOpensearch.JSON_PROPERTY_STATE,
-  DbaasServiceOpensearch.JSON_PROPERTY_IP_FILTER,
-  DbaasServiceOpensearch.JSON_PROPERTY_BACKUPS,
-  DbaasServiceOpensearch.JSON_PROPERTY_TERMINATION_PROTECTION,
-  DbaasServiceOpensearch.JSON_PROPERTY_NOTIFICATIONS,
-  DbaasServiceOpensearch.JSON_PROPERTY_COMPONENTS,
-  DbaasServiceOpensearch.JSON_PROPERTY_INDEX_PATTERNS,
-  DbaasServiceOpensearch.JSON_PROPERTY_MAINTENANCE,
-  DbaasServiceOpensearch.JSON_PROPERTY_INDEX_TEMPLATE,
-  DbaasServiceOpensearch.JSON_PROPERTY_DISK_SIZE,
-  DbaasServiceOpensearch.JSON_PROPERTY_NODE_MEMORY,
-  DbaasServiceOpensearch.JSON_PROPERTY_URI,
-  DbaasServiceOpensearch.JSON_PROPERTY_OPENSEARCH_SETTINGS,
-  DbaasServiceOpensearch.JSON_PROPERTY_URI_PARAMS,
-  DbaasServiceOpensearch.JSON_PROPERTY_VERSION,
-  DbaasServiceOpensearch.JSON_PROPERTY_CREATED_AT,
-  DbaasServiceOpensearch.JSON_PROPERTY_PLAN,
-  DbaasServiceOpensearch.JSON_PROPERTY_OPENSEARCH_DASHBOARDS,
-  DbaasServiceOpensearch.JSON_PROPERTY_USERS
+  DbaasServiceThanos.JSON_PROPERTY_UPDATED_AT,
+  DbaasServiceThanos.JSON_PROPERTY_NODE_COUNT,
+  DbaasServiceThanos.JSON_PROPERTY_CONNECTION_INFO,
+  DbaasServiceThanos.JSON_PROPERTY_NODE_CPU_COUNT,
+  DbaasServiceThanos.JSON_PROPERTY_PROMETHEUS_URI,
+  DbaasServiceThanos.JSON_PROPERTY_INTEGRATIONS,
+  DbaasServiceThanos.JSON_PROPERTY_ZONE,
+  DbaasServiceThanos.JSON_PROPERTY_NODE_STATES,
+  DbaasServiceThanos.JSON_PROPERTY_NAME,
+  DbaasServiceThanos.JSON_PROPERTY_TYPE,
+  DbaasServiceThanos.JSON_PROPERTY_STATE,
+  DbaasServiceThanos.JSON_PROPERTY_BACKUPS,
+  DbaasServiceThanos.JSON_PROPERTY_TERMINATION_PROTECTION,
+  DbaasServiceThanos.JSON_PROPERTY_NOTIFICATIONS,
+  DbaasServiceThanos.JSON_PROPERTY_COMPONENTS,
+  DbaasServiceThanos.JSON_PROPERTY_MAINTENANCE,
+  DbaasServiceThanos.JSON_PROPERTY_DISK_SIZE,
+  DbaasServiceThanos.JSON_PROPERTY_NODE_MEMORY,
+  DbaasServiceThanos.JSON_PROPERTY_URI,
+  DbaasServiceThanos.JSON_PROPERTY_URI_PARAMS,
+  DbaasServiceThanos.JSON_PROPERTY_THANOS_SETTINGS,
+  DbaasServiceThanos.JSON_PROPERTY_CREATED_AT,
+  DbaasServiceThanos.JSON_PROPERTY_PLAN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceOpensearch {
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
-  public static final String JSON_PROPERTY_MAX_INDEX_COUNT = "max-index-count";
-  private JsonNullable<Long> maxIndexCount = JsonNullable.<Long>undefined();
-
+public class DbaasServiceThanos {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
@@ -101,7 +78,7 @@ public class DbaasServiceOpensearch {
   private Long nodeCount;
 
   public static final String JSON_PROPERTY_CONNECTION_INFO = "connection-info";
-  private DbaasServiceOpensearchConnectionInfo connectionInfo;
+  private DbaasServiceThanosConnectionInfo connectionInfo;
 
   public static final String JSON_PROPERTY_NODE_CPU_COUNT = "node-cpu-count";
   private Long nodeCpuCount;
@@ -121,17 +98,11 @@ public class DbaasServiceOpensearch {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_KEEP_INDEX_REFRESH_INTERVAL = "keep-index-refresh-interval";
-  private Boolean keepIndexRefreshInterval;
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
   public static final String JSON_PROPERTY_STATE = "state";
   private EnumServiceState state;
-
-  public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
-  private List<String> ipFilter;
 
   public static final String JSON_PROPERTY_BACKUPS = "backups";
   private List<DbaasServiceBackup> backups;
@@ -143,16 +114,10 @@ public class DbaasServiceOpensearch {
   private List<DbaasServiceNotification> notifications;
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
-  private List<DbaasServiceMysqlComponentsInner> components;
-
-  public static final String JSON_PROPERTY_INDEX_PATTERNS = "index-patterns";
-  private List<UpdateDbaasServiceOpensearchRequestIndexPatternsInner> indexPatterns;
+  private List<DbaasServiceThanosComponentsInner> components;
 
   public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
   private DbaasServiceMaintenance maintenance;
-
-  public static final String JSON_PROPERTY_INDEX_TEMPLATE = "index-template";
-  private DbaasServiceOpensearchIndexTemplate indexTemplate;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -163,14 +128,11 @@ public class DbaasServiceOpensearch {
   public static final String JSON_PROPERTY_URI = "uri";
   private String uri;
 
-  public static final String JSON_PROPERTY_OPENSEARCH_SETTINGS = "opensearch-settings";
-  private JsonSchemaOpensearch opensearchSettings;
-
   public static final String JSON_PROPERTY_URI_PARAMS = "uri-params";
   private Object uriParams;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private String version;
+  public static final String JSON_PROPERTY_THANOS_SETTINGS = "thanos-settings";
+  private JsonSchemaThanos thanosSettings;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
@@ -178,75 +140,10 @@ public class DbaasServiceOpensearch {
   public static final String JSON_PROPERTY_PLAN = "plan";
   private String plan;
 
-  public static final String JSON_PROPERTY_OPENSEARCH_DASHBOARDS = "opensearch-dashboards";
-  private UpdateDbaasServiceOpensearchRequestOpensearchDashboards opensearchDashboards;
-
-  public static final String JSON_PROPERTY_USERS = "users";
-  private List<DbaasServiceGrafanaUsersInner> users;
-
-  public DbaasServiceOpensearch() { 
+  public DbaasServiceThanos() { 
   }
 
-  public DbaasServiceOpensearch description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * DbaaS service description
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public DbaasServiceOpensearch maxIndexCount(Long maxIndexCount) {
-    this.maxIndexCount = JsonNullable.<Long>of(maxIndexCount);
-    return this;
-  }
-
-   /**
-   * Maximum number of indexes to keep before deleting the oldest one
-   * minimum: 0
-   * @return maxIndexCount
-  **/
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Long getMaxIndexCount() {
-        return maxIndexCount.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Long> getMaxIndexCount_JsonNullable() {
-    return maxIndexCount;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_MAX_INDEX_COUNT)
-  public void setMaxIndexCount_JsonNullable(JsonNullable<Long> maxIndexCount) {
-    this.maxIndexCount = maxIndexCount;
-  }
-
-  public void setMaxIndexCount(Long maxIndexCount) {
-    this.maxIndexCount = JsonNullable.<Long>of(maxIndexCount);
-  }
-
-
-  public DbaasServiceOpensearch updatedAt(OffsetDateTime updatedAt) {
+  public DbaasServiceThanos updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -271,7 +168,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch nodeCount(Long nodeCount) {
+  public DbaasServiceThanos nodeCount(Long nodeCount) {
     this.nodeCount = nodeCount;
     return this;
   }
@@ -297,7 +194,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch connectionInfo(DbaasServiceOpensearchConnectionInfo connectionInfo) {
+  public DbaasServiceThanos connectionInfo(DbaasServiceThanosConnectionInfo connectionInfo) {
     this.connectionInfo = connectionInfo;
     return this;
   }
@@ -310,19 +207,19 @@ public class DbaasServiceOpensearch {
   @JsonProperty(JSON_PROPERTY_CONNECTION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DbaasServiceOpensearchConnectionInfo getConnectionInfo() {
+  public DbaasServiceThanosConnectionInfo getConnectionInfo() {
     return connectionInfo;
   }
 
 
   @JsonProperty(JSON_PROPERTY_CONNECTION_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConnectionInfo(DbaasServiceOpensearchConnectionInfo connectionInfo) {
+  public void setConnectionInfo(DbaasServiceThanosConnectionInfo connectionInfo) {
     this.connectionInfo = connectionInfo;
   }
 
 
-  public DbaasServiceOpensearch nodeCpuCount(Long nodeCpuCount) {
+  public DbaasServiceThanos nodeCpuCount(Long nodeCpuCount) {
     this.nodeCpuCount = nodeCpuCount;
     return this;
   }
@@ -348,7 +245,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public DbaasServiceThanos prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
     return this;
   }
@@ -373,12 +270,12 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch integrations(List<DbaasIntegration> integrations) {
+  public DbaasServiceThanos integrations(List<DbaasIntegration> integrations) {
     this.integrations = integrations;
     return this;
   }
 
-  public DbaasServiceOpensearch addIntegrationsItem(DbaasIntegration integrationsItem) {
+  public DbaasServiceThanos addIntegrationsItem(DbaasIntegration integrationsItem) {
     if (this.integrations == null) {
       this.integrations = new ArrayList<>();
     }
@@ -406,7 +303,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch zone(String zone) {
+  public DbaasServiceThanos zone(String zone) {
     this.zone = zone;
     return this;
   }
@@ -431,12 +328,12 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch nodeStates(List<DbaasNodeState> nodeStates) {
+  public DbaasServiceThanos nodeStates(List<DbaasNodeState> nodeStates) {
     this.nodeStates = nodeStates;
     return this;
   }
 
-  public DbaasServiceOpensearch addNodeStatesItem(DbaasNodeState nodeStatesItem) {
+  public DbaasServiceThanos addNodeStatesItem(DbaasNodeState nodeStatesItem) {
     if (this.nodeStates == null) {
       this.nodeStates = new ArrayList<>();
     }
@@ -464,7 +361,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch name(String name) {
+  public DbaasServiceThanos name(String name) {
     this.name = name;
     return this;
   }
@@ -489,32 +386,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch keepIndexRefreshInterval(Boolean keepIndexRefreshInterval) {
-    this.keepIndexRefreshInterval = keepIndexRefreshInterval;
-    return this;
-  }
-
-   /**
-   * Aiven automation resets index.refresh_interval to default value for every index to be sure that indices are always visible to search. If it doesn&#39;t fit your case, you can disable this by setting up this flag to true.
-   * @return keepIndexRefreshInterval
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEEP_INDEX_REFRESH_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getKeepIndexRefreshInterval() {
-    return keepIndexRefreshInterval;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KEEP_INDEX_REFRESH_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKeepIndexRefreshInterval(Boolean keepIndexRefreshInterval) {
-    this.keepIndexRefreshInterval = keepIndexRefreshInterval;
-  }
-
-
-  public DbaasServiceOpensearch type(String type) {
+  public DbaasServiceThanos type(String type) {
     this.type = type;
     return this;
   }
@@ -539,7 +411,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch state(EnumServiceState state) {
+  public DbaasServiceThanos state(EnumServiceState state) {
     this.state = state;
     return this;
   }
@@ -564,45 +436,12 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch ipFilter(List<String> ipFilter) {
-    this.ipFilter = ipFilter;
-    return this;
-  }
-
-  public DbaasServiceOpensearch addIpFilterItem(String ipFilterItem) {
-    if (this.ipFilter == null) {
-      this.ipFilter = new ArrayList<>();
-    }
-    this.ipFilter.add(ipFilterItem);
-    return this;
-  }
-
-   /**
-   * Allowed CIDR address blocks for incoming connections
-   * @return ipFilter
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getIpFilter() {
-    return ipFilter;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IP_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpFilter(List<String> ipFilter) {
-    this.ipFilter = ipFilter;
-  }
-
-
-  public DbaasServiceOpensearch backups(List<DbaasServiceBackup> backups) {
+  public DbaasServiceThanos backups(List<DbaasServiceBackup> backups) {
     this.backups = backups;
     return this;
   }
 
-  public DbaasServiceOpensearch addBackupsItem(DbaasServiceBackup backupsItem) {
+  public DbaasServiceThanos addBackupsItem(DbaasServiceBackup backupsItem) {
     if (this.backups == null) {
       this.backups = new ArrayList<>();
     }
@@ -630,7 +469,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch terminationProtection(Boolean terminationProtection) {
+  public DbaasServiceThanos terminationProtection(Boolean terminationProtection) {
     this.terminationProtection = terminationProtection;
     return this;
   }
@@ -655,12 +494,12 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch notifications(List<DbaasServiceNotification> notifications) {
+  public DbaasServiceThanos notifications(List<DbaasServiceNotification> notifications) {
     this.notifications = notifications;
     return this;
   }
 
-  public DbaasServiceOpensearch addNotificationsItem(DbaasServiceNotification notificationsItem) {
+  public DbaasServiceThanos addNotificationsItem(DbaasServiceNotification notificationsItem) {
     if (this.notifications == null) {
       this.notifications = new ArrayList<>();
     }
@@ -688,12 +527,12 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch components(List<DbaasServiceMysqlComponentsInner> components) {
+  public DbaasServiceThanos components(List<DbaasServiceThanosComponentsInner> components) {
     this.components = components;
     return this;
   }
 
-  public DbaasServiceOpensearch addComponentsItem(DbaasServiceMysqlComponentsInner componentsItem) {
+  public DbaasServiceThanos addComponentsItem(DbaasServiceThanosComponentsInner componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -709,52 +548,19 @@ public class DbaasServiceOpensearch {
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasServiceMysqlComponentsInner> getComponents() {
+  public List<DbaasServiceThanosComponentsInner> getComponents() {
     return components;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponents(List<DbaasServiceMysqlComponentsInner> components) {
+  public void setComponents(List<DbaasServiceThanosComponentsInner> components) {
     this.components = components;
   }
 
 
-  public DbaasServiceOpensearch indexPatterns(List<UpdateDbaasServiceOpensearchRequestIndexPatternsInner> indexPatterns) {
-    this.indexPatterns = indexPatterns;
-    return this;
-  }
-
-  public DbaasServiceOpensearch addIndexPatternsItem(UpdateDbaasServiceOpensearchRequestIndexPatternsInner indexPatternsItem) {
-    if (this.indexPatterns == null) {
-      this.indexPatterns = new ArrayList<>();
-    }
-    this.indexPatterns.add(indexPatternsItem);
-    return this;
-  }
-
-   /**
-   * Allows you to create glob style patterns and set a max number of indexes matching this pattern you want to keep. Creating indexes exceeding this value will cause the oldest one to get deleted. You could for example create a pattern looking like &#39;logs.?&#39; and then create index logs.1, logs.2 etc, it will delete logs.1 once you create logs.6. Do note &#39;logs.?&#39; does not apply to logs.10. Note: Setting max_index_count to 0 will do nothing and the pattern gets ignored.
-   * @return indexPatterns
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX_PATTERNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<UpdateDbaasServiceOpensearchRequestIndexPatternsInner> getIndexPatterns() {
-    return indexPatterns;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INDEX_PATTERNS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndexPatterns(List<UpdateDbaasServiceOpensearchRequestIndexPatternsInner> indexPatterns) {
-    this.indexPatterns = indexPatterns;
-  }
-
-
-  public DbaasServiceOpensearch maintenance(DbaasServiceMaintenance maintenance) {
+  public DbaasServiceThanos maintenance(DbaasServiceMaintenance maintenance) {
     this.maintenance = maintenance;
     return this;
   }
@@ -779,32 +585,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch indexTemplate(DbaasServiceOpensearchIndexTemplate indexTemplate) {
-    this.indexTemplate = indexTemplate;
-    return this;
-  }
-
-   /**
-   * Get indexTemplate
-   * @return indexTemplate
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public DbaasServiceOpensearchIndexTemplate getIndexTemplate() {
-    return indexTemplate;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INDEX_TEMPLATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndexTemplate(DbaasServiceOpensearchIndexTemplate indexTemplate) {
-    this.indexTemplate = indexTemplate;
-  }
-
-
-  public DbaasServiceOpensearch diskSize(Long diskSize) {
+  public DbaasServiceThanos diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
   }
@@ -830,7 +611,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch nodeMemory(Long nodeMemory) {
+  public DbaasServiceThanos nodeMemory(Long nodeMemory) {
     this.nodeMemory = nodeMemory;
     return this;
   }
@@ -856,7 +637,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch uri(String uri) {
+  public DbaasServiceThanos uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -881,32 +662,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch opensearchSettings(JsonSchemaOpensearch opensearchSettings) {
-    this.opensearchSettings = opensearchSettings;
-    return this;
-  }
-
-   /**
-   * Get opensearchSettings
-   * @return opensearchSettings
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENSEARCH_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonSchemaOpensearch getOpensearchSettings() {
-    return opensearchSettings;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OPENSEARCH_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOpensearchSettings(JsonSchemaOpensearch opensearchSettings) {
-    this.opensearchSettings = opensearchSettings;
-  }
-
-
-  public DbaasServiceOpensearch uriParams(Object uriParams) {
+  public DbaasServiceThanos uriParams(Object uriParams) {
     this.uriParams = uriParams;
     return this;
   }
@@ -931,32 +687,32 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch version(String version) {
-    this.version = version;
+  public DbaasServiceThanos thanosSettings(JsonSchemaThanos thanosSettings) {
+    this.thanosSettings = thanosSettings;
     return this;
   }
 
    /**
-   * OpenSearch version
-   * @return version
+   * Get thanosSettings
+   * @return thanosSettings
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_THANOS_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getVersion() {
-    return version;
+  public JsonSchemaThanos getThanosSettings() {
+    return thanosSettings;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_THANOS_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVersion(String version) {
-    this.version = version;
+  public void setThanosSettings(JsonSchemaThanos thanosSettings) {
+    this.thanosSettings = thanosSettings;
   }
 
 
-  public DbaasServiceOpensearch createdAt(OffsetDateTime createdAt) {
+  public DbaasServiceThanos createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -981,7 +737,7 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch plan(String plan) {
+  public DbaasServiceThanos plan(String plan) {
     this.plan = plan;
     return this;
   }
@@ -1006,66 +762,8 @@ public class DbaasServiceOpensearch {
   }
 
 
-  public DbaasServiceOpensearch opensearchDashboards(UpdateDbaasServiceOpensearchRequestOpensearchDashboards opensearchDashboards) {
-    this.opensearchDashboards = opensearchDashboards;
-    return this;
-  }
-
-   /**
-   * Get opensearchDashboards
-   * @return opensearchDashboards
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENSEARCH_DASHBOARDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UpdateDbaasServiceOpensearchRequestOpensearchDashboards getOpensearchDashboards() {
-    return opensearchDashboards;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OPENSEARCH_DASHBOARDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOpensearchDashboards(UpdateDbaasServiceOpensearchRequestOpensearchDashboards opensearchDashboards) {
-    this.opensearchDashboards = opensearchDashboards;
-  }
-
-
-  public DbaasServiceOpensearch users(List<DbaasServiceGrafanaUsersInner> users) {
-    this.users = users;
-    return this;
-  }
-
-  public DbaasServiceOpensearch addUsersItem(DbaasServiceGrafanaUsersInner usersItem) {
-    if (this.users == null) {
-      this.users = new ArrayList<>();
-    }
-    this.users.add(usersItem);
-    return this;
-  }
-
-   /**
-   * List of service users
-   * @return users
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<DbaasServiceGrafanaUsersInner> getUsers() {
-    return users;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_USERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsers(List<DbaasServiceGrafanaUsersInner> users) {
-    this.users = users;
-  }
-
-
   /**
-   * Return true if this dbaas-service-opensearch object is equal to o.
+   * Return true if this dbaas-service-thanos object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -1075,63 +773,41 @@ public class DbaasServiceOpensearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceOpensearch dbaasServiceOpensearch = (DbaasServiceOpensearch) o;
-    return Objects.equals(this.description, dbaasServiceOpensearch.description) &&
-        equalsNullable(this.maxIndexCount, dbaasServiceOpensearch.maxIndexCount) &&
-        Objects.equals(this.updatedAt, dbaasServiceOpensearch.updatedAt) &&
-        Objects.equals(this.nodeCount, dbaasServiceOpensearch.nodeCount) &&
-        Objects.equals(this.connectionInfo, dbaasServiceOpensearch.connectionInfo) &&
-        Objects.equals(this.nodeCpuCount, dbaasServiceOpensearch.nodeCpuCount) &&
-        Objects.equals(this.prometheusUri, dbaasServiceOpensearch.prometheusUri) &&
-        Objects.equals(this.integrations, dbaasServiceOpensearch.integrations) &&
-        Objects.equals(this.zone, dbaasServiceOpensearch.zone) &&
-        Objects.equals(this.nodeStates, dbaasServiceOpensearch.nodeStates) &&
-        Objects.equals(this.name, dbaasServiceOpensearch.name) &&
-        Objects.equals(this.keepIndexRefreshInterval, dbaasServiceOpensearch.keepIndexRefreshInterval) &&
-        Objects.equals(this.type, dbaasServiceOpensearch.type) &&
-        Objects.equals(this.state, dbaasServiceOpensearch.state) &&
-        Objects.equals(this.ipFilter, dbaasServiceOpensearch.ipFilter) &&
-        Objects.equals(this.backups, dbaasServiceOpensearch.backups) &&
-        Objects.equals(this.terminationProtection, dbaasServiceOpensearch.terminationProtection) &&
-        Objects.equals(this.notifications, dbaasServiceOpensearch.notifications) &&
-        Objects.equals(this.components, dbaasServiceOpensearch.components) &&
-        Objects.equals(this.indexPatterns, dbaasServiceOpensearch.indexPatterns) &&
-        Objects.equals(this.maintenance, dbaasServiceOpensearch.maintenance) &&
-        Objects.equals(this.indexTemplate, dbaasServiceOpensearch.indexTemplate) &&
-        Objects.equals(this.diskSize, dbaasServiceOpensearch.diskSize) &&
-        Objects.equals(this.nodeMemory, dbaasServiceOpensearch.nodeMemory) &&
-        Objects.equals(this.uri, dbaasServiceOpensearch.uri) &&
-        Objects.equals(this.opensearchSettings, dbaasServiceOpensearch.opensearchSettings) &&
-        Objects.equals(this.uriParams, dbaasServiceOpensearch.uriParams) &&
-        Objects.equals(this.version, dbaasServiceOpensearch.version) &&
-        Objects.equals(this.createdAt, dbaasServiceOpensearch.createdAt) &&
-        Objects.equals(this.plan, dbaasServiceOpensearch.plan) &&
-        Objects.equals(this.opensearchDashboards, dbaasServiceOpensearch.opensearchDashboards) &&
-        Objects.equals(this.users, dbaasServiceOpensearch.users);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    DbaasServiceThanos dbaasServiceThanos = (DbaasServiceThanos) o;
+    return Objects.equals(this.updatedAt, dbaasServiceThanos.updatedAt) &&
+        Objects.equals(this.nodeCount, dbaasServiceThanos.nodeCount) &&
+        Objects.equals(this.connectionInfo, dbaasServiceThanos.connectionInfo) &&
+        Objects.equals(this.nodeCpuCount, dbaasServiceThanos.nodeCpuCount) &&
+        Objects.equals(this.prometheusUri, dbaasServiceThanos.prometheusUri) &&
+        Objects.equals(this.integrations, dbaasServiceThanos.integrations) &&
+        Objects.equals(this.zone, dbaasServiceThanos.zone) &&
+        Objects.equals(this.nodeStates, dbaasServiceThanos.nodeStates) &&
+        Objects.equals(this.name, dbaasServiceThanos.name) &&
+        Objects.equals(this.type, dbaasServiceThanos.type) &&
+        Objects.equals(this.state, dbaasServiceThanos.state) &&
+        Objects.equals(this.backups, dbaasServiceThanos.backups) &&
+        Objects.equals(this.terminationProtection, dbaasServiceThanos.terminationProtection) &&
+        Objects.equals(this.notifications, dbaasServiceThanos.notifications) &&
+        Objects.equals(this.components, dbaasServiceThanos.components) &&
+        Objects.equals(this.maintenance, dbaasServiceThanos.maintenance) &&
+        Objects.equals(this.diskSize, dbaasServiceThanos.diskSize) &&
+        Objects.equals(this.nodeMemory, dbaasServiceThanos.nodeMemory) &&
+        Objects.equals(this.uri, dbaasServiceThanos.uri) &&
+        Objects.equals(this.uriParams, dbaasServiceThanos.uriParams) &&
+        Objects.equals(this.thanosSettings, dbaasServiceThanos.thanosSettings) &&
+        Objects.equals(this.createdAt, dbaasServiceThanos.createdAt) &&
+        Objects.equals(this.plan, dbaasServiceThanos.plan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, hashCodeNullable(maxIndexCount), updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, keepIndexRefreshInterval, type, state, ipFilter, backups, terminationProtection, notifications, components, indexPatterns, maintenance, indexTemplate, diskSize, nodeMemory, uri, opensearchSettings, uriParams, version, createdAt, plan, opensearchDashboards, users);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, thanosSettings, createdAt, plan);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceOpensearch {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    maxIndexCount: ").append(toIndentedString(maxIndexCount)).append("\n");
+    sb.append("class DbaasServiceThanos {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    connectionInfo: ").append(toIndentedString(connectionInfo)).append("\n");
@@ -1141,27 +817,20 @@ public class DbaasServiceOpensearch {
     sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    nodeStates: ").append(toIndentedString(nodeStates)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    keepIndexRefreshInterval: ").append(toIndentedString(keepIndexRefreshInterval)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
     sb.append("    backups: ").append(toIndentedString(backups)).append("\n");
     sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
-    sb.append("    indexPatterns: ").append(toIndentedString(indexPatterns)).append("\n");
     sb.append("    maintenance: ").append(toIndentedString(maintenance)).append("\n");
-    sb.append("    indexTemplate: ").append(toIndentedString(indexTemplate)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    nodeMemory: ").append(toIndentedString(nodeMemory)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
-    sb.append("    opensearchSettings: ").append(toIndentedString(opensearchSettings)).append("\n");
     sb.append("    uriParams: ").append(toIndentedString(uriParams)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    thanosSettings: ").append(toIndentedString(thanosSettings)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
-    sb.append("    opensearchDashboards: ").append(toIndentedString(opensearchDashboards)).append("\n");
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1208,16 +877,6 @@ public class DbaasServiceOpensearch {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `max-index-count` to the URL query string
-    if (getMaxIndexCount() != null) {
-      joiner.add(String.format("%smax-index-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxIndexCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
 
     // add `updated-at` to the URL query string
     if (getUpdatedAt() != null) {
@@ -1274,11 +933,6 @@ public class DbaasServiceOpensearch {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `keep-index-refresh-interval` to the URL query string
-    if (getKeepIndexRefreshInterval() != null) {
-      joiner.add(String.format("%skeep-index-refresh-interval%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKeepIndexRefreshInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `type` to the URL query string
     if (getType() != null) {
       joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1287,15 +941,6 @@ public class DbaasServiceOpensearch {
     // add `state` to the URL query string
     if (getState() != null) {
       joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `ip-filter` to the URL query string
-    if (getIpFilter() != null) {
-      for (int i = 0; i < getIpFilter().size(); i++) {
-        joiner.add(String.format("%sip-filter%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getIpFilter().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
     }
 
     // add `backups` to the URL query string
@@ -1333,24 +978,9 @@ public class DbaasServiceOpensearch {
       }
     }
 
-    // add `index-patterns` to the URL query string
-    if (getIndexPatterns() != null) {
-      for (int i = 0; i < getIndexPatterns().size(); i++) {
-        if (getIndexPatterns().get(i) != null) {
-          joiner.add(getIndexPatterns().get(i).toUrlQueryString(String.format("%sindex-patterns%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
-    }
-
     // add `maintenance` to the URL query string
     if (getMaintenance() != null) {
       joiner.add(getMaintenance().toUrlQueryString(prefix + "maintenance" + suffix));
-    }
-
-    // add `index-template` to the URL query string
-    if (getIndexTemplate() != null) {
-      joiner.add(getIndexTemplate().toUrlQueryString(prefix + "index-template" + suffix));
     }
 
     // add `disk-size` to the URL query string
@@ -1368,19 +998,14 @@ public class DbaasServiceOpensearch {
       joiner.add(String.format("%suri%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUri()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `opensearch-settings` to the URL query string
-    if (getOpensearchSettings() != null) {
-      joiner.add(getOpensearchSettings().toUrlQueryString(prefix + "opensearch-settings" + suffix));
-    }
-
     // add `uri-params` to the URL query string
     if (getUriParams() != null) {
       joiner.add(String.format("%suri-params%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUriParams()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `version` to the URL query string
-    if (getVersion() != null) {
-      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `thanos-settings` to the URL query string
+    if (getThanosSettings() != null) {
+      joiner.add(getThanosSettings().toUrlQueryString(prefix + "thanos-settings" + suffix));
     }
 
     // add `created-at` to the URL query string
@@ -1391,21 +1016,6 @@ public class DbaasServiceOpensearch {
     // add `plan` to the URL query string
     if (getPlan() != null) {
       joiner.add(String.format("%splan%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlan()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `opensearch-dashboards` to the URL query string
-    if (getOpensearchDashboards() != null) {
-      joiner.add(getOpensearchDashboards().toUrlQueryString(prefix + "opensearch-dashboards" + suffix));
-    }
-
-    // add `users` to the URL query string
-    if (getUsers() != null) {
-      for (int i = 0; i < getUsers().size(); i++) {
-        if (getUsers().get(i) != null) {
-          joiner.add(getUsers().get(i).toUrlQueryString(String.format("%susers%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
     }
 
     return joiner.toString();

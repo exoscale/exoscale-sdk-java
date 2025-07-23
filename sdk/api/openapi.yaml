@@ -8777,6 +8777,16 @@ components:
             $ref: '#/components/schemas/dbaas_service_logs_logs_inner'
           type: array
       type: object
+    json-schema-thanos:
+      properties:
+        compactor:
+          $ref: '#/components/schemas/Thanos_Compactor_User_Configuration'
+        query:
+          $ref: '#/components/schemas/Thanos_Query_User_Configuration'
+        query_frontend:
+          $ref: '#/components/schemas/Thanos_Query_Frontend_User_Configuration'
+      title: Thanos settings
+      type: object
     instance-password:
       description: Instance password
       example:
@@ -16986,6 +16996,104 @@ components:
       - statement
       - session
       type: string
+    dbaas-service-thanos:
+      properties:
+        updated-at:
+          description: Service last update timestamp (ISO 8601)
+          format: date-time
+          type: string
+        node-count:
+          description: Number of service nodes in the active plan
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        connection-info:
+          $ref: '#/components/schemas/dbaas_service_thanos_connection_info'
+        node-cpu-count:
+          description: Number of CPUs for each node
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        prometheus-uri:
+          $ref: '#/components/schemas/dbaas_service_mysql_prometheus_uri'
+        integrations:
+          description: Service integrations
+          items:
+            $ref: '#/components/schemas/dbaas-integration'
+          type: array
+        zone:
+          description: The zone where the service is running
+          type: string
+        node-states:
+          description: State of individual service nodes
+          items:
+            $ref: '#/components/schemas/dbaas-node-state'
+          type: array
+        name:
+          maxLength: 63
+          minLength: 0
+          type: string
+        type:
+          maxLength: 64
+          minLength: 0
+          type: string
+        state:
+          $ref: '#/components/schemas/enum-service-state'
+        backups:
+          description: List of backups for the service
+          items:
+            $ref: '#/components/schemas/dbaas-service-backup'
+          type: array
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
+        notifications:
+          description: Service notifications
+          items:
+            $ref: '#/components/schemas/dbaas-service-notification'
+          type: array
+        components:
+          description: Service component information objects
+          items:
+            $ref: '#/components/schemas/dbaas_service_thanos_components_inner'
+          type: array
+        maintenance:
+          $ref: '#/components/schemas/dbaas-service-maintenance'
+        disk-size:
+          description: TODO UNIT disk space for data storage
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        node-memory:
+          description: TODO UNIT of memory for each node
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        uri:
+          description: URI for connecting to the service (may be absent)
+          type: string
+        uri-params:
+          description: service_uri parameterized into key-value pairs
+          type: object
+        thanos-settings:
+          $ref: '#/components/schemas/json-schema-thanos'
+        created-at:
+          description: Service creation timestamp (ISO 8601)
+          format: date-time
+          type: string
+        plan:
+          description: Subscription plan
+          type: string
+      required:
+      - name
+      - plan
+      - prometheus-uri
+      - type
+      type: object
     dbaas-endpoint-elasticsearch:
       properties:
         url:
@@ -27487,6 +27595,7 @@ components:
           exclusiveMinimum: false
           format: int64
           minimum: 0
+          nullable: true
           type: integer
         updated-at:
           description: Service last update timestamp (ISO 8601)
@@ -27574,7 +27683,7 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         index-template:
-          $ref: '#/components/schemas/update_dbaas_service_opensearch_request_index_template'
+          $ref: '#/components/schemas/dbaas_service_opensearch_index_template'
         disk-size:
           description: TODO UNIT disk space for data storage
           exclusiveMinimum: false
@@ -28657,7 +28766,7 @@ components:
         components:
           description: Service component information objects
           items:
-            $ref: '#/components/schemas/dbaas_service_valkey_components_inner'
+            $ref: '#/components/schemas/dbaas_service_thanos_components_inner'
           type: array
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
@@ -36416,6 +36525,7 @@ components:
           format: int64
           maximum: 23
           minimum: 0
+          nullable: true
           type: integer
         backup-minute:
           description: The minute of an hour when backup for the service is started.
@@ -36425,6 +36535,7 @@ components:
           format: int64
           maximum: 59
           minimum: 0
+          nullable: true
           type: integer
       type: object
     update_dbaas_service_mysql_request:
@@ -51542,6 +51653,7 @@ components:
           exclusiveMinimum: false
           format: int64
           minimum: 0
+          nullable: true
           type: integer
         sorting-algorithm:
           description: Deletion sorting algorithm
@@ -51556,10 +51668,6 @@ components:
       type: object
     update_dbaas_service_opensearch_request_index_template:
       description: Template settings for all new indexes
-      example:
-        mapping-nested-objects-limit: 56373
-        number-of-shards: 723
-        number-of-replicas: 6
       properties:
         mapping-nested-objects-limit:
           description: The maximum number of nested JSON objects that a single document
@@ -51571,6 +51679,7 @@ components:
           format: int64
           maximum: 100000
           minimum: 0
+          nullable: true
           type: integer
         number-of-replicas:
           description: The number of replicas each primary shard has.
@@ -51579,6 +51688,7 @@ components:
           format: int64
           maximum: 29
           minimum: 0
+          nullable: true
           type: integer
         number-of-shards:
           description: The number of primary shards that an index should have.
@@ -51629,6 +51739,7 @@ components:
           exclusiveMinimum: false
           format: int64
           minimum: 0
+          nullable: true
           type: integer
         keep-index-refresh-interval:
           description: "Aiven automation resets index.refresh_interval to default\
@@ -51680,6 +51791,7 @@ components:
           exclusiveMinimum: false
           format: int64
           minimum: 0
+          nullable: true
           type: integer
         keep-index-refresh-interval:
           description: "Aiven automation resets index.refresh_interval to default\
@@ -53391,6 +53503,90 @@ components:
         node:
           type: string
       type: object
+    Thanos_Compactor_User_Configuration:
+      additionalProperties: false
+      description: Configuration options for Thanos Compactor.
+      properties:
+        retention.days:
+          description: "Retention time for data in days for each resolution (5m, 1h,\
+            \ raw)"
+          minimum: 0
+          title: Retention time for data in days
+          type: integer
+      title: Thanos Compactor User Configuration
+      type: object
+    Thanos_Query_User_Configuration:
+      additionalProperties: false
+      description: Configuration options for Thanos Query.
+      properties:
+        query.default-evaluation-interval:
+          default: 1m
+          description: Set the default evaluation interval for subqueries.
+          maxLength: 20
+          title: Set the default evaluation interval for subqueries.
+          type: string
+        query.lookback-delta:
+          default: 5m
+          description: "The maximum lookback duration for retrieving metrics during\
+            \ expression evaluations in PromQL. PromQL always evaluates the query\
+            \ for a certain timestamp, and it looks back for the given amount of time\
+            \ to get the latest sample. If it exceeds the maximum lookback delta,\
+            \ it assumes the series is stale and returns none (a gap). The lookback\
+            \ delta should be set to at least 2 times the slowest scrape interval.\
+            \ If unset, it will use the promql default of 5m."
+          maxLength: 20
+          title: Maximum lookback duration for retrieving metrics during expression
+            evaluations in PromQL
+          type: string
+        query.metadata.default-time-range:
+          default: 0s
+          description: The default metadata time range duration for retrieving labels
+            through Labels and Series API when the range parameters are not specified.
+            The zero value means the range covers the time since the beginning.
+          maxLength: 20
+          title: Default metadata time range duration for retrieving labels
+          type: string
+        query.timeout:
+          default: 2m
+          description: Maximum time to process a query by the query node.
+          maxLength: 20
+          title: Maximum time to process a query by the query node.
+          type: string
+        store.limits.request-samples:
+          default: 0
+          description: "The maximum samples allowed for a single Series request. The\
+            \ Series call fails if this limit is exceeded. Set to 0 for no limit.\
+            \ NOTE: For efficiency, the limit is internally implemented as 'chunks\
+            \ limit' considering each chunk contains a maximum of 120 samples. The\
+            \ default value is 100 * store.limits.request-series."
+          maximum: 100000000
+          minimum: 0
+          title: Store.Limits.Request-Samples
+          type: integer
+        store.limits.request-series:
+          default: 0
+          description: The maximum series allowed for a single Series request. The
+            Series call fails if this limit is exceeded. Set to 0 for no limit. The
+            default value is 1000 * cpu_count.
+          maximum: 100000000
+          minimum: 0
+          title: Store.Limits.Request-Series
+          type: integer
+      title: Thanos Query User Configuration
+      type: object
+    Thanos_Query_Frontend_User_Configuration:
+      additionalProperties: false
+      description: Configuration options for Thanos Query Frontend.
+      properties:
+        query-range.align-range-with-step:
+          default: true
+          description: "Whether to align the query range boundaries with the step.\
+            \ If enabled, the query range boundaries will be aligned to the step,\
+            \ providing more accurate results for queries with high-resolution data."
+          title: Whether to align the query range boundaries with the step.
+          type: boolean
+      title: Thanos Query Frontend User Configuration
+      type: object
     Configure_log_cleaner_for_topic_compaction:
       example:
         log_cleaner_delete_retention_ms: 86400000
@@ -54053,6 +54249,58 @@ components:
         status:
           $ref: '#/components/schemas/enum-migration-status'
       type: object
+    dbaas_service_thanos_connection_info:
+      description: Thanos connection information properties
+      properties:
+        query-frontend-uri:
+          type: string
+        query-uri:
+          type: string
+        receiver-remote-write-uri:
+          type: string
+        ruler-uri:
+          type: string
+      type: object
+    dbaas_service_thanos_components_inner:
+      example:
+        component: component
+        route: null
+        port: 15087
+        usage: null
+        host: host
+        ssl: true
+      properties:
+        component:
+          description: Service component name
+          type: string
+        host:
+          description: DNS name for connecting to the service component
+          type: string
+        port:
+          description: Port number for connecting to the service component
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 65535
+          minimum: 0
+          type: integer
+        route:
+          $ref: '#/components/schemas/enum-component-route'
+        ssl:
+          description: |-
+            Whether the endpoint is encrypted or accepts plaintext.
+                         By default endpoints are always encrypted and
+                         this property is only included for service components that may disable encryption.
+          type: boolean
+        usage:
+          $ref: '#/components/schemas/enum-component-usage'
+      required:
+      - component
+      - host
+      - port
+      - route
+      - usage
+      type: object
     dbaas_external_endpoint_datadog_output_settings:
       description: External integration DataDog configuration
       example:
@@ -54302,6 +54550,41 @@ components:
         dashboard-uri:
           type: string
       type: object
+    dbaas_service_opensearch_index_template:
+      description: Template settings for all new indexes
+      example:
+        mapping-nested-objects-limit: 56373
+        number-of-shards: 723
+        number-of-replicas: 6
+      properties:
+        mapping-nested-objects-limit:
+          description: The maximum number of nested JSON objects that a single document
+            can contain across all nested types. This limit helps to prevent out of
+            memory errors when a document contains too many nested objects. Default
+            is 10000.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 100000
+          minimum: 0
+          type: integer
+        number-of-replicas:
+          description: The number of replicas each primary shard has.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 29
+          minimum: 0
+          type: integer
+        number-of-shards:
+          description: The number of primary shards that an index should have.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 1024
+          minimum: 1
+          type: integer
+      type: object
     dbaas_endpoint_elasticsearch_input_update_settings:
       properties:
         ca:
@@ -54450,46 +54733,6 @@ components:
           items:
             type: string
           type: array
-      type: object
-    dbaas_service_valkey_components_inner:
-      example:
-        component: component
-        route: null
-        port: 15087
-        usage: null
-        host: host
-        ssl: true
-      properties:
-        component:
-          description: Service component name
-          type: string
-        host:
-          description: DNS name for connecting to the service component
-          type: string
-        port:
-          description: Port number for connecting to the service component
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int64
-          maximum: 65535
-          minimum: 0
-          type: integer
-        route:
-          $ref: '#/components/schemas/enum-component-route'
-        ssl:
-          description: |-
-            Whether the endpoint is encrypted or accepts plaintext.
-                         By default endpoints are always encrypted and
-                         this property is only included for service components that may disable encryption.
-          type: boolean
-        usage:
-          $ref: '#/components/schemas/enum-component-usage'
-      required:
-      - component
-      - host
-      - port
-      - route
-      - usage
       type: object
     dbaas_service_valkey_users_inner_access_control:
       example:

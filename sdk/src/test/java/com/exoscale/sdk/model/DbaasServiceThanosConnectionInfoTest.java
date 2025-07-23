@@ -19,50 +19,54 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+ * Model tests for DbaasServiceThanosConnectionInfo
  */
-public class UpdateDbaasServiceOpensearchRequestIndexPatternsInnerTest {
-    private final UpdateDbaasServiceOpensearchRequestIndexPatternsInner model = new UpdateDbaasServiceOpensearchRequestIndexPatternsInner();
+public class DbaasServiceThanosConnectionInfoTest {
+    private final DbaasServiceThanosConnectionInfo model = new DbaasServiceThanosConnectionInfo();
 
     /**
-     * Model tests for UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+     * Model tests for DbaasServiceThanosConnectionInfo
      */
     @Test
-    public void testUpdateDbaasServiceOpensearchRequestIndexPatternsInner() {
-        // TODO: test UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+    public void testDbaasServiceThanosConnectionInfo() {
+        // TODO: test DbaasServiceThanosConnectionInfo
     }
 
     /**
-     * Test the property 'maxIndexCount'
+     * Test the property 'queryFrontendUri'
      */
     @Test
-    public void maxIndexCountTest() {
-        // TODO: test maxIndexCount
+    public void queryFrontendUriTest() {
+        // TODO: test queryFrontendUri
     }
 
     /**
-     * Test the property 'sortingAlgorithm'
+     * Test the property 'queryUri'
      */
     @Test
-    public void sortingAlgorithmTest() {
-        // TODO: test sortingAlgorithm
+    public void queryUriTest() {
+        // TODO: test queryUri
     }
 
     /**
-     * Test the property 'pattern'
+     * Test the property 'receiverRemoteWriteUri'
      */
     @Test
-    public void patternTest() {
-        // TODO: test pattern
+    public void receiverRemoteWriteUriTest() {
+        // TODO: test receiverRemoteWriteUri
+    }
+
+    /**
+     * Test the property 'rulerUri'
+     */
+    @Test
+    public void rulerUriTest() {
+        // TODO: test rulerUri
     }
 
 }

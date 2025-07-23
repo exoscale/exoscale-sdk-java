@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-07-17T07:09:42.918701722Z[Etc/UTC]
+- Build date: 2025-07-23T07:10:14.997676807Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-9bd10ff</version>
+    <version>0.0.5-SNAPSHOT-a3eaf3b</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9bd10ff'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-a3eaf3b'
 }
 ```
 
@@ -513,14 +513,17 @@ Class | Method | HTTP request | Description
  - [DbaasServiceNotification](sdk/docs/DbaasServiceNotification.md)
  - [DbaasServiceOpensearch](sdk/docs/DbaasServiceOpensearch.md)
  - [DbaasServiceOpensearchConnectionInfo](sdk/docs/DbaasServiceOpensearchConnectionInfo.md)
+ - [DbaasServiceOpensearchIndexTemplate](sdk/docs/DbaasServiceOpensearchIndexTemplate.md)
  - [DbaasServicePg](sdk/docs/DbaasServicePg.md)
  - [DbaasServicePgConnectionInfo](sdk/docs/DbaasServicePgConnectionInfo.md)
  - [DbaasServicePgConnectionPoolsInner](sdk/docs/DbaasServicePgConnectionPoolsInner.md)
  - [DbaasServicePgUsersInner](sdk/docs/DbaasServicePgUsersInner.md)
+ - [DbaasServiceThanos](sdk/docs/DbaasServiceThanos.md)
+ - [DbaasServiceThanosComponentsInner](sdk/docs/DbaasServiceThanosComponentsInner.md)
+ - [DbaasServiceThanosConnectionInfo](sdk/docs/DbaasServiceThanosConnectionInfo.md)
  - [DbaasServiceType](sdk/docs/DbaasServiceType.md)
  - [DbaasServiceUpdate](sdk/docs/DbaasServiceUpdate.md)
  - [DbaasServiceValkey](sdk/docs/DbaasServiceValkey.md)
- - [DbaasServiceValkeyComponentsInner](sdk/docs/DbaasServiceValkeyComponentsInner.md)
  - [DbaasServiceValkeyConnectionInfo](sdk/docs/DbaasServiceValkeyConnectionInfo.md)
  - [DbaasServiceValkeyUsersInner](sdk/docs/DbaasServiceValkeyUsersInner.md)
  - [DbaasServiceValkeyUsersInnerAccessControl](sdk/docs/DbaasServiceValkeyUsersInnerAccessControl.md)
@@ -628,6 +631,7 @@ Class | Method | HTTP request | Description
  - [JsonSchemaPgbouncer](sdk/docs/JsonSchemaPgbouncer.md)
  - [JsonSchemaPglookout](sdk/docs/JsonSchemaPglookout.md)
  - [JsonSchemaSchemaRegistry](sdk/docs/JsonSchemaSchemaRegistry.md)
+ - [JsonSchemaThanos](sdk/docs/JsonSchemaThanos.md)
  - [JsonSchemaTimescaledb](sdk/docs/JsonSchemaTimescaledb.md)
  - [JsonSchemaValkey](sdk/docs/JsonSchemaValkey.md)
  - [KubeletImageGc](sdk/docs/KubeletImageGc.md)
@@ -724,6 +728,9 @@ Class | Method | HTTP request | Description
  - [SshKey](sdk/docs/SshKey.md)
  - [StartInstanceRequest](sdk/docs/StartInstanceRequest.md)
  - [Template](sdk/docs/Template.md)
+ - [ThanosCompactorUserConfiguration](sdk/docs/ThanosCompactorUserConfiguration.md)
+ - [ThanosQueryFrontendUserConfiguration](sdk/docs/ThanosQueryFrontendUserConfiguration.md)
+ - [ThanosQueryUserConfiguration](sdk/docs/ThanosQueryUserConfiguration.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](sdk/docs/UpdateBlockStorageVolumeRequest.md)
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)

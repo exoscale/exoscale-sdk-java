@@ -1,6 +1,6 @@
 
 
-# DbaasServiceValkeyComponentsInner
+# DbaasServiceThanosComponentsInner
 
 
 ## Properties

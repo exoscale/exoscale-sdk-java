@@ -19,42 +19,30 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasServiceMysqlRequestBackupSchedule
+ * Model tests for ThanosQueryFrontendUserConfiguration
  */
-public class UpdateDbaasServiceMysqlRequestBackupScheduleTest {
-    private final UpdateDbaasServiceMysqlRequestBackupSchedule model = new UpdateDbaasServiceMysqlRequestBackupSchedule();
+public class ThanosQueryFrontendUserConfigurationTest {
+    private final ThanosQueryFrontendUserConfiguration model = new ThanosQueryFrontendUserConfiguration();
 
     /**
-     * Model tests for UpdateDbaasServiceMysqlRequestBackupSchedule
+     * Model tests for ThanosQueryFrontendUserConfiguration
      */
     @Test
-    public void testUpdateDbaasServiceMysqlRequestBackupSchedule() {
-        // TODO: test UpdateDbaasServiceMysqlRequestBackupSchedule
+    public void testThanosQueryFrontendUserConfiguration() {
+        // TODO: test ThanosQueryFrontendUserConfiguration
     }
 
     /**
-     * Test the property 'backupHour'
+     * Test the property 'queryRangeAlignRangeWithStep'
      */
     @Test
-    public void backupHourTest() {
-        // TODO: test backupHour
-    }
-
-    /**
-     * Test the property 'backupMinute'
-     */
-    @Test
-    public void backupMinuteTest() {
-        // TODO: test backupMinute
+    public void queryRangeAlignRangeWithStepTest() {
+        // TODO: test queryRangeAlignRangeWithStep
     }
 
 }

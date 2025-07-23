@@ -19,7 +19,7 @@ import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
-import com.exoscale.sdk.model.DbaasServiceValkeyComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceValkeyConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceValkeyUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;

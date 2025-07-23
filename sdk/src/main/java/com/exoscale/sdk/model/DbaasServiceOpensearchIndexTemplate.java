@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -36,26 +32,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Template settings for all new indexes
  */
 @JsonPropertyOrder({
-  UpdateDbaasServiceOpensearchRequestIndexTemplate.JSON_PROPERTY_MAPPING_NESTED_OBJECTS_LIMIT,
-  UpdateDbaasServiceOpensearchRequestIndexTemplate.JSON_PROPERTY_NUMBER_OF_REPLICAS,
-  UpdateDbaasServiceOpensearchRequestIndexTemplate.JSON_PROPERTY_NUMBER_OF_SHARDS
+  DbaasServiceOpensearchIndexTemplate.JSON_PROPERTY_MAPPING_NESTED_OBJECTS_LIMIT,
+  DbaasServiceOpensearchIndexTemplate.JSON_PROPERTY_NUMBER_OF_REPLICAS,
+  DbaasServiceOpensearchIndexTemplate.JSON_PROPERTY_NUMBER_OF_SHARDS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class UpdateDbaasServiceOpensearchRequestIndexTemplate {
+public class DbaasServiceOpensearchIndexTemplate {
   public static final String JSON_PROPERTY_MAPPING_NESTED_OBJECTS_LIMIT = "mapping-nested-objects-limit";
-  private JsonNullable<Long> mappingNestedObjectsLimit = JsonNullable.<Long>undefined();
+  private Long mappingNestedObjectsLimit;
 
   public static final String JSON_PROPERTY_NUMBER_OF_REPLICAS = "number-of-replicas";
-  private JsonNullable<Long> numberOfReplicas = JsonNullable.<Long>undefined();
+  private Long numberOfReplicas;
 
   public static final String JSON_PROPERTY_NUMBER_OF_SHARDS = "number-of-shards";
   private Long numberOfShards;
 
-  public UpdateDbaasServiceOpensearchRequestIndexTemplate() { 
+  public DbaasServiceOpensearchIndexTemplate() { 
   }
 
-  public UpdateDbaasServiceOpensearchRequestIndexTemplate mappingNestedObjectsLimit(Long mappingNestedObjectsLimit) {
-    this.mappingNestedObjectsLimit = JsonNullable.<Long>of(mappingNestedObjectsLimit);
+  public DbaasServiceOpensearchIndexTemplate mappingNestedObjectsLimit(Long mappingNestedObjectsLimit) {
+    this.mappingNestedObjectsLimit = mappingNestedObjectsLimit;
     return this;
   }
 
@@ -66,31 +62,23 @@ public class UpdateDbaasServiceOpensearchRequestIndexTemplate {
    * @return mappingNestedObjectsLimit
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Long getMappingNestedObjectsLimit() {
-        return mappingNestedObjectsLimit.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MAPPING_NESTED_OBJECTS_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getMappingNestedObjectsLimit_JsonNullable() {
+  public Long getMappingNestedObjectsLimit() {
     return mappingNestedObjectsLimit;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_MAPPING_NESTED_OBJECTS_LIMIT)
-  public void setMappingNestedObjectsLimit_JsonNullable(JsonNullable<Long> mappingNestedObjectsLimit) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMappingNestedObjectsLimit(Long mappingNestedObjectsLimit) {
     this.mappingNestedObjectsLimit = mappingNestedObjectsLimit;
   }
 
-  public void setMappingNestedObjectsLimit(Long mappingNestedObjectsLimit) {
-    this.mappingNestedObjectsLimit = JsonNullable.<Long>of(mappingNestedObjectsLimit);
-  }
 
-
-  public UpdateDbaasServiceOpensearchRequestIndexTemplate numberOfReplicas(Long numberOfReplicas) {
-    this.numberOfReplicas = JsonNullable.<Long>of(numberOfReplicas);
+  public DbaasServiceOpensearchIndexTemplate numberOfReplicas(Long numberOfReplicas) {
+    this.numberOfReplicas = numberOfReplicas;
     return this;
   }
 
@@ -101,30 +89,22 @@ public class UpdateDbaasServiceOpensearchRequestIndexTemplate {
    * @return numberOfReplicas
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Long getNumberOfReplicas() {
-        return numberOfReplicas.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Long> getNumberOfReplicas_JsonNullable() {
+  public Long getNumberOfReplicas() {
     return numberOfReplicas;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_REPLICAS)
-  public void setNumberOfReplicas_JsonNullable(JsonNullable<Long> numberOfReplicas) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNumberOfReplicas(Long numberOfReplicas) {
     this.numberOfReplicas = numberOfReplicas;
   }
 
-  public void setNumberOfReplicas(Long numberOfReplicas) {
-    this.numberOfReplicas = JsonNullable.<Long>of(numberOfReplicas);
-  }
 
-
-  public UpdateDbaasServiceOpensearchRequestIndexTemplate numberOfShards(Long numberOfShards) {
+  public DbaasServiceOpensearchIndexTemplate numberOfShards(Long numberOfShards) {
     this.numberOfShards = numberOfShards;
     return this;
   }
@@ -152,7 +132,7 @@ public class UpdateDbaasServiceOpensearchRequestIndexTemplate {
 
 
   /**
-   * Return true if this update_dbaas_service_opensearch_request_index_template object is equal to o.
+   * Return true if this dbaas_service_opensearch_index_template object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -162,32 +142,21 @@ public class UpdateDbaasServiceOpensearchRequestIndexTemplate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateDbaasServiceOpensearchRequestIndexTemplate updateDbaasServiceOpensearchRequestIndexTemplate = (UpdateDbaasServiceOpensearchRequestIndexTemplate) o;
-    return equalsNullable(this.mappingNestedObjectsLimit, updateDbaasServiceOpensearchRequestIndexTemplate.mappingNestedObjectsLimit) &&
-        equalsNullable(this.numberOfReplicas, updateDbaasServiceOpensearchRequestIndexTemplate.numberOfReplicas) &&
-        Objects.equals(this.numberOfShards, updateDbaasServiceOpensearchRequestIndexTemplate.numberOfShards);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    DbaasServiceOpensearchIndexTemplate dbaasServiceOpensearchIndexTemplate = (DbaasServiceOpensearchIndexTemplate) o;
+    return Objects.equals(this.mappingNestedObjectsLimit, dbaasServiceOpensearchIndexTemplate.mappingNestedObjectsLimit) &&
+        Objects.equals(this.numberOfReplicas, dbaasServiceOpensearchIndexTemplate.numberOfReplicas) &&
+        Objects.equals(this.numberOfShards, dbaasServiceOpensearchIndexTemplate.numberOfShards);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(mappingNestedObjectsLimit), hashCodeNullable(numberOfReplicas), numberOfShards);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(mappingNestedObjectsLimit, numberOfReplicas, numberOfShards);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateDbaasServiceOpensearchRequestIndexTemplate {\n");
+    sb.append("class DbaasServiceOpensearchIndexTemplate {\n");
     sb.append("    mappingNestedObjectsLimit: ").append(toIndentedString(mappingNestedObjectsLimit)).append("\n");
     sb.append("    numberOfReplicas: ").append(toIndentedString(numberOfReplicas)).append("\n");
     sb.append("    numberOfShards: ").append(toIndentedString(numberOfShards)).append("\n");

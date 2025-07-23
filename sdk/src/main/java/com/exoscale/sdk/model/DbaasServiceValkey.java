@@ -25,7 +25,7 @@ import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
-import com.exoscale.sdk.model.DbaasServiceValkeyComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceValkeyConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceValkeyUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
@@ -124,7 +124,7 @@ public class DbaasServiceValkey {
   private List<DbaasServiceNotification> notifications;
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
-  private List<DbaasServiceValkeyComponentsInner> components;
+  private List<DbaasServiceThanosComponentsInner> components;
 
   public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
   private DbaasServiceMaintenance maintenance;
@@ -598,12 +598,12 @@ public class DbaasServiceValkey {
   }
 
 
-  public DbaasServiceValkey components(List<DbaasServiceValkeyComponentsInner> components) {
+  public DbaasServiceValkey components(List<DbaasServiceThanosComponentsInner> components) {
     this.components = components;
     return this;
   }
 
-  public DbaasServiceValkey addComponentsItem(DbaasServiceValkeyComponentsInner componentsItem) {
+  public DbaasServiceValkey addComponentsItem(DbaasServiceThanosComponentsInner componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -619,14 +619,14 @@ public class DbaasServiceValkey {
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasServiceValkeyComponentsInner> getComponents() {
+  public List<DbaasServiceThanosComponentsInner> getComponents() {
     return components;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponents(List<DbaasServiceValkeyComponentsInner> components) {
+  public void setComponents(List<DbaasServiceThanosComponentsInner> components) {
     this.components = components;
   }
 

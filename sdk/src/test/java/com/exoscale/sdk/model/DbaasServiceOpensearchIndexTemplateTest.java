@@ -19,50 +19,46 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+ * Model tests for DbaasServiceOpensearchIndexTemplate
  */
-public class UpdateDbaasServiceOpensearchRequestIndexPatternsInnerTest {
-    private final UpdateDbaasServiceOpensearchRequestIndexPatternsInner model = new UpdateDbaasServiceOpensearchRequestIndexPatternsInner();
+public class DbaasServiceOpensearchIndexTemplateTest {
+    private final DbaasServiceOpensearchIndexTemplate model = new DbaasServiceOpensearchIndexTemplate();
 
     /**
-     * Model tests for UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+     * Model tests for DbaasServiceOpensearchIndexTemplate
      */
     @Test
-    public void testUpdateDbaasServiceOpensearchRequestIndexPatternsInner() {
-        // TODO: test UpdateDbaasServiceOpensearchRequestIndexPatternsInner
+    public void testDbaasServiceOpensearchIndexTemplate() {
+        // TODO: test DbaasServiceOpensearchIndexTemplate
     }
 
     /**
-     * Test the property 'maxIndexCount'
+     * Test the property 'mappingNestedObjectsLimit'
      */
     @Test
-    public void maxIndexCountTest() {
-        // TODO: test maxIndexCount
+    public void mappingNestedObjectsLimitTest() {
+        // TODO: test mappingNestedObjectsLimit
     }
 
     /**
-     * Test the property 'sortingAlgorithm'
+     * Test the property 'numberOfReplicas'
      */
     @Test
-    public void sortingAlgorithmTest() {
-        // TODO: test sortingAlgorithm
+    public void numberOfReplicasTest() {
+        // TODO: test numberOfReplicas
     }
 
     /**
-     * Test the property 'pattern'
+     * Test the property 'numberOfShards'
      */
     @Test
-    public void patternTest() {
-        // TODO: test pattern
+    public void numberOfShardsTest() {
+        // TODO: test numberOfShards
     }
 
 }

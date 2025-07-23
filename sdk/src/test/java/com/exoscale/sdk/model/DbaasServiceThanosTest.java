@@ -16,17 +16,13 @@ package com.exoscale.sdk.model;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
-import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
-import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
-import com.exoscale.sdk.model.DbaasServiceOpensearchConnectionInfo;
-import com.exoscale.sdk.model.DbaasServiceOpensearchIndexTemplate;
+import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceThanosConnectionInfo;
 import com.exoscale.sdk.model.EnumServiceState;
-import com.exoscale.sdk.model.JsonSchemaOpensearch;
-import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequestIndexPatternsInner;
-import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequestOpensearchDashboards;
+import com.exoscale.sdk.model.JsonSchemaThanos;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,42 +32,22 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceOpensearch
+ * Model tests for DbaasServiceThanos
  */
-public class DbaasServiceOpensearchTest {
-    private final DbaasServiceOpensearch model = new DbaasServiceOpensearch();
+public class DbaasServiceThanosTest {
+    private final DbaasServiceThanos model = new DbaasServiceThanos();
 
     /**
-     * Model tests for DbaasServiceOpensearch
+     * Model tests for DbaasServiceThanos
      */
     @Test
-    public void testDbaasServiceOpensearch() {
-        // TODO: test DbaasServiceOpensearch
-    }
-
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
-
-    /**
-     * Test the property 'maxIndexCount'
-     */
-    @Test
-    public void maxIndexCountTest() {
-        // TODO: test maxIndexCount
+    public void testDbaasServiceThanos() {
+        // TODO: test DbaasServiceThanos
     }
 
     /**
@@ -147,14 +123,6 @@ public class DbaasServiceOpensearchTest {
     }
 
     /**
-     * Test the property 'keepIndexRefreshInterval'
-     */
-    @Test
-    public void keepIndexRefreshIntervalTest() {
-        // TODO: test keepIndexRefreshInterval
-    }
-
-    /**
      * Test the property 'type'
      */
     @Test
@@ -168,14 +136,6 @@ public class DbaasServiceOpensearchTest {
     @Test
     public void stateTest() {
         // TODO: test state
-    }
-
-    /**
-     * Test the property 'ipFilter'
-     */
-    @Test
-    public void ipFilterTest() {
-        // TODO: test ipFilter
     }
 
     /**
@@ -211,27 +171,11 @@ public class DbaasServiceOpensearchTest {
     }
 
     /**
-     * Test the property 'indexPatterns'
-     */
-    @Test
-    public void indexPatternsTest() {
-        // TODO: test indexPatterns
-    }
-
-    /**
      * Test the property 'maintenance'
      */
     @Test
     public void maintenanceTest() {
         // TODO: test maintenance
-    }
-
-    /**
-     * Test the property 'indexTemplate'
-     */
-    @Test
-    public void indexTemplateTest() {
-        // TODO: test indexTemplate
     }
 
     /**
@@ -259,14 +203,6 @@ public class DbaasServiceOpensearchTest {
     }
 
     /**
-     * Test the property 'opensearchSettings'
-     */
-    @Test
-    public void opensearchSettingsTest() {
-        // TODO: test opensearchSettings
-    }
-
-    /**
      * Test the property 'uriParams'
      */
     @Test
@@ -275,11 +211,11 @@ public class DbaasServiceOpensearchTest {
     }
 
     /**
-     * Test the property 'version'
+     * Test the property 'thanosSettings'
      */
     @Test
-    public void versionTest() {
-        // TODO: test version
+    public void thanosSettingsTest() {
+        // TODO: test thanosSettings
     }
 
     /**
@@ -296,22 +232,6 @@ public class DbaasServiceOpensearchTest {
     @Test
     public void planTest() {
         // TODO: test plan
-    }
-
-    /**
-     * Test the property 'opensearchDashboards'
-     */
-    @Test
-    public void opensearchDashboardsTest() {
-        // TODO: test opensearchDashboards
-    }
-
-    /**
-     * Test the property 'users'
-     */
-    @Test
-    public void usersTest() {
-        // TODO: test users
     }
 
 }

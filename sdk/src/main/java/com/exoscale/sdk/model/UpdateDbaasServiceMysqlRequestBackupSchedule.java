@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -38,16 +42,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceMysqlRequestBackupSchedule {
   public static final String JSON_PROPERTY_BACKUP_HOUR = "backup-hour";
-  private Long backupHour;
+  private JsonNullable<Long> backupHour = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_BACKUP_MINUTE = "backup-minute";
-  private Long backupMinute;
+  private JsonNullable<Long> backupMinute = JsonNullable.<Long>undefined();
 
   public UpdateDbaasServiceMysqlRequestBackupSchedule() { 
   }
 
   public UpdateDbaasServiceMysqlRequestBackupSchedule backupHour(Long backupHour) {
-    this.backupHour = backupHour;
+    this.backupHour = JsonNullable.<Long>of(backupHour);
     return this;
   }
 
@@ -58,23 +62,31 @@ public class UpdateDbaasServiceMysqlRequestBackupSchedule {
    * @return backupHour
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BACKUP_HOUR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getBackupHour() {
-    return backupHour;
+        return backupHour.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_BACKUP_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBackupHour(Long backupHour) {
+
+  public JsonNullable<Long> getBackupHour_JsonNullable() {
+    return backupHour;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BACKUP_HOUR)
+  public void setBackupHour_JsonNullable(JsonNullable<Long> backupHour) {
     this.backupHour = backupHour;
+  }
+
+  public void setBackupHour(Long backupHour) {
+    this.backupHour = JsonNullable.<Long>of(backupHour);
   }
 
 
   public UpdateDbaasServiceMysqlRequestBackupSchedule backupMinute(Long backupMinute) {
-    this.backupMinute = backupMinute;
+    this.backupMinute = JsonNullable.<Long>of(backupMinute);
     return this;
   }
 
@@ -85,18 +97,26 @@ public class UpdateDbaasServiceMysqlRequestBackupSchedule {
    * @return backupMinute
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BACKUP_MINUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getBackupMinute() {
-    return backupMinute;
+        return backupMinute.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_BACKUP_MINUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBackupMinute(Long backupMinute) {
+
+  public JsonNullable<Long> getBackupMinute_JsonNullable() {
+    return backupMinute;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_BACKUP_MINUTE)
+  public void setBackupMinute_JsonNullable(JsonNullable<Long> backupMinute) {
     this.backupMinute = backupMinute;
+  }
+
+  public void setBackupMinute(Long backupMinute) {
+    this.backupMinute = JsonNullable.<Long>of(backupMinute);
   }
 
 
@@ -112,13 +132,24 @@ public class UpdateDbaasServiceMysqlRequestBackupSchedule {
       return false;
     }
     UpdateDbaasServiceMysqlRequestBackupSchedule updateDbaasServiceMysqlRequestBackupSchedule = (UpdateDbaasServiceMysqlRequestBackupSchedule) o;
-    return Objects.equals(this.backupHour, updateDbaasServiceMysqlRequestBackupSchedule.backupHour) &&
-        Objects.equals(this.backupMinute, updateDbaasServiceMysqlRequestBackupSchedule.backupMinute);
+    return equalsNullable(this.backupHour, updateDbaasServiceMysqlRequestBackupSchedule.backupHour) &&
+        equalsNullable(this.backupMinute, updateDbaasServiceMysqlRequestBackupSchedule.backupMinute);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupHour, backupMinute);
+    return Objects.hash(hashCodeNullable(backupHour), hashCodeNullable(backupMinute));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

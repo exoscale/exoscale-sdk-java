@@ -31,18 +31,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasServiceValkeyComponentsInner
+ * DbaasServiceThanosComponentsInner
  */
 @JsonPropertyOrder({
-  DbaasServiceValkeyComponentsInner.JSON_PROPERTY_COMPONENT,
-  DbaasServiceValkeyComponentsInner.JSON_PROPERTY_HOST,
-  DbaasServiceValkeyComponentsInner.JSON_PROPERTY_PORT,
-  DbaasServiceValkeyComponentsInner.JSON_PROPERTY_ROUTE,
-  DbaasServiceValkeyComponentsInner.JSON_PROPERTY_SSL,
-  DbaasServiceValkeyComponentsInner.JSON_PROPERTY_USAGE
+  DbaasServiceThanosComponentsInner.JSON_PROPERTY_COMPONENT,
+  DbaasServiceThanosComponentsInner.JSON_PROPERTY_HOST,
+  DbaasServiceThanosComponentsInner.JSON_PROPERTY_PORT,
+  DbaasServiceThanosComponentsInner.JSON_PROPERTY_ROUTE,
+  DbaasServiceThanosComponentsInner.JSON_PROPERTY_SSL,
+  DbaasServiceThanosComponentsInner.JSON_PROPERTY_USAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceValkeyComponentsInner {
+public class DbaasServiceThanosComponentsInner {
   public static final String JSON_PROPERTY_COMPONENT = "component";
   private String component;
 
@@ -61,10 +61,10 @@ public class DbaasServiceValkeyComponentsInner {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private EnumComponentUsage usage;
 
-  public DbaasServiceValkeyComponentsInner() { 
+  public DbaasServiceThanosComponentsInner() { 
   }
 
-  public DbaasServiceValkeyComponentsInner component(String component) {
+  public DbaasServiceThanosComponentsInner component(String component) {
     this.component = component;
     return this;
   }
@@ -89,7 +89,7 @@ public class DbaasServiceValkeyComponentsInner {
   }
 
 
-  public DbaasServiceValkeyComponentsInner host(String host) {
+  public DbaasServiceThanosComponentsInner host(String host) {
     this.host = host;
     return this;
   }
@@ -114,7 +114,7 @@ public class DbaasServiceValkeyComponentsInner {
   }
 
 
-  public DbaasServiceValkeyComponentsInner port(Long port) {
+  public DbaasServiceThanosComponentsInner port(Long port) {
     this.port = port;
     return this;
   }
@@ -141,7 +141,7 @@ public class DbaasServiceValkeyComponentsInner {
   }
 
 
-  public DbaasServiceValkeyComponentsInner route(EnumComponentRoute route) {
+  public DbaasServiceThanosComponentsInner route(EnumComponentRoute route) {
     this.route = route;
     return this;
   }
@@ -166,7 +166,7 @@ public class DbaasServiceValkeyComponentsInner {
   }
 
 
-  public DbaasServiceValkeyComponentsInner ssl(Boolean ssl) {
+  public DbaasServiceThanosComponentsInner ssl(Boolean ssl) {
     this.ssl = ssl;
     return this;
   }
@@ -191,7 +191,7 @@ public class DbaasServiceValkeyComponentsInner {
   }
 
 
-  public DbaasServiceValkeyComponentsInner usage(EnumComponentUsage usage) {
+  public DbaasServiceThanosComponentsInner usage(EnumComponentUsage usage) {
     this.usage = usage;
     return this;
   }
@@ -217,7 +217,7 @@ public class DbaasServiceValkeyComponentsInner {
 
 
   /**
-   * Return true if this dbaas_service_valkey_components_inner object is equal to o.
+   * Return true if this dbaas_service_thanos_components_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -227,13 +227,13 @@ public class DbaasServiceValkeyComponentsInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceValkeyComponentsInner dbaasServiceValkeyComponentsInner = (DbaasServiceValkeyComponentsInner) o;
-    return Objects.equals(this.component, dbaasServiceValkeyComponentsInner.component) &&
-        Objects.equals(this.host, dbaasServiceValkeyComponentsInner.host) &&
-        Objects.equals(this.port, dbaasServiceValkeyComponentsInner.port) &&
-        Objects.equals(this.route, dbaasServiceValkeyComponentsInner.route) &&
-        Objects.equals(this.ssl, dbaasServiceValkeyComponentsInner.ssl) &&
-        Objects.equals(this.usage, dbaasServiceValkeyComponentsInner.usage);
+    DbaasServiceThanosComponentsInner dbaasServiceThanosComponentsInner = (DbaasServiceThanosComponentsInner) o;
+    return Objects.equals(this.component, dbaasServiceThanosComponentsInner.component) &&
+        Objects.equals(this.host, dbaasServiceThanosComponentsInner.host) &&
+        Objects.equals(this.port, dbaasServiceThanosComponentsInner.port) &&
+        Objects.equals(this.route, dbaasServiceThanosComponentsInner.route) &&
+        Objects.equals(this.ssl, dbaasServiceThanosComponentsInner.ssl) &&
+        Objects.equals(this.usage, dbaasServiceThanosComponentsInner.usage);
   }
 
   @Override
@@ -244,7 +244,7 @@ public class DbaasServiceValkeyComponentsInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceValkeyComponentsInner {\n");
+    sb.append("class DbaasServiceThanosComponentsInner {\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
