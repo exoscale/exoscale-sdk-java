@@ -8454,6 +8454,7 @@ servers:
       - at-vie-1
       - at-vie-2
       - bg-sof-1
+      - hr-zag-1
 paths:
   "/load-balancer/{id}/service/{service-id}":
     delete:
@@ -13912,7 +13913,8 @@ paths:
               schema:
                 "$ref": "#/components/schemas/block-storage-volume"
       description: 'This operation resizes a Block storage volume. Note: the volume
-        can only grow, cannot be shrunk.'
+        can only grow, cannot be shrunk. Only detached volumes or volumes attached
+        to stopped instances can be resized.'
       parameters:
       - in: path
         required: true

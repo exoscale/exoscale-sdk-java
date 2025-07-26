@@ -21079,7 +21079,7 @@ No authorization required
 
 Resize a block storage volume
 
-This operation resizes a Block storage volume. Note: the volume can only grow, cannot be shrunk.
+This operation resizes a Block storage volume. Note: the volume can only grow, cannot be shrunk. Only detached volumes or volumes attached to stopped instances can be resized.
 
 ### Example
 

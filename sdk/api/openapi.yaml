@@ -28,6 +28,7 @@ servers:
       - at-vie-1
       - at-vie-2
       - bg-sof-1
+      - hr-zag-1
 tags:
 - description: |-
     Security Groups are groups of firewall rules that regulate
@@ -4575,7 +4576,8 @@ paths:
   /block-storage/{id}:resize-volume:
     put:
       description: "This operation resizes a Block storage volume. Note: the volume\
-        \ can only grow, cannot be shrunk."
+        \ can only grow, cannot be shrunk. Only detached volumes or volumes attached\
+        \ to stopped instances can be resized."
       operationId: resize-block-storage-volume
       parameters:
       - explode: false
