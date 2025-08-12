@@ -73,9 +73,7 @@ public class CreateDnsDomainRecordRequest {
     
     ALIAS("ALIAS"),
     
-    URL("URL"),
-    
-    SPF("SPF");
+    URL("URL");
 
     private String value;
 

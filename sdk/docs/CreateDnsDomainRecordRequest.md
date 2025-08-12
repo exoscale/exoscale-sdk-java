@@ -33,7 +33,6 @@
 | TXT | &quot;TXT&quot; |
 | ALIAS | &quot;ALIAS&quot; |
 | URL | &quot;URL&quot; |
-| SPF | &quot;SPF&quot; |
 
 
 

@@ -39928,7 +39928,6 @@ components:
           - TXT
           - ALIAS
           - URL
-          - SPF
           type: string
         content:
           description: DNS domain record content
