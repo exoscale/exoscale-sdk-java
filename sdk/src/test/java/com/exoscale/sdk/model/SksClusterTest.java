@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.SksAudit;
 import com.exoscale.sdk.model.SksNodepool;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -149,6 +150,14 @@ public class SksClusterTest {
     @Test
     public void idTest() {
         // TODO: test id
+    }
+
+    /**
+     * Test the property 'audit'
+     */
+    @Test
+    public void auditTest() {
+        // TODO: test audit
     }
 
     /**

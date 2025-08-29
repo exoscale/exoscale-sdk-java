@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.SksAuditUpdate;
 import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -48,14 +49,6 @@ public class UpdateSksClusterRequestTest {
     }
 
     /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
      * Test the property 'description'
      */
     @Test
@@ -72,14 +65,6 @@ public class UpdateSksClusterRequestTest {
     }
 
     /**
-     * Test the property 'oidc'
-     */
-    @Test
-    public void oidcTest() {
-        // TODO: test oidc
-    }
-
-    /**
      * Test the property 'autoUpgrade'
      */
     @Test
@@ -88,11 +73,27 @@ public class UpdateSksClusterRequestTest {
     }
 
     /**
-     * Test the property 'addons'
+     * Test the property 'oidc'
      */
     @Test
-    public void addonsTest() {
-        // TODO: test addons
+    public void oidcTest() {
+        // TODO: test oidc
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'enableOperatorsCa'
+     */
+    @Test
+    public void enableOperatorsCaTest() {
+        // TODO: test enableOperatorsCa
     }
 
     /**
@@ -104,11 +105,19 @@ public class UpdateSksClusterRequestTest {
     }
 
     /**
-     * Test the property 'enableOperatorsCa'
+     * Test the property 'addons'
      */
     @Test
-    public void enableOperatorsCaTest() {
-        // TODO: test enableOperatorsCa
+    public void addonsTest() {
+        // TODO: test addons
+    }
+
+    /**
+     * Test the property 'audit'
+     */
+    @Test
+    public void auditTest() {
+        // TODO: test audit
     }
 
 }

@@ -342,6 +342,9 @@ docs/SecurityGroupResource.md
 docs/SecurityGroupRule.md
 docs/SecurityGroupRuleIcmp.md
 docs/ShardIndexingBackPressureSettings.md
+docs/SksAudit.md
+docs/SksAuditCreate.md
+docs/SksAuditUpdate.md
 docs/SksCluster.md
 docs/SksClusterDeprecatedResource.md
 docs/SksKubeconfigRequest.md
@@ -748,6 +751,9 @@ src/main/java/com/exoscale/sdk/model/SecurityGroupResource.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRule.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRuleIcmp.java
 src/main/java/com/exoscale/sdk/model/ShardIndexingBackPressureSettings.java
+src/main/java/com/exoscale/sdk/model/SksAudit.java
+src/main/java/com/exoscale/sdk/model/SksAuditCreate.java
+src/main/java/com/exoscale/sdk/model/SksAuditUpdate.java
 src/main/java/com/exoscale/sdk/model/SksCluster.java
 src/main/java/com/exoscale/sdk/model/SksClusterDeprecatedResource.java
 src/main/java/com/exoscale/sdk/model/SksKubeconfigRequest.java

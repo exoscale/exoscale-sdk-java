@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.SksAudit;
 import com.exoscale.sdk.model.SksNodepool;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -55,6 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksCluster.JSON_PROPERTY_FEATURE_GATES,
   SksCluster.JSON_PROPERTY_ADDONS,
   SksCluster.JSON_PROPERTY_ID,
+  SksCluster.JSON_PROPERTY_AUDIT,
   SksCluster.JSON_PROPERTY_VERSION,
   SksCluster.JSON_PROPERTY_CREATED_AT,
   SksCluster.JSON_PROPERTY_ENDPOINT
@@ -257,6 +259,9 @@ public class SksCluster {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_AUDIT = "audit";
+  private SksAudit audit;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
@@ -607,6 +612,31 @@ public class SksCluster {
 
 
 
+  public SksCluster audit(SksAudit audit) {
+    this.audit = audit;
+    return this;
+  }
+
+   /**
+   * Get audit
+   * @return audit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SksAudit getAudit() {
+    return audit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAudit(SksAudit audit) {
+    this.audit = audit;
+  }
+
+
   public SksCluster version(String version) {
     this.version = version;
     return this;
@@ -687,6 +717,7 @@ public class SksCluster {
         Objects.equals(this.featureGates, sksCluster.featureGates) &&
         Objects.equals(this.addons, sksCluster.addons) &&
         Objects.equals(this.id, sksCluster.id) &&
+        Objects.equals(this.audit, sksCluster.audit) &&
         Objects.equals(this.version, sksCluster.version) &&
         Objects.equals(this.createdAt, sksCluster.createdAt) &&
         Objects.equals(this.endpoint, sksCluster.endpoint);
@@ -694,7 +725,7 @@ public class SksCluster {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, labels, cni, autoUpgrade, name, enableOperatorsCa, state, enableKubeProxy, nodepools, level, featureGates, addons, id, version, createdAt, endpoint);
+    return Objects.hash(description, labels, cni, autoUpgrade, name, enableOperatorsCa, state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint);
   }
 
   @Override
@@ -714,6 +745,7 @@ public class SksCluster {
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    audit: ").append(toIndentedString(audit)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
@@ -848,6 +880,11 @@ public class SksCluster {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `audit` to the URL query string
+    if (getAudit() != null) {
+      joiner.add(getAudit().toUrlQueryString(prefix + "audit" + suffix));
     }
 
     // add `version` to the URL query string

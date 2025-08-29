@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.SksAuditUpdate;
 import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -42,31 +43,38 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * UpdateSksClusterRequest
  */
 @JsonPropertyOrder({
-  UpdateSksClusterRequest.JSON_PROPERTY_NAME,
   UpdateSksClusterRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateSksClusterRequest.JSON_PROPERTY_LABELS,
-  UpdateSksClusterRequest.JSON_PROPERTY_OIDC,
   UpdateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
-  UpdateSksClusterRequest.JSON_PROPERTY_ADDONS,
+  UpdateSksClusterRequest.JSON_PROPERTY_OIDC,
+  UpdateSksClusterRequest.JSON_PROPERTY_NAME,
+  UpdateSksClusterRequest.JSON_PROPERTY_ENABLE_OPERATORS_CA,
   UpdateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
-  UpdateSksClusterRequest.JSON_PROPERTY_ENABLE_OPERATORS_CA
+  UpdateSksClusterRequest.JSON_PROPERTY_ADDONS,
+  UpdateSksClusterRequest.JSON_PROPERTY_AUDIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateSksClusterRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
 
+  public static final String JSON_PROPERTY_AUTO_UPGRADE = "auto-upgrade";
+  private Boolean autoUpgrade;
+
   public static final String JSON_PROPERTY_OIDC = "oidc";
   private SksOidc oidc;
 
-  public static final String JSON_PROPERTY_AUTO_UPGRADE = "auto-upgrade";
-  private Boolean autoUpgrade;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public static final String JSON_PROPERTY_ENABLE_OPERATORS_CA = "enable-operators-ca";
+  private Boolean enableOperatorsCa;
+
+  public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
+  private JsonNullable<Set<String>> featureGates = JsonNullable.<Set<String>>undefined();
 
   /**
    * Gets or Sets addons
@@ -108,39 +116,11 @@ public class UpdateSksClusterRequest {
   public static final String JSON_PROPERTY_ADDONS = "addons";
   private Set<AddonsEnum> addons;
 
-  public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
-  private JsonNullable<Set<String>> featureGates = JsonNullable.<Set<String>>undefined();
-
-  public static final String JSON_PROPERTY_ENABLE_OPERATORS_CA = "enable-operators-ca";
-  private Boolean enableOperatorsCa;
+  public static final String JSON_PROPERTY_AUDIT = "audit";
+  private SksAuditUpdate audit;
 
   public UpdateSksClusterRequest() { 
   }
-
-  public UpdateSksClusterRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Cluster name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   public UpdateSksClusterRequest description(String description) {
     this.description = JsonNullable.<String>of(description);
@@ -208,31 +188,6 @@ public class UpdateSksClusterRequest {
   }
 
 
-  public UpdateSksClusterRequest oidc(SksOidc oidc) {
-    this.oidc = oidc;
-    return this;
-  }
-
-   /**
-   * Get oidc
-   * @return oidc
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OIDC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SksOidc getOidc() {
-    return oidc;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OIDC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOidc(SksOidc oidc) {
-    this.oidc = oidc;
-  }
-
-
   public UpdateSksClusterRequest autoUpgrade(Boolean autoUpgrade) {
     this.autoUpgrade = autoUpgrade;
     return this;
@@ -258,37 +213,78 @@ public class UpdateSksClusterRequest {
   }
 
 
-  public UpdateSksClusterRequest addons(Set<AddonsEnum> addons) {
-    this.addons = addons;
-    return this;
-  }
-
-  public UpdateSksClusterRequest addAddonsItem(AddonsEnum addonsItem) {
-    if (this.addons == null) {
-      this.addons = new LinkedHashSet<>();
-    }
-    this.addons.add(addonsItem);
+  public UpdateSksClusterRequest oidc(SksOidc oidc) {
+    this.oidc = oidc;
     return this;
   }
 
    /**
-   * Cluster addons
-   * @return addons
+   * Get oidc
+   * @return oidc
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADDONS)
+  @JsonProperty(JSON_PROPERTY_OIDC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<AddonsEnum> getAddons() {
-    return addons;
+  public SksOidc getOidc() {
+    return oidc;
   }
 
 
-  @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_ADDONS)
+  @JsonProperty(JSON_PROPERTY_OIDC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddons(Set<AddonsEnum> addons) {
-    this.addons = addons;
+  public void setOidc(SksOidc oidc) {
+    this.oidc = oidc;
+  }
+
+
+  public UpdateSksClusterRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Cluster name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public UpdateSksClusterRequest enableOperatorsCa(Boolean enableOperatorsCa) {
+    this.enableOperatorsCa = enableOperatorsCa;
+    return this;
+  }
+
+   /**
+   * Add or remove the operators certificate authority (CA) from the list of trusted CAs of the api server. The default value is true
+   * @return enableOperatorsCa
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableOperatorsCa() {
+    return enableOperatorsCa;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableOperatorsCa(Boolean enableOperatorsCa) {
+    this.enableOperatorsCa = enableOperatorsCa;
   }
 
 
@@ -337,28 +333,62 @@ public class UpdateSksClusterRequest {
   }
 
 
-  public UpdateSksClusterRequest enableOperatorsCa(Boolean enableOperatorsCa) {
-    this.enableOperatorsCa = enableOperatorsCa;
+  public UpdateSksClusterRequest addons(Set<AddonsEnum> addons) {
+    this.addons = addons;
+    return this;
+  }
+
+  public UpdateSksClusterRequest addAddonsItem(AddonsEnum addonsItem) {
+    if (this.addons == null) {
+      this.addons = new LinkedHashSet<>();
+    }
+    this.addons.add(addonsItem);
     return this;
   }
 
    /**
-   * Add or remove the operators certificate authority (CA) from the list of trusted CAs of the api server. The default value is true
-   * @return enableOperatorsCa
+   * Cluster addons
+   * @return addons
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonProperty(JSON_PROPERTY_ADDONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getEnableOperatorsCa() {
-    return enableOperatorsCa;
+  public Set<AddonsEnum> getAddons() {
+    return addons;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENABLE_OPERATORS_CA)
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_ADDONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnableOperatorsCa(Boolean enableOperatorsCa) {
-    this.enableOperatorsCa = enableOperatorsCa;
+  public void setAddons(Set<AddonsEnum> addons) {
+    this.addons = addons;
+  }
+
+
+  public UpdateSksClusterRequest audit(SksAuditUpdate audit) {
+    this.audit = audit;
+    return this;
+  }
+
+   /**
+   * Get audit
+   * @return audit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SksAuditUpdate getAudit() {
+    return audit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAudit(SksAuditUpdate audit) {
+    this.audit = audit;
   }
 
 
@@ -374,14 +404,15 @@ public class UpdateSksClusterRequest {
       return false;
     }
     UpdateSksClusterRequest updateSksClusterRequest = (UpdateSksClusterRequest) o;
-    return Objects.equals(this.name, updateSksClusterRequest.name) &&
-        equalsNullable(this.description, updateSksClusterRequest.description) &&
+    return equalsNullable(this.description, updateSksClusterRequest.description) &&
         Objects.equals(this.labels, updateSksClusterRequest.labels) &&
-        Objects.equals(this.oidc, updateSksClusterRequest.oidc) &&
         Objects.equals(this.autoUpgrade, updateSksClusterRequest.autoUpgrade) &&
-        Objects.equals(this.addons, updateSksClusterRequest.addons) &&
+        Objects.equals(this.oidc, updateSksClusterRequest.oidc) &&
+        Objects.equals(this.name, updateSksClusterRequest.name) &&
+        Objects.equals(this.enableOperatorsCa, updateSksClusterRequest.enableOperatorsCa) &&
         equalsNullable(this.featureGates, updateSksClusterRequest.featureGates) &&
-        Objects.equals(this.enableOperatorsCa, updateSksClusterRequest.enableOperatorsCa);
+        Objects.equals(this.addons, updateSksClusterRequest.addons) &&
+        Objects.equals(this.audit, updateSksClusterRequest.audit);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -390,7 +421,7 @@ public class UpdateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, hashCodeNullable(description), labels, oidc, autoUpgrade, addons, hashCodeNullable(featureGates), enableOperatorsCa);
+    return Objects.hash(hashCodeNullable(description), labels, autoUpgrade, oidc, name, enableOperatorsCa, hashCodeNullable(featureGates), addons, audit);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -404,14 +435,15 @@ public class UpdateSksClusterRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSksClusterRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-    sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
-    sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
-    sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
+    sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    enableOperatorsCa: ").append(toIndentedString(enableOperatorsCa)).append("\n");
+    sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
+    sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
+    sb.append("    audit: ").append(toIndentedString(audit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -459,11 +491,6 @@ public class UpdateSksClusterRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -478,25 +505,24 @@ public class UpdateSksClusterRequest {
       }
     }
 
-    // add `oidc` to the URL query string
-    if (getOidc() != null) {
-      joiner.add(getOidc().toUrlQueryString(prefix + "oidc" + suffix));
-    }
-
     // add `auto-upgrade` to the URL query string
     if (getAutoUpgrade() != null) {
       joiner.add(String.format("%sauto-upgrade%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoUpgrade()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `addons` to the URL query string
-    if (getAddons() != null) {
-      int i = 0;
-      for (AddonsEnum _item : getAddons()) {
-        joiner.add(String.format("%saddons%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
-      i++;
+    // add `oidc` to the URL query string
+    if (getOidc() != null) {
+      joiner.add(getOidc().toUrlQueryString(prefix + "oidc" + suffix));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `enable-operators-ca` to the URL query string
+    if (getEnableOperatorsCa() != null) {
+      joiner.add(String.format("%senable-operators-ca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableOperatorsCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `feature-gates` to the URL query string
@@ -510,9 +536,20 @@ public class UpdateSksClusterRequest {
       i++;
     }
 
-    // add `enable-operators-ca` to the URL query string
-    if (getEnableOperatorsCa() != null) {
-      joiner.add(String.format("%senable-operators-ca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableOperatorsCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `addons` to the URL query string
+    if (getAddons() != null) {
+      int i = 0;
+      for (AddonsEnum _item : getAddons()) {
+        joiner.add(String.format("%saddons%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
+    }
+
+    // add `audit` to the URL query string
+    if (getAudit() != null) {
+      joiner.add(getAudit().toUrlQueryString(prefix + "audit" + suffix));
     }
 
     return joiner.toString();

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-08-12T07:07:41.784063432Z[Etc/UTC]
+- Build date: 2025-08-29T07:06:59.790635116Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-fb20719</version>
+    <version>0.0.5-SNAPSHOT-4cedb3e</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-fb20719'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4cedb3e'
 }
 ```
 
@@ -716,6 +716,9 @@ Class | Method | HTTP request | Description
  - [SecurityGroupRule](sdk/docs/SecurityGroupRule.md)
  - [SecurityGroupRuleIcmp](sdk/docs/SecurityGroupRuleIcmp.md)
  - [ShardIndexingBackPressureSettings](sdk/docs/ShardIndexingBackPressureSettings.md)
+ - [SksAudit](sdk/docs/SksAudit.md)
+ - [SksAuditCreate](sdk/docs/SksAuditCreate.md)
+ - [SksAuditUpdate](sdk/docs/SksAuditUpdate.md)
  - [SksCluster](sdk/docs/SksCluster.md)
  - [SksClusterDeprecatedResource](sdk/docs/SksClusterDeprecatedResource.md)
  - [SksKubeconfigRequest](sdk/docs/SksKubeconfigRequest.md)

@@ -7789,6 +7789,10 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_elasticsearch_input_create_settings'
       type: object
+    sks-audit-endpoint:
+      maxLength: 2000
+      minLength: 1
+      type: string
     json-schema-schema-registry:
       additionalProperties: false
       example:
@@ -8009,6 +8013,10 @@ components:
       - private
       - public
       - privatelink
+      type: string
+    sks-audit-bearer-token:
+      maxLength: 2000
+      minLength: 1
       type: string
     dbaas-endpoint-opensearch-output:
       example:
@@ -13947,6 +13955,10 @@ components:
           format: int64
           type: integer
       type: object
+    sks-audit-initial-backoff:
+      maxLength: 10
+      minLength: 1
+      type: string
     dbaas-pg-pool-name:
       maxLength: 63
       minLength: 1
@@ -16197,6 +16209,26 @@ components:
       - dow
       - time
       - updates
+      type: object
+    sks-audit-update:
+      description: Kubernetes Audit parameters
+      properties:
+        endpoint:
+          maxLength: 2000
+          minLength: 1
+          type: string
+        bearer-token:
+          maxLength: 2000
+          minLength: 1
+          type: string
+        initial-backoff:
+          maxLength: 10
+          minLength: 1
+          type: string
+        enabled:
+          description: Enable or Disable Kubernetes Audit
+          nullable: true
+          type: boolean
       type: object
     enum-service-state:
       enum:
@@ -22426,6 +22458,10 @@ components:
         labels:
           key: labels
         endpoint: endpoint
+        audit:
+          endpoint: endpoint
+          initial-backoff: initial-backoff
+          enabled: true
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
         state: rotating-csi-credentials
@@ -22511,6 +22547,8 @@ components:
           format: uuid
           readOnly: true
           type: string
+        audit:
+          $ref: '#/components/schemas/sks-audit'
         version:
           description: Control plane Kubernetes version
           type: string
@@ -29454,6 +29492,25 @@ components:
           type: integer
       title: OpenSearch settings
       type: object
+    sks-audit:
+      description: Kubernetes Audit parameters
+      example:
+        endpoint: endpoint
+        initial-backoff: initial-backoff
+        enabled: true
+      properties:
+        endpoint:
+          maxLength: 2000
+          minLength: 1
+          type: string
+        enabled:
+          description: Enabled
+          type: boolean
+        initial-backoff:
+          maxLength: 10
+          minLength: 1
+          type: string
+      type: object
     dbaas-endpoint-elasticsearch-optional-fields:
       example:
         index-prefix: index-prefix
@@ -29598,6 +29655,25 @@ components:
       - timescale
       - aiven
       type: string
+    sks-audit-create:
+      description: Kubernetes Audit parameters
+      properties:
+        endpoint:
+          maxLength: 2000
+          minLength: 1
+          type: string
+        bearer-token:
+          maxLength: 2000
+          minLength: 1
+          type: string
+        initial-backoff:
+          maxLength: 10
+          minLength: 1
+          type: string
+      required:
+      - bearer-token
+      - endpoint
+      type: object
     enum-rsyslog-format:
       enum:
       - custom
@@ -46002,6 +46078,10 @@ components:
           labels:
             key: labels
           endpoint: endpoint
+          audit:
+            endpoint: endpoint
+            initial-backoff: initial-backoff
+            enabled: true
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
           state: rotating-csi-credentials
@@ -50755,6 +50835,10 @@ components:
           labels:
             key: labels
           endpoint: endpoint
+          audit:
+            endpoint: endpoint
+            initial-backoff: initial-backoff
+            enabled: true
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
           state: rotating-csi-credentials
@@ -50828,6 +50912,8 @@ components:
             type: string
           type: array
           uniqueItems: true
+        audit:
+          $ref: '#/components/schemas/sks-audit-create'
         version:
           description: Control plane Kubernetes version
           type: string
@@ -50859,11 +50945,6 @@ components:
       type: object
     update_sks_cluster_request:
       properties:
-        name:
-          description: Cluster name
-          maxLength: 255
-          minLength: 1
-          type: string
         description:
           description: Cluster description
           maxLength: 255
@@ -50873,12 +50954,29 @@ components:
           additionalProperties:
             type: string
           type: object
-        oidc:
-          $ref: '#/components/schemas/sks-oidc'
         auto-upgrade:
           description: Enable auto upgrade of the control plane to the latest patch
             version available
           type: boolean
+        oidc:
+          $ref: '#/components/schemas/sks-oidc'
+        name:
+          description: Cluster name
+          maxLength: 255
+          minLength: 1
+          type: string
+        enable-operators-ca:
+          description: Add or remove the operators certificate authority (CA) from
+            the list of trusted CAs of the api server. The default value is true
+          type: boolean
+        feature-gates:
+          description: A list of Kubernetes-only Alpha features to enable for API
+            server component
+          items:
+            type: string
+          nullable: true
+          type: array
+          uniqueItems: true
         addons:
           description: Cluster addons
           items:
@@ -50889,18 +50987,8 @@ components:
             type: string
           type: array
           uniqueItems: true
-        feature-gates:
-          description: A list of Kubernetes-only Alpha features to enable for API
-            server component
-          items:
-            type: string
-          nullable: true
-          type: array
-          uniqueItems: true
-        enable-operators-ca:
-          description: Add or remove the operators certificate authority (CA) from
-            the list of trusted CAs of the api server. The default value is true
-          type: boolean
+        audit:
+          $ref: '#/components/schemas/sks-audit-update'
       type: object
     list_quotas_200_response:
       example:

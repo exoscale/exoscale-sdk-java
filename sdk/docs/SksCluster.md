@@ -21,6 +21,7 @@ SKS Cluster
 |**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
 |**id** | **UUID** | Cluster ID |  [optional] [readonly] |
+|**audit** | [**SksAudit**](SksAudit.md) |  |  [optional] |
 |**version** | **String** | Control plane Kubernetes version |  [optional] |
 |**createdAt** | **OffsetDateTime** | Cluster creation date |  [optional] [readonly] |
 |**endpoint** | **String** | Cluster endpoint |  [optional] [readonly] |

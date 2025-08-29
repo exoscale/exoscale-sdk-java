@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.Networking;
+import com.exoscale.sdk.model.SksAuditCreate;
 import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -142,6 +143,14 @@ public class CreateSksClusterRequestTest {
     @Test
     public void addonsTest() {
         // TODO: test addons
+    }
+
+    /**
+     * Test the property 'audit'
+     */
+    @Test
+    public void auditTest() {
+        // TODO: test audit
     }
 
     /**

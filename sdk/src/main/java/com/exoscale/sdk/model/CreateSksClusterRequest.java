@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.Networking;
+import com.exoscale.sdk.model.SksAuditCreate;
 import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -55,6 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksClusterRequest.JSON_PROPERTY_LEVEL,
   CreateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
   CreateSksClusterRequest.JSON_PROPERTY_ADDONS,
+  CreateSksClusterRequest.JSON_PROPERTY_AUDIT,
   CreateSksClusterRequest.JSON_PROPERTY_VERSION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -201,6 +203,9 @@ public class CreateSksClusterRequest {
 
   public static final String JSON_PROPERTY_ADDONS = "addons";
   private Set<AddonsEnum> addons;
+
+  public static final String JSON_PROPERTY_AUDIT = "audit";
+  private SksAuditCreate audit;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
@@ -550,6 +555,31 @@ public class CreateSksClusterRequest {
   }
 
 
+  public CreateSksClusterRequest audit(SksAuditCreate audit) {
+    this.audit = audit;
+    return this;
+  }
+
+   /**
+   * Get audit
+   * @return audit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SksAuditCreate getAudit() {
+    return audit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AUDIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAudit(SksAuditCreate audit) {
+    this.audit = audit;
+  }
+
+
   public CreateSksClusterRequest version(String version) {
     this.version = version;
     return this;
@@ -599,6 +629,7 @@ public class CreateSksClusterRequest {
         Objects.equals(this.level, createSksClusterRequest.level) &&
         Objects.equals(this.featureGates, createSksClusterRequest.featureGates) &&
         Objects.equals(this.addons, createSksClusterRequest.addons) &&
+        Objects.equals(this.audit, createSksClusterRequest.audit) &&
         Objects.equals(this.version, createSksClusterRequest.version);
   }
 
@@ -608,7 +639,7 @@ public class CreateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, networking, oidc, name, hashCodeNullable(createDefaultSecurityGroup), enableKubeProxy, level, featureGates, addons, version);
+    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, networking, oidc, name, hashCodeNullable(createDefaultSecurityGroup), enableKubeProxy, level, featureGates, addons, audit, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -634,6 +665,7 @@ public class CreateSksClusterRequest {
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
+    sb.append("    audit: ").append(toIndentedString(audit)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -756,6 +788,11 @@ public class CreateSksClusterRequest {
             URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
       i++;
+    }
+
+    // add `audit` to the URL query string
+    if (getAudit() != null) {
+      joiner.add(getAudit().toUrlQueryString(prefix + "audit" + suffix));
     }
 
     // add `version` to the URL query string
