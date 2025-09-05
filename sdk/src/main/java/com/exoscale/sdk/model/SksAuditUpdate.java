@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -53,7 +49,7 @@ public class SksAuditUpdate {
   private String initialBackoff;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private JsonNullable<Boolean> enabled = JsonNullable.<Boolean>undefined();
+  private Boolean enabled;
 
   public SksAuditUpdate() { 
   }
@@ -134,7 +130,7 @@ public class SksAuditUpdate {
 
 
   public SksAuditUpdate enabled(Boolean enabled) {
-    this.enabled = JsonNullable.<Boolean>of(enabled);
+    this.enabled = enabled;
     return this;
   }
 
@@ -143,26 +139,18 @@ public class SksAuditUpdate {
    * @return enabled
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Boolean getEnabled() {
-        return enabled.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Boolean> getEnabled_JsonNullable() {
+  public Boolean getEnabled() {
     return enabled;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  public void setEnabled_JsonNullable(JsonNullable<Boolean> enabled) {
-    this.enabled = enabled;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnabled(Boolean enabled) {
-    this.enabled = JsonNullable.<Boolean>of(enabled);
+    this.enabled = enabled;
   }
 
 
@@ -181,23 +169,12 @@ public class SksAuditUpdate {
     return Objects.equals(this.endpoint, sksAuditUpdate.endpoint) &&
         Objects.equals(this.bearerToken, sksAuditUpdate.bearerToken) &&
         Objects.equals(this.initialBackoff, sksAuditUpdate.initialBackoff) &&
-        equalsNullable(this.enabled, sksAuditUpdate.enabled);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.enabled, sksAuditUpdate.enabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endpoint, bearerToken, initialBackoff, hashCodeNullable(enabled));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(endpoint, bearerToken, initialBackoff, enabled);
   }
 
   @Override

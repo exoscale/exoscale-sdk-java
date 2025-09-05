@@ -4234,7 +4234,6 @@ components:
           description: Initial backoff (default '10s')
         enabled:
           type: boolean
-          nullable: true
           description: Enable or Disable Kubernetes Audit
       description: Kubernetes Audit parameters
     enum-service-state:
@@ -5546,7 +5545,6 @@ components:
           description: Cluster ID
         audit:
           "$ref": "#/components/schemas/sks-audit"
-          nullable: true
           description: Kubernetes Audit
         version:
           type: string
@@ -8313,7 +8311,7 @@ components:
           description: Enabled
         initial-backoff:
           "$ref": "#/components/schemas/sks-audit-initial-backoff"
-          description: Enabled
+          description: Initial Backoff (default '10s')
       description: Kubernetes Audit parameters
     dbaas-endpoint-elasticsearch-optional-fields:
       type: object

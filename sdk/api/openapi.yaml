@@ -16227,7 +16227,6 @@ components:
           type: string
         enabled:
           description: Enable or Disable Kubernetes Audit
-          nullable: true
           type: boolean
       type: object
     enum-service-state:
