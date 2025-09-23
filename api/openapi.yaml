@@ -514,6 +514,16 @@ components:
               exclusiveMinimum: false
               exclusiveMaximum: false
               description: Rsyslog max message size
+    sks-cluster-addons:
+      type: array
+      items:
+        type: string
+        enum:
+        - exoscale-cloud-controller
+        - exoscale-container-storage-interface
+        - metrics-server
+        - karpenter
+      uniqueItems: true
     json-schema-grafana:
       properties:
         allow_embedding:
@@ -5529,14 +5539,7 @@ components:
           description: A list of Kubernetes-only Alpha features to enable for API
             server component
         addons:
-          type: array
-          items:
-            type: string
-            enum:
-            - exoscale-cloud-controller
-            - exoscale-container-storage-interface
-            - metrics-server
-          uniqueItems: true
+          "$ref": "#/components/schemas/sks-cluster-addons"
           description: Cluster addons
         id:
           type: string
@@ -14790,14 +14793,7 @@ paths:
                   description: A list of Kubernetes-only Alpha features to enable
                     for API server component
                 addons:
-                  type: array
-                  items:
-                    type: string
-                    enum:
-                    - exoscale-cloud-controller
-                    - exoscale-container-storage-interface
-                    - metrics-server
-                  uniqueItems: true
+                  "$ref": "#/components/schemas/sks-cluster-addons"
                   description: Cluster addons
                 audit:
                   "$ref": "#/components/schemas/sks-audit-create"
@@ -15113,14 +15109,7 @@ paths:
                   description: A list of Kubernetes-only Alpha features to enable
                     for API server component
                 addons:
-                  type: array
-                  items:
-                    type: string
-                    enum:
-                    - exoscale-cloud-controller
-                    - exoscale-container-storage-interface
-                    - metrics-server
-                  uniqueItems: true
+                  "$ref": "#/components/schemas/sks-cluster-addons"
                   description: Cluster addons
                 audit:
                   "$ref": "#/components/schemas/sks-audit-update"

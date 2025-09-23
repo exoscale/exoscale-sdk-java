@@ -8082,6 +8082,16 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_rsyslog_input_update_settings'
       type: object
+    sks-cluster-addons:
+      items:
+        enum:
+        - exoscale-cloud-controller
+        - exoscale-container-storage-interface
+        - metrics-server
+        - karpenter
+        type: string
+      type: array
+      uniqueItems: true
     json-schema-grafana:
       example:
         cookie_samesite: lax
@@ -22532,12 +22542,12 @@ components:
           type: array
           uniqueItems: true
         addons:
-          description: Cluster addons
           items:
             enum:
             - exoscale-cloud-controller
             - exoscale-container-storage-interface
             - metrics-server
+            - karpenter
             type: string
           type: array
           uniqueItems: true
@@ -50902,12 +50912,12 @@ components:
           type: array
           uniqueItems: true
         addons:
-          description: Cluster addons
           items:
             enum:
             - exoscale-cloud-controller
             - exoscale-container-storage-interface
             - metrics-server
+            - karpenter
             type: string
           type: array
           uniqueItems: true
@@ -50977,12 +50987,12 @@ components:
           type: array
           uniqueItems: true
         addons:
-          description: Cluster addons
           items:
             enum:
             - exoscale-cloud-controller
             - exoscale-container-storage-interface
             - metrics-server
+            - karpenter
             type: string
           type: array
           uniqueItems: true

@@ -225,7 +225,9 @@ public class SksCluster {
     
     EXOSCALE_CONTAINER_STORAGE_INTERFACE("exoscale-container-storage-interface"),
     
-    METRICS_SERVER("metrics-server");
+    METRICS_SERVER("metrics-server"),
+    
+    KARPENTER("karpenter");
 
     private String value;
 
@@ -577,7 +579,7 @@ public class SksCluster {
   }
 
    /**
-   * Cluster addons
+   * Get addons
    * @return addons
   **/
   @javax.annotation.Nullable

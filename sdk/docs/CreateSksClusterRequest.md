@@ -18,7 +18,7 @@
 |**enableKubeProxy** | **Boolean** | Indicates whether to deploy the Kubernetes network proxy. When unspecified, defaults to &#x60;true&#x60; unless Cilium CNI is selected |  [optional] |
 |**level** | [**LevelEnum**](#LevelEnum) | Cluster service level |  |
 |**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |
-|**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
+|**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) |  |  [optional] |
 |**audit** | [**SksAuditCreate**](SksAuditCreate.md) |  |  [optional] |
 |**version** | **String** | Control plane Kubernetes version |  |
 
@@ -49,6 +49,7 @@
 | EXOSCALE_CLOUD_CONTROLLER | &quot;exoscale-cloud-controller&quot; |
 | EXOSCALE_CONTAINER_STORAGE_INTERFACE | &quot;exoscale-container-storage-interface&quot; |
 | METRICS_SERVER | &quot;metrics-server&quot; |
+| KARPENTER | &quot;karpenter&quot; |
 
 
 
