@@ -5513,6 +5513,7 @@ components:
           - suspending
           - updating
           - error
+          - rotating-karpenter-credentials
           - resuming
           readOnly: true
           description: Cluster state
@@ -17918,6 +17919,27 @@ paths:
               required:
               - username
       operationId: create-dbaas-valkey-user
+  "/sks-cluster/{id}/rotate-karpenter-credentials":
+    put:
+      tags:
+      - sks
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/operation"
+      description: ''
+      parameters:
+      - in: path
+        required: true
+        name: id
+        schema:
+          type: string
+          format: uuid
+      summary: Rotate Exoscale Karpenter credentials
+      operationId: rotate-sks-karpenter-credentials
   "/dbaas-integration":
     post:
       tags:

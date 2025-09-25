@@ -243,6 +243,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
+| [**rotateSksKarpenterCredentials**](ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials |
 | [**rotateSksOperatorsCa**](ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority |
 | [**scaleInstance**](ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
@@ -22219,6 +22220,98 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#rotateSksCsiCredentials");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## rotateSksKarpenterCredentials
+
+> Operation rotateSksKarpenterCredentials(id)
+
+Rotate Exoscale Karpenter credentials
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.rotateSksKarpenterCredentials(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#rotateSksKarpenterCredentials");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

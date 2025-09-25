@@ -138,6 +138,8 @@ public class SksCluster {
     
     ERROR("error"),
     
+    ROTATING_KARPENTER_CREDENTIALS("rotating-karpenter-credentials"),
+    
     RESUMING("resuming");
 
     private String value;

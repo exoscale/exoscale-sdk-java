@@ -50,6 +50,7 @@ SKS Cluster
 | SUSPENDING | &quot;suspending&quot; |
 | UPDATING | &quot;updating&quot; |
 | ERROR | &quot;error&quot; |
+| ROTATING_KARPENTER_CREDENTIALS | &quot;rotating-karpenter-credentials&quot; |
 | RESUMING | &quot;resuming&quot; |
 
 

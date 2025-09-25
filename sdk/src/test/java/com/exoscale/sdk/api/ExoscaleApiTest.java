@@ -4371,6 +4371,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Rotate Exoscale Karpenter credentials
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void rotateSksKarpenterCredentialsTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.rotateSksKarpenterCredentials(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Rotate operators certificate authority
      *
      * 

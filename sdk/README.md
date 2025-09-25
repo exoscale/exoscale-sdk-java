@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-09-23T07:08:41.273643512Z[Etc/UTC]
+- Build date: 2025-09-25T07:08:45.360682760Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c704f9e</version>
+    <version>0.0.5-SNAPSHOT-5cce0e5</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c704f9e'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-5cce0e5'
 }
 ```
 
@@ -322,6 +322,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials
+*ExoscaleApi* | [**rotateSksKarpenterCredentials**](sdk/docs/ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials
 *ExoscaleApi* | [**rotateSksOperatorsCa**](sdk/docs/ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority
 *ExoscaleApi* | [**scaleInstance**](sdk/docs/ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
 *ExoscaleApi* | [**scaleInstancePool**](sdk/docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool

@@ -7188,6 +7188,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /sks-cluster/{id}/rotate-karpenter-credentials:
+    put:
+      description: ""
+      operationId: rotate-sks-karpenter-credentials
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Rotate Exoscale Karpenter credentials
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-integration:
     post:
       description: "[BETA] Create a new DBaaS integration between two services"
@@ -22516,6 +22540,7 @@ components:
           - suspending
           - updating
           - error
+          - rotating-karpenter-credentials
           - resuming
           readOnly: true
           type: string
