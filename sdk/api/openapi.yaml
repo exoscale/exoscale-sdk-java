@@ -1155,6 +1155,40 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /sks-template/{kube-version}/{variant}:
+    get:
+      description: Get the active template for a given kube version and variant (standard
+        | nvidia)
+      operationId: get-active-nodepool-template
+      parameters:
+      - explode: false
+        in: path
+        name: kube-version
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: variant
+        required: true
+        schema:
+          enum:
+          - standard
+          - nvidia
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_active_nodepool_template_200_response'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
   /instance/{id}:resize-disk:
     put:
       description: "This operation resizes a Compute instance's disk volume. Note:\
@@ -36903,6 +36937,14 @@ components:
           items:
             $ref: '#/components/schemas/dbaas-service-type'
           type: array
+      type: object
+    get_active_nodepool_template_200_response:
+      example:
+        active-template: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        active-template:
+          format: uuid
+          type: string
       type: object
     resize_instance_disk_request:
       properties:

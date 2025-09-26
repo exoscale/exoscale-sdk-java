@@ -191,6 +191,7 @@ docs/EvictSksNodepoolMembersRequest.md
 docs/ExoscaleApi.md
 docs/GenerateSksClusterKubeconfig200Response.md
 docs/GenericOAuthIntegration.md
+docs/GetActiveNodepoolTemplate200Response.md
 docs/GetConsoleProxyUrl200Response.md
 docs/GetDbaasCaCertificate200Response.md
 docs/GetDbaasExternalIntegrationSettingsDatadog200Response.md
@@ -600,6 +601,7 @@ src/main/java/com/exoscale/sdk/model/EvictInstancePoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.java
 src/main/java/com/exoscale/sdk/model/GenericOAuthIntegration.java
+src/main/java/com/exoscale/sdk/model/GetActiveNodepoolTemplate200Response.java
 src/main/java/com/exoscale/sdk/model/GetConsoleProxyUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasCaCertificate200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasExternalIntegrationSettingsDatadog200Response.java

@@ -107,6 +107,7 @@ import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
+import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
 import com.exoscale.sdk.model.GetDbaasCaCertificate200Response;
 import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Response;
@@ -9811,6 +9812,95 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * Get the active template for a given kube version and variant (standard | nvidia)
+   * @param kubeVersion  (required)
+   * @param variant  (required)
+   * @return GetActiveNodepoolTemplate200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetActiveNodepoolTemplate200Response getActiveNodepoolTemplate(String kubeVersion, String variant) throws ApiException {
+    ApiResponse<GetActiveNodepoolTemplate200Response> localVarResponse = getActiveNodepoolTemplateWithHttpInfo(kubeVersion, variant);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * Get the active template for a given kube version and variant (standard | nvidia)
+   * @param kubeVersion  (required)
+   * @param variant  (required)
+   * @return ApiResponse&lt;GetActiveNodepoolTemplate200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetActiveNodepoolTemplate200Response> getActiveNodepoolTemplateWithHttpInfo(String kubeVersion, String variant) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getActiveNodepoolTemplateRequestBuilder(kubeVersion, variant);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getActiveNodepoolTemplate", localVarResponse);
+        }
+        return new ApiResponse<GetActiveNodepoolTemplate200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetActiveNodepoolTemplate200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getActiveNodepoolTemplateRequestBuilder(String kubeVersion, String variant) throws ApiException {
+    // verify the required parameter 'kubeVersion' is set
+    if (kubeVersion == null) {
+      throw new ApiException(400, "Missing the required parameter 'kubeVersion' when calling getActiveNodepoolTemplate");
+    }
+    // verify the required parameter 'variant' is set
+    if (variant == null) {
+      throw new ApiException(400, "Missing the required parameter 'variant' when calling getActiveNodepoolTemplate");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sks-template/{kube-version}/{variant}"
+        .replace("{kube-version}", ApiClient.urlEncode(kubeVersion.toString()))
+        .replace("{variant}", ApiClient.urlEncode(variant.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

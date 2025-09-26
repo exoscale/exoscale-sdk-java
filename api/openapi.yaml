@@ -9947,6 +9947,38 @@ paths:
       summary: Reveal the password used during instance creation or the latest password
         reset.
       operationId: reveal-instance-password
+  "/sks-template/{kube-version}/{variant}":
+    get:
+      tags: []
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  active-template:
+                    type: string
+                    format: uuid
+      description: Get the active template for a given kube version and variant (standard
+        | nvidia)
+      parameters:
+      - in: path
+        required: true
+        name: kube-version
+        schema:
+          type: string
+      - in: path
+        required: true
+        name: variant
+        schema:
+          type: string
+          enum:
+          - standard
+          - nvidia
+      summary: ''
+      operationId: get-active-nodepool-template
   "/instance/{id}:resize-disk":
     put:
       tags:

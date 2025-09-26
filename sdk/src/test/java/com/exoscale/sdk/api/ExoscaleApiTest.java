@@ -103,6 +103,7 @@ import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
+import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
 import com.exoscale.sdk.model.GetDbaasCaCertificate200Response;
 import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Response;
@@ -2124,6 +2125,24 @@ public class ExoscaleApiTest {
         SksKubeconfigRequest sksKubeconfigRequest = null;
         GenerateSksClusterKubeconfig200Response response = 
         api.generateSksClusterKubeconfig(id, sksKubeconfigRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Get the active template for a given kube version and variant (standard | nvidia)
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getActiveNodepoolTemplateTest() throws ApiException {
+        String kubeVersion = null;
+        String variant = null;
+        GetActiveNodepoolTemplate200Response response = 
+        api.getActiveNodepoolTemplate(kubeVersion, variant);
         
         // TODO: test validations
     }
