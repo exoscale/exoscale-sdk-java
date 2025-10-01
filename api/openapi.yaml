@@ -2760,6 +2760,7 @@ components:
       - '14'
       - '17'
       - '15'
+      - '18'
       - '13'
       - '16'
     instance-type:
@@ -4849,7 +4850,7 @@ components:
             properties:
               dbname:
                 type: string
-                description: Migrated db name (PG) or number (Valkey)
+                description: Migrated db name
               error:
                 type: string
                 description: Error message in case that migration has failed

@@ -12970,6 +12970,7 @@ components:
       - "14"
       - "17"
       - "15"
+      - "18"
       - "13"
       - "16"
       type: string
@@ -54403,7 +54404,7 @@ components:
         status: null
       properties:
         dbname:
-          description: Migrated db name (PG) or number (Valkey)
+          description: Migrated db name
           type: string
         error:
           description: Error message in case that migration has failed

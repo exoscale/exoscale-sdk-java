@@ -36,6 +36,8 @@ public enum DbaasPgTargetVersions {
   
   _15("15"),
   
+  _18("18"),
+  
   _13("13"),
   
   _16("16");
