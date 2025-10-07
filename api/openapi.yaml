@@ -10228,6 +10228,7 @@ paths:
                   description: 'Prefix to apply to Instances names (default: pool)'
                 user-data:
                   type: string
+                  maxLength: 32768
                   minLength: 1
                   description: Instances Cloud-init user-data
                 deploy-target:

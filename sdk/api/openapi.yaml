@@ -39997,6 +39997,7 @@ components:
           type: string
         user-data:
           description: Instances Cloud-init user-data
+          maxLength: 32768
           minLength: 1
           type: string
         deploy-target:
