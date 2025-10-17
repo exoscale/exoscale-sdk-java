@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-10-07T07:07:35.523676133Z[Etc/UTC]
+- Build date: 2025-10-17T07:07:10.361930127Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-cc134de</version>
+    <version>0.0.5-SNAPSHOT-bb5ab75</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-cc134de'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-bb5ab75'
 }
 ```
 
@@ -308,8 +308,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resetLoadBalancerField**](sdk/docs/ExoscaleApi.md#resetLoadBalancerField) | **DELETE** /load-balancer/{id}/{field} | Reset a Load Balancer field to its default value
 *ExoscaleApi* | [**resetLoadBalancerServiceField**](sdk/docs/ExoscaleApi.md#resetLoadBalancerServiceField) | **DELETE** /load-balancer/{id}/service/{service-id}/{field} | Reset a Load Balancer Service field to its default value
 *ExoscaleApi* | [**resetPrivateNetworkField**](sdk/docs/ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
-*ExoscaleApi* | [**resetSksClusterField**](sdk/docs/ExoscaleApi.md#resetSksClusterField) | **DELETE** /sks-cluster/{id}/{field} | Reset an SKS cluster field to its default value
-*ExoscaleApi* | [**resetSksNodepoolField**](sdk/docs/ExoscaleApi.md#resetSksNodepoolField) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field} | Reset an SKS Nodepool field to its default value
 *ExoscaleApi* | [**resizeBlockStorageVolume**](sdk/docs/ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
 *ExoscaleApi* | [**resizeInstanceDisk**](sdk/docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
 *ExoscaleApi* | [**revealDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
@@ -387,6 +385,8 @@ Class | Method | HTTP request | Description
  - [AddRuleToSecurityGroupRequest](sdk/docs/AddRuleToSecurityGroupRequest.md)
  - [AddRuleToSecurityGroupRequestIcmp](sdk/docs/AddRuleToSecurityGroupRequestIcmp.md)
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
+ - [Aideployment](sdk/docs/Aideployment.md)
+ - [Aimodel](sdk/docs/Aimodel.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
  - [AttachDbaasServiceToEndpointRequest](sdk/docs/AttachDbaasServiceToEndpointRequest.md)
@@ -685,7 +685,10 @@ Class | Method | HTTP request | Description
  - [OpensearchSecurityPluginSettings](sdk/docs/OpensearchSecurityPluginSettings.md)
  - [OperatingFactor](sdk/docs/OperatingFactor.md)
  - [Operation](sdk/docs/Operation.md)
+ - [OperationReason](sdk/docs/OperationReason.md)
  - [OperationReference](sdk/docs/OperationReference.md)
+ - [OperationResource](sdk/docs/OperationResource.md)
+ - [OperationState](sdk/docs/OperationState.md)
  - [Organization](sdk/docs/Organization.md)
  - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
  - [PrimaryParameterNode](sdk/docs/PrimaryParameterNode.md)

@@ -4123,43 +4123,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Reset an SKS cluster field to its default value
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void resetSksClusterFieldTest() throws ApiException {
-        UUID id = null;
-        String field = null;
-        Operation response = 
-        api.resetSksClusterField(id, field);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Reset an SKS Nodepool field to its default value
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void resetSksNodepoolFieldTest() throws ApiException {
-        UUID id = null;
-        UUID sksNodepoolId = null;
-        String field = null;
-        Operation response = 
-        api.resetSksNodepoolField(id, sksNodepoolId, field);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Resize a block storage volume
      *
      * This operation resizes a Block storage volume. Note: the volume can only grow, cannot be shrunk. Only detached volumes or volumes attached to stopped instances can be resized.

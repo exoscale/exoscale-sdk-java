@@ -5,7 +5,7 @@
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
     <name>sdk</name>
-    <version>0.0.5-SNAPSHOT-cc134de</version>
+    <version>0.0.5-SNAPSHOT-bb5ab75</version>
     <url>https://github.com/exoscale/exoscale-sdk-java</url>
     <description>Java SDK for interacting with Exoscale Cloud Services.</description>
     <scm>

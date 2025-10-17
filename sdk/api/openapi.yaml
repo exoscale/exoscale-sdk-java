@@ -6113,40 +6113,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /sks-cluster/{id}/{field}:
-    delete:
-      description: ""
-      operationId: reset-sks-cluster-field
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: field
-        required: true
-        schema:
-          enum:
-          - description
-          - labels
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Reset an SKS cluster field to its default value
-      tags:
-      - exoscale
-      x-accepts: application/json
   /dbaas-migration-status/{name}:
     get:
       description: Get a DBaaS migration status
@@ -6986,52 +6952,6 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
-      x-accepts: application/json
-  /sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field}:
-    delete:
-      description: ""
-      operationId: reset-sks-nodepool-field
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: sks-nodepool-id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: field
-        required: true
-        schema:
-          enum:
-          - anti-affinity-groups
-          - description
-          - labels
-          - security-groups
-          - private-networks
-          - deploy-target
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Reset an SKS Nodepool field to its default value
-      tags:
-      - exoscale
       x-accepts: application/json
   /dbaas-external-endpoint/{source-service-name}/detach:
     put:
@@ -7882,6 +7802,20 @@ components:
           type: string
       title: Schema Registry configuration
       type: object
+    operation-reason:
+      enum:
+      - incorrect
+      - unknown
+      - unavailable
+      - forbidden
+      - busy
+      - fault
+      - partial
+      - not-found
+      - interrupted
+      - unsupported
+      - conflict
+      type: string
     dbaas-endpoint-opensearch:
       properties:
         url:
@@ -8140,16 +8074,6 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_rsyslog_input_update_settings'
       type: object
-    sks-cluster-addons:
-      items:
-        enum:
-        - exoscale-cloud-controller
-        - exoscale-container-storage-interface
-        - metrics-server
-        - karpenter
-        type: string
-      type: array
-      uniqueItems: true
     json-schema-grafana:
       example:
         cookie_samesite: lax
@@ -13525,6 +13449,60 @@ components:
       - prometheus-uri
       - type
       type: object
+    aideployment:
+      description: AI deployment
+      properties:
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
+        deployment-url:
+          description: Deployment URL (nullable)
+          type: string
+        model-id:
+          description: Associated model ID
+          format: uuid
+          type: string
+        service-level:
+          description: Service level
+          minLength: 1
+          type: string
+        name:
+          description: Deployment name
+          minLength: 1
+          type: string
+        endpoint-url:
+          description: Endpoint URL (nullable)
+          type: string
+        instance-type:
+          description: Instance type
+          minLength: 1
+          type: string
+        organization-id:
+          description: Organization ID
+          format: uuid
+          type: string
+        status:
+          description: Deployment status
+          type: string
+        id:
+          description: Deployment ID
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        deployment-size:
+          description: Deployment size (>=1)
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+      type: object
     dbaas-service-kafka:
       example:
         kafka-connect-settings:
@@ -14359,6 +14337,12 @@ components:
           format: uuid
           type: string
       type: object
+    operation-state:
+      enum:
+      - failure
+      - pending
+      - success
+      type: string
     public-ip-assignment:
       enum:
       - inet4
@@ -16843,6 +16827,17 @@ components:
       required:
       - client-id
       - issuer-url
+      type: object
+    operation-resource:
+      description: Operation resource
+      properties:
+        id:
+          description: Resource ID
+          format: uuid
+          type: string
+        type:
+          description: Resource type
+          type: string
       type: object
     dbaas-task:
       example:
@@ -22602,6 +22597,7 @@ components:
           type: array
           uniqueItems: true
         addons:
+          description: Cluster addons
           items:
             enum:
             - exoscale-cloud-controller
@@ -29085,6 +29081,42 @@ components:
           description: DNS domain record system status
           readOnly: true
           type: boolean
+      type: object
+    aimodel:
+      description: AI model
+      properties:
+        id:
+          description: Model ID
+          format: uuid
+          readOnly: true
+          type: string
+        organization-id:
+          description: Organization ID
+          format: uuid
+          type: string
+        name:
+          description: Model name
+          minLength: 1
+          type: string
+        status:
+          description: Model status
+          type: string
+        model-size:
+          description: Model size (nullable)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
       type: object
     organization:
       description: Organization
@@ -50981,6 +51013,7 @@ components:
           type: array
           uniqueItems: true
         addons:
+          description: Cluster addons
           items:
             enum:
             - exoscale-cloud-controller
@@ -51056,6 +51089,7 @@ components:
           type: array
           uniqueItems: true
         addons:
+          description: Cluster addons
           items:
             enum:
             - exoscale-cloud-controller

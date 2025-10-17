@@ -581,7 +581,7 @@ public class SksCluster {
   }
 
    /**
-   * Get addons
+   * Cluster addons
    * @return addons
   **/
   @javax.annotation.Nullable

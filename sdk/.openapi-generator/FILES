@@ -10,6 +10,8 @@ docs/AddExternalSourceToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
+docs/Aideployment.md
+docs/Aimodel.md
 docs/AntiAffinityGroup.md
 docs/AttachBlockStorageVolumeToInstanceRequest.md
 docs/AttachDbaasServiceToEndpointRequest.md
@@ -309,7 +311,10 @@ docs/OpensearchISMHistorySettings.md
 docs/OpensearchSecurityPluginSettings.md
 docs/OperatingFactor.md
 docs/Operation.md
+docs/OperationReason.md
 docs/OperationReference.md
+docs/OperationResource.md
+docs/OperationState.md
 docs/Organization.md
 docs/PrimaryParameter.md
 docs/PrimaryParameterNode.md
@@ -421,6 +426,8 @@ src/main/java/com/exoscale/sdk/model/AddExternalSourceToSecurityGroupRequest.jav
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
+src/main/java/com/exoscale/sdk/model/Aideployment.java
+src/main/java/com/exoscale/sdk/model/Aimodel.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/AttachDbaasServiceToEndpointRequest.java
@@ -719,7 +726,10 @@ src/main/java/com/exoscale/sdk/model/OpensearchISMHistorySettings.java
 src/main/java/com/exoscale/sdk/model/OpensearchSecurityPluginSettings.java
 src/main/java/com/exoscale/sdk/model/OperatingFactor.java
 src/main/java/com/exoscale/sdk/model/Operation.java
+src/main/java/com/exoscale/sdk/model/OperationReason.java
 src/main/java/com/exoscale/sdk/model/OperationReference.java
+src/main/java/com/exoscale/sdk/model/OperationResource.java
+src/main/java/com/exoscale/sdk/model/OperationState.java
 src/main/java/com/exoscale/sdk/model/Organization.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameter.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameterNode.java

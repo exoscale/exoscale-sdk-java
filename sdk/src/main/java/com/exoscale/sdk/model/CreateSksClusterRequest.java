@@ -537,7 +537,7 @@ public class CreateSksClusterRequest {
   }
 
    /**
-   * Get addons
+   * Cluster addons
    * @return addons
   **/
   @javax.annotation.Nullable

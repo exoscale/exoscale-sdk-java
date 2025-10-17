@@ -349,7 +349,7 @@ public class UpdateSksClusterRequest {
   }
 
    /**
-   * Get addons
+   * Cluster addons
    * @return addons
   **/
   @javax.annotation.Nullable

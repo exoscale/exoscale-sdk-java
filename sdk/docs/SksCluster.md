@@ -19,7 +19,7 @@ SKS Cluster
 |**nodepools** | [**List&lt;SksNodepool&gt;**](SksNodepool.md) | Cluster Nodepools |  [optional] [readonly] |
 |**level** | [**LevelEnum**](#LevelEnum) | Cluster level |  [optional] |
 |**featureGates** | **Set&lt;String&gt;** | A list of Kubernetes-only Alpha features to enable for API server component |  [optional] |
-|**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) |  |  [optional] |
+|**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
 |**id** | **UUID** | Cluster ID |  [optional] [readonly] |
 |**audit** | [**SksAudit**](SksAudit.md) |  |  [optional] |
 |**version** | **String** | Control plane Kubernetes version |  [optional] |

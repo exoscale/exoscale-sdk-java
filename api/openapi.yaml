@@ -215,6 +215,20 @@ components:
           type: string
       title: Schema Registry configuration
       type: object
+    operation-reason:
+      type: string
+      enum:
+      - incorrect
+      - unknown
+      - unavailable
+      - forbidden
+      - busy
+      - fault
+      - partial
+      - not-found
+      - interrupted
+      - unsupported
+      - conflict
     dbaas-endpoint-opensearch:
       type: object
       properties:
@@ -514,16 +528,6 @@ components:
               exclusiveMinimum: false
               exclusiveMaximum: false
               description: Rsyslog max message size
-    sks-cluster-addons:
-      type: array
-      items:
-        type: string
-        enum:
-        - exoscale-cloud-controller
-        - exoscale-container-storage-interface
-        - metrics-server
-        - karpenter
-      uniqueItems: true
     json-schema-grafana:
       properties:
         allow_embedding:
@@ -3171,6 +3175,60 @@ components:
       - plan
       - type
       - prometheus-uri
+    aideployment:
+      type: object
+      properties:
+        updated-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Update time
+        deployment-url:
+          type: string
+          description: Deployment URL (nullable)
+        model-id:
+          type: string
+          format: uuid
+          description: Associated model ID
+        service-level:
+          type: string
+          minLength: 1
+          description: Service level
+        name:
+          type: string
+          minLength: 1
+          description: Deployment name
+        endpoint-url:
+          type: string
+          description: Endpoint URL (nullable)
+        instance-type:
+          type: string
+          minLength: 1
+          description: Instance type
+        organization-id:
+          type: string
+          format: uuid
+          description: Organization ID
+        status:
+          type: string
+          description: Deployment status
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Deployment ID
+        created-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Creation time
+        deployment-size:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          description: Deployment size (>=1)
+      description: AI deployment
     dbaas-service-kafka:
       type: object
       properties:
@@ -3759,6 +3817,12 @@ components:
           format: uuid
           description: IAM API Key Role ID
       description: IAM API Key
+    operation-state:
+      type: string
+      enum:
+      - failure
+      - pending
+      - success
     public-ip-assignment:
       type: string
       enum:
@@ -4650,6 +4714,17 @@ components:
       - client-id
       - issuer-url
       description: SKS Cluster OpenID config map
+    operation-resource:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Resource ID
+        type:
+          type: string
+          description: Resource type
+      description: Operation resource
     dbaas-task:
       type: object
       properties:
@@ -5541,7 +5616,15 @@ components:
           description: A list of Kubernetes-only Alpha features to enable for API
             server component
         addons:
-          "$ref": "#/components/schemas/sks-cluster-addons"
+          type: array
+          items:
+            type: string
+            enum:
+            - exoscale-cloud-controller
+            - exoscale-container-storage-interface
+            - metrics-server
+            - karpenter
+          uniqueItems: true
           description: Cluster addons
         id:
           type: string
@@ -7478,6 +7561,42 @@ components:
           readOnly: true
           description: DNS domain record system status
       description: DNS domain record
+    aimodel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Model ID
+        organization-id:
+          type: string
+          format: uuid
+          description: Organization ID
+        name:
+          type: string
+          minLength: 1
+          description: Model name
+        status:
+          type: string
+          description: Model status
+        model-size:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: false
+          description: Model size (nullable)
+        created-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Creation time
+        updated-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Update time
+      description: AI model
     organization:
       type: object
       properties:
@@ -14828,7 +14947,15 @@ paths:
                   description: A list of Kubernetes-only Alpha features to enable
                     for API server component
                 addons:
-                  "$ref": "#/components/schemas/sks-cluster-addons"
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - exoscale-cloud-controller
+                    - exoscale-container-storage-interface
+                    - metrics-server
+                    - karpenter
+                  uniqueItems: true
                   description: Cluster addons
                 audit:
                   "$ref": "#/components/schemas/sks-audit-create"
@@ -15144,7 +15271,15 @@ paths:
                   description: A list of Kubernetes-only Alpha features to enable
                     for API server component
                 addons:
-                  "$ref": "#/components/schemas/sks-cluster-addons"
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - exoscale-cloud-controller
+                    - exoscale-container-storage-interface
+                    - metrics-server
+                    - karpenter
+                  uniqueItems: true
                   description: Cluster addons
                 audit:
                   "$ref": "#/components/schemas/sks-audit-update"
@@ -15935,35 +16070,6 @@ paths:
             schema:
               "$ref": "#/components/schemas/iam-policy"
       operationId: update-iam-role-policy
-  "/sks-cluster/{id}/{field}":
-    delete:
-      tags:
-      - sks
-      responses:
-        '200':
-          description: '200'
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/operation"
-      description: ''
-      parameters:
-      - in: path
-        required: true
-        name: id
-        schema:
-          type: string
-          format: uuid
-      - in: path
-        required: true
-        name: field
-        schema:
-          type: string
-          enum:
-          - description
-          - labels
-      summary: Reset an SKS cluster field to its default value
-      operationId: reset-sks-cluster-field
   "/dbaas-migration-status/{name}":
     get:
       tags:
@@ -17362,45 +17468,6 @@ paths:
                         for OpenSearch. (default: 128)'
                   description: OpenSearch Dashboards settings
       operationId: update-dbaas-service-opensearch
-  "/sks-cluster/{id}/nodepool/{sks-nodepool-id}/{field}":
-    delete:
-      tags:
-      - sks
-      responses:
-        '200':
-          description: '200'
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/operation"
-      description: ''
-      parameters:
-      - in: path
-        required: true
-        name: id
-        schema:
-          type: string
-          format: uuid
-      - in: path
-        required: true
-        name: sks-nodepool-id
-        schema:
-          type: string
-          format: uuid
-      - in: path
-        required: true
-        name: field
-        schema:
-          type: string
-          enum:
-          - anti-affinity-groups
-          - description
-          - labels
-          - security-groups
-          - private-networks
-          - deploy-target
-      summary: Reset an SKS Nodepool field to its default value
-      operationId: reset-sks-nodepool-field
   "/dbaas-external-endpoint/{source-service-name}/detach":
     put:
       tags:
