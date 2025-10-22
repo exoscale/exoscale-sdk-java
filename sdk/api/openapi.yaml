@@ -7802,20 +7802,6 @@ components:
           type: string
       title: Schema Registry configuration
       type: object
-    operation-reason:
-      enum:
-      - incorrect
-      - unknown
-      - unavailable
-      - forbidden
-      - busy
-      - fault
-      - partial
-      - not-found
-      - interrupted
-      - unsupported
-      - conflict
-      type: string
     dbaas-endpoint-opensearch:
       properties:
         url:
@@ -13449,60 +13435,6 @@ components:
       - prometheus-uri
       - type
       type: object
-    aideployment:
-      description: AI deployment
-      properties:
-        updated-at:
-          description: Update time
-          format: date-time
-          readOnly: true
-          type: string
-        deployment-url:
-          description: Deployment URL (nullable)
-          type: string
-        model-id:
-          description: Associated model ID
-          format: uuid
-          type: string
-        service-level:
-          description: Service level
-          minLength: 1
-          type: string
-        name:
-          description: Deployment name
-          minLength: 1
-          type: string
-        endpoint-url:
-          description: Endpoint URL (nullable)
-          type: string
-        instance-type:
-          description: Instance type
-          minLength: 1
-          type: string
-        organization-id:
-          description: Organization ID
-          format: uuid
-          type: string
-        status:
-          description: Deployment status
-          type: string
-        id:
-          description: Deployment ID
-          format: uuid
-          readOnly: true
-          type: string
-        created-at:
-          description: Creation time
-          format: date-time
-          readOnly: true
-          type: string
-        deployment-size:
-          description: Deployment size (>=1)
-          exclusiveMinimum: true
-          format: int64
-          minimum: 0
-          type: integer
-      type: object
     dbaas-service-kafka:
       example:
         kafka-connect-settings:
@@ -14337,12 +14269,6 @@ components:
           format: uuid
           type: string
       type: object
-    operation-state:
-      enum:
-      - failure
-      - pending
-      - success
-      type: string
     public-ip-assignment:
       enum:
       - inet4
@@ -16827,17 +16753,6 @@ components:
       required:
       - client-id
       - issuer-url
-      type: object
-    operation-resource:
-      description: Operation resource
-      properties:
-        id:
-          description: Resource ID
-          format: uuid
-          type: string
-        type:
-          description: Resource type
-          type: string
       type: object
     dbaas-task:
       example:
@@ -29081,42 +28996,6 @@ components:
           description: DNS domain record system status
           readOnly: true
           type: boolean
-      type: object
-    aimodel:
-      description: AI model
-      properties:
-        id:
-          description: Model ID
-          format: uuid
-          readOnly: true
-          type: string
-        organization-id:
-          description: Organization ID
-          format: uuid
-          type: string
-        name:
-          description: Model name
-          minLength: 1
-          type: string
-        status:
-          description: Model status
-          type: string
-        model-size:
-          description: Model size (nullable)
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        created-at:
-          description: Creation time
-          format: date-time
-          readOnly: true
-          type: string
-        updated-at:
-          description: Update time
-          format: date-time
-          readOnly: true
-          type: string
       type: object
     organization:
       description: Organization

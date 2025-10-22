@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-10-17T07:07:10.361930127Z[Etc/UTC]
+- Build date: 2025-10-22T07:08:36.112078257Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-bb5ab75</version>
+    <version>0.0.5-SNAPSHOT-77a6dc3</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-bb5ab75'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-77a6dc3'
 }
 ```
 
@@ -385,8 +385,6 @@ Class | Method | HTTP request | Description
  - [AddRuleToSecurityGroupRequest](sdk/docs/AddRuleToSecurityGroupRequest.md)
  - [AddRuleToSecurityGroupRequestIcmp](sdk/docs/AddRuleToSecurityGroupRequestIcmp.md)
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
- - [Aideployment](sdk/docs/Aideployment.md)
- - [Aimodel](sdk/docs/Aimodel.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
  - [AttachDbaasServiceToEndpointRequest](sdk/docs/AttachDbaasServiceToEndpointRequest.md)
@@ -685,10 +683,7 @@ Class | Method | HTTP request | Description
  - [OpensearchSecurityPluginSettings](sdk/docs/OpensearchSecurityPluginSettings.md)
  - [OperatingFactor](sdk/docs/OperatingFactor.md)
  - [Operation](sdk/docs/Operation.md)
- - [OperationReason](sdk/docs/OperationReason.md)
  - [OperationReference](sdk/docs/OperationReference.md)
- - [OperationResource](sdk/docs/OperationResource.md)
- - [OperationState](sdk/docs/OperationState.md)
  - [Organization](sdk/docs/Organization.md)
  - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
  - [PrimaryParameterNode](sdk/docs/PrimaryParameterNode.md)
