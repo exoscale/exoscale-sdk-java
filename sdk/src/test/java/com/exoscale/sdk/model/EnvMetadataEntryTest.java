@@ -25,17 +25,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetEnvImpact200ResponseEnvImpactValueTotal
+ * Model tests for EnvMetadataEntry
  */
-public class GetEnvImpact200ResponseEnvImpactValueTotalTest {
-    private final GetEnvImpact200ResponseEnvImpactValueTotal model = new GetEnvImpact200ResponseEnvImpactValueTotal();
+public class EnvMetadataEntryTest {
+    private final EnvMetadataEntry model = new EnvMetadataEntry();
 
     /**
-     * Model tests for GetEnvImpact200ResponseEnvImpactValueTotal
+     * Model tests for EnvMetadataEntry
      */
     @Test
-    public void testGetEnvImpact200ResponseEnvImpactValueTotal() {
-        // TODO: test GetEnvImpact200ResponseEnvImpactValueTotal
+    public void testEnvMetadataEntry() {
+        // TODO: test EnvMetadataEntry
+    }
+
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
     }
 
     /**

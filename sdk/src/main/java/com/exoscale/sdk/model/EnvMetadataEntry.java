@@ -30,35 +30,59 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * GetEnvImpact200ResponseEnvImpactValueTotal
+ * EnvMetadataEntry
  */
 @JsonPropertyOrder({
-  GetEnvImpact200ResponseEnvImpactValueTotal.JSON_PROPERTY_AMOUNT,
-  GetEnvImpact200ResponseEnvImpactValueTotal.JSON_PROPERTY_UNIT
+  EnvMetadataEntry.JSON_PROPERTY_VALUE,
+  EnvMetadataEntry.JSON_PROPERTY_AMOUNT,
+  EnvMetadataEntry.JSON_PROPERTY_UNIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class GetEnvImpact200ResponseEnvImpactValueTotal {
+public class EnvMetadataEntry {
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
+
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_UNIT = "unit";
   private String unit;
 
-  public GetEnvImpact200ResponseEnvImpactValueTotal() { 
+  public EnvMetadataEntry() { 
   }
 
-  @JsonCreator
-  public GetEnvImpact200ResponseEnvImpactValueTotal(
-    @JsonProperty(JSON_PROPERTY_AMOUNT) BigDecimal amount, 
-    @JsonProperty(JSON_PROPERTY_UNIT) String unit
-  ) {
-  this();
-    this.amount = amount;
-    this.unit = unit;
+  public EnvMetadataEntry value(String value) {
+    this.value = value;
+    return this;
   }
 
    /**
-   * Impact Amount
+   * Value
+   * @return value
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValue() {
+    return value;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+
+  public EnvMetadataEntry amount(BigDecimal amount) {
+    this.amount = amount;
+    return this;
+  }
+
+   /**
+   * Amount
    * @return amount
   **/
   @javax.annotation.Nullable
@@ -70,10 +94,20 @@ public class GetEnvImpact200ResponseEnvImpactValueTotal {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
 
+
+  public EnvMetadataEntry unit(String unit) {
+    this.unit = unit;
+    return this;
+  }
 
    /**
-   * Impact Unit
+   * Unit
    * @return unit
   **/
   @javax.annotation.Nullable
@@ -85,10 +119,15 @@ public class GetEnvImpact200ResponseEnvImpactValueTotal {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUnit(String unit) {
+    this.unit = unit;
+  }
 
 
   /**
-   * Return true if this get_env_impact_200_response_env_impact_value_total object is equal to o.
+   * Return true if this env-metadata-entry object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -98,20 +137,22 @@ public class GetEnvImpact200ResponseEnvImpactValueTotal {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetEnvImpact200ResponseEnvImpactValueTotal getEnvImpact200ResponseEnvImpactValueTotal = (GetEnvImpact200ResponseEnvImpactValueTotal) o;
-    return Objects.equals(this.amount, getEnvImpact200ResponseEnvImpactValueTotal.amount) &&
-        Objects.equals(this.unit, getEnvImpact200ResponseEnvImpactValueTotal.unit);
+    EnvMetadataEntry envMetadataEntry = (EnvMetadataEntry) o;
+    return Objects.equals(this.value, envMetadataEntry.value) &&
+        Objects.equals(this.amount, envMetadataEntry.amount) &&
+        Objects.equals(this.unit, envMetadataEntry.unit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, unit);
+    return Objects.hash(value, amount, unit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetEnvImpact200ResponseEnvImpactValueTotal {\n");
+    sb.append("class EnvMetadataEntry {\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("}");
@@ -160,6 +201,11 @@ public class GetEnvImpact200ResponseEnvImpactValueTotal {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `value` to the URL query string
+    if (getValue() != null) {
+      joiner.add(String.format("%svalue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {

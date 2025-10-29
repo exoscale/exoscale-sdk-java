@@ -13,39 +13,48 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.GetEnvImpact200ResponseEnvImpactValue;
+import com.exoscale.sdk.model.EnvMetadataEntry;
+import com.exoscale.sdk.model.EnvProduct;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetEnvImpact200Response
+ * Model tests for EnvImpactReport
  */
-public class GetEnvImpact200ResponseTest {
-    private final GetEnvImpact200Response model = new GetEnvImpact200Response();
+public class EnvImpactReportTest {
+    private final EnvImpactReport model = new EnvImpactReport();
 
     /**
-     * Model tests for GetEnvImpact200Response
+     * Model tests for EnvImpactReport
      */
     @Test
-    public void testGetEnvImpact200Response() {
-        // TODO: test GetEnvImpact200Response
+    public void testEnvImpactReport() {
+        // TODO: test EnvImpactReport
     }
 
     /**
-     * Test the property 'envImpact'
+     * Test the property 'metadata'
      */
     @Test
-    public void envImpactTest() {
-        // TODO: test envImpact
+    public void metadataTest() {
+        // TODO: test metadata
+    }
+
+    /**
+     * Test the property 'products'
+     */
+    @Test
+    public void productsTest() {
+        // TODO: test products
     }
 
 }

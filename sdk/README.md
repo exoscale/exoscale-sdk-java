@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-10-22T07:08:36.112078257Z[Etc/UTC]
+- Build date: 2025-10-29T07:08:50.181153636Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-77a6dc3</version>
+    <version>0.0.5-SNAPSHOT-a118e26</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-77a6dc3'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-a118e26'
 }
 ```
 
@@ -230,7 +230,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDnsDomainRecord**](sdk/docs/ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
 *ExoscaleApi* | [**getDnsDomainZoneFile**](sdk/docs/ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
 *ExoscaleApi* | [**getElasticIp**](sdk/docs/ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
-*ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact | [BETA] Retrieve organization environmental impact reports
+*ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports
 *ExoscaleApi* | [**getIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
 *ExoscaleApi* | [**getIamRole**](sdk/docs/ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
 *ExoscaleApi* | [**getInstance**](sdk/docs/ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details
@@ -385,6 +385,8 @@ Class | Method | HTTP request | Description
  - [AddRuleToSecurityGroupRequest](sdk/docs/AddRuleToSecurityGroupRequest.md)
  - [AddRuleToSecurityGroupRequestIcmp](sdk/docs/AddRuleToSecurityGroupRequestIcmp.md)
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
+ - [Aideployment](sdk/docs/Aideployment.md)
+ - [Aimodel](sdk/docs/Aimodel.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
  - [AttachDbaasServiceToEndpointRequest](sdk/docs/AttachDbaasServiceToEndpointRequest.md)
@@ -560,6 +562,11 @@ Class | Method | HTTP request | Description
  - [EnumRsyslogFormat](sdk/docs/EnumRsyslogFormat.md)
  - [EnumServiceState](sdk/docs/EnumServiceState.md)
  - [EnumSortOrder](sdk/docs/EnumSortOrder.md)
+ - [EnvImpactDetail](sdk/docs/EnvImpactDetail.md)
+ - [EnvImpactIndicator](sdk/docs/EnvImpactIndicator.md)
+ - [EnvImpactReport](sdk/docs/EnvImpactReport.md)
+ - [EnvMetadataEntry](sdk/docs/EnvMetadataEntry.md)
+ - [EnvProduct](sdk/docs/EnvProduct.md)
  - [Event](sdk/docs/Event.md)
  - [EvictInstancePoolMembersRequest](sdk/docs/EvictInstancePoolMembersRequest.md)
  - [EvictSksNodepoolMembersRequest](sdk/docs/EvictSksNodepoolMembersRequest.md)
@@ -597,9 +604,6 @@ Class | Method | HTTP request | Description
  - [GetDbaasSettingsValkey200ResponseSettings](sdk/docs/GetDbaasSettingsValkey200ResponseSettings.md)
  - [GetDbaasSettingsValkey200ResponseSettingsValkey](sdk/docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
- - [GetEnvImpact200Response](sdk/docs/GetEnvImpact200Response.md)
- - [GetEnvImpact200ResponseEnvImpactValue](sdk/docs/GetEnvImpact200ResponseEnvImpactValue.md)
- - [GetEnvImpact200ResponseEnvImpactValueTotal](sdk/docs/GetEnvImpact200ResponseEnvImpactValueTotal.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)
  - [GetUsageReport200Response](sdk/docs/GetUsageReport200Response.md)

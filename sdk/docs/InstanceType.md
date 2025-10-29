@@ -30,6 +30,7 @@ Compute instance type
 | MEGA | &quot;mega&quot; |
 | SMALL | &quot;small&quot; |
 | EXTRA_LARGE | &quot;extra-large&quot; |
+| TITAN48C | &quot;titan48c&quot; |
 | TITAN | &quot;titan&quot; |
 | MICRO | &quot;micro&quot; |
 | COLOSSUS | &quot;colossus&quot; |

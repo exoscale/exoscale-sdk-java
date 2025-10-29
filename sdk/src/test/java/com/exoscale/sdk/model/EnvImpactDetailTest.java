@@ -13,37 +13,53 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.GetEnvImpact200ResponseEnvImpactValueTotal;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetEnvImpact200ResponseEnvImpactValue
+ * Model tests for EnvImpactDetail
  */
-public class GetEnvImpact200ResponseEnvImpactValueTest {
-    private final GetEnvImpact200ResponseEnvImpactValue model = new GetEnvImpact200ResponseEnvImpactValue();
+public class EnvImpactDetailTest {
+    private final EnvImpactDetail model = new EnvImpactDetail();
 
     /**
-     * Model tests for GetEnvImpact200ResponseEnvImpactValue
+     * Model tests for EnvImpactDetail
      */
     @Test
-    public void testGetEnvImpact200ResponseEnvImpactValue() {
-        // TODO: test GetEnvImpact200ResponseEnvImpactValue
+    public void testEnvImpactDetail() {
+        // TODO: test EnvImpactDetail
     }
 
     /**
-     * Test the property 'total'
+     * Test the property 'value'
      */
     @Test
-    public void totalTest() {
-        // TODO: test total
+    public void valueTest() {
+        // TODO: test value
+    }
+
+    /**
+     * Test the property 'amount'
+     */
+    @Test
+    public void amountTest() {
+        // TODO: test amount
+    }
+
+    /**
+     * Test the property 'unit'
+     */
+    @Test
+    public void unitTest() {
+        // TODO: test unit
     }
 
 }

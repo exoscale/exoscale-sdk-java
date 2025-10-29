@@ -10,6 +10,8 @@ docs/AddExternalSourceToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
+docs/Aideployment.md
+docs/Aimodel.md
 docs/AntiAffinityGroup.md
 docs/AttachBlockStorageVolumeToInstanceRequest.md
 docs/AttachDbaasServiceToEndpointRequest.md
@@ -185,6 +187,11 @@ docs/EnumPgVariant.md
 docs/EnumRsyslogFormat.md
 docs/EnumServiceState.md
 docs/EnumSortOrder.md
+docs/EnvImpactDetail.md
+docs/EnvImpactIndicator.md
+docs/EnvImpactReport.md
+docs/EnvMetadataEntry.md
+docs/EnvProduct.md
 docs/Event.md
 docs/EvictInstancePoolMembersRequest.md
 docs/EvictSksNodepoolMembersRequest.md
@@ -223,9 +230,6 @@ docs/GetDbaasSettingsValkey200Response.md
 docs/GetDbaasSettingsValkey200ResponseSettings.md
 docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
 docs/GetDnsDomainZoneFile200Response.md
-docs/GetEnvImpact200Response.md
-docs/GetEnvImpact200ResponseEnvImpactValue.md
-docs/GetEnvImpact200ResponseEnvImpactValueTotal.md
 docs/GetSksClusterAuthorityCert200Response.md
 docs/GetSosPresignedUrl200Response.md
 docs/GetUsageReport200Response.md
@@ -421,6 +425,8 @@ src/main/java/com/exoscale/sdk/model/AddExternalSourceToSecurityGroupRequest.jav
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
+src/main/java/com/exoscale/sdk/model/Aideployment.java
+src/main/java/com/exoscale/sdk/model/Aimodel.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/AttachDbaasServiceToEndpointRequest.java
@@ -596,6 +602,11 @@ src/main/java/com/exoscale/sdk/model/EnumPgVariant.java
 src/main/java/com/exoscale/sdk/model/EnumRsyslogFormat.java
 src/main/java/com/exoscale/sdk/model/EnumServiceState.java
 src/main/java/com/exoscale/sdk/model/EnumSortOrder.java
+src/main/java/com/exoscale/sdk/model/EnvImpactDetail.java
+src/main/java/com/exoscale/sdk/model/EnvImpactIndicator.java
+src/main/java/com/exoscale/sdk/model/EnvImpactReport.java
+src/main/java/com/exoscale/sdk/model/EnvMetadataEntry.java
+src/main/java/com/exoscale/sdk/model/EnvProduct.java
 src/main/java/com/exoscale/sdk/model/Event.java
 src/main/java/com/exoscale/sdk/model/EvictInstancePoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java
@@ -633,9 +644,6 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
-src/main/java/com/exoscale/sdk/model/GetEnvImpact200Response.java
-src/main/java/com/exoscale/sdk/model/GetEnvImpact200ResponseEnvImpactValue.java
-src/main/java/com/exoscale/sdk/model/GetEnvImpact200ResponseEnvImpactValueTotal.java
 src/main/java/com/exoscale/sdk/model/GetSksClusterAuthorityCert200Response.java
 src/main/java/com/exoscale/sdk/model/GetSosPresignedUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetUsageReport200Response.java

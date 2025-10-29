@@ -103,6 +103,7 @@ import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
 import com.exoscale.sdk.model.ElasticIp;
+import com.exoscale.sdk.model.EnvImpactReport;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
@@ -121,7 +122,6 @@ import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
-import com.exoscale.sdk.model.GetEnvImpact200Response;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -13017,23 +13017,23 @@ public class ExoscaleApi {
   /**
    * [BETA] Retrieve organization environmental impact reports
    * [BETA] Returns environmental impact reports for an organization
-   * @param period  (optional)
-   * @return GetEnvImpact200Response
+   * @param period  (required)
+   * @return EnvImpactReport
    * @throws ApiException if fails to make API call
    */
-  public GetEnvImpact200Response getEnvImpact(String period) throws ApiException {
-    ApiResponse<GetEnvImpact200Response> localVarResponse = getEnvImpactWithHttpInfo(period);
+  public EnvImpactReport getEnvImpact(String period) throws ApiException {
+    ApiResponse<EnvImpactReport> localVarResponse = getEnvImpactWithHttpInfo(period);
     return localVarResponse.getData();
   }
 
   /**
    * [BETA] Retrieve organization environmental impact reports
    * [BETA] Returns environmental impact reports for an organization
-   * @param period  (optional)
-   * @return ApiResponse&lt;GetEnvImpact200Response&gt;
+   * @param period  (required)
+   * @return ApiResponse&lt;EnvImpactReport&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<GetEnvImpact200Response> getEnvImpactWithHttpInfo(String period) throws ApiException {
+  private ApiResponse<EnvImpactReport> getEnvImpactWithHttpInfo(String period) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getEnvImpactRequestBuilder(period);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13046,10 +13046,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getEnvImpact", localVarResponse);
         }
-        return new ApiResponse<GetEnvImpact200Response>(
+        return new ApiResponse<EnvImpactReport>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetEnvImpact200Response>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<EnvImpactReport>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -13063,11 +13063,16 @@ public class ExoscaleApi {
   }
 
   private HttpRequest.Builder getEnvImpactRequestBuilder(String period) throws ApiException {
+    // verify the required parameter 'period' is set
+    if (period == null) {
+      throw new ApiException(400, "Missing the required parameter 'period' when calling getEnvImpact");
+    }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/env-impact";
+    String localVarPath = "/env-impact/{period}"
+        .replace("{period}", ApiClient.urlEncode(period.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -13078,22 +13083,7 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "period";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("period", period));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 

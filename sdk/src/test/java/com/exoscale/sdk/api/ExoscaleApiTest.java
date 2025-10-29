@@ -99,6 +99,7 @@ import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
 import com.exoscale.sdk.model.ElasticIp;
+import com.exoscale.sdk.model.EnvImpactReport;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
@@ -117,7 +118,6 @@ import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
-import com.exoscale.sdk.model.GetEnvImpact200Response;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -2801,7 +2801,7 @@ public class ExoscaleApiTest {
     @Test
     public void getEnvImpactTest() throws ApiException {
         String period = null;
-        GetEnvImpact200Response response = 
+        EnvImpactReport response = 
         api.getEnvImpact(period);
         
         // TODO: test validations

@@ -3533,6 +3533,29 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /env-impact/{period}:
+    get:
+      description: "[BETA] Returns environmental impact reports for an organization"
+      operationId: get-env-impact
+      parameters:
+      - explode: false
+        in: path
+        name: period
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/env-impact-report'
+          description: "200"
+      summary: "[BETA] Retrieve organization environmental impact reports"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-postgres/{service-name}/user/{username}:
     delete:
       operationId: delete-dbaas-postgres-user
@@ -7689,29 +7712,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /env-impact:
-    get:
-      description: "[BETA] Returns environmental impact reports for an organization"
-      operationId: get-env-impact
-      parameters:
-      - explode: true
-        in: query
-        name: period
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/get_env_impact_200_response'
-          description: "200"
-      summary: "[BETA] Retrieve organization environmental impact reports"
-      tags:
-      - exoscale
-      x-accepts: application/json
 components:
   schemas:
     dbaas-node-state:
@@ -7761,6 +7761,34 @@ components:
       required:
       - name
       - state
+      type: object
+    env-impact-indicator:
+      example:
+        amount: 6.027456183070403
+        unit: unit
+        details:
+        - amount: 1.4658129805029452
+          unit: unit
+          value: value
+        - amount: 1.4658129805029452
+          unit: unit
+          value: value
+        value: value
+      properties:
+        value:
+          description: Value
+          type: string
+        amount:
+          description: Amount
+          type: number
+        unit:
+          description: Unit
+          type: string
+        details:
+          description: Details
+          items:
+            $ref: '#/components/schemas/env-impact-detail'
+          type: array
       type: object
     dbaas-endpoint-elasticsearch-input-create:
       properties:
@@ -12913,6 +12941,7 @@ components:
           - mega
           - small
           - extra-large
+          - titan48c
           - titan
           - micro
           - colossus
@@ -13435,6 +13464,60 @@ components:
       - prometheus-uri
       - type
       type: object
+    aideployment:
+      description: AI deployment
+      properties:
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
+        deployment-url:
+          description: Deployment URL (nullable)
+          type: string
+        model-id:
+          description: Associated model ID
+          format: uuid
+          type: string
+        service-level:
+          description: Service level
+          minLength: 1
+          type: string
+        name:
+          description: Deployment name
+          minLength: 1
+          type: string
+        endpoint-url:
+          description: Endpoint URL (nullable)
+          type: string
+        instance-type:
+          description: Instance type
+          minLength: 1
+          type: string
+        organization-id:
+          description: Organization ID
+          format: uuid
+          type: string
+        status:
+          description: Deployment status
+          type: string
+        id:
+          description: Deployment ID
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        deployment-size:
+          description: Deployment size (>=1)
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+      type: object
     dbaas-service-kafka:
       example:
         kafka-connect-settings:
@@ -13785,6 +13868,22 @@ components:
       - prometheus-uri
       - type
       type: object
+    env-impact-detail:
+      example:
+        amount: 1.4658129805029452
+        unit: unit
+        value: value
+      properties:
+        value:
+          description: Value
+          type: string
+        amount:
+          description: Amount
+          type: number
+        unit:
+          description: Unit
+          type: string
+      type: object
     json-schema-valkey:
       example:
         pubsub_client_output_buffer_limit: 64
@@ -13915,6 +14014,52 @@ components:
       maxLength: 256
       minLength: 8
       type: string
+    env-product:
+      example:
+        metadata:
+        - amount: 0.8008281904610115
+          unit: unit
+          value: value
+        - amount: 0.8008281904610115
+          unit: unit
+          value: value
+        impacts:
+        - amount: 6.027456183070403
+          unit: unit
+          details:
+          - amount: 1.4658129805029452
+            unit: unit
+            value: value
+          - amount: 1.4658129805029452
+            unit: unit
+            value: value
+          value: value
+        - amount: 6.027456183070403
+          unit: unit
+          details:
+          - amount: 1.4658129805029452
+            unit: unit
+            value: value
+          - amount: 1.4658129805029452
+            unit: unit
+            value: value
+          value: value
+        value: value
+      properties:
+        value:
+          description: Value
+          type: string
+        metadata:
+          description: Metadata
+          items:
+            $ref: '#/components/schemas/env-metadata-entry'
+          type: array
+        impacts:
+          description: Impacts
+          items:
+            $ref: '#/components/schemas/env-impact-indicator'
+          type: array
+      type: object
     quota:
       description: Organization Quota
       example:
@@ -16711,6 +16856,86 @@ components:
         dest:
           description: Destination service name
           type: string
+      type: object
+    env-impact-report:
+      example:
+        metadata:
+        - amount: 0.8008281904610115
+          unit: unit
+          value: value
+        - amount: 0.8008281904610115
+          unit: unit
+          value: value
+        products:
+        - metadata:
+          - amount: 0.8008281904610115
+            unit: unit
+            value: value
+          - amount: 0.8008281904610115
+            unit: unit
+            value: value
+          impacts:
+          - amount: 6.027456183070403
+            unit: unit
+            details:
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            value: value
+          - amount: 6.027456183070403
+            unit: unit
+            details:
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            value: value
+          value: value
+        - metadata:
+          - amount: 0.8008281904610115
+            unit: unit
+            value: value
+          - amount: 0.8008281904610115
+            unit: unit
+            value: value
+          impacts:
+          - amount: 6.027456183070403
+            unit: unit
+            details:
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            value: value
+          - amount: 6.027456183070403
+            unit: unit
+            details:
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            - amount: 1.4658129805029452
+              unit: unit
+              value: value
+            value: value
+          value: value
+      properties:
+        metadata:
+          description: Metadata
+          items:
+            $ref: '#/components/schemas/env-metadata-entry'
+          type: array
+        products:
+          description: Products
+          items:
+            $ref: '#/components/schemas/env-product'
+          type: array
       type: object
     sks-oidc:
       description: SKS Cluster OpenID config map
@@ -28997,6 +29222,42 @@ components:
           readOnly: true
           type: boolean
       type: object
+    aimodel:
+      description: AI model
+      properties:
+        id:
+          description: Model ID
+          format: uuid
+          readOnly: true
+          type: string
+        organization-id:
+          description: Organization ID
+          format: uuid
+          type: string
+        name:
+          description: Model name
+          minLength: 1
+          type: string
+        status:
+          description: Model status
+          type: string
+        model-size:
+          description: Model size (nullable)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
+      type: object
     organization:
       description: Organization
       example:
@@ -29471,6 +29732,22 @@ components:
           title: cluster.max_shards_per_node
           type: integer
       title: OpenSearch settings
+      type: object
+    env-metadata-entry:
+      example:
+        amount: 0.8008281904610115
+        unit: unit
+        value: value
+      properties:
+        value:
+          description: Value
+          type: string
+        amount:
+          description: Amount
+          type: number
+        unit:
+          description: Unit
+          type: string
       type: object
     sks-audit:
       description: Kubernetes Audit parameters
@@ -52900,42 +53177,6 @@ components:
           type: string
       required:
       - id
-      type: object
-    get_env_impact_200_response_env_impact_value_total:
-      example:
-        amount: 0.8008281904610115
-        unit: unit
-      properties:
-        amount:
-          description: Impact Amount
-          readOnly: true
-          type: number
-        unit:
-          description: Impact Unit
-          readOnly: true
-          type: string
-      type: object
-    get_env_impact_200_response_env_impact_value:
-      example:
-        total:
-          amount: 0.8008281904610115
-          unit: unit
-      properties:
-        total:
-          $ref: '#/components/schemas/get_env_impact_200_response_env_impact_value_total'
-      type: object
-    get_env_impact_200_response:
-      example:
-        env_impact:
-          key:
-            total:
-              amount: 0.8008281904610115
-              unit: unit
-      properties:
-        env_impact:
-          additionalProperties:
-            $ref: '#/components/schemas/get_env_impact_200_response_env_impact_value'
-          type: object
       type: object
     dbaas_endpoint_elasticsearch_input_create_settings:
       properties:

@@ -151,7 +151,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
 | [**getElasticIp**](ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details |
-| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact | [BETA] Retrieve organization environmental impact reports |
+| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
@@ -13891,7 +13891,7 @@ No authorization required
 
 ## getEnvImpact
 
-> GetEnvImpact200Response getEnvImpact(period)
+> EnvImpactReport getEnvImpact(period)
 
 [BETA] Retrieve organization environmental impact reports
 
@@ -13914,7 +13914,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            GetEnvImpact200Response result = client.getEnvImpact(period);
+            EnvImpactReport result = client.getEnvImpact(period);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getEnvImpact");
@@ -13932,11 +13932,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **period** | **String**|  | [optional] |
+| **period** | **String**|  | |
 
 ### Return type
 
-[**GetEnvImpact200Response**](GetEnvImpact200Response.md)
+[**EnvImpactReport**](EnvImpactReport.md)
 
 
 ### Authorization
@@ -13959,11 +13959,11 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **period** | **String**|  | [optional] |
+| **period** | **String**|  | |
 
 ### Return type
 
-ApiResponse<[**GetEnvImpact200Response**](GetEnvImpact200Response.md)>
+ApiResponse<[**EnvImpactReport**](EnvImpactReport.md)>
 
 
 ### Authorization

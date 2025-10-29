@@ -68,6 +68,8 @@ public class InstanceType {
     
     EXTRA_LARGE("extra-large"),
     
+    TITAN48C("titan48c"),
+    
     TITAN("titan"),
     
     MICRO("micro"),
