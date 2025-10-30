@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**compactor** | [**ThanosCompactorUserConfiguration**](ThanosCompactorUserConfiguration.md) |  |  [optional] |
-|**query** | [**ThanosQueryUserConfiguration**](ThanosQueryUserConfiguration.md) |  |  [optional] |
-|**queryFrontend** | [**ThanosQueryFrontendUserConfiguration**](ThanosQueryFrontendUserConfiguration.md) |  |  [optional] |
+|**compactor** | [**ThanosCompactorUserConfig**](ThanosCompactorUserConfig.md) |  |  [optional] |
+|**query** | [**ThanosQueryUserConfig**](ThanosQueryUserConfig.md) |  |  [optional] |
+|**queryFrontend** | [**ThanosQueryFrontendUserConfig**](ThanosQueryFrontendUserConfig.md) |  |  [optional] |
 
 
 

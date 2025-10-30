@@ -19,9 +19,9 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ThanosCompactorUserConfiguration;
-import com.exoscale.sdk.model.ThanosQueryFrontendUserConfiguration;
-import com.exoscale.sdk.model.ThanosQueryUserConfiguration;
+import com.exoscale.sdk.model.ThanosCompactorUserConfig;
+import com.exoscale.sdk.model.ThanosQueryFrontendUserConfig;
+import com.exoscale.sdk.model.ThanosQueryUserConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,18 +42,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class JsonSchemaThanos {
   public static final String JSON_PROPERTY_COMPACTOR = "compactor";
-  private ThanosCompactorUserConfiguration compactor;
+  private ThanosCompactorUserConfig compactor;
 
   public static final String JSON_PROPERTY_QUERY = "query";
-  private ThanosQueryUserConfiguration query;
+  private ThanosQueryUserConfig query;
 
-  public static final String JSON_PROPERTY_QUERY_FRONTEND = "query_frontend";
-  private ThanosQueryFrontendUserConfiguration queryFrontend;
+  public static final String JSON_PROPERTY_QUERY_FRONTEND = "query-frontend";
+  private ThanosQueryFrontendUserConfig queryFrontend;
 
   public JsonSchemaThanos() { 
   }
 
-  public JsonSchemaThanos compactor(ThanosCompactorUserConfiguration compactor) {
+  public JsonSchemaThanos compactor(ThanosCompactorUserConfig compactor) {
     this.compactor = compactor;
     return this;
   }
@@ -66,19 +66,19 @@ public class JsonSchemaThanos {
   @JsonProperty(JSON_PROPERTY_COMPACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ThanosCompactorUserConfiguration getCompactor() {
+  public ThanosCompactorUserConfig getCompactor() {
     return compactor;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COMPACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompactor(ThanosCompactorUserConfiguration compactor) {
+  public void setCompactor(ThanosCompactorUserConfig compactor) {
     this.compactor = compactor;
   }
 
 
-  public JsonSchemaThanos query(ThanosQueryUserConfiguration query) {
+  public JsonSchemaThanos query(ThanosQueryUserConfig query) {
     this.query = query;
     return this;
   }
@@ -91,19 +91,19 @@ public class JsonSchemaThanos {
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ThanosQueryUserConfiguration getQuery() {
+  public ThanosQueryUserConfig getQuery() {
     return query;
   }
 
 
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuery(ThanosQueryUserConfiguration query) {
+  public void setQuery(ThanosQueryUserConfig query) {
     this.query = query;
   }
 
 
-  public JsonSchemaThanos queryFrontend(ThanosQueryFrontendUserConfiguration queryFrontend) {
+  public JsonSchemaThanos queryFrontend(ThanosQueryFrontendUserConfig queryFrontend) {
     this.queryFrontend = queryFrontend;
     return this;
   }
@@ -116,14 +116,14 @@ public class JsonSchemaThanos {
   @JsonProperty(JSON_PROPERTY_QUERY_FRONTEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ThanosQueryFrontendUserConfiguration getQueryFrontend() {
+  public ThanosQueryFrontendUserConfig getQueryFrontend() {
     return queryFrontend;
   }
 
 
   @JsonProperty(JSON_PROPERTY_QUERY_FRONTEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryFrontend(ThanosQueryFrontendUserConfiguration queryFrontend) {
+  public void setQueryFrontend(ThanosQueryFrontendUserConfig queryFrontend) {
     this.queryFrontend = queryFrontend;
   }
 
@@ -214,9 +214,9 @@ public class JsonSchemaThanos {
       joiner.add(getQuery().toUrlQueryString(prefix + "query" + suffix));
     }
 
-    // add `query_frontend` to the URL query string
+    // add `query-frontend` to the URL query string
     if (getQueryFrontend() != null) {
-      joiner.add(getQueryFrontend().toUrlQueryString(prefix + "query_frontend" + suffix));
+      joiner.add(getQueryFrontend().toUrlQueryString(prefix + "query-frontend" + suffix));
     }
 
     return joiner.toString();

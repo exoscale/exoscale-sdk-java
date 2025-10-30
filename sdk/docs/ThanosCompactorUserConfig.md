@@ -1,6 +1,6 @@
 
 
-# ThanosCompactorUserConfiguration
+# ThanosCompactorUserConfig
 
 Configuration options for Thanos Compactor.
 

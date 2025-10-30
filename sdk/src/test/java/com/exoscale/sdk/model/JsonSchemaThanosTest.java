@@ -13,9 +13,9 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ThanosCompactorUserConfiguration;
-import com.exoscale.sdk.model.ThanosQueryFrontendUserConfiguration;
-import com.exoscale.sdk.model.ThanosQueryUserConfiguration;
+import com.exoscale.sdk.model.ThanosCompactorUserConfig;
+import com.exoscale.sdk.model.ThanosQueryFrontendUserConfig;
+import com.exoscale.sdk.model.ThanosQueryUserConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

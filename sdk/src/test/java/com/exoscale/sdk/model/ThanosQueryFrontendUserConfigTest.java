@@ -24,17 +24,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ThanosQueryFrontendUserConfiguration
+ * Model tests for ThanosQueryFrontendUserConfig
  */
-public class ThanosQueryFrontendUserConfigurationTest {
-    private final ThanosQueryFrontendUserConfiguration model = new ThanosQueryFrontendUserConfiguration();
+public class ThanosQueryFrontendUserConfigTest {
+    private final ThanosQueryFrontendUserConfig model = new ThanosQueryFrontendUserConfig();
 
     /**
-     * Model tests for ThanosQueryFrontendUserConfiguration
+     * Model tests for ThanosQueryFrontendUserConfig
      */
     @Test
-    public void testThanosQueryFrontendUserConfiguration() {
-        // TODO: test ThanosQueryFrontendUserConfiguration
+    public void testThanosQueryFrontendUserConfig() {
+        // TODO: test ThanosQueryFrontendUserConfig
     }
 
     /**

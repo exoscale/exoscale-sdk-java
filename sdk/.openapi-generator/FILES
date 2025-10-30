@@ -362,9 +362,9 @@ docs/SosBucketUsage.md
 docs/SshKey.md
 docs/StartInstanceRequest.md
 docs/Template.md
-docs/ThanosCompactorUserConfiguration.md
-docs/ThanosQueryFrontendUserConfiguration.md
-docs/ThanosQueryUserConfiguration.md
+docs/ThanosCompactorUserConfig.md
+docs/ThanosQueryFrontendUserConfig.md
+docs/ThanosQueryUserConfig.md
 docs/UpdateBlockStorageSnapshotRequest.md
 docs/UpdateBlockStorageVolumeRequest.md
 docs/UpdateDbaasIntegrationRequest.md
@@ -776,9 +776,9 @@ src/main/java/com/exoscale/sdk/model/SosBucketUsage.java
 src/main/java/com/exoscale/sdk/model/SshKey.java
 src/main/java/com/exoscale/sdk/model/StartInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/Template.java
-src/main/java/com/exoscale/sdk/model/ThanosCompactorUserConfiguration.java
-src/main/java/com/exoscale/sdk/model/ThanosQueryFrontendUserConfiguration.java
-src/main/java/com/exoscale/sdk/model/ThanosQueryUserConfiguration.java
+src/main/java/com/exoscale/sdk/model/ThanosCompactorUserConfig.java
+src/main/java/com/exoscale/sdk/model/ThanosQueryFrontendUserConfig.java
+src/main/java/com/exoscale/sdk/model/ThanosQueryUserConfig.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasIntegrationRequest.java

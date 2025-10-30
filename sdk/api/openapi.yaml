@@ -8796,11 +8796,11 @@ components:
     json-schema-thanos:
       properties:
         compactor:
-          $ref: '#/components/schemas/Thanos_Compactor_User_Configuration'
+          $ref: '#/components/schemas/ThanosCompactorUserConfig'
         query:
-          $ref: '#/components/schemas/Thanos_Query_User_Configuration'
-        query_frontend:
-          $ref: '#/components/schemas/Thanos_Query_Frontend_User_Configuration'
+          $ref: '#/components/schemas/ThanosQueryUserConfig'
+        query-frontend:
+          $ref: '#/components/schemas/ThanosQueryFrontendUserConfig'
       title: Thanos settings
       type: object
     instance-password:
@@ -53824,8 +53824,7 @@ components:
         node:
           type: string
       type: object
-    Thanos_Compactor_User_Configuration:
-      additionalProperties: false
+    ThanosCompactorUserConfig:
       description: Configuration options for Thanos Compactor.
       properties:
         retention.days:
@@ -53834,10 +53833,9 @@ components:
           minimum: 0
           title: Retention time for data in days
           type: integer
-      title: Thanos Compactor User Configuration
+      title: ThanosCompactorUserConfig
       type: object
-    Thanos_Query_User_Configuration:
-      additionalProperties: false
+    ThanosQueryUserConfig:
       description: Configuration options for Thanos Query.
       properties:
         query.default-evaluation-interval:
@@ -53893,10 +53891,9 @@ components:
           minimum: 0
           title: Store.Limits.Request-Series
           type: integer
-      title: Thanos Query User Configuration
+      title: ThanosQueryUserConfig
       type: object
-    Thanos_Query_Frontend_User_Configuration:
-      additionalProperties: false
+    ThanosQueryFrontendUserConfig:
       description: Configuration options for Thanos Query Frontend.
       properties:
         query-range.align-range-with-step:
@@ -53906,7 +53903,7 @@ components:
             \ providing more accurate results for queries with high-resolution data."
           title: Whether to align the query range boundaries with the step.
           type: boolean
-      title: Thanos Query Frontend User Configuration
+      title: ThanosQueryFrontendUserConfig
       type: object
     Configure_log_cleaner_for_topic_compaction:
       example:

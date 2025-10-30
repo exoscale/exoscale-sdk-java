@@ -1,6 +1,6 @@
 
 
-# ThanosQueryUserConfiguration
+# ThanosQueryUserConfig
 
 Configuration options for Thanos Query.
 

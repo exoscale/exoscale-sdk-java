@@ -32,15 +32,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Configuration options for Thanos Query.
  */
 @JsonPropertyOrder({
-  ThanosQueryUserConfiguration.JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL,
-  ThanosQueryUserConfiguration.JSON_PROPERTY_QUERY_LOOKBACK_DELTA,
-  ThanosQueryUserConfiguration.JSON_PROPERTY_QUERY_METADATA_DEFAULT_TIME_RANGE,
-  ThanosQueryUserConfiguration.JSON_PROPERTY_QUERY_TIMEOUT,
-  ThanosQueryUserConfiguration.JSON_PROPERTY_STORE_LIMITS_REQUEST_SAMPLES,
-  ThanosQueryUserConfiguration.JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES
+  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL,
+  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_LOOKBACK_DELTA,
+  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_METADATA_DEFAULT_TIME_RANGE,
+  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_TIMEOUT,
+  ThanosQueryUserConfig.JSON_PROPERTY_STORE_LIMITS_REQUEST_SAMPLES,
+  ThanosQueryUserConfig.JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ThanosQueryUserConfiguration {
+public class ThanosQueryUserConfig {
   public static final String JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL = "query.default-evaluation-interval";
   private String queryDefaultEvaluationInterval = "1m";
 
@@ -59,10 +59,10 @@ public class ThanosQueryUserConfiguration {
   public static final String JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES = "store.limits.request-series";
   private Integer storeLimitsRequestSeries = 0;
 
-  public ThanosQueryUserConfiguration() { 
+  public ThanosQueryUserConfig() { 
   }
 
-  public ThanosQueryUserConfiguration queryDefaultEvaluationInterval(String queryDefaultEvaluationInterval) {
+  public ThanosQueryUserConfig queryDefaultEvaluationInterval(String queryDefaultEvaluationInterval) {
     this.queryDefaultEvaluationInterval = queryDefaultEvaluationInterval;
     return this;
   }
@@ -87,7 +87,7 @@ public class ThanosQueryUserConfiguration {
   }
 
 
-  public ThanosQueryUserConfiguration queryLookbackDelta(String queryLookbackDelta) {
+  public ThanosQueryUserConfig queryLookbackDelta(String queryLookbackDelta) {
     this.queryLookbackDelta = queryLookbackDelta;
     return this;
   }
@@ -112,7 +112,7 @@ public class ThanosQueryUserConfiguration {
   }
 
 
-  public ThanosQueryUserConfiguration queryMetadataDefaultTimeRange(String queryMetadataDefaultTimeRange) {
+  public ThanosQueryUserConfig queryMetadataDefaultTimeRange(String queryMetadataDefaultTimeRange) {
     this.queryMetadataDefaultTimeRange = queryMetadataDefaultTimeRange;
     return this;
   }
@@ -137,7 +137,7 @@ public class ThanosQueryUserConfiguration {
   }
 
 
-  public ThanosQueryUserConfiguration queryTimeout(String queryTimeout) {
+  public ThanosQueryUserConfig queryTimeout(String queryTimeout) {
     this.queryTimeout = queryTimeout;
     return this;
   }
@@ -162,7 +162,7 @@ public class ThanosQueryUserConfiguration {
   }
 
 
-  public ThanosQueryUserConfiguration storeLimitsRequestSamples(Integer storeLimitsRequestSamples) {
+  public ThanosQueryUserConfig storeLimitsRequestSamples(Integer storeLimitsRequestSamples) {
     this.storeLimitsRequestSamples = storeLimitsRequestSamples;
     return this;
   }
@@ -189,7 +189,7 @@ public class ThanosQueryUserConfiguration {
   }
 
 
-  public ThanosQueryUserConfiguration storeLimitsRequestSeries(Integer storeLimitsRequestSeries) {
+  public ThanosQueryUserConfig storeLimitsRequestSeries(Integer storeLimitsRequestSeries) {
     this.storeLimitsRequestSeries = storeLimitsRequestSeries;
     return this;
   }
@@ -217,7 +217,7 @@ public class ThanosQueryUserConfiguration {
 
 
   /**
-   * Return true if this Thanos_Query_User_Configuration object is equal to o.
+   * Return true if this ThanosQueryUserConfig object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -227,13 +227,13 @@ public class ThanosQueryUserConfiguration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ThanosQueryUserConfiguration thanosQueryUserConfiguration = (ThanosQueryUserConfiguration) o;
-    return Objects.equals(this.queryDefaultEvaluationInterval, thanosQueryUserConfiguration.queryDefaultEvaluationInterval) &&
-        Objects.equals(this.queryLookbackDelta, thanosQueryUserConfiguration.queryLookbackDelta) &&
-        Objects.equals(this.queryMetadataDefaultTimeRange, thanosQueryUserConfiguration.queryMetadataDefaultTimeRange) &&
-        Objects.equals(this.queryTimeout, thanosQueryUserConfiguration.queryTimeout) &&
-        Objects.equals(this.storeLimitsRequestSamples, thanosQueryUserConfiguration.storeLimitsRequestSamples) &&
-        Objects.equals(this.storeLimitsRequestSeries, thanosQueryUserConfiguration.storeLimitsRequestSeries);
+    ThanosQueryUserConfig thanosQueryUserConfig = (ThanosQueryUserConfig) o;
+    return Objects.equals(this.queryDefaultEvaluationInterval, thanosQueryUserConfig.queryDefaultEvaluationInterval) &&
+        Objects.equals(this.queryLookbackDelta, thanosQueryUserConfig.queryLookbackDelta) &&
+        Objects.equals(this.queryMetadataDefaultTimeRange, thanosQueryUserConfig.queryMetadataDefaultTimeRange) &&
+        Objects.equals(this.queryTimeout, thanosQueryUserConfig.queryTimeout) &&
+        Objects.equals(this.storeLimitsRequestSamples, thanosQueryUserConfig.storeLimitsRequestSamples) &&
+        Objects.equals(this.storeLimitsRequestSeries, thanosQueryUserConfig.storeLimitsRequestSeries);
   }
 
   @Override
@@ -244,7 +244,7 @@ public class ThanosQueryUserConfiguration {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ThanosQueryUserConfiguration {\n");
+    sb.append("class ThanosQueryUserConfig {\n");
     sb.append("    queryDefaultEvaluationInterval: ").append(toIndentedString(queryDefaultEvaluationInterval)).append("\n");
     sb.append("    queryLookbackDelta: ").append(toIndentedString(queryLookbackDelta)).append("\n");
     sb.append("    queryMetadataDefaultTimeRange: ").append(toIndentedString(queryMetadataDefaultTimeRange)).append("\n");

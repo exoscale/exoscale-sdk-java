@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-10-29T07:08:50.181153636Z[Etc/UTC]
+- Build date: 2025-10-30T07:07:09.446074525Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-a118e26</version>
+    <version>0.0.5-SNAPSHOT-94a84ed</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-a118e26'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-94a84ed'
 }
 ```
 
@@ -736,9 +736,9 @@ Class | Method | HTTP request | Description
  - [SshKey](sdk/docs/SshKey.md)
  - [StartInstanceRequest](sdk/docs/StartInstanceRequest.md)
  - [Template](sdk/docs/Template.md)
- - [ThanosCompactorUserConfiguration](sdk/docs/ThanosCompactorUserConfiguration.md)
- - [ThanosQueryFrontendUserConfiguration](sdk/docs/ThanosQueryFrontendUserConfiguration.md)
- - [ThanosQueryUserConfiguration](sdk/docs/ThanosQueryUserConfiguration.md)
+ - [ThanosCompactorUserConfig](sdk/docs/ThanosCompactorUserConfig.md)
+ - [ThanosQueryFrontendUserConfig](sdk/docs/ThanosQueryFrontendUserConfig.md)
+ - [ThanosQueryUserConfig](sdk/docs/ThanosQueryUserConfig.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](sdk/docs/UpdateBlockStorageVolumeRequest.md)
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)

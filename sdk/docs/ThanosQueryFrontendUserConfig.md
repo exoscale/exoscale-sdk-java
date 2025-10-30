@@ -1,6 +1,6 @@
 
 
-# ThanosQueryFrontendUserConfiguration
+# ThanosQueryFrontendUserConfig
 
 Configuration options for Thanos Query Frontend.
 

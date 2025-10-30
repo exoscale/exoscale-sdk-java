@@ -1400,7 +1400,6 @@ components:
     json-schema-thanos:
       properties:
         compactor:
-          additionalProperties: false
           description: Configuration options for Thanos Compactor.
           properties:
             retention.days:
@@ -1409,10 +1408,9 @@ components:
               minimum: 0
               title: Retention time for data in days
               type: integer
-          title: Thanos Compactor User Configuration
+          title: ThanosCompactorUserConfig
           type: object
         query:
-          additionalProperties: false
           description: Configuration options for Thanos Query.
           properties:
             query.default-evaluation-interval:
@@ -1469,10 +1467,9 @@ components:
               minimum: 0
               title: Store.Limits.Request-Series
               type: integer
-          title: Thanos Query User Configuration
+          title: ThanosQueryUserConfig
           type: object
-        query_frontend:
-          additionalProperties: false
+        query-frontend:
           description: Configuration options for Thanos Query Frontend.
           properties:
             query-range.align-range-with-step:
@@ -1482,7 +1479,7 @@ components:
                 providing more accurate results for queries with high-resolution data.
               title: Whether to align the query range boundaries with the step.
               type: boolean
-          title: Thanos Query Frontend User Configuration
+          title: ThanosQueryFrontendUserConfig
           type: object
       title: Thanos settings
       type: object

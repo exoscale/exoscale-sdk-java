@@ -29,46 +29,47 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Configuration options for Thanos Query Frontend.
+ * Configuration options for Thanos Compactor.
  */
 @JsonPropertyOrder({
-  ThanosQueryFrontendUserConfiguration.JSON_PROPERTY_QUERY_RANGE_ALIGN_RANGE_WITH_STEP
+  ThanosCompactorUserConfig.JSON_PROPERTY_RETENTION_DAYS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ThanosQueryFrontendUserConfiguration {
-  public static final String JSON_PROPERTY_QUERY_RANGE_ALIGN_RANGE_WITH_STEP = "query-range.align-range-with-step";
-  private Boolean queryRangeAlignRangeWithStep = true;
+public class ThanosCompactorUserConfig {
+  public static final String JSON_PROPERTY_RETENTION_DAYS = "retention.days";
+  private Integer retentionDays;
 
-  public ThanosQueryFrontendUserConfiguration() { 
+  public ThanosCompactorUserConfig() { 
   }
 
-  public ThanosQueryFrontendUserConfiguration queryRangeAlignRangeWithStep(Boolean queryRangeAlignRangeWithStep) {
-    this.queryRangeAlignRangeWithStep = queryRangeAlignRangeWithStep;
+  public ThanosCompactorUserConfig retentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
     return this;
   }
 
    /**
-   * Whether to align the query range boundaries with the step. If enabled, the query range boundaries will be aligned to the step, providing more accurate results for queries with high-resolution data.
-   * @return queryRangeAlignRangeWithStep
+   * Retention time for data in days for each resolution (5m, 1h, raw)
+   * minimum: 0
+   * @return retentionDays
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_RANGE_ALIGN_RANGE_WITH_STEP)
+  @JsonProperty(JSON_PROPERTY_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getQueryRangeAlignRangeWithStep() {
-    return queryRangeAlignRangeWithStep;
+  public Integer getRetentionDays() {
+    return retentionDays;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUERY_RANGE_ALIGN_RANGE_WITH_STEP)
+  @JsonProperty(JSON_PROPERTY_RETENTION_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryRangeAlignRangeWithStep(Boolean queryRangeAlignRangeWithStep) {
-    this.queryRangeAlignRangeWithStep = queryRangeAlignRangeWithStep;
+  public void setRetentionDays(Integer retentionDays) {
+    this.retentionDays = retentionDays;
   }
 
 
   /**
-   * Return true if this Thanos_Query_Frontend_User_Configuration object is equal to o.
+   * Return true if this ThanosCompactorUserConfig object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +79,20 @@ public class ThanosQueryFrontendUserConfiguration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ThanosQueryFrontendUserConfiguration thanosQueryFrontendUserConfiguration = (ThanosQueryFrontendUserConfiguration) o;
-    return Objects.equals(this.queryRangeAlignRangeWithStep, thanosQueryFrontendUserConfiguration.queryRangeAlignRangeWithStep);
+    ThanosCompactorUserConfig thanosCompactorUserConfig = (ThanosCompactorUserConfig) o;
+    return Objects.equals(this.retentionDays, thanosCompactorUserConfig.retentionDays);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(queryRangeAlignRangeWithStep);
+    return Objects.hash(retentionDays);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ThanosQueryFrontendUserConfiguration {\n");
-    sb.append("    queryRangeAlignRangeWithStep: ").append(toIndentedString(queryRangeAlignRangeWithStep)).append("\n");
+    sb.append("class ThanosCompactorUserConfig {\n");
+    sb.append("    retentionDays: ").append(toIndentedString(retentionDays)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +140,9 @@ public class ThanosQueryFrontendUserConfiguration {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `query-range.align-range-with-step` to the URL query string
-    if (getQueryRangeAlignRangeWithStep() != null) {
-      joiner.add(String.format("%squery-range.align-range-with-step%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQueryRangeAlignRangeWithStep()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `retention.days` to the URL query string
+    if (getRetentionDays() != null) {
+      joiner.add(String.format("%sretention.days%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRetentionDays()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
