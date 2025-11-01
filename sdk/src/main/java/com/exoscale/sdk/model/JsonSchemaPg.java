@@ -28,6 +28,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -41,20 +45,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaPg.JSON_PROPERTY_PG_STAT_MONITOR_PGSM_ENABLE_QUERY_PLAN,
   JsonSchemaPg.JSON_PROPERTY_MAX_FILES_PER_PROCESS,
   JsonSchemaPg.JSON_PROPERTY_PG_STAT_MONITOR_PGSM_MAX_BUCKETS,
+  JsonSchemaPg.JSON_PROPERTY_IO_MAX_CONCURRENCY,
   JsonSchemaPg.JSON_PROPERTY_WAL,
   JsonSchemaPg.JSON_PROPERTY_DEFAULT_TOAST_COMPRESSION,
   JsonSchemaPg.JSON_PROPERTY_DEADLOCK_TIMEOUT,
   JsonSchemaPg.JSON_PROPERTY_IDLE_IN_TRANSACTION_SESSION_TIMEOUT,
   JsonSchemaPg.JSON_PROPERTY_MAX_PRED_LOCKS_PER_TRANSACTION,
   JsonSchemaPg.JSON_PROPERTY_MAX_REPLICATION_SLOTS,
+  JsonSchemaPg.JSON_PROPERTY_MAX_SYNC_WORKERS_PER_SUBSCRIPTION,
   JsonSchemaPg.JSON_PROPERTY_AUTOVACUUM,
   JsonSchemaPg.JSON_PROPERTY_MAX_PARALLEL_WORKERS_PER_GATHER,
+  JsonSchemaPg.JSON_PROPERTY_IO_COMBINE_LIMIT,
+  JsonSchemaPg.JSON_PROPERTY_PASSWORD_ENCRYPTION,
+  JsonSchemaPg.JSON_PROPERTY_IO_WORKERS,
   JsonSchemaPg.JSON_PROPERTY_PG_PARTMAN_BGW_INTERVAL,
   JsonSchemaPg.JSON_PROPERTY_LOG_LINE_PREFIX,
   JsonSchemaPg.JSON_PROPERTY_LOG_TEMP_FILES,
   JsonSchemaPg.JSON_PROPERTY_MAX_LOCKS_PER_TRANSACTION,
   JsonSchemaPg.JSON_PROPERTY_TRACK_COMMIT_TIMESTAMP,
   JsonSchemaPg.JSON_PROPERTY_TRACK_FUNCTIONS,
+  JsonSchemaPg.JSON_PROPERTY_IO_MAX_COMBINE_LIMIT,
+  JsonSchemaPg.JSON_PROPERTY_IO_METHOD,
   JsonSchemaPg.JSON_PROPERTY_MAX_STACK_DEPTH,
   JsonSchemaPg.JSON_PROPERTY_MAX_PARALLEL_WORKERS,
   JsonSchemaPg.JSON_PROPERTY_PG_PARTMAN_BGW_ROLE,
@@ -79,7 +90,7 @@ public class JsonSchemaPg {
   private String timezone;
 
   /**
-   * Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+   * Enables timing of database I/O calls. The default is &#x60;off&#x60;. When on, it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
    */
   public enum TrackIoTimingEnum {
     OFF("off"),
@@ -125,11 +136,14 @@ public class JsonSchemaPg {
   public static final String JSON_PROPERTY_PG_STAT_MONITOR_PGSM_MAX_BUCKETS = "pg_stat_monitor.pgsm_max_buckets";
   private Integer pgStatMonitorPgsmMaxBuckets;
 
+  public static final String JSON_PROPERTY_IO_MAX_CONCURRENCY = "io_max_concurrency";
+  private Integer ioMaxConcurrency = -1;
+
   public static final String JSON_PROPERTY_WAL = "wal";
   private WriteAheadLogWALSettings wal;
 
   /**
-   * Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+   * Specifies the default TOAST compression method for values of compressible columns. The default is &#x60;lz4&#x60;. Only available for PostgreSQL 14+.
    */
   public enum DefaultToastCompressionEnum {
     LZ4("lz4"),
@@ -178,20 +192,69 @@ public class JsonSchemaPg {
   public static final String JSON_PROPERTY_MAX_REPLICATION_SLOTS = "max_replication_slots";
   private Integer maxReplicationSlots;
 
+  public static final String JSON_PROPERTY_MAX_SYNC_WORKERS_PER_SUBSCRIPTION = "max_sync_workers_per_subscription";
+  private Integer maxSyncWorkersPerSubscription;
+
   public static final String JSON_PROPERTY_AUTOVACUUM = "autovacuum";
   private AutovacuumSettings autovacuum;
 
   public static final String JSON_PROPERTY_MAX_PARALLEL_WORKERS_PER_GATHER = "max_parallel_workers_per_gather";
   private Integer maxParallelWorkersPerGather;
 
+  public static final String JSON_PROPERTY_IO_COMBINE_LIMIT = "io_combine_limit";
+  private Integer ioCombineLimit = 16;
+
+  /**
+   * Chooses the algorithm for encrypting passwords.
+   */
+  public enum PasswordEncryptionEnum {
+    MD5("md5"),
+    
+    SCRAM_SHA_256("scram-sha-256");
+
+    private String value;
+
+    PasswordEncryptionEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static PasswordEncryptionEnum fromValue(String value) {
+      for (PasswordEncryptionEnum b : PasswordEncryptionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_PASSWORD_ENCRYPTION = "password_encryption";
+  private JsonNullable<PasswordEncryptionEnum> passwordEncryption = JsonNullable.<PasswordEncryptionEnum>undefined();
+
+  public static final String JSON_PROPERTY_IO_WORKERS = "io_workers";
+  private Integer ioWorkers = 3;
+
   public static final String JSON_PROPERTY_PG_PARTMAN_BGW_INTERVAL = "pg_partman_bgw.interval";
   private Integer pgPartmanBgwInterval;
 
   /**
-   * Choose from one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze etc.
+   * Choose from one of the available log formats.
    */
   public enum LogLinePrefixEnum {
     PID_P_USER_U_DB_D_APP_A_CLIENT_H_("'pid=%p,user=%u,db=%d,app=%a,client=%h '"),
+    
+    PID_P_USER_U_DB_D_APP_A_CLIENT_H_TXID_X_QID_Q_("'pid=%p,user=%u,db=%d,app=%a,client=%h,txid=%x,qid=%Q '"),
     
     _T_P_L_1_USER_U_DB_D_APP_A_CLIENT_H_("'%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h '"),
     
@@ -234,7 +297,7 @@ public class JsonSchemaPg {
   private Integer maxLocksPerTransaction;
 
   /**
-   * Record commit time of transactions.
+   * Record commit time of transactions. Changing this parameter causes a service restart.
    */
   public enum TrackCommitTimestampEnum {
     OFF("off"),
@@ -311,6 +374,49 @@ public class JsonSchemaPg {
   public static final String JSON_PROPERTY_TRACK_FUNCTIONS = "track_functions";
   private TrackFunctionsEnum trackFunctions;
 
+  public static final String JSON_PROPERTY_IO_MAX_COMBINE_LIMIT = "io_max_combine_limit";
+  private Integer ioMaxCombineLimit = 16;
+
+  /**
+   * EXPERIMENTAL: Controls the maximum number of I/O operations that one process can execute simultaneously. Version 18 and up only. Changing this parameter causes a service restart.
+   */
+  public enum IoMethodEnum {
+    WORKER("worker"),
+    
+    SYNC("sync"),
+    
+    IO_URING("io_uring");
+
+    private String value;
+
+    IoMethodEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static IoMethodEnum fromValue(String value) {
+      for (IoMethodEnum b : IoMethodEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_IO_METHOD = "io_method";
+  private IoMethodEnum ioMethod = IoMethodEnum.WORKER;
+
   public static final String JSON_PROPERTY_MAX_STACK_DEPTH = "max_stack_depth";
   private Integer maxStackDepth;
 
@@ -330,7 +436,7 @@ public class JsonSchemaPg {
   private Integer maxWorkerProcesses;
 
   /**
-   * Controls which statements are counted. Specify top to track top-level statements (those issued directly by clients), all to also track nested statements (such as statements invoked within functions), or none to disable statement statistics collection. The default value is top.
+   * Controls which statements are counted. Specify top to track top-level statements (those issued directly by clients), all to also track nested statements (such as statements invoked within functions), or none to disable statement statistics collection. The default is &#x60;top&#x60;.
    */
   public enum PgStatStatementsTrackEnum {
     ALL("all"),
@@ -436,7 +542,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Specifies the number of bytes reserved to track the currently executing command for each active session.
+   * Specifies the number of bytes reserved to track the currently executing command for each active session. Changing this parameter causes a service restart.
    * minimum: 1024
    * maximum: 10240
    * @return trackActivityQuerySize
@@ -488,7 +594,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Enables timing of database I/O calls. This parameter is off by default, because it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
+   * Enables timing of database I/O calls. The default is &#x60;off&#x60;. When on, it will repeatedly query the operating system for the current time, which may cause significant overhead on some platforms.
    * @return trackIoTiming
   **/
   @javax.annotation.Nullable
@@ -513,7 +619,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Enables or disables query plan monitoring
+   * Enables or disables query plan monitoring. Changing this parameter causes a service restart. Only available for PostgreSQL 13+.
    * @return pgStatMonitorPgsmEnableQueryPlan
   **/
   @javax.annotation.Nullable
@@ -538,7 +644,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * PostgreSQL maximum number of files that can be open per process
+   * PostgreSQL maximum number of files that can be open per process. The default is &#x60;1000&#x60; (upstream default). Changing this parameter causes a service restart.
    * minimum: 1000
    * maximum: 4096
    * @return maxFilesPerProcess
@@ -565,7 +671,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Sets the maximum number of buckets 
+   * Sets the maximum number of buckets. Changing this parameter causes a service restart. Only available for PostgreSQL 13+.
    * minimum: 1
    * maximum: 10
    * @return pgStatMonitorPgsmMaxBuckets
@@ -583,6 +689,33 @@ public class JsonSchemaPg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPgStatMonitorPgsmMaxBuckets(Integer pgStatMonitorPgsmMaxBuckets) {
     this.pgStatMonitorPgsmMaxBuckets = pgStatMonitorPgsmMaxBuckets;
+  }
+
+
+  public JsonSchemaPg ioMaxConcurrency(Integer ioMaxConcurrency) {
+    this.ioMaxConcurrency = ioMaxConcurrency;
+    return this;
+  }
+
+   /**
+   * EXPERIMENTAL: Controls the maximum number of I/O operations that one process can execute simultaneously. Version 18 and up only. Changing this parameter causes a service restart.
+   * minimum: -1
+   * maximum: 1024
+   * @return ioMaxConcurrency
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IO_MAX_CONCURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIoMaxConcurrency() {
+    return ioMaxConcurrency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IO_MAX_CONCURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIoMaxConcurrency(Integer ioMaxConcurrency) {
+    this.ioMaxConcurrency = ioMaxConcurrency;
   }
 
 
@@ -617,7 +750,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Specifies the default TOAST compression method for values of compressible columns (the default is lz4).
+   * Specifies the default TOAST compression method for values of compressible columns. The default is &#x60;lz4&#x60;. Only available for PostgreSQL 14+.
    * @return defaultToastCompression
   **/
   @javax.annotation.Nullable
@@ -642,7 +775,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * This is the amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition.
+   * This is the amount of time, in milliseconds, to wait on a lock before checking to see if there is a deadlock condition. The default is &#x60;1000&#x60; (upstream default).
    * minimum: 500
    * maximum: 1800000
    * @return deadlockTimeout
@@ -696,7 +829,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * PostgreSQL maximum predicate locks per transaction
+   * PostgreSQL maximum predicate locks per transaction. The default is &#x60;64&#x60; (upstream default). Changing this parameter causes a service restart.
    * minimum: 64
    * maximum: 5120
    * @return maxPredLocksPerTransaction
@@ -723,9 +856,9 @@ public class JsonSchemaPg {
   }
 
    /**
-   * PostgreSQL maximum replication slots
+   * PostgreSQL maximum replication slots. The default is &#x60;20&#x60;. Changing this parameter causes a service restart.
    * minimum: 8
-   * maximum: 64
+   * maximum: 256
    * @return maxReplicationSlots
   **/
   @javax.annotation.Nullable
@@ -741,6 +874,33 @@ public class JsonSchemaPg {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxReplicationSlots(Integer maxReplicationSlots) {
     this.maxReplicationSlots = maxReplicationSlots;
+  }
+
+
+  public JsonSchemaPg maxSyncWorkersPerSubscription(Integer maxSyncWorkersPerSubscription) {
+    this.maxSyncWorkersPerSubscription = maxSyncWorkersPerSubscription;
+    return this;
+  }
+
+   /**
+   * Maximum number of synchronization workers per subscription. The default is &#x60;2&#x60;.
+   * minimum: 2
+   * maximum: 8
+   * @return maxSyncWorkersPerSubscription
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SYNC_WORKERS_PER_SUBSCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxSyncWorkersPerSubscription() {
+    return maxSyncWorkersPerSubscription;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_SYNC_WORKERS_PER_SUBSCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxSyncWorkersPerSubscription(Integer maxSyncWorkersPerSubscription) {
+    this.maxSyncWorkersPerSubscription = maxSyncWorkersPerSubscription;
   }
 
 
@@ -775,7 +935,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Sets the maximum number of workers that can be started by a single Gather or Gather Merge node
+   * Sets the maximum number of workers that can be started by a single Gather or Gather Merge node. The default is &#x60;2&#x60; (upstream default).
    * minimum: 0
    * maximum: 96
    * @return maxParallelWorkersPerGather
@@ -796,13 +956,100 @@ public class JsonSchemaPg {
   }
 
 
+  public JsonSchemaPg ioCombineLimit(Integer ioCombineLimit) {
+    this.ioCombineLimit = ioCombineLimit;
+    return this;
+  }
+
+   /**
+   * EXPERIMENTAL: Controls the largest I/O size in operations that combine I/O in 8kB units. Version 17 and up only.
+   * minimum: 1
+   * maximum: 32
+   * @return ioCombineLimit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IO_COMBINE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIoCombineLimit() {
+    return ioCombineLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IO_COMBINE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIoCombineLimit(Integer ioCombineLimit) {
+    this.ioCombineLimit = ioCombineLimit;
+  }
+
+
+  public JsonSchemaPg passwordEncryption(PasswordEncryptionEnum passwordEncryption) {
+    this.passwordEncryption = JsonNullable.<PasswordEncryptionEnum>of(passwordEncryption);
+    return this;
+  }
+
+   /**
+   * Chooses the algorithm for encrypting passwords.
+   * @return passwordEncryption
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public PasswordEncryptionEnum getPasswordEncryption() {
+        return passwordEncryption.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PASSWORD_ENCRYPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<PasswordEncryptionEnum> getPasswordEncryption_JsonNullable() {
+    return passwordEncryption;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PASSWORD_ENCRYPTION)
+  public void setPasswordEncryption_JsonNullable(JsonNullable<PasswordEncryptionEnum> passwordEncryption) {
+    this.passwordEncryption = passwordEncryption;
+  }
+
+  public void setPasswordEncryption(PasswordEncryptionEnum passwordEncryption) {
+    this.passwordEncryption = JsonNullable.<PasswordEncryptionEnum>of(passwordEncryption);
+  }
+
+
+  public JsonSchemaPg ioWorkers(Integer ioWorkers) {
+    this.ioWorkers = ioWorkers;
+    return this;
+  }
+
+   /**
+   * EXPERIMENTAL: Number of IO worker processes, for io_method&#x3D;worker. Version 18 and up only. Changing this parameter causes a service restart.
+   * minimum: 1
+   * maximum: 32
+   * @return ioWorkers
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IO_WORKERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIoWorkers() {
+    return ioWorkers;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IO_WORKERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIoWorkers(Integer ioWorkers) {
+    this.ioWorkers = ioWorkers;
+  }
+
+
   public JsonSchemaPg pgPartmanBgwInterval(Integer pgPartmanBgwInterval) {
     this.pgPartmanBgwInterval = pgPartmanBgwInterval;
     return this;
   }
 
    /**
-   * Sets the time interval to run pg_partman&#39;s scheduled tasks
+   * Sets the time interval in seconds to run pg_partman&#39;s scheduled tasks. The default is &#x60;3600&#x60;.
    * minimum: 3600
    * maximum: 604800
    * @return pgPartmanBgwInterval
@@ -829,7 +1076,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Choose from one of the available log-formats. These can support popular log analyzers like pgbadger, pganalyze etc.
+   * Choose from one of the available log formats.
    * @return logLinePrefix
   **/
   @javax.annotation.Nullable
@@ -881,7 +1128,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * PostgreSQL maximum locks per transaction
+   * PostgreSQL maximum locks per transaction. Changing this parameter causes a service restart.
    * minimum: 64
    * maximum: 6400
    * @return maxLocksPerTransaction
@@ -908,7 +1155,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Record commit time of transactions.
+   * Record commit time of transactions. Changing this parameter causes a service restart.
    * @return trackCommitTimestamp
   **/
   @javax.annotation.Nullable
@@ -952,13 +1199,65 @@ public class JsonSchemaPg {
   }
 
 
+  public JsonSchemaPg ioMaxCombineLimit(Integer ioMaxCombineLimit) {
+    this.ioMaxCombineLimit = ioMaxCombineLimit;
+    return this;
+  }
+
+   /**
+   * EXPERIMENTAL: Controls the largest I/O size in operations that combine I/O in 8kB units, and silently limits the user-settable parameter io_combine_limit. Version 18 and up only. Changing this parameter causes a service restart.
+   * minimum: 1
+   * maximum: 128
+   * @return ioMaxCombineLimit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IO_MAX_COMBINE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getIoMaxCombineLimit() {
+    return ioMaxCombineLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IO_MAX_COMBINE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIoMaxCombineLimit(Integer ioMaxCombineLimit) {
+    this.ioMaxCombineLimit = ioMaxCombineLimit;
+  }
+
+
+  public JsonSchemaPg ioMethod(IoMethodEnum ioMethod) {
+    this.ioMethod = ioMethod;
+    return this;
+  }
+
+   /**
+   * EXPERIMENTAL: Controls the maximum number of I/O operations that one process can execute simultaneously. Version 18 and up only. Changing this parameter causes a service restart.
+   * @return ioMethod
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IO_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public IoMethodEnum getIoMethod() {
+    return ioMethod;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IO_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIoMethod(IoMethodEnum ioMethod) {
+    this.ioMethod = ioMethod;
+  }
+
+
   public JsonSchemaPg maxStackDepth(Integer maxStackDepth) {
     this.maxStackDepth = maxStackDepth;
     return this;
   }
 
    /**
-   * Maximum depth of the stack in bytes
+   * Maximum depth of the stack in bytes. The default is &#x60;2097152&#x60; (upstream default).
    * minimum: 2097152
    * maximum: 6291456
    * @return maxStackDepth
@@ -985,7 +1284,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Sets the maximum number of workers that the system can support for parallel queries
+   * Sets the maximum number of workers that the system can support for parallel queries. The default is &#x60;8&#x60; (upstream default).
    * minimum: 0
    * maximum: 96
    * @return maxParallelWorkers
@@ -1037,9 +1336,9 @@ public class JsonSchemaPg {
   }
 
    /**
-   * PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers)
+   * PostgreSQL maximum logical replication workers (taken from the pool of max_parallel_workers). The default is &#x60;4&#x60; (upstream default). Changing this parameter causes a service restart.
    * minimum: 4
-   * maximum: 64
+   * maximum: 256
    * @return maxLogicalReplicationWorkers
   **/
   @javax.annotation.Nullable
@@ -1064,7 +1363,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * PostgreSQL maximum prepared transactions
+   * PostgreSQL maximum prepared transactions. The default is &#x60;0&#x60;. Changing this parameter causes a service restart.
    * minimum: 0
    * maximum: 10000
    * @return maxPreparedTransactions
@@ -1091,9 +1390,9 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Sets the maximum number of background processes that the system can support
+   * Sets the maximum number of background processes that the system can support. The default is &#x60;8&#x60;. Changing this parameter causes a service restart.
    * minimum: 8
-   * maximum: 96
+   * maximum: 288
    * @return maxWorkerProcesses
   **/
   @javax.annotation.Nullable
@@ -1118,7 +1417,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Controls which statements are counted. Specify top to track top-level statements (those issued directly by clients), all to also track nested statements (such as statements invoked within functions), or none to disable statement statistics collection. The default value is top.
+   * Controls which statements are counted. Specify top to track top-level statements (those issued directly by clients), all to also track nested statements (such as statements invoked within functions), or none to disable statement statistics collection. The default is &#x60;top&#x60;.
    * @return pgStatStatementsTrack
   **/
   @javax.annotation.Nullable
@@ -1222,7 +1521,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Max standby streaming delay in milliseconds
+   * Max standby streaming delay in milliseconds. The default is &#x60;30000&#x60; (upstream default).
    * minimum: 1
    * maximum: 43200000
    * @return maxStandbyStreamingDelay
@@ -1274,7 +1573,7 @@ public class JsonSchemaPg {
   }
 
    /**
-   * Max standby archive delay in milliseconds
+   * Max standby archive delay in milliseconds. The default is &#x60;30000&#x60; (upstream default).
    * minimum: 1
    * maximum: 43200000
    * @return maxStandbyArchiveDelay
@@ -1338,20 +1637,27 @@ public class JsonSchemaPg {
         Objects.equals(this.pgStatMonitorPgsmEnableQueryPlan, jsonSchemaPg.pgStatMonitorPgsmEnableQueryPlan) &&
         Objects.equals(this.maxFilesPerProcess, jsonSchemaPg.maxFilesPerProcess) &&
         Objects.equals(this.pgStatMonitorPgsmMaxBuckets, jsonSchemaPg.pgStatMonitorPgsmMaxBuckets) &&
+        Objects.equals(this.ioMaxConcurrency, jsonSchemaPg.ioMaxConcurrency) &&
         Objects.equals(this.wal, jsonSchemaPg.wal) &&
         Objects.equals(this.defaultToastCompression, jsonSchemaPg.defaultToastCompression) &&
         Objects.equals(this.deadlockTimeout, jsonSchemaPg.deadlockTimeout) &&
         Objects.equals(this.idleInTransactionSessionTimeout, jsonSchemaPg.idleInTransactionSessionTimeout) &&
         Objects.equals(this.maxPredLocksPerTransaction, jsonSchemaPg.maxPredLocksPerTransaction) &&
         Objects.equals(this.maxReplicationSlots, jsonSchemaPg.maxReplicationSlots) &&
+        Objects.equals(this.maxSyncWorkersPerSubscription, jsonSchemaPg.maxSyncWorkersPerSubscription) &&
         Objects.equals(this.autovacuum, jsonSchemaPg.autovacuum) &&
         Objects.equals(this.maxParallelWorkersPerGather, jsonSchemaPg.maxParallelWorkersPerGather) &&
+        Objects.equals(this.ioCombineLimit, jsonSchemaPg.ioCombineLimit) &&
+        equalsNullable(this.passwordEncryption, jsonSchemaPg.passwordEncryption) &&
+        Objects.equals(this.ioWorkers, jsonSchemaPg.ioWorkers) &&
         Objects.equals(this.pgPartmanBgwInterval, jsonSchemaPg.pgPartmanBgwInterval) &&
         Objects.equals(this.logLinePrefix, jsonSchemaPg.logLinePrefix) &&
         Objects.equals(this.logTempFiles, jsonSchemaPg.logTempFiles) &&
         Objects.equals(this.maxLocksPerTransaction, jsonSchemaPg.maxLocksPerTransaction) &&
         Objects.equals(this.trackCommitTimestamp, jsonSchemaPg.trackCommitTimestamp) &&
         Objects.equals(this.trackFunctions, jsonSchemaPg.trackFunctions) &&
+        Objects.equals(this.ioMaxCombineLimit, jsonSchemaPg.ioMaxCombineLimit) &&
+        Objects.equals(this.ioMethod, jsonSchemaPg.ioMethod) &&
         Objects.equals(this.maxStackDepth, jsonSchemaPg.maxStackDepth) &&
         Objects.equals(this.maxParallelWorkers, jsonSchemaPg.maxParallelWorkers) &&
         Objects.equals(this.pgPartmanBgwRole, jsonSchemaPg.pgPartmanBgwRole) &&
@@ -1368,9 +1674,20 @@ public class JsonSchemaPg {
         Objects.equals(this.bgWriter, jsonSchemaPg.bgWriter);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(trackActivityQuerySize, timezone, trackIoTiming, pgStatMonitorPgsmEnableQueryPlan, maxFilesPerProcess, pgStatMonitorPgsmMaxBuckets, wal, defaultToastCompression, deadlockTimeout, idleInTransactionSessionTimeout, maxPredLocksPerTransaction, maxReplicationSlots, autovacuum, maxParallelWorkersPerGather, pgPartmanBgwInterval, logLinePrefix, logTempFiles, maxLocksPerTransaction, trackCommitTimestamp, trackFunctions, maxStackDepth, maxParallelWorkers, pgPartmanBgwRole, maxLogicalReplicationWorkers, maxPreparedTransactions, maxWorkerProcesses, pgStatStatementsTrack, tempFileLimit, logErrorVerbosity, logMinDurationStatement, maxStandbyStreamingDelay, jit, maxStandbyArchiveDelay, bgWriter);
+    return Objects.hash(trackActivityQuerySize, timezone, trackIoTiming, pgStatMonitorPgsmEnableQueryPlan, maxFilesPerProcess, pgStatMonitorPgsmMaxBuckets, ioMaxConcurrency, wal, defaultToastCompression, deadlockTimeout, idleInTransactionSessionTimeout, maxPredLocksPerTransaction, maxReplicationSlots, maxSyncWorkersPerSubscription, autovacuum, maxParallelWorkersPerGather, ioCombineLimit, hashCodeNullable(passwordEncryption), ioWorkers, pgPartmanBgwInterval, logLinePrefix, logTempFiles, maxLocksPerTransaction, trackCommitTimestamp, trackFunctions, ioMaxCombineLimit, ioMethod, maxStackDepth, maxParallelWorkers, pgPartmanBgwRole, maxLogicalReplicationWorkers, maxPreparedTransactions, maxWorkerProcesses, pgStatStatementsTrack, tempFileLimit, logErrorVerbosity, logMinDurationStatement, maxStandbyStreamingDelay, jit, maxStandbyArchiveDelay, bgWriter);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1383,20 +1700,27 @@ public class JsonSchemaPg {
     sb.append("    pgStatMonitorPgsmEnableQueryPlan: ").append(toIndentedString(pgStatMonitorPgsmEnableQueryPlan)).append("\n");
     sb.append("    maxFilesPerProcess: ").append(toIndentedString(maxFilesPerProcess)).append("\n");
     sb.append("    pgStatMonitorPgsmMaxBuckets: ").append(toIndentedString(pgStatMonitorPgsmMaxBuckets)).append("\n");
+    sb.append("    ioMaxConcurrency: ").append(toIndentedString(ioMaxConcurrency)).append("\n");
     sb.append("    wal: ").append(toIndentedString(wal)).append("\n");
     sb.append("    defaultToastCompression: ").append(toIndentedString(defaultToastCompression)).append("\n");
     sb.append("    deadlockTimeout: ").append(toIndentedString(deadlockTimeout)).append("\n");
     sb.append("    idleInTransactionSessionTimeout: ").append(toIndentedString(idleInTransactionSessionTimeout)).append("\n");
     sb.append("    maxPredLocksPerTransaction: ").append(toIndentedString(maxPredLocksPerTransaction)).append("\n");
     sb.append("    maxReplicationSlots: ").append(toIndentedString(maxReplicationSlots)).append("\n");
+    sb.append("    maxSyncWorkersPerSubscription: ").append(toIndentedString(maxSyncWorkersPerSubscription)).append("\n");
     sb.append("    autovacuum: ").append(toIndentedString(autovacuum)).append("\n");
     sb.append("    maxParallelWorkersPerGather: ").append(toIndentedString(maxParallelWorkersPerGather)).append("\n");
+    sb.append("    ioCombineLimit: ").append(toIndentedString(ioCombineLimit)).append("\n");
+    sb.append("    passwordEncryption: ").append(toIndentedString(passwordEncryption)).append("\n");
+    sb.append("    ioWorkers: ").append(toIndentedString(ioWorkers)).append("\n");
     sb.append("    pgPartmanBgwInterval: ").append(toIndentedString(pgPartmanBgwInterval)).append("\n");
     sb.append("    logLinePrefix: ").append(toIndentedString(logLinePrefix)).append("\n");
     sb.append("    logTempFiles: ").append(toIndentedString(logTempFiles)).append("\n");
     sb.append("    maxLocksPerTransaction: ").append(toIndentedString(maxLocksPerTransaction)).append("\n");
     sb.append("    trackCommitTimestamp: ").append(toIndentedString(trackCommitTimestamp)).append("\n");
     sb.append("    trackFunctions: ").append(toIndentedString(trackFunctions)).append("\n");
+    sb.append("    ioMaxCombineLimit: ").append(toIndentedString(ioMaxCombineLimit)).append("\n");
+    sb.append("    ioMethod: ").append(toIndentedString(ioMethod)).append("\n");
     sb.append("    maxStackDepth: ").append(toIndentedString(maxStackDepth)).append("\n");
     sb.append("    maxParallelWorkers: ").append(toIndentedString(maxParallelWorkers)).append("\n");
     sb.append("    pgPartmanBgwRole: ").append(toIndentedString(pgPartmanBgwRole)).append("\n");
@@ -1488,6 +1812,11 @@ public class JsonSchemaPg {
       joiner.add(String.format("%spg_stat_monitor.pgsm_max_buckets%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPgStatMonitorPgsmMaxBuckets()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `io_max_concurrency` to the URL query string
+    if (getIoMaxConcurrency() != null) {
+      joiner.add(String.format("%sio_max_concurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIoMaxConcurrency()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `wal` to the URL query string
     if (getWal() != null) {
       joiner.add(getWal().toUrlQueryString(prefix + "wal" + suffix));
@@ -1518,6 +1847,11 @@ public class JsonSchemaPg {
       joiner.add(String.format("%smax_replication_slots%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxReplicationSlots()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `max_sync_workers_per_subscription` to the URL query string
+    if (getMaxSyncWorkersPerSubscription() != null) {
+      joiner.add(String.format("%smax_sync_workers_per_subscription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxSyncWorkersPerSubscription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `autovacuum` to the URL query string
     if (getAutovacuum() != null) {
       joiner.add(getAutovacuum().toUrlQueryString(prefix + "autovacuum" + suffix));
@@ -1526,6 +1860,21 @@ public class JsonSchemaPg {
     // add `max_parallel_workers_per_gather` to the URL query string
     if (getMaxParallelWorkersPerGather() != null) {
       joiner.add(String.format("%smax_parallel_workers_per_gather%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxParallelWorkersPerGather()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `io_combine_limit` to the URL query string
+    if (getIoCombineLimit() != null) {
+      joiner.add(String.format("%sio_combine_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIoCombineLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `password_encryption` to the URL query string
+    if (getPasswordEncryption() != null) {
+      joiner.add(String.format("%spassword_encryption%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPasswordEncryption()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `io_workers` to the URL query string
+    if (getIoWorkers() != null) {
+      joiner.add(String.format("%sio_workers%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIoWorkers()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `pg_partman_bgw.interval` to the URL query string
@@ -1556,6 +1905,16 @@ public class JsonSchemaPg {
     // add `track_functions` to the URL query string
     if (getTrackFunctions() != null) {
       joiner.add(String.format("%strack_functions%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTrackFunctions()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `io_max_combine_limit` to the URL query string
+    if (getIoMaxCombineLimit() != null) {
+      joiner.add(String.format("%sio_max_combine_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIoMaxCombineLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `io_method` to the URL query string
+    if (getIoMethod() != null) {
+      joiner.add(String.format("%sio_method%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIoMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `max_stack_depth` to the URL query string

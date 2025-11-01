@@ -48,7 +48,7 @@ public class JsonSchemaTimescaledb {
   }
 
    /**
-   * The number of background workers for timescaledb operations. You should configure this setting to the sum of your number of databases and the total number of concurrent background workers you want running at any given point in time.
+   * The number of background workers for timescaledb operations. You should configure this setting to the sum of your number of databases and the total number of concurrent background workers you want running at any given point in time. Changing this parameter causes a service restart.
    * minimum: 1
    * maximum: 4096
    * @return maxBackgroundWorkers

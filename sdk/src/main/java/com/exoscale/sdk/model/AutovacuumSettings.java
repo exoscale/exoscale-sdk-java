@@ -85,7 +85,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one (the default) disables logging autovacuum actions.
+   * Causes each action executed by autovacuum to be logged if it ran for at least the specified number of milliseconds. Setting this to zero logs all autovacuum actions. Minus-one disables logging autovacuum actions. The default is &#x60;1000&#x60;.
    * minimum: -1
    * maximum: 2147483647
    * @return logAutovacuumMinDuration
@@ -112,7 +112,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the cost limit value that will be used in automatic VACUUM operations. If -1 is specified (which is the default), the regular vacuum_cost_limit value will be used.
+   * Specifies the cost limit value that will be used in automatic VACUUM operations. If &#x60;-1&#x60; is specified, the regular vacuum_cost_limit value will be used. The default is &#x60;-1&#x60; (upstream default).
    * minimum: -1
    * maximum: 10000
    * @return autovacuumVacuumCostLimit
@@ -139,7 +139,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is three. This parameter can only be set at server start.
+   * Specifies the maximum number of autovacuum processes (other than the autovacuum launcher) that may be running at any one time. The default is &#x60;3&#x60;. Changing this parameter causes a service restart.
    * minimum: 1
    * maximum: 20
    * @return autovacuumMaxWorkers
@@ -166,7 +166,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples
+   * Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is &#x60;50&#x60;.
    * minimum: 0
    * maximum: 2147483647
    * @return autovacuumVacuumThreshold
@@ -193,7 +193,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the minimum delay between autovacuum runs on any given database. The delay is measured in seconds, and the default is one minute
+   * Specifies the minimum delay between autovacuum runs on any given database. The delay is measured in seconds. The default is &#x60;60&#x60;.
    * minimum: 1
    * maximum: 86400
    * @return autovacuumNaptime
@@ -220,7 +220,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies a fraction of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM. The default is 0.2 (20% of table size)
+   * Specifies a fraction of the table size to add to autovacuum_vacuum_threshold when deciding whether to trigger a VACUUM (e.g. &#x60;0.2&#x60; for 20% of the table size). The default is &#x60;0.2&#x60;.
    * minimum: 0.0
    * maximum: 1.0
    * @return autovacuumVacuumScaleFactor
@@ -247,7 +247,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the cost delay value that will be used in automatic VACUUM operations. If -1 is specified, the regular vacuum_cost_delay value will be used. The default value is 20 milliseconds
+   * Specifies the cost delay value that will be used in automatic VACUUM operations. If &#x60;-1&#x60; is specified, the regular vacuum_cost_delay value will be used. The default is &#x60;2&#x60; (upstream default).
    * minimum: -1
    * maximum: 100
    * @return autovacuumVacuumCostDelay
@@ -274,7 +274,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies a fraction of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE. The default is 0.2 (20% of table size)
+   * Specifies a fraction of the table size to add to autovacuum_analyze_threshold when deciding whether to trigger an ANALYZE (e.g. &#x60;0.2&#x60; for 20% of the table size). The default is &#x60;0.2&#x60;.
    * minimum: 0.0
    * maximum: 1.0
    * @return autovacuumAnalyzeScaleFactor
@@ -301,7 +301,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+   * Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is &#x60;50&#x60;.
    * minimum: 0
    * maximum: 2147483647
    * @return autovacuumAnalyzeThreshold
@@ -328,7 +328,7 @@ public class AutovacuumSettings {
   }
 
    /**
-   * Specifies the maximum age (in transactions) that a table&#39;s pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. Note that the system will launch autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. This parameter will cause the server to be restarted.
+   * Specifies the maximum age (in transactions) that a table&#39;s pg_class.relfrozenxid field can attain before a VACUUM operation is forced to prevent transaction ID wraparound within the table. The system launches autovacuum processes to prevent wraparound even when autovacuum is otherwise disabled. Changing this parameter causes a service restart.
    * minimum: 200000000
    * maximum: 1500000000
    * @return autovacuumFreezeMaxAge

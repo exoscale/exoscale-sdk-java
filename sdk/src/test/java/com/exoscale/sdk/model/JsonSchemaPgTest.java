@@ -22,6 +22,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -89,6 +93,14 @@ public class JsonSchemaPgTest {
     }
 
     /**
+     * Test the property 'ioMaxConcurrency'
+     */
+    @Test
+    public void ioMaxConcurrencyTest() {
+        // TODO: test ioMaxConcurrency
+    }
+
+    /**
      * Test the property 'wal'
      */
     @Test
@@ -137,6 +149,14 @@ public class JsonSchemaPgTest {
     }
 
     /**
+     * Test the property 'maxSyncWorkersPerSubscription'
+     */
+    @Test
+    public void maxSyncWorkersPerSubscriptionTest() {
+        // TODO: test maxSyncWorkersPerSubscription
+    }
+
+    /**
      * Test the property 'autovacuum'
      */
     @Test
@@ -150,6 +170,30 @@ public class JsonSchemaPgTest {
     @Test
     public void maxParallelWorkersPerGatherTest() {
         // TODO: test maxParallelWorkersPerGather
+    }
+
+    /**
+     * Test the property 'ioCombineLimit'
+     */
+    @Test
+    public void ioCombineLimitTest() {
+        // TODO: test ioCombineLimit
+    }
+
+    /**
+     * Test the property 'passwordEncryption'
+     */
+    @Test
+    public void passwordEncryptionTest() {
+        // TODO: test passwordEncryption
+    }
+
+    /**
+     * Test the property 'ioWorkers'
+     */
+    @Test
+    public void ioWorkersTest() {
+        // TODO: test ioWorkers
     }
 
     /**
@@ -198,6 +242,22 @@ public class JsonSchemaPgTest {
     @Test
     public void trackFunctionsTest() {
         // TODO: test trackFunctions
+    }
+
+    /**
+     * Test the property 'ioMaxCombineLimit'
+     */
+    @Test
+    public void ioMaxCombineLimitTest() {
+        // TODO: test ioMaxCombineLimit
+    }
+
+    /**
+     * Test the property 'ioMethod'
+     */
+    @Test
+    public void ioMethodTest() {
+        // TODO: test ioMethod
     }
 
     /**
