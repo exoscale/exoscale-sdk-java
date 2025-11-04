@@ -18,41 +18,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for Aimodel
+ * Model tests for CreateModelRequest
  */
-public class AimodelTest {
-    private final Aimodel model = new Aimodel();
+public class CreateModelRequestTest {
+    private final CreateModelRequest model = new CreateModelRequest();
 
     /**
-     * Model tests for Aimodel
+     * Model tests for CreateModelRequest
      */
     @Test
-    public void testAimodel() {
-        // TODO: test Aimodel
+    public void testCreateModelRequest() {
+        // TODO: test CreateModelRequest
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'huggingfaceToken'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'organizationId'
-     */
-    @Test
-    public void organizationIdTest() {
-        // TODO: test organizationId
+    public void huggingfaceTokenTest() {
+        // TODO: test huggingfaceToken
     }
 
     /**
@@ -61,38 +51,6 @@ public class AimodelTest {
     @Test
     public void nameTest() {
         // TODO: test name
-    }
-
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
-    }
-
-    /**
-     * Test the property 'modelSize'
-     */
-    @Test
-    public void modelSizeTest() {
-        // TODO: test modelSize
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
     }
 
 }

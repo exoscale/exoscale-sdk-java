@@ -34,21 +34,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AI deployment
  */
 @JsonPropertyOrder({
-  Aideployment.JSON_PROPERTY_UPDATED_AT,
-  Aideployment.JSON_PROPERTY_DEPLOYMENT_URL,
-  Aideployment.JSON_PROPERTY_MODEL_ID,
-  Aideployment.JSON_PROPERTY_SERVICE_LEVEL,
-  Aideployment.JSON_PROPERTY_NAME,
-  Aideployment.JSON_PROPERTY_ENDPOINT_URL,
-  Aideployment.JSON_PROPERTY_INSTANCE_TYPE,
-  Aideployment.JSON_PROPERTY_ORGANIZATION_ID,
-  Aideployment.JSON_PROPERTY_STATUS,
-  Aideployment.JSON_PROPERTY_ID,
-  Aideployment.JSON_PROPERTY_CREATED_AT,
-  Aideployment.JSON_PROPERTY_DEPLOYMENT_SIZE
+  ListDeploymentsResponseInner.JSON_PROPERTY_UPDATED_AT,
+  ListDeploymentsResponseInner.JSON_PROPERTY_DEPLOYMENT_URL,
+  ListDeploymentsResponseInner.JSON_PROPERTY_MODEL_ID,
+  ListDeploymentsResponseInner.JSON_PROPERTY_SERVICE_LEVEL,
+  ListDeploymentsResponseInner.JSON_PROPERTY_NAME,
+  ListDeploymentsResponseInner.JSON_PROPERTY_ENDPOINT_URL,
+  ListDeploymentsResponseInner.JSON_PROPERTY_INSTANCE_TYPE,
+  ListDeploymentsResponseInner.JSON_PROPERTY_ORGANIZATION_ID,
+  ListDeploymentsResponseInner.JSON_PROPERTY_STATUS,
+  ListDeploymentsResponseInner.JSON_PROPERTY_ID,
+  ListDeploymentsResponseInner.JSON_PROPERTY_REPLICAS,
+  ListDeploymentsResponseInner.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class Aideployment {
+public class ListDeploymentsResponseInner {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
@@ -79,17 +79,17 @@ public class Aideployment {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
+  public static final String JSON_PROPERTY_REPLICAS = "replicas";
+  private Long replicas;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_DEPLOYMENT_SIZE = "deployment-size";
-  private Long deploymentSize;
-
-  public Aideployment() { 
+  public ListDeploymentsResponseInner() { 
   }
 
   @JsonCreator
-  public Aideployment(
+  public ListDeploymentsResponseInner(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
@@ -115,7 +115,7 @@ public class Aideployment {
 
 
 
-  public Aideployment deploymentUrl(String deploymentUrl) {
+  public ListDeploymentsResponseInner deploymentUrl(String deploymentUrl) {
     this.deploymentUrl = deploymentUrl;
     return this;
   }
@@ -140,7 +140,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment modelId(UUID modelId) {
+  public ListDeploymentsResponseInner modelId(UUID modelId) {
     this.modelId = modelId;
     return this;
   }
@@ -165,7 +165,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment serviceLevel(String serviceLevel) {
+  public ListDeploymentsResponseInner serviceLevel(String serviceLevel) {
     this.serviceLevel = serviceLevel;
     return this;
   }
@@ -190,7 +190,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment name(String name) {
+  public ListDeploymentsResponseInner name(String name) {
     this.name = name;
     return this;
   }
@@ -215,7 +215,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment endpointUrl(String endpointUrl) {
+  public ListDeploymentsResponseInner endpointUrl(String endpointUrl) {
     this.endpointUrl = endpointUrl;
     return this;
   }
@@ -240,7 +240,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment instanceType(String instanceType) {
+  public ListDeploymentsResponseInner instanceType(String instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -265,7 +265,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment organizationId(UUID organizationId) {
+  public ListDeploymentsResponseInner organizationId(UUID organizationId) {
     this.organizationId = organizationId;
     return this;
   }
@@ -290,7 +290,7 @@ public class Aideployment {
   }
 
 
-  public Aideployment status(String status) {
+  public ListDeploymentsResponseInner status(String status) {
     this.status = status;
     return this;
   }
@@ -330,6 +330,32 @@ public class Aideployment {
 
 
 
+  public ListDeploymentsResponseInner replicas(Long replicas) {
+    this.replicas = replicas;
+    return this;
+  }
+
+   /**
+   * Number of replicas (&gt;&#x3D;0)
+   * minimum: 0
+   * @return replicas
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REPLICAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getReplicas() {
+    return replicas;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REPLICAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReplicas(Long replicas) {
+    this.replicas = replicas;
+  }
+
+
    /**
    * Creation time
    * @return createdAt
@@ -345,34 +371,8 @@ public class Aideployment {
 
 
 
-  public Aideployment deploymentSize(Long deploymentSize) {
-    this.deploymentSize = deploymentSize;
-    return this;
-  }
-
-   /**
-   * Deployment size (&gt;&#x3D;1)
-   * minimum: 0
-   * @return deploymentSize
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEPLOYMENT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getDeploymentSize() {
-    return deploymentSize;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DEPLOYMENT_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeploymentSize(Long deploymentSize) {
-    this.deploymentSize = deploymentSize;
-  }
-
-
   /**
-   * Return true if this aideployment object is equal to o.
+   * Return true if this list_deployments_response_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -382,30 +382,30 @@ public class Aideployment {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Aideployment aideployment = (Aideployment) o;
-    return Objects.equals(this.updatedAt, aideployment.updatedAt) &&
-        Objects.equals(this.deploymentUrl, aideployment.deploymentUrl) &&
-        Objects.equals(this.modelId, aideployment.modelId) &&
-        Objects.equals(this.serviceLevel, aideployment.serviceLevel) &&
-        Objects.equals(this.name, aideployment.name) &&
-        Objects.equals(this.endpointUrl, aideployment.endpointUrl) &&
-        Objects.equals(this.instanceType, aideployment.instanceType) &&
-        Objects.equals(this.organizationId, aideployment.organizationId) &&
-        Objects.equals(this.status, aideployment.status) &&
-        Objects.equals(this.id, aideployment.id) &&
-        Objects.equals(this.createdAt, aideployment.createdAt) &&
-        Objects.equals(this.deploymentSize, aideployment.deploymentSize);
+    ListDeploymentsResponseInner listDeploymentsResponseInner = (ListDeploymentsResponseInner) o;
+    return Objects.equals(this.updatedAt, listDeploymentsResponseInner.updatedAt) &&
+        Objects.equals(this.deploymentUrl, listDeploymentsResponseInner.deploymentUrl) &&
+        Objects.equals(this.modelId, listDeploymentsResponseInner.modelId) &&
+        Objects.equals(this.serviceLevel, listDeploymentsResponseInner.serviceLevel) &&
+        Objects.equals(this.name, listDeploymentsResponseInner.name) &&
+        Objects.equals(this.endpointUrl, listDeploymentsResponseInner.endpointUrl) &&
+        Objects.equals(this.instanceType, listDeploymentsResponseInner.instanceType) &&
+        Objects.equals(this.organizationId, listDeploymentsResponseInner.organizationId) &&
+        Objects.equals(this.status, listDeploymentsResponseInner.status) &&
+        Objects.equals(this.id, listDeploymentsResponseInner.id) &&
+        Objects.equals(this.replicas, listDeploymentsResponseInner.replicas) &&
+        Objects.equals(this.createdAt, listDeploymentsResponseInner.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, deploymentUrl, modelId, serviceLevel, name, endpointUrl, instanceType, organizationId, status, id, createdAt, deploymentSize);
+    return Objects.hash(updatedAt, deploymentUrl, modelId, serviceLevel, name, endpointUrl, instanceType, organizationId, status, id, replicas, createdAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Aideployment {\n");
+    sb.append("class ListDeploymentsResponseInner {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    deploymentUrl: ").append(toIndentedString(deploymentUrl)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
@@ -416,8 +416,8 @@ public class Aideployment {
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    deploymentSize: ").append(toIndentedString(deploymentSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -515,14 +515,14 @@ public class Aideployment {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `replicas` to the URL query string
+    if (getReplicas() != null) {
+      joiner.add(String.format("%sreplicas%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReplicas()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `created-at` to the URL query string
     if (getCreatedAt() != null) {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `deployment-size` to the URL query string
-    if (getDeploymentSize() != null) {
-      joiner.add(String.format("%sdeployment-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeploymentSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

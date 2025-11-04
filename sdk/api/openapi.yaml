@@ -1055,6 +1055,44 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /ai/model:
+    get:
+      description: ""
+      operationId: list-models
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-models-response'
+          description: "200"
+      summary: "[BETA] List Models"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: ""
+      operationId: create-model
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-model-request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Create Model"
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-mysql/{service-name}/user:
     post:
       operationId: create-dbaas-mysql-user
@@ -1099,6 +1137,37 @@ paths:
       summary: DBaaS Service Types
       tags:
       - exoscale
+      x-accepts: application/json
+  /ai/deployment/{id}/scale:
+    post:
+      description: ""
+      operationId: scale-deployment
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/scale-deployment-request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Scale Deployment"
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /instance-type/{id}:
     get:
@@ -1508,6 +1577,50 @@ paths:
       summary: List Compute instance Types
       tags:
       - exoscale
+      x-accepts: application/json
+  /ai/deployment:
+    get:
+      description: ""
+      operationId: list-deployments
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-deployments-response'
+          description: "200"
+      summary: "[BETA] List Deployments"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: ""
+      operationId: create-deployment
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-deployment-request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+        "400":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: "400"
+      summary: "[BETA] Create Deployment"
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{service-name}/database/{database-name}:
     delete:
@@ -2340,6 +2453,30 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Export a Snapshot
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /ai/deployment/{id}:
+    delete:
+      description: ""
+      operationId: delete-deployment
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Delete Deployment"
       tags:
       - exoscale
       x-accepts: application/json
@@ -4835,6 +4972,36 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /ai/model/{id}:
+    delete:
+      description: ""
+      operationId: delete-model
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+        "412":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: "412"
+      summary: "[BETA] Delete Model"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /sos-buckets-usage:
     get:
       description: ""
@@ -7297,6 +7464,30 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /ai/deployment/{id}/api-key:
+    get:
+      description: ""
+      operationId: reveal-deployment-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reveal-deployment-api-key-response'
+          description: "200"
+      summary: "[BETA] Get Deployment API Key"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /anti-affinity-group/{id}:
     delete:
       description: ""
@@ -7535,6 +7726,49 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
+      x-accepts: application/json
+  /ai/deployment/{id}/logs:
+    get:
+      description: Return logs for the vLLM deployment (deploy/<release-name>--deployment-vllm).
+        Optional ?stream=true to request streaming (may not be supported).
+      operationId: get-deployment-logs
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: "200"
+        "400":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: "400"
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: "404"
+        "500":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: "500"
+      summary: "[BETA] Get Deployment Logs"
+      tags:
+      - exoscale
       x-accepts: application/json
   /sks-cluster/{id}/upgrade:
     put:
@@ -11782,6 +12016,17 @@ components:
       maxLength: 253
       minLength: 1
       type: string
+    create-model-request:
+      description: AI model
+      properties:
+        huggingface-token:
+          description: Huggingface Token
+          type: string
+        name:
+          description: Model name
+          minLength: 1
+          type: string
+      type: object
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
       example:
@@ -11812,6 +12057,14 @@ components:
           type: string
         resource-name:
           description: Resource name
+          type: string
+      type: object
+    reveal-deployment-api-key-response:
+      description: AI deployment inference endpoint authentication key
+      example:
+        api-key: api-key
+      properties:
+        api-key:
           type: string
       type: object
     json-schema-kafka:
@@ -13549,60 +13802,6 @@ components:
       - plan
       - prometheus-uri
       - type
-      type: object
-    aideployment:
-      description: AI deployment
-      properties:
-        updated-at:
-          description: Update time
-          format: date-time
-          readOnly: true
-          type: string
-        deployment-url:
-          description: Deployment URL (nullable)
-          type: string
-        model-id:
-          description: Associated model ID
-          format: uuid
-          type: string
-        service-level:
-          description: Service level
-          minLength: 1
-          type: string
-        name:
-          description: Deployment name
-          minLength: 1
-          type: string
-        endpoint-url:
-          description: Endpoint URL (nullable)
-          type: string
-        instance-type:
-          description: Instance type
-          minLength: 1
-          type: string
-        organization-id:
-          description: Organization ID
-          format: uuid
-          type: string
-        status:
-          description: Deployment status
-          type: string
-        id:
-          description: Deployment ID
-          format: uuid
-          readOnly: true
-          type: string
-        created-at:
-          description: Creation time
-          format: date-time
-          readOnly: true
-          type: string
-        deployment-size:
-          description: Deployment size (>=1)
-          exclusiveMinimum: true
-          format: int64
-          minimum: 0
-          type: integer
       type: object
     dbaas-service-kafka:
       example:
@@ -17486,6 +17685,10 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_external_endpoint_datadog_output_settings'
       type: object
+    list-models-response:
+      items:
+        $ref: '#/components/schemas/list_models_response_inner'
+      type: array
     sos-bucket-usage:
       description: SOS Bucket usage
       example:
@@ -24367,6 +24570,16 @@ components:
             $ref: '#/components/schemas/ssh-key'
           type: array
       type: object
+    scale-deployment-request:
+      description: Scale AI deployment
+      properties:
+        replicas:
+          description: Number of replicas (>=0)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+      type: object
     dbaas-integration-type:
       example:
         source-service-types:
@@ -28140,6 +28353,10 @@ components:
       - up
       - down
       type: string
+    list-deployments-response:
+      items:
+        $ref: '#/components/schemas/list_deployments_response_inner'
+      type: array
     anti-affinity-group:
       description: Anti-affinity Group
       example:
@@ -29315,42 +29532,6 @@ components:
           readOnly: true
           type: boolean
       type: object
-    aimodel:
-      description: AI model
-      properties:
-        id:
-          description: Model ID
-          format: uuid
-          readOnly: true
-          type: string
-        organization-id:
-          description: Organization ID
-          format: uuid
-          type: string
-        name:
-          description: Model name
-          minLength: 1
-          type: string
-        status:
-          description: Model status
-          type: string
-        model-size:
-          description: Model size (nullable)
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        created-at:
-          description: Creation time
-          format: date-time
-          readOnly: true
-          type: string
-        updated-at:
-          description: Update time
-          format: date-time
-          readOnly: true
-          type: string
-      type: object
     organization:
       description: Organization
       example:
@@ -29989,6 +30170,36 @@ components:
           format: date-time
           readOnly: true
           type: string
+      type: object
+    create-deployment-request:
+      description: AI deployment
+      properties:
+        model-id:
+          description: Associated model ID
+          format: uuid
+          type: string
+        name:
+          description: Deployment name
+          minLength: 1
+          type: string
+        gpu-type:
+          description: "GPU type family (e.g., gpua5000, gpu3080ti)"
+          type: string
+        gpu-count:
+          description: Number of GPUs (1-8)
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+        replicas:
+          description: Number of replicas (>=1)
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - gpu-count
+      - gpu-type
       type: object
     enum-migration-method:
       enum:
@@ -54766,6 +54977,50 @@ components:
           minimum: 200
           type: integer
       type: object
+    list_models_response_inner:
+      description: AI model
+      example:
+        model-size: 0
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        name: name
+        organization-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: status
+      properties:
+        id:
+          description: Model ID
+          format: uuid
+          readOnly: true
+          type: string
+        organization-id:
+          description: Organization ID
+          format: uuid
+          type: string
+        name:
+          description: Model name
+          minLength: 1
+          type: string
+        status:
+          description: Model status
+          type: string
+        model-size:
+          description: Model size (nullable)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
+      type: object
     dbaas_endpoint_datadog_input_create_settings:
       properties:
         datadog-api-key:
@@ -54996,6 +55251,73 @@ components:
           maximum: 1024
           minimum: 1
           type: integer
+      type: object
+    list_deployments_response_inner:
+      description: AI deployment
+      example:
+        model-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        service-level: service-level
+        replicas: 0
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        name: name
+        instance-type: instance-type
+        organization-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        created-at: 2000-01-23T04:56:07.000+00:00
+        deployment-url: deployment-url
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        endpoint-url: endpoint-url
+        status: status
+      properties:
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
+        deployment-url:
+          description: Deployment URL (nullable)
+          type: string
+        model-id:
+          description: Associated model ID
+          format: uuid
+          type: string
+        service-level:
+          description: Service level
+          minLength: 1
+          type: string
+        name:
+          description: Deployment name
+          minLength: 1
+          type: string
+        endpoint-url:
+          description: Endpoint URL (nullable)
+          type: string
+        instance-type:
+          description: Instance type
+          minLength: 1
+          type: string
+        organization-id:
+          description: Organization ID
+          format: uuid
+          type: string
+        status:
+          description: Deployment status
+          type: string
+        id:
+          description: Deployment ID
+          format: uuid
+          readOnly: true
+          type: string
+        replicas:
+          description: Number of replicas (>=0)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
       type: object
     dbaas_endpoint_elasticsearch_input_update_settings:
       properties:

@@ -1,6 +1,6 @@
 
 
-# Aideployment
+# ListDeploymentsResponseInner
 
 AI deployment
 
@@ -18,8 +18,8 @@ AI deployment
 |**organizationId** | **UUID** | Organization ID |  [optional] |
 |**status** | **String** | Deployment status |  [optional] |
 |**id** | **UUID** | Deployment ID |  [optional] [readonly] |
+|**replicas** | **Long** | Number of replicas (&gt;&#x3D;0) |  [optional] |
 |**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
-|**deploymentSize** | **Long** | Deployment size (&gt;&#x3D;1) |  [optional] |
 
 
 

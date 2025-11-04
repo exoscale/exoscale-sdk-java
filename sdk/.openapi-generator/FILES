@@ -10,8 +10,6 @@ docs/AddExternalSourceToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
-docs/Aideployment.md
-docs/Aimodel.md
 docs/AntiAffinityGroup.md
 docs/AttachBlockStorageVolumeToInstanceRequest.md
 docs/AttachDbaasServiceToEndpointRequest.md
@@ -46,6 +44,7 @@ docs/CreateDbaasServiceOpensearchRequest.md
 docs/CreateDbaasServicePgRequest.md
 docs/CreateDbaasServiceValkeyRequest.md
 docs/CreateDbaasTaskMigrationCheckRequest.md
+docs/CreateDeploymentRequest.md
 docs/CreateDnsDomainRecordRequest.md
 docs/CreateDnsDomainRequest.md
 docs/CreateElasticIpRequest.md
@@ -53,6 +52,7 @@ docs/CreateIamRoleRequest.md
 docs/CreateInstancePoolRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateLoadBalancerRequest.md
+docs/CreateModelRequest.md
 docs/CreatePrivateNetworkRequest.md
 docs/CreateSecurityGroupRequest.md
 docs/CreateSksClusterRequest.md
@@ -280,6 +280,7 @@ docs/ListDbaasIntegrationTypes200Response.md
 docs/ListDbaasServiceTypes200Response.md
 docs/ListDbaasServices200Response.md
 docs/ListDeployTargets200Response.md
+docs/ListDeploymentsResponseInner.md
 docs/ListDnsDomainRecords200Response.md
 docs/ListDnsDomains200Response.md
 docs/ListElasticIps200Response.md
@@ -290,6 +291,7 @@ docs/ListInstances200Response.md
 docs/ListInstances200ResponseInstancesInner.md
 docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md
 docs/ListLoadBalancers200Response.md
+docs/ListModelsResponseInner.md
 docs/ListPrivateNetworks200Response.md
 docs/ListQuotas200Response.md
 docs/ListSecurityGroups200Response.md
@@ -333,9 +335,11 @@ docs/ResetInstanceRequest.md
 docs/ResizeBlockStorageVolumeRequest.md
 docs/ResizeInstanceDiskRequest.md
 docs/Resource.md
+docs/RevealDeploymentApiKeyResponse.md
 docs/ReverseDnsRecord.md
 docs/RevertInstanceToSnapshotRequest.md
 docs/SMTPServerSettings.md
+docs/ScaleDeploymentRequest.md
 docs/ScaleInstancePoolRequest.md
 docs/ScaleInstanceRequest.md
 docs/ScaleSksNodepoolRequest.md
@@ -425,8 +429,6 @@ src/main/java/com/exoscale/sdk/model/AddExternalSourceToSecurityGroupRequest.jav
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
-src/main/java/com/exoscale/sdk/model/Aideployment.java
-src/main/java/com/exoscale/sdk/model/Aimodel.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/AttachDbaasServiceToEndpointRequest.java
@@ -461,6 +463,7 @@ src/main/java/com/exoscale/sdk/model/CreateDbaasServiceOpensearchRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServicePgRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasTaskMigrationCheckRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDeploymentRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDnsDomainRequest.java
 src/main/java/com/exoscale/sdk/model/CreateElasticIpRequest.java
@@ -468,6 +471,7 @@ src/main/java/com/exoscale/sdk/model/CreateIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/CreateLoadBalancerRequest.java
+src/main/java/com/exoscale/sdk/model/CreateModelRequest.java
 src/main/java/com/exoscale/sdk/model/CreatePrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSksClusterRequest.java
@@ -694,6 +698,7 @@ src/main/java/com/exoscale/sdk/model/ListDbaasIntegrationTypes200Response.java
 src/main/java/com/exoscale/sdk/model/ListDbaasServiceTypes200Response.java
 src/main/java/com/exoscale/sdk/model/ListDbaasServices200Response.java
 src/main/java/com/exoscale/sdk/model/ListDeployTargets200Response.java
+src/main/java/com/exoscale/sdk/model/ListDeploymentsResponseInner.java
 src/main/java/com/exoscale/sdk/model/ListDnsDomainRecords200Response.java
 src/main/java/com/exoscale/sdk/model/ListDnsDomains200Response.java
 src/main/java/com/exoscale/sdk/model/ListElasticIps200Response.java
@@ -704,6 +709,7 @@ src/main/java/com/exoscale/sdk/model/ListInstances200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstances200ResponseInstancesInner.java
 src/main/java/com/exoscale/sdk/model/ListInstances200ResponseInstancesInnerPrivateNetworksInner.java
 src/main/java/com/exoscale/sdk/model/ListLoadBalancers200Response.java
+src/main/java/com/exoscale/sdk/model/ListModelsResponseInner.java
 src/main/java/com/exoscale/sdk/model/ListPrivateNetworks200Response.java
 src/main/java/com/exoscale/sdk/model/ListQuotas200Response.java
 src/main/java/com/exoscale/sdk/model/ListSecurityGroups200Response.java
@@ -747,9 +753,11 @@ src/main/java/com/exoscale/sdk/model/ResetInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeInstanceDiskRequest.java
 src/main/java/com/exoscale/sdk/model/Resource.java
+src/main/java/com/exoscale/sdk/model/RevealDeploymentApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/ReverseDnsRecord.java
 src/main/java/com/exoscale/sdk/model/RevertInstanceToSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/SMTPServerSettings.java
+src/main/java/com/exoscale/sdk/model/ScaleDeploymentRequest.java
 src/main/java/com/exoscale/sdk/model/ScaleInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/ScaleInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/ScaleSksNodepoolRequest.java

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-11-01T07:06:28.951454101Z[Etc/UTC]
+- Build date: 2025-11-04T07:07:29.327362571Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-eca5d82</version>
+    <version>0.0.5-SNAPSHOT-21697fc</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-eca5d82'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-21697fc'
 }
 ```
 
@@ -121,6 +121,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service
 *ExoscaleApi* | [**createDbaasTaskMigrationCheck**](sdk/docs/ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} | 
 *ExoscaleApi* | [**createDbaasValkeyUser**](sdk/docs/ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user
+*ExoscaleApi* | [**createDeployment**](sdk/docs/ExoscaleApi.md#createDeployment) | **POST** /ai/deployment | [BETA] Create Deployment
 *ExoscaleApi* | [**createDnsDomain**](sdk/docs/ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain
 *ExoscaleApi* | [**createDnsDomainRecord**](sdk/docs/ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record
 *ExoscaleApi* | [**createElasticIp**](sdk/docs/ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP
@@ -128,6 +129,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createInstance**](sdk/docs/ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance
 *ExoscaleApi* | [**createInstancePool**](sdk/docs/ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool
 *ExoscaleApi* | [**createLoadBalancer**](sdk/docs/ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer
+*ExoscaleApi* | [**createModel**](sdk/docs/ExoscaleApi.md#createModel) | **POST** /ai/model | [BETA] Create Model
 *ExoscaleApi* | [**createPrivateNetwork**](sdk/docs/ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network
 *ExoscaleApi* | [**createSecurityGroup**](sdk/docs/ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group
 *ExoscaleApi* | [**createSksCluster**](sdk/docs/ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster
@@ -161,6 +163,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteDbaasServicePg**](sdk/docs/ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
 *ExoscaleApi* | [**deleteDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service
 *ExoscaleApi* | [**deleteDbaasValkeyUser**](sdk/docs/ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user
+*ExoscaleApi* | [**deleteDeployment**](sdk/docs/ExoscaleApi.md#deleteDeployment) | **DELETE** /ai/deployment/{id} | [BETA] Delete Deployment
 *ExoscaleApi* | [**deleteDnsDomain**](sdk/docs/ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain
 *ExoscaleApi* | [**deleteDnsDomainRecord**](sdk/docs/ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record
 *ExoscaleApi* | [**deleteElasticIp**](sdk/docs/ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP
@@ -169,6 +172,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteInstancePool**](sdk/docs/ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool
 *ExoscaleApi* | [**deleteLoadBalancer**](sdk/docs/ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer
 *ExoscaleApi* | [**deleteLoadBalancerService**](sdk/docs/ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service
+*ExoscaleApi* | [**deleteModel**](sdk/docs/ExoscaleApi.md#deleteModel) | **DELETE** /ai/model/{id} | [BETA] Delete Model
 *ExoscaleApi* | [**deletePrivateNetwork**](sdk/docs/ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network
 *ExoscaleApi* | [**deleteReverseDnsElasticIp**](sdk/docs/ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP
 *ExoscaleApi* | [**deleteReverseDnsInstance**](sdk/docs/ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance
@@ -226,6 +230,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasSettingsValkey**](sdk/docs/ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings
 *ExoscaleApi* | [**getDbaasTask**](sdk/docs/ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
 *ExoscaleApi* | [**getDeployTarget**](sdk/docs/ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
+*ExoscaleApi* | [**getDeploymentLogs**](sdk/docs/ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | [BETA] Get Deployment Logs
 *ExoscaleApi* | [**getDnsDomain**](sdk/docs/ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details
 *ExoscaleApi* | [**getDnsDomainRecord**](sdk/docs/ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
 *ExoscaleApi* | [**getDnsDomainZoneFile**](sdk/docs/ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
@@ -266,6 +271,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listDbaasServiceTypes**](sdk/docs/ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types
 *ExoscaleApi* | [**listDbaasServices**](sdk/docs/ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services
 *ExoscaleApi* | [**listDeployTargets**](sdk/docs/ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets
+*ExoscaleApi* | [**listDeployments**](sdk/docs/ExoscaleApi.md#listDeployments) | **GET** /ai/deployment | [BETA] List Deployments
 *ExoscaleApi* | [**listDnsDomainRecords**](sdk/docs/ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records
 *ExoscaleApi* | [**listDnsDomains**](sdk/docs/ExoscaleApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains
 *ExoscaleApi* | [**listElasticIps**](sdk/docs/ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs
@@ -275,6 +281,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listInstanceTypes**](sdk/docs/ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types
 *ExoscaleApi* | [**listInstances**](sdk/docs/ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances
 *ExoscaleApi* | [**listLoadBalancers**](sdk/docs/ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers
+*ExoscaleApi* | [**listModels**](sdk/docs/ExoscaleApi.md#listModels) | **GET** /ai/model | [BETA] List Models
 *ExoscaleApi* | [**listPrivateNetworks**](sdk/docs/ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks
 *ExoscaleApi* | [**listQuotas**](sdk/docs/ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas
 *ExoscaleApi* | [**listSecurityGroups**](sdk/docs/ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups.
@@ -317,12 +324,14 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDbaasOpensearchUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
 *ExoscaleApi* | [**revealDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
 *ExoscaleApi* | [**revealDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user
+*ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Get Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials
 *ExoscaleApi* | [**rotateSksKarpenterCredentials**](sdk/docs/ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials
 *ExoscaleApi* | [**rotateSksOperatorsCa**](sdk/docs/ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority
+*ExoscaleApi* | [**scaleDeployment**](sdk/docs/ExoscaleApi.md#scaleDeployment) | **POST** /ai/deployment/{id}/scale | [BETA] Scale Deployment
 *ExoscaleApi* | [**scaleInstance**](sdk/docs/ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
 *ExoscaleApi* | [**scaleInstancePool**](sdk/docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
 *ExoscaleApi* | [**scaleSksNodepool**](sdk/docs/ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
@@ -385,8 +394,6 @@ Class | Method | HTTP request | Description
  - [AddRuleToSecurityGroupRequest](sdk/docs/AddRuleToSecurityGroupRequest.md)
  - [AddRuleToSecurityGroupRequestIcmp](sdk/docs/AddRuleToSecurityGroupRequestIcmp.md)
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
- - [Aideployment](sdk/docs/Aideployment.md)
- - [Aimodel](sdk/docs/Aimodel.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
  - [AttachDbaasServiceToEndpointRequest](sdk/docs/AttachDbaasServiceToEndpointRequest.md)
@@ -421,6 +428,7 @@ Class | Method | HTTP request | Description
  - [CreateDbaasServicePgRequest](sdk/docs/CreateDbaasServicePgRequest.md)
  - [CreateDbaasServiceValkeyRequest](sdk/docs/CreateDbaasServiceValkeyRequest.md)
  - [CreateDbaasTaskMigrationCheckRequest](sdk/docs/CreateDbaasTaskMigrationCheckRequest.md)
+ - [CreateDeploymentRequest](sdk/docs/CreateDeploymentRequest.md)
  - [CreateDnsDomainRecordRequest](sdk/docs/CreateDnsDomainRecordRequest.md)
  - [CreateDnsDomainRequest](sdk/docs/CreateDnsDomainRequest.md)
  - [CreateElasticIpRequest](sdk/docs/CreateElasticIpRequest.md)
@@ -428,6 +436,7 @@ Class | Method | HTTP request | Description
  - [CreateInstancePoolRequest](sdk/docs/CreateInstancePoolRequest.md)
  - [CreateInstanceRequest](sdk/docs/CreateInstanceRequest.md)
  - [CreateLoadBalancerRequest](sdk/docs/CreateLoadBalancerRequest.md)
+ - [CreateModelRequest](sdk/docs/CreateModelRequest.md)
  - [CreatePrivateNetworkRequest](sdk/docs/CreatePrivateNetworkRequest.md)
  - [CreateSecurityGroupRequest](sdk/docs/CreateSecurityGroupRequest.md)
  - [CreateSksClusterRequest](sdk/docs/CreateSksClusterRequest.md)
@@ -654,6 +663,7 @@ Class | Method | HTTP request | Description
  - [ListDbaasServiceTypes200Response](sdk/docs/ListDbaasServiceTypes200Response.md)
  - [ListDbaasServices200Response](sdk/docs/ListDbaasServices200Response.md)
  - [ListDeployTargets200Response](sdk/docs/ListDeployTargets200Response.md)
+ - [ListDeploymentsResponseInner](sdk/docs/ListDeploymentsResponseInner.md)
  - [ListDnsDomainRecords200Response](sdk/docs/ListDnsDomainRecords200Response.md)
  - [ListDnsDomains200Response](sdk/docs/ListDnsDomains200Response.md)
  - [ListElasticIps200Response](sdk/docs/ListElasticIps200Response.md)
@@ -664,6 +674,7 @@ Class | Method | HTTP request | Description
  - [ListInstances200ResponseInstancesInner](sdk/docs/ListInstances200ResponseInstancesInner.md)
  - [ListInstances200ResponseInstancesInnerPrivateNetworksInner](sdk/docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md)
  - [ListLoadBalancers200Response](sdk/docs/ListLoadBalancers200Response.md)
+ - [ListModelsResponseInner](sdk/docs/ListModelsResponseInner.md)
  - [ListPrivateNetworks200Response](sdk/docs/ListPrivateNetworks200Response.md)
  - [ListQuotas200Response](sdk/docs/ListQuotas200Response.md)
  - [ListSecurityGroups200Response](sdk/docs/ListSecurityGroups200Response.md)
@@ -707,9 +718,11 @@ Class | Method | HTTP request | Description
  - [ResizeBlockStorageVolumeRequest](sdk/docs/ResizeBlockStorageVolumeRequest.md)
  - [ResizeInstanceDiskRequest](sdk/docs/ResizeInstanceDiskRequest.md)
  - [Resource](sdk/docs/Resource.md)
+ - [RevealDeploymentApiKeyResponse](sdk/docs/RevealDeploymentApiKeyResponse.md)
  - [ReverseDnsRecord](sdk/docs/ReverseDnsRecord.md)
  - [RevertInstanceToSnapshotRequest](sdk/docs/RevertInstanceToSnapshotRequest.md)
  - [SMTPServerSettings](sdk/docs/SMTPServerSettings.md)
+ - [ScaleDeploymentRequest](sdk/docs/ScaleDeploymentRequest.md)
  - [ScaleInstancePoolRequest](sdk/docs/ScaleInstancePoolRequest.md)
  - [ScaleInstanceRequest](sdk/docs/ScaleInstanceRequest.md)
  - [ScaleSksNodepoolRequest](sdk/docs/ScaleSksNodepoolRequest.md)

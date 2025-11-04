@@ -26,89 +26,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for Aideployment
+ * Model tests for ListModelsResponseInner
  */
-public class AideploymentTest {
-    private final Aideployment model = new Aideployment();
+public class ListModelsResponseInnerTest {
+    private final ListModelsResponseInner model = new ListModelsResponseInner();
 
     /**
-     * Model tests for Aideployment
+     * Model tests for ListModelsResponseInner
      */
     @Test
-    public void testAideployment() {
-        // TODO: test Aideployment
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
-    }
-
-    /**
-     * Test the property 'deploymentUrl'
-     */
-    @Test
-    public void deploymentUrlTest() {
-        // TODO: test deploymentUrl
-    }
-
-    /**
-     * Test the property 'modelId'
-     */
-    @Test
-    public void modelIdTest() {
-        // TODO: test modelId
-    }
-
-    /**
-     * Test the property 'serviceLevel'
-     */
-    @Test
-    public void serviceLevelTest() {
-        // TODO: test serviceLevel
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
-     * Test the property 'endpointUrl'
-     */
-    @Test
-    public void endpointUrlTest() {
-        // TODO: test endpointUrl
-    }
-
-    /**
-     * Test the property 'instanceType'
-     */
-    @Test
-    public void instanceTypeTest() {
-        // TODO: test instanceType
-    }
-
-    /**
-     * Test the property 'organizationId'
-     */
-    @Test
-    public void organizationIdTest() {
-        // TODO: test organizationId
-    }
-
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
+    public void testListModelsResponseInner() {
+        // TODO: test ListModelsResponseInner
     }
 
     /**
@@ -120,6 +48,38 @@ public class AideploymentTest {
     }
 
     /**
+     * Test the property 'organizationId'
+     */
+    @Test
+    public void organizationIdTest() {
+        // TODO: test organizationId
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'modelSize'
+     */
+    @Test
+    public void modelSizeTest() {
+        // TODO: test modelSize
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test
@@ -128,11 +88,11 @@ public class AideploymentTest {
     }
 
     /**
-     * Test the property 'deploymentSize'
+     * Test the property 'updatedAt'
      */
     @Test
-    public void deploymentSizeTest() {
-        // TODO: test deploymentSize
+    public void updatedAtTest() {
+        // TODO: test updatedAt
     }
 
 }

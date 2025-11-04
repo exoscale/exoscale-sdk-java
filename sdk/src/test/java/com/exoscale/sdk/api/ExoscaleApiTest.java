@@ -43,6 +43,7 @@ import com.exoscale.sdk.model.CreateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
+import com.exoscale.sdk.model.CreateDeploymentRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
 import com.exoscale.sdk.model.CreateElasticIpRequest;
@@ -50,6 +51,7 @@ import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
+import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
@@ -141,6 +143,7 @@ import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServices200Response;
 import com.exoscale.sdk.model.ListDeployTargets200Response;
+import com.exoscale.sdk.model.ListDeploymentsResponseInner;
 import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
@@ -149,6 +152,7 @@ import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
+import com.exoscale.sdk.model.ListModelsResponseInner;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
 import com.exoscale.sdk.model.ListQuotas200Response;
 import com.exoscale.sdk.model.ListSecurityGroups200Response;
@@ -176,8 +180,10 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
+import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
+import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
@@ -916,6 +922,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Create Deployment
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDeploymentTest() throws ApiException {
+        CreateDeploymentRequest createDeploymentRequest = null;
+        Operation response = 
+        api.createDeployment(createDeploymentRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Create DNS domain
      *
      * 
@@ -1031,6 +1054,23 @@ public class ExoscaleApiTest {
         CreateLoadBalancerRequest createLoadBalancerRequest = null;
         Operation response = 
         api.createLoadBalancer(createLoadBalancerRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Create Model
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createModelTest() throws ApiException {
+        CreateModelRequest createModelRequest = null;
+        Operation response = 
+        api.createModel(createModelRequest);
         
         // TODO: test validations
     }
@@ -1608,6 +1648,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Delete Deployment
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDeploymentTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteDeployment(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Delete DNS Domain
      *
      * 
@@ -1741,6 +1798,23 @@ public class ExoscaleApiTest {
         UUID serviceId = null;
         Operation response = 
         api.deleteLoadBalancerService(id, serviceId);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Delete Model
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteModelTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteModel(id);
         
         // TODO: test validations
     }
@@ -2722,6 +2796,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Get Deployment Logs
+     *
+     * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDeploymentLogsTest() throws ApiException {
+        UUID id = null;
+        String response = 
+        api.getDeploymentLogs(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieve DNS domain details
      *
      * 
@@ -3398,6 +3489,22 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] List Deployments
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDeploymentsTest() throws ApiException {
+        List<ListDeploymentsResponseInner> response = 
+        api.listDeployments();
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List DNS domain records
      *
      * 
@@ -3543,6 +3650,22 @@ public class ExoscaleApiTest {
     public void listLoadBalancersTest() throws ApiException {
         ListLoadBalancers200Response response = 
         api.listLoadBalancers();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] List Models
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listModelsTest() throws ApiException {
+        List<ListModelsResponseInner> response = 
+        api.listModels();
         
         // TODO: test validations
     }
@@ -4284,6 +4407,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Get Deployment API Key
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealDeploymentApiKeyTest() throws ApiException {
+        UUID id = null;
+        RevealDeploymentApiKeyResponse response = 
+        api.revealDeploymentApiKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reveal the password used during instance creation or the latest password reset.
      *
      * Reveal the password used during instance creation or the latest password reset.             This is only available for VMs created against templates having the &#x60;password-enabled&#x60;             property set to &#x60;true&#x60;.              Passwords are transiently stored for at most 24 hours and intended to be retrieved shortly after             creation or resets.
@@ -4382,6 +4522,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.rotateSksOperatorsCa(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Scale Deployment
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scaleDeploymentTest() throws ApiException {
+        UUID id = null;
+        ScaleDeploymentRequest scaleDeploymentRequest = null;
+        Operation response = 
+        api.scaleDeployment(id, scaleDeploymentRequest);
         
         // TODO: test validations
     }

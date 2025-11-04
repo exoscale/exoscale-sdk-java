@@ -34,16 +34,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AI model
  */
 @JsonPropertyOrder({
-  Aimodel.JSON_PROPERTY_ID,
-  Aimodel.JSON_PROPERTY_ORGANIZATION_ID,
-  Aimodel.JSON_PROPERTY_NAME,
-  Aimodel.JSON_PROPERTY_STATUS,
-  Aimodel.JSON_PROPERTY_MODEL_SIZE,
-  Aimodel.JSON_PROPERTY_CREATED_AT,
-  Aimodel.JSON_PROPERTY_UPDATED_AT
+  ListModelsResponseInner.JSON_PROPERTY_ID,
+  ListModelsResponseInner.JSON_PROPERTY_ORGANIZATION_ID,
+  ListModelsResponseInner.JSON_PROPERTY_NAME,
+  ListModelsResponseInner.JSON_PROPERTY_STATUS,
+  ListModelsResponseInner.JSON_PROPERTY_MODEL_SIZE,
+  ListModelsResponseInner.JSON_PROPERTY_CREATED_AT,
+  ListModelsResponseInner.JSON_PROPERTY_UPDATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class Aimodel {
+public class ListModelsResponseInner {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
@@ -65,11 +65,11 @@ public class Aimodel {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
-  public Aimodel() { 
+  public ListModelsResponseInner() { 
   }
 
   @JsonCreator
-  public Aimodel(
+  public ListModelsResponseInner(
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt
@@ -95,7 +95,7 @@ public class Aimodel {
 
 
 
-  public Aimodel organizationId(UUID organizationId) {
+  public ListModelsResponseInner organizationId(UUID organizationId) {
     this.organizationId = organizationId;
     return this;
   }
@@ -120,7 +120,7 @@ public class Aimodel {
   }
 
 
-  public Aimodel name(String name) {
+  public ListModelsResponseInner name(String name) {
     this.name = name;
     return this;
   }
@@ -145,7 +145,7 @@ public class Aimodel {
   }
 
 
-  public Aimodel status(String status) {
+  public ListModelsResponseInner status(String status) {
     this.status = status;
     return this;
   }
@@ -170,7 +170,7 @@ public class Aimodel {
   }
 
 
-  public Aimodel modelSize(Long modelSize) {
+  public ListModelsResponseInner modelSize(Long modelSize) {
     this.modelSize = modelSize;
     return this;
   }
@@ -227,7 +227,7 @@ public class Aimodel {
 
 
   /**
-   * Return true if this aimodel object is equal to o.
+   * Return true if this list_models_response_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -237,14 +237,14 @@ public class Aimodel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Aimodel aimodel = (Aimodel) o;
-    return Objects.equals(this.id, aimodel.id) &&
-        Objects.equals(this.organizationId, aimodel.organizationId) &&
-        Objects.equals(this.name, aimodel.name) &&
-        Objects.equals(this.status, aimodel.status) &&
-        Objects.equals(this.modelSize, aimodel.modelSize) &&
-        Objects.equals(this.createdAt, aimodel.createdAt) &&
-        Objects.equals(this.updatedAt, aimodel.updatedAt);
+    ListModelsResponseInner listModelsResponseInner = (ListModelsResponseInner) o;
+    return Objects.equals(this.id, listModelsResponseInner.id) &&
+        Objects.equals(this.organizationId, listModelsResponseInner.organizationId) &&
+        Objects.equals(this.name, listModelsResponseInner.name) &&
+        Objects.equals(this.status, listModelsResponseInner.status) &&
+        Objects.equals(this.modelSize, listModelsResponseInner.modelSize) &&
+        Objects.equals(this.createdAt, listModelsResponseInner.createdAt) &&
+        Objects.equals(this.updatedAt, listModelsResponseInner.updatedAt);
   }
 
   @Override
@@ -255,7 +255,7 @@ public class Aimodel {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Aimodel {\n");
+    sb.append("class ListModelsResponseInner {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

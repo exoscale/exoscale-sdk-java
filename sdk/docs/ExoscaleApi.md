@@ -42,6 +42,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasServiceValkey**](ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service |
 | [**createDbaasTaskMigrationCheck**](ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} |  |
 | [**createDbaasValkeyUser**](ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user |
+| [**createDeployment**](ExoscaleApi.md#createDeployment) | **POST** /ai/deployment | [BETA] Create Deployment |
 | [**createDnsDomain**](ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain |
 | [**createDnsDomainRecord**](ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
 | [**createElasticIp**](ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP |
@@ -49,6 +50,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createInstance**](ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance |
 | [**createInstancePool**](ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool |
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
+| [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | [BETA] Create Model |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
 | [**createSecurityGroup**](ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group |
 | [**createSksCluster**](ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster |
@@ -82,6 +84,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasServicePg**](ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service |
 | [**deleteDbaasServiceValkey**](ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service |
 | [**deleteDbaasValkeyUser**](ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user |
+| [**deleteDeployment**](ExoscaleApi.md#deleteDeployment) | **DELETE** /ai/deployment/{id} | [BETA] Delete Deployment |
 | [**deleteDnsDomain**](ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
 | [**deleteDnsDomainRecord**](ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
 | [**deleteElasticIp**](ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP |
@@ -90,6 +93,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteInstancePool**](ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool |
 | [**deleteLoadBalancer**](ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer |
 | [**deleteLoadBalancerService**](ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service |
+| [**deleteModel**](ExoscaleApi.md#deleteModel) | **DELETE** /ai/model/{id} | [BETA] Delete Model |
 | [**deletePrivateNetwork**](ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network |
 | [**deleteReverseDnsElasticIp**](ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP |
 | [**deleteReverseDnsInstance**](ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance |
@@ -147,6 +151,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasSettingsValkey**](ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings |
 | [**getDbaasTask**](ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
 | [**getDeployTarget**](ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
+| [**getDeploymentLogs**](ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | [BETA] Get Deployment Logs |
 | [**getDnsDomain**](ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
@@ -187,6 +192,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listDbaasServiceTypes**](ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types |
 | [**listDbaasServices**](ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services |
 | [**listDeployTargets**](ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets |
+| [**listDeployments**](ExoscaleApi.md#listDeployments) | **GET** /ai/deployment | [BETA] List Deployments |
 | [**listDnsDomainRecords**](ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
 | [**listDnsDomains**](ExoscaleApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains |
 | [**listElasticIps**](ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs |
@@ -196,6 +202,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listInstanceTypes**](ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types |
 | [**listInstances**](ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances |
 | [**listLoadBalancers**](ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers |
+| [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | [BETA] List Models |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
 | [**listQuotas**](ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas |
 | [**listSecurityGroups**](ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups. |
@@ -238,12 +245,14 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDbaasOpensearchUserPassword**](ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user |
 | [**revealDbaasPostgresUserPassword**](ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
 | [**revealDbaasValkeyUserPassword**](ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user |
+| [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Get Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
 | [**rotateSksKarpenterCredentials**](ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials |
 | [**rotateSksOperatorsCa**](ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority |
+| [**scaleDeployment**](ExoscaleApi.md#scaleDeployment) | **POST** /ai/deployment/{id}/scale | [BETA] Scale Deployment |
 | [**scaleInstance**](ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
@@ -3871,6 +3880,100 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## createDeployment
+
+> Operation createDeployment(createDeploymentRequest)
+
+[BETA] Create Deployment
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateDeploymentRequest createDeploymentRequest = new CreateDeploymentRequest(); // CreateDeploymentRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createDeployment(createDeploymentRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDeployment");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createDeploymentRequest** | [**CreateDeploymentRequest**](CreateDeploymentRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createDeploymentRequest** | [**CreateDeploymentRequest**](CreateDeploymentRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
 ## createDnsDomain
 
 > Operation createDnsDomain(createDnsDomainRequest)
@@ -4497,6 +4600,98 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **createLoadBalancerRequest** | [**CreateLoadBalancerRequest**](CreateLoadBalancerRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createModel
+
+> Operation createModel(createModelRequest)
+
+[BETA] Create Model
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateModelRequest createModelRequest = new CreateModelRequest(); // CreateModelRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createModel(createModelRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createModel");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createModelRequest** | [**CreateModelRequest**](CreateModelRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createModelRequest** | [**CreateModelRequest**](CreateModelRequest.md)|  | |
 
 ### Return type
 
@@ -7553,6 +7748,98 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## deleteDeployment
+
+> Operation deleteDeployment(id)
+
+[BETA] Delete Deployment
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDeployment(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDeployment");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## deleteDnsDomain
 
 > Operation deleteDnsDomain(id)
@@ -8293,6 +8580,100 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## deleteModel
+
+> Operation deleteModel(id)
+
+[BETA] Delete Model
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteModel(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteModel");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **412** | 412 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **412** | 412 |  -  |
 
 
 ## deletePrivateNetwork
@@ -13518,6 +13899,104 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getDeploymentLogs
+
+> String getDeploymentLogs(id)
+
+[BETA] Get Deployment Logs
+
+Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            String result = client.getDeploymentLogs(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDeploymentLogs");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+**String**
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+| **404** | 404 |  -  |
+| **500** | 500 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<**String**>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+| **404** | 404 |  -  |
+| **500** | 500 |  -  |
+
+
 ## getDnsDomain
 
 > DnsDomain getDnsDomain(id)
@@ -17140,6 +17619,91 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listDeployments
+
+> List<ListDeploymentsResponseInner> listDeployments()
+
+[BETA] List Deployments
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            List<ListDeploymentsResponseInner> result = client.listDeployments();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDeployments");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;ListDeploymentsResponseInner&gt;**](ListDeploymentsResponseInner.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**List&lt;ListDeploymentsResponseInner&gt;**](ListDeploymentsResponseInner.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listDnsDomainRecords
 
 > ListDnsDomainRecords200Response listDnsDomainRecords(domainId)
@@ -17918,6 +18482,91 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiResponse<[**ListLoadBalancers200Response**](ListLoadBalancers200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listModels
+
+> List<ListModelsResponseInner> listModels()
+
+[BETA] List Models
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            List<ListModelsResponseInner> result = client.listModels();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listModels");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;ListModelsResponseInner&gt;**](ListModelsResponseInner.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**List&lt;ListModelsResponseInner&gt;**](ListModelsResponseInner.md)>
 
 
 ### Authorization
@@ -21813,6 +22462,98 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## revealDeploymentApiKey
+
+> RevealDeploymentApiKeyResponse revealDeploymentApiKey(id)
+
+[BETA] Get Deployment API Key
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            RevealDeploymentApiKeyResponse result = client.revealDeploymentApiKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revealDeploymentApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**RevealDeploymentApiKeyResponse**](RevealDeploymentApiKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**RevealDeploymentApiKeyResponse**](RevealDeploymentApiKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## revealInstancePassword
 
 > InstancePassword revealInstancePassword(id)
@@ -22360,6 +23101,101 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## scaleDeployment
+
+> Operation scaleDeployment(id, scaleDeploymentRequest)
+
+[BETA] Scale Deployment
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        ScaleDeploymentRequest scaleDeploymentRequest = new ScaleDeploymentRequest(); // ScaleDeploymentRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.scaleDeployment(id, scaleDeploymentRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#scaleDeployment");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **scaleDeploymentRequest** | [**ScaleDeploymentRequest**](ScaleDeploymentRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **scaleDeploymentRequest** | [**ScaleDeploymentRequest**](ScaleDeploymentRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details

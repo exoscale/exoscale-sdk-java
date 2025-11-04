@@ -1,6 +1,6 @@
 
 
-# Aimodel
+# ListModelsResponseInner
 
 AI model
 
