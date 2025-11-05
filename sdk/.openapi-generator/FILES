@@ -163,6 +163,7 @@ docs/DbaasUserMysqlSecrets.md
 docs/DbaasUserOpensearchSecrets.md
 docs/DbaasUserPostgresSecrets.md
 docs/DbaasUserValkeySecrets.md
+docs/DeleteModelConflictResponse.md
 docs/DeployTarget.md
 docs/DetachDbaasServiceFromEndpointRequest.md
 docs/DetachInstanceFromPrivateNetworkRequest.md
@@ -192,6 +193,7 @@ docs/EnvImpactIndicator.md
 docs/EnvImpactReport.md
 docs/EnvMetadataEntry.md
 docs/EnvProduct.md
+docs/ErrorResponse.md
 docs/Event.md
 docs/EvictInstancePoolMembersRequest.md
 docs/EvictSksNodepoolMembersRequest.md
@@ -582,6 +584,7 @@ src/main/java/com/exoscale/sdk/model/DbaasUserMysqlSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserOpensearchSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserPostgresSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserValkeySecrets.java
+src/main/java/com/exoscale/sdk/model/DeleteModelConflictResponse.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java
 src/main/java/com/exoscale/sdk/model/DetachDbaasServiceFromEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/DetachInstanceFromPrivateNetworkRequest.java
@@ -611,6 +614,7 @@ src/main/java/com/exoscale/sdk/model/EnvImpactIndicator.java
 src/main/java/com/exoscale/sdk/model/EnvImpactReport.java
 src/main/java/com/exoscale/sdk/model/EnvMetadataEntry.java
 src/main/java/com/exoscale/sdk/model/EnvProduct.java
+src/main/java/com/exoscale/sdk/model/ErrorResponse.java
 src/main/java/com/exoscale/sdk/model/Event.java
 src/main/java/com/exoscale/sdk/model/EvictInstancePoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java

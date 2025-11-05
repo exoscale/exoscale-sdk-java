@@ -1615,7 +1615,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/error-response'
           description: "400"
       summary: "[BETA] Create Deployment"
       tags:
@@ -4996,7 +4996,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/delete-model-conflict-response'
           description: "412"
       summary: "[BETA] Delete Model"
       tags:
@@ -7746,25 +7746,25 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/get-deployment-logs-response'
           description: "200"
         "400":
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/error-response'
           description: "400"
         "404":
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/error-response'
           description: "404"
         "500":
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/error-response'
           description: "500"
       summary: "[BETA] Get Deployment Logs"
       tags:
@@ -8032,6 +8032,8 @@ components:
     sks-audit-endpoint:
       maxLength: 2000
       minLength: 1
+      type: string
+    get-deployment-logs-response:
       type: string
     json-schema-schema-registry:
       additionalProperties: false
@@ -8629,6 +8631,19 @@ components:
         password:
           description: Kafka Connect password
           type: string
+      type: object
+    delete-model-conflict-response:
+      description: "Model is in use: deletion forbidden"
+      example:
+        deployments:
+        - deployments
+        - deployments
+      properties:
+        deployments:
+          description: Deployments using models
+          items:
+            type: string
+          type: array
       type: object
     dbaas-service-type:
       description: DBaaS service
@@ -16467,6 +16482,15 @@ components:
         start-at:
           description: The time when the update will be automatically applied
           format: date-time
+          type: string
+      type: object
+    error-response:
+      description: Error
+      example:
+        error: error
+      properties:
+        error:
+          description: Error description
           type: string
       type: object
     enum-kafka-auth-method:

@@ -204,6 +204,8 @@ components:
       type: string
       maxLength: 2000
       minLength: 1
+    get-deployment-logs-response:
+      type: string
     json-schema-schema-registry:
       additionalProperties: false
       properties:
@@ -1095,6 +1097,15 @@ components:
           type: string
           description: Kafka Connect password
       description: Kafka Connect secrets
+    delete-model-conflict-response:
+      type: object
+      properties:
+        deployments:
+          type: array
+          items:
+            type: string
+          description: Deployments using models
+      description: 'Model is in use: deletion forbidden'
     dbaas-service-type:
       type: object
       properties:
@@ -4213,6 +4224,13 @@ components:
           format: date-time
           description: The time when the update will be automatically applied
       description: Update waiting to be installed
+    error-response:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error description
+      description: Error
     enum-kafka-auth-method:
       type: string
       enum:
@@ -10874,7 +10892,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                "$ref": "#/components/schemas/error-response"
       description: ''
       parameters: []
       summary: "[BETA] Create Deployment"
@@ -14654,7 +14672,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                "$ref": "#/components/schemas/delete-model-conflict-response"
       description: ''
       parameters:
       - in: path
@@ -18950,25 +18968,25 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                "$ref": "#/components/schemas/get-deployment-logs-response"
         '400':
           description: '400'
           content:
             application/json:
               schema:
-                type: object
+                "$ref": "#/components/schemas/error-response"
         '404':
           description: '404'
           content:
             application/json:
               schema:
-                type: object
+                "$ref": "#/components/schemas/error-response"
         '500':
           description: '500'
           content:
             application/json:
               schema:
-                type: object
+                "$ref": "#/components/schemas/error-response"
       description: Return logs for the vLLM deployment (deploy/<release-name>--deployment-vllm).
         Optional ?stream=true to request streaming (may not be supported).
       parameters:

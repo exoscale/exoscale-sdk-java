@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-11-04T07:07:29.327362571Z[Etc/UTC]
+- Build date: 2025-11-05T07:09:22.141600487Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-21697fc</version>
+    <version>0.0.5-SNAPSHOT-99891f0</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-21697fc'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-99891f0'
 }
 ```
 
@@ -547,6 +547,7 @@ Class | Method | HTTP request | Description
  - [DbaasUserOpensearchSecrets](sdk/docs/DbaasUserOpensearchSecrets.md)
  - [DbaasUserPostgresSecrets](sdk/docs/DbaasUserPostgresSecrets.md)
  - [DbaasUserValkeySecrets](sdk/docs/DbaasUserValkeySecrets.md)
+ - [DeleteModelConflictResponse](sdk/docs/DeleteModelConflictResponse.md)
  - [DeployTarget](sdk/docs/DeployTarget.md)
  - [DetachDbaasServiceFromEndpointRequest](sdk/docs/DetachDbaasServiceFromEndpointRequest.md)
  - [DetachInstanceFromPrivateNetworkRequest](sdk/docs/DetachInstanceFromPrivateNetworkRequest.md)
@@ -576,6 +577,7 @@ Class | Method | HTTP request | Description
  - [EnvImpactReport](sdk/docs/EnvImpactReport.md)
  - [EnvMetadataEntry](sdk/docs/EnvMetadataEntry.md)
  - [EnvProduct](sdk/docs/EnvProduct.md)
+ - [ErrorResponse](sdk/docs/ErrorResponse.md)
  - [Event](sdk/docs/Event.md)
  - [EvictInstancePoolMembersRequest](sdk/docs/EvictInstancePoolMembersRequest.md)
  - [EvictSksNodepoolMembersRequest](sdk/docs/EvictSksNodepoolMembersRequest.md)
