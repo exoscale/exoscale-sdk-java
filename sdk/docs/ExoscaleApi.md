@@ -245,7 +245,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDbaasOpensearchUserPassword**](ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user |
 | [**revealDbaasPostgresUserPassword**](ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
 | [**revealDbaasValkeyUserPassword**](ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user |
-| [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Get Deployment API Key |
+| [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
@@ -3886,7 +3886,7 @@ No authorization required
 
 [BETA] Create Deployment
 
-
+Deploy a model on an inference server
 
 ### Example
 
@@ -4627,7 +4627,7 @@ No authorization required
 
 [BETA] Create Model
 
-
+Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
 
 ### Example
 
@@ -17621,7 +17621,7 @@ No authorization required
 
 ## listDeployments
 
-> List<ListDeploymentsResponseInner> listDeployments()
+> ListDeploymentsResponse listDeployments()
 
 [BETA] List Deployments
 
@@ -17643,7 +17643,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            List<ListDeploymentsResponseInner> result = client.listDeployments();
+            ListDeploymentsResponse result = client.listDeployments();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDeployments");
@@ -17662,7 +17662,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ListDeploymentsResponseInner&gt;**](ListDeploymentsResponseInner.md)
+[**ListDeploymentsResponse**](ListDeploymentsResponse.md)
 
 
 ### Authorization
@@ -17686,7 +17686,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiResponse<[**List&lt;ListDeploymentsResponseInner&gt;**](ListDeploymentsResponseInner.md)>
+ApiResponse<[**ListDeploymentsResponse**](ListDeploymentsResponse.md)>
 
 
 ### Authorization
@@ -18501,7 +18501,7 @@ No authorization required
 
 ## listModels
 
-> List<ListModelsResponseInner> listModels()
+> ListModelsResponse listModels()
 
 [BETA] List Models
 
@@ -18523,7 +18523,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            List<ListModelsResponseInner> result = client.listModels();
+            ListModelsResponse result = client.listModels();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listModels");
@@ -18542,7 +18542,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;ListModelsResponseInner&gt;**](ListModelsResponseInner.md)
+[**ListModelsResponse**](ListModelsResponse.md)
 
 
 ### Authorization
@@ -18566,7 +18566,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-ApiResponse<[**List&lt;ListModelsResponseInner&gt;**](ListModelsResponseInner.md)>
+ApiResponse<[**ListModelsResponse**](ListModelsResponse.md)>
 
 
 ### Authorization
@@ -22466,7 +22466,7 @@ No authorization required
 
 > RevealDeploymentApiKeyResponse revealDeploymentApiKey(id)
 
-[BETA] Get Deployment API Key
+[BETA] Reveal Deployment API Key
 
 
 

@@ -19,54 +19,67 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ListDeploymentsResponseEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Error
+ * AI model list
  */
 @JsonPropertyOrder({
-  ErrorResponse.JSON_PROPERTY_ERROR
+  ListDeploymentsResponse.JSON_PROPERTY_DEPLOYMENTS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ErrorResponse {
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+public class ListDeploymentsResponse {
+  public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
+  private List<ListDeploymentsResponseEntry> deployments;
 
-  public ErrorResponse() { 
+  public ListDeploymentsResponse() { 
   }
 
-  @JsonCreator
-  public ErrorResponse(
-    @JsonProperty(JSON_PROPERTY_ERROR) String error
-  ) {
-  this();
-    this.error = error;
+  public ListDeploymentsResponse deployments(List<ListDeploymentsResponseEntry> deployments) {
+    this.deployments = deployments;
+    return this;
+  }
+
+  public ListDeploymentsResponse addDeploymentsItem(ListDeploymentsResponseEntry deploymentsItem) {
+    if (this.deployments == null) {
+      this.deployments = new ArrayList<>();
+    }
+    this.deployments.add(deploymentsItem);
+    return this;
   }
 
    /**
-   * Error description
-   * @return error
+   * Get deployments
+   * @return deployments
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getError() {
-    return error;
+  public List<ListDeploymentsResponseEntry> getDeployments() {
+    return deployments;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeployments(List<ListDeploymentsResponseEntry> deployments) {
+    this.deployments = deployments;
+  }
 
 
   /**
-   * Return true if this error-response object is equal to o.
+   * Return true if this list-deployments-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -76,20 +89,20 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.error, errorResponse.error);
+    ListDeploymentsResponse listDeploymentsResponse = (ListDeploymentsResponse) o;
+    return Objects.equals(this.deployments, listDeploymentsResponse.deployments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error);
+    return Objects.hash(deployments);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("class ListDeploymentsResponse {\n");
+    sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,9 +150,14 @@ public class ErrorResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `error` to the URL query string
-    if (getError() != null) {
-      joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `deployments` to the URL query string
+    if (getDeployments() != null) {
+      for (int i = 0; i < getDeployments().size(); i++) {
+        if (getDeployments().get(i) != null) {
+          joiner.add(getDeployments().get(i).toUrlQueryString(String.format("%sdeployments%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

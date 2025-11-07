@@ -25,48 +25,80 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Error
+ * ModelRef
  */
 @JsonPropertyOrder({
-  ErrorResponse.JSON_PROPERTY_ERROR
+  ModelRef.JSON_PROPERTY_ID,
+  ModelRef.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ErrorResponse {
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+public class ModelRef {
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
-  public ErrorResponse() { 
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public ModelRef() { 
   }
 
-  @JsonCreator
-  public ErrorResponse(
-    @JsonProperty(JSON_PROPERTY_ERROR) String error
-  ) {
-  this();
-    this.error = error;
+  public ModelRef id(UUID id) {
+    this.id = id;
+    return this;
   }
 
    /**
-   * Error description
-   * @return error
+   * Associated model ID
+   * @return id
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getError() {
-    return error;
+  public UUID getId() {
+    return id;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public ModelRef name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Associated model name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
 
 
   /**
-   * Return true if this error-response object is equal to o.
+   * Return true if this model-ref object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -76,20 +108,22 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.error, errorResponse.error);
+    ModelRef modelRef = (ModelRef) o;
+    return Objects.equals(this.id, modelRef.id) &&
+        Objects.equals(this.name, modelRef.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error);
+    return Objects.hash(id, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("class ModelRef {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,9 +171,14 @@ public class ErrorResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `error` to the URL query string
-    if (getError() != null) {
-      joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

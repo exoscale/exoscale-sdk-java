@@ -282,7 +282,8 @@ docs/ListDbaasIntegrationTypes200Response.md
 docs/ListDbaasServiceTypes200Response.md
 docs/ListDbaasServices200Response.md
 docs/ListDeployTargets200Response.md
-docs/ListDeploymentsResponseInner.md
+docs/ListDeploymentsResponse.md
+docs/ListDeploymentsResponseEntry.md
 docs/ListDnsDomainRecords200Response.md
 docs/ListDnsDomains200Response.md
 docs/ListElasticIps200Response.md
@@ -293,7 +294,8 @@ docs/ListInstances200Response.md
 docs/ListInstances200ResponseInstancesInner.md
 docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md
 docs/ListLoadBalancers200Response.md
-docs/ListModelsResponseInner.md
+docs/ListModelsResponse.md
+docs/ListModelsResponseEntry.md
 docs/ListPrivateNetworks200Response.md
 docs/ListQuotas200Response.md
 docs/ListSecurityGroups200Response.md
@@ -310,6 +312,7 @@ docs/LoadBalancerServerStatus.md
 docs/LoadBalancerService.md
 docs/LoadBalancerServiceHealthcheck.md
 docs/Manager.md
+docs/ModelRef.md
 docs/Networking.md
 docs/NodeDuressSettings.md
 docs/OpensearchEmailSenderSettings.md
@@ -702,7 +705,8 @@ src/main/java/com/exoscale/sdk/model/ListDbaasIntegrationTypes200Response.java
 src/main/java/com/exoscale/sdk/model/ListDbaasServiceTypes200Response.java
 src/main/java/com/exoscale/sdk/model/ListDbaasServices200Response.java
 src/main/java/com/exoscale/sdk/model/ListDeployTargets200Response.java
-src/main/java/com/exoscale/sdk/model/ListDeploymentsResponseInner.java
+src/main/java/com/exoscale/sdk/model/ListDeploymentsResponse.java
+src/main/java/com/exoscale/sdk/model/ListDeploymentsResponseEntry.java
 src/main/java/com/exoscale/sdk/model/ListDnsDomainRecords200Response.java
 src/main/java/com/exoscale/sdk/model/ListDnsDomains200Response.java
 src/main/java/com/exoscale/sdk/model/ListElasticIps200Response.java
@@ -713,7 +717,8 @@ src/main/java/com/exoscale/sdk/model/ListInstances200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstances200ResponseInstancesInner.java
 src/main/java/com/exoscale/sdk/model/ListInstances200ResponseInstancesInnerPrivateNetworksInner.java
 src/main/java/com/exoscale/sdk/model/ListLoadBalancers200Response.java
-src/main/java/com/exoscale/sdk/model/ListModelsResponseInner.java
+src/main/java/com/exoscale/sdk/model/ListModelsResponse.java
+src/main/java/com/exoscale/sdk/model/ListModelsResponseEntry.java
 src/main/java/com/exoscale/sdk/model/ListPrivateNetworks200Response.java
 src/main/java/com/exoscale/sdk/model/ListQuotas200Response.java
 src/main/java/com/exoscale/sdk/model/ListSecurityGroups200Response.java
@@ -730,6 +735,7 @@ src/main/java/com/exoscale/sdk/model/LoadBalancerServerStatus.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerService.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServiceHealthcheck.java
 src/main/java/com/exoscale/sdk/model/Manager.java
+src/main/java/com/exoscale/sdk/model/ModelRef.java
 src/main/java/com/exoscale/sdk/model/Networking.java
 src/main/java/com/exoscale/sdk/model/NodeDuressSettings.java
 src/main/java/com/exoscale/sdk/model/OpensearchEmailSenderSettings.java

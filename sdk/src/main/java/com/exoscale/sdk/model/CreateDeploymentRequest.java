@@ -19,21 +19,21 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI deployment
+ * Deployment an AI model onto a set of GPUs
  */
 @JsonPropertyOrder({
-  CreateDeploymentRequest.JSON_PROPERTY_MODEL_ID,
+  CreateDeploymentRequest.JSON_PROPERTY_MODEL,
   CreateDeploymentRequest.JSON_PROPERTY_NAME,
   CreateDeploymentRequest.JSON_PROPERTY_GPU_TYPE,
   CreateDeploymentRequest.JSON_PROPERTY_GPU_COUNT,
@@ -41,8 +41,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateDeploymentRequest {
-  public static final String JSON_PROPERTY_MODEL_ID = "model-id";
-  private UUID modelId;
+  public static final String JSON_PROPERTY_MODEL = "model";
+  private ModelRef model;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -59,28 +59,28 @@ public class CreateDeploymentRequest {
   public CreateDeploymentRequest() { 
   }
 
-  public CreateDeploymentRequest modelId(UUID modelId) {
-    this.modelId = modelId;
+  public CreateDeploymentRequest model(ModelRef model) {
+    this.model = model;
     return this;
   }
 
    /**
-   * Associated model ID
-   * @return modelId
+   * Get model
+   * @return model
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODEL_ID)
+  @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getModelId() {
-    return modelId;
+  public ModelRef getModel() {
+    return model;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODEL_ID)
+  @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModelId(UUID modelId) {
-    this.modelId = modelId;
+  public void setModel(ModelRef model) {
+    this.model = model;
   }
 
 
@@ -198,7 +198,7 @@ public class CreateDeploymentRequest {
       return false;
     }
     CreateDeploymentRequest createDeploymentRequest = (CreateDeploymentRequest) o;
-    return Objects.equals(this.modelId, createDeploymentRequest.modelId) &&
+    return Objects.equals(this.model, createDeploymentRequest.model) &&
         Objects.equals(this.name, createDeploymentRequest.name) &&
         Objects.equals(this.gpuType, createDeploymentRequest.gpuType) &&
         Objects.equals(this.gpuCount, createDeploymentRequest.gpuCount) &&
@@ -207,14 +207,14 @@ public class CreateDeploymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelId, name, gpuType, gpuCount, replicas);
+    return Objects.hash(model, name, gpuType, gpuCount, replicas);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDeploymentRequest {\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
     sb.append("    gpuCount: ").append(toIndentedString(gpuCount)).append("\n");
@@ -266,9 +266,9 @@ public class CreateDeploymentRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `model-id` to the URL query string
-    if (getModelId() != null) {
-      joiner.add(String.format("%smodel-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getModelId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `model` to the URL query string
+    if (getModel() != null) {
+      joiner.add(getModel().toUrlQueryString(prefix + "model" + suffix));
     }
 
     // add `name` to the URL query string

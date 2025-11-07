@@ -26,17 +26,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ListModelsResponseInner
+ * Model tests for ListModelsResponseEntry
  */
-public class ListModelsResponseInnerTest {
-    private final ListModelsResponseInner model = new ListModelsResponseInner();
+public class ListModelsResponseEntryTest {
+    private final ListModelsResponseEntry model = new ListModelsResponseEntry();
 
     /**
-     * Model tests for ListModelsResponseInner
+     * Model tests for ListModelsResponseEntry
      */
     @Test
-    public void testListModelsResponseInner() {
-        // TODO: test ListModelsResponseInner
+    public void testListModelsResponseEntry() {
+        // TODO: test ListModelsResponseEntry
     }
 
     /**
@@ -45,14 +45,6 @@ public class ListModelsResponseInnerTest {
     @Test
     public void idTest() {
         // TODO: test id
-    }
-
-    /**
-     * Test the property 'organizationId'
-     */
-    @Test
-    public void organizationIdTest() {
-        // TODO: test organizationId
     }
 
     /**

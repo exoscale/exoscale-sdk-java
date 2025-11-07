@@ -13,69 +13,39 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ModelRef;
+import com.exoscale.sdk.model.ListModelsResponseEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateDeploymentRequest
+ * Model tests for ListModelsResponse
  */
-public class CreateDeploymentRequestTest {
-    private final CreateDeploymentRequest model = new CreateDeploymentRequest();
+public class ListModelsResponseTest {
+    private final ListModelsResponse model = new ListModelsResponse();
 
     /**
-     * Model tests for CreateDeploymentRequest
+     * Model tests for ListModelsResponse
      */
     @Test
-    public void testCreateDeploymentRequest() {
-        // TODO: test CreateDeploymentRequest
+    public void testListModelsResponse() {
+        // TODO: test ListModelsResponse
     }
 
     /**
-     * Test the property 'model'
+     * Test the property 'models'
      */
     @Test
-    public void modelTest() {
-        // TODO: test model
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
-     * Test the property 'gpuType'
-     */
-    @Test
-    public void gpuTypeTest() {
-        // TODO: test gpuType
-    }
-
-    /**
-     * Test the property 'gpuCount'
-     */
-    @Test
-    public void gpuCountTest() {
-        // TODO: test gpuCount
-    }
-
-    /**
-     * Test the property 'replicas'
-     */
-    @Test
-    public void replicasTest() {
-        // TODO: test replicas
+    public void modelsTest() {
+        // TODO: test models
     }
 
 }

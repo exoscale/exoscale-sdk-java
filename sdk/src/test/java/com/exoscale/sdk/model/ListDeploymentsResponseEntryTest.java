@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,17 +27,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ListDeploymentsResponseInner
+ * Model tests for ListDeploymentsResponseEntry
  */
-public class ListDeploymentsResponseInnerTest {
-    private final ListDeploymentsResponseInner model = new ListDeploymentsResponseInner();
+public class ListDeploymentsResponseEntryTest {
+    private final ListDeploymentsResponseEntry model = new ListDeploymentsResponseEntry();
 
     /**
-     * Model tests for ListDeploymentsResponseInner
+     * Model tests for ListDeploymentsResponseEntry
      */
     @Test
-    public void testListDeploymentsResponseInner() {
-        // TODO: test ListDeploymentsResponseInner
+    public void testListDeploymentsResponseEntry() {
+        // TODO: test ListDeploymentsResponseEntry
+    }
+
+    /**
+     * Test the property 'gpuCount'
+     */
+    @Test
+    public void gpuCountTest() {
+        // TODO: test gpuCount
     }
 
     /**
@@ -56,14 +65,6 @@ public class ListDeploymentsResponseInnerTest {
     }
 
     /**
-     * Test the property 'modelId'
-     */
-    @Test
-    public void modelIdTest() {
-        // TODO: test modelId
-    }
-
-    /**
      * Test the property 'serviceLevel'
      */
     @Test
@@ -80,27 +81,11 @@ public class ListDeploymentsResponseInnerTest {
     }
 
     /**
-     * Test the property 'endpointUrl'
+     * Test the property 'gpuType'
      */
     @Test
-    public void endpointUrlTest() {
-        // TODO: test endpointUrl
-    }
-
-    /**
-     * Test the property 'instanceType'
-     */
-    @Test
-    public void instanceTypeTest() {
-        // TODO: test instanceType
-    }
-
-    /**
-     * Test the property 'organizationId'
-     */
-    @Test
-    public void organizationIdTest() {
-        // TODO: test organizationId
+    public void gpuTypeTest() {
+        // TODO: test gpuType
     }
 
     /**
@@ -133,6 +118,14 @@ public class ListDeploymentsResponseInnerTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'model'
+     */
+    @Test
+    public void modelTest() {
+        // TODO: test model
     }
 
 }

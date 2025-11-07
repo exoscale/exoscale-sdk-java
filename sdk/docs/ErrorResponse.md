@@ -8,7 +8,7 @@ Error
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**error** | **String** | Error description |  [optional] |
+|**error** | **String** | Error description |  [optional] [readonly] |
 
 
 

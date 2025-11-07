@@ -2,13 +2,13 @@
 
 # CreateDeploymentRequest
 
-AI deployment
+Deployment an AI model onto a set of GPUs
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**modelId** | **UUID** | Associated model ID |  [optional] |
+|**model** | [**ModelRef**](ModelRef.md) |  |  [optional] |
 |**name** | **String** | Deployment name |  [optional] |
 |**gpuType** | **String** | GPU type family (e.g., gpua5000, gpu3080ti) |  |
 |**gpuCount** | **Long** | Number of GPUs (1-8) |  |

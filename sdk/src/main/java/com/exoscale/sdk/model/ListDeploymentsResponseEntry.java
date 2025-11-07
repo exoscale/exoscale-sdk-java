@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,29 +35,28 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AI deployment
  */
 @JsonPropertyOrder({
-  ListDeploymentsResponseInner.JSON_PROPERTY_UPDATED_AT,
-  ListDeploymentsResponseInner.JSON_PROPERTY_DEPLOYMENT_URL,
-  ListDeploymentsResponseInner.JSON_PROPERTY_MODEL_ID,
-  ListDeploymentsResponseInner.JSON_PROPERTY_SERVICE_LEVEL,
-  ListDeploymentsResponseInner.JSON_PROPERTY_NAME,
-  ListDeploymentsResponseInner.JSON_PROPERTY_ENDPOINT_URL,
-  ListDeploymentsResponseInner.JSON_PROPERTY_INSTANCE_TYPE,
-  ListDeploymentsResponseInner.JSON_PROPERTY_ORGANIZATION_ID,
-  ListDeploymentsResponseInner.JSON_PROPERTY_STATUS,
-  ListDeploymentsResponseInner.JSON_PROPERTY_ID,
-  ListDeploymentsResponseInner.JSON_PROPERTY_REPLICAS,
-  ListDeploymentsResponseInner.JSON_PROPERTY_CREATED_AT
+  ListDeploymentsResponseEntry.JSON_PROPERTY_GPU_COUNT,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_UPDATED_AT,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_DEPLOYMENT_URL,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_SERVICE_LEVEL,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_NAME,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_GPU_TYPE,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_STATUS,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_ID,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_REPLICAS,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_CREATED_AT,
+  ListDeploymentsResponseEntry.JSON_PROPERTY_MODEL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ListDeploymentsResponseInner {
+public class ListDeploymentsResponseEntry {
+  public static final String JSON_PROPERTY_GPU_COUNT = "gpu-count";
+  private Long gpuCount;
+
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
   public static final String JSON_PROPERTY_DEPLOYMENT_URL = "deployment-url";
   private String deploymentUrl;
-
-  public static final String JSON_PROPERTY_MODEL_ID = "model-id";
-  private UUID modelId;
 
   public static final String JSON_PROPERTY_SERVICE_LEVEL = "service-level";
   private String serviceLevel;
@@ -64,17 +64,50 @@ public class ListDeploymentsResponseInner {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_ENDPOINT_URL = "endpoint-url";
-  private String endpointUrl;
+  public static final String JSON_PROPERTY_GPU_TYPE = "gpu-type";
+  private String gpuType;
 
-  public static final String JSON_PROPERTY_INSTANCE_TYPE = "instance-type";
-  private String instanceType;
+  /**
+   * Deployment status
+   */
+  public enum StatusEnum {
+    READY("ready"),
+    
+    CREATING("creating"),
+    
+    ERROR("error"),
+    
+    DEPLOYING("deploying");
 
-  public static final String JSON_PROPERTY_ORGANIZATION_ID = "organization-id";
-  private UUID organizationId;
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
+  private StatusEnum status;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -85,11 +118,14 @@ public class ListDeploymentsResponseInner {
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
-  public ListDeploymentsResponseInner() { 
+  public static final String JSON_PROPERTY_MODEL = "model";
+  private ModelRef model;
+
+  public ListDeploymentsResponseEntry() { 
   }
 
   @JsonCreator
-  public ListDeploymentsResponseInner(
+  public ListDeploymentsResponseEntry(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
@@ -99,6 +135,32 @@ public class ListDeploymentsResponseInner {
     this.id = id;
     this.createdAt = createdAt;
   }
+
+  public ListDeploymentsResponseEntry gpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
+    return this;
+  }
+
+   /**
+   * Number of GPUs
+   * minimum: 0
+   * @return gpuCount
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getGpuCount() {
+    return gpuCount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
+  }
+
 
    /**
    * Update time
@@ -115,7 +177,7 @@ public class ListDeploymentsResponseInner {
 
 
 
-  public ListDeploymentsResponseInner deploymentUrl(String deploymentUrl) {
+  public ListDeploymentsResponseEntry deploymentUrl(String deploymentUrl) {
     this.deploymentUrl = deploymentUrl;
     return this;
   }
@@ -140,32 +202,7 @@ public class ListDeploymentsResponseInner {
   }
 
 
-  public ListDeploymentsResponseInner modelId(UUID modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-   /**
-   * Associated model ID
-   * @return modelId
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODEL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getModelId() {
-    return modelId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MODEL_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModelId(UUID modelId) {
-    this.modelId = modelId;
-  }
-
-
-  public ListDeploymentsResponseInner serviceLevel(String serviceLevel) {
+  public ListDeploymentsResponseEntry serviceLevel(String serviceLevel) {
     this.serviceLevel = serviceLevel;
     return this;
   }
@@ -190,7 +227,7 @@ public class ListDeploymentsResponseInner {
   }
 
 
-  public ListDeploymentsResponseInner name(String name) {
+  public ListDeploymentsResponseEntry name(String name) {
     this.name = name;
     return this;
   }
@@ -215,82 +252,32 @@ public class ListDeploymentsResponseInner {
   }
 
 
-  public ListDeploymentsResponseInner endpointUrl(String endpointUrl) {
-    this.endpointUrl = endpointUrl;
+  public ListDeploymentsResponseEntry gpuType(String gpuType) {
+    this.gpuType = gpuType;
     return this;
   }
 
    /**
-   * Endpoint URL (nullable)
-   * @return endpointUrl
+   * GPU type family
+   * @return gpuType
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL)
+  @JsonProperty(JSON_PROPERTY_GPU_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getEndpointUrl() {
-    return endpointUrl;
+  public String getGpuType() {
+    return gpuType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENDPOINT_URL)
+  @JsonProperty(JSON_PROPERTY_GPU_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndpointUrl(String endpointUrl) {
-    this.endpointUrl = endpointUrl;
+  public void setGpuType(String gpuType) {
+    this.gpuType = gpuType;
   }
 
 
-  public ListDeploymentsResponseInner instanceType(String instanceType) {
-    this.instanceType = instanceType;
-    return this;
-  }
-
-   /**
-   * Instance type
-   * @return instanceType
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getInstanceType() {
-    return instanceType;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstanceType(String instanceType) {
-    this.instanceType = instanceType;
-  }
-
-
-  public ListDeploymentsResponseInner organizationId(UUID organizationId) {
-    this.organizationId = organizationId;
-    return this;
-  }
-
-   /**
-   * Organization ID
-   * @return organizationId
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORGANIZATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getOrganizationId() {
-    return organizationId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ORGANIZATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrganizationId(UUID organizationId) {
-    this.organizationId = organizationId;
-  }
-
-
-  public ListDeploymentsResponseInner status(String status) {
+  public ListDeploymentsResponseEntry status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -303,14 +290,14 @@ public class ListDeploymentsResponseInner {
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
@@ -330,7 +317,7 @@ public class ListDeploymentsResponseInner {
 
 
 
-  public ListDeploymentsResponseInner replicas(Long replicas) {
+  public ListDeploymentsResponseEntry replicas(Long replicas) {
     this.replicas = replicas;
     return this;
   }
@@ -371,8 +358,33 @@ public class ListDeploymentsResponseInner {
 
 
 
+  public ListDeploymentsResponseEntry model(ModelRef model) {
+    this.model = model;
+    return this;
+  }
+
+   /**
+   * Get model
+   * @return model
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ModelRef getModel() {
+    return model;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setModel(ModelRef model) {
+    this.model = model;
+  }
+
+
   /**
-   * Return true if this list_deployments_response_inner object is equal to o.
+   * Return true if this list-deployments-response-entry object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -382,42 +394,40 @@ public class ListDeploymentsResponseInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListDeploymentsResponseInner listDeploymentsResponseInner = (ListDeploymentsResponseInner) o;
-    return Objects.equals(this.updatedAt, listDeploymentsResponseInner.updatedAt) &&
-        Objects.equals(this.deploymentUrl, listDeploymentsResponseInner.deploymentUrl) &&
-        Objects.equals(this.modelId, listDeploymentsResponseInner.modelId) &&
-        Objects.equals(this.serviceLevel, listDeploymentsResponseInner.serviceLevel) &&
-        Objects.equals(this.name, listDeploymentsResponseInner.name) &&
-        Objects.equals(this.endpointUrl, listDeploymentsResponseInner.endpointUrl) &&
-        Objects.equals(this.instanceType, listDeploymentsResponseInner.instanceType) &&
-        Objects.equals(this.organizationId, listDeploymentsResponseInner.organizationId) &&
-        Objects.equals(this.status, listDeploymentsResponseInner.status) &&
-        Objects.equals(this.id, listDeploymentsResponseInner.id) &&
-        Objects.equals(this.replicas, listDeploymentsResponseInner.replicas) &&
-        Objects.equals(this.createdAt, listDeploymentsResponseInner.createdAt);
+    ListDeploymentsResponseEntry listDeploymentsResponseEntry = (ListDeploymentsResponseEntry) o;
+    return Objects.equals(this.gpuCount, listDeploymentsResponseEntry.gpuCount) &&
+        Objects.equals(this.updatedAt, listDeploymentsResponseEntry.updatedAt) &&
+        Objects.equals(this.deploymentUrl, listDeploymentsResponseEntry.deploymentUrl) &&
+        Objects.equals(this.serviceLevel, listDeploymentsResponseEntry.serviceLevel) &&
+        Objects.equals(this.name, listDeploymentsResponseEntry.name) &&
+        Objects.equals(this.gpuType, listDeploymentsResponseEntry.gpuType) &&
+        Objects.equals(this.status, listDeploymentsResponseEntry.status) &&
+        Objects.equals(this.id, listDeploymentsResponseEntry.id) &&
+        Objects.equals(this.replicas, listDeploymentsResponseEntry.replicas) &&
+        Objects.equals(this.createdAt, listDeploymentsResponseEntry.createdAt) &&
+        Objects.equals(this.model, listDeploymentsResponseEntry.model);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, deploymentUrl, modelId, serviceLevel, name, endpointUrl, instanceType, organizationId, status, id, replicas, createdAt);
+    return Objects.hash(gpuCount, updatedAt, deploymentUrl, serviceLevel, name, gpuType, status, id, replicas, createdAt, model);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListDeploymentsResponseInner {\n");
+    sb.append("class ListDeploymentsResponseEntry {\n");
+    sb.append("    gpuCount: ").append(toIndentedString(gpuCount)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    deploymentUrl: ").append(toIndentedString(deploymentUrl)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    serviceLevel: ").append(toIndentedString(serviceLevel)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    endpointUrl: ").append(toIndentedString(endpointUrl)).append("\n");
-    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
+    sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -465,6 +475,11 @@ public class ListDeploymentsResponseInner {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `gpu-count` to the URL query string
+    if (getGpuCount() != null) {
+      joiner.add(String.format("%sgpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `updated-at` to the URL query string
     if (getUpdatedAt() != null) {
       joiner.add(String.format("%supdated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -473,11 +488,6 @@ public class ListDeploymentsResponseInner {
     // add `deployment-url` to the URL query string
     if (getDeploymentUrl() != null) {
       joiner.add(String.format("%sdeployment-url%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeploymentUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `model-id` to the URL query string
-    if (getModelId() != null) {
-      joiner.add(String.format("%smodel-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getModelId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `service-level` to the URL query string
@@ -490,19 +500,9 @@ public class ListDeploymentsResponseInner {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `endpoint-url` to the URL query string
-    if (getEndpointUrl() != null) {
-      joiner.add(String.format("%sendpoint-url%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEndpointUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `instance-type` to the URL query string
-    if (getInstanceType() != null) {
-      joiner.add(String.format("%sinstance-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInstanceType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `organization-id` to the URL query string
-    if (getOrganizationId() != null) {
-      joiner.add(String.format("%sorganization-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `gpu-type` to the URL query string
+    if (getGpuType() != null) {
+      joiner.add(String.format("%sgpu-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
@@ -523,6 +523,11 @@ public class ListDeploymentsResponseInner {
     // add `created-at` to the URL query string
     if (getCreatedAt() != null) {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `model` to the URL query string
+    if (getModel() != null) {
+      joiner.add(getModel().toUrlQueryString(prefix + "model" + suffix));
     }
 
     return joiner.toString();

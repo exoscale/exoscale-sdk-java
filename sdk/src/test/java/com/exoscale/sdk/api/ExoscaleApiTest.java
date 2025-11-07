@@ -145,7 +145,7 @@ import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServices200Response;
 import com.exoscale.sdk.model.ListDeployTargets200Response;
-import com.exoscale.sdk.model.ListDeploymentsResponseInner;
+import com.exoscale.sdk.model.ListDeploymentsResponse;
 import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
@@ -154,7 +154,7 @@ import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
-import com.exoscale.sdk.model.ListModelsResponseInner;
+import com.exoscale.sdk.model.ListModelsResponse;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
 import com.exoscale.sdk.model.ListQuotas200Response;
 import com.exoscale.sdk.model.ListSecurityGroups200Response;
@@ -926,7 +926,7 @@ public class ExoscaleApiTest {
     /**
      * [BETA] Create Deployment
      *
-     * 
+     * Deploy a model on an inference server
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1063,7 +1063,7 @@ public class ExoscaleApiTest {
     /**
      * [BETA] Create Model
      *
-     * 
+     * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3500,7 +3500,7 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listDeploymentsTest() throws ApiException {
-        List<ListDeploymentsResponseInner> response = 
+        ListDeploymentsResponse response = 
         api.listDeployments();
         
         // TODO: test validations
@@ -3666,7 +3666,7 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listModelsTest() throws ApiException {
-        List<ListModelsResponseInner> response = 
+        ListModelsResponse response = 
         api.listModels();
         
         // TODO: test validations
@@ -4409,7 +4409,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get Deployment API Key
+     * [BETA] Reveal Deployment API Key
      *
      * 
      *

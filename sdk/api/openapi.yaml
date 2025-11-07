@@ -1072,7 +1072,12 @@ paths:
       - exoscale
       x-accepts: application/json
     post:
-      description: ""
+      description: |-
+        Model files will be downloaded from Huggingface.
+
+        Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).
+
+        If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
       operationId: create-model
       parameters: []
       requestBody:
@@ -1595,7 +1600,7 @@ paths:
       - exoscale
       x-accepts: application/json
     post:
-      description: ""
+      description: Deploy a model on an inference server
       operationId: create-deployment
       parameters: []
       requestBody:
@@ -7484,7 +7489,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/reveal-deployment-api-key-response'
           description: "200"
-      summary: "[BETA] Get Deployment API Key"
+      summary: "[BETA] Reveal Deployment API Key"
       tags:
       - exoscale
       x-accepts: application/json
@@ -8164,6 +8169,20 @@ components:
       - datadog
       - elasticsearch
       type: string
+    model-ref:
+      example:
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: Associated model ID
+          format: uuid
+          type: string
+        name:
+          description: Associated model name
+          minLength: 1
+          type: string
+      type: object
     dbaas-pg-pool-size:
       exclusiveMaximum: false
       exclusiveMinimum: false
@@ -16491,6 +16510,7 @@ components:
       properties:
         error:
           description: Error description
+          readOnly: true
           type: string
       type: object
     enum-kafka-auth-method:
@@ -17710,9 +17730,27 @@ components:
           $ref: '#/components/schemas/dbaas_external_endpoint_datadog_output_settings'
       type: object
     list-models-response:
-      items:
-        $ref: '#/components/schemas/list_models_response_inner'
-      type: array
+      description: AI model list
+      example:
+        models:
+        - model-size: 0
+          updated-at: 2000-01-23T04:56:07.000+00:00
+          name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ready
+        - model-size: 0
+          updated-at: 2000-01-23T04:56:07.000+00:00
+          name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ready
+      properties:
+        models:
+          items:
+            $ref: '#/components/schemas/list-models-response-entry'
+          type: array
+      type: object
     sos-bucket-usage:
       description: SOS Bucket usage
       example:
@@ -18182,6 +18220,76 @@ components:
       maxLength: 63
       minLength: 0
       type: string
+    list-deployments-response-entry:
+      description: AI deployment
+      example:
+        gpu-type: gpu-type
+        service-level: service-level
+        replicas: 0
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        gpu-count: 0
+        name: name
+        created-at: 2000-01-23T04:56:07.000+00:00
+        model:
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        deployment-url: deployment-url
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: ready
+      properties:
+        gpu-count:
+          description: Number of GPUs
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
+        deployment-url:
+          description: Deployment URL (nullable)
+          type: string
+        service-level:
+          description: Service level
+          minLength: 1
+          type: string
+        name:
+          description: Deployment name
+          minLength: 1
+          type: string
+        gpu-type:
+          description: GPU type family
+          minLength: 1
+          type: string
+        status:
+          description: Deployment status
+          enum:
+          - ready
+          - creating
+          - error
+          - deploying
+          type: string
+        id:
+          description: Deployment ID
+          format: uuid
+          readOnly: true
+          type: string
+        replicas:
+          description: Number of replicas (>=0)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        model:
+          $ref: '#/components/schemas/model-ref'
+      type: object
     dbaas-endpoint-elasticsearch-secrets:
       properties:
         ca:
@@ -28378,9 +28486,41 @@ components:
       - down
       type: string
     list-deployments-response:
-      items:
-        $ref: '#/components/schemas/list_deployments_response_inner'
-      type: array
+      description: AI model list
+      example:
+        deployments:
+        - gpu-type: gpu-type
+          service-level: service-level
+          replicas: 0
+          updated-at: 2000-01-23T04:56:07.000+00:00
+          gpu-count: 0
+          name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
+          model:
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deployment-url: deployment-url
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ready
+        - gpu-type: gpu-type
+          service-level: service-level
+          replicas: 0
+          updated-at: 2000-01-23T04:56:07.000+00:00
+          gpu-count: 0
+          name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
+          model:
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          deployment-url: deployment-url
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          status: ready
+      properties:
+        deployments:
+          items:
+            $ref: '#/components/schemas/list-deployments-response-entry'
+          type: array
+      type: object
     anti-affinity-group:
       description: Anti-affinity Group
       example:
@@ -28907,6 +29047,50 @@ components:
       properties:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_rsyslog_input_create_settings'
+      type: object
+    list-models-response-entry:
+      description: AI model
+      example:
+        model-size: 0
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        name: name
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        status: ready
+      properties:
+        id:
+          description: Model ID
+          format: uuid
+          readOnly: true
+          type: string
+        name:
+          description: Model name
+          minLength: 1
+          type: string
+        status:
+          description: Model status
+          enum:
+          - ready
+          - creating
+          - downloading
+          - error
+          type: string
+        model-size:
+          description: Model size (nullable)
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        created-at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        updated-at:
+          description: Update time
+          format: date-time
+          readOnly: true
+          type: string
       type: object
     dbaas-endpoint-opensearch-input-create:
       properties:
@@ -30196,12 +30380,10 @@ components:
           type: string
       type: object
     create-deployment-request:
-      description: AI deployment
+      description: Deployment an AI model onto a set of GPUs
       properties:
-        model-id:
-          description: Associated model ID
-          format: uuid
-          type: string
+        model:
+          $ref: '#/components/schemas/model-ref'
         name:
           description: Deployment name
           minLength: 1
@@ -55001,50 +55183,6 @@ components:
           minimum: 200
           type: integer
       type: object
-    list_models_response_inner:
-      description: AI model
-      example:
-        model-size: 0
-        updated-at: 2000-01-23T04:56:07.000+00:00
-        name: name
-        organization-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        created-at: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        status: status
-      properties:
-        id:
-          description: Model ID
-          format: uuid
-          readOnly: true
-          type: string
-        organization-id:
-          description: Organization ID
-          format: uuid
-          type: string
-        name:
-          description: Model name
-          minLength: 1
-          type: string
-        status:
-          description: Model status
-          type: string
-        model-size:
-          description: Model size (nullable)
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        created-at:
-          description: Creation time
-          format: date-time
-          readOnly: true
-          type: string
-        updated-at:
-          description: Update time
-          format: date-time
-          readOnly: true
-          type: string
-      type: object
     dbaas_endpoint_datadog_input_create_settings:
       properties:
         datadog-api-key:
@@ -55275,73 +55413,6 @@ components:
           maximum: 1024
           minimum: 1
           type: integer
-      type: object
-    list_deployments_response_inner:
-      description: AI deployment
-      example:
-        model-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        service-level: service-level
-        replicas: 0
-        updated-at: 2000-01-23T04:56:07.000+00:00
-        name: name
-        instance-type: instance-type
-        organization-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        created-at: 2000-01-23T04:56:07.000+00:00
-        deployment-url: deployment-url
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        endpoint-url: endpoint-url
-        status: status
-      properties:
-        updated-at:
-          description: Update time
-          format: date-time
-          readOnly: true
-          type: string
-        deployment-url:
-          description: Deployment URL (nullable)
-          type: string
-        model-id:
-          description: Associated model ID
-          format: uuid
-          type: string
-        service-level:
-          description: Service level
-          minLength: 1
-          type: string
-        name:
-          description: Deployment name
-          minLength: 1
-          type: string
-        endpoint-url:
-          description: Endpoint URL (nullable)
-          type: string
-        instance-type:
-          description: Instance type
-          minLength: 1
-          type: string
-        organization-id:
-          description: Organization ID
-          format: uuid
-          type: string
-        status:
-          description: Deployment status
-          type: string
-        id:
-          description: Deployment ID
-          format: uuid
-          readOnly: true
-          type: string
-        replicas:
-          description: Number of replicas (>=0)
-          exclusiveMinimum: false
-          format: int64
-          minimum: 0
-          type: integer
-        created-at:
-          description: Creation time
-          format: date-time
-          readOnly: true
-          type: string
       type: object
     dbaas_endpoint_elasticsearch_input_update_settings:
       properties:

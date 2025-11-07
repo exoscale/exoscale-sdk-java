@@ -326,6 +326,17 @@ components:
       - rsyslog
       - datadog
       - elasticsearch
+    model-ref:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Associated model ID
+        name:
+          type: string
+          minLength: 1
+          description: Associated model name
     dbaas-pg-pool-size:
       type: integer
       format: int64
@@ -4229,6 +4240,7 @@ components:
       properties:
         error:
           type: string
+          readOnly: true
           description: Error description
       description: Error
     enum-kafka-auth-method:
@@ -5273,43 +5285,13 @@ components:
                 when attached to kafka services.
           description: External integration DataDog configuration
     list-models-response:
-      type: array
-      items:
-        type: object
-        properties:
-          id:
-            type: string
-            format: uuid
-            readOnly: true
-            description: Model ID
-          organization-id:
-            type: string
-            format: uuid
-            description: Organization ID
-          name:
-            type: string
-            minLength: 1
-            description: Model name
-          status:
-            type: string
-            description: Model status
-          model-size:
-            type: integer
-            format: int64
-            minimum: 0
-            exclusiveMinimum: false
-            description: Model size (nullable)
-          created-at:
-            type: string
-            format: date-time
-            readOnly: true
-            description: Creation time
-          updated-at:
-            type: string
-            format: date-time
-            readOnly: true
-            description: Update time
-        description: AI model
+      type: object
+      properties:
+        models:
+          type: array
+          items:
+            "$ref": "#/components/schemas/list-models-response-entry"
+      description: AI model list
     sos-bucket-usage:
       type: object
       properties:
@@ -5629,6 +5611,62 @@ components:
       type: string
       maxLength: 63
       minLength: 0
+    list-deployments-response-entry:
+      type: object
+      properties:
+        gpu-count:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: true
+          description: Number of GPUs
+        updated-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Update time
+        deployment-url:
+          type: string
+          description: Deployment URL (nullable)
+        service-level:
+          type: string
+          minLength: 1
+          description: Service level
+        name:
+          type: string
+          minLength: 1
+          description: Deployment name
+        gpu-type:
+          type: string
+          minLength: 1
+          description: GPU type family
+        status:
+          type: string
+          enum:
+          - ready
+          - creating
+          - error
+          - deploying
+          description: Deployment status
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Deployment ID
+        replicas:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: false
+          description: Number of replicas (>=0)
+        created-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Creation time
+        model:
+          "$ref": "#/components/schemas/model-ref"
+      description: AI deployment
     dbaas-endpoint-elasticsearch-secrets:
       type: object
       properties:
@@ -6995,61 +7033,13 @@ components:
       - up
       - down
     list-deployments-response:
-      type: array
-      items:
-        type: object
-        properties:
-          updated-at:
-            type: string
-            format: date-time
-            readOnly: true
-            description: Update time
-          deployment-url:
-            type: string
-            description: Deployment URL (nullable)
-          model-id:
-            type: string
-            format: uuid
-            description: Associated model ID
-          service-level:
-            type: string
-            minLength: 1
-            description: Service level
-          name:
-            type: string
-            minLength: 1
-            description: Deployment name
-          endpoint-url:
-            type: string
-            description: Endpoint URL (nullable)
-          instance-type:
-            type: string
-            minLength: 1
-            description: Instance type
-          organization-id:
-            type: string
-            format: uuid
-            description: Organization ID
-          status:
-            type: string
-            description: Deployment status
-          id:
-            type: string
-            format: uuid
-            readOnly: true
-            description: Deployment ID
-          replicas:
-            type: integer
-            format: int64
-            minimum: 0
-            exclusiveMinimum: false
-            description: Number of replicas (>=0)
-          created-at:
-            type: string
-            format: date-time
-            readOnly: true
-            description: Creation time
-        description: AI deployment
+      type: object
+      properties:
+        deployments:
+          type: array
+          items:
+            "$ref": "#/components/schemas/list-deployments-response-entry"
+      description: AI model list
     anti-affinity-group:
       type: object
       properties:
@@ -7247,6 +7237,43 @@ components:
           - port
           - tls
           - format
+    list-models-response-entry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Model ID
+        name:
+          type: string
+          minLength: 1
+          description: Model name
+        status:
+          type: string
+          enum:
+          - ready
+          - creating
+          - downloading
+          - error
+          description: Model status
+        model-size:
+          type: integer
+          format: int64
+          minimum: 0
+          exclusiveMinimum: false
+          description: Model size (nullable)
+        created-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Creation time
+        updated-at:
+          type: string
+          format: date-time
+          readOnly: true
+          description: Update time
+      description: AI model
     dbaas-endpoint-opensearch-input-create:
       type: object
       properties:
@@ -8716,10 +8743,8 @@ components:
     create-deployment-request:
       type: object
       properties:
-        model-id:
-          type: string
-          format: uuid
-          description: Associated model ID
+        model:
+          "$ref": "#/components/schemas/model-ref"
         name:
           type: string
           minLength: 1
@@ -8742,7 +8767,7 @@ components:
       required:
       - gpu-type
       - gpu-count
-      description: AI deployment
+      description: Deployment an AI model onto a set of GPUs
     enum-migration-method:
       type: string
       enum:
@@ -10164,7 +10189,7 @@ paths:
   "/ai/model":
     post:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -10172,7 +10197,12 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/operation"
-      description: ''
+      description: |-
+        Model files will be downloaded from Huggingface.
+
+        Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).
+
+        If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
       parameters: []
       summary: "[BETA] Create Model"
       requestBody:
@@ -10184,7 +10214,7 @@ paths:
       operationId: create-model
     get:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -10254,7 +10284,7 @@ paths:
   "/ai/deployment/{id}/scale":
     post:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -10879,7 +10909,7 @@ paths:
   "/ai/deployment":
     post:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -10893,7 +10923,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/error-response"
-      description: ''
+      description: Deploy a model on an inference server
       parameters: []
       summary: "[BETA] Create Deployment"
       requestBody:
@@ -10905,7 +10935,7 @@ paths:
       operationId: create-deployment
     get:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -12071,7 +12101,7 @@ paths:
   "/ai/deployment/{id}":
     delete:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -14659,7 +14689,7 @@ paths:
   "/ai/model/{id}":
     delete:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -18526,7 +18556,7 @@ paths:
   "/ai/deployment/{id}/api-key":
     get:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'
@@ -18542,7 +18572,7 @@ paths:
         schema:
           type: string
           format: uuid
-      summary: "[BETA] Get Deployment API Key"
+      summary: "[BETA] Reveal Deployment API Key"
       operationId: reveal-deployment-api-key
   "/anti-affinity-group/{id}":
     get:
@@ -18961,7 +18991,7 @@ paths:
   "/ai/deployment/{id}/logs":
     get:
       tags:
-      - aiservices
+      - dedicated-inference
       responses:
         '200':
           description: '200'

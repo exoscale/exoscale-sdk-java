@@ -19,54 +19,67 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ListModelsResponseEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Error
+ * AI model list
  */
 @JsonPropertyOrder({
-  ErrorResponse.JSON_PROPERTY_ERROR
+  ListModelsResponse.JSON_PROPERTY_MODELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ErrorResponse {
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+public class ListModelsResponse {
+  public static final String JSON_PROPERTY_MODELS = "models";
+  private List<ListModelsResponseEntry> models;
 
-  public ErrorResponse() { 
+  public ListModelsResponse() { 
   }
 
-  @JsonCreator
-  public ErrorResponse(
-    @JsonProperty(JSON_PROPERTY_ERROR) String error
-  ) {
-  this();
-    this.error = error;
+  public ListModelsResponse models(List<ListModelsResponseEntry> models) {
+    this.models = models;
+    return this;
+  }
+
+  public ListModelsResponse addModelsItem(ListModelsResponseEntry modelsItem) {
+    if (this.models == null) {
+      this.models = new ArrayList<>();
+    }
+    this.models.add(modelsItem);
+    return this;
   }
 
    /**
-   * Error description
-   * @return error
+   * Get models
+   * @return models
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(JSON_PROPERTY_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getError() {
-    return error;
+  public List<ListModelsResponseEntry> getModels() {
+    return models;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MODELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setModels(List<ListModelsResponseEntry> models) {
+    this.models = models;
+  }
 
 
   /**
-   * Return true if this error-response object is equal to o.
+   * Return true if this list-models-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -76,20 +89,20 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.error, errorResponse.error);
+    ListModelsResponse listModelsResponse = (ListModelsResponse) o;
+    return Objects.equals(this.models, listModelsResponse.models);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error);
+    return Objects.hash(models);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("class ListModelsResponse {\n");
+    sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,9 +150,14 @@ public class ErrorResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `error` to the URL query string
-    if (getError() != null) {
-      joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `models` to the URL query string
+    if (getModels() != null) {
+      for (int i = 0; i < getModels().size(); i++) {
+        if (getModels().get(i) != null) {
+          joiner.add(getModels().get(i).toUrlQueryString(String.format("%smodels%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

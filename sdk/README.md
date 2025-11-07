@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-11-05T07:09:22.141600487Z[Etc/UTC]
+- Build date: 2025-11-07T07:08:46.319830643Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-99891f0</version>
+    <version>0.0.5-SNAPSHOT-0a49f9d</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-99891f0'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-0a49f9d'
 }
 ```
 
@@ -324,7 +324,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDbaasOpensearchUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
 *ExoscaleApi* | [**revealDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
 *ExoscaleApi* | [**revealDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user
-*ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Get Deployment API Key
+*ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
@@ -665,7 +665,8 @@ Class | Method | HTTP request | Description
  - [ListDbaasServiceTypes200Response](sdk/docs/ListDbaasServiceTypes200Response.md)
  - [ListDbaasServices200Response](sdk/docs/ListDbaasServices200Response.md)
  - [ListDeployTargets200Response](sdk/docs/ListDeployTargets200Response.md)
- - [ListDeploymentsResponseInner](sdk/docs/ListDeploymentsResponseInner.md)
+ - [ListDeploymentsResponse](sdk/docs/ListDeploymentsResponse.md)
+ - [ListDeploymentsResponseEntry](sdk/docs/ListDeploymentsResponseEntry.md)
  - [ListDnsDomainRecords200Response](sdk/docs/ListDnsDomainRecords200Response.md)
  - [ListDnsDomains200Response](sdk/docs/ListDnsDomains200Response.md)
  - [ListElasticIps200Response](sdk/docs/ListElasticIps200Response.md)
@@ -676,7 +677,8 @@ Class | Method | HTTP request | Description
  - [ListInstances200ResponseInstancesInner](sdk/docs/ListInstances200ResponseInstancesInner.md)
  - [ListInstances200ResponseInstancesInnerPrivateNetworksInner](sdk/docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md)
  - [ListLoadBalancers200Response](sdk/docs/ListLoadBalancers200Response.md)
- - [ListModelsResponseInner](sdk/docs/ListModelsResponseInner.md)
+ - [ListModelsResponse](sdk/docs/ListModelsResponse.md)
+ - [ListModelsResponseEntry](sdk/docs/ListModelsResponseEntry.md)
  - [ListPrivateNetworks200Response](sdk/docs/ListPrivateNetworks200Response.md)
  - [ListQuotas200Response](sdk/docs/ListQuotas200Response.md)
  - [ListSecurityGroups200Response](sdk/docs/ListSecurityGroups200Response.md)
@@ -693,6 +695,7 @@ Class | Method | HTTP request | Description
  - [LoadBalancerService](sdk/docs/LoadBalancerService.md)
  - [LoadBalancerServiceHealthcheck](sdk/docs/LoadBalancerServiceHealthcheck.md)
  - [Manager](sdk/docs/Manager.md)
+ - [ModelRef](sdk/docs/ModelRef.md)
  - [Networking](sdk/docs/Networking.md)
  - [NodeDuressSettings](sdk/docs/NodeDuressSettings.md)
  - [OpensearchEmailSenderSettings](sdk/docs/OpensearchEmailSenderSettings.md)

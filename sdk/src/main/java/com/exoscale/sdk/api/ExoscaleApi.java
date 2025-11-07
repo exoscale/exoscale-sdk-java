@@ -149,7 +149,7 @@ import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServices200Response;
 import com.exoscale.sdk.model.ListDeployTargets200Response;
-import com.exoscale.sdk.model.ListDeploymentsResponseInner;
+import com.exoscale.sdk.model.ListDeploymentsResponse;
 import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
@@ -158,7 +158,7 @@ import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
-import com.exoscale.sdk.model.ListModelsResponseInner;
+import com.exoscale.sdk.model.ListModelsResponse;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
 import com.exoscale.sdk.model.ListQuotas200Response;
 import com.exoscale.sdk.model.ListSecurityGroups200Response;
@@ -3827,7 +3827,7 @@ public class ExoscaleApi {
   }
   /**
    * [BETA] Create Deployment
-   * 
+   * Deploy a model on an inference server
    * @param createDeploymentRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -3839,7 +3839,7 @@ public class ExoscaleApi {
 
   /**
    * [BETA] Create Deployment
-   * 
+   * Deploy a model on an inference server
    * @param createDeploymentRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -4530,7 +4530,7 @@ public class ExoscaleApi {
   }
   /**
    * [BETA] Create Model
-   * 
+   * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
    * @param createModelRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -4542,7 +4542,7 @@ public class ExoscaleApi {
 
   /**
    * [BETA] Create Model
-   * 
+   * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
    * @param createModelRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -16392,21 +16392,21 @@ public class ExoscaleApi {
   /**
    * [BETA] List Deployments
    * 
-   * @return List&lt;ListDeploymentsResponseInner&gt;
+   * @return ListDeploymentsResponse
    * @throws ApiException if fails to make API call
    */
-  public List<ListDeploymentsResponseInner> listDeployments() throws ApiException {
-    ApiResponse<List<ListDeploymentsResponseInner>> localVarResponse = listDeploymentsWithHttpInfo();
+  public ListDeploymentsResponse listDeployments() throws ApiException {
+    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
    * [BETA] List Deployments
    * 
-   * @return ApiResponse&lt;List&lt;ListDeploymentsResponseInner&gt;&gt;
+   * @return ApiResponse&lt;ListDeploymentsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<List<ListDeploymentsResponseInner>> listDeploymentsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -16419,10 +16419,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("listDeployments", localVarResponse);
         }
-        return new ApiResponse<List<ListDeploymentsResponseInner>>(
+        return new ApiResponse<ListDeploymentsResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<ListDeploymentsResponseInner>>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListDeploymentsResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -17195,21 +17195,21 @@ public class ExoscaleApi {
   /**
    * [BETA] List Models
    * 
-   * @return List&lt;ListModelsResponseInner&gt;
+   * @return ListModelsResponse
    * @throws ApiException if fails to make API call
    */
-  public List<ListModelsResponseInner> listModels() throws ApiException {
-    ApiResponse<List<ListModelsResponseInner>> localVarResponse = listModelsWithHttpInfo();
+  public ListModelsResponse listModels() throws ApiException {
+    ApiResponse<ListModelsResponse> localVarResponse = listModelsWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
    * [BETA] List Models
    * 
-   * @return ApiResponse&lt;List&lt;ListModelsResponseInner&gt;&gt;
+   * @return ApiResponse&lt;ListModelsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<List<ListModelsResponseInner>> listModelsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListModelsResponse> listModelsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listModelsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17222,10 +17222,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("listModels", localVarResponse);
         }
-        return new ApiResponse<List<ListModelsResponseInner>>(
+        return new ApiResponse<ListModelsResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<ListModelsResponseInner>>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListModelsResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -20958,7 +20958,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get Deployment API Key
+   * [BETA] Reveal Deployment API Key
    * 
    * @param id  (required)
    * @return RevealDeploymentApiKeyResponse
@@ -20970,7 +20970,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get Deployment API Key
+   * [BETA] Reveal Deployment API Key
    * 
    * @param id  (required)
    * @return ApiResponse&lt;RevealDeploymentApiKeyResponse&gt;

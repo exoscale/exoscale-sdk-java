@@ -34,27 +34,62 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AI model
  */
 @JsonPropertyOrder({
-  ListModelsResponseInner.JSON_PROPERTY_ID,
-  ListModelsResponseInner.JSON_PROPERTY_ORGANIZATION_ID,
-  ListModelsResponseInner.JSON_PROPERTY_NAME,
-  ListModelsResponseInner.JSON_PROPERTY_STATUS,
-  ListModelsResponseInner.JSON_PROPERTY_MODEL_SIZE,
-  ListModelsResponseInner.JSON_PROPERTY_CREATED_AT,
-  ListModelsResponseInner.JSON_PROPERTY_UPDATED_AT
+  ListModelsResponseEntry.JSON_PROPERTY_ID,
+  ListModelsResponseEntry.JSON_PROPERTY_NAME,
+  ListModelsResponseEntry.JSON_PROPERTY_STATUS,
+  ListModelsResponseEntry.JSON_PROPERTY_MODEL_SIZE,
+  ListModelsResponseEntry.JSON_PROPERTY_CREATED_AT,
+  ListModelsResponseEntry.JSON_PROPERTY_UPDATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ListModelsResponseInner {
+public class ListModelsResponseEntry {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
-
-  public static final String JSON_PROPERTY_ORGANIZATION_ID = "organization-id";
-  private UUID organizationId;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  /**
+   * Model status
+   */
+  public enum StatusEnum {
+    READY("ready"),
+    
+    CREATING("creating"),
+    
+    DOWNLOADING("downloading"),
+    
+    ERROR("error");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
+  private StatusEnum status;
 
   public static final String JSON_PROPERTY_MODEL_SIZE = "model-size";
   private Long modelSize;
@@ -65,11 +100,11 @@ public class ListModelsResponseInner {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
-  public ListModelsResponseInner() { 
+  public ListModelsResponseEntry() { 
   }
 
   @JsonCreator
-  public ListModelsResponseInner(
+  public ListModelsResponseEntry(
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt
@@ -95,32 +130,7 @@ public class ListModelsResponseInner {
 
 
 
-  public ListModelsResponseInner organizationId(UUID organizationId) {
-    this.organizationId = organizationId;
-    return this;
-  }
-
-   /**
-   * Organization ID
-   * @return organizationId
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORGANIZATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getOrganizationId() {
-    return organizationId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ORGANIZATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOrganizationId(UUID organizationId) {
-    this.organizationId = organizationId;
-  }
-
-
-  public ListModelsResponseInner name(String name) {
+  public ListModelsResponseEntry name(String name) {
     this.name = name;
     return this;
   }
@@ -145,7 +155,7 @@ public class ListModelsResponseInner {
   }
 
 
-  public ListModelsResponseInner status(String status) {
+  public ListModelsResponseEntry status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -158,19 +168,19 @@ public class ListModelsResponseInner {
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
-  public ListModelsResponseInner modelSize(Long modelSize) {
+  public ListModelsResponseEntry modelSize(Long modelSize) {
     this.modelSize = modelSize;
     return this;
   }
@@ -227,7 +237,7 @@ public class ListModelsResponseInner {
 
 
   /**
-   * Return true if this list_models_response_inner object is equal to o.
+   * Return true if this list-models-response-entry object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -237,27 +247,25 @@ public class ListModelsResponseInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListModelsResponseInner listModelsResponseInner = (ListModelsResponseInner) o;
-    return Objects.equals(this.id, listModelsResponseInner.id) &&
-        Objects.equals(this.organizationId, listModelsResponseInner.organizationId) &&
-        Objects.equals(this.name, listModelsResponseInner.name) &&
-        Objects.equals(this.status, listModelsResponseInner.status) &&
-        Objects.equals(this.modelSize, listModelsResponseInner.modelSize) &&
-        Objects.equals(this.createdAt, listModelsResponseInner.createdAt) &&
-        Objects.equals(this.updatedAt, listModelsResponseInner.updatedAt);
+    ListModelsResponseEntry listModelsResponseEntry = (ListModelsResponseEntry) o;
+    return Objects.equals(this.id, listModelsResponseEntry.id) &&
+        Objects.equals(this.name, listModelsResponseEntry.name) &&
+        Objects.equals(this.status, listModelsResponseEntry.status) &&
+        Objects.equals(this.modelSize, listModelsResponseEntry.modelSize) &&
+        Objects.equals(this.createdAt, listModelsResponseEntry.createdAt) &&
+        Objects.equals(this.updatedAt, listModelsResponseEntry.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, organizationId, name, status, modelSize, createdAt, updatedAt);
+    return Objects.hash(id, name, status, modelSize, createdAt, updatedAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListModelsResponseInner {\n");
+    sb.append("class ListModelsResponseEntry {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    modelSize: ").append(toIndentedString(modelSize)).append("\n");
@@ -313,11 +321,6 @@ public class ListModelsResponseInner {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `organization-id` to the URL query string
-    if (getOrganizationId() != null) {
-      joiner.add(String.format("%sorganization-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
