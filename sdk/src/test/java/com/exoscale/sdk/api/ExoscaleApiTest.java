@@ -121,7 +121,9 @@ import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
+import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -2798,6 +2800,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Get Deployment
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDeploymentTest() throws ApiException {
+        UUID id = null;
+        GetDeploymentResponse response = 
+        api.getDeployment(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * [BETA] Get Deployment Logs
      *
      * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
@@ -3015,6 +3034,23 @@ public class ExoscaleApiTest {
         UUID serviceId = null;
         LoadBalancerService response = 
         api.getLoadBalancerService(id, serviceId);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Get Model
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getModelTest() throws ApiException {
+        UUID id = null;
+        GetModelResponse response = 
+        api.getModel(id);
         
         // TODO: test validations
     }

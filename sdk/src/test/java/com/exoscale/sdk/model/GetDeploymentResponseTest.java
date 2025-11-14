@@ -13,8 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.Instance;
-import com.exoscale.sdk.model.SnapshotExport;
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,25 +27,49 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for Snapshot
+ * Model tests for GetDeploymentResponse
  */
-public class SnapshotTest {
-    private final Snapshot model = new Snapshot();
+public class GetDeploymentResponseTest {
+    private final GetDeploymentResponse model = new GetDeploymentResponse();
 
     /**
-     * Model tests for Snapshot
+     * Model tests for GetDeploymentResponse
      */
     @Test
-    public void testSnapshot() {
-        // TODO: test Snapshot
+    public void testGetDeploymentResponse() {
+        // TODO: test GetDeploymentResponse
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'gpuCount'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void gpuCountTest() {
+        // TODO: test gpuCount
+    }
+
+    /**
+     * Test the property 'updatedAt'
+     */
+    @Test
+    public void updatedAtTest() {
+        // TODO: test updatedAt
+    }
+
+    /**
+     * Test the property 'deploymentUrl'
+     */
+    @Test
+    public void deploymentUrlTest() {
+        // TODO: test deploymentUrl
+    }
+
+    /**
+     * Test the property 'serviceLevel'
+     */
+    @Test
+    public void serviceLevelTest() {
+        // TODO: test serviceLevel
     }
 
     /**
@@ -58,6 +81,38 @@ public class SnapshotTest {
     }
 
     /**
+     * Test the property 'gpuType'
+     */
+    @Test
+    public void gpuTypeTest() {
+        // TODO: test gpuType
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'replicas'
+     */
+    @Test
+    public void replicasTest() {
+        // TODO: test replicas
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test
@@ -66,43 +121,11 @@ public class SnapshotTest {
     }
 
     /**
-     * Test the property 'state'
+     * Test the property 'model'
      */
     @Test
-    public void stateTest() {
-        // TODO: test state
-    }
-
-    /**
-     * Test the property 'size'
-     */
-    @Test
-    public void sizeTest() {
-        // TODO: test size
-    }
-
-    /**
-     * Test the property 'export'
-     */
-    @Test
-    public void exportTest() {
-        // TODO: test export
-    }
-
-    /**
-     * Test the property 'instance'
-     */
-    @Test
-    public void instanceTest() {
-        // TODO: test instance
-    }
-
-    /**
-     * Test the property 'applicationConsistent'
-     */
-    @Test
-    public void applicationConsistentTest() {
-        // TODO: test applicationConsistent
+    public void modelTest() {
+        // TODO: test model
     }
 
 }

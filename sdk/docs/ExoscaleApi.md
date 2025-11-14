@@ -151,6 +151,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasSettingsValkey**](ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings |
 | [**getDbaasTask**](ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
 | [**getDeployTarget**](ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
+| [**getDeployment**](ExoscaleApi.md#getDeployment) | **GET** /ai/deployment/{id} | [BETA] Get Deployment |
 | [**getDeploymentLogs**](ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | [BETA] Get Deployment Logs |
 | [**getDnsDomain**](ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
@@ -164,6 +165,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
 | [**getLoadBalancer**](ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
 | [**getLoadBalancerService**](ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details |
+| [**getModel**](ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | [BETA] Get Model |
 | [**getOperation**](ExoscaleApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details |
 | [**getOrganization**](ExoscaleApi.md#getOrganization) | **GET** /organization | Retrieve an organization |
 | [**getPrivateNetwork**](ExoscaleApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details |
@@ -13899,6 +13901,100 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getDeployment
+
+> GetDeploymentResponse getDeployment(id)
+
+[BETA] Get Deployment
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            GetDeploymentResponse result = client.getDeployment(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDeployment");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**GetDeploymentResponse**](GetDeploymentResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **404** | 404 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GetDeploymentResponse**](GetDeploymentResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **404** | 404 |  -  |
+
+
 ## getDeploymentLogs
 
 > String getDeploymentLogs(id)
@@ -15098,6 +15194,100 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## getModel
+
+> GetModelResponse getModel(id)
+
+[BETA] Get Model
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            GetModelResponse result = client.getModel(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getModel");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**GetModelResponse**](GetModelResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **404** | 404 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GetModelResponse**](GetModelResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **404** | 404 |  -  |
 
 
 ## getOperation

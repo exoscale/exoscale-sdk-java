@@ -15,7 +15,7 @@ package com.exoscale.sdk.client;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class Configuration {
-    public static final String VERSION = "0.0.5-SNAPSHOT-0a49f9d";
+    public static final String VERSION = "0.0.5-SNAPSHOT-fa2c785";
 
     private static ApiClient defaultApiClient = new ApiClient();
 

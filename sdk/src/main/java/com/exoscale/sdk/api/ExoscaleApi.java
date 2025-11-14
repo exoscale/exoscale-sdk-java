@@ -125,7 +125,9 @@ import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
+import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -13026,6 +13028,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Get Deployment
+   * 
+   * @param id  (required)
+   * @return GetDeploymentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetDeploymentResponse getDeployment(UUID id) throws ApiException {
+    ApiResponse<GetDeploymentResponse> localVarResponse = getDeploymentWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get Deployment
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;GetDeploymentResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetDeploymentResponse> getDeploymentWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDeploymentRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDeployment", localVarResponse);
+        }
+        return new ApiResponse<GetDeploymentResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetDeploymentResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDeploymentRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getDeployment");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/deployment/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * [BETA] Get Deployment Logs
    * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param id  (required)
@@ -14075,6 +14159,88 @@ public class ExoscaleApi {
     String localVarPath = "/load-balancer/{id}/service/{service-id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()))
         .replace("{service-id}", ApiClient.urlEncode(serviceId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Get Model
+   * 
+   * @param id  (required)
+   * @return GetModelResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetModelResponse getModel(UUID id) throws ApiException {
+    ApiResponse<GetModelResponse> localVarResponse = getModelWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get Model
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;GetModelResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetModelResponse> getModelWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getModelRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getModel", localVarResponse);
+        }
+        return new ApiResponse<GetModelResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetModelResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getModelRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getModel");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/model/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
 

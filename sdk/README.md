@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-11-07T07:08:46.319830643Z[Etc/UTC]
+- Build date: 2025-11-14T07:07:19.074575818Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-0a49f9d</version>
+    <version>0.0.5-SNAPSHOT-fa2c785</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-0a49f9d'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-fa2c785'
 }
 ```
 
@@ -230,6 +230,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasSettingsValkey**](sdk/docs/ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings
 *ExoscaleApi* | [**getDbaasTask**](sdk/docs/ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
 *ExoscaleApi* | [**getDeployTarget**](sdk/docs/ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
+*ExoscaleApi* | [**getDeployment**](sdk/docs/ExoscaleApi.md#getDeployment) | **GET** /ai/deployment/{id} | [BETA] Get Deployment
 *ExoscaleApi* | [**getDeploymentLogs**](sdk/docs/ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | [BETA] Get Deployment Logs
 *ExoscaleApi* | [**getDnsDomain**](sdk/docs/ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details
 *ExoscaleApi* | [**getDnsDomainRecord**](sdk/docs/ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
@@ -243,6 +244,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getInstanceType**](sdk/docs/ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
 *ExoscaleApi* | [**getLoadBalancer**](sdk/docs/ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
 *ExoscaleApi* | [**getLoadBalancerService**](sdk/docs/ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
+*ExoscaleApi* | [**getModel**](sdk/docs/ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | [BETA] Get Model
 *ExoscaleApi* | [**getOperation**](sdk/docs/ExoscaleApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details
 *ExoscaleApi* | [**getOrganization**](sdk/docs/ExoscaleApi.md#getOrganization) | **GET** /organization | Retrieve an organization
 *ExoscaleApi* | [**getPrivateNetwork**](sdk/docs/ExoscaleApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details
@@ -614,7 +616,9 @@ Class | Method | HTTP request | Description
  - [GetDbaasSettingsValkey200Response](sdk/docs/GetDbaasSettingsValkey200Response.md)
  - [GetDbaasSettingsValkey200ResponseSettings](sdk/docs/GetDbaasSettingsValkey200ResponseSettings.md)
  - [GetDbaasSettingsValkey200ResponseSettingsValkey](sdk/docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md)
+ - [GetDeploymentResponse](sdk/docs/GetDeploymentResponse.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
+ - [GetModelResponse](sdk/docs/GetModelResponse.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)
  - [GetUsageReport200Response](sdk/docs/GetUsageReport200Response.md)

@@ -15,6 +15,7 @@ Snapshot
 |**size** | **Long** | Snapshot size in GiB |  [optional] [readonly] |
 |**export** | [**SnapshotExport**](SnapshotExport.md) |  |  [optional] |
 |**instance** | [**Instance**](Instance.md) |  |  [optional] |
+|**applicationConsistent** | **Boolean** | Indicates whether the snapshot was taken using an application-consistent method |  [optional] [readonly] |
 
 
 

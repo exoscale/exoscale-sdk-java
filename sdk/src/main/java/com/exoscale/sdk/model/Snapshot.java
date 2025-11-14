@@ -42,7 +42,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Snapshot.JSON_PROPERTY_STATE,
   Snapshot.JSON_PROPERTY_SIZE,
   Snapshot.JSON_PROPERTY_EXPORT,
-  Snapshot.JSON_PROPERTY_INSTANCE
+  Snapshot.JSON_PROPERTY_INSTANCE,
+  Snapshot.JSON_PROPERTY_APPLICATION_CONSISTENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class Snapshot {
@@ -112,6 +113,9 @@ public class Snapshot {
   public static final String JSON_PROPERTY_INSTANCE = "instance";
   private Instance instance;
 
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT = "application-consistent";
+  private Boolean applicationConsistent;
+
   public Snapshot() { 
   }
 
@@ -119,12 +123,14 @@ public class Snapshot {
   public Snapshot(
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
-    @JsonProperty(JSON_PROPERTY_SIZE) Long size
+    @JsonProperty(JSON_PROPERTY_SIZE) Long size, 
+    @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT) Boolean applicationConsistent
   ) {
   this();
     this.id = id;
     this.createdAt = createdAt;
     this.size = size;
+    this.applicationConsistent = applicationConsistent;
   }
 
    /**
@@ -274,6 +280,21 @@ public class Snapshot {
   }
 
 
+   /**
+   * Indicates whether the snapshot was taken using an application-consistent method
+   * @return applicationConsistent
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistent() {
+    return applicationConsistent;
+  }
+
+
+
+
   /**
    * Return true if this snapshot object is equal to o.
    */
@@ -292,12 +313,13 @@ public class Snapshot {
         Objects.equals(this.state, snapshot.state) &&
         Objects.equals(this.size, snapshot.size) &&
         Objects.equals(this.export, snapshot.export) &&
-        Objects.equals(this.instance, snapshot.instance);
+        Objects.equals(this.instance, snapshot.instance) &&
+        Objects.equals(this.applicationConsistent, snapshot.applicationConsistent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, createdAt, state, size, export, instance);
+    return Objects.hash(id, name, createdAt, state, size, export, instance, applicationConsistent);
   }
 
   @Override
@@ -311,6 +333,7 @@ public class Snapshot {
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    export: ").append(toIndentedString(export)).append("\n");
     sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
+    sb.append("    applicationConsistent: ").append(toIndentedString(applicationConsistent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -391,6 +414,11 @@ public class Snapshot {
     // add `instance` to the URL query string
     if (getInstance() != null) {
       joiner.add(getInstance().toUrlQueryString(prefix + "instance" + suffix));
+    }
+
+    // add `application-consistent` to the URL query string
+    if (getApplicationConsistent() != null) {
+      joiner.add(String.format("%sapplication-consistent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
