@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**applicationConsistentSnapshotEnabled** | **Boolean** | Enable application-consistent snapshot for the instance |  [optional] |
 |**antiAffinityGroups** | [**Set&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Instance Anti-affinity Groups |  [optional] |
 |**publicIpAssignment** | **PublicIpAssignment** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |

@@ -49,6 +49,7 @@ Compute instance type
 | GPU | &quot;gpu&quot; |
 | MEMORY | &quot;memory&quot; |
 | GPUA5000 | &quot;gpua5000&quot; |
+| GPURTX6000PRO | &quot;gpurtx6000pro&quot; |
 | STORAGE | &quot;storage&quot; |
 | STANDARD | &quot;standard&quot; |
 | COLOSSUS | &quot;colossus&quot; |

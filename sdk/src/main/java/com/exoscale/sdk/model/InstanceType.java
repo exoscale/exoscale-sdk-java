@@ -126,6 +126,8 @@ public class InstanceType {
     
     GPUA5000("gpua5000"),
     
+    GPURTX6000PRO("gpurtx6000pro"),
+    
     STORAGE("storage"),
     
     STANDARD("standard"),

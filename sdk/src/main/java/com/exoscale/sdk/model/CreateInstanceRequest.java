@@ -44,6 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateInstanceRequest
  */
 @JsonPropertyOrder({
+  CreateInstanceRequest.JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED,
   CreateInstanceRequest.JSON_PROPERTY_ANTI_AFFINITY_GROUPS,
   CreateInstanceRequest.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
   CreateInstanceRequest.JSON_PROPERTY_LABELS,
@@ -63,6 +64,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateInstanceRequest {
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED = "application-consistent-snapshot-enabled";
+  private Boolean applicationConsistentSnapshotEnabled;
+
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private Set<AntiAffinityGroup> antiAffinityGroups;
 
@@ -113,6 +117,31 @@ public class CreateInstanceRequest {
 
   public CreateInstanceRequest() { 
   }
+
+  public CreateInstanceRequest applicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+    return this;
+  }
+
+   /**
+   * Enable application-consistent snapshot for the instance
+   * @return applicationConsistentSnapshotEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistentSnapshotEnabled() {
+    return applicationConsistentSnapshotEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+  }
+
 
   public CreateInstanceRequest antiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
@@ -563,7 +592,8 @@ public class CreateInstanceRequest {
       return false;
     }
     CreateInstanceRequest createInstanceRequest = (CreateInstanceRequest) o;
-    return Objects.equals(this.antiAffinityGroups, createInstanceRequest.antiAffinityGroups) &&
+    return Objects.equals(this.applicationConsistentSnapshotEnabled, createInstanceRequest.applicationConsistentSnapshotEnabled) &&
+        Objects.equals(this.antiAffinityGroups, createInstanceRequest.antiAffinityGroups) &&
         Objects.equals(this.publicIpAssignment, createInstanceRequest.publicIpAssignment) &&
         Objects.equals(this.labels, createInstanceRequest.labels) &&
         Objects.equals(this.autoStart, createInstanceRequest.autoStart) &&
@@ -583,13 +613,14 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, sshKeys);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateInstanceRequest {\n");
+    sb.append("    applicationConsistentSnapshotEnabled: ").append(toIndentedString(applicationConsistentSnapshotEnabled)).append("\n");
     sb.append("    antiAffinityGroups: ").append(toIndentedString(antiAffinityGroups)).append("\n");
     sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
@@ -652,6 +683,11 @@ public class CreateInstanceRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `application-consistent-snapshot-enabled` to the URL query string
+    if (getApplicationConsistentSnapshotEnabled() != null) {
+      joiner.add(String.format("%sapplication-consistent-snapshot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistentSnapshotEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {

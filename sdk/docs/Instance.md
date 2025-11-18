@@ -8,6 +8,7 @@ Instance
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**applicationConsistentSnapshotEnabled** | **Boolean** | Indicates if the instance will take application-consistent snapshots |  [optional] |
 |**antiAffinityGroups** | [**List&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Instance Anti-affinity Groups |  [optional] |
 |**publicIpAssignment** | **PublicIpAssignment** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |

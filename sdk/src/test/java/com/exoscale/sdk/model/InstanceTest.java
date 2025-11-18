@@ -56,6 +56,14 @@ public class InstanceTest {
     }
 
     /**
+     * Test the property 'applicationConsistentSnapshotEnabled'
+     */
+    @Test
+    public void applicationConsistentSnapshotEnabledTest() {
+        // TODO: test applicationConsistentSnapshotEnabled
+    }
+
+    /**
      * Test the property 'antiAffinityGroups'
      */
     @Test
