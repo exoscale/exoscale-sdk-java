@@ -38,7 +38,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateInstanceRequest.JSON_PROPERTY_NAME,
   UpdateInstanceRequest.JSON_PROPERTY_USER_DATA,
   UpdateInstanceRequest.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
-  UpdateInstanceRequest.JSON_PROPERTY_LABELS
+  UpdateInstanceRequest.JSON_PROPERTY_LABELS,
+  UpdateInstanceRequest.JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateInstanceRequest {
@@ -53,6 +54,9 @@ public class UpdateInstanceRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED = "application-consistent-snapshot-enabled";
+  private Boolean applicationConsistentSnapshotEnabled;
 
   public UpdateInstanceRequest() { 
   }
@@ -165,6 +169,31 @@ public class UpdateInstanceRequest {
   }
 
 
+  public UpdateInstanceRequest applicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+    return this;
+  }
+
+   /**
+   * Enable/Disable Application Consistent Snapshot for Instance
+   * @return applicationConsistentSnapshotEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistentSnapshotEnabled() {
+    return applicationConsistentSnapshotEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+  }
+
+
   /**
    * Return true if this update_instance_request object is equal to o.
    */
@@ -180,12 +209,13 @@ public class UpdateInstanceRequest {
     return Objects.equals(this.name, updateInstanceRequest.name) &&
         Objects.equals(this.userData, updateInstanceRequest.userData) &&
         Objects.equals(this.publicIpAssignment, updateInstanceRequest.publicIpAssignment) &&
-        Objects.equals(this.labels, updateInstanceRequest.labels);
+        Objects.equals(this.labels, updateInstanceRequest.labels) &&
+        Objects.equals(this.applicationConsistentSnapshotEnabled, updateInstanceRequest.applicationConsistentSnapshotEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, userData, publicIpAssignment, labels);
+    return Objects.hash(name, userData, publicIpAssignment, labels, applicationConsistentSnapshotEnabled);
   }
 
   @Override
@@ -196,6 +226,7 @@ public class UpdateInstanceRequest {
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    applicationConsistentSnapshotEnabled: ").append(toIndentedString(applicationConsistentSnapshotEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -265,6 +296,11 @@ public class UpdateInstanceRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `application-consistent-snapshot-enabled` to the URL query string
+    if (getApplicationConsistentSnapshotEnabled() != null) {
+      joiner.add(String.format("%sapplication-consistent-snapshot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistentSnapshotEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

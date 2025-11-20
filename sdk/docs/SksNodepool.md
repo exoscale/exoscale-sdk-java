@@ -8,15 +8,15 @@ SKS Nodepool
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**antiAffinityGroups** | [**List&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Nodepool Anti-affinity Groups |  [optional] |
+|**antiAffinityGroups** | [**Set&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Nodepool Anti-affinity Groups |  [optional] |
 |**description** | **String** | Nodepool description |  [optional] |
 |**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Nodepool public IP assignment of the Instances:  * IPv4 (&#x60;inet4&#x60;) addressing only; * IPv4 and IPv6 (&#x60;dual&#x60;) addressing. |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**taints** | [**Map&lt;String, SksNodepoolTaint&gt;**](SksNodepoolTaint.md) |  |  [optional] |
-|**securityGroups** | [**List&lt;SecurityGroup&gt;**](SecurityGroup.md) | Nodepool Security Groups |  [optional] |
+|**securityGroups** | [**Set&lt;SecurityGroup&gt;**](SecurityGroup.md) | Nodepool Security Groups |  [optional] |
 |**name** | **String** | Nodepool name |  [optional] |
 |**instanceType** | [**InstanceType**](InstanceType.md) |  |  [optional] |
-|**privateNetworks** | [**List&lt;PrivateNetwork&gt;**](PrivateNetwork.md) | Nodepool Private Networks |  [optional] |
+|**privateNetworks** | [**Set&lt;PrivateNetwork&gt;**](PrivateNetwork.md) | Nodepool Private Networks |  [optional] |
 |**template** | [**Template**](Template.md) |  |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Nodepool state |  [optional] [readonly] |
 |**size** | **Long** | Number of instances |  [optional] |

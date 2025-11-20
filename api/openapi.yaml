@@ -5830,6 +5830,8 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/sks-nodepool"
+          uniqueItems: true
+          maxItems: 16
           readOnly: true
           description: Cluster Nodepools
         level:
@@ -5842,7 +5844,6 @@ components:
           type: array
           items:
             type: string
-          uniqueItems: true
           description: A list of Kubernetes-only Alpha features to enable for API
             server component
         addons:
@@ -6003,6 +6004,8 @@ components:
           minimum: 0
           exclusiveMinimum: false
           description: Number of replicas (>=0)
+      required:
+      - replicas
       description: Scale AI deployment
     dbaas-integration-type:
       type: object
@@ -6084,6 +6087,8 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/anti-affinity-group"
+          uniqueItems: true
+          maxItems: 8
           description: Nodepool Anti-affinity Groups
         description:
           type: string
@@ -6109,6 +6114,8 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/security-group"
+          uniqueItems: true
+          maxItems: 16
           description: Nodepool Security Groups
         name:
           type: string
@@ -6122,6 +6129,8 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/private-network"
+          uniqueItems: true
+          maxItems: 16
           description: Nodepool Private Networks
         template:
           "$ref": "#/components/schemas/template"
@@ -8870,6 +8879,7 @@ components:
       required:
       - gpu-type
       - gpu-count
+      - replicas
       description: Deployment an AI model onto a set of GPUs
     enum-migration-method:
       type: string
@@ -11502,6 +11512,7 @@ paths:
                   items:
                     "$ref": "#/components/schemas/anti-affinity-group"
                   uniqueItems: true
+                  maxItems: 8
                   description: Nodepool Anti-affinity Groups
                 description:
                   type: string
@@ -11528,6 +11539,7 @@ paths:
                   items:
                     "$ref": "#/components/schemas/security-group"
                   uniqueItems: true
+                  maxItems: 16
                   description: Nodepool Security Groups
                 name:
                   type: string
@@ -11542,6 +11554,7 @@ paths:
                   items:
                     "$ref": "#/components/schemas/private-network"
                   uniqueItems: true
+                  maxItems: 16
                   description: Nodepool Private Networks
                 instance-prefix:
                   type: string
@@ -16427,6 +16440,10 @@ paths:
                   "$ref": "#/components/schemas/labels"
                   description: Resource labels
                   nullable: true
+                application-consistent-snapshot-enabled:
+                  type: boolean
+                  description: Enable/Disable Application Consistent Snapshot for
+                    Instance
       operationId: update-instance
     get:
       tags:
@@ -17389,6 +17406,7 @@ paths:
                   items:
                     "$ref": "#/components/schemas/anti-affinity-group"
                   uniqueItems: true
+                  maxItems: 8
                   description: Nodepool Anti-affinity Groups
                 description:
                   type: string
@@ -17415,6 +17433,7 @@ paths:
                   items:
                     "$ref": "#/components/schemas/security-group"
                   uniqueItems: true
+                  maxItems: 16
                   description: Nodepool Security Groups
                 name:
                   type: string
@@ -17429,6 +17448,7 @@ paths:
                   items:
                     "$ref": "#/components/schemas/private-network"
                   uniqueItems: true
+                  maxItems: 16
                   description: Nodepool Private Networks
                 size:
                   type: integer

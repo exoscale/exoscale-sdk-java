@@ -35,11 +35,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -75,7 +73,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class SksNodepool {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
-  private List<AntiAffinityGroup> antiAffinityGroups;
+  private Set<AntiAffinityGroup> antiAffinityGroups;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -125,7 +123,7 @@ public class SksNodepool {
   private Map<String, SksNodepoolTaint> taints = new HashMap<>();
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
-  private List<SecurityGroup> securityGroups;
+  private Set<SecurityGroup> securityGroups;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -134,7 +132,7 @@ public class SksNodepool {
   private InstanceType instanceType;
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
-  private List<PrivateNetwork> privateNetworks;
+  private Set<PrivateNetwork> privateNetworks;
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
   private Template template;
@@ -267,14 +265,14 @@ public class SksNodepool {
     this.createdAt = createdAt;
   }
 
-  public SksNodepool antiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
+  public SksNodepool antiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
     return this;
   }
 
   public SksNodepool addAntiAffinityGroupsItem(AntiAffinityGroup antiAffinityGroupsItem) {
     if (this.antiAffinityGroups == null) {
-      this.antiAffinityGroups = new ArrayList<>();
+      this.antiAffinityGroups = new LinkedHashSet<>();
     }
     this.antiAffinityGroups.add(antiAffinityGroupsItem);
     return this;
@@ -288,14 +286,15 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<AntiAffinityGroup> getAntiAffinityGroups() {
+  public Set<AntiAffinityGroup> getAntiAffinityGroups() {
     return antiAffinityGroups;
   }
 
 
+  @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAntiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
+  public void setAntiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
   }
 
@@ -416,14 +415,14 @@ public class SksNodepool {
   }
 
 
-  public SksNodepool securityGroups(List<SecurityGroup> securityGroups) {
+  public SksNodepool securityGroups(Set<SecurityGroup> securityGroups) {
     this.securityGroups = securityGroups;
     return this;
   }
 
   public SksNodepool addSecurityGroupsItem(SecurityGroup securityGroupsItem) {
     if (this.securityGroups == null) {
-      this.securityGroups = new ArrayList<>();
+      this.securityGroups = new LinkedHashSet<>();
     }
     this.securityGroups.add(securityGroupsItem);
     return this;
@@ -437,14 +436,15 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SecurityGroup> getSecurityGroups() {
+  public Set<SecurityGroup> getSecurityGroups() {
     return securityGroups;
   }
 
 
+  @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityGroups(List<SecurityGroup> securityGroups) {
+  public void setSecurityGroups(Set<SecurityGroup> securityGroups) {
     this.securityGroups = securityGroups;
   }
 
@@ -499,14 +499,14 @@ public class SksNodepool {
   }
 
 
-  public SksNodepool privateNetworks(List<PrivateNetwork> privateNetworks) {
+  public SksNodepool privateNetworks(Set<PrivateNetwork> privateNetworks) {
     this.privateNetworks = privateNetworks;
     return this;
   }
 
   public SksNodepool addPrivateNetworksItem(PrivateNetwork privateNetworksItem) {
     if (this.privateNetworks == null) {
-      this.privateNetworks = new ArrayList<>();
+      this.privateNetworks = new LinkedHashSet<>();
     }
     this.privateNetworks.add(privateNetworksItem);
     return this;
@@ -520,14 +520,15 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<PrivateNetwork> getPrivateNetworks() {
+  public Set<PrivateNetwork> getPrivateNetworks() {
     return privateNetworks;
   }
 
 
+  @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrivateNetworks(List<PrivateNetwork> privateNetworks) {
+  public void setPrivateNetworks(Set<PrivateNetwork> privateNetworks) {
     this.privateNetworks = privateNetworks;
   }
 
@@ -918,12 +919,14 @@ public class SksNodepool {
 
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {
-      for (int i = 0; i < getAntiAffinityGroups().size(); i++) {
-        if (getAntiAffinityGroups().get(i) != null) {
-          joiner.add(getAntiAffinityGroups().get(i).toUrlQueryString(String.format("%santi-affinity-groups%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+      int i = 0;
+      for (AntiAffinityGroup _item : getAntiAffinityGroups()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%santi-affinity-groups%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+      i++;
     }
 
     // add `description` to the URL query string
@@ -957,12 +960,14 @@ public class SksNodepool {
 
     // add `security-groups` to the URL query string
     if (getSecurityGroups() != null) {
-      for (int i = 0; i < getSecurityGroups().size(); i++) {
-        if (getSecurityGroups().get(i) != null) {
-          joiner.add(getSecurityGroups().get(i).toUrlQueryString(String.format("%ssecurity-groups%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+      int i = 0;
+      for (SecurityGroup _item : getSecurityGroups()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%ssecurity-groups%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+      i++;
     }
 
     // add `name` to the URL query string
@@ -977,12 +982,14 @@ public class SksNodepool {
 
     // add `private-networks` to the URL query string
     if (getPrivateNetworks() != null) {
-      for (int i = 0; i < getPrivateNetworks().size(); i++) {
-        if (getPrivateNetworks().get(i) != null) {
-          joiner.add(getPrivateNetworks().get(i).toUrlQueryString(String.format("%sprivate-networks%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+      int i = 0;
+      for (PrivateNetwork _item : getPrivateNetworks()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%sprivate-networks%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+      i++;
     }
 
     // add `template` to the URL query string

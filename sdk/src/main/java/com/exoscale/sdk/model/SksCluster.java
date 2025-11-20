@@ -176,7 +176,7 @@ public class SksCluster {
   private Boolean enableKubeProxy;
 
   public static final String JSON_PROPERTY_NODEPOOLS = "nodepools";
-  private List<SksNodepool> nodepools;
+  private Set<SksNodepool> nodepools;
 
   /**
    * Cluster level
@@ -217,7 +217,7 @@ public class SksCluster {
   private LevelEnum level;
 
   public static final String JSON_PROPERTY_FEATURE_GATES = "feature-gates";
-  private Set<String> featureGates;
+  private List<String> featureGates;
 
   /**
    * Gets or Sets addons
@@ -282,7 +282,7 @@ public class SksCluster {
   @JsonCreator
   public SksCluster(
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
-    @JsonProperty(JSON_PROPERTY_NODEPOOLS) List<SksNodepool> nodepools, 
+    @JsonProperty(JSON_PROPERTY_NODEPOOLS) Set<SksNodepool> nodepools, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
     @JsonProperty(JSON_PROPERTY_ENDPOINT) String endpoint
@@ -501,7 +501,7 @@ public class SksCluster {
   @JsonProperty(JSON_PROPERTY_NODEPOOLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SksNodepool> getNodepools() {
+  public Set<SksNodepool> getNodepools() {
     return nodepools;
   }
 
@@ -533,14 +533,14 @@ public class SksCluster {
   }
 
 
-  public SksCluster featureGates(Set<String> featureGates) {
+  public SksCluster featureGates(List<String> featureGates) {
     this.featureGates = featureGates;
     return this;
   }
 
   public SksCluster addFeatureGatesItem(String featureGatesItem) {
     if (this.featureGates == null) {
-      this.featureGates = new LinkedHashSet<>();
+      this.featureGates = new ArrayList<>();
     }
     this.featureGates.add(featureGatesItem);
     return this;
@@ -554,15 +554,14 @@ public class SksCluster {
   @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<String> getFeatureGates() {
+  public List<String> getFeatureGates() {
     return featureGates;
   }
 
 
-  @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_FEATURE_GATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeatureGates(Set<String> featureGates) {
+  public void setFeatureGates(List<String> featureGates) {
     this.featureGates = featureGates;
   }
 
@@ -846,12 +845,14 @@ public class SksCluster {
 
     // add `nodepools` to the URL query string
     if (getNodepools() != null) {
-      for (int i = 0; i < getNodepools().size(); i++) {
-        if (getNodepools().get(i) != null) {
-          joiner.add(getNodepools().get(i).toUrlQueryString(String.format("%snodepools%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+      int i = 0;
+      for (SksNodepool _item : getNodepools()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%snodepools%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+      i++;
     }
 
     // add `level` to the URL query string
@@ -861,13 +862,11 @@ public class SksCluster {
 
     // add `feature-gates` to the URL query string
     if (getFeatureGates() != null) {
-      int i = 0;
-      for (String _item : getFeatureGates()) {
+      for (int i = 0; i < getFeatureGates().size(); i++) {
         joiner.add(String.format("%sfeature-gates%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(String.valueOf(getFeatureGates().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
-      i++;
     }
 
     // add `addons` to the URL query string

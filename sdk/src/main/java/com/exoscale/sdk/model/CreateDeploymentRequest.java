@@ -170,9 +170,9 @@ public class CreateDeploymentRequest {
    * minimum: 0
    * @return replicas
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getReplicas() {
     return replicas;
@@ -180,7 +180,7 @@ public class CreateDeploymentRequest {
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReplicas(Long replicas) {
     this.replicas = replicas;
   }

@@ -72,4 +72,12 @@ public class UpdateInstanceRequestTest {
         // TODO: test labels
     }
 
+    /**
+     * Test the property 'applicationConsistentSnapshotEnabled'
+     */
+    @Test
+    public void applicationConsistentSnapshotEnabledTest() {
+        // TODO: test applicationConsistentSnapshotEnabled
+    }
+
 }

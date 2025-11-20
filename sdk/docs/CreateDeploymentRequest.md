@@ -12,7 +12,7 @@ Deployment an AI model onto a set of GPUs
 |**name** | **String** | Deployment name |  [optional] |
 |**gpuType** | **String** | GPU type family (e.g., gpua5000, gpu3080ti) |  |
 |**gpuCount** | **Long** | Number of GPUs (1-8) |  |
-|**replicas** | **Long** | Number of replicas (&gt;&#x3D;1) |  [optional] |
+|**replicas** | **Long** | Number of replicas (&gt;&#x3D;1) |  |
 
 
 
