@@ -32,6 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * RegisterTemplateRequest
  */
 @JsonPropertyOrder({
+  RegisterTemplateRequest.JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED,
   RegisterTemplateRequest.JSON_PROPERTY_MAINTAINER,
   RegisterTemplateRequest.JSON_PROPERTY_DESCRIPTION,
   RegisterTemplateRequest.JSON_PROPERTY_SSH_KEY_ENABLED,
@@ -47,6 +48,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class RegisterTemplateRequest {
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED = "application-consistent-snapshot-enabled";
+  private Boolean applicationConsistentSnapshotEnabled;
+
   public static final String JSON_PROPERTY_MAINTAINER = "maintainer";
   private String maintainer;
 
@@ -120,6 +124,31 @@ public class RegisterTemplateRequest {
 
   public RegisterTemplateRequest() { 
   }
+
+  public RegisterTemplateRequest applicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+    return this;
+  }
+
+   /**
+   * Template with support for Application Consistent Snapshots
+   * @return applicationConsistentSnapshotEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistentSnapshotEnabled() {
+    return applicationConsistentSnapshotEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+  }
+
 
   public RegisterTemplateRequest maintainer(String maintainer) {
     this.maintainer = maintainer;
@@ -434,7 +463,8 @@ public class RegisterTemplateRequest {
       return false;
     }
     RegisterTemplateRequest registerTemplateRequest = (RegisterTemplateRequest) o;
-    return Objects.equals(this.maintainer, registerTemplateRequest.maintainer) &&
+    return Objects.equals(this.applicationConsistentSnapshotEnabled, registerTemplateRequest.applicationConsistentSnapshotEnabled) &&
+        Objects.equals(this.maintainer, registerTemplateRequest.maintainer) &&
         Objects.equals(this.description, registerTemplateRequest.description) &&
         Objects.equals(this.sshKeyEnabled, registerTemplateRequest.sshKeyEnabled) &&
         Objects.equals(this.name, registerTemplateRequest.name) &&
@@ -450,13 +480,14 @@ public class RegisterTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maintainer, description, sshKeyEnabled, name, defaultUser, size, passwordEnabled, build, checksum, bootMode, url, version);
+    return Objects.hash(applicationConsistentSnapshotEnabled, maintainer, description, sshKeyEnabled, name, defaultUser, size, passwordEnabled, build, checksum, bootMode, url, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RegisterTemplateRequest {\n");
+    sb.append("    applicationConsistentSnapshotEnabled: ").append(toIndentedString(applicationConsistentSnapshotEnabled)).append("\n");
     sb.append("    maintainer: ").append(toIndentedString(maintainer)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    sshKeyEnabled: ").append(toIndentedString(sshKeyEnabled)).append("\n");
@@ -515,6 +546,11 @@ public class RegisterTemplateRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `application-consistent-snapshot-enabled` to the URL query string
+    if (getApplicationConsistentSnapshotEnabled() != null) {
+      joiner.add(String.format("%sapplication-consistent-snapshot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistentSnapshotEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `maintainer` to the URL query string
     if (getMaintainer() != null) {

@@ -38,6 +38,14 @@ public class RegisterTemplateRequestTest {
     }
 
     /**
+     * Test the property 'applicationConsistentSnapshotEnabled'
+     */
+    @Test
+    public void applicationConsistentSnapshotEnabledTest() {
+        // TODO: test applicationConsistentSnapshotEnabled
+    }
+
+    /**
      * Test the property 'maintainer'
      */
     @Test

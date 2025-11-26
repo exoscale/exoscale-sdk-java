@@ -16870,6 +16870,9 @@ paths:
             schema:
               type: object
               properties:
+                application-consistent-snapshot-enabled:
+                  type: boolean
+                  description: Template with support for Application Consistent Snapshots
                 maintainer:
                   type: string
                   maxLength: 255

@@ -96391,6 +96391,9 @@ components:
       type: object
     register_template_request:
       properties:
+        application-consistent-snapshot-enabled:
+          description: Template with support for Application Consistent Snapshots
+          type: boolean
         maintainer:
           description: Template maintainer
           maxLength: 255

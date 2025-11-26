@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**applicationConsistentSnapshotEnabled** | **Boolean** | Template with support for Application Consistent Snapshots |  [optional] |
 |**maintainer** | **String** | Template maintainer |  [optional] |
 |**description** | **String** | Template description |  [optional] |
 |**sshKeyEnabled** | **Boolean** | Enable SSH key-based login |  |

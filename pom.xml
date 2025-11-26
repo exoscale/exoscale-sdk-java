@@ -34,7 +34,7 @@
                 <invokerPackage>com.exoscale.sdk.client</invokerPackage>
                 <groupId>com.exoscale.sdk</groupId>
                 <artifactId>sdk</artifactId>
-                <artifactVersion>0.0.5-SNAPSHOT-92c3c82</artifactVersion>
+                <artifactVersion>0.0.5-SNAPSHOT-0df623e</artifactVersion>
                 <artifactUrl>https://github.com/exoscale/exoscale-sdk-java</artifactUrl>
                 <artifactDescription>Java SDK for interacting with Exoscale Cloud Services.</artifactDescription>
                 <scmConnection>scm:git:git://github.com/exoscale/exoscale-sdk-java.git</scmConnection>
