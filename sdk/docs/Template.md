@@ -8,6 +8,7 @@ Instance template
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**applicationConsistentSnapshotEnabled** | **Boolean** | Template with Qemu Guest Agent installed for application consistent snapshot |  [optional] |
 |**maintainer** | **String** | Template maintainer |  [optional] [readonly] |
 |**description** | **String** | Template description |  [optional] |
 |**sshKeyEnabled** | **Boolean** | Enable SSH key-based login |  [optional] |

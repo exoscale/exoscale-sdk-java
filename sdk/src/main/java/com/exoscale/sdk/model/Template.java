@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Instance template
  */
 @JsonPropertyOrder({
+  Template.JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED,
   Template.JSON_PROPERTY_MAINTAINER,
   Template.JSON_PROPERTY_DESCRIPTION,
   Template.JSON_PROPERTY_SSH_KEY_ENABLED,
@@ -57,6 +58,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class Template {
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED = "application-consistent-snapshot-enabled";
+  private Boolean applicationConsistentSnapshotEnabled;
+
   public static final String JSON_PROPERTY_MAINTAINER = "maintainer";
   private String maintainer;
 
@@ -200,6 +204,31 @@ public class Template {
     this.createdAt = createdAt;
     this.visibility = visibility;
   }
+
+  public Template applicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+    return this;
+  }
+
+   /**
+   * Template with Qemu Guest Agent installed for application consistent snapshot
+   * @return applicationConsistentSnapshotEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistentSnapshotEnabled() {
+    return applicationConsistentSnapshotEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+  }
+
 
    /**
    * Template maintainer
@@ -577,7 +606,8 @@ public class Template {
       return false;
     }
     Template template = (Template) o;
-    return Objects.equals(this.maintainer, template.maintainer) &&
+    return Objects.equals(this.applicationConsistentSnapshotEnabled, template.applicationConsistentSnapshotEnabled) &&
+        Objects.equals(this.maintainer, template.maintainer) &&
         Objects.equals(this.description, template.description) &&
         Objects.equals(this.sshKeyEnabled, template.sshKeyEnabled) &&
         Objects.equals(this.family, template.family) &&
@@ -598,13 +628,14 @@ public class Template {
 
   @Override
   public int hashCode() {
-    return Objects.hash(maintainer, description, sshKeyEnabled, family, name, defaultUser, size, passwordEnabled, build, checksum, bootMode, id, zones, url, version, createdAt, visibility);
+    return Objects.hash(applicationConsistentSnapshotEnabled, maintainer, description, sshKeyEnabled, family, name, defaultUser, size, passwordEnabled, build, checksum, bootMode, id, zones, url, version, createdAt, visibility);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Template {\n");
+    sb.append("    applicationConsistentSnapshotEnabled: ").append(toIndentedString(applicationConsistentSnapshotEnabled)).append("\n");
     sb.append("    maintainer: ").append(toIndentedString(maintainer)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    sshKeyEnabled: ").append(toIndentedString(sshKeyEnabled)).append("\n");
@@ -668,6 +699,11 @@ public class Template {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `application-consistent-snapshot-enabled` to the URL query string
+    if (getApplicationConsistentSnapshotEnabled() != null) {
+      joiner.add(String.format("%sapplication-consistent-snapshot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistentSnapshotEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `maintainer` to the URL query string
     if (getMaintainer() != null) {
