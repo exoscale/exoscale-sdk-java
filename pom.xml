@@ -18,7 +18,7 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <inputSpec>https://openapi-v2.exoscale.com/source.yaml</inputSpec>
+              <inputSpec>https://api-ch-gva-2.exoscale.com/v2/openapi.json</inputSpec>
               <generatorName>java</generatorName>
               <library>native</library>
               <openapiNormalizer>
