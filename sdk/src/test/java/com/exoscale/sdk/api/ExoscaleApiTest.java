@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -94,6 +94,7 @@ import com.exoscale.sdk.model.DbaasUserKafkaSecrets;
 import com.exoscale.sdk.model.DbaasUserMysqlSecrets;
 import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
+import com.exoscale.sdk.model.DbaasUserThanosSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
@@ -4422,6 +4423,24 @@ public class ExoscaleApiTest {
         String username = null;
         DbaasUserPostgresSecrets response = 
         api.revealDbaasPostgresUserPassword(serviceName, username);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Reveal the secrets of a DBaaS Thanos user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealDbaasThanosUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        DbaasUserThanosSecrets response = 
+        api.revealDbaasThanosUserPassword(serviceName, username);
         
         // TODO: test validations
     }

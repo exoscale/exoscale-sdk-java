@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -21,6 +21,7 @@ import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceThanosConnectionInfo;
+import com.exoscale.sdk.model.DbaasServiceThanosUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaThanos;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -232,6 +233,14 @@ public class DbaasServiceThanosTest {
     @Test
     public void planTest() {
         // TODO: test plan
+    }
+
+    /**
+     * Test the property 'users'
+     */
+    @Test
+    public void usersTest() {
+        // TODO: test users
     }
 
 }

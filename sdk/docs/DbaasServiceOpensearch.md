@@ -38,7 +38,7 @@
 |**createdAt** | **OffsetDateTime** | Service creation timestamp (ISO 8601) |  [optional] |
 |**plan** | **String** | Subscription plan |  |
 |**opensearchDashboards** | [**UpdateDbaasServiceOpensearchRequestOpensearchDashboards**](UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md) |  |  [optional] |
-|**users** | [**List&lt;DbaasServiceGrafanaUsersInner&gt;**](DbaasServiceGrafanaUsersInner.md) | List of service users |  [optional] |
+|**users** | [**List&lt;DbaasServiceThanosUsersInner&gt;**](DbaasServiceThanosUsersInner.md) | List of service users |  [optional] |
 
 
 

@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -15,7 +15,7 @@ package com.exoscale.sdk.client;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class Configuration {
-    public static final String VERSION = "0.0.5-SNAPSHOT-5f491c8";
+    public static final String VERSION = "0.0.5-SNAPSHOT-d29f3bd";
 
     private static ApiClient defaultApiClient = new ApiClient();
 

@@ -246,6 +246,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDbaasMysqlUserPassword**](ExoscaleApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user |
 | [**revealDbaasOpensearchUserPassword**](ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user |
 | [**revealDbaasPostgresUserPassword**](ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
+| [**revealDbaasThanosUserPassword**](ExoscaleApi.md#revealDbaasThanosUserPassword) | **GET** /dbaas-thanos/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Thanos user |
 | [**revealDbaasValkeyUserPassword**](ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user |
 | [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
@@ -22542,6 +22543,99 @@ No authorization required
 ### Return type
 
 ApiResponse<[**DbaasUserPostgresSecrets**](DbaasUserPostgresSecrets.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## revealDbaasThanosUserPassword
+
+> DbaasUserThanosSecrets revealDbaasThanosUserPassword(serviceName, username)
+
+Reveal the secrets of a DBaaS Thanos user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasUserThanosSecrets result = client.revealDbaasThanosUserPassword(serviceName, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revealDbaasThanosUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+[**DbaasUserThanosSecrets**](DbaasUserThanosSecrets.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasUserThanosSecrets**](DbaasUserThanosSecrets.md)>
 
 
 ### Authorization

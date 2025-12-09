@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -98,6 +98,7 @@ import com.exoscale.sdk.model.DbaasUserKafkaSecrets;
 import com.exoscale.sdk.model.DbaasUserMysqlSecrets;
 import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
+import com.exoscale.sdk.model.DbaasUserThanosSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
@@ -21009,6 +21010,95 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/dbaas-postgres/{service-name}/user/{username}/password/reveal"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Reveal the secrets of a DBaaS Thanos user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return DbaasUserThanosSecrets
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasUserThanosSecrets revealDbaasThanosUserPassword(String serviceName, String username) throws ApiException {
+    ApiResponse<DbaasUserThanosSecrets> localVarResponse = revealDbaasThanosUserPasswordWithHttpInfo(serviceName, username);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reveal the secrets of a DBaaS Thanos user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return ApiResponse&lt;DbaasUserThanosSecrets&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasUserThanosSecrets> revealDbaasThanosUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = revealDbaasThanosUserPasswordRequestBuilder(serviceName, username);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("revealDbaasThanosUserPassword", localVarResponse);
+        }
+        return new ApiResponse<DbaasUserThanosSecrets>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserThanosSecrets>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder revealDbaasThanosUserPasswordRequestBuilder(String serviceName, String username) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling revealDbaasThanosUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling revealDbaasThanosUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-thanos/{service-name}/user/{username}/password/reveal"
         .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
         .replace("{username}", ApiClient.urlEncode(username.toString()));
       String requestBody = null;

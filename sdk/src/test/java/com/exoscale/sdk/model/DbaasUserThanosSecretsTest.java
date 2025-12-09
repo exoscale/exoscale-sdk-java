@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -24,25 +24,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceGrafanaUsersInner
+ * Model tests for DbaasUserThanosSecrets
  */
-public class DbaasServiceGrafanaUsersInnerTest {
-    private final DbaasServiceGrafanaUsersInner model = new DbaasServiceGrafanaUsersInner();
+public class DbaasUserThanosSecretsTest {
+    private final DbaasUserThanosSecrets model = new DbaasUserThanosSecrets();
 
     /**
-     * Model tests for DbaasServiceGrafanaUsersInner
+     * Model tests for DbaasUserThanosSecrets
      */
     @Test
-    public void testDbaasServiceGrafanaUsersInner() {
-        // TODO: test DbaasServiceGrafanaUsersInner
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
+    public void testDbaasUserThanosSecrets() {
+        // TODO: test DbaasUserThanosSecrets
     }
 
     /**

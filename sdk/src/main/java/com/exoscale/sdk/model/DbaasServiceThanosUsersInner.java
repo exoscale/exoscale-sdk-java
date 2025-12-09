@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -29,15 +29,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasServiceGrafanaUsersInner
+ * DbaasServiceThanosUsersInner
  */
 @JsonPropertyOrder({
-  DbaasServiceGrafanaUsersInner.JSON_PROPERTY_TYPE,
-  DbaasServiceGrafanaUsersInner.JSON_PROPERTY_USERNAME,
-  DbaasServiceGrafanaUsersInner.JSON_PROPERTY_PASSWORD
+  DbaasServiceThanosUsersInner.JSON_PROPERTY_TYPE,
+  DbaasServiceThanosUsersInner.JSON_PROPERTY_USERNAME,
+  DbaasServiceThanosUsersInner.JSON_PROPERTY_PASSWORD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceGrafanaUsersInner {
+public class DbaasServiceThanosUsersInner {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
@@ -47,10 +47,10 @@ public class DbaasServiceGrafanaUsersInner {
   public static final String JSON_PROPERTY_PASSWORD = "password";
   private String password;
 
-  public DbaasServiceGrafanaUsersInner() { 
+  public DbaasServiceThanosUsersInner() { 
   }
 
-  public DbaasServiceGrafanaUsersInner type(String type) {
+  public DbaasServiceThanosUsersInner type(String type) {
     this.type = type;
     return this;
   }
@@ -75,7 +75,7 @@ public class DbaasServiceGrafanaUsersInner {
   }
 
 
-  public DbaasServiceGrafanaUsersInner username(String username) {
+  public DbaasServiceThanosUsersInner username(String username) {
     this.username = username;
     return this;
   }
@@ -100,7 +100,7 @@ public class DbaasServiceGrafanaUsersInner {
   }
 
 
-  public DbaasServiceGrafanaUsersInner password(String password) {
+  public DbaasServiceThanosUsersInner password(String password) {
     this.password = password;
     return this;
   }
@@ -126,7 +126,7 @@ public class DbaasServiceGrafanaUsersInner {
 
 
   /**
-   * Return true if this dbaas_service_grafana_users_inner object is equal to o.
+   * Return true if this dbaas_service_thanos_users_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -136,10 +136,10 @@ public class DbaasServiceGrafanaUsersInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceGrafanaUsersInner dbaasServiceGrafanaUsersInner = (DbaasServiceGrafanaUsersInner) o;
-    return Objects.equals(this.type, dbaasServiceGrafanaUsersInner.type) &&
-        Objects.equals(this.username, dbaasServiceGrafanaUsersInner.username) &&
-        Objects.equals(this.password, dbaasServiceGrafanaUsersInner.password);
+    DbaasServiceThanosUsersInner dbaasServiceThanosUsersInner = (DbaasServiceThanosUsersInner) o;
+    return Objects.equals(this.type, dbaasServiceThanosUsersInner.type) &&
+        Objects.equals(this.username, dbaasServiceThanosUsersInner.username) &&
+        Objects.equals(this.password, dbaasServiceThanosUsersInner.password);
   }
 
   @Override
@@ -150,7 +150,7 @@ public class DbaasServiceGrafanaUsersInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceGrafanaUsersInner {\n");
+    sb.append("class DbaasServiceThanosUsersInner {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

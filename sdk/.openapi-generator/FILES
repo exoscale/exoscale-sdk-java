@@ -122,7 +122,6 @@ docs/DbaasServiceCommon.md
 docs/DbaasServiceComponents.md
 docs/DbaasServiceGrafana.md
 docs/DbaasServiceGrafanaConnectionInfo.md
-docs/DbaasServiceGrafanaUsersInner.md
 docs/DbaasServiceKafka.md
 docs/DbaasServiceKafkaAuthenticationMethods.md
 docs/DbaasServiceKafkaComponentsInner.md
@@ -148,6 +147,7 @@ docs/DbaasServicePgUsersInner.md
 docs/DbaasServiceThanos.md
 docs/DbaasServiceThanosComponentsInner.md
 docs/DbaasServiceThanosConnectionInfo.md
+docs/DbaasServiceThanosUsersInner.md
 docs/DbaasServiceType.md
 docs/DbaasServiceUpdate.md
 docs/DbaasServiceValkey.md
@@ -162,6 +162,7 @@ docs/DbaasUserKafkaSecrets.md
 docs/DbaasUserMysqlSecrets.md
 docs/DbaasUserOpensearchSecrets.md
 docs/DbaasUserPostgresSecrets.md
+docs/DbaasUserThanosSecrets.md
 docs/DbaasUserValkeySecrets.md
 docs/DeleteModelConflictResponse.md
 docs/DeployTarget.md
@@ -548,7 +549,6 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceCommon.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceComponents.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceGrafana.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceGrafanaConnectionInfo.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceGrafanaUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceKafka.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceKafkaAuthenticationMethods.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceKafkaComponentsInner.java
@@ -574,6 +574,7 @@ src/main/java/com/exoscale/sdk/model/DbaasServicePgUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceThanos.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceThanosComponentsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceThanosConnectionInfo.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceThanosUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceType.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceUpdate.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkey.java
@@ -588,6 +589,7 @@ src/main/java/com/exoscale/sdk/model/DbaasUserKafkaSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserMysqlSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserOpensearchSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserPostgresSecrets.java
+src/main/java/com/exoscale/sdk/model/DbaasUserThanosSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserValkeySecrets.java
 src/main/java/com/exoscale/sdk/model/DeleteModelConflictResponse.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java

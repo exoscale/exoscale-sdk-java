@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-12-03T07:08:59.625232917Z[Etc/UTC]
+- Build date: 2025-12-09T07:08:20.652854971Z[Etc/UTC]
 
 
 
@@ -33,7 +33,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-5f491c8</version>
+    <version>0.0.5-SNAPSHOT-d29f3bd</version>
 </dependency>
 ```
 
@@ -43,7 +43,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-5f491c8'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d29f3bd'
 }
 ```
 
@@ -325,6 +325,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDbaasMysqlUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasMysqlUserPassword) | **GET** /dbaas-mysql/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS MySQL user
 *ExoscaleApi* | [**revealDbaasOpensearchUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasOpensearchUserPassword) | **GET** /dbaas-opensearch/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS OpenSearch user
 *ExoscaleApi* | [**revealDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
+*ExoscaleApi* | [**revealDbaasThanosUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasThanosUserPassword) | **GET** /dbaas-thanos/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Thanos user
 *ExoscaleApi* | [**revealDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user
 *ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
@@ -508,7 +509,6 @@ Class | Method | HTTP request | Description
  - [DbaasServiceComponents](sdk/docs/DbaasServiceComponents.md)
  - [DbaasServiceGrafana](sdk/docs/DbaasServiceGrafana.md)
  - [DbaasServiceGrafanaConnectionInfo](sdk/docs/DbaasServiceGrafanaConnectionInfo.md)
- - [DbaasServiceGrafanaUsersInner](sdk/docs/DbaasServiceGrafanaUsersInner.md)
  - [DbaasServiceKafka](sdk/docs/DbaasServiceKafka.md)
  - [DbaasServiceKafkaAuthenticationMethods](sdk/docs/DbaasServiceKafkaAuthenticationMethods.md)
  - [DbaasServiceKafkaComponentsInner](sdk/docs/DbaasServiceKafkaComponentsInner.md)
@@ -534,6 +534,7 @@ Class | Method | HTTP request | Description
  - [DbaasServiceThanos](sdk/docs/DbaasServiceThanos.md)
  - [DbaasServiceThanosComponentsInner](sdk/docs/DbaasServiceThanosComponentsInner.md)
  - [DbaasServiceThanosConnectionInfo](sdk/docs/DbaasServiceThanosConnectionInfo.md)
+ - [DbaasServiceThanosUsersInner](sdk/docs/DbaasServiceThanosUsersInner.md)
  - [DbaasServiceType](sdk/docs/DbaasServiceType.md)
  - [DbaasServiceUpdate](sdk/docs/DbaasServiceUpdate.md)
  - [DbaasServiceValkey](sdk/docs/DbaasServiceValkey.md)
@@ -548,6 +549,7 @@ Class | Method | HTTP request | Description
  - [DbaasUserMysqlSecrets](sdk/docs/DbaasUserMysqlSecrets.md)
  - [DbaasUserOpensearchSecrets](sdk/docs/DbaasUserOpensearchSecrets.md)
  - [DbaasUserPostgresSecrets](sdk/docs/DbaasUserPostgresSecrets.md)
+ - [DbaasUserThanosSecrets](sdk/docs/DbaasUserThanosSecrets.md)
  - [DbaasUserValkeySecrets](sdk/docs/DbaasUserValkeySecrets.md)
  - [DeleteModelConflictResponse](sdk/docs/DeleteModelConflictResponse.md)
  - [DeployTarget](sdk/docs/DeployTarget.md)

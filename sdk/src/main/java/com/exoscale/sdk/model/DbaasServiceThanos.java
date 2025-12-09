@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -27,6 +27,7 @@ import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceThanosConnectionInfo;
+import com.exoscale.sdk.model.DbaasServiceThanosUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaThanos;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -67,7 +68,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceThanos.JSON_PROPERTY_URI_PARAMS,
   DbaasServiceThanos.JSON_PROPERTY_THANOS_SETTINGS,
   DbaasServiceThanos.JSON_PROPERTY_CREATED_AT,
-  DbaasServiceThanos.JSON_PROPERTY_PLAN
+  DbaasServiceThanos.JSON_PROPERTY_PLAN,
+  DbaasServiceThanos.JSON_PROPERTY_USERS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasServiceThanos {
@@ -139,6 +141,9 @@ public class DbaasServiceThanos {
 
   public static final String JSON_PROPERTY_PLAN = "plan";
   private String plan;
+
+  public static final String JSON_PROPERTY_USERS = "users";
+  private List<DbaasServiceThanosUsersInner> users;
 
   public DbaasServiceThanos() { 
   }
@@ -762,6 +767,39 @@ public class DbaasServiceThanos {
   }
 
 
+  public DbaasServiceThanos users(List<DbaasServiceThanosUsersInner> users) {
+    this.users = users;
+    return this;
+  }
+
+  public DbaasServiceThanos addUsersItem(DbaasServiceThanosUsersInner usersItem) {
+    if (this.users == null) {
+      this.users = new ArrayList<>();
+    }
+    this.users.add(usersItem);
+    return this;
+  }
+
+   /**
+   * List of service users
+   * @return users
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<DbaasServiceThanosUsersInner> getUsers() {
+    return users;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsers(List<DbaasServiceThanosUsersInner> users) {
+    this.users = users;
+  }
+
+
   /**
    * Return true if this dbaas-service-thanos object is equal to o.
    */
@@ -796,12 +834,13 @@ public class DbaasServiceThanos {
         Objects.equals(this.uriParams, dbaasServiceThanos.uriParams) &&
         Objects.equals(this.thanosSettings, dbaasServiceThanos.thanosSettings) &&
         Objects.equals(this.createdAt, dbaasServiceThanos.createdAt) &&
-        Objects.equals(this.plan, dbaasServiceThanos.plan);
+        Objects.equals(this.plan, dbaasServiceThanos.plan) &&
+        Objects.equals(this.users, dbaasServiceThanos.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, thanosSettings, createdAt, plan);
+    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, thanosSettings, createdAt, plan, users);
   }
 
   @Override
@@ -831,6 +870,7 @@ public class DbaasServiceThanos {
     sb.append("    thanosSettings: ").append(toIndentedString(thanosSettings)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1016,6 +1056,16 @@ public class DbaasServiceThanos {
     // add `plan` to the URL query string
     if (getPlan() != null) {
       joiner.add(String.format("%splan%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlan()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `users` to the URL query string
+    if (getUsers() != null) {
+      for (int i = 0; i < getUsers().size(); i++) {
+        if (getUsers().get(i) != null) {
+          joiner.add(getUsers().get(i).toUrlQueryString(String.format("%susers%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

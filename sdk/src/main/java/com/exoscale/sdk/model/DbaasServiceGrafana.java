@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -23,11 +23,11 @@ import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
 import com.exoscale.sdk.model.DbaasServiceGrafanaConnectionInfo;
-import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
+import com.exoscale.sdk.model.DbaasServiceThanosUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaGrafana;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -155,7 +155,7 @@ public class DbaasServiceGrafana {
   private String plan;
 
   public static final String JSON_PROPERTY_USERS = "users";
-  private List<DbaasServiceGrafanaUsersInner> users;
+  private List<DbaasServiceThanosUsersInner> users;
 
   public DbaasServiceGrafana() { 
   }
@@ -862,12 +862,12 @@ public class DbaasServiceGrafana {
   }
 
 
-  public DbaasServiceGrafana users(List<DbaasServiceGrafanaUsersInner> users) {
+  public DbaasServiceGrafana users(List<DbaasServiceThanosUsersInner> users) {
     this.users = users;
     return this;
   }
 
-  public DbaasServiceGrafana addUsersItem(DbaasServiceGrafanaUsersInner usersItem) {
+  public DbaasServiceGrafana addUsersItem(DbaasServiceThanosUsersInner usersItem) {
     if (this.users == null) {
       this.users = new ArrayList<>();
     }
@@ -883,14 +883,14 @@ public class DbaasServiceGrafana {
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasServiceGrafanaUsersInner> getUsers() {
+  public List<DbaasServiceThanosUsersInner> getUsers() {
     return users;
   }
 
 
   @JsonProperty(JSON_PROPERTY_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsers(List<DbaasServiceGrafanaUsersInner> users) {
+  public void setUsers(List<DbaasServiceThanosUsersInner> users) {
     this.users = users;
   }
 

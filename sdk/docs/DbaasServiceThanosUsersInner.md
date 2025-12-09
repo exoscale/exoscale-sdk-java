@@ -1,6 +1,6 @@
 
 
-# DbaasServiceGrafanaUsersInner
+# DbaasServiceThanosUsersInner
 
 
 ## Properties

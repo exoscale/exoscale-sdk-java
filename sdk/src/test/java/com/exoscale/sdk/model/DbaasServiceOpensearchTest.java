@@ -1,6 +1,6 @@
 /*
  * Exoscale Public API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://openapi-v2.exoscale.com/source.json) * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+ *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: api@exoscale.com
@@ -16,13 +16,13 @@ package com.exoscale.sdk.model;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
-import com.exoscale.sdk.model.DbaasServiceGrafanaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.DbaasServiceOpensearchConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceOpensearchIndexTemplate;
+import com.exoscale.sdk.model.DbaasServiceThanosUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaOpensearch;
 import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequestIndexPatternsInner;

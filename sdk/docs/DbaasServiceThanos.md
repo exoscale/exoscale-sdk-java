@@ -30,6 +30,7 @@
 |**thanosSettings** | [**JsonSchemaThanos**](JsonSchemaThanos.md) |  |  [optional] |
 |**createdAt** | **OffsetDateTime** | Service creation timestamp (ISO 8601) |  [optional] |
 |**plan** | **String** | Subscription plan |  |
+|**users** | [**List&lt;DbaasServiceThanosUsersInner&gt;**](DbaasServiceThanosUsersInner.md) | List of service users |  [optional] |
 
 
 

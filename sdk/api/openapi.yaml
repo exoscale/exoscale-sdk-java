@@ -10,8 +10,7 @@ info:
 
     The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:
 
-    * [JSON format](https://openapi-v2.exoscale.com/source.json)
-    * [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+    * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
   termsOfService: https://exoscale.com/terms
   title: Exoscale Public API
   version: 2.0.0
@@ -5884,6 +5883,35 @@ paths:
                 $ref: '#/components/schemas/list_dbaas_integration_settings_200_response'
           description: "200"
       summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /dbaas-thanos/{service-name}/user/{username}/password/reveal:
+    get:
+      operationId: reveal-dbaas-thanos-user-password
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-user-username'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-user-thanos-secrets'
+          description: "200"
+      summary: Reveal the secrets of a DBaaS Thanos user
       tags:
       - exoscale
       x-accepts: application/json
@@ -17871,6 +17899,11 @@ components:
         plan:
           description: Subscription plan
           type: string
+        users:
+          description: List of service users
+          items:
+            $ref: '#/components/schemas/dbaas_service_thanos_users_inner'
+          type: array
       required:
       - name
       - plan
@@ -43691,7 +43724,7 @@ components:
         users:
           description: List of service users
           items:
-            $ref: '#/components/schemas/dbaas_service_grafana_users_inner'
+            $ref: '#/components/schemas/dbaas_service_thanos_users_inner'
           type: array
       required:
       - name
@@ -44325,7 +44358,7 @@ components:
         users:
           description: List of service users
           items:
-            $ref: '#/components/schemas/dbaas_service_grafana_users_inner'
+            $ref: '#/components/schemas/dbaas_service_thanos_users_inner'
           type: array
       required:
       - name
@@ -46416,6 +46449,19 @@ components:
       required:
       - bearer-token
       - endpoint
+      type: object
+    dbaas-user-thanos-secrets:
+      description: Thanos User secrets
+      example:
+        password: password
+        username: username
+      properties:
+        username:
+          description: Thanos username
+          type: string
+        password:
+          description: Thanos password
+          type: string
       type: object
     enum-rsyslog-format:
       enum:
@@ -99770,6 +99816,19 @@ components:
       - route
       - usage
       type: object
+    dbaas_service_thanos_users_inner:
+      example:
+        password: password
+        type: type
+        username: username
+      properties:
+        type:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+      type: object
     dbaas_external_endpoint_datadog_output_settings:
       description: External integration DataDog configuration
       example:
@@ -99898,19 +99957,6 @@ components:
         username: username
       properties:
         uri:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-      type: object
-    dbaas_service_grafana_users_inner:
-      example:
-        password: password
-        type: type
-        username: username
-      properties:
-        type:
           type: string
         username:
           type: string
