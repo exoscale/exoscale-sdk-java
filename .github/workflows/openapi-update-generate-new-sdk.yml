@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Fetch latest OpenAPI definition
         shell: bash
@@ -103,7 +103,7 @@ jobs:
 
       - name: Checkout gh-pages branch
         if: env.CHANGED == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: gh-pages
       - name: Move Javadoc JAR back to working directory
