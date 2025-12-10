@@ -7,18 +7,18 @@ on:
   workflow_dispatch:
   schedule:
    - cron: '0 7 * * *'  # At 07:00 every day
-   
+
 jobs:
   scheduled:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Fetch latest OpenAPI definition
         shell: bash
         run: |
-          curl -s https://openapi-v2.exoscale.com/source.yaml -o api/openapi.yaml
+          curl -s https://api-ch-gva-2.exoscale.com/v2/openapi.json -o api/openapi.yaml
 
       - name: Check for changes in OpenAPI definition
         id: changes
@@ -48,7 +48,7 @@ jobs:
             minor=${parts[1]}
             patch=${parts[2]}
             qualifier=${parts[3]}
-            
+
             new_patch=$((patch + 1))
 
             if [ -z "$qualifier" ]; then
@@ -56,13 +56,13 @@ jobs:
             else
               base_version="${major}.${minor}.${new_patch}-${qualifier}"
             fi
-            
+
             new_version="${base_version}-SNAPSHOT-${unique_id}"
           fi
 
           echo "New version: $new_version"
           xmlstarlet ed --inplace --update "//*[local-name()='artifactVersion']" --value "$new_version" pom.xml
-          
+
           echo "new_version=$new_version" >> $GITHUB_ENV
           echo "Updated version to $new_version"
 
@@ -103,7 +103,7 @@ jobs:
 
       - name: Checkout gh-pages branch
         if: env.CHANGED == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: gh-pages
       - name: Move Javadoc JAR back to working directory
