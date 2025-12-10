@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-12-09T07:08:20.652854971Z[Etc/UTC]
+- Build date: 2025-12-10T13:00:23.924444935Z[Etc/UTC]
 
 
 
@@ -15,8 +15,7 @@ Infrastructure automation API, allowing programmatic access to all Exoscale prod
 
 The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:
 
-* [JSON format](https://openapi-v2.exoscale.com/source.json)
-* [YAML format](https://openapi-v2.exoscale.com/source.yaml)
+* [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
 
 
 ## Requirements
@@ -33,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d29f3bd</version>
+    <version>0.0.5-SNAPSHOT-9e6b6cd</version>
 </dependency>
 ```
 
@@ -43,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d29f3bd'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9e6b6cd'
 }
 ```
 
