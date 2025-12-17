@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**applicationConsistentSnapshotEnabled** | **Boolean** | Enable application consistent snapshots |  [optional] |
 |**antiAffinityGroups** | [**Set&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Instance Pool Anti-affinity Groups |  [optional] |
 |**description** | **String** | Instance Pool description |  [optional] |
 |**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Determines public IP assignment of the Instances. Type &#x60;none&#x60; is final and can&#39;t be changed later on. |  [optional] |

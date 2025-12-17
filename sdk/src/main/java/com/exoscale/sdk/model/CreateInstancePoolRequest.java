@@ -45,6 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateInstancePoolRequest
  */
 @JsonPropertyOrder({
+  CreateInstancePoolRequest.JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED,
   CreateInstancePoolRequest.JSON_PROPERTY_ANTI_AFFINITY_GROUPS,
   CreateInstancePoolRequest.JSON_PROPERTY_DESCRIPTION,
   CreateInstancePoolRequest.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
@@ -67,6 +68,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateInstancePoolRequest {
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED = "application-consistent-snapshot-enabled";
+  private Boolean applicationConsistentSnapshotEnabled;
+
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private Set<AntiAffinityGroup> antiAffinityGroups;
 
@@ -163,6 +167,31 @@ public class CreateInstancePoolRequest {
 
   public CreateInstancePoolRequest() { 
   }
+
+  public CreateInstancePoolRequest applicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+    return this;
+  }
+
+   /**
+   * Enable application consistent snapshots
+   * @return applicationConsistentSnapshotEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistentSnapshotEnabled() {
+    return applicationConsistentSnapshotEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+  }
+
 
   public CreateInstancePoolRequest antiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
@@ -708,7 +737,8 @@ public class CreateInstancePoolRequest {
       return false;
     }
     CreateInstancePoolRequest createInstancePoolRequest = (CreateInstancePoolRequest) o;
-    return Objects.equals(this.antiAffinityGroups, createInstancePoolRequest.antiAffinityGroups) &&
+    return Objects.equals(this.applicationConsistentSnapshotEnabled, createInstancePoolRequest.applicationConsistentSnapshotEnabled) &&
+        Objects.equals(this.antiAffinityGroups, createInstancePoolRequest.antiAffinityGroups) &&
         Objects.equals(this.description, createInstancePoolRequest.description) &&
         Objects.equals(this.publicIpAssignment, createInstancePoolRequest.publicIpAssignment) &&
         Objects.equals(this.labels, createInstancePoolRequest.labels) &&
@@ -731,13 +761,14 @@ public class CreateInstancePoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, size, sshKey, instancePrefix, userData, deployTarget, ipv6Enabled, diskSize, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, size, sshKey, instancePrefix, userData, deployTarget, ipv6Enabled, diskSize, sshKeys);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateInstancePoolRequest {\n");
+    sb.append("    applicationConsistentSnapshotEnabled: ").append(toIndentedString(applicationConsistentSnapshotEnabled)).append("\n");
     sb.append("    antiAffinityGroups: ").append(toIndentedString(antiAffinityGroups)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
@@ -803,6 +834,11 @@ public class CreateInstancePoolRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `application-consistent-snapshot-enabled` to the URL query string
+    if (getApplicationConsistentSnapshotEnabled() != null) {
+      joiner.add(String.format("%sapplication-consistent-snapshot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistentSnapshotEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {

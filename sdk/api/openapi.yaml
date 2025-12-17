@@ -43171,7 +43171,7 @@ components:
           type: string
         size:
           description: Number of instances
-          exclusiveMinimum: true
+          exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
@@ -56813,6 +56813,9 @@ components:
       type: object
     create_instance_pool_request:
       properties:
+        application-consistent-snapshot-enabled:
+          description: Enable application consistent snapshots
+          type: boolean
         anti-affinity-groups:
           description: Instance Pool Anti-affinity Groups
           items:
@@ -57327,6 +57330,9 @@ components:
       type: object
     update_instance_pool_request:
       properties:
+        application-consistent-snapshot-enabled:
+          description: Enable application consistent snapshots
+          type: boolean
         anti-affinity-groups:
           description: Instance Pool Anti-affinity Groups
           items:
@@ -57763,7 +57769,7 @@ components:
       properties:
         size:
           description: Number of instances
-          exclusiveMinimum: true
+          exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
