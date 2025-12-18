@@ -85,6 +85,7 @@ import com.exoscale.sdk.model.DbaasServiceLogs;
 import com.exoscale.sdk.model.DbaasServiceMysql;
 import com.exoscale.sdk.model.DbaasServiceOpensearch;
 import com.exoscale.sdk.model.DbaasServicePg;
+import com.exoscale.sdk.model.DbaasServiceThanos;
 import com.exoscale.sdk.model.DbaasServiceType;
 import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
@@ -212,6 +213,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
+import com.exoscale.sdk.model.UpdateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
@@ -1618,6 +1620,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Delete a Thanos service
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasServiceThanosTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.deleteDbaasServiceThanos(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Delete a Valkey service
      *
      * 
@@ -2631,6 +2650,23 @@ public class ExoscaleApiTest {
         String name = null;
         DbaasServicePg response = 
         api.getDbaasServicePg(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Get a DBaaS Thanos service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasServiceThanosTest() throws ApiException {
+        String name = null;
+        DbaasServiceThanos response = 
+        api.getDbaasServiceThanos(name);
         
         // TODO: test validations
     }
@@ -4742,6 +4778,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Initiate Thanos maintenance update
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void startDbaasThanosMaintenanceTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.startDbaasThanosMaintenance(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Initiate Valkey maintenance update
      *
      * 
@@ -5148,6 +5201,24 @@ public class ExoscaleApiTest {
         UpdateDbaasServicePgRequest updateDbaasServicePgRequest = null;
         Operation response = 
         api.updateDbaasServicePg(name, updateDbaasServicePgRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Update a DBaaS Thanos service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasServiceThanosTest() throws ApiException {
+        String name = null;
+        UpdateDbaasServiceThanosRequest updateDbaasServiceThanosRequest = null;
+        Operation response = 
+        api.updateDbaasServiceThanos(name, updateDbaasServiceThanosRequest);
         
         // TODO: test validations
     }

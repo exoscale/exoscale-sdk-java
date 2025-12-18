@@ -48,6 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Instance Pool
  */
 @JsonPropertyOrder({
+  InstancePool.JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED,
   InstancePool.JSON_PROPERTY_ANTI_AFFINITY_GROUPS,
   InstancePool.JSON_PROPERTY_DESCRIPTION,
   InstancePool.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
@@ -74,6 +75,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class InstancePool {
+  public static final String JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED = "application-consistent-snapshot-enabled";
+  private Boolean applicationConsistentSnapshotEnabled;
+
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
   private List<AntiAffinityGroup> antiAffinityGroups;
 
@@ -202,6 +206,31 @@ public class InstancePool {
     this.instances = instances;
     this.id = id;
   }
+
+  public InstancePool applicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+    return this;
+  }
+
+   /**
+   * Enable application consistent snapshots
+   * @return applicationConsistentSnapshotEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getApplicationConsistentSnapshotEnabled() {
+    return applicationConsistentSnapshotEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_APPLICATION_CONSISTENT_SNAPSHOT_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApplicationConsistentSnapshotEnabled(Boolean applicationConsistentSnapshotEnabled) {
+    this.applicationConsistentSnapshotEnabled = applicationConsistentSnapshotEnabled;
+  }
+
 
   public InstancePool antiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
@@ -812,7 +841,8 @@ public class InstancePool {
       return false;
     }
     InstancePool instancePool = (InstancePool) o;
-    return Objects.equals(this.antiAffinityGroups, instancePool.antiAffinityGroups) &&
+    return Objects.equals(this.applicationConsistentSnapshotEnabled, instancePool.applicationConsistentSnapshotEnabled) &&
+        Objects.equals(this.antiAffinityGroups, instancePool.antiAffinityGroups) &&
         Objects.equals(this.description, instancePool.description) &&
         Objects.equals(this.publicIpAssignment, instancePool.publicIpAssignment) &&
         Objects.equals(this.labels, instancePool.labels) &&
@@ -839,13 +869,14 @@ public class InstancePool {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, state, size, sshKey, instancePrefix, userData, manager, instances, deployTarget, ipv6Enabled, id, diskSize, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, state, size, sshKey, instancePrefix, userData, manager, instances, deployTarget, ipv6Enabled, id, diskSize, sshKeys);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstancePool {\n");
+    sb.append("    applicationConsistentSnapshotEnabled: ").append(toIndentedString(applicationConsistentSnapshotEnabled)).append("\n");
     sb.append("    antiAffinityGroups: ").append(toIndentedString(antiAffinityGroups)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
@@ -915,6 +946,11 @@ public class InstancePool {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `application-consistent-snapshot-enabled` to the URL query string
+    if (getApplicationConsistentSnapshotEnabled() != null) {
+      joiner.add(String.format("%sapplication-consistent-snapshot-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApplicationConsistentSnapshotEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {

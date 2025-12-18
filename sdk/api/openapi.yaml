@@ -977,6 +977,28 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-thanos/{name}/maintenance/start:
+    put:
+      operationId: start-dbaas-thanos-maintenance
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Initiate Thanos maintenance update
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-external-endpoint-elasticsearch/{endpoint-id}:
     delete:
       description: "[BETA] Delete ElasticSearch logs external integration endpoint"
@@ -6363,6 +6385,79 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-thanos/{name}:
+    delete:
+      operationId: delete-dbaas-service-thanos
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Delete a Thanos service
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: Get a DBaaS Thanos service
+      operationId: get-dbaas-service-thanos
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-service-thanos'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: Update a DBaaS Thanos service
+      operationId: update-dbaas-service-thanos
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_dbaas_service_thanos_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /iam-role/{id}:policy:
     put:
       description: ""
@@ -9148,6 +9243,18 @@ components:
           type: array
       type: object
     json-schema-thanos:
+      example:
+        compactor:
+          retention.days: 0
+        query:
+          query.default-evaluation-interval: 1m
+          query.metadata.default-time-range: 0s
+          query.lookback-delta: 5m
+          query.timeout: 2m
+          store.limits.request-samples: 23021358
+          store.limits.request-series: 70614012
+        query-frontend:
+          query-range.align-range-with-step: true
       properties:
         compactor:
           $ref: '#/components/schemas/ThanosCompactorUserConfig'
@@ -9742,6 +9849,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -11184,6 +11292,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -15659,6 +15768,7 @@ components:
             zones:
             - null
             - null
+          application-consistent-snapshot-enabled: true
           labels:
             key: labels
           private-networks:
@@ -17808,6 +17918,141 @@ components:
       - session
       type: string
     dbaas-service-thanos:
+      example:
+        components:
+        - component: component
+          route: null
+          port: 15087
+          usage: null
+          host: host
+          ssl: true
+        - component: component
+          route: null
+          port: 15087
+          usage: null
+          host: host
+          ssl: true
+        connection-info:
+          receiver-remote-write-uri: receiver-remote-write-uri
+          query-frontend-uri: query-frontend-uri
+          query-uri: query-uri
+          ruler-uri: ruler-uri
+        node-memory: 0
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
+        type: type
+        uri: uri
+        users:
+        - password: password
+          type: type
+          username: username
+        - password: password
+          type: type
+          username: username
+        uri-params: "{}"
+        node-count: 0
+        zone: zone
+        node-cpu-count: 0
+        termination-protection: true
+        node-states:
+        - role: standby
+          name: name
+          state: leaving
+          progress-updates:
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+        - role: standby
+          name: name
+          state: leaving
+          progress-updates:
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+          - phase: stream
+            current: 0
+            unit: unit
+            min: 0
+            max: 0
+            completed: true
+        name: name
+        disk-size: 0
+        thanos-settings:
+          compactor:
+            retention.days: 0
+          query:
+            query.default-evaluation-interval: 1m
+            query.metadata.default-time-range: 0s
+            query.lookback-delta: 5m
+            query.timeout: 2m
+            store.limits.request-samples: 23021358
+            store.limits.request-series: 70614012
+          query-frontend:
+            query-range.align-range-with-step: true
+        created-at: 2000-01-23T04:56:07.000+00:00
+        state: null
+        integrations:
+        - settings: "{}"
+          description: description
+          is-active: true
+          source: source
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+          dest: dest
+          is-enabled: true
+          status: status
+        - settings: "{}"
+          description: description
+          is-active: true
+          source: source
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+          dest: dest
+          is-enabled: true
+          status: status
+        maintenance:
+          time: time
+          updates:
+          - start-at: 2000-01-23T04:56:07.000+00:00
+            description: description
+            start-after: 2000-01-23T04:56:07.000+00:00
+            deadline: 2000-01-23T04:56:07.000+00:00
+          - start-at: 2000-01-23T04:56:07.000+00:00
+            description: description
+            start-after: 2000-01-23T04:56:07.000+00:00
+            deadline: 2000-01-23T04:56:07.000+00:00
+          dow: saturday
+        plan: plan
+        notifications:
+        - metadata: "{}"
+          level: warning
+          message: message
+          type: service_powered_off_removal
+        - metadata: "{}"
+          level: warning
+          message: message
+          type: service_powered_off_removal
+        backups:
+        - data-size: 0
+          backup-time: 2000-01-23T04:56:07.000+00:00
+          backup-name: backup-name
+        - data-size: 0
+          backup-time: 2000-01-23T04:56:07.000+00:00
+          backup-name: backup-name
       properties:
         updated-at:
           description: Service last update timestamp (ISO 8601)
@@ -19172,6 +19417,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -22966,6 +23212,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -26760,6 +27007,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -30554,6 +30802,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -34348,6 +34597,7 @@ components:
               zones:
               - null
               - null
+            application-consistent-snapshot-enabled: true
             labels:
               key: labels
             private-networks:
@@ -38242,6 +38492,7 @@ components:
           zones:
           - null
           - null
+        application-consistent-snapshot-enabled: true
         labels:
           key: labels
         private-networks:
@@ -39109,6 +39360,9 @@ components:
           description: description
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
+        application-consistent-snapshot-enabled:
+          description: Enable application consistent snapshots
+          type: boolean
         anti-affinity-groups:
           description: Instance Pool Anti-affinity Groups
           items:
@@ -39887,6 +40141,7 @@ components:
             zones:
             - null
             - null
+          application-consistent-snapshot-enabled: true
           labels:
             key: labels
           private-networks:
@@ -48067,6 +48322,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -49509,6 +49765,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -50960,6 +51217,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -52402,6 +52660,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -54519,6 +54778,7 @@ components:
             zones:
             - null
             - null
+          application-consistent-snapshot-enabled: true
           labels:
             key: labels
           private-networks:
@@ -55939,6 +56199,7 @@ components:
             zones:
             - null
             - null
+          application-consistent-snapshot-enabled: true
           labels:
             key: labels
           private-networks:
@@ -58885,6 +59146,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -62679,6 +62941,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -66473,6 +66736,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -70267,6 +70531,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -74061,6 +74326,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -77880,6 +78146,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -81674,6 +81941,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -85468,6 +85736,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -89262,6 +89531,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -93056,6 +93326,7 @@ components:
                 zones:
                 - null
                 - null
+              application-consistent-snapshot-enabled: true
               labels:
                 key: labels
               private-networks:
@@ -96739,6 +97010,26 @@ components:
           minLength: 1
           type: string
       type: object
+    update_dbaas_service_thanos_request:
+      properties:
+        maintenance:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
+        plan:
+          description: Subscription plan
+          maxLength: 128
+          minLength: 1
+          type: string
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
+        ip-filter:
+          description: Allowed CIDR address blocks for incoming connections
+          items:
+            type: string
+          type: array
+        thanos-settings:
+          $ref: '#/components/schemas/json-schema-thanos'
+      type: object
     update_load_balancer_request:
       properties:
         name:
@@ -99028,6 +99319,8 @@ components:
       type: object
     ThanosCompactorUserConfig:
       description: Configuration options for Thanos Compactor.
+      example:
+        retention.days: 0
       properties:
         retention.days:
           description: "Retention time for data in days for each resolution (5m, 1h,\
@@ -99039,6 +99332,13 @@ components:
       type: object
     ThanosQueryUserConfig:
       description: Configuration options for Thanos Query.
+      example:
+        query.default-evaluation-interval: 1m
+        query.metadata.default-time-range: 0s
+        query.lookback-delta: 5m
+        query.timeout: 2m
+        store.limits.request-samples: 23021358
+        store.limits.request-series: 70614012
       properties:
         query.default-evaluation-interval:
           default: 1m
@@ -99097,6 +99397,8 @@ components:
       type: object
     ThanosQueryFrontendUserConfig:
       description: Configuration options for Thanos Query Frontend.
+      example:
+        query-range.align-range-with-step: true
       properties:
         query-range.align-range-with-step:
           default: true
@@ -99772,6 +100074,11 @@ components:
       type: object
     dbaas_service_thanos_connection_info:
       description: Thanos connection information properties
+      example:
+        receiver-remote-write-uri: receiver-remote-write-uri
+        query-frontend-uri: query-frontend-uri
+        query-uri: query-uri
+        ruler-uri: ruler-uri
       properties:
         query-frontend-uri:
           type: string

@@ -82,6 +82,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasServiceMysql**](ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service |
 | [**deleteDbaasServiceOpensearch**](ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service |
 | [**deleteDbaasServicePg**](ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service |
+| [**deleteDbaasServiceThanos**](ExoscaleApi.md#deleteDbaasServiceThanos) | **DELETE** /dbaas-thanos/{name} | Delete a Thanos service |
 | [**deleteDbaasServiceValkey**](ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service |
 | [**deleteDbaasValkeyUser**](ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user |
 | [**deleteDeployment**](ExoscaleApi.md#deleteDeployment) | **DELETE** /ai/deployment/{id} | [BETA] Delete Deployment |
@@ -141,6 +142,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasServiceMysql**](ExoscaleApi.md#getDbaasServiceMysql) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service |
 | [**getDbaasServiceOpensearch**](ExoscaleApi.md#getDbaasServiceOpensearch) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service |
 | [**getDbaasServicePg**](ExoscaleApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service |
+| [**getDbaasServiceThanos**](ExoscaleApi.md#getDbaasServiceThanos) | **GET** /dbaas-thanos/{name} |  |
 | [**getDbaasServiceType**](ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type |
 | [**getDbaasServiceValkey**](ExoscaleApi.md#getDbaasServiceValkey) | **GET** /dbaas-valkey/{name} |  |
 | [**getDbaasSettingsGrafana**](ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings |
@@ -264,6 +266,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**startDbaasMysqlMaintenance**](ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
 | [**startDbaasOpensearchMaintenance**](ExoscaleApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update |
 | [**startDbaasPgMaintenance**](ExoscaleApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update |
+| [**startDbaasThanosMaintenance**](ExoscaleApi.md#startDbaasThanosMaintenance) | **PUT** /dbaas-thanos/{name}/maintenance/start | Initiate Thanos maintenance update |
 | [**startDbaasValkeyMaintenance**](ExoscaleApi.md#startDbaasValkeyMaintenance) | **PUT** /dbaas-valkey/{name}/maintenance/start | Initiate Valkey maintenance update |
 | [**startInstance**](ExoscaleApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance |
 | [**stopDbaasMysqlMigration**](ExoscaleApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration |
@@ -287,6 +290,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDbaasServiceMysql**](ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service |
 | [**updateDbaasServiceOpensearch**](ExoscaleApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service |
 | [**updateDbaasServicePg**](ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service |
+| [**updateDbaasServiceThanos**](ExoscaleApi.md#updateDbaasServiceThanos) | **PUT** /dbaas-thanos/{name} |  |
 | [**updateDbaasServiceValkey**](ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} |  |
 | [**updateDnsDomainRecord**](ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
 | [**updateElasticIp**](ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP |
@@ -7568,6 +7572,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## deleteDbaasServiceThanos
+
+> Operation deleteDbaasServiceThanos(name)
+
+Delete a Thanos service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceThanos(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceThanos");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## deleteDbaasServiceValkey
 
 > Operation deleteDbaasServiceValkey(name)
@@ -13004,6 +13098,98 @@ No authorization required
 ### Return type
 
 ApiResponse<[**DbaasServicePg**](DbaasServicePg.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasServiceThanos
+
+> DbaasServiceThanos getDbaasServiceThanos(name)
+
+
+
+Get a DBaaS Thanos service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasServiceThanos result = client.getDbaasServiceThanos(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceThanos");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**DbaasServiceThanos**](DbaasServiceThanos.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasServiceThanos**](DbaasServiceThanos.md)>
 
 
 ### Authorization
@@ -24226,6 +24412,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## startDbaasThanosMaintenance
+
+> Operation startDbaasThanosMaintenance(name)
+
+Initiate Thanos maintenance update
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.startDbaasThanosMaintenance(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#startDbaasThanosMaintenance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## startDbaasValkeyMaintenance
 
 > Operation startDbaasValkeyMaintenance(name)
@@ -26367,6 +26643,101 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
 | **updateDbaasServicePgRequest** | [**UpdateDbaasServicePgRequest**](UpdateDbaasServicePgRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasServiceThanos
+
+> Operation updateDbaasServiceThanos(name, updateDbaasServiceThanosRequest)
+
+
+
+Update a DBaaS Thanos service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+        UpdateDbaasServiceThanosRequest updateDbaasServiceThanosRequest = new UpdateDbaasServiceThanosRequest(); // UpdateDbaasServiceThanosRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceThanos(name, updateDbaasServiceThanosRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceThanos");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasServiceThanosRequest** | [**UpdateDbaasServiceThanosRequest**](UpdateDbaasServiceThanosRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasServiceThanosRequest** | [**UpdateDbaasServiceThanosRequest**](UpdateDbaasServiceThanosRequest.md)|  | |
 
 ### Return type
 

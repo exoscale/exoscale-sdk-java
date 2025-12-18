@@ -89,6 +89,7 @@ import com.exoscale.sdk.model.DbaasServiceLogs;
 import com.exoscale.sdk.model.DbaasServiceMysql;
 import com.exoscale.sdk.model.DbaasServiceOpensearch;
 import com.exoscale.sdk.model.DbaasServicePg;
+import com.exoscale.sdk.model.DbaasServiceThanos;
 import com.exoscale.sdk.model.DbaasServiceType;
 import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
@@ -216,6 +217,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
+import com.exoscale.sdk.model.UpdateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
@@ -7256,6 +7258,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Delete a Thanos service
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasServiceThanos(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasServiceThanosWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete a Thanos service
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteDbaasServiceThanosWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceThanosRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasServiceThanos", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasServiceThanosRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling deleteDbaasServiceThanos");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-thanos/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Delete a Valkey service
    * 
    * @param name  (required)
@@ -12219,6 +12303,88 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/dbaas-postgres/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * Get a DBaaS Thanos service
+   * @param name  (required)
+   * @return DbaasServiceThanos
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasServiceThanos getDbaasServiceThanos(String name) throws ApiException {
+    ApiResponse<DbaasServiceThanos> localVarResponse = getDbaasServiceThanosWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * Get a DBaaS Thanos service
+   * @param name  (required)
+   * @return ApiResponse&lt;DbaasServiceThanos&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasServiceThanos> getDbaasServiceThanosWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasServiceThanosRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasServiceThanos", localVarResponse);
+        }
+        return new ApiResponse<DbaasServiceThanos>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasServiceThanos>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasServiceThanosRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling getDbaasServiceThanos");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-thanos/{name}"
         .replace("{name}", ApiClient.urlEncode(name.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -22593,6 +22759,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Initiate Thanos maintenance update
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation startDbaasThanosMaintenance(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = startDbaasThanosMaintenanceWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Initiate Thanos maintenance update
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> startDbaasThanosMaintenanceWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = startDbaasThanosMaintenanceRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("startDbaasThanosMaintenance", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder startDbaasThanosMaintenanceRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling startDbaasThanosMaintenance");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-thanos/{name}/maintenance/start"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Initiate Valkey maintenance update
    * 
    * @param name  (required)
@@ -24683,6 +24931,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasServicePgRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * Update a DBaaS Thanos service
+   * @param name  (required)
+   * @param updateDbaasServiceThanosRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasServiceThanos(String name, UpdateDbaasServiceThanosRequest updateDbaasServiceThanosRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasServiceThanosWithHttpInfo(name, updateDbaasServiceThanosRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * Update a DBaaS Thanos service
+   * @param name  (required)
+   * @param updateDbaasServiceThanosRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateDbaasServiceThanosWithHttpInfo(String name, UpdateDbaasServiceThanosRequest updateDbaasServiceThanosRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceThanosRequestBuilder(name, updateDbaasServiceThanosRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasServiceThanos", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasServiceThanosRequestBuilder(String name, UpdateDbaasServiceThanosRequest updateDbaasServiceThanosRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling updateDbaasServiceThanos");
+    }
+    // verify the required parameter 'updateDbaasServiceThanosRequest' is set
+    if (updateDbaasServiceThanosRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasServiceThanosRequest' when calling updateDbaasServiceThanos");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-thanos/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasServiceThanosRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

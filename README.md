@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-12-17T07:09:00.006656370Z[Etc/UTC]
+- Build date: 2025-12-18T07:09:08.468273184Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d7da53b</version>
+    <version>0.0.5-SNAPSHOT-d0ec0c4</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d7da53b'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d0ec0c4'
 }
 ```
 
@@ -160,6 +160,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
 *ExoscaleApi* | [**deleteDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
 *ExoscaleApi* | [**deleteDbaasServicePg**](sdk/docs/ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
+*ExoscaleApi* | [**deleteDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceThanos) | **DELETE** /dbaas-thanos/{name} | Delete a Thanos service
 *ExoscaleApi* | [**deleteDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service
 *ExoscaleApi* | [**deleteDbaasValkeyUser**](sdk/docs/ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user
 *ExoscaleApi* | [**deleteDeployment**](sdk/docs/ExoscaleApi.md#deleteDeployment) | **DELETE** /ai/deployment/{id} | [BETA] Delete Deployment
@@ -219,6 +220,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#getDbaasServiceMysql) | **GET** /dbaas-mysql/{name} | Get a DBaaS MySQL service
 *ExoscaleApi* | [**getDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#getDbaasServiceOpensearch) | **GET** /dbaas-opensearch/{name} | Get a DBaaS OpenSearch service
 *ExoscaleApi* | [**getDbaasServicePg**](sdk/docs/ExoscaleApi.md#getDbaasServicePg) | **GET** /dbaas-postgres/{name} | Get a DBaaS PostgreSQL service
+*ExoscaleApi* | [**getDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#getDbaasServiceThanos) | **GET** /dbaas-thanos/{name} | 
 *ExoscaleApi* | [**getDbaasServiceType**](sdk/docs/ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
 *ExoscaleApi* | [**getDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#getDbaasServiceValkey) | **GET** /dbaas-valkey/{name} | 
 *ExoscaleApi* | [**getDbaasSettingsGrafana**](sdk/docs/ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
@@ -342,6 +344,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**startDbaasMysqlMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
 *ExoscaleApi* | [**startDbaasOpensearchMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasOpensearchMaintenance) | **PUT** /dbaas-opensearch/{name}/maintenance/start | Initiate OpenSearch maintenance update
 *ExoscaleApi* | [**startDbaasPgMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasPgMaintenance) | **PUT** /dbaas-postgres/{name}/maintenance/start | Initiate PostgreSQL maintenance update
+*ExoscaleApi* | [**startDbaasThanosMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasThanosMaintenance) | **PUT** /dbaas-thanos/{name}/maintenance/start | Initiate Thanos maintenance update
 *ExoscaleApi* | [**startDbaasValkeyMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasValkeyMaintenance) | **PUT** /dbaas-valkey/{name}/maintenance/start | Initiate Valkey maintenance update
 *ExoscaleApi* | [**startInstance**](sdk/docs/ExoscaleApi.md#startInstance) | **PUT** /instance/{id}:start | Start a Compute instance
 *ExoscaleApi* | [**stopDbaasMysqlMigration**](sdk/docs/ExoscaleApi.md#stopDbaasMysqlMigration) | **POST** /dbaas-mysql/{name}/migration/stop | Stop a DBaaS MySQL migration
@@ -365,6 +368,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service
 *ExoscaleApi* | [**updateDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#updateDbaasServiceOpensearch) | **PUT** /dbaas-opensearch/{name} | Update a DBaaS OpenSearch service
 *ExoscaleApi* | [**updateDbaasServicePg**](sdk/docs/ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
+*ExoscaleApi* | [**updateDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#updateDbaasServiceThanos) | **PUT** /dbaas-thanos/{name} | 
 *ExoscaleApi* | [**updateDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} | 
 *ExoscaleApi* | [**updateDnsDomainRecord**](sdk/docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
@@ -779,6 +783,7 @@ Class | Method | HTTP request | Description
  - [UpdateDbaasServiceOpensearchRequestIndexTemplate](sdk/docs/UpdateDbaasServiceOpensearchRequestIndexTemplate.md)
  - [UpdateDbaasServiceOpensearchRequestOpensearchDashboards](sdk/docs/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md)
  - [UpdateDbaasServicePgRequest](sdk/docs/UpdateDbaasServicePgRequest.md)
+ - [UpdateDbaasServiceThanosRequest](sdk/docs/UpdateDbaasServiceThanosRequest.md)
  - [UpdateDbaasServiceValkeyRequest](sdk/docs/UpdateDbaasServiceValkeyRequest.md)
  - [UpdateDnsDomainRecordRequest](sdk/docs/UpdateDnsDomainRecordRequest.md)
  - [UpdateElasticIpRequest](sdk/docs/UpdateElasticIpRequest.md)

@@ -394,6 +394,7 @@ docs/UpdateDbaasServiceOpensearchRequestIndexPatternsInner.md
 docs/UpdateDbaasServiceOpensearchRequestIndexTemplate.md
 docs/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md
 docs/UpdateDbaasServicePgRequest.md
+docs/UpdateDbaasServiceThanosRequest.md
 docs/UpdateDbaasServiceValkeyRequest.md
 docs/UpdateDnsDomainRecordRequest.md
 docs/UpdateElasticIpRequest.md
@@ -820,6 +821,7 @@ src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestIndexPat
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestIndexTemplate.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServicePgRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceThanosRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateElasticIpRequest.java

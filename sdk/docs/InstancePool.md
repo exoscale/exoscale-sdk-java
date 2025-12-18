@@ -8,6 +8,7 @@ Instance Pool
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**applicationConsistentSnapshotEnabled** | **Boolean** | Enable application consistent snapshots |  [optional] |
 |**antiAffinityGroups** | [**List&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Instance Pool Anti-affinity Groups |  [optional] |
 |**description** | **String** | Instance Pool description |  [optional] |
 |**publicIpAssignment** | **PublicIpAssignment** |  |  [optional] |
