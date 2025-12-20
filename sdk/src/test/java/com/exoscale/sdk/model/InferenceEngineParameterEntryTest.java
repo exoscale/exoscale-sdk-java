@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,25 +26,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateDeploymentRequest
+ * Model tests for InferenceEngineParameterEntry
  */
-public class CreateDeploymentRequestTest {
-    private final CreateDeploymentRequest model = new CreateDeploymentRequest();
+public class InferenceEngineParameterEntryTest {
+    private final InferenceEngineParameterEntry model = new InferenceEngineParameterEntry();
 
     /**
-     * Model tests for CreateDeploymentRequest
+     * Model tests for InferenceEngineParameterEntry
      */
     @Test
-    public void testCreateDeploymentRequest() {
-        // TODO: test CreateDeploymentRequest
-    }
-
-    /**
-     * Test the property 'model'
-     */
-    @Test
-    public void modelTest() {
-        // TODO: test model
+    public void testInferenceEngineParameterEntry() {
+        // TODO: test InferenceEngineParameterEntry
     }
 
     /**
@@ -57,35 +48,51 @@ public class CreateDeploymentRequestTest {
     }
 
     /**
-     * Test the property 'gpuType'
+     * Test the property 'flags'
      */
     @Test
-    public void gpuTypeTest() {
-        // TODO: test gpuType
+    public void flagsTest() {
+        // TODO: test flags
     }
 
     /**
-     * Test the property 'gpuCount'
+     * Test the property 'type'
      */
     @Test
-    public void gpuCountTest() {
-        // TODO: test gpuCount
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'replicas'
+     * Test the property '_default'
      */
     @Test
-    public void replicasTest() {
-        // TODO: test replicas
+    public void _defaultTest() {
+        // TODO: test _default
     }
 
     /**
-     * Test the property 'inferenceEngineParameters'
+     * Test the property 'section'
      */
     @Test
-    public void inferenceEngineParametersTest() {
-        // TODO: test inferenceEngineParameters
+    public void sectionTest() {
+        // TODO: test section
+    }
+
+    /**
+     * Test the property 'allowedValues'
+     */
+    @Test
+    public void allowedValuesTest() {
+        // TODO: test allowedValues
+    }
+
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
     }
 
 }

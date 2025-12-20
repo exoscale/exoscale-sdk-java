@@ -724,6 +724,29 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /ai/help/inference-engine-parameters:
+    get:
+      description: "Get list of allowed inference engine parameters with their descriptions,\
+        \ types, allowed values, and defaults"
+      operationId: get-inference-engine-help
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get-inference-engine-help-response'
+          description: "200"
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "500"
+      summary: "[BETA] Get inference-engine Help"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /load-balancer:
     get:
       description: ""
@@ -8505,6 +8528,38 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/dbaas-endpoint-elasticsearch-optional-fields'
+      type: object
+    get-inference-engine-help-response:
+      description: List of allowed inference-engine parameters
+      example:
+        parameters:
+        - default: default
+          allowed-values:
+          - allowed-values
+          - allowed-values
+          name: name
+          flags:
+          - flags
+          - flags
+          description: description
+          section: section
+          type: type
+        - default: default
+          allowed-values:
+          - allowed-values
+          - allowed-values
+          name: name
+          flags:
+          - flags
+          - flags
+          description: description
+          section: section
+          type: type
+      properties:
+        parameters:
+          items:
+            $ref: '#/components/schemas/inference-engine-parameter-entry'
+          type: array
       type: object
     dbaas-user-valkey-secrets:
       description: Valkey User secrets
@@ -17746,6 +17801,9 @@ components:
       description: AI deployment
       example:
         gpu-type: gpu-type
+        inference-engine-parameters:
+        - inference-engine-parameters
+        - inference-engine-parameters
         service-level: service-level
         replicas: 0
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -17809,6 +17867,11 @@ components:
           format: date-time
           readOnly: true
           type: string
+        inference-engine-parameters:
+          description: Optional extra inference engine server CLI args
+          items:
+            type: string
+          type: array
         model:
           $ref: '#/components/schemas/model-ref'
       type: object
@@ -18595,6 +18658,47 @@ components:
       maxLength: 64
       minLength: 1
       type: string
+    inference-engine-parameter-entry:
+      description: inference-engine parameter definition
+      example:
+        default: default
+        allowed-values:
+        - allowed-values
+        - allowed-values
+        name: name
+        flags:
+        - flags
+        - flags
+        description: description
+        section: section
+        type: type
+      properties:
+        name:
+          description: Parameter name
+          type: string
+        flags:
+          description: Flag name
+          items:
+            type: string
+          type: array
+        type:
+          description: Parameter type
+          type: string
+        default:
+          description: Default value if nothing is specified
+          type: string
+        section:
+          description: Section
+          type: string
+        allowed-values:
+          description: Allowed values
+          items:
+            type: string
+          type: array
+        description:
+          description: Parameter description
+          type: string
+      type: object
     dbaas-user-mysql-secrets:
       description: MySQL User secrets
       example:
@@ -46666,6 +46770,11 @@ components:
           format: int64
           minimum: 0
           type: integer
+        inference-engine-parameters:
+          description: Optional extra inference engine server CLI args
+          items:
+            type: string
+          type: array
       required:
       - gpu-count
       - gpu-type

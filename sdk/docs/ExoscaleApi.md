@@ -162,6 +162,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
+| [**getInferenceEngineHelp**](ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | [BETA] Get inference-engine Help |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
@@ -14918,6 +14919,93 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## getInferenceEngineHelp
+
+> GetInferenceEngineHelpResponse getInferenceEngineHelp()
+
+[BETA] Get inference-engine Help
+
+Get list of allowed inference engine parameters with their descriptions, types, allowed values, and defaults
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            GetInferenceEngineHelpResponse result = client.getInferenceEngineHelp();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getInferenceEngineHelp");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetInferenceEngineHelpResponse**](GetInferenceEngineHelpResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **500** | 500 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**GetInferenceEngineHelpResponse**](GetInferenceEngineHelpResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **500** | 500 |  -  |
 
 
 ## getInstance

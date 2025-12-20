@@ -129,6 +129,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
 import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
@@ -13909,6 +13910,81 @@ public class ExoscaleApi {
 
     String localVarPath = "/iam-role/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Get inference-engine Help
+   * Get list of allowed inference engine parameters with their descriptions, types, allowed values, and defaults
+   * @return GetInferenceEngineHelpResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetInferenceEngineHelpResponse getInferenceEngineHelp() throws ApiException {
+    ApiResponse<GetInferenceEngineHelpResponse> localVarResponse = getInferenceEngineHelpWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get inference-engine Help
+   * Get list of allowed inference engine parameters with their descriptions, types, allowed values, and defaults
+   * @return ApiResponse&lt;GetInferenceEngineHelpResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetInferenceEngineHelpResponse> getInferenceEngineHelpWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getInferenceEngineHelpRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getInferenceEngineHelp", localVarResponse);
+        }
+        return new ApiResponse<GetInferenceEngineHelpResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetInferenceEngineHelpResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getInferenceEngineHelpRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/help/inference-engine-parameters";
       String requestBody = null;
       String authorizationValue;
 

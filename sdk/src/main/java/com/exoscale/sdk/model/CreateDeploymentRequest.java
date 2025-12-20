@@ -25,7 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -37,7 +39,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDeploymentRequest.JSON_PROPERTY_NAME,
   CreateDeploymentRequest.JSON_PROPERTY_GPU_TYPE,
   CreateDeploymentRequest.JSON_PROPERTY_GPU_COUNT,
-  CreateDeploymentRequest.JSON_PROPERTY_REPLICAS
+  CreateDeploymentRequest.JSON_PROPERTY_REPLICAS,
+  CreateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateDeploymentRequest {
@@ -55,6 +58,9 @@ public class CreateDeploymentRequest {
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
   private Long replicas;
+
+  public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
+  private List<String> inferenceEngineParameters;
 
   public CreateDeploymentRequest() { 
   }
@@ -186,6 +192,39 @@ public class CreateDeploymentRequest {
   }
 
 
+  public CreateDeploymentRequest inferenceEngineParameters(List<String> inferenceEngineParameters) {
+    this.inferenceEngineParameters = inferenceEngineParameters;
+    return this;
+  }
+
+  public CreateDeploymentRequest addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
+    if (this.inferenceEngineParameters == null) {
+      this.inferenceEngineParameters = new ArrayList<>();
+    }
+    this.inferenceEngineParameters.add(inferenceEngineParametersItem);
+    return this;
+  }
+
+   /**
+   * Optional extra inference engine server CLI args
+   * @return inferenceEngineParameters
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getInferenceEngineParameters() {
+    return inferenceEngineParameters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInferenceEngineParameters(List<String> inferenceEngineParameters) {
+    this.inferenceEngineParameters = inferenceEngineParameters;
+  }
+
+
   /**
    * Return true if this create-deployment-request object is equal to o.
    */
@@ -202,12 +241,13 @@ public class CreateDeploymentRequest {
         Objects.equals(this.name, createDeploymentRequest.name) &&
         Objects.equals(this.gpuType, createDeploymentRequest.gpuType) &&
         Objects.equals(this.gpuCount, createDeploymentRequest.gpuCount) &&
-        Objects.equals(this.replicas, createDeploymentRequest.replicas);
+        Objects.equals(this.replicas, createDeploymentRequest.replicas) &&
+        Objects.equals(this.inferenceEngineParameters, createDeploymentRequest.inferenceEngineParameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, name, gpuType, gpuCount, replicas);
+    return Objects.hash(model, name, gpuType, gpuCount, replicas, inferenceEngineParameters);
   }
 
   @Override
@@ -219,6 +259,7 @@ public class CreateDeploymentRequest {
     sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
     sb.append("    gpuCount: ").append(toIndentedString(gpuCount)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
+    sb.append("    inferenceEngineParameters: ").append(toIndentedString(inferenceEngineParameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -289,6 +330,15 @@ public class CreateDeploymentRequest {
     // add `replicas` to the URL query string
     if (getReplicas() != null) {
       joiner.add(String.format("%sreplicas%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReplicas()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `inference-engine-parameters` to the URL query string
+    if (getInferenceEngineParameters() != null) {
+      for (int i = 0; i < getInferenceEngineParameters().size(); i++) {
+        joiner.add(String.format("%sinference-engine-parameters%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getInferenceEngineParameters().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     return joiner.toString();

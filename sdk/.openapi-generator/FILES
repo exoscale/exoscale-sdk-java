@@ -234,6 +234,7 @@ docs/GetDbaasSettingsValkey200ResponseSettings.md
 docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
 docs/GetDeploymentResponse.md
 docs/GetDnsDomainZoneFile200Response.md
+docs/GetInferenceEngineHelpResponse.md
 docs/GetModelResponse.md
 docs/GetSksClusterAuthorityCert200Response.md
 docs/GetSosPresignedUrl200Response.md
@@ -250,6 +251,7 @@ docs/IamPolicy.md
 docs/IamRole.md
 docs/IamServicePolicy.md
 docs/IamServicePolicyRule.md
+docs/InferenceEngineParameterEntry.md
 docs/Instance.md
 docs/InstancePassword.md
 docs/InstancePool.md
@@ -661,6 +663,7 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.j
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java
 src/main/java/com/exoscale/sdk/model/GetDeploymentResponse.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
+src/main/java/com/exoscale/sdk/model/GetInferenceEngineHelpResponse.java
 src/main/java/com/exoscale/sdk/model/GetModelResponse.java
 src/main/java/com/exoscale/sdk/model/GetSksClusterAuthorityCert200Response.java
 src/main/java/com/exoscale/sdk/model/GetSosPresignedUrl200Response.java
@@ -677,6 +680,7 @@ src/main/java/com/exoscale/sdk/model/IamPolicy.java
 src/main/java/com/exoscale/sdk/model/IamRole.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicy.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicyRule.java
+src/main/java/com/exoscale/sdk/model/InferenceEngineParameterEntry.java
 src/main/java/com/exoscale/sdk/model/Instance.java
 src/main/java/com/exoscale/sdk/model/InstancePassword.java
 src/main/java/com/exoscale/sdk/model/InstancePool.java

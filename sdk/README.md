@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-12-18T07:09:08.468273184Z[Etc/UTC]
+- Build date: 2025-12-20T07:06:39.706758349Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d0ec0c4</version>
+    <version>0.0.5-SNAPSHOT-76c2579</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d0ec0c4'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-76c2579'
 }
 ```
 
@@ -240,6 +240,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports
 *ExoscaleApi* | [**getIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
 *ExoscaleApi* | [**getIamRole**](sdk/docs/ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
+*ExoscaleApi* | [**getInferenceEngineHelp**](sdk/docs/ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | [BETA] Get inference-engine Help
 *ExoscaleApi* | [**getInstance**](sdk/docs/ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details
 *ExoscaleApi* | [**getInstancePool**](sdk/docs/ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
 *ExoscaleApi* | [**getInstanceType**](sdk/docs/ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
@@ -623,6 +624,7 @@ Class | Method | HTTP request | Description
  - [GetDbaasSettingsValkey200ResponseSettingsValkey](sdk/docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md)
  - [GetDeploymentResponse](sdk/docs/GetDeploymentResponse.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
+ - [GetInferenceEngineHelpResponse](sdk/docs/GetInferenceEngineHelpResponse.md)
  - [GetModelResponse](sdk/docs/GetModelResponse.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)
@@ -639,6 +641,7 @@ Class | Method | HTTP request | Description
  - [IamRole](sdk/docs/IamRole.md)
  - [IamServicePolicy](sdk/docs/IamServicePolicy.md)
  - [IamServicePolicyRule](sdk/docs/IamServicePolicyRule.md)
+ - [InferenceEngineParameterEntry](sdk/docs/InferenceEngineParameterEntry.md)
  - [Instance](sdk/docs/Instance.md)
  - [InstancePassword](sdk/docs/InstancePassword.md)
  - [InstancePool](sdk/docs/InstancePool.md)

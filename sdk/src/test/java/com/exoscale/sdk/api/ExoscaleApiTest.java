@@ -125,6 +125,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
 import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
@@ -2985,6 +2986,22 @@ public class ExoscaleApiTest {
         UUID id = null;
         IamRole response = 
         api.getIamRole(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Get inference-engine Help
+     *
+     * Get list of allowed inference engine parameters with their descriptions, types, allowed values, and defaults
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getInferenceEngineHelpTest() throws ApiException {
+        GetInferenceEngineHelpResponse response = 
+        api.getInferenceEngineHelp();
         
         // TODO: test validations
     }

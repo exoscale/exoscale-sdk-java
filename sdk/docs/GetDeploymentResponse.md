@@ -18,6 +18,7 @@ AI deployment
 |**id** | **UUID** | Deployment ID |  [optional] [readonly] |
 |**replicas** | **Long** | Number of replicas (&gt;&#x3D;0) |  [optional] |
 |**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
+|**inferenceEngineParameters** | **List&lt;String&gt;** | Optional extra inference engine server CLI args |  [optional] |
 |**model** | [**ModelRef**](ModelRef.md) |  |  [optional] |
 
 
