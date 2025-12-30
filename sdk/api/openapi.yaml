@@ -3672,6 +3672,22 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /dbaas-settings-thanos:
+    get:
+      description: Get DBaaS Thanos settings
+      operationId: get-dbaas-settings-thanos
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_dbaas_settings_thanos_200_response'
+          description: "200"
+      summary: Get DBaaS Thanos settings
+      tags:
+      - exoscale
+      x-accepts: application/json
   /security-group/{id}/rules:
     post:
       description: ""
@@ -6451,6 +6467,35 @@ paths:
       summary: ""
       tags:
       - exoscale
+      x-accepts: application/json
+    post:
+      description: Create a DBaaS Thanos service
+      operationId: create-dbaas-service-thanos
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_service_thanos_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Create a DBaaS Thanos service
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
     put:
       description: Update a DBaaS Thanos service
@@ -17995,30 +18040,14 @@ components:
           usage: null
           host: host
           ssl: true
-        connection-info:
-          receiver-remote-write-uri: receiver-remote-write-uri
-          query-frontend-uri: query-frontend-uri
-          query-uri: query-uri
-          ruler-uri: ruler-uri
         node-memory: 0
-        updated-at: 2000-01-23T04:56:07.000+00:00
-        prometheus-uri:
-          port: 36944
-          host: host
+        ip-filter:
+        - ip-filter
+        - ip-filter
         type: type
-        uri: uri
-        users:
-        - password: password
-          type: type
-          username: username
-        - password: password
-          type: type
-          username: username
         uri-params: "{}"
-        node-count: 0
         zone: zone
         node-cpu-count: 0
-        termination-protection: true
         node-states:
         - role: standby
           name: name
@@ -18052,8 +18081,6 @@ components:
             min: 0
             max: 0
             completed: true
-        name: name
-        disk-size: 0
         thanos-settings:
           compactor:
             retention.days: 0
@@ -18068,6 +18095,28 @@ components:
             query-range.align-range-with-step: true
         created-at: 2000-01-23T04:56:07.000+00:00
         state: null
+        plan: plan
+        connection-info:
+          receiver-remote-write-uri: receiver-remote-write-uri
+          query-frontend-uri: query-frontend-uri
+          query-uri: query-uri
+          ruler-uri: ruler-uri
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
+        uri: uri
+        users:
+        - password: password
+          type: type
+          username: username
+        - password: password
+          type: type
+          username: username
+        node-count: 0
+        termination-protection: true
+        name: name
+        disk-size: 0
         integrations:
         - settings: "{}"
           description: description
@@ -18099,7 +18148,6 @@ components:
             start-after: 2000-01-23T04:56:07.000+00:00
             deadline: 2000-01-23T04:56:07.000+00:00
           dow: saturday
-        plan: plan
         notifications:
         - metadata: "{}"
           level: warning
@@ -18160,6 +18208,11 @@ components:
           type: string
         state:
           $ref: '#/components/schemas/enum-service-state'
+        ip-filter:
+          description: Allowed CIDR address blocks for incoming connections
+          items:
+            type: string
+          type: array
         backups:
           description: List of backups for the service
           items:
@@ -58244,6 +58297,46 @@ components:
       required:
       - database-name
       type: object
+    get_dbaas_settings_thanos_200_response_settings_thanos:
+      description: Thanos configuration values
+      example:
+        additionalProperties: true
+        type: type
+        title: title
+        properties: "{}"
+      properties:
+        properties:
+          type: object
+        additionalProperties:
+          type: boolean
+        type:
+          type: string
+        title:
+          type: string
+      type: object
+    get_dbaas_settings_thanos_200_response_settings:
+      example:
+        thanos:
+          additionalProperties: true
+          type: type
+          title: title
+          properties: "{}"
+      properties:
+        thanos:
+          $ref: '#/components/schemas/get_dbaas_settings_thanos_200_response_settings_thanos'
+      type: object
+    get_dbaas_settings_thanos_200_response:
+      example:
+        settings:
+          thanos:
+            additionalProperties: true
+            type: type
+            title: title
+            properties: "{}"
+      properties:
+        settings:
+          $ref: '#/components/schemas/get_dbaas_settings_thanos_200_response_settings'
+      type: object
     add_rule_to_security_group_request_icmp:
       description: "ICMP details (default: -1 (ANY))"
       properties:
@@ -97138,6 +97231,28 @@ components:
           type: array
         thanos-settings:
           $ref: '#/components/schemas/json-schema-thanos'
+      type: object
+    create_dbaas_service_thanos_request:
+      properties:
+        maintenance:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
+        plan:
+          description: Subscription plan
+          maxLength: 128
+          minLength: 1
+          type: string
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
+        ip-filter:
+          description: Allowed CIDR address blocks for incoming connections
+          items:
+            type: string
+          type: array
+        thanos-settings:
+          $ref: '#/components/schemas/json-schema-thanos'
+      required:
+      - plan
       type: object
     update_load_balancer_request:
       properties:

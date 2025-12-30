@@ -57,6 +57,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceThanos.JSON_PROPERTY_NAME,
   DbaasServiceThanos.JSON_PROPERTY_TYPE,
   DbaasServiceThanos.JSON_PROPERTY_STATE,
+  DbaasServiceThanos.JSON_PROPERTY_IP_FILTER,
   DbaasServiceThanos.JSON_PROPERTY_BACKUPS,
   DbaasServiceThanos.JSON_PROPERTY_TERMINATION_PROTECTION,
   DbaasServiceThanos.JSON_PROPERTY_NOTIFICATIONS,
@@ -105,6 +106,9 @@ public class DbaasServiceThanos {
 
   public static final String JSON_PROPERTY_STATE = "state";
   private EnumServiceState state;
+
+  public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
+  private List<String> ipFilter;
 
   public static final String JSON_PROPERTY_BACKUPS = "backups";
   private List<DbaasServiceBackup> backups;
@@ -438,6 +442,39 @@ public class DbaasServiceThanos {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(EnumServiceState state) {
     this.state = state;
+  }
+
+
+  public DbaasServiceThanos ipFilter(List<String> ipFilter) {
+    this.ipFilter = ipFilter;
+    return this;
+  }
+
+  public DbaasServiceThanos addIpFilterItem(String ipFilterItem) {
+    if (this.ipFilter == null) {
+      this.ipFilter = new ArrayList<>();
+    }
+    this.ipFilter.add(ipFilterItem);
+    return this;
+  }
+
+   /**
+   * Allowed CIDR address blocks for incoming connections
+   * @return ipFilter
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getIpFilter() {
+    return ipFilter;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIpFilter(List<String> ipFilter) {
+    this.ipFilter = ipFilter;
   }
 
 
@@ -823,6 +860,7 @@ public class DbaasServiceThanos {
         Objects.equals(this.name, dbaasServiceThanos.name) &&
         Objects.equals(this.type, dbaasServiceThanos.type) &&
         Objects.equals(this.state, dbaasServiceThanos.state) &&
+        Objects.equals(this.ipFilter, dbaasServiceThanos.ipFilter) &&
         Objects.equals(this.backups, dbaasServiceThanos.backups) &&
         Objects.equals(this.terminationProtection, dbaasServiceThanos.terminationProtection) &&
         Objects.equals(this.notifications, dbaasServiceThanos.notifications) &&
@@ -840,7 +878,7 @@ public class DbaasServiceThanos {
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, thanosSettings, createdAt, plan, users);
+    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, ipFilter, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, thanosSettings, createdAt, plan, users);
   }
 
   @Override
@@ -858,6 +896,7 @@ public class DbaasServiceThanos {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
     sb.append("    backups: ").append(toIndentedString(backups)).append("\n");
     sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
@@ -981,6 +1020,15 @@ public class DbaasServiceThanos {
     // add `state` to the URL query string
     if (getState() != null) {
       joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ip-filter` to the URL query string
+    if (getIpFilter() != null) {
+      for (int i = 0; i < getIpFilter().size(); i++) {
+        joiner.add(String.format("%sip-filter%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getIpFilter().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     // add `backups` to the URL query string

@@ -39,6 +39,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasServiceMysql**](ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service |
 | [**createDbaasServiceOpensearch**](ExoscaleApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service |
 | [**createDbaasServicePg**](ExoscaleApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service |
+| [**createDbaasServiceThanos**](ExoscaleApi.md#createDbaasServiceThanos) | **POST** /dbaas-thanos/{name} | Create a DBaaS Thanos service |
 | [**createDbaasServiceValkey**](ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service |
 | [**createDbaasTaskMigrationCheck**](ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} |  |
 | [**createDbaasValkeyUser**](ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user |
@@ -150,6 +151,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasSettingsMysql**](ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings |
 | [**getDbaasSettingsOpensearch**](ExoscaleApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings |
 | [**getDbaasSettingsPg**](ExoscaleApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings |
+| [**getDbaasSettingsThanos**](ExoscaleApi.md#getDbaasSettingsThanos) | **GET** /dbaas-settings-thanos | Get DBaaS Thanos settings |
 | [**getDbaasSettingsValkey**](ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings |
 | [**getDbaasTask**](ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
 | [**getDeployTarget**](ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
@@ -3584,6 +3586,101 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
 | **createDbaasServicePgRequest** | [**CreateDbaasServicePgRequest**](CreateDbaasServicePgRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasServiceThanos
+
+> Operation createDbaasServiceThanos(name, createDbaasServiceThanosRequest)
+
+Create a DBaaS Thanos service
+
+Create a DBaaS Thanos service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+        CreateDbaasServiceThanosRequest createDbaasServiceThanosRequest = new CreateDbaasServiceThanosRequest(); // CreateDbaasServiceThanosRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createDbaasServiceThanos(name, createDbaasServiceThanosRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceThanos");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasServiceThanosRequest** | [**CreateDbaasServiceThanosRequest**](CreateDbaasServiceThanosRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasServiceThanosRequest** | [**CreateDbaasServiceThanosRequest**](CreateDbaasServiceThanosRequest.md)|  | |
 
 ### Return type
 
@@ -13800,6 +13897,91 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiResponse<[**GetDbaasSettingsPg200Response**](GetDbaasSettingsPg200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasSettingsThanos
+
+> GetDbaasSettingsThanos200Response getDbaasSettingsThanos()
+
+Get DBaaS Thanos settings
+
+Get DBaaS Thanos settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            GetDbaasSettingsThanos200Response result = client.getDbaasSettingsThanos();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsThanos");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetDbaasSettingsThanos200Response**](GetDbaasSettingsThanos200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**GetDbaasSettingsThanos200Response**](GetDbaasSettingsThanos200Response.md)>
 
 
 ### Authorization

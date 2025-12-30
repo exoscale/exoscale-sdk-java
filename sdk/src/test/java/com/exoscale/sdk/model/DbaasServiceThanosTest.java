@@ -140,6 +140,14 @@ public class DbaasServiceThanosTest {
     }
 
     /**
+     * Test the property 'ipFilter'
+     */
+    @Test
+    public void ipFilterTest() {
+        // TODO: test ipFilter
+    }
+
+    /**
      * Test the property 'backups'
      */
     @Test

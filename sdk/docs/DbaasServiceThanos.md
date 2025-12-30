@@ -18,6 +18,7 @@
 |**name** | **String** |  |  |
 |**type** | **String** |  |  |
 |**state** | **EnumServiceState** |  |  [optional] |
+|**ipFilter** | **List&lt;String&gt;** | Allowed CIDR address blocks for incoming connections |  [optional] |
 |**backups** | [**List&lt;DbaasServiceBackup&gt;**](DbaasServiceBackup.md) | List of backups for the service |  [optional] |
 |**terminationProtection** | **Boolean** | Service is protected against termination and powering off |  [optional] |
 |**notifications** | [**List&lt;DbaasServiceNotification&gt;**](DbaasServiceNotification.md) | Service notifications |  [optional] |

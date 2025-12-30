@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-12-20T07:06:39.706758349Z[Etc/UTC]
+- Build date: 2025-12-30T07:09:12.552883130Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-76c2579</version>
+    <version>0.0.5-SNAPSHOT-1a4aaf4</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-76c2579'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-1a4aaf4'
 }
 ```
 
@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service
 *ExoscaleApi* | [**createDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#createDbaasServiceOpensearch) | **POST** /dbaas-opensearch/{name} | Create a DBaaS OpenSearch service
 *ExoscaleApi* | [**createDbaasServicePg**](sdk/docs/ExoscaleApi.md#createDbaasServicePg) | **POST** /dbaas-postgres/{name} | Create a DBaaS PostgreSQL service
+*ExoscaleApi* | [**createDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#createDbaasServiceThanos) | **POST** /dbaas-thanos/{name} | Create a DBaaS Thanos service
 *ExoscaleApi* | [**createDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service
 *ExoscaleApi* | [**createDbaasTaskMigrationCheck**](sdk/docs/ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} | 
 *ExoscaleApi* | [**createDbaasValkeyUser**](sdk/docs/ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user
@@ -228,6 +229,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasSettingsMysql**](sdk/docs/ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
 *ExoscaleApi* | [**getDbaasSettingsOpensearch**](sdk/docs/ExoscaleApi.md#getDbaasSettingsOpensearch) | **GET** /dbaas-settings-opensearch | Get DBaaS OpenSearch settings
 *ExoscaleApi* | [**getDbaasSettingsPg**](sdk/docs/ExoscaleApi.md#getDbaasSettingsPg) | **GET** /dbaas-settings-pg | Get DBaaS PostgreSQL settings
+*ExoscaleApi* | [**getDbaasSettingsThanos**](sdk/docs/ExoscaleApi.md#getDbaasSettingsThanos) | **GET** /dbaas-settings-thanos | Get DBaaS Thanos settings
 *ExoscaleApi* | [**getDbaasSettingsValkey**](sdk/docs/ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings
 *ExoscaleApi* | [**getDbaasTask**](sdk/docs/ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
 *ExoscaleApi* | [**getDeployTarget**](sdk/docs/ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
@@ -433,6 +435,7 @@ Class | Method | HTTP request | Description
  - [CreateDbaasServiceMysqlRequestIntegrationsInner](sdk/docs/CreateDbaasServiceMysqlRequestIntegrationsInner.md)
  - [CreateDbaasServiceOpensearchRequest](sdk/docs/CreateDbaasServiceOpensearchRequest.md)
  - [CreateDbaasServicePgRequest](sdk/docs/CreateDbaasServicePgRequest.md)
+ - [CreateDbaasServiceThanosRequest](sdk/docs/CreateDbaasServiceThanosRequest.md)
  - [CreateDbaasServiceValkeyRequest](sdk/docs/CreateDbaasServiceValkeyRequest.md)
  - [CreateDbaasTaskMigrationCheckRequest](sdk/docs/CreateDbaasTaskMigrationCheckRequest.md)
  - [CreateDeploymentRequest](sdk/docs/CreateDeploymentRequest.md)
@@ -619,6 +622,9 @@ Class | Method | HTTP request | Description
  - [GetDbaasSettingsPg200ResponseSettingsPgbouncer](sdk/docs/GetDbaasSettingsPg200ResponseSettingsPgbouncer.md)
  - [GetDbaasSettingsPg200ResponseSettingsPglookout](sdk/docs/GetDbaasSettingsPg200ResponseSettingsPglookout.md)
  - [GetDbaasSettingsPg200ResponseSettingsTimescaledb](sdk/docs/GetDbaasSettingsPg200ResponseSettingsTimescaledb.md)
+ - [GetDbaasSettingsThanos200Response](sdk/docs/GetDbaasSettingsThanos200Response.md)
+ - [GetDbaasSettingsThanos200ResponseSettings](sdk/docs/GetDbaasSettingsThanos200ResponseSettings.md)
+ - [GetDbaasSettingsThanos200ResponseSettingsThanos](sdk/docs/GetDbaasSettingsThanos200ResponseSettingsThanos.md)
  - [GetDbaasSettingsValkey200Response](sdk/docs/GetDbaasSettingsValkey200Response.md)
  - [GetDbaasSettingsValkey200ResponseSettings](sdk/docs/GetDbaasSettingsValkey200ResponseSettings.md)
  - [GetDbaasSettingsValkey200ResponseSettingsValkey](sdk/docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md)

@@ -42,6 +42,7 @@ docs/CreateDbaasServiceMysqlRequest.md
 docs/CreateDbaasServiceMysqlRequestIntegrationsInner.md
 docs/CreateDbaasServiceOpensearchRequest.md
 docs/CreateDbaasServicePgRequest.md
+docs/CreateDbaasServiceThanosRequest.md
 docs/CreateDbaasServiceValkeyRequest.md
 docs/CreateDbaasTaskMigrationCheckRequest.md
 docs/CreateDeploymentRequest.md
@@ -229,6 +230,9 @@ docs/GetDbaasSettingsPg200ResponseSettingsPg.md
 docs/GetDbaasSettingsPg200ResponseSettingsPgbouncer.md
 docs/GetDbaasSettingsPg200ResponseSettingsPglookout.md
 docs/GetDbaasSettingsPg200ResponseSettingsTimescaledb.md
+docs/GetDbaasSettingsThanos200Response.md
+docs/GetDbaasSettingsThanos200ResponseSettings.md
+docs/GetDbaasSettingsThanos200ResponseSettingsThanos.md
 docs/GetDbaasSettingsValkey200Response.md
 docs/GetDbaasSettingsValkey200ResponseSettings.md
 docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
@@ -472,6 +476,7 @@ src/main/java/com/exoscale/sdk/model/CreateDbaasServiceMysqlRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceMysqlRequestIntegrationsInner.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceOpensearchRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServicePgRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasServiceThanosRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceValkeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasTaskMigrationCheckRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDeploymentRequest.java
@@ -658,6 +663,9 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsPg.jav
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsPgbouncer.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsPglookout.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsPg200ResponseSettingsTimescaledb.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsThanos200Response.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsThanos200ResponseSettings.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsThanos200ResponseSettingsThanos.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java

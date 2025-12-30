@@ -41,6 +41,7 @@ import com.exoscale.sdk.model.CreateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceMysqlRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
+import com.exoscale.sdk.model.CreateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
 import com.exoscale.sdk.model.CreateDeploymentRequest;
@@ -122,6 +123,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsKafka200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
+import com.exoscale.sdk.model.GetDbaasSettingsThanos200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
@@ -871,6 +873,24 @@ public class ExoscaleApiTest {
         CreateDbaasServicePgRequest createDbaasServicePgRequest = null;
         Operation response = 
         api.createDbaasServicePg(name, createDbaasServicePgRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a DBaaS Thanos service
+     *
+     * Create a DBaaS Thanos service
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasServiceThanosTest() throws ApiException {
+        String name = null;
+        CreateDbaasServiceThanosRequest createDbaasServiceThanosRequest = null;
+        Operation response = 
+        api.createDbaasServiceThanos(name, createDbaasServiceThanosRequest);
         
         // TODO: test validations
     }
@@ -2782,6 +2802,22 @@ public class ExoscaleApiTest {
     public void getDbaasSettingsPgTest() throws ApiException {
         GetDbaasSettingsPg200Response response = 
         api.getDbaasSettingsPg();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Get DBaaS Thanos settings
+     *
+     * Get DBaaS Thanos settings
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasSettingsThanosTest() throws ApiException {
+        GetDbaasSettingsThanos200Response response = 
+        api.getDbaasSettingsThanos();
         
         // TODO: test validations
     }
