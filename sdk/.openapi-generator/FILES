@@ -236,6 +236,8 @@ docs/GetDbaasSettingsThanos200ResponseSettingsThanos.md
 docs/GetDbaasSettingsValkey200Response.md
 docs/GetDbaasSettingsValkey200ResponseSettings.md
 docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md
+docs/GetDeploymentLogsEntry.md
+docs/GetDeploymentLogsResponse.md
 docs/GetDeploymentResponse.md
 docs/GetDnsDomainZoneFile200Response.md
 docs/GetInferenceEngineHelpResponse.md
@@ -669,6 +671,8 @@ src/main/java/com/exoscale/sdk/model/GetDbaasSettingsThanos200ResponseSettingsTh
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsValkey200ResponseSettingsValkey.java
+src/main/java/com/exoscale/sdk/model/GetDeploymentLogsEntry.java
+src/main/java/com/exoscale/sdk/model/GetDeploymentLogsResponse.java
 src/main/java/com/exoscale/sdk/model/GetDeploymentResponse.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
 src/main/java/com/exoscale/sdk/model/GetInferenceEngineHelpResponse.java

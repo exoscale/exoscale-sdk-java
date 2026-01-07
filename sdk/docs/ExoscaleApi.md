@@ -14367,7 +14367,7 @@ No authorization required
 
 ## getDeploymentLogs
 
-> String getDeploymentLogs(id)
+> GetDeploymentLogsResponse getDeploymentLogs(id)
 
 [BETA] Get Deployment Logs
 
@@ -14390,7 +14390,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            String result = client.getDeploymentLogs(id);
+            GetDeploymentLogsResponse result = client.getDeploymentLogs(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getDeploymentLogs");
@@ -14412,7 +14412,7 @@ public class Example {
 
 ### Return type
 
-**String**
+[**GetDeploymentLogsResponse**](GetDeploymentLogsResponse.md)
 
 
 ### Authorization
@@ -14442,7 +14442,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<**String**>
+ApiResponse<[**GetDeploymentLogsResponse**](GetDeploymentLogsResponse.md)>
 
 
 ### Authorization

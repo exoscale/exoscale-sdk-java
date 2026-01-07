@@ -13,6 +13,7 @@ AI deployment
 |**deploymentUrl** | **String** | Deployment URL (nullable) |  [optional] |
 |**serviceLevel** | **String** | Service level |  [optional] |
 |**name** | **String** | Deployment name |  [optional] |
+|**statusDetails** | **String** | Deployment status details |  [optional] |
 |**gpuType** | **String** | GPU type family |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Deployment status |  [optional] |
 |**id** | **UUID** | Deployment ID |  [optional] [readonly] |

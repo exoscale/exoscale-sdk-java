@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2025-12-30T07:09:12.552883130Z[Etc/UTC]
+- Build date: 2026-01-07T07:10:17.061884633Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-1a4aaf4</version>
+    <version>0.0.5-SNAPSHOT-da3370f</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-1a4aaf4'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-da3370f'
 }
 ```
 
@@ -628,6 +628,8 @@ Class | Method | HTTP request | Description
  - [GetDbaasSettingsValkey200Response](sdk/docs/GetDbaasSettingsValkey200Response.md)
  - [GetDbaasSettingsValkey200ResponseSettings](sdk/docs/GetDbaasSettingsValkey200ResponseSettings.md)
  - [GetDbaasSettingsValkey200ResponseSettingsValkey](sdk/docs/GetDbaasSettingsValkey200ResponseSettingsValkey.md)
+ - [GetDeploymentLogsEntry](sdk/docs/GetDeploymentLogsEntry.md)
+ - [GetDeploymentLogsResponse](sdk/docs/GetDeploymentLogsResponse.md)
  - [GetDeploymentResponse](sdk/docs/GetDeploymentResponse.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
  - [GetInferenceEngineHelpResponse](sdk/docs/GetInferenceEngineHelpResponse.md)
