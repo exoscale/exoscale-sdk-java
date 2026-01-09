@@ -1,6 +1,6 @@
 /*
  * Exoscale API
- *  Infrastructure automation API, allowing programmatic access to all Exoscale products and services.  The [OpenAPI Specification](http://spec.openapis.org/oas/v3.0.3.html) source of this documentation can be obtained here:  * [JSON format](https://api-ch-gva-2.exoscale.com/v2/openapi.json)
+ * Infrastructure automation API, allowing programmatic access to all Exoscale products and services.
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@exoscale.com
