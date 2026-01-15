@@ -398,7 +398,7 @@ public class CreateDbaasServiceMysqlRequest {
   }
 
    /**
-   * Custom password for admin user. Defaults to random string. This must be set only when a new service is being created.
+   * Get adminPassword
    * @return adminPassword
   **/
   @javax.annotation.Nullable

@@ -44393,6 +44393,11 @@ components:
           type: string
           x-go-type: Endpoint
       type: object
+    dbaas-mysql-user-password:
+      maxLength: 256
+      minLength: 8
+      pattern: "^[a-zA-Z0-9!#%^*_+={}()<>|.,;~?-]+$"
+      type: string
     dbaas-opensearch-acl-config:
       example:
         acls:
@@ -48051,6 +48056,7 @@ components:
         password:
           maxLength: 256
           minLength: 8
+          pattern: "^[a-zA-Z0-9!#%^*_+={}()<>|.,;~?-]+$"
           type: string
         authentication:
           $ref: '#/components/schemas/enum-mysql-authentication-plugin'
@@ -54191,11 +54197,9 @@ components:
           minLength: 1
           type: string
         admin-password:
-          description: Custom password for admin user. Defaults to random string.
-            This must be set only when a new service is being created.
           maxLength: 256
           minLength: 8
-          pattern: "^[a-zA-Z0-9-_]+$"
+          pattern: "^[a-zA-Z0-9!#%^*_+={}()<>|.,;~?-]+$"
           type: string
         migration:
           $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'

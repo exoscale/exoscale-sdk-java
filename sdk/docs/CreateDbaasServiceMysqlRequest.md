@@ -18,7 +18,7 @@
 |**adminUsername** | **String** | Custom username for admin user. This must be set only when a new service is being created. |  [optional] |
 |**version** | **String** | MySQL major version |  [optional] |
 |**plan** | **String** | Subscription plan |  |
-|**adminPassword** | **String** | Custom password for admin user. Defaults to random string. This must be set only when a new service is being created. |  [optional] |
+|**adminPassword** | **String** |  |  [optional] |
 |**migration** | [**UpdateDbaasServiceMysqlRequestMigration**](UpdateDbaasServiceMysqlRequestMigration.md) |  |  [optional] |
 |**binlogRetentionPeriod** | **Long** | The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector. |  [optional] |
 
