@@ -47144,7 +47144,7 @@ components:
       properties:
         size:
           description: Number of managed Instances
-          exclusiveMinimum: true
+          exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
