@@ -101621,7 +101621,7 @@ x-topics:
 
     The two blank lines above are due to the absence of a request body and signed headers.
 
-    Example *message* to [create a security group](https://openapi-v2.exoscale.com/operation/operation-create-security-group)
+    Example *message* to [create a security group](https://community.exoscale.com/reference/api/compute/security-group/#create-security-group)
 
     ```
     POST /v2/security-group
