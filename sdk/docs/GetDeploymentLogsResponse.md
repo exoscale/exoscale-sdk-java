@@ -8,7 +8,7 @@ Deployment logs
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**logs** | [**List&lt;GetDeploymentLogsEntry&gt;**](GetDeploymentLogsEntry.md) | List of log entries |  [optional] |
+|**logs** | [**List&lt;Title9LogsInner&gt;**](Title9LogsInner.md) | List of log entries |  [optional] |
 
 
 

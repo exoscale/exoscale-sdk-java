@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -34,36 +38,38 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AI model
  */
 @JsonPropertyOrder({
-  GetModelResponse.JSON_PROPERTY_ID,
+  GetModelResponse.JSON_PROPERTY_UPDATED_AT,
   GetModelResponse.JSON_PROPERTY_NAME,
-  GetModelResponse.JSON_PROPERTY_STATUS,
+  GetModelResponse.JSON_PROPERTY_STATE,
+  GetModelResponse.JSON_PROPERTY_ID,
   GetModelResponse.JSON_PROPERTY_MODEL_SIZE,
-  GetModelResponse.JSON_PROPERTY_CREATED_AT,
-  GetModelResponse.JSON_PROPERTY_UPDATED_AT
+  GetModelResponse.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetModelResponse {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
+  private OffsetDateTime updatedAt;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   /**
-   * Model status
+   * Model state
    */
-  public enum StatusEnum {
+  public enum StateEnum {
     READY("ready"),
     
     CREATING("creating"),
     
     DOWNLOADING("downloading"),
     
-    ERROR("error");
+    ERROR("error"),
+    
+    CREATED("created");
 
     private String value;
 
-    StatusEnum(String value) {
+    StateEnum(String value) {
       this.value = value;
     }
 
@@ -78,8 +84,8 @@ public class GetModelResponse {
     }
 
     @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -88,43 +94,43 @@ public class GetModelResponse {
     }
   }
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private StatusEnum status;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private StateEnum state;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_MODEL_SIZE = "model-size";
-  private Long modelSize;
+  private JsonNullable<Object> modelSize = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
-
-  public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
-  private OffsetDateTime updatedAt;
+  private JsonNullable<Object> createdAt = JsonNullable.<Object>of(null);
 
   public GetModelResponse() { 
   }
 
   @JsonCreator
   public GetModelResponse(
+    @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
-    @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) Object createdAt
   ) {
   this();
-    this.id = id;
-    this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+    this.id = id;
+    this.createdAt = createdAt == null ? JsonNullable.<Object>undefined() : JsonNullable.of(createdAt);
   }
 
    /**
-   * Model ID
-   * @return id
+   * Update time
+   * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
-    return id;
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
   }
 
 
@@ -155,33 +161,48 @@ public class GetModelResponse {
   }
 
 
-  public GetModelResponse status(StatusEnum status) {
-    this.status = status;
+  public GetModelResponse state(StateEnum state) {
+    this.state = state;
     return this;
   }
 
    /**
-   * Model status
-   * @return status
+   * Model state
+   * @return state
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public StatusEnum getStatus() {
-    return status;
+  public StateEnum getState() {
+    return state;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(StatusEnum status) {
-    this.status = status;
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
 
-  public GetModelResponse modelSize(Long modelSize) {
-    this.modelSize = modelSize;
+   /**
+   * Model ID
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+
+
+  public GetModelResponse modelSize(Object modelSize) {
+    this.modelSize = JsonNullable.<Object>of(modelSize);
     return this;
   }
 
@@ -191,18 +212,26 @@ public class GetModelResponse {
    * @return modelSize
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
-  public Long getModelSize() {
-    return modelSize;
+  public Object getModelSize() {
+        return modelSize.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModelSize(Long modelSize) {
+
+  public JsonNullable<Object> getModelSize_JsonNullable() {
+    return modelSize;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
+  public void setModelSize_JsonNullable(JsonNullable<Object> modelSize) {
     this.modelSize = modelSize;
+  }
+
+  public void setModelSize(Object modelSize) {
+    this.modelSize = JsonNullable.<Object>of(modelSize);
   }
 
 
@@ -211,28 +240,27 @@ public class GetModelResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getCreatedAt() {
+    
+    if (createdAt == null) {
+      createdAt = JsonNullable.<Object>of(null);
+    }
+    return createdAt.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getCreatedAt() {
+  public JsonNullable<Object> getCreatedAt_JsonNullable() {
     return createdAt;
   }
-
-
-
-
-   /**
-   * Update time
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  private void setCreatedAt_JsonNullable(JsonNullable<Object> createdAt) {
+    this.createdAt = createdAt;
   }
-
 
 
 
@@ -248,29 +276,40 @@ public class GetModelResponse {
       return false;
     }
     GetModelResponse getModelResponse = (GetModelResponse) o;
-    return Objects.equals(this.id, getModelResponse.id) &&
+    return Objects.equals(this.updatedAt, getModelResponse.updatedAt) &&
         Objects.equals(this.name, getModelResponse.name) &&
-        Objects.equals(this.status, getModelResponse.status) &&
-        Objects.equals(this.modelSize, getModelResponse.modelSize) &&
-        Objects.equals(this.createdAt, getModelResponse.createdAt) &&
-        Objects.equals(this.updatedAt, getModelResponse.updatedAt);
+        Objects.equals(this.state, getModelResponse.state) &&
+        Objects.equals(this.id, getModelResponse.id) &&
+        equalsNullable(this.modelSize, getModelResponse.modelSize) &&
+        equalsNullable(this.createdAt, getModelResponse.createdAt);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, status, modelSize, createdAt, updatedAt);
+    return Objects.hash(updatedAt, name, state, id, hashCodeNullable(modelSize), hashCodeNullable(createdAt));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetModelResponse {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    modelSize: ").append(toIndentedString(modelSize)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -318,9 +357,9 @@ public class GetModelResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `updated-at` to the URL query string
+    if (getUpdatedAt() != null) {
+      joiner.add(String.format("%supdated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
@@ -328,9 +367,14 @@ public class GetModelResponse {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `status` to the URL query string
-    if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `state` to the URL query string
+    if (getState() != null) {
+      joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `model-size` to the URL query string
@@ -341,11 +385,6 @@ public class GetModelResponse {
     // add `created-at` to the URL query string
     if (getCreatedAt() != null) {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `updated-at` to the URL query string
-    if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -1,14 +1,14 @@
 
 
-# BlockStorageSnapshotTarget
+# InstancePoolRef
 
-Target block storage snapshot
+Target Instance Pool
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Block storage snapshot ID |  [optional] |
+|**id** | **UUID** | Instance Pool ID |  [optional] |
 
 
 

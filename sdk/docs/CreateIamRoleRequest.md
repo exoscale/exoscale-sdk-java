@@ -13,6 +13,8 @@
 |**editable** | **Boolean** | Sets if the IAM Role Policy is editable or not (default: true). This setting cannot be changed after creation |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**policy** | [**IamPolicy**](IamPolicy.md) |  |  [optional] |
+|**assumeRolePolicy** | [**IamPolicy**](IamPolicy.md) |  |  [optional] |
+|**maxSessionTtl** | **Long** | Maximum TTL requester is allowed to ask for when assuming a role |  [optional] |
 
 
 

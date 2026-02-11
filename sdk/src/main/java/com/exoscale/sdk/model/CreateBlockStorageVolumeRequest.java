@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.BlockStorageSnapshotTarget;
+import com.exoscale.sdk.model.BlockStorageSnapshotRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -52,7 +52,7 @@ public class CreateBlockStorageVolumeRequest {
   private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOT = "block-storage-snapshot";
-  private BlockStorageSnapshotTarget blockStorageSnapshot;
+  private BlockStorageSnapshotRef blockStorageSnapshot;
 
   public CreateBlockStorageVolumeRequest() { 
   }
@@ -141,7 +141,7 @@ public class CreateBlockStorageVolumeRequest {
   }
 
 
-  public CreateBlockStorageVolumeRequest blockStorageSnapshot(BlockStorageSnapshotTarget blockStorageSnapshot) {
+  public CreateBlockStorageVolumeRequest blockStorageSnapshot(BlockStorageSnapshotRef blockStorageSnapshot) {
     this.blockStorageSnapshot = blockStorageSnapshot;
     return this;
   }
@@ -154,14 +154,14 @@ public class CreateBlockStorageVolumeRequest {
   @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BlockStorageSnapshotTarget getBlockStorageSnapshot() {
+  public BlockStorageSnapshotRef getBlockStorageSnapshot() {
     return blockStorageSnapshot;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlockStorageSnapshot(BlockStorageSnapshotTarget blockStorageSnapshot) {
+  public void setBlockStorageSnapshot(BlockStorageSnapshotRef blockStorageSnapshot) {
     this.blockStorageSnapshot = blockStorageSnapshot;
   }
 

@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -33,25 +37,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   GetDeploymentLogsEntry.JSON_PROPERTY_TIME,
-  GetDeploymentLogsEntry.JSON_PROPERTY_MESSAGE,
-  GetDeploymentLogsEntry.JSON_PROPERTY_NODE
+  GetDeploymentLogsEntry.JSON_PROPERTY_NODE,
+  GetDeploymentLogsEntry.JSON_PROPERTY_MESSAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentLogsEntry {
   public static final String JSON_PROPERTY_TIME = "time";
-  private String time;
-
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+  private JsonNullable<Object> time = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_NODE = "node";
-  private String node;
+  private JsonNullable<Object> node = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private JsonNullable<Object> message = JsonNullable.<Object>of(null);
 
   public GetDeploymentLogsEntry() { 
   }
 
-  public GetDeploymentLogsEntry time(String time) {
-    this.time = time;
+  public GetDeploymentLogsEntry time(Object time) {
+    this.time = JsonNullable.<Object>of(time);
     return this;
   }
 
@@ -60,48 +64,31 @@ public class GetDeploymentLogsEntry {
    * @return time
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
-  public String getTime() {
-    return time;
+  public Object getTime() {
+        return time.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTime(String time) {
+
+  public JsonNullable<Object> getTime_JsonNullable() {
+    return time;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TIME)
+  public void setTime_JsonNullable(JsonNullable<Object> time) {
     this.time = time;
   }
 
-
-  public GetDeploymentLogsEntry message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Log message content
-   * @return message
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getMessage() {
-    return message;
+  public void setTime(Object time) {
+    this.time = JsonNullable.<Object>of(time);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
-  public GetDeploymentLogsEntry node(String node) {
-    this.node = node;
+  public GetDeploymentLogsEntry node(Object node) {
+    this.node = JsonNullable.<Object>of(node);
     return this;
   }
 
@@ -110,18 +97,59 @@ public class GetDeploymentLogsEntry {
    * @return node
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getNode() {
+        return node.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getNode() {
+  public JsonNullable<Object> getNode_JsonNullable() {
     return node;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NODE)
+  public void setNode_JsonNullable(JsonNullable<Object> node) {
+    this.node = node;
+  }
+
+  public void setNode(Object node) {
+    this.node = JsonNullable.<Object>of(node);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NODE)
+  public GetDeploymentLogsEntry message(Object message) {
+    this.message = JsonNullable.<Object>of(message);
+    return this;
+  }
+
+   /**
+   * Log message content
+   * @return message
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getMessage() {
+        return message.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNode(String node) {
-    this.node = node;
+
+  public JsonNullable<Object> getMessage_JsonNullable() {
+    return message;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  public void setMessage_JsonNullable(JsonNullable<Object> message) {
+    this.message = message;
+  }
+
+  public void setMessage(Object message) {
+    this.message = JsonNullable.<Object>of(message);
   }
 
 
@@ -137,14 +165,25 @@ public class GetDeploymentLogsEntry {
       return false;
     }
     GetDeploymentLogsEntry getDeploymentLogsEntry = (GetDeploymentLogsEntry) o;
-    return Objects.equals(this.time, getDeploymentLogsEntry.time) &&
-        Objects.equals(this.message, getDeploymentLogsEntry.message) &&
-        Objects.equals(this.node, getDeploymentLogsEntry.node);
+    return equalsNullable(this.time, getDeploymentLogsEntry.time) &&
+        equalsNullable(this.node, getDeploymentLogsEntry.node) &&
+        equalsNullable(this.message, getDeploymentLogsEntry.message);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(time, message, node);
+    return Objects.hash(hashCodeNullable(time), hashCodeNullable(node), hashCodeNullable(message));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -152,8 +191,8 @@ public class GetDeploymentLogsEntry {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDeploymentLogsEntry {\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    node: ").append(toIndentedString(node)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -206,14 +245,14 @@ public class GetDeploymentLogsEntry {
       joiner.add(String.format("%stime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `message` to the URL query string
-    if (getMessage() != null) {
-      joiner.add(String.format("%smessage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMessage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `node` to the URL query string
     if (getNode() != null) {
       joiner.add(String.format("%snode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `message` to the URL query string
+    if (getMessage() != null) {
+      joiner.add(String.format("%smessage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMessage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

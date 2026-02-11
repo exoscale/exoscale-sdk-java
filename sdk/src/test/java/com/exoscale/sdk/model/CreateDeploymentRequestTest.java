@@ -13,7 +13,8 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ModelRef;
+import com.exoscale.sdk.model.InferenceEngineVersion;
+import com.exoscale.sdk.model.Title3Model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,11 +42,19 @@ public class CreateDeploymentRequestTest {
     }
 
     /**
-     * Test the property 'model'
+     * Test the property 'gpuCount'
      */
     @Test
-    public void modelTest() {
-        // TODO: test model
+    public void gpuCountTest() {
+        // TODO: test gpuCount
+    }
+
+    /**
+     * Test the property 'inferenceEngineVersion'
+     */
+    @Test
+    public void inferenceEngineVersionTest() {
+        // TODO: test inferenceEngineVersion
     }
 
     /**
@@ -65,14 +74,6 @@ public class CreateDeploymentRequestTest {
     }
 
     /**
-     * Test the property 'gpuCount'
-     */
-    @Test
-    public void gpuCountTest() {
-        // TODO: test gpuCount
-    }
-
-    /**
      * Test the property 'replicas'
      */
     @Test
@@ -86,6 +87,14 @@ public class CreateDeploymentRequestTest {
     @Test
     public void inferenceEngineParametersTest() {
         // TODO: test inferenceEngineParameters
+    }
+
+    /**
+     * Test the property 'model'
+     */
+    @Test
+    public void modelTest() {
+        // TODO: test model
     }
 
 }

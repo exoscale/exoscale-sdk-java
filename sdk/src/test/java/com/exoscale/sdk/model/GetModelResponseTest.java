@@ -21,6 +21,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -40,11 +44,11 @@ public class GetModelResponseTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'updatedAt'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void updatedAtTest() {
+        // TODO: test updatedAt
     }
 
     /**
@@ -56,11 +60,19 @@ public class GetModelResponseTest {
     }
 
     /**
-     * Test the property 'status'
+     * Test the property 'state'
      */
     @Test
-    public void statusTest() {
-        // TODO: test status
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
@@ -77,14 +89,6 @@ public class GetModelResponseTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
     }
 
 }

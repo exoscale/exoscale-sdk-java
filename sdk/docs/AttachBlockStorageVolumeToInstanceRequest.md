@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**instance** | [**InstanceTarget**](InstanceTarget.md) |  |  |
+|**instance** | [**InstanceRef**](InstanceRef.md) |  |  |
 
 
 

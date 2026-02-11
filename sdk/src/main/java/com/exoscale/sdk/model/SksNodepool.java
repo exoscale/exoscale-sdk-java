@@ -19,15 +19,15 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.InstancePool;
-import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.InstancePoolRef;
+import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
-import com.exoscale.sdk.model.PrivateNetwork;
-import com.exoscale.sdk.model.SecurityGroup;
+import com.exoscale.sdk.model.PrivateNetworkRef;
+import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
-import com.exoscale.sdk.model.Template;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -73,7 +73,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class SksNodepool {
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
-  private Set<AntiAffinityGroup> antiAffinityGroups;
+  private Set<AntiAffinityGroupRef> antiAffinityGroups;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -123,19 +123,19 @@ public class SksNodepool {
   private Map<String, SksNodepoolTaint> taints = new HashMap<>();
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
-  private Set<SecurityGroup> securityGroups;
+  private Set<SecurityGroupRef> securityGroups;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_INSTANCE_TYPE = "instance-type";
-  private InstanceType instanceType;
+  private InstanceTypeRef instanceType;
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
-  private Set<PrivateNetwork> privateNetworks;
+  private Set<PrivateNetworkRef> privateNetworks;
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private Template template;
+  private TemplateRef template;
 
   /**
    * Nodepool state
@@ -192,13 +192,13 @@ public class SksNodepool {
   private KubeletImageGc kubeletImageGc;
 
   public static final String JSON_PROPERTY_INSTANCE_POOL = "instance-pool";
-  private InstancePool instancePool;
+  private InstancePoolRef instancePool;
 
   public static final String JSON_PROPERTY_INSTANCE_PREFIX = "instance-prefix";
   private String instancePrefix;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
-  private DeployTarget deployTarget;
+  private DeployTargetRef deployTarget;
 
   /**
    * Gets or Sets addons
@@ -265,12 +265,12 @@ public class SksNodepool {
     this.createdAt = createdAt;
   }
 
-  public SksNodepool antiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
+  public SksNodepool antiAffinityGroups(Set<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
     return this;
   }
 
-  public SksNodepool addAntiAffinityGroupsItem(AntiAffinityGroup antiAffinityGroupsItem) {
+  public SksNodepool addAntiAffinityGroupsItem(AntiAffinityGroupRef antiAffinityGroupsItem) {
     if (this.antiAffinityGroups == null) {
       this.antiAffinityGroups = new LinkedHashSet<>();
     }
@@ -286,7 +286,7 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<AntiAffinityGroup> getAntiAffinityGroups() {
+  public Set<AntiAffinityGroupRef> getAntiAffinityGroups() {
     return antiAffinityGroups;
   }
 
@@ -294,7 +294,7 @@ public class SksNodepool {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAntiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
+  public void setAntiAffinityGroups(Set<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
   }
 
@@ -415,12 +415,12 @@ public class SksNodepool {
   }
 
 
-  public SksNodepool securityGroups(Set<SecurityGroup> securityGroups) {
+  public SksNodepool securityGroups(Set<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
     return this;
   }
 
-  public SksNodepool addSecurityGroupsItem(SecurityGroup securityGroupsItem) {
+  public SksNodepool addSecurityGroupsItem(SecurityGroupRef securityGroupsItem) {
     if (this.securityGroups == null) {
       this.securityGroups = new LinkedHashSet<>();
     }
@@ -436,7 +436,7 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<SecurityGroup> getSecurityGroups() {
+  public Set<SecurityGroupRef> getSecurityGroups() {
     return securityGroups;
   }
 
@@ -444,7 +444,7 @@ public class SksNodepool {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityGroups(Set<SecurityGroup> securityGroups) {
+  public void setSecurityGroups(Set<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
   }
 
@@ -474,7 +474,7 @@ public class SksNodepool {
   }
 
 
-  public SksNodepool instanceType(InstanceType instanceType) {
+  public SksNodepool instanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -487,24 +487,24 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InstanceType getInstanceType() {
+  public InstanceTypeRef getInstanceType() {
     return instanceType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstanceType(InstanceType instanceType) {
+  public void setInstanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
   }
 
 
-  public SksNodepool privateNetworks(Set<PrivateNetwork> privateNetworks) {
+  public SksNodepool privateNetworks(Set<PrivateNetworkRef> privateNetworks) {
     this.privateNetworks = privateNetworks;
     return this;
   }
 
-  public SksNodepool addPrivateNetworksItem(PrivateNetwork privateNetworksItem) {
+  public SksNodepool addPrivateNetworksItem(PrivateNetworkRef privateNetworksItem) {
     if (this.privateNetworks == null) {
       this.privateNetworks = new LinkedHashSet<>();
     }
@@ -520,7 +520,7 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<PrivateNetwork> getPrivateNetworks() {
+  public Set<PrivateNetworkRef> getPrivateNetworks() {
     return privateNetworks;
   }
 
@@ -528,12 +528,12 @@ public class SksNodepool {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrivateNetworks(Set<PrivateNetwork> privateNetworks) {
+  public void setPrivateNetworks(Set<PrivateNetworkRef> privateNetworks) {
     this.privateNetworks = privateNetworks;
   }
 
 
-  public SksNodepool template(Template template) {
+  public SksNodepool template(TemplateRef template) {
     this.template = template;
     return this;
   }
@@ -546,14 +546,14 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Template getTemplate() {
+  public TemplateRef getTemplate() {
     return template;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(Template template) {
+  public void setTemplate(TemplateRef template) {
     this.template = template;
   }
 
@@ -624,7 +624,7 @@ public class SksNodepool {
   }
 
 
-  public SksNodepool instancePool(InstancePool instancePool) {
+  public SksNodepool instancePool(InstancePoolRef instancePool) {
     this.instancePool = instancePool;
     return this;
   }
@@ -637,14 +637,14 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_INSTANCE_POOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InstancePool getInstancePool() {
+  public InstancePoolRef getInstancePool() {
     return instancePool;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE_POOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstancePool(InstancePool instancePool) {
+  public void setInstancePool(InstancePoolRef instancePool) {
     this.instancePool = instancePool;
   }
 
@@ -674,7 +674,7 @@ public class SksNodepool {
   }
 
 
-  public SksNodepool deployTarget(DeployTarget deployTarget) {
+  public SksNodepool deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
   }
@@ -687,14 +687,14 @@ public class SksNodepool {
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DeployTarget getDeployTarget() {
+  public DeployTargetRef getDeployTarget() {
     return deployTarget;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployTarget(DeployTarget deployTarget) {
+  public void setDeployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
   }
 
@@ -920,7 +920,7 @@ public class SksNodepool {
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {
       int i = 0;
-      for (AntiAffinityGroup _item : getAntiAffinityGroups()) {
+      for (AntiAffinityGroupRef _item : getAntiAffinityGroups()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%santi-affinity-groups%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -961,7 +961,7 @@ public class SksNodepool {
     // add `security-groups` to the URL query string
     if (getSecurityGroups() != null) {
       int i = 0;
-      for (SecurityGroup _item : getSecurityGroups()) {
+      for (SecurityGroupRef _item : getSecurityGroups()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%ssecurity-groups%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -983,7 +983,7 @@ public class SksNodepool {
     // add `private-networks` to the URL query string
     if (getPrivateNetworks() != null) {
       int i = 0;
-      for (PrivateNetwork _item : getPrivateNetworks()) {
+      for (PrivateNetworkRef _item : getPrivateNetworks()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%sprivate-networks%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));

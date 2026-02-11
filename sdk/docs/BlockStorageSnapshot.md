@@ -15,7 +15,7 @@ Block storage snapshot
 |**createdAt** | **OffsetDateTime** | Snapshot creation date |  [optional] [readonly] |
 |**state** | [**StateEnum**](#StateEnum) | Snapshot state |  [optional] [readonly] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**blockStorageVolume** | [**BlockStorageVolumeTarget**](BlockStorageVolumeTarget.md) |  |  [optional] |
+|**blockStorageVolume** | [**BlockStorageVolumeRef**](BlockStorageVolumeRef.md) |  |  [optional] |
 
 
 

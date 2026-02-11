@@ -19,14 +19,14 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.ElasticIp;
-import com.exoscale.sdk.model.InstanceType;
-import com.exoscale.sdk.model.PrivateNetwork;
-import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.SshKey;
-import com.exoscale.sdk.model.Template;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.ElasticIpRef;
+import com.exoscale.sdk.model.InstanceTypeRef;
+import com.exoscale.sdk.model.PrivateNetworkRef;
+import com.exoscale.sdk.model.SecurityGroupRef;
+import com.exoscale.sdk.model.SshKeyRef;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -76,7 +76,7 @@ public class UpdateInstancePoolRequest {
   private Boolean applicationConsistentSnapshotEnabled;
 
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
-  private JsonNullable<Set<AntiAffinityGroup>> antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroup>>undefined();
+  private JsonNullable<Set<AntiAffinityGroupRef>> antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroupRef>>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -123,28 +123,28 @@ public class UpdateInstancePoolRequest {
   private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
-  private JsonNullable<Set<SecurityGroup>> securityGroups = JsonNullable.<Set<SecurityGroup>>undefined();
+  private JsonNullable<Set<SecurityGroupRef>> securityGroups = JsonNullable.<Set<SecurityGroupRef>>undefined();
 
   public static final String JSON_PROPERTY_ELASTIC_IPS = "elastic-ips";
-  private JsonNullable<List<ElasticIp>> elasticIps = JsonNullable.<List<ElasticIp>>undefined();
+  private JsonNullable<List<ElasticIpRef>> elasticIps = JsonNullable.<List<ElasticIpRef>>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_INSTANCE_TYPE = "instance-type";
-  private InstanceType instanceType;
+  private InstanceTypeRef instanceType;
 
   public static final String JSON_PROPERTY_MIN_AVAILABLE = "min-available";
   private JsonNullable<Long> minAvailable = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
-  private JsonNullable<Set<PrivateNetwork>> privateNetworks = JsonNullable.<Set<PrivateNetwork>>undefined();
+  private JsonNullable<Set<PrivateNetworkRef>> privateNetworks = JsonNullable.<Set<PrivateNetworkRef>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private Template template;
+  private TemplateRef template;
 
   public static final String JSON_PROPERTY_SSH_KEY = "ssh-key";
-  private SshKey sshKey;
+  private SshKeyRef sshKey;
 
   public static final String JSON_PROPERTY_INSTANCE_PREFIX = "instance-prefix";
   private JsonNullable<String> instancePrefix = JsonNullable.<String>undefined();
@@ -153,7 +153,7 @@ public class UpdateInstancePoolRequest {
   private JsonNullable<String> userData = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
-  private DeployTarget deployTarget;
+  private DeployTargetRef deployTarget;
 
   public static final String JSON_PROPERTY_IPV6_ENABLED = "ipv6-enabled";
   private Boolean ipv6Enabled;
@@ -162,7 +162,7 @@ public class UpdateInstancePoolRequest {
   private Long diskSize;
 
   public static final String JSON_PROPERTY_SSH_KEYS = "ssh-keys";
-  private JsonNullable<Set<SshKey>> sshKeys = JsonNullable.<Set<SshKey>>undefined();
+  private JsonNullable<Set<SshKeyRef>> sshKeys = JsonNullable.<Set<SshKeyRef>>undefined();
 
   public UpdateInstancePoolRequest() { 
   }
@@ -192,14 +192,14 @@ public class UpdateInstancePoolRequest {
   }
 
 
-  public UpdateInstancePoolRequest antiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
-    this.antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroup>>of(antiAffinityGroups);
+  public UpdateInstancePoolRequest antiAffinityGroups(Set<AntiAffinityGroupRef> antiAffinityGroups) {
+    this.antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroupRef>>of(antiAffinityGroups);
     return this;
   }
 
-  public UpdateInstancePoolRequest addAntiAffinityGroupsItem(AntiAffinityGroup antiAffinityGroupsItem) {
+  public UpdateInstancePoolRequest addAntiAffinityGroupsItem(AntiAffinityGroupRef antiAffinityGroupsItem) {
     if (this.antiAffinityGroups == null || !this.antiAffinityGroups.isPresent()) {
-      this.antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroup>>of(new LinkedHashSet<>());
+      this.antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroupRef>>of(new LinkedHashSet<>());
     }
     try {
       this.antiAffinityGroups.get().add(antiAffinityGroupsItem);
@@ -216,24 +216,24 @@ public class UpdateInstancePoolRequest {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public Set<AntiAffinityGroup> getAntiAffinityGroups() {
+  public Set<AntiAffinityGroupRef> getAntiAffinityGroups() {
         return antiAffinityGroups.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<AntiAffinityGroup>> getAntiAffinityGroups_JsonNullable() {
+  public JsonNullable<Set<AntiAffinityGroupRef>> getAntiAffinityGroups_JsonNullable() {
     return antiAffinityGroups;
   }
   
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
-  public void setAntiAffinityGroups_JsonNullable(JsonNullable<Set<AntiAffinityGroup>> antiAffinityGroups) {
+  public void setAntiAffinityGroups_JsonNullable(JsonNullable<Set<AntiAffinityGroupRef>> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
   }
 
-  public void setAntiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
-    this.antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroup>>of(antiAffinityGroups);
+  public void setAntiAffinityGroups(Set<AntiAffinityGroupRef> antiAffinityGroups) {
+    this.antiAffinityGroups = JsonNullable.<Set<AntiAffinityGroupRef>>of(antiAffinityGroups);
   }
 
 
@@ -320,14 +320,14 @@ public class UpdateInstancePoolRequest {
   }
 
 
-  public UpdateInstancePoolRequest securityGroups(Set<SecurityGroup> securityGroups) {
-    this.securityGroups = JsonNullable.<Set<SecurityGroup>>of(securityGroups);
+  public UpdateInstancePoolRequest securityGroups(Set<SecurityGroupRef> securityGroups) {
+    this.securityGroups = JsonNullable.<Set<SecurityGroupRef>>of(securityGroups);
     return this;
   }
 
-  public UpdateInstancePoolRequest addSecurityGroupsItem(SecurityGroup securityGroupsItem) {
+  public UpdateInstancePoolRequest addSecurityGroupsItem(SecurityGroupRef securityGroupsItem) {
     if (this.securityGroups == null || !this.securityGroups.isPresent()) {
-      this.securityGroups = JsonNullable.<Set<SecurityGroup>>of(new LinkedHashSet<>());
+      this.securityGroups = JsonNullable.<Set<SecurityGroupRef>>of(new LinkedHashSet<>());
     }
     try {
       this.securityGroups.get().add(securityGroupsItem);
@@ -344,35 +344,35 @@ public class UpdateInstancePoolRequest {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public Set<SecurityGroup> getSecurityGroups() {
+  public Set<SecurityGroupRef> getSecurityGroups() {
         return securityGroups.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<SecurityGroup>> getSecurityGroups_JsonNullable() {
+  public JsonNullable<Set<SecurityGroupRef>> getSecurityGroups_JsonNullable() {
     return securityGroups;
   }
   
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
-  public void setSecurityGroups_JsonNullable(JsonNullable<Set<SecurityGroup>> securityGroups) {
+  public void setSecurityGroups_JsonNullable(JsonNullable<Set<SecurityGroupRef>> securityGroups) {
     this.securityGroups = securityGroups;
   }
 
-  public void setSecurityGroups(Set<SecurityGroup> securityGroups) {
-    this.securityGroups = JsonNullable.<Set<SecurityGroup>>of(securityGroups);
+  public void setSecurityGroups(Set<SecurityGroupRef> securityGroups) {
+    this.securityGroups = JsonNullable.<Set<SecurityGroupRef>>of(securityGroups);
   }
 
 
-  public UpdateInstancePoolRequest elasticIps(List<ElasticIp> elasticIps) {
-    this.elasticIps = JsonNullable.<List<ElasticIp>>of(elasticIps);
+  public UpdateInstancePoolRequest elasticIps(List<ElasticIpRef> elasticIps) {
+    this.elasticIps = JsonNullable.<List<ElasticIpRef>>of(elasticIps);
     return this;
   }
 
-  public UpdateInstancePoolRequest addElasticIpsItem(ElasticIp elasticIpsItem) {
+  public UpdateInstancePoolRequest addElasticIpsItem(ElasticIpRef elasticIpsItem) {
     if (this.elasticIps == null || !this.elasticIps.isPresent()) {
-      this.elasticIps = JsonNullable.<List<ElasticIp>>of(new ArrayList<>());
+      this.elasticIps = JsonNullable.<List<ElasticIpRef>>of(new ArrayList<>());
     }
     try {
       this.elasticIps.get().add(elasticIpsItem);
@@ -389,24 +389,24 @@ public class UpdateInstancePoolRequest {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public List<ElasticIp> getElasticIps() {
+  public List<ElasticIpRef> getElasticIps() {
         return elasticIps.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_ELASTIC_IPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<List<ElasticIp>> getElasticIps_JsonNullable() {
+  public JsonNullable<List<ElasticIpRef>> getElasticIps_JsonNullable() {
     return elasticIps;
   }
   
   @JsonProperty(JSON_PROPERTY_ELASTIC_IPS)
-  public void setElasticIps_JsonNullable(JsonNullable<List<ElasticIp>> elasticIps) {
+  public void setElasticIps_JsonNullable(JsonNullable<List<ElasticIpRef>> elasticIps) {
     this.elasticIps = elasticIps;
   }
 
-  public void setElasticIps(List<ElasticIp> elasticIps) {
-    this.elasticIps = JsonNullable.<List<ElasticIp>>of(elasticIps);
+  public void setElasticIps(List<ElasticIpRef> elasticIps) {
+    this.elasticIps = JsonNullable.<List<ElasticIpRef>>of(elasticIps);
   }
 
 
@@ -435,7 +435,7 @@ public class UpdateInstancePoolRequest {
   }
 
 
-  public UpdateInstancePoolRequest instanceType(InstanceType instanceType) {
+  public UpdateInstancePoolRequest instanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -448,14 +448,14 @@ public class UpdateInstancePoolRequest {
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InstanceType getInstanceType() {
+  public InstanceTypeRef getInstanceType() {
     return instanceType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstanceType(InstanceType instanceType) {
+  public void setInstanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
   }
 
@@ -494,14 +494,14 @@ public class UpdateInstancePoolRequest {
   }
 
 
-  public UpdateInstancePoolRequest privateNetworks(Set<PrivateNetwork> privateNetworks) {
-    this.privateNetworks = JsonNullable.<Set<PrivateNetwork>>of(privateNetworks);
+  public UpdateInstancePoolRequest privateNetworks(Set<PrivateNetworkRef> privateNetworks) {
+    this.privateNetworks = JsonNullable.<Set<PrivateNetworkRef>>of(privateNetworks);
     return this;
   }
 
-  public UpdateInstancePoolRequest addPrivateNetworksItem(PrivateNetwork privateNetworksItem) {
+  public UpdateInstancePoolRequest addPrivateNetworksItem(PrivateNetworkRef privateNetworksItem) {
     if (this.privateNetworks == null || !this.privateNetworks.isPresent()) {
-      this.privateNetworks = JsonNullable.<Set<PrivateNetwork>>of(new LinkedHashSet<>());
+      this.privateNetworks = JsonNullable.<Set<PrivateNetworkRef>>of(new LinkedHashSet<>());
     }
     try {
       this.privateNetworks.get().add(privateNetworksItem);
@@ -518,28 +518,28 @@ public class UpdateInstancePoolRequest {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public Set<PrivateNetwork> getPrivateNetworks() {
+  public Set<PrivateNetworkRef> getPrivateNetworks() {
         return privateNetworks.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<PrivateNetwork>> getPrivateNetworks_JsonNullable() {
+  public JsonNullable<Set<PrivateNetworkRef>> getPrivateNetworks_JsonNullable() {
     return privateNetworks;
   }
   
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
-  public void setPrivateNetworks_JsonNullable(JsonNullable<Set<PrivateNetwork>> privateNetworks) {
+  public void setPrivateNetworks_JsonNullable(JsonNullable<Set<PrivateNetworkRef>> privateNetworks) {
     this.privateNetworks = privateNetworks;
   }
 
-  public void setPrivateNetworks(Set<PrivateNetwork> privateNetworks) {
-    this.privateNetworks = JsonNullable.<Set<PrivateNetwork>>of(privateNetworks);
+  public void setPrivateNetworks(Set<PrivateNetworkRef> privateNetworks) {
+    this.privateNetworks = JsonNullable.<Set<PrivateNetworkRef>>of(privateNetworks);
   }
 
 
-  public UpdateInstancePoolRequest template(Template template) {
+  public UpdateInstancePoolRequest template(TemplateRef template) {
     this.template = template;
     return this;
   }
@@ -552,19 +552,19 @@ public class UpdateInstancePoolRequest {
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Template getTemplate() {
+  public TemplateRef getTemplate() {
     return template;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(Template template) {
+  public void setTemplate(TemplateRef template) {
     this.template = template;
   }
 
 
-  public UpdateInstancePoolRequest sshKey(SshKey sshKey) {
+  public UpdateInstancePoolRequest sshKey(SshKeyRef sshKey) {
     this.sshKey = sshKey;
     return this;
   }
@@ -577,14 +577,14 @@ public class UpdateInstancePoolRequest {
   @JsonProperty(JSON_PROPERTY_SSH_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SshKey getSshKey() {
+  public SshKeyRef getSshKey() {
     return sshKey;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SSH_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSshKey(SshKey sshKey) {
+  public void setSshKey(SshKeyRef sshKey) {
     this.sshKey = sshKey;
   }
 
@@ -655,7 +655,7 @@ public class UpdateInstancePoolRequest {
   }
 
 
-  public UpdateInstancePoolRequest deployTarget(DeployTarget deployTarget) {
+  public UpdateInstancePoolRequest deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
   }
@@ -668,14 +668,14 @@ public class UpdateInstancePoolRequest {
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DeployTarget getDeployTarget() {
+  public DeployTargetRef getDeployTarget() {
     return deployTarget;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployTarget(DeployTarget deployTarget) {
+  public void setDeployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
   }
 
@@ -732,14 +732,14 @@ public class UpdateInstancePoolRequest {
   }
 
 
-  public UpdateInstancePoolRequest sshKeys(Set<SshKey> sshKeys) {
-    this.sshKeys = JsonNullable.<Set<SshKey>>of(sshKeys);
+  public UpdateInstancePoolRequest sshKeys(Set<SshKeyRef> sshKeys) {
+    this.sshKeys = JsonNullable.<Set<SshKeyRef>>of(sshKeys);
     return this;
   }
 
-  public UpdateInstancePoolRequest addSshKeysItem(SshKey sshKeysItem) {
+  public UpdateInstancePoolRequest addSshKeysItem(SshKeyRef sshKeysItem) {
     if (this.sshKeys == null || !this.sshKeys.isPresent()) {
-      this.sshKeys = JsonNullable.<Set<SshKey>>of(new LinkedHashSet<>());
+      this.sshKeys = JsonNullable.<Set<SshKeyRef>>of(new LinkedHashSet<>());
     }
     try {
       this.sshKeys.get().add(sshKeysItem);
@@ -756,24 +756,24 @@ public class UpdateInstancePoolRequest {
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public Set<SshKey> getSshKeys() {
+  public Set<SshKeyRef> getSshKeys() {
         return sshKeys.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_SSH_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Set<SshKey>> getSshKeys_JsonNullable() {
+  public JsonNullable<Set<SshKeyRef>> getSshKeys_JsonNullable() {
     return sshKeys;
   }
   
   @JsonProperty(JSON_PROPERTY_SSH_KEYS)
-  public void setSshKeys_JsonNullable(JsonNullable<Set<SshKey>> sshKeys) {
+  public void setSshKeys_JsonNullable(JsonNullable<Set<SshKeyRef>> sshKeys) {
     this.sshKeys = sshKeys;
   }
 
-  public void setSshKeys(Set<SshKey> sshKeys) {
-    this.sshKeys = JsonNullable.<Set<SshKey>>of(sshKeys);
+  public void setSshKeys(Set<SshKeyRef> sshKeys) {
+    this.sshKeys = JsonNullable.<Set<SshKeyRef>>of(sshKeys);
   }
 
 
@@ -904,7 +904,7 @@ public class UpdateInstancePoolRequest {
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {
       int i = 0;
-      for (AntiAffinityGroup _item : getAntiAffinityGroups()) {
+      for (AntiAffinityGroupRef _item : getAntiAffinityGroups()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%santi-affinity-groups%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -935,7 +935,7 @@ public class UpdateInstancePoolRequest {
     // add `security-groups` to the URL query string
     if (getSecurityGroups() != null) {
       int i = 0;
-      for (SecurityGroup _item : getSecurityGroups()) {
+      for (SecurityGroupRef _item : getSecurityGroups()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%ssecurity-groups%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -972,7 +972,7 @@ public class UpdateInstancePoolRequest {
     // add `private-networks` to the URL query string
     if (getPrivateNetworks() != null) {
       int i = 0;
-      for (PrivateNetwork _item : getPrivateNetworks()) {
+      for (PrivateNetworkRef _item : getPrivateNetworks()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%sprivate-networks%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -1019,7 +1019,7 @@ public class UpdateInstancePoolRequest {
     // add `ssh-keys` to the URL query string
     if (getSshKeys() != null) {
       int i = 0;
-      for (SshKey _item : getSshKeys()) {
+      for (SshKeyRef _item : getSshKeys()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%sssh-keys%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));

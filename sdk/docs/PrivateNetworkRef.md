@@ -1,14 +1,14 @@
 
 
-# BlockStorageVolumeTarget
+# PrivateNetworkRef
 
-Target block storage volume
+Private network reference
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Block storage volume ID |  [optional] |
+|**id** | **UUID** | Private network ID |  [optional] |
 
 
 

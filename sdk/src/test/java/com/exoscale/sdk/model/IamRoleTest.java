@@ -45,35 +45,11 @@ public class IamRoleTest {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
      * Test the property 'description'
      */
     @Test
     public void descriptionTest() {
         // TODO: test description
-    }
-
-    /**
-     * Test the property 'permissions'
-     */
-    @Test
-    public void permissionsTest() {
-        // TODO: test permissions
     }
 
     /**
@@ -85,6 +61,22 @@ public class IamRoleTest {
     }
 
     /**
+     * Test the property 'permissions'
+     */
+    @Test
+    public void permissionsTest() {
+        // TODO: test permissions
+    }
+
+    /**
+     * Test the property 'assumeRolePolicy'
+     */
+    @Test
+    public void assumeRolePolicyTest() {
+        // TODO: test assumeRolePolicy
+    }
+
+    /**
      * Test the property 'editable'
      */
     @Test
@@ -93,11 +85,35 @@ public class IamRoleTest {
     }
 
     /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'maxSessionTtl'
+     */
+    @Test
+    public void maxSessionTtlTest() {
+        // TODO: test maxSessionTtl
+    }
+
+    /**
      * Test the property 'policy'
      */
     @Test
     public void policyTest() {
         // TODO: test policy
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
 }

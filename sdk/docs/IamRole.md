@@ -8,13 +8,15 @@ IAM Role
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | IAM Role ID |  [optional] [readonly] |
-|**name** | **String** | IAM Role name |  [optional] |
 |**description** | **String** | IAM Role description |  [optional] |
-|**permissions** | [**Set&lt;PermissionsEnum&gt;**](#Set&lt;PermissionsEnum&gt;) | IAM Role permissions |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**permissions** | [**Set&lt;PermissionsEnum&gt;**](#Set&lt;PermissionsEnum&gt;) | IAM Role permissions |  [optional] |
+|**assumeRolePolicy** | [**IamPolicy**](IamPolicy.md) |  |  [optional] |
 |**editable** | **Boolean** | IAM Role mutability |  [optional] |
+|**name** | **String** | IAM Role name |  [optional] |
+|**maxSessionTtl** | **Long** | Maximum TTL requester is allowed to ask for when assuming a role |  [optional] |
 |**policy** | [**IamPolicy**](IamPolicy.md) |  |  [optional] |
+|**id** | **UUID** | IAM Role ID |  [optional] [readonly] |
 
 
 

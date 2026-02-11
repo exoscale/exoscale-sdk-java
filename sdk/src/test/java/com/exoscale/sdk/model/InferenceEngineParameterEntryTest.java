@@ -21,6 +21,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -40,43 +44,11 @@ public class InferenceEngineParameterEntryTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'description'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
-     * Test the property 'flags'
-     */
-    @Test
-    public void flagsTest() {
-        // TODO: test flags
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property '_default'
-     */
-    @Test
-    public void _defaultTest() {
-        // TODO: test _default
-    }
-
-    /**
-     * Test the property 'section'
-     */
-    @Test
-    public void sectionTest() {
-        // TODO: test section
+    public void descriptionTest() {
+        // TODO: test description
     }
 
     /**
@@ -88,11 +60,43 @@ public class InferenceEngineParameterEntryTest {
     }
 
     /**
-     * Test the property 'description'
+     * Test the property '_default'
      */
     @Test
-    public void descriptionTest() {
-        // TODO: test description
+    public void _defaultTest() {
+        // TODO: test _default
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'section'
+     */
+    @Test
+    public void sectionTest() {
+        // TODO: test section
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'flags'
+     */
+    @Test
+    public void flagsTest() {
+        // TODO: test flags
     }
 
 }

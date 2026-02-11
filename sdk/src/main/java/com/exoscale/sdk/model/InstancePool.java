@@ -19,17 +19,17 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.ElasticIp;
-import com.exoscale.sdk.model.Instance;
-import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.ElasticIpRef;
+import com.exoscale.sdk.model.InstanceRef;
+import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.Manager;
-import com.exoscale.sdk.model.PrivateNetwork;
+import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.PublicIpAssignment;
-import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.SshKey;
-import com.exoscale.sdk.model.Template;
+import com.exoscale.sdk.model.SecurityGroupRef;
+import com.exoscale.sdk.model.SshKeyRef;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -79,7 +79,7 @@ public class InstancePool {
   private Boolean applicationConsistentSnapshotEnabled;
 
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
-  private List<AntiAffinityGroup> antiAffinityGroups;
+  private List<AntiAffinityGroupRef> antiAffinityGroups;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -91,25 +91,25 @@ public class InstancePool {
   private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
-  private List<SecurityGroup> securityGroups;
+  private List<SecurityGroupRef> securityGroups;
 
   public static final String JSON_PROPERTY_ELASTIC_IPS = "elastic-ips";
-  private List<ElasticIp> elasticIps;
+  private List<ElasticIpRef> elasticIps;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_INSTANCE_TYPE = "instance-type";
-  private InstanceType instanceType;
+  private InstanceTypeRef instanceType;
 
   public static final String JSON_PROPERTY_MIN_AVAILABLE = "min-available";
   private Long minAvailable;
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
-  private List<PrivateNetwork> privateNetworks;
+  private List<PrivateNetworkRef> privateNetworks;
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private Template template;
+  private TemplateRef template;
 
   /**
    * Instance Pool state
@@ -163,7 +163,7 @@ public class InstancePool {
   private Long size;
 
   public static final String JSON_PROPERTY_SSH_KEY = "ssh-key";
-  private SshKey sshKey;
+  private SshKeyRef sshKey;
 
   public static final String JSON_PROPERTY_INSTANCE_PREFIX = "instance-prefix";
   private String instancePrefix;
@@ -175,10 +175,10 @@ public class InstancePool {
   private Manager manager;
 
   public static final String JSON_PROPERTY_INSTANCES = "instances";
-  private List<Instance> instances;
+  private List<InstanceRef> instances;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
-  private DeployTarget deployTarget;
+  private DeployTargetRef deployTarget;
 
   public static final String JSON_PROPERTY_IPV6_ENABLED = "ipv6-enabled";
   private Boolean ipv6Enabled;
@@ -190,7 +190,7 @@ public class InstancePool {
   private Long diskSize;
 
   public static final String JSON_PROPERTY_SSH_KEYS = "ssh-keys";
-  private List<SshKey> sshKeys;
+  private List<SshKeyRef> sshKeys;
 
   public InstancePool() { 
   }
@@ -198,7 +198,7 @@ public class InstancePool {
   @JsonCreator
   public InstancePool(
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
-    @JsonProperty(JSON_PROPERTY_INSTANCES) List<Instance> instances, 
+    @JsonProperty(JSON_PROPERTY_INSTANCES) List<InstanceRef> instances, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id
   ) {
   this();
@@ -232,12 +232,12 @@ public class InstancePool {
   }
 
 
-  public InstancePool antiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
+  public InstancePool antiAffinityGroups(List<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
     return this;
   }
 
-  public InstancePool addAntiAffinityGroupsItem(AntiAffinityGroup antiAffinityGroupsItem) {
+  public InstancePool addAntiAffinityGroupsItem(AntiAffinityGroupRef antiAffinityGroupsItem) {
     if (this.antiAffinityGroups == null) {
       this.antiAffinityGroups = new ArrayList<>();
     }
@@ -253,14 +253,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<AntiAffinityGroup> getAntiAffinityGroups() {
+  public List<AntiAffinityGroupRef> getAntiAffinityGroups() {
     return antiAffinityGroups;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAntiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
+  public void setAntiAffinityGroups(List<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
   }
 
@@ -348,12 +348,12 @@ public class InstancePool {
   }
 
 
-  public InstancePool securityGroups(List<SecurityGroup> securityGroups) {
+  public InstancePool securityGroups(List<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
     return this;
   }
 
-  public InstancePool addSecurityGroupsItem(SecurityGroup securityGroupsItem) {
+  public InstancePool addSecurityGroupsItem(SecurityGroupRef securityGroupsItem) {
     if (this.securityGroups == null) {
       this.securityGroups = new ArrayList<>();
     }
@@ -369,24 +369,24 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SecurityGroup> getSecurityGroups() {
+  public List<SecurityGroupRef> getSecurityGroups() {
     return securityGroups;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityGroups(List<SecurityGroup> securityGroups) {
+  public void setSecurityGroups(List<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
   }
 
 
-  public InstancePool elasticIps(List<ElasticIp> elasticIps) {
+  public InstancePool elasticIps(List<ElasticIpRef> elasticIps) {
     this.elasticIps = elasticIps;
     return this;
   }
 
-  public InstancePool addElasticIpsItem(ElasticIp elasticIpsItem) {
+  public InstancePool addElasticIpsItem(ElasticIpRef elasticIpsItem) {
     if (this.elasticIps == null) {
       this.elasticIps = new ArrayList<>();
     }
@@ -402,14 +402,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_ELASTIC_IPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ElasticIp> getElasticIps() {
+  public List<ElasticIpRef> getElasticIps() {
     return elasticIps;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ELASTIC_IPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setElasticIps(List<ElasticIp> elasticIps) {
+  public void setElasticIps(List<ElasticIpRef> elasticIps) {
     this.elasticIps = elasticIps;
   }
 
@@ -439,7 +439,7 @@ public class InstancePool {
   }
 
 
-  public InstancePool instanceType(InstanceType instanceType) {
+  public InstancePool instanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -452,14 +452,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InstanceType getInstanceType() {
+  public InstanceTypeRef getInstanceType() {
     return instanceType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstanceType(InstanceType instanceType) {
+  public void setInstanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
   }
 
@@ -490,12 +490,12 @@ public class InstancePool {
   }
 
 
-  public InstancePool privateNetworks(List<PrivateNetwork> privateNetworks) {
+  public InstancePool privateNetworks(List<PrivateNetworkRef> privateNetworks) {
     this.privateNetworks = privateNetworks;
     return this;
   }
 
-  public InstancePool addPrivateNetworksItem(PrivateNetwork privateNetworksItem) {
+  public InstancePool addPrivateNetworksItem(PrivateNetworkRef privateNetworksItem) {
     if (this.privateNetworks == null) {
       this.privateNetworks = new ArrayList<>();
     }
@@ -511,19 +511,19 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<PrivateNetwork> getPrivateNetworks() {
+  public List<PrivateNetworkRef> getPrivateNetworks() {
     return privateNetworks;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PRIVATE_NETWORKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrivateNetworks(List<PrivateNetwork> privateNetworks) {
+  public void setPrivateNetworks(List<PrivateNetworkRef> privateNetworks) {
     this.privateNetworks = privateNetworks;
   }
 
 
-  public InstancePool template(Template template) {
+  public InstancePool template(TemplateRef template) {
     this.template = template;
     return this;
   }
@@ -536,14 +536,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Template getTemplate() {
+  public TemplateRef getTemplate() {
     return template;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(Template template) {
+  public void setTemplate(TemplateRef template) {
     this.template = template;
   }
 
@@ -589,7 +589,7 @@ public class InstancePool {
   }
 
 
-  public InstancePool sshKey(SshKey sshKey) {
+  public InstancePool sshKey(SshKeyRef sshKey) {
     this.sshKey = sshKey;
     return this;
   }
@@ -602,14 +602,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_SSH_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SshKey getSshKey() {
+  public SshKeyRef getSshKey() {
     return sshKey;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SSH_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSshKey(SshKey sshKey) {
+  public void setSshKey(SshKeyRef sshKey) {
     this.sshKey = sshKey;
   }
 
@@ -697,14 +697,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_INSTANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Instance> getInstances() {
+  public List<InstanceRef> getInstances() {
     return instances;
   }
 
 
 
 
-  public InstancePool deployTarget(DeployTarget deployTarget) {
+  public InstancePool deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
   }
@@ -717,14 +717,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DeployTarget getDeployTarget() {
+  public DeployTargetRef getDeployTarget() {
     return deployTarget;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployTarget(DeployTarget deployTarget) {
+  public void setDeployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
   }
 
@@ -796,12 +796,12 @@ public class InstancePool {
   }
 
 
-  public InstancePool sshKeys(List<SshKey> sshKeys) {
+  public InstancePool sshKeys(List<SshKeyRef> sshKeys) {
     this.sshKeys = sshKeys;
     return this;
   }
 
-  public InstancePool addSshKeysItem(SshKey sshKeysItem) {
+  public InstancePool addSshKeysItem(SshKeyRef sshKeysItem) {
     if (this.sshKeys == null) {
       this.sshKeys = new ArrayList<>();
     }
@@ -817,14 +817,14 @@ public class InstancePool {
   @JsonProperty(JSON_PROPERTY_SSH_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SshKey> getSshKeys() {
+  public List<SshKeyRef> getSshKeys() {
     return sshKeys;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SSH_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSshKeys(List<SshKey> sshKeys) {
+  public void setSshKeys(List<SshKeyRef> sshKeys) {
     this.sshKeys = sshKeys;
   }
 

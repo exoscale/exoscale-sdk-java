@@ -44,7 +44,6 @@ import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
-import com.exoscale.sdk.model.CreateDeploymentRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
 import com.exoscale.sdk.model.CreateElasticIpRequest;
@@ -98,7 +97,6 @@ import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserThanosSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
-import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
@@ -106,7 +104,6 @@ import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
 import com.exoscale.sdk.model.ElasticIp;
 import com.exoscale.sdk.model.EnvImpactReport;
-import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
@@ -125,11 +122,8 @@ import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsThanos200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
-import com.exoscale.sdk.model.GetDeploymentLogsResponse;
-import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
-import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -153,7 +147,6 @@ import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServices200Response;
 import com.exoscale.sdk.model.ListDeployTargets200Response;
-import com.exoscale.sdk.model.ListDeploymentsResponse;
 import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
@@ -162,7 +155,6 @@ import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
-import com.exoscale.sdk.model.ListModelsResponse;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
 import com.exoscale.sdk.model.ListQuotas200Response;
 import com.exoscale.sdk.model.ListSecurityGroups200Response;
@@ -179,6 +171,7 @@ import com.exoscale.sdk.model.LoadBalancerService;
 import java.time.OffsetDateTime;
 import com.exoscale.sdk.model.Operation;
 import com.exoscale.sdk.model.Organization;
+import com.exoscale.sdk.model.PatchDeploymentRequest;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
 import com.exoscale.sdk.model.Quota;
@@ -190,10 +183,8 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
-import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
-import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
@@ -206,6 +197,18 @@ import com.exoscale.sdk.model.Snapshot;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.StartInstanceRequest;
 import com.exoscale.sdk.model.Template;
+import com.exoscale.sdk.model.Title;
+import com.exoscale.sdk.model.Title1;
+import com.exoscale.sdk.model.Title10;
+import com.exoscale.sdk.model.Title11;
+import com.exoscale.sdk.model.Title2;
+import com.exoscale.sdk.model.Title3;
+import com.exoscale.sdk.model.Title4;
+import com.exoscale.sdk.model.Title5;
+import com.exoscale.sdk.model.Title6;
+import com.exoscale.sdk.model.Title7;
+import com.exoscale.sdk.model.Title8;
+import com.exoscale.sdk.model.Title9;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
@@ -951,18 +954,18 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create Deployment
+     * 
      *
-     * Deploy a model on an inference server
+     * Create Deployment
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void createDeploymentTest() throws ApiException {
-        CreateDeploymentRequest createDeploymentRequest = null;
-        Operation response = 
-        api.createDeployment(createDeploymentRequest);
+        Title6 title6 = null;
+        Title4 response = 
+        api.createDeployment(title6);
         
         // TODO: test validations
     }
@@ -1088,9 +1091,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create Model
+     * 
      *
-     * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
+     * Create Model
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1098,7 +1101,7 @@ public class ExoscaleApiTest {
     @Test
     public void createModelTest() throws ApiException {
         CreateModelRequest createModelRequest = null;
-        Operation response = 
+        Title4 response = 
         api.createModel(createModelRequest);
         
         // TODO: test validations
@@ -1694,17 +1697,17 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete Deployment
-     *
      * 
+     *
+     * Delete Deployment
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void deleteDeploymentTest() throws ApiException {
-        UUID id = null;
-        Operation response = 
+        String id = null;
+        Title4 response = 
         api.deleteDeployment(id);
         
         // TODO: test validations
@@ -1849,17 +1852,17 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete Model
-     *
      * 
+     *
+     * Delete Model
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void deleteModelTest() throws ApiException {
-        UUID id = null;
-        Operation response = 
+        String id = null;
+        Title4 response = 
         api.deleteModel(id);
         
         // TODO: test validations
@@ -2875,35 +2878,35 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get Deployment
-     *
      * 
+     *
+     * Get Deployment details
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void getDeploymentTest() throws ApiException {
-        UUID id = null;
-        GetDeploymentResponse response = 
+        String id = null;
+        Title3 response = 
         api.getDeployment(id);
         
         // TODO: test validations
     }
     
     /**
-     * [BETA] Get Deployment Logs
+     * 
      *
-     * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
+     * Get Deployment Logs
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void getDeploymentLogsTest() throws ApiException {
-        UUID id = null;
-        GetDeploymentLogsResponse response = 
-        api.getDeploymentLogs(id);
+        String deploymentUuid = null;
+        Title9 response = 
+        api.getDeploymentLogs(deploymentUuid);
         
         // TODO: test validations
     }
@@ -3030,7 +3033,7 @@ public class ExoscaleApiTest {
     /**
      * [BETA] Get inference-engine Help
      *
-     * Get list of allowed inference engine parameters with their descriptions, types, allowed values, and defaults
+     * Get list of allowed inference engine parameters with their descriptions and allowed values
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3130,17 +3133,17 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get Model
-     *
      * 
+     *
+     * Get Model details
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void getModelTest() throws ApiException {
-        UUID id = null;
-        GetModelResponse response = 
+        String id = null;
+        Title7 response = 
         api.getModel(id);
         
         // TODO: test validations
@@ -3618,16 +3621,16 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List Deployments
-     *
      * 
+     *
+     * List Deployments
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void listDeploymentsTest() throws ApiException {
-        ListDeploymentsResponse response = 
+        Title5 response = 
         api.listDeployments();
         
         // TODO: test validations
@@ -3784,16 +3787,16 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List Models
-     *
      * 
+     *
+     * List Models
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void listModelsTest() throws ApiException {
-        ListModelsResponse response = 
+        Title10 response = 
         api.listModels();
         
         // TODO: test validations
@@ -3992,6 +3995,24 @@ public class ExoscaleApiTest {
     public void listZonesTest() throws ApiException {
         ListZones200Response response = 
         api.listZones();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Update AI deployment
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void patchDeploymentTest() throws ApiException {
+        UUID id = null;
+        PatchDeploymentRequest patchDeploymentRequest = null;
+        Title1 response = 
+        api.patchDeployment(id, patchDeploymentRequest);
         
         // TODO: test validations
     }
@@ -4554,18 +4575,18 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Reveal Deployment API Key
-     *
      * 
+     *
+     * Get Deployment API Key
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void revealDeploymentApiKeyTest() throws ApiException {
-        UUID id = null;
-        RevealDeploymentApiKeyResponse response = 
-        api.revealDeploymentApiKey(id);
+        String deploymentUuid = null;
+        Title response = 
+        api.revealDeploymentApiKey(deploymentUuid);
         
         // TODO: test validations
     }
@@ -4674,19 +4695,19 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Scale Deployment
-     *
      * 
+     *
+     * Scale Deployment
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void scaleDeploymentTest() throws ApiException {
-        UUID id = null;
-        ScaleDeploymentRequest scaleDeploymentRequest = null;
-        Operation response = 
-        api.scaleDeployment(id, scaleDeploymentRequest);
+        String id = null;
+        Title11 title11 = null;
+        Title4 response = 
+        api.scaleDeployment(id, title11);
         
         // TODO: test validations
     }
@@ -5328,6 +5349,24 @@ public class ExoscaleApiTest {
         UpdateElasticIpRequest updateElasticIpRequest = null;
         Operation response = 
         api.updateElasticIp(id, updateElasticIpRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update IAM Assume role Policy
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateIamAssumeRolePolicyTest() throws ApiException {
+        UUID id = null;
+        IamPolicy iamPolicy = null;
+        Operation response = 
+        api.updateIamAssumeRolePolicy(id, iamPolicy);
         
         // TODO: test validations
     }

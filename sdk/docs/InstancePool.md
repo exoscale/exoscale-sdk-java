@@ -9,29 +9,29 @@ Instance Pool
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**applicationConsistentSnapshotEnabled** | **Boolean** | Enable application consistent snapshots |  [optional] |
-|**antiAffinityGroups** | [**List&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Instance Pool Anti-affinity Groups |  [optional] |
+|**antiAffinityGroups** | [**List&lt;AntiAffinityGroupRef&gt;**](AntiAffinityGroupRef.md) | Instance Pool Anti-affinity Groups |  [optional] |
 |**description** | **String** | Instance Pool description |  [optional] |
 |**publicIpAssignment** | **PublicIpAssignment** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**securityGroups** | [**List&lt;SecurityGroup&gt;**](SecurityGroup.md) | Instance Pool Security Groups |  [optional] |
-|**elasticIps** | [**List&lt;ElasticIp&gt;**](ElasticIp.md) | Instances Elastic IPs |  [optional] |
+|**securityGroups** | [**List&lt;SecurityGroupRef&gt;**](SecurityGroupRef.md) | Instance Pool Security Groups |  [optional] |
+|**elasticIps** | [**List&lt;ElasticIpRef&gt;**](ElasticIpRef.md) | Instances Elastic IPs |  [optional] |
 |**name** | **String** | Instance Pool name |  [optional] |
-|**instanceType** | [**InstanceType**](InstanceType.md) |  |  [optional] |
+|**instanceType** | [**InstanceTypeRef**](InstanceTypeRef.md) |  |  [optional] |
 |**minAvailable** | **Long** | Minimum number of running instances |  [optional] |
-|**privateNetworks** | [**List&lt;PrivateNetwork&gt;**](PrivateNetwork.md) | Instance Pool Private Networks |  [optional] |
-|**template** | [**Template**](Template.md) |  |  [optional] |
+|**privateNetworks** | [**List&lt;PrivateNetworkRef&gt;**](PrivateNetworkRef.md) | Instance Pool Private Networks |  [optional] |
+|**template** | [**TemplateRef**](TemplateRef.md) |  |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Instance Pool state |  [optional] [readonly] |
 |**size** | **Long** | Number of instances |  [optional] |
-|**sshKey** | [**SshKey**](SshKey.md) |  |  [optional] |
+|**sshKey** | [**SshKeyRef**](SshKeyRef.md) |  |  [optional] |
 |**instancePrefix** | **String** | The instances created by the Instance Pool will be prefixed with this value (default: pool) |  [optional] |
 |**userData** | **String** | Instances Cloud-init user-data |  [optional] |
 |**manager** | [**Manager**](Manager.md) |  |  [optional] |
-|**instances** | [**List&lt;Instance&gt;**](Instance.md) | Instances |  [optional] [readonly] |
-|**deployTarget** | [**DeployTarget**](DeployTarget.md) |  |  [optional] |
+|**instances** | [**List&lt;InstanceRef&gt;**](InstanceRef.md) | Instances |  [optional] [readonly] |
+|**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Enabled** | **Boolean** | Enable IPv6 for instances |  [optional] |
 |**id** | **UUID** | Instance Pool ID |  [optional] [readonly] |
 |**diskSize** | **Long** | Instances disk size in GiB |  [optional] |
-|**sshKeys** | [**List&lt;SshKey&gt;**](SshKey.md) | Instances SSH keys |  [optional] |
+|**sshKeys** | [**List&lt;SshKeyRef&gt;**](SshKeyRef.md) | Instances SSH keys |  [optional] |
 
 
 

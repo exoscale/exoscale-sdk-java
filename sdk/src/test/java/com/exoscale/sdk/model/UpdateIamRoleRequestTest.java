@@ -66,4 +66,12 @@ public class UpdateIamRoleRequestTest {
         // TODO: test labels
     }
 
+    /**
+     * Test the property 'maxSessionTtl'
+     */
+    @Test
+    public void maxSessionTtlTest() {
+        // TODO: test maxSessionTtl
+    }
+
 }

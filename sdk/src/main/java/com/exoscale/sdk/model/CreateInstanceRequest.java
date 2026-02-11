@@ -19,13 +19,13 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.PublicIpAssignment;
-import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.SshKey;
-import com.exoscale.sdk.model.Template;
+import com.exoscale.sdk.model.SecurityGroupRef;
+import com.exoscale.sdk.model.SshKeyRef;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -68,7 +68,7 @@ public class CreateInstanceRequest {
   private Boolean applicationConsistentSnapshotEnabled;
 
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
-  private Set<AntiAffinityGroup> antiAffinityGroups;
+  private Set<AntiAffinityGroupRef> antiAffinityGroups;
 
   public static final String JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT = "public-ip-assignment";
   private PublicIpAssignment publicIpAssignment;
@@ -80,22 +80,22 @@ public class CreateInstanceRequest {
   private Boolean autoStart;
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
-  private Set<SecurityGroup> securityGroups;
+  private Set<SecurityGroupRef> securityGroups;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_INSTANCE_TYPE = "instance-type";
-  private InstanceType instanceType;
+  private InstanceTypeRef instanceType;
 
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private Template template;
+  private TemplateRef template;
 
   public static final String JSON_PROPERTY_SECUREBOOT_ENABLED = "secureboot-enabled";
   private Boolean securebootEnabled;
 
   public static final String JSON_PROPERTY_SSH_KEY = "ssh-key";
-  private SshKey sshKey;
+  private SshKeyRef sshKey;
 
   public static final String JSON_PROPERTY_USER_DATA = "user-data";
   private String userData;
@@ -104,7 +104,7 @@ public class CreateInstanceRequest {
   private Boolean tpmEnabled;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
-  private DeployTarget deployTarget;
+  private DeployTargetRef deployTarget;
 
   public static final String JSON_PROPERTY_IPV6_ENABLED = "ipv6-enabled";
   private Boolean ipv6Enabled;
@@ -113,7 +113,7 @@ public class CreateInstanceRequest {
   private Long diskSize;
 
   public static final String JSON_PROPERTY_SSH_KEYS = "ssh-keys";
-  private Set<SshKey> sshKeys;
+  private Set<SshKeyRef> sshKeys;
 
   public CreateInstanceRequest() { 
   }
@@ -143,12 +143,12 @@ public class CreateInstanceRequest {
   }
 
 
-  public CreateInstanceRequest antiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
+  public CreateInstanceRequest antiAffinityGroups(Set<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
     return this;
   }
 
-  public CreateInstanceRequest addAntiAffinityGroupsItem(AntiAffinityGroup antiAffinityGroupsItem) {
+  public CreateInstanceRequest addAntiAffinityGroupsItem(AntiAffinityGroupRef antiAffinityGroupsItem) {
     if (this.antiAffinityGroups == null) {
       this.antiAffinityGroups = new LinkedHashSet<>();
     }
@@ -164,7 +164,7 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<AntiAffinityGroup> getAntiAffinityGroups() {
+  public Set<AntiAffinityGroupRef> getAntiAffinityGroups() {
     return antiAffinityGroups;
   }
 
@@ -172,7 +172,7 @@ public class CreateInstanceRequest {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAntiAffinityGroups(Set<AntiAffinityGroup> antiAffinityGroups) {
+  public void setAntiAffinityGroups(Set<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
   }
 
@@ -260,12 +260,12 @@ public class CreateInstanceRequest {
   }
 
 
-  public CreateInstanceRequest securityGroups(Set<SecurityGroup> securityGroups) {
+  public CreateInstanceRequest securityGroups(Set<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
     return this;
   }
 
-  public CreateInstanceRequest addSecurityGroupsItem(SecurityGroup securityGroupsItem) {
+  public CreateInstanceRequest addSecurityGroupsItem(SecurityGroupRef securityGroupsItem) {
     if (this.securityGroups == null) {
       this.securityGroups = new LinkedHashSet<>();
     }
@@ -281,7 +281,7 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<SecurityGroup> getSecurityGroups() {
+  public Set<SecurityGroupRef> getSecurityGroups() {
     return securityGroups;
   }
 
@@ -289,7 +289,7 @@ public class CreateInstanceRequest {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityGroups(Set<SecurityGroup> securityGroups) {
+  public void setSecurityGroups(Set<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
   }
 
@@ -319,7 +319,7 @@ public class CreateInstanceRequest {
   }
 
 
-  public CreateInstanceRequest instanceType(InstanceType instanceType) {
+  public CreateInstanceRequest instanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
     return this;
   }
@@ -332,19 +332,19 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public InstanceType getInstanceType() {
+  public InstanceTypeRef getInstanceType() {
     return instanceType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInstanceType(InstanceType instanceType) {
+  public void setInstanceType(InstanceTypeRef instanceType) {
     this.instanceType = instanceType;
   }
 
 
-  public CreateInstanceRequest template(Template template) {
+  public CreateInstanceRequest template(TemplateRef template) {
     this.template = template;
     return this;
   }
@@ -357,14 +357,14 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Template getTemplate() {
+  public TemplateRef getTemplate() {
     return template;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTemplate(Template template) {
+  public void setTemplate(TemplateRef template) {
     this.template = template;
   }
 
@@ -394,7 +394,7 @@ public class CreateInstanceRequest {
   }
 
 
-  public CreateInstanceRequest sshKey(SshKey sshKey) {
+  public CreateInstanceRequest sshKey(SshKeyRef sshKey) {
     this.sshKey = sshKey;
     return this;
   }
@@ -407,14 +407,14 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_SSH_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SshKey getSshKey() {
+  public SshKeyRef getSshKey() {
     return sshKey;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SSH_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSshKey(SshKey sshKey) {
+  public void setSshKey(SshKeyRef sshKey) {
     this.sshKey = sshKey;
   }
 
@@ -469,7 +469,7 @@ public class CreateInstanceRequest {
   }
 
 
-  public CreateInstanceRequest deployTarget(DeployTarget deployTarget) {
+  public CreateInstanceRequest deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
   }
@@ -482,14 +482,14 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DeployTarget getDeployTarget() {
+  public DeployTargetRef getDeployTarget() {
     return deployTarget;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployTarget(DeployTarget deployTarget) {
+  public void setDeployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
   }
 
@@ -546,12 +546,12 @@ public class CreateInstanceRequest {
   }
 
 
-  public CreateInstanceRequest sshKeys(Set<SshKey> sshKeys) {
+  public CreateInstanceRequest sshKeys(Set<SshKeyRef> sshKeys) {
     this.sshKeys = sshKeys;
     return this;
   }
 
-  public CreateInstanceRequest addSshKeysItem(SshKey sshKeysItem) {
+  public CreateInstanceRequest addSshKeysItem(SshKeyRef sshKeysItem) {
     if (this.sshKeys == null) {
       this.sshKeys = new LinkedHashSet<>();
     }
@@ -567,7 +567,7 @@ public class CreateInstanceRequest {
   @JsonProperty(JSON_PROPERTY_SSH_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<SshKey> getSshKeys() {
+  public Set<SshKeyRef> getSshKeys() {
     return sshKeys;
   }
 
@@ -575,7 +575,7 @@ public class CreateInstanceRequest {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_SSH_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSshKeys(Set<SshKey> sshKeys) {
+  public void setSshKeys(Set<SshKeyRef> sshKeys) {
     this.sshKeys = sshKeys;
   }
 
@@ -692,7 +692,7 @@ public class CreateInstanceRequest {
     // add `anti-affinity-groups` to the URL query string
     if (getAntiAffinityGroups() != null) {
       int i = 0;
-      for (AntiAffinityGroup _item : getAntiAffinityGroups()) {
+      for (AntiAffinityGroupRef _item : getAntiAffinityGroups()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%santi-affinity-groups%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -723,7 +723,7 @@ public class CreateInstanceRequest {
     // add `security-groups` to the URL query string
     if (getSecurityGroups() != null) {
       int i = 0;
-      for (SecurityGroup _item : getSecurityGroups()) {
+      for (SecurityGroupRef _item : getSecurityGroups()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%ssecurity-groups%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
@@ -785,7 +785,7 @@ public class CreateInstanceRequest {
     // add `ssh-keys` to the URL query string
     if (getSshKeys() != null) {
       int i = 0;
-      for (SshKey _item : getSshKeys()) {
+      for (SshKeyRef _item : getSshKeys()) {
         if (_item != null) {
           joiner.add(_item.toUrlQueryString(String.format("%sssh-keys%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));

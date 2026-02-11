@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -34,179 +38,79 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * inference-engine parameter definition
  */
 @JsonPropertyOrder({
-  InferenceEngineParameterEntry.JSON_PROPERTY_NAME,
-  InferenceEngineParameterEntry.JSON_PROPERTY_FLAGS,
-  InferenceEngineParameterEntry.JSON_PROPERTY_TYPE,
-  InferenceEngineParameterEntry.JSON_PROPERTY_DEFAULT,
-  InferenceEngineParameterEntry.JSON_PROPERTY_SECTION,
+  InferenceEngineParameterEntry.JSON_PROPERTY_DESCRIPTION,
   InferenceEngineParameterEntry.JSON_PROPERTY_ALLOWED_VALUES,
-  InferenceEngineParameterEntry.JSON_PROPERTY_DESCRIPTION
+  InferenceEngineParameterEntry.JSON_PROPERTY_DEFAULT,
+  InferenceEngineParameterEntry.JSON_PROPERTY_NAME,
+  InferenceEngineParameterEntry.JSON_PROPERTY_SECTION,
+  InferenceEngineParameterEntry.JSON_PROPERTY_TYPE,
+  InferenceEngineParameterEntry.JSON_PROPERTY_FLAGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class InferenceEngineParameterEntry {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_FLAGS = "flags";
-  private List<String> flags;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
-
-  public static final String JSON_PROPERTY_DEFAULT = "default";
-  private String _default;
-
-  public static final String JSON_PROPERTY_SECTION = "section";
-  private String section;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private JsonNullable<Object> description = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_ALLOWED_VALUES = "allowed-values";
-  private List<String> allowedValues;
+  private List<Object> allowedValues;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  public static final String JSON_PROPERTY_DEFAULT = "default";
+  private JsonNullable<Object> _default = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_SECTION = "section";
+  private JsonNullable<Object> section = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<Object> type = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_FLAGS = "flags";
+  private List<Object> flags;
 
   public InferenceEngineParameterEntry() { 
   }
 
-  public InferenceEngineParameterEntry name(String name) {
-    this.name = name;
+  public InferenceEngineParameterEntry description(Object description) {
+    this.description = JsonNullable.<Object>of(description);
     return this;
   }
 
    /**
-   * Parameter name
-   * @return name
+   * Parameter description
+   * @return description
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonIgnore
+
+  public Object getDescription() {
+        return description.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public JsonNullable<Object> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<Object> description) {
+    this.description = description;
+  }
+
+  public void setDescription(Object description) {
+    this.description = JsonNullable.<Object>of(description);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public InferenceEngineParameterEntry flags(List<String> flags) {
-    this.flags = flags;
-    return this;
-  }
-
-  public InferenceEngineParameterEntry addFlagsItem(String flagsItem) {
-    if (this.flags == null) {
-      this.flags = new ArrayList<>();
-    }
-    this.flags.add(flagsItem);
-    return this;
-  }
-
-   /**
-   * Flag name
-   * @return flags
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FLAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<String> getFlags() {
-    return flags;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FLAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlags(List<String> flags) {
-    this.flags = flags;
-  }
-
-
-  public InferenceEngineParameterEntry type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Parameter type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getType() {
-    return type;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public InferenceEngineParameterEntry _default(String _default) {
-    this._default = _default;
-    return this;
-  }
-
-   /**
-   * Default value if nothing is specified
-   * @return _default
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDefault() {
-    return _default;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DEFAULT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefault(String _default) {
-    this._default = _default;
-  }
-
-
-  public InferenceEngineParameterEntry section(String section) {
-    this.section = section;
-    return this;
-  }
-
-   /**
-   * Section
-   * @return section
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSection() {
-    return section;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSection(String section) {
-    this.section = section;
-  }
-
-
-  public InferenceEngineParameterEntry allowedValues(List<String> allowedValues) {
+  public InferenceEngineParameterEntry allowedValues(List<Object> allowedValues) {
     this.allowedValues = allowedValues;
     return this;
   }
 
-  public InferenceEngineParameterEntry addAllowedValuesItem(String allowedValuesItem) {
+  public InferenceEngineParameterEntry addAllowedValuesItem(Object allowedValuesItem) {
     if (this.allowedValues == null) {
       this.allowedValues = new ArrayList<>();
     }
@@ -222,40 +126,180 @@ public class InferenceEngineParameterEntry {
   @JsonProperty(JSON_PROPERTY_ALLOWED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getAllowedValues() {
+  public List<Object> getAllowedValues() {
     return allowedValues;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ALLOWED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedValues(List<String> allowedValues) {
+  public void setAllowedValues(List<Object> allowedValues) {
     this.allowedValues = allowedValues;
   }
 
 
-  public InferenceEngineParameterEntry description(String description) {
-    this.description = description;
+  public InferenceEngineParameterEntry _default(Object _default) {
+    this._default = JsonNullable.<Object>of(_default);
     return this;
   }
 
    /**
-   * Parameter description
-   * @return description
+   * Default value if nothing is specified
+   * @return _default
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonIgnore
+
+  public Object getDefault() {
+        return _default.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getDescription() {
-    return description;
+  public JsonNullable<Object> getDefault_JsonNullable() {
+    return _default;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  public void setDefault_JsonNullable(JsonNullable<Object> _default) {
+    this._default = _default;
+  }
+
+  public void setDefault(Object _default) {
+    this._default = JsonNullable.<Object>of(_default);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public InferenceEngineParameterEntry name(Object name) {
+    this.name = JsonNullable.<Object>of(name);
+    return this;
+  }
+
+   /**
+   * Parameter name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getName() {
+        return name.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
+
+  public JsonNullable<Object> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<Object> name) {
+    this.name = name;
+  }
+
+  public void setName(Object name) {
+    this.name = JsonNullable.<Object>of(name);
+  }
+
+
+  public InferenceEngineParameterEntry section(Object section) {
+    this.section = JsonNullable.<Object>of(section);
+    return this;
+  }
+
+   /**
+   * Section
+   * @return section
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getSection() {
+        return section.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getSection_JsonNullable() {
+    return section;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SECTION)
+  public void setSection_JsonNullable(JsonNullable<Object> section) {
+    this.section = section;
+  }
+
+  public void setSection(Object section) {
+    this.section = JsonNullable.<Object>of(section);
+  }
+
+
+  public InferenceEngineParameterEntry type(Object type) {
+    this.type = JsonNullable.<Object>of(type);
+    return this;
+  }
+
+   /**
+   * Parameter type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getType() {
+        return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getType_JsonNullable() {
+    return type;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<Object> type) {
+    this.type = type;
+  }
+
+  public void setType(Object type) {
+    this.type = JsonNullable.<Object>of(type);
+  }
+
+
+  public InferenceEngineParameterEntry flags(List<Object> flags) {
+    this.flags = flags;
+    return this;
+  }
+
+  public InferenceEngineParameterEntry addFlagsItem(Object flagsItem) {
+    if (this.flags == null) {
+      this.flags = new ArrayList<>();
+    }
+    this.flags.add(flagsItem);
+    return this;
+  }
+
+   /**
+   * Flag name
+   * @return flags
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Object> getFlags() {
+    return flags;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FLAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFlags(List<Object> flags) {
+    this.flags = flags;
   }
 
 
@@ -271,31 +315,42 @@ public class InferenceEngineParameterEntry {
       return false;
     }
     InferenceEngineParameterEntry inferenceEngineParameterEntry = (InferenceEngineParameterEntry) o;
-    return Objects.equals(this.name, inferenceEngineParameterEntry.name) &&
-        Objects.equals(this.flags, inferenceEngineParameterEntry.flags) &&
-        Objects.equals(this.type, inferenceEngineParameterEntry.type) &&
-        Objects.equals(this._default, inferenceEngineParameterEntry._default) &&
-        Objects.equals(this.section, inferenceEngineParameterEntry.section) &&
+    return equalsNullable(this.description, inferenceEngineParameterEntry.description) &&
         Objects.equals(this.allowedValues, inferenceEngineParameterEntry.allowedValues) &&
-        Objects.equals(this.description, inferenceEngineParameterEntry.description);
+        equalsNullable(this._default, inferenceEngineParameterEntry._default) &&
+        equalsNullable(this.name, inferenceEngineParameterEntry.name) &&
+        equalsNullable(this.section, inferenceEngineParameterEntry.section) &&
+        equalsNullable(this.type, inferenceEngineParameterEntry.type) &&
+        Objects.equals(this.flags, inferenceEngineParameterEntry.flags);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, flags, type, _default, section, allowedValues, description);
+    return Objects.hash(hashCodeNullable(description), allowedValues, hashCodeNullable(_default), hashCodeNullable(name), hashCodeNullable(section), hashCodeNullable(type), flags);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InferenceEngineParameterEntry {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
-    sb.append("    section: ").append(toIndentedString(section)).append("\n");
-    sb.append("    allowedValues: ").append(toIndentedString(allowedValues)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    allowedValues: ").append(toIndentedString(allowedValues)).append("\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    section: ").append(toIndentedString(section)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -343,33 +398,9 @@ public class InferenceEngineParameterEntry {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `flags` to the URL query string
-    if (getFlags() != null) {
-      for (int i = 0; i < getFlags().size(); i++) {
-        joiner.add(String.format("%sflags%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getFlags().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
-    }
-
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `default` to the URL query string
-    if (getDefault() != null) {
-      joiner.add(String.format("%sdefault%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefault()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `section` to the URL query string
-    if (getSection() != null) {
-      joiner.add(String.format("%ssection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `allowed-values` to the URL query string
@@ -381,9 +412,33 @@ public class InferenceEngineParameterEntry {
       }
     }
 
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `default` to the URL query string
+    if (getDefault() != null) {
+      joiner.add(String.format("%sdefault%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefault()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `section` to the URL query string
+    if (getSection() != null) {
+      joiner.add(String.format("%ssection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `flags` to the URL query string
+    if (getFlags() != null) {
+      for (int i = 0; i < getFlags().size(); i++) {
+        joiner.add(String.format("%sflags%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getFlags().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     return joiner.toString();

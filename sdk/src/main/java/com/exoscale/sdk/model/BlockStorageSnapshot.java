@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.BlockStorageVolumeTarget;
+import com.exoscale.sdk.model.BlockStorageVolumeRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -117,7 +117,7 @@ public class BlockStorageSnapshot {
   private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_BLOCK_STORAGE_VOLUME = "block-storage-volume";
-  private BlockStorageVolumeTarget blockStorageVolume;
+  private BlockStorageVolumeRef blockStorageVolume;
 
   public BlockStorageSnapshot() { 
   }
@@ -289,7 +289,7 @@ public class BlockStorageSnapshot {
   }
 
 
-  public BlockStorageSnapshot blockStorageVolume(BlockStorageVolumeTarget blockStorageVolume) {
+  public BlockStorageSnapshot blockStorageVolume(BlockStorageVolumeRef blockStorageVolume) {
     this.blockStorageVolume = blockStorageVolume;
     return this;
   }
@@ -302,14 +302,14 @@ public class BlockStorageSnapshot {
   @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BlockStorageVolumeTarget getBlockStorageVolume() {
+  public BlockStorageVolumeRef getBlockStorageVolume() {
     return blockStorageVolume;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlockStorageVolume(BlockStorageVolumeTarget blockStorageVolume) {
+  public void setBlockStorageVolume(BlockStorageVolumeRef blockStorageVolume) {
     this.blockStorageVolume = blockStorageVolume;
   }
 

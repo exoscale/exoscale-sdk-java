@@ -19,7 +19,8 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ModelRef;
+import com.exoscale.sdk.model.InferenceEngineVersion;
+import com.exoscale.sdk.model.Title3Model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,58 +36,88 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Deployment an AI model onto a set of GPUs
  */
 @JsonPropertyOrder({
-  CreateDeploymentRequest.JSON_PROPERTY_MODEL,
+  CreateDeploymentRequest.JSON_PROPERTY_GPU_COUNT,
+  CreateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_VERSION,
   CreateDeploymentRequest.JSON_PROPERTY_NAME,
   CreateDeploymentRequest.JSON_PROPERTY_GPU_TYPE,
-  CreateDeploymentRequest.JSON_PROPERTY_GPU_COUNT,
   CreateDeploymentRequest.JSON_PROPERTY_REPLICAS,
-  CreateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS
+  CreateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS,
+  CreateDeploymentRequest.JSON_PROPERTY_MODEL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateDeploymentRequest {
-  public static final String JSON_PROPERTY_MODEL = "model";
-  private ModelRef model;
+  public static final String JSON_PROPERTY_GPU_COUNT = "gpu-count";
+  private Long gpuCount;
+
+  public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
+  private InferenceEngineVersion inferenceEngineVersion;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_GPU_TYPE = "gpu-type";
-  private String gpuType;
-
-  public static final String JSON_PROPERTY_GPU_COUNT = "gpu-count";
-  private Long gpuCount;
+  private Object gpuType = null;
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
-  private Long replicas;
+  private Object replicas = null;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
-  private List<String> inferenceEngineParameters;
+  private List<Object> inferenceEngineParameters;
+
+  public static final String JSON_PROPERTY_MODEL = "model";
+  private Title3Model model;
 
   public CreateDeploymentRequest() { 
   }
 
-  public CreateDeploymentRequest model(ModelRef model) {
-    this.model = model;
+  public CreateDeploymentRequest gpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
     return this;
   }
 
    /**
-   * Get model
-   * @return model
+   * Number of GPUs (1-8)
+   * minimum: 1
+   * @return gpuCount
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ModelRef getModel() {
-    return model;
+  public Long getGpuCount() {
+    return gpuCount;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setGpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
+  }
+
+
+  public CreateDeploymentRequest inferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
+    this.inferenceEngineVersion = inferenceEngineVersion;
+    return this;
+  }
+
+   /**
+   * Get inferenceEngineVersion
+   * @return inferenceEngineVersion
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModel(ModelRef model) {
-    this.model = model;
+
+  public InferenceEngineVersion getInferenceEngineVersion() {
+    return inferenceEngineVersion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
+    this.inferenceEngineVersion = inferenceEngineVersion;
   }
 
 
@@ -115,7 +146,7 @@ public class CreateDeploymentRequest {
   }
 
 
-  public CreateDeploymentRequest gpuType(String gpuType) {
+  public CreateDeploymentRequest gpuType(Object gpuType) {
     this.gpuType = gpuType;
     return this;
   }
@@ -124,80 +155,54 @@ public class CreateDeploymentRequest {
    * GPU type family (e.g., gpua5000, gpu3080ti)
    * @return gpuType
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getGpuType() {
+  public Object getGpuType() {
     return gpuType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGpuType(String gpuType) {
+  public void setGpuType(Object gpuType) {
     this.gpuType = gpuType;
   }
 
 
-  public CreateDeploymentRequest gpuCount(Long gpuCount) {
-    this.gpuCount = gpuCount;
-    return this;
-  }
-
-   /**
-   * Number of GPUs (1-8)
-   * minimum: 0
-   * @return gpuCount
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Long getGpuCount() {
-    return gpuCount;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGpuCount(Long gpuCount) {
-    this.gpuCount = gpuCount;
-  }
-
-
-  public CreateDeploymentRequest replicas(Long replicas) {
+  public CreateDeploymentRequest replicas(Object replicas) {
     this.replicas = replicas;
     return this;
   }
 
    /**
    * Number of replicas (&gt;&#x3D;1)
-   * minimum: 0
+   * minimum: 1
    * @return replicas
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Long getReplicas() {
+  public Object getReplicas() {
     return replicas;
   }
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setReplicas(Long replicas) {
+  public void setReplicas(Object replicas) {
     this.replicas = replicas;
   }
 
 
-  public CreateDeploymentRequest inferenceEngineParameters(List<String> inferenceEngineParameters) {
+  public CreateDeploymentRequest inferenceEngineParameters(List<Object> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
     return this;
   }
 
-  public CreateDeploymentRequest addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
+  public CreateDeploymentRequest addInferenceEngineParametersItem(Object inferenceEngineParametersItem) {
     if (this.inferenceEngineParameters == null) {
       this.inferenceEngineParameters = new ArrayList<>();
     }
@@ -213,15 +218,40 @@ public class CreateDeploymentRequest {
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getInferenceEngineParameters() {
+  public List<Object> getInferenceEngineParameters() {
     return inferenceEngineParameters;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInferenceEngineParameters(List<String> inferenceEngineParameters) {
+  public void setInferenceEngineParameters(List<Object> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
+  }
+
+
+  public CreateDeploymentRequest model(Title3Model model) {
+    this.model = model;
+    return this;
+  }
+
+   /**
+   * Get model
+   * @return model
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Title3Model getModel() {
+    return model;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MODEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setModel(Title3Model model) {
+    this.model = model;
   }
 
 
@@ -237,29 +267,31 @@ public class CreateDeploymentRequest {
       return false;
     }
     CreateDeploymentRequest createDeploymentRequest = (CreateDeploymentRequest) o;
-    return Objects.equals(this.model, createDeploymentRequest.model) &&
+    return Objects.equals(this.gpuCount, createDeploymentRequest.gpuCount) &&
+        Objects.equals(this.inferenceEngineVersion, createDeploymentRequest.inferenceEngineVersion) &&
         Objects.equals(this.name, createDeploymentRequest.name) &&
         Objects.equals(this.gpuType, createDeploymentRequest.gpuType) &&
-        Objects.equals(this.gpuCount, createDeploymentRequest.gpuCount) &&
         Objects.equals(this.replicas, createDeploymentRequest.replicas) &&
-        Objects.equals(this.inferenceEngineParameters, createDeploymentRequest.inferenceEngineParameters);
+        Objects.equals(this.inferenceEngineParameters, createDeploymentRequest.inferenceEngineParameters) &&
+        Objects.equals(this.model, createDeploymentRequest.model);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(model, name, gpuType, gpuCount, replicas, inferenceEngineParameters);
+    return Objects.hash(gpuCount, inferenceEngineVersion, name, gpuType, replicas, inferenceEngineParameters, model);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDeploymentRequest {\n");
-    sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    gpuCount: ").append(toIndentedString(gpuCount)).append("\n");
+    sb.append("    inferenceEngineVersion: ").append(toIndentedString(inferenceEngineVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
-    sb.append("    gpuCount: ").append(toIndentedString(gpuCount)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
     sb.append("    inferenceEngineParameters: ").append(toIndentedString(inferenceEngineParameters)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -307,9 +339,14 @@ public class CreateDeploymentRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `model` to the URL query string
-    if (getModel() != null) {
-      joiner.add(getModel().toUrlQueryString(prefix + "model" + suffix));
+    // add `gpu-count` to the URL query string
+    if (getGpuCount() != null) {
+      joiner.add(String.format("%sgpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `inference-engine-version` to the URL query string
+    if (getInferenceEngineVersion() != null) {
+      joiner.add(getInferenceEngineVersion().toUrlQueryString(prefix + "inference-engine-version" + suffix));
     }
 
     // add `name` to the URL query string
@@ -320,11 +357,6 @@ public class CreateDeploymentRequest {
     // add `gpu-type` to the URL query string
     if (getGpuType() != null) {
       joiner.add(String.format("%sgpu-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `gpu-count` to the URL query string
-    if (getGpuCount() != null) {
-      joiner.add(String.format("%sgpu-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `replicas` to the URL query string
@@ -339,6 +371,11 @@ public class CreateDeploymentRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
             URLEncoder.encode(String.valueOf(getInferenceEngineParameters().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `model` to the URL query string
+    if (getModel() != null) {
+      joiner.add(getModel().toUrlQueryString(prefix + "model" + suffix));
     }
 
     return joiner.toString();

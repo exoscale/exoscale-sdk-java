@@ -8,7 +8,7 @@ Model is in use: deletion forbidden
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**deployments** | **List&lt;String&gt;** | Deployments using models |  [optional] |
+|**deployments** | **List&lt;Object&gt;** | Deployments using models |  [optional] |
 
 
 

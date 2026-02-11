@@ -37,12 +37,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ScaleDeploymentRequest {
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
-  private Long replicas;
+  private Object replicas = null;
 
   public ScaleDeploymentRequest() { 
   }
 
-  public ScaleDeploymentRequest replicas(Long replicas) {
+  public ScaleDeploymentRequest replicas(Object replicas) {
     this.replicas = replicas;
     return this;
   }
@@ -52,18 +52,18 @@ public class ScaleDeploymentRequest {
    * minimum: 0
    * @return replicas
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Long getReplicas() {
+  public Object getReplicas() {
     return replicas;
   }
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setReplicas(Long replicas) {
+  public void setReplicas(Object replicas) {
     this.replicas = replicas;
   }
 

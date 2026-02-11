@@ -43,7 +43,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateIamRoleRequest.JSON_PROPERTY_PERMISSIONS,
   CreateIamRoleRequest.JSON_PROPERTY_EDITABLE,
   CreateIamRoleRequest.JSON_PROPERTY_LABELS,
-  CreateIamRoleRequest.JSON_PROPERTY_POLICY
+  CreateIamRoleRequest.JSON_PROPERTY_POLICY,
+  CreateIamRoleRequest.JSON_PROPERTY_ASSUME_ROLE_POLICY,
+  CreateIamRoleRequest.JSON_PROPERTY_MAX_SESSION_TTL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateIamRoleRequest {
@@ -99,6 +101,12 @@ public class CreateIamRoleRequest {
 
   public static final String JSON_PROPERTY_POLICY = "policy";
   private IamPolicy policy;
+
+  public static final String JSON_PROPERTY_ASSUME_ROLE_POLICY = "assume-role-policy";
+  private IamPolicy assumeRolePolicy;
+
+  public static final String JSON_PROPERTY_MAX_SESSION_TTL = "max-session-ttl";
+  private Long maxSessionTtl;
 
   public CreateIamRoleRequest() { 
   }
@@ -270,6 +278,57 @@ public class CreateIamRoleRequest {
   }
 
 
+  public CreateIamRoleRequest assumeRolePolicy(IamPolicy assumeRolePolicy) {
+    this.assumeRolePolicy = assumeRolePolicy;
+    return this;
+  }
+
+   /**
+   * Get assumeRolePolicy
+   * @return assumeRolePolicy
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public IamPolicy getAssumeRolePolicy() {
+    return assumeRolePolicy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAssumeRolePolicy(IamPolicy assumeRolePolicy) {
+    this.assumeRolePolicy = assumeRolePolicy;
+  }
+
+
+  public CreateIamRoleRequest maxSessionTtl(Long maxSessionTtl) {
+    this.maxSessionTtl = maxSessionTtl;
+    return this;
+  }
+
+   /**
+   * Maximum TTL requester is allowed to ask for when assuming a role
+   * minimum: 0
+   * @return maxSessionTtl
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SESSION_TTL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMaxSessionTtl() {
+    return maxSessionTtl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_SESSION_TTL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxSessionTtl(Long maxSessionTtl) {
+    this.maxSessionTtl = maxSessionTtl;
+  }
+
+
   /**
    * Return true if this create_iam_role_request object is equal to o.
    */
@@ -287,12 +346,14 @@ public class CreateIamRoleRequest {
         Objects.equals(this.permissions, createIamRoleRequest.permissions) &&
         Objects.equals(this.editable, createIamRoleRequest.editable) &&
         Objects.equals(this.labels, createIamRoleRequest.labels) &&
-        Objects.equals(this.policy, createIamRoleRequest.policy);
+        Objects.equals(this.policy, createIamRoleRequest.policy) &&
+        Objects.equals(this.assumeRolePolicy, createIamRoleRequest.assumeRolePolicy) &&
+        Objects.equals(this.maxSessionTtl, createIamRoleRequest.maxSessionTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, permissions, editable, labels, policy);
+    return Objects.hash(name, description, permissions, editable, labels, policy, assumeRolePolicy, maxSessionTtl);
   }
 
   @Override
@@ -305,6 +366,8 @@ public class CreateIamRoleRequest {
     sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    assumeRolePolicy: ").append(toIndentedString(assumeRolePolicy)).append("\n");
+    sb.append("    maxSessionTtl: ").append(toIndentedString(maxSessionTtl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -390,6 +453,16 @@ public class CreateIamRoleRequest {
     // add `policy` to the URL query string
     if (getPolicy() != null) {
       joiner.add(getPolicy().toUrlQueryString(prefix + "policy" + suffix));
+    }
+
+    // add `assume-role-policy` to the URL query string
+    if (getAssumeRolePolicy() != null) {
+      joiner.add(getAssumeRolePolicy().toUrlQueryString(prefix + "assume-role-policy" + suffix));
+    }
+
+    // add `max-session-ttl` to the URL query string
+    if (getMaxSessionTtl() != null) {
+      joiner.add(String.format("%smax-session-ttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxSessionTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

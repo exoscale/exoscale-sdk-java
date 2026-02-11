@@ -8,7 +8,7 @@ AI model list
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**models** | [**List&lt;ListModelsResponseEntry&gt;**](ListModelsResponseEntry.md) |  |  [optional] |
+|**models** | [**List&lt;Title10ModelsInner&gt;**](Title10ModelsInner.md) |  |  [optional] |
 
 
 

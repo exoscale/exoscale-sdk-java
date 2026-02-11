@@ -9,12 +9,12 @@ Block storage volume
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**instance** | [**InstanceTarget**](InstanceTarget.md) |  |  [optional] |
+|**instance** | [**InstanceRef**](InstanceRef.md) |  |  [optional] |
 |**name** | **String** | Volume name |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Volume state |  [optional] [readonly] |
 |**size** | **Long** | Volume size |  [optional] |
 |**blocksize** | **Long** | Volume block size |  [optional] [readonly] |
-|**blockStorageSnapshots** | [**List&lt;BlockStorageSnapshotTarget&gt;**](BlockStorageSnapshotTarget.md) | Volume snapshots, if any |  [optional] |
+|**blockStorageSnapshots** | [**List&lt;BlockStorageSnapshotRef&gt;**](BlockStorageSnapshotRef.md) | Volume snapshots, if any |  [optional] |
 |**id** | **UUID** | Volume ID |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Volume creation date |  [optional] [readonly] |
 

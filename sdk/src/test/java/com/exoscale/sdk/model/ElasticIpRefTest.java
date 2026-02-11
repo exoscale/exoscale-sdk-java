@@ -25,17 +25,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for InstanceTarget
+ * Model tests for ElasticIpRef
  */
-public class InstanceTargetTest {
-    private final InstanceTarget model = new InstanceTarget();
+public class ElasticIpRefTest {
+    private final ElasticIpRef model = new ElasticIpRef();
 
     /**
-     * Model tests for InstanceTarget
+     * Model tests for ElasticIpRef
      */
     @Test
-    public void testInstanceTarget() {
-        // TODO: test InstanceTarget
+    public void testElasticIpRef() {
+        // TODO: test ElasticIpRef
     }
 
     /**

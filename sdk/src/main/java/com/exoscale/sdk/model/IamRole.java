@@ -39,24 +39,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * IAM Role
  */
 @JsonPropertyOrder({
-  IamRole.JSON_PROPERTY_ID,
-  IamRole.JSON_PROPERTY_NAME,
   IamRole.JSON_PROPERTY_DESCRIPTION,
-  IamRole.JSON_PROPERTY_PERMISSIONS,
   IamRole.JSON_PROPERTY_LABELS,
+  IamRole.JSON_PROPERTY_PERMISSIONS,
+  IamRole.JSON_PROPERTY_ASSUME_ROLE_POLICY,
   IamRole.JSON_PROPERTY_EDITABLE,
-  IamRole.JSON_PROPERTY_POLICY
+  IamRole.JSON_PROPERTY_NAME,
+  IamRole.JSON_PROPERTY_MAX_SESSION_TTL,
+  IamRole.JSON_PROPERTY_POLICY,
+  IamRole.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class IamRole {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  private Map<String, String> labels = new HashMap<>();
 
   /**
    * Gets or Sets permissions
@@ -96,14 +95,23 @@ public class IamRole {
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
   private Set<PermissionsEnum> permissions;
 
-  public static final String JSON_PROPERTY_LABELS = "labels";
-  private Map<String, String> labels = new HashMap<>();
+  public static final String JSON_PROPERTY_ASSUME_ROLE_POLICY = "assume-role-policy";
+  private IamPolicy assumeRolePolicy;
 
   public static final String JSON_PROPERTY_EDITABLE = "editable";
   private Boolean editable;
 
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public static final String JSON_PROPERTY_MAX_SESSION_TTL = "max-session-ttl";
+  private Long maxSessionTtl;
+
   public static final String JSON_PROPERTY_POLICY = "policy";
   private IamPolicy policy;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public IamRole() { 
   }
@@ -115,46 +123,6 @@ public class IamRole {
   this();
     this.id = id;
   }
-
-   /**
-   * IAM Role ID
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-
-
-  public IamRole name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * IAM Role name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   public IamRole description(String description) {
     this.description = description;
@@ -178,6 +146,39 @@ public class IamRole {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public IamRole labels(Map<String, String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public IamRole putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
+    this.labels.put(key, labelsItem);
+    return this;
+  }
+
+   /**
+   * Get labels
+   * @return labels
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabels(Map<String, String> labels) {
+    this.labels = labels;
   }
 
 
@@ -215,36 +216,28 @@ public class IamRole {
   }
 
 
-  public IamRole labels(Map<String, String> labels) {
-    this.labels = labels;
-    return this;
-  }
-
-  public IamRole putLabelsItem(String key, String labelsItem) {
-    if (this.labels == null) {
-      this.labels = new HashMap<>();
-    }
-    this.labels.put(key, labelsItem);
+  public IamRole assumeRolePolicy(IamPolicy assumeRolePolicy) {
+    this.assumeRolePolicy = assumeRolePolicy;
     return this;
   }
 
    /**
-   * Get labels
-   * @return labels
+   * Get assumeRolePolicy
+   * @return assumeRolePolicy
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Map<String, String> getLabels() {
-    return labels;
+  public IamPolicy getAssumeRolePolicy() {
+    return assumeRolePolicy;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabels(Map<String, String> labels) {
-    this.labels = labels;
+  public void setAssumeRolePolicy(IamPolicy assumeRolePolicy) {
+    this.assumeRolePolicy = assumeRolePolicy;
   }
 
 
@@ -273,6 +266,57 @@ public class IamRole {
   }
 
 
+  public IamRole name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * IAM Role name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public IamRole maxSessionTtl(Long maxSessionTtl) {
+    this.maxSessionTtl = maxSessionTtl;
+    return this;
+  }
+
+   /**
+   * Maximum TTL requester is allowed to ask for when assuming a role
+   * minimum: 0
+   * @return maxSessionTtl
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SESSION_TTL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMaxSessionTtl() {
+    return maxSessionTtl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_SESSION_TTL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxSessionTtl(Long maxSessionTtl) {
+    this.maxSessionTtl = maxSessionTtl;
+  }
+
+
   public IamRole policy(IamPolicy policy) {
     this.policy = policy;
     return this;
@@ -298,6 +342,21 @@ public class IamRole {
   }
 
 
+   /**
+   * IAM Role ID
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+
+
   /**
    * Return true if this iam-role object is equal to o.
    */
@@ -310,31 +369,35 @@ public class IamRole {
       return false;
     }
     IamRole iamRole = (IamRole) o;
-    return Objects.equals(this.id, iamRole.id) &&
-        Objects.equals(this.name, iamRole.name) &&
-        Objects.equals(this.description, iamRole.description) &&
-        Objects.equals(this.permissions, iamRole.permissions) &&
+    return Objects.equals(this.description, iamRole.description) &&
         Objects.equals(this.labels, iamRole.labels) &&
+        Objects.equals(this.permissions, iamRole.permissions) &&
+        Objects.equals(this.assumeRolePolicy, iamRole.assumeRolePolicy) &&
         Objects.equals(this.editable, iamRole.editable) &&
-        Objects.equals(this.policy, iamRole.policy);
+        Objects.equals(this.name, iamRole.name) &&
+        Objects.equals(this.maxSessionTtl, iamRole.maxSessionTtl) &&
+        Objects.equals(this.policy, iamRole.policy) &&
+        Objects.equals(this.id, iamRole.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, permissions, labels, editable, policy);
+    return Objects.hash(description, labels, permissions, assumeRolePolicy, editable, name, maxSessionTtl, policy, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IamRole {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    assumeRolePolicy: ").append(toIndentedString(assumeRolePolicy)).append("\n");
     sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    maxSessionTtl: ").append(toIndentedString(maxSessionTtl)).append("\n");
     sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -382,19 +445,18 @@ public class IamRole {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      for (String _key : getLabels().keySet()) {
+        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     // add `permissions` to the URL query string
@@ -408,13 +470,9 @@ public class IamRole {
       i++;
     }
 
-    // add `labels` to the URL query string
-    if (getLabels() != null) {
-      for (String _key : getLabels().keySet()) {
-        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+    // add `assume-role-policy` to the URL query string
+    if (getAssumeRolePolicy() != null) {
+      joiner.add(getAssumeRolePolicy().toUrlQueryString(prefix + "assume-role-policy" + suffix));
     }
 
     // add `editable` to the URL query string
@@ -422,9 +480,24 @@ public class IamRole {
       joiner.add(String.format("%seditable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `max-session-ttl` to the URL query string
+    if (getMaxSessionTtl() != null) {
+      joiner.add(String.format("%smax-session-ttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxSessionTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `policy` to the URL query string
     if (getPolicy() != null) {
       joiner.add(getPolicy().toUrlQueryString(prefix + "policy" + suffix));
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

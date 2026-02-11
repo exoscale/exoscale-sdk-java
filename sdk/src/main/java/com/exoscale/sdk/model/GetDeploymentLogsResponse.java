@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.GetDeploymentLogsEntry;
+import com.exoscale.sdk.model.Title9LogsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,17 +40,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentLogsResponse {
   public static final String JSON_PROPERTY_LOGS = "logs";
-  private List<GetDeploymentLogsEntry> logs;
+  private List<Title9LogsInner> logs;
 
   public GetDeploymentLogsResponse() { 
   }
 
-  public GetDeploymentLogsResponse logs(List<GetDeploymentLogsEntry> logs) {
+  public GetDeploymentLogsResponse logs(List<Title9LogsInner> logs) {
     this.logs = logs;
     return this;
   }
 
-  public GetDeploymentLogsResponse addLogsItem(GetDeploymentLogsEntry logsItem) {
+  public GetDeploymentLogsResponse addLogsItem(Title9LogsInner logsItem) {
     if (this.logs == null) {
       this.logs = new ArrayList<>();
     }
@@ -66,14 +66,14 @@ public class GetDeploymentLogsResponse {
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<GetDeploymentLogsEntry> getLogs() {
+  public List<Title9LogsInner> getLogs() {
     return logs;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLogs(List<GetDeploymentLogsEntry> logs) {
+  public void setLogs(List<Title9LogsInner> logs) {
     this.logs = logs;
   }
 

@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -37,17 +41,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+  private JsonNullable<Object> error = JsonNullable.<Object>of(null);
 
   public ErrorResponse() { 
   }
 
   @JsonCreator
   public ErrorResponse(
-    @JsonProperty(JSON_PROPERTY_ERROR) String error
+    @JsonProperty(JSON_PROPERTY_ERROR) Object error
   ) {
   this();
-    this.error = error;
+    this.error = error == null ? JsonNullable.<Object>undefined() : JsonNullable.of(error);
   }
 
    /**
@@ -55,13 +59,27 @@ public class ErrorResponse {
    * @return error
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getError() {
+    
+    if (error == null) {
+      error = JsonNullable.<Object>of(null);
+    }
+    return error.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getError() {
+  public JsonNullable<Object> getError_JsonNullable() {
     return error;
   }
-
+  
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  private void setError_JsonNullable(JsonNullable<Object> error) {
+    this.error = error;
+  }
 
 
 
@@ -77,12 +95,23 @@ public class ErrorResponse {
       return false;
     }
     ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.error, errorResponse.error);
+    return equalsNullable(this.error, errorResponse.error);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error);
+    return Objects.hash(hashCodeNullable(error));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

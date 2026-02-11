@@ -1,14 +1,14 @@
 
 
-# InstanceTarget
+# SshKeyRef
 
-Target Instance
+SSH key reference
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Instance ID |  [optional] |
+|**name** | **String** | SSH key name |  [optional] |
 
 
 

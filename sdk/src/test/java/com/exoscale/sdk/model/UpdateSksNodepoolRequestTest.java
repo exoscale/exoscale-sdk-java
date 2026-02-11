@@ -13,11 +13,11 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.InstanceType;
-import com.exoscale.sdk.model.PrivateNetwork;
-import com.exoscale.sdk.model.SecurityGroup;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.InstanceTypeRef;
+import com.exoscale.sdk.model.PrivateNetworkRef;
+import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

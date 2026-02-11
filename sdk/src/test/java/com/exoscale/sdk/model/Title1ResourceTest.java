@@ -25,17 +25,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for BlockStorageVolumeTarget
+ * Model tests for Title1Resource
  */
-public class BlockStorageVolumeTargetTest {
-    private final BlockStorageVolumeTarget model = new BlockStorageVolumeTarget();
+public class Title1ResourceTest {
+    private final Title1Resource model = new Title1Resource();
 
     /**
-     * Model tests for BlockStorageVolumeTarget
+     * Model tests for Title1Resource
      */
     @Test
-    public void testBlockStorageVolumeTarget() {
-        // TODO: test BlockStorageVolumeTarget
+    public void testTitle1Resource() {
+        // TODO: test Title1Resource
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**

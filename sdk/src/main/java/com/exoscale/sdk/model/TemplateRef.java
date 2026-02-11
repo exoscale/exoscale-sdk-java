@@ -30,26 +30,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Target block storage volume
+ * Template reference
  */
 @JsonPropertyOrder({
-  BlockStorageVolumeTarget.JSON_PROPERTY_ID
+  TemplateRef.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class BlockStorageVolumeTarget {
+public class TemplateRef {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public BlockStorageVolumeTarget() { 
+  public TemplateRef() { 
   }
 
-  public BlockStorageVolumeTarget id(UUID id) {
+  public TemplateRef id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * Block storage volume ID
+   * Template ID
    * @return id
   **/
   @javax.annotation.Nullable
@@ -69,7 +69,7 @@ public class BlockStorageVolumeTarget {
 
 
   /**
-   * Return true if this block-storage-volume-target object is equal to o.
+   * Return true if this template-ref object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,8 +79,8 @@ public class BlockStorageVolumeTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BlockStorageVolumeTarget blockStorageVolumeTarget = (BlockStorageVolumeTarget) o;
-    return Objects.equals(this.id, blockStorageVolumeTarget.id);
+    TemplateRef templateRef = (TemplateRef) o;
+    return Objects.equals(this.id, templateRef.id);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class BlockStorageVolumeTarget {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BlockStorageVolumeTarget {\n");
+    sb.append("class TemplateRef {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

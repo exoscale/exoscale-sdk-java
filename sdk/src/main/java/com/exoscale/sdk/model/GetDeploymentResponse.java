@@ -19,7 +19,8 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ModelRef;
+import com.exoscale.sdk.model.InferenceEngineVersion;
+import com.exoscale.sdk.model.Title3Model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,6 +31,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -41,12 +46,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetDeploymentResponse.JSON_PROPERTY_UPDATED_AT,
   GetDeploymentResponse.JSON_PROPERTY_DEPLOYMENT_URL,
   GetDeploymentResponse.JSON_PROPERTY_SERVICE_LEVEL,
+  GetDeploymentResponse.JSON_PROPERTY_INFERENCE_ENGINE_VERSION,
   GetDeploymentResponse.JSON_PROPERTY_NAME,
-  GetDeploymentResponse.JSON_PROPERTY_STATUS_DETAILS,
+  GetDeploymentResponse.JSON_PROPERTY_STATE,
   GetDeploymentResponse.JSON_PROPERTY_GPU_TYPE,
-  GetDeploymentResponse.JSON_PROPERTY_STATUS,
   GetDeploymentResponse.JSON_PROPERTY_ID,
   GetDeploymentResponse.JSON_PROPERTY_REPLICAS,
+  GetDeploymentResponse.JSON_PROPERTY_STATE_DETAILS,
   GetDeploymentResponse.JSON_PROPERTY_CREATED_AT,
   GetDeploymentResponse.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS,
   GetDeploymentResponse.JSON_PROPERTY_MODEL
@@ -54,7 +60,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentResponse {
   public static final String JSON_PROPERTY_GPU_COUNT = "gpu-count";
-  private Long gpuCount;
+  private JsonNullable<Object> gpuCount = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
@@ -65,19 +71,16 @@ public class GetDeploymentResponse {
   public static final String JSON_PROPERTY_SERVICE_LEVEL = "service-level";
   private String serviceLevel;
 
+  public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
+  private InferenceEngineVersion inferenceEngineVersion;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_STATUS_DETAILS = "status-details";
-  private String statusDetails;
-
-  public static final String JSON_PROPERTY_GPU_TYPE = "gpu-type";
-  private String gpuType;
-
   /**
-   * Deployment status
+   * Deployment state
    */
-  public enum StatusEnum {
+  public enum StateEnum {
     READY("ready"),
     
     CREATING("creating"),
@@ -88,7 +91,7 @@ public class GetDeploymentResponse {
 
     private String value;
 
-    StatusEnum(String value) {
+    StateEnum(String value) {
       this.value = value;
     }
 
@@ -103,8 +106,8 @@ public class GetDeploymentResponse {
     }
 
     @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -113,23 +116,29 @@ public class GetDeploymentResponse {
     }
   }
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private StatusEnum status;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private StateEnum state;
+
+  public static final String JSON_PROPERTY_GPU_TYPE = "gpu-type";
+  private String gpuType;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
-  private Long replicas;
+  private JsonNullable<Object> replicas = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_STATE_DETAILS = "state-details";
+  private String stateDetails;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
+  private JsonNullable<Object> createdAt = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
-  private List<String> inferenceEngineParameters;
+  private List<Object> inferenceEngineParameters;
 
   public static final String JSON_PROPERTY_MODEL = "model";
-  private ModelRef model;
+  private Title3Model model;
 
   public GetDeploymentResponse() { 
   }
@@ -138,37 +147,45 @@ public class GetDeploymentResponse {
   public GetDeploymentResponse(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) Object createdAt
   ) {
   this();
     this.updatedAt = updatedAt;
     this.id = id;
-    this.createdAt = createdAt;
+    this.createdAt = createdAt == null ? JsonNullable.<Object>undefined() : JsonNullable.of(createdAt);
   }
 
-  public GetDeploymentResponse gpuCount(Long gpuCount) {
-    this.gpuCount = gpuCount;
+  public GetDeploymentResponse gpuCount(Object gpuCount) {
+    this.gpuCount = JsonNullable.<Object>of(gpuCount);
     return this;
   }
 
    /**
    * Number of GPUs
-   * minimum: 0
+   * minimum: 1
    * @return gpuCount
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
-  public Long getGpuCount() {
-    return gpuCount;
+  public Object getGpuCount() {
+        return gpuCount.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_GPU_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGpuCount(Long gpuCount) {
+
+  public JsonNullable<Object> getGpuCount_JsonNullable() {
+    return gpuCount;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
+  public void setGpuCount_JsonNullable(JsonNullable<Object> gpuCount) {
     this.gpuCount = gpuCount;
+  }
+
+  public void setGpuCount(Object gpuCount) {
+    this.gpuCount = JsonNullable.<Object>of(gpuCount);
   }
 
 
@@ -237,6 +254,31 @@ public class GetDeploymentResponse {
   }
 
 
+  public GetDeploymentResponse inferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
+    this.inferenceEngineVersion = inferenceEngineVersion;
+    return this;
+  }
+
+   /**
+   * Get inferenceEngineVersion
+   * @return inferenceEngineVersion
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InferenceEngineVersion getInferenceEngineVersion() {
+    return inferenceEngineVersion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
+    this.inferenceEngineVersion = inferenceEngineVersion;
+  }
+
+
   public GetDeploymentResponse name(String name) {
     this.name = name;
     return this;
@@ -262,28 +304,28 @@ public class GetDeploymentResponse {
   }
 
 
-  public GetDeploymentResponse statusDetails(String statusDetails) {
-    this.statusDetails = statusDetails;
+  public GetDeploymentResponse state(StateEnum state) {
+    this.state = state;
     return this;
   }
 
    /**
-   * Deployment status details
-   * @return statusDetails
+   * Deployment state
+   * @return state
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS_DETAILS)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getStatusDetails() {
-    return statusDetails;
+  public StateEnum getState() {
+    return state;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS_DETAILS)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatusDetails(String statusDetails) {
-    this.statusDetails = statusDetails;
+  public void setState(StateEnum state) {
+    this.state = state;
   }
 
 
@@ -312,31 +354,6 @@ public class GetDeploymentResponse {
   }
 
 
-  public GetDeploymentResponse status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Deployment status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
-
    /**
    * Deployment ID
    * @return id
@@ -352,8 +369,8 @@ public class GetDeploymentResponse {
 
 
 
-  public GetDeploymentResponse replicas(Long replicas) {
-    this.replicas = replicas;
+  public GetDeploymentResponse replicas(Object replicas) {
+    this.replicas = JsonNullable.<Object>of(replicas);
     return this;
   }
 
@@ -363,18 +380,51 @@ public class GetDeploymentResponse {
    * @return replicas
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getReplicas() {
+        return replicas.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getReplicas() {
+  public JsonNullable<Object> getReplicas_JsonNullable() {
     return replicas;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REPLICAS)
+  public void setReplicas_JsonNullable(JsonNullable<Object> replicas) {
+    this.replicas = replicas;
+  }
+
+  public void setReplicas(Object replicas) {
+    this.replicas = JsonNullable.<Object>of(replicas);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REPLICAS)
+  public GetDeploymentResponse stateDetails(String stateDetails) {
+    this.stateDetails = stateDetails;
+    return this;
+  }
+
+   /**
+   * Deployment state details
+   * @return stateDetails
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReplicas(Long replicas) {
-    this.replicas = replicas;
+
+  public String getStateDetails() {
+    return stateDetails;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStateDetails(String stateDetails) {
+    this.stateDetails = stateDetails;
   }
 
 
@@ -383,22 +433,36 @@ public class GetDeploymentResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getCreatedAt() {
+    
+    if (createdAt == null) {
+      createdAt = JsonNullable.<Object>of(null);
+    }
+    return createdAt.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getCreatedAt() {
+  public JsonNullable<Object> getCreatedAt_JsonNullable() {
     return createdAt;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  private void setCreatedAt_JsonNullable(JsonNullable<Object> createdAt) {
+    this.createdAt = createdAt;
   }
 
 
 
-
-  public GetDeploymentResponse inferenceEngineParameters(List<String> inferenceEngineParameters) {
+  public GetDeploymentResponse inferenceEngineParameters(List<Object> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
     return this;
   }
 
-  public GetDeploymentResponse addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
+  public GetDeploymentResponse addInferenceEngineParametersItem(Object inferenceEngineParametersItem) {
     if (this.inferenceEngineParameters == null) {
       this.inferenceEngineParameters = new ArrayList<>();
     }
@@ -414,19 +478,19 @@ public class GetDeploymentResponse {
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<String> getInferenceEngineParameters() {
+  public List<Object> getInferenceEngineParameters() {
     return inferenceEngineParameters;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInferenceEngineParameters(List<String> inferenceEngineParameters) {
+  public void setInferenceEngineParameters(List<Object> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
   }
 
 
-  public GetDeploymentResponse model(ModelRef model) {
+  public GetDeploymentResponse model(Title3Model model) {
     this.model = model;
     return this;
   }
@@ -439,14 +503,14 @@ public class GetDeploymentResponse {
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ModelRef getModel() {
+  public Title3Model getModel() {
     return model;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModel(ModelRef model) {
+  public void setModel(Title3Model model) {
     this.model = model;
   }
 
@@ -463,24 +527,36 @@ public class GetDeploymentResponse {
       return false;
     }
     GetDeploymentResponse getDeploymentResponse = (GetDeploymentResponse) o;
-    return Objects.equals(this.gpuCount, getDeploymentResponse.gpuCount) &&
+    return equalsNullable(this.gpuCount, getDeploymentResponse.gpuCount) &&
         Objects.equals(this.updatedAt, getDeploymentResponse.updatedAt) &&
         Objects.equals(this.deploymentUrl, getDeploymentResponse.deploymentUrl) &&
         Objects.equals(this.serviceLevel, getDeploymentResponse.serviceLevel) &&
+        Objects.equals(this.inferenceEngineVersion, getDeploymentResponse.inferenceEngineVersion) &&
         Objects.equals(this.name, getDeploymentResponse.name) &&
-        Objects.equals(this.statusDetails, getDeploymentResponse.statusDetails) &&
+        Objects.equals(this.state, getDeploymentResponse.state) &&
         Objects.equals(this.gpuType, getDeploymentResponse.gpuType) &&
-        Objects.equals(this.status, getDeploymentResponse.status) &&
         Objects.equals(this.id, getDeploymentResponse.id) &&
-        Objects.equals(this.replicas, getDeploymentResponse.replicas) &&
-        Objects.equals(this.createdAt, getDeploymentResponse.createdAt) &&
+        equalsNullable(this.replicas, getDeploymentResponse.replicas) &&
+        Objects.equals(this.stateDetails, getDeploymentResponse.stateDetails) &&
+        equalsNullable(this.createdAt, getDeploymentResponse.createdAt) &&
         Objects.equals(this.inferenceEngineParameters, getDeploymentResponse.inferenceEngineParameters) &&
         Objects.equals(this.model, getDeploymentResponse.model);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(gpuCount, updatedAt, deploymentUrl, serviceLevel, name, statusDetails, gpuType, status, id, replicas, createdAt, inferenceEngineParameters, model);
+    return Objects.hash(hashCodeNullable(gpuCount), updatedAt, deploymentUrl, serviceLevel, inferenceEngineVersion, name, state, gpuType, id, hashCodeNullable(replicas), stateDetails, hashCodeNullable(createdAt), inferenceEngineParameters, model);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -491,12 +567,13 @@ public class GetDeploymentResponse {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    deploymentUrl: ").append(toIndentedString(deploymentUrl)).append("\n");
     sb.append("    serviceLevel: ").append(toIndentedString(serviceLevel)).append("\n");
+    sb.append("    inferenceEngineVersion: ").append(toIndentedString(inferenceEngineVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    statusDetails: ").append(toIndentedString(statusDetails)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
+    sb.append("    stateDetails: ").append(toIndentedString(stateDetails)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    inferenceEngineParameters: ").append(toIndentedString(inferenceEngineParameters)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
@@ -567,24 +644,24 @@ public class GetDeploymentResponse {
       joiner.add(String.format("%sservice-level%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getServiceLevel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `inference-engine-version` to the URL query string
+    if (getInferenceEngineVersion() != null) {
+      joiner.add(getInferenceEngineVersion().toUrlQueryString(prefix + "inference-engine-version" + suffix));
+    }
+
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `status-details` to the URL query string
-    if (getStatusDetails() != null) {
-      joiner.add(String.format("%sstatus-details%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusDetails()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `state` to the URL query string
+    if (getState() != null) {
+      joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `gpu-type` to the URL query string
     if (getGpuType() != null) {
       joiner.add(String.format("%sgpu-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `status` to the URL query string
-    if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `id` to the URL query string
@@ -595,6 +672,11 @@ public class GetDeploymentResponse {
     // add `replicas` to the URL query string
     if (getReplicas() != null) {
       joiner.add(String.format("%sreplicas%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReplicas()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `state-details` to the URL query string
+    if (getStateDetails() != null) {
+      joiner.add(String.format("%sstate-details%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStateDetails()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string

@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.InferenceEngineParameterEntry;
+import com.exoscale.sdk.model.GetInferenceEngineHelpResponseParametersInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,17 +40,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetInferenceEngineHelpResponse {
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  private List<InferenceEngineParameterEntry> parameters;
+  private List<GetInferenceEngineHelpResponseParametersInner> parameters;
 
   public GetInferenceEngineHelpResponse() { 
   }
 
-  public GetInferenceEngineHelpResponse parameters(List<InferenceEngineParameterEntry> parameters) {
+  public GetInferenceEngineHelpResponse parameters(List<GetInferenceEngineHelpResponseParametersInner> parameters) {
     this.parameters = parameters;
     return this;
   }
 
-  public GetInferenceEngineHelpResponse addParametersItem(InferenceEngineParameterEntry parametersItem) {
+  public GetInferenceEngineHelpResponse addParametersItem(GetInferenceEngineHelpResponseParametersInner parametersItem) {
     if (this.parameters == null) {
       this.parameters = new ArrayList<>();
     }
@@ -66,14 +66,14 @@ public class GetInferenceEngineHelpResponse {
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<InferenceEngineParameterEntry> getParameters() {
+  public List<GetInferenceEngineHelpResponseParametersInner> getParameters() {
     return parameters;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParameters(List<InferenceEngineParameterEntry> parameters) {
+  public void setParameters(List<GetInferenceEngineHelpResponseParametersInner> parameters) {
     this.parameters = parameters;
   }
 

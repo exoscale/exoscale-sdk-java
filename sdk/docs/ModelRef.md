@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Associated model ID |  [optional] |
-|**name** | **String** | Associated model name |  [optional] |
+|**name** | **Object** | Associated model name |  [optional] |
+|**id** | **Object** | Associated model ID |  [optional] |
 
 
 

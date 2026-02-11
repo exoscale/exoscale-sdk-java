@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.Template;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ResetInstanceRequest {
   public static final String JSON_PROPERTY_TEMPLATE = "template";
-  private Template template;
+  private TemplateRef template;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -47,7 +47,7 @@ public class ResetInstanceRequest {
   public ResetInstanceRequest() { 
   }
 
-  public ResetInstanceRequest template(Template template) {
+  public ResetInstanceRequest template(TemplateRef template) {
     this.template = template;
     return this;
   }
@@ -60,14 +60,14 @@ public class ResetInstanceRequest {
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Template getTemplate() {
+  public TemplateRef getTemplate() {
     return template;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTemplate(Template template) {
+  public void setTemplate(TemplateRef template) {
     this.template = template;
   }
 

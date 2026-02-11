@@ -39,7 +39,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UpdateIamRoleRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateIamRoleRequest.JSON_PROPERTY_PERMISSIONS,
-  UpdateIamRoleRequest.JSON_PROPERTY_LABELS
+  UpdateIamRoleRequest.JSON_PROPERTY_LABELS,
+  UpdateIamRoleRequest.JSON_PROPERTY_MAX_SESSION_TTL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateIamRoleRequest {
@@ -86,6 +87,9 @@ public class UpdateIamRoleRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_MAX_SESSION_TTL = "max-session-ttl";
+  private Long maxSessionTtl;
 
   public UpdateIamRoleRequest() { 
   }
@@ -182,6 +186,32 @@ public class UpdateIamRoleRequest {
   }
 
 
+  public UpdateIamRoleRequest maxSessionTtl(Long maxSessionTtl) {
+    this.maxSessionTtl = maxSessionTtl;
+    return this;
+  }
+
+   /**
+   * Maximum TTL requester is allowed to ask for when assuming a role
+   * minimum: 0
+   * @return maxSessionTtl
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SESSION_TTL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getMaxSessionTtl() {
+    return maxSessionTtl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_SESSION_TTL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxSessionTtl(Long maxSessionTtl) {
+    this.maxSessionTtl = maxSessionTtl;
+  }
+
+
   /**
    * Return true if this update_iam_role_request object is equal to o.
    */
@@ -196,12 +226,13 @@ public class UpdateIamRoleRequest {
     UpdateIamRoleRequest updateIamRoleRequest = (UpdateIamRoleRequest) o;
     return Objects.equals(this.description, updateIamRoleRequest.description) &&
         Objects.equals(this.permissions, updateIamRoleRequest.permissions) &&
-        Objects.equals(this.labels, updateIamRoleRequest.labels);
+        Objects.equals(this.labels, updateIamRoleRequest.labels) &&
+        Objects.equals(this.maxSessionTtl, updateIamRoleRequest.maxSessionTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, permissions, labels);
+    return Objects.hash(description, permissions, labels, maxSessionTtl);
   }
 
   @Override
@@ -211,6 +242,7 @@ public class UpdateIamRoleRequest {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    maxSessionTtl: ").append(toIndentedString(maxSessionTtl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -281,6 +313,11 @@ public class UpdateIamRoleRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `max-session-ttl` to the URL query string
+    if (getMaxSessionTtl() != null) {
+      joiner.add(String.format("%smax-session-ttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxSessionTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

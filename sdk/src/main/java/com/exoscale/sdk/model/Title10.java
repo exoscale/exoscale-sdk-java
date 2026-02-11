@@ -19,57 +19,67 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.Title10ModelsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.UUID;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Target Instance
+ * AI model list
  */
 @JsonPropertyOrder({
-  InstanceTarget.JSON_PROPERTY_ID
+  Title10.JSON_PROPERTY_MODELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class InstanceTarget {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+public class Title10 {
+  public static final String JSON_PROPERTY_MODELS = "models";
+  private List<Title10ModelsInner> models;
 
-  public InstanceTarget() { 
+  public Title10() { 
   }
 
-  public InstanceTarget id(UUID id) {
-    this.id = id;
+  public Title10 models(List<Title10ModelsInner> models) {
+    this.models = models;
+    return this;
+  }
+
+  public Title10 addModelsItem(Title10ModelsInner modelsItem) {
+    if (this.models == null) {
+      this.models = new ArrayList<>();
+    }
+    this.models.add(modelsItem);
     return this;
   }
 
    /**
-   * Instance ID
-   * @return id
+   * Get models
+   * @return models
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
-    return id;
+  public List<Title10ModelsInner> getModels() {
+    return models;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(UUID id) {
-    this.id = id;
+  public void setModels(List<Title10ModelsInner> models) {
+    this.models = models;
   }
 
 
   /**
-   * Return true if this instance-target object is equal to o.
+   * Return true if this title_10 object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,20 +89,20 @@ public class InstanceTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InstanceTarget instanceTarget = (InstanceTarget) o;
-    return Objects.equals(this.id, instanceTarget.id);
+    Title10 title10 = (Title10) o;
+    return Objects.equals(this.models, title10.models);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(models);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InstanceTarget {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class Title10 {\n");
+    sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +150,14 @@ public class InstanceTarget {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `models` to the URL query string
+    if (getModels() != null) {
+      for (int i = 0; i < getModels().size(); i++) {
+        if (getModels().get(i) != null) {
+          joiner.add(getModels().get(i).toUrlQueryString(String.format("%smodels%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

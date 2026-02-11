@@ -30,26 +30,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Target block storage snapshot
+ * Security group reference
  */
 @JsonPropertyOrder({
-  BlockStorageSnapshotTarget.JSON_PROPERTY_ID
+  SecurityGroupRef.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class BlockStorageSnapshotTarget {
+public class SecurityGroupRef {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public BlockStorageSnapshotTarget() { 
+  public SecurityGroupRef() { 
   }
 
-  public BlockStorageSnapshotTarget id(UUID id) {
+  public SecurityGroupRef id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * Block storage snapshot ID
+   * Security group ID
    * @return id
   **/
   @javax.annotation.Nullable
@@ -69,7 +69,7 @@ public class BlockStorageSnapshotTarget {
 
 
   /**
-   * Return true if this block-storage-snapshot-target object is equal to o.
+   * Return true if this security-group-ref object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,8 +79,8 @@ public class BlockStorageSnapshotTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BlockStorageSnapshotTarget blockStorageSnapshotTarget = (BlockStorageSnapshotTarget) o;
-    return Objects.equals(this.id, blockStorageSnapshotTarget.id);
+    SecurityGroupRef securityGroupRef = (SecurityGroupRef) o;
+    return Objects.equals(this.id, securityGroupRef.id);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class BlockStorageSnapshotTarget {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BlockStorageSnapshotTarget {\n");
+    sb.append("class SecurityGroupRef {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

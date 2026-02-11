@@ -8,22 +8,22 @@ SKS Nodepool
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**antiAffinityGroups** | [**Set&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Nodepool Anti-affinity Groups |  [optional] |
+|**antiAffinityGroups** | [**Set&lt;AntiAffinityGroupRef&gt;**](AntiAffinityGroupRef.md) | Nodepool Anti-affinity Groups |  [optional] |
 |**description** | **String** | Nodepool description |  [optional] |
 |**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Nodepool public IP assignment of the Instances:  * IPv4 (&#x60;inet4&#x60;) addressing only; * IPv4 and IPv6 (&#x60;dual&#x60;) addressing. |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**taints** | [**Map&lt;String, SksNodepoolTaint&gt;**](SksNodepoolTaint.md) |  |  [optional] |
-|**securityGroups** | [**Set&lt;SecurityGroup&gt;**](SecurityGroup.md) | Nodepool Security Groups |  [optional] |
+|**securityGroups** | [**Set&lt;SecurityGroupRef&gt;**](SecurityGroupRef.md) | Nodepool Security Groups |  [optional] |
 |**name** | **String** | Nodepool name |  [optional] |
-|**instanceType** | [**InstanceType**](InstanceType.md) |  |  [optional] |
-|**privateNetworks** | [**Set&lt;PrivateNetwork&gt;**](PrivateNetwork.md) | Nodepool Private Networks |  [optional] |
-|**template** | [**Template**](Template.md) |  |  [optional] |
+|**instanceType** | [**InstanceTypeRef**](InstanceTypeRef.md) |  |  [optional] |
+|**privateNetworks** | [**Set&lt;PrivateNetworkRef&gt;**](PrivateNetworkRef.md) | Nodepool Private Networks |  [optional] |
+|**template** | [**TemplateRef**](TemplateRef.md) |  |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Nodepool state |  [optional] [readonly] |
 |**size** | **Long** | Number of instances |  [optional] |
 |**kubeletImageGc** | [**KubeletImageGc**](KubeletImageGc.md) |  |  [optional] |
-|**instancePool** | [**InstancePool**](InstancePool.md) |  |  [optional] |
+|**instancePool** | [**InstancePoolRef**](InstancePoolRef.md) |  |  [optional] |
 |**instancePrefix** | **String** | The instances created by the Nodepool will be prefixed with this value (default: pool) |  [optional] |
-|**deployTarget** | [**DeployTarget**](DeployTarget.md) |  |  [optional] |
+|**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |

@@ -19,8 +19,8 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.BlockStorageSnapshotTarget;
-import com.exoscale.sdk.model.InstanceTarget;
+import com.exoscale.sdk.model.BlockStorageSnapshotRef;
+import com.exoscale.sdk.model.InstanceRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -56,7 +56,7 @@ public class BlockStorageVolume {
   private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private InstanceTarget instance;
+  private InstanceRef instance;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -120,7 +120,7 @@ public class BlockStorageVolume {
   private Long blocksize;
 
   public static final String JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS = "block-storage-snapshots";
-  private List<BlockStorageSnapshotTarget> blockStorageSnapshots;
+  private List<BlockStorageSnapshotRef> blockStorageSnapshots;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -178,7 +178,7 @@ public class BlockStorageVolume {
   }
 
 
-  public BlockStorageVolume instance(InstanceTarget instance) {
+  public BlockStorageVolume instance(InstanceRef instance) {
     this.instance = instance;
     return this;
   }
@@ -191,14 +191,14 @@ public class BlockStorageVolume {
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InstanceTarget getInstance() {
+  public InstanceRef getInstance() {
     return instance;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstance(InstanceTarget instance) {
+  public void setInstance(InstanceRef instance) {
     this.instance = instance;
   }
 
@@ -285,12 +285,12 @@ public class BlockStorageVolume {
 
 
 
-  public BlockStorageVolume blockStorageSnapshots(List<BlockStorageSnapshotTarget> blockStorageSnapshots) {
+  public BlockStorageVolume blockStorageSnapshots(List<BlockStorageSnapshotRef> blockStorageSnapshots) {
     this.blockStorageSnapshots = blockStorageSnapshots;
     return this;
   }
 
-  public BlockStorageVolume addBlockStorageSnapshotsItem(BlockStorageSnapshotTarget blockStorageSnapshotsItem) {
+  public BlockStorageVolume addBlockStorageSnapshotsItem(BlockStorageSnapshotRef blockStorageSnapshotsItem) {
     if (this.blockStorageSnapshots == null) {
       this.blockStorageSnapshots = new ArrayList<>();
     }
@@ -306,14 +306,14 @@ public class BlockStorageVolume {
   @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<BlockStorageSnapshotTarget> getBlockStorageSnapshots() {
+  public List<BlockStorageSnapshotRef> getBlockStorageSnapshots() {
     return blockStorageSnapshots;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBlockStorageSnapshots(List<BlockStorageSnapshotTarget> blockStorageSnapshots) {
+  public void setBlockStorageSnapshots(List<BlockStorageSnapshotRef> blockStorageSnapshots) {
     this.blockStorageSnapshots = blockStorageSnapshots;
   }
 

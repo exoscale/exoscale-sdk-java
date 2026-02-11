@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**instanceType** | [**InstanceType**](InstanceType.md) |  |  |
+|**instanceType** | [**InstanceTypeRef**](InstanceTypeRef.md) |  |  |
 
 
 

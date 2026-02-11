@@ -19,31 +19,34 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for BlockStorageSnapshotTarget
+ * Model tests for Title
  */
-public class BlockStorageSnapshotTargetTest {
-    private final BlockStorageSnapshotTarget model = new BlockStorageSnapshotTarget();
+public class TitleTest {
+    private final Title model = new Title();
 
     /**
-     * Model tests for BlockStorageSnapshotTarget
+     * Model tests for Title
      */
     @Test
-    public void testBlockStorageSnapshotTarget() {
-        // TODO: test BlockStorageSnapshotTarget
+    public void testTitle() {
+        // TODO: test Title
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'apiKey'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void apiKeyTest() {
+        // TODO: test apiKey
     }
 
 }

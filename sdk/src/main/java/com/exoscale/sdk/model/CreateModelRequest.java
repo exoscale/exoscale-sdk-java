@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -32,47 +36,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AI model
  */
 @JsonPropertyOrder({
-  CreateModelRequest.JSON_PROPERTY_HUGGINGFACE_TOKEN,
-  CreateModelRequest.JSON_PROPERTY_NAME
+  CreateModelRequest.JSON_PROPERTY_NAME,
+  CreateModelRequest.JSON_PROPERTY_HUGGINGFACE_TOKEN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateModelRequest {
-  public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
-  private String huggingfaceToken;
-
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
+  private JsonNullable<Object> huggingfaceToken = JsonNullable.<Object>of(null);
 
   public CreateModelRequest() { 
   }
 
-  public CreateModelRequest huggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-    return this;
-  }
-
-   /**
-   * Huggingface Token
-   * @return huggingfaceToken
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getHuggingfaceToken() {
-    return huggingfaceToken;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHuggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-  }
-
-
-  public CreateModelRequest name(String name) {
-    this.name = name;
+  public CreateModelRequest name(Object name) {
+    this.name = JsonNullable.<Object>of(name);
     return this;
   }
 
@@ -81,18 +60,59 @@ public class CreateModelRequest {
    * @return name
   **/
   @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getName() {
+        return name.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
+  public JsonNullable<Object> getName_JsonNullable() {
     return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<Object> name) {
+    this.name = name;
+  }
+
+  public void setName(Object name) {
+    this.name = JsonNullable.<Object>of(name);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  public CreateModelRequest huggingfaceToken(Object huggingfaceToken) {
+    this.huggingfaceToken = JsonNullable.<Object>of(huggingfaceToken);
+    return this;
+  }
+
+   /**
+   * Huggingface Token
+   * @return huggingfaceToken
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Object getHuggingfaceToken() {
+        return huggingfaceToken.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
+
+  public JsonNullable<Object> getHuggingfaceToken_JsonNullable() {
+    return huggingfaceToken;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
+  public void setHuggingfaceToken_JsonNullable(JsonNullable<Object> huggingfaceToken) {
+    this.huggingfaceToken = huggingfaceToken;
+  }
+
+  public void setHuggingfaceToken(Object huggingfaceToken) {
+    this.huggingfaceToken = JsonNullable.<Object>of(huggingfaceToken);
   }
 
 
@@ -108,21 +128,32 @@ public class CreateModelRequest {
       return false;
     }
     CreateModelRequest createModelRequest = (CreateModelRequest) o;
-    return Objects.equals(this.huggingfaceToken, createModelRequest.huggingfaceToken) &&
-        Objects.equals(this.name, createModelRequest.name);
+    return equalsNullable(this.name, createModelRequest.name) &&
+        equalsNullable(this.huggingfaceToken, createModelRequest.huggingfaceToken);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(huggingfaceToken, name);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(huggingfaceToken));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateModelRequest {\n");
-    sb.append("    huggingfaceToken: ").append(toIndentedString(huggingfaceToken)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    huggingfaceToken: ").append(toIndentedString(huggingfaceToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +201,14 @@ public class CreateModelRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `huggingface-token` to the URL query string
-    if (getHuggingfaceToken() != null) {
-      joiner.add(String.format("%shuggingface-token%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHuggingfaceToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `huggingface-token` to the URL query string
+    if (getHuggingfaceToken() != null) {
+      joiner.add(String.format("%shuggingface-token%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHuggingfaceToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

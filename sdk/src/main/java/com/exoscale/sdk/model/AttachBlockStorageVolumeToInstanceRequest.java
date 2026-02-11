@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.InstanceTarget;
+import com.exoscale.sdk.model.InstanceRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,12 +38,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class AttachBlockStorageVolumeToInstanceRequest {
   public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private InstanceTarget instance;
+  private InstanceRef instance;
 
   public AttachBlockStorageVolumeToInstanceRequest() { 
   }
 
-  public AttachBlockStorageVolumeToInstanceRequest instance(InstanceTarget instance) {
+  public AttachBlockStorageVolumeToInstanceRequest instance(InstanceRef instance) {
     this.instance = instance;
     return this;
   }
@@ -56,14 +56,14 @@ public class AttachBlockStorageVolumeToInstanceRequest {
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public InstanceTarget getInstance() {
+  public InstanceRef getInstance() {
     return instance;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInstance(InstanceTarget instance) {
+  public void setInstance(InstanceRef instance) {
     this.instance = instance;
   }
 

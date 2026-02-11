@@ -91,4 +91,20 @@ public class CreateIamRoleRequestTest {
         // TODO: test policy
     }
 
+    /**
+     * Test the property 'assumeRolePolicy'
+     */
+    @Test
+    public void assumeRolePolicyTest() {
+        // TODO: test assumeRolePolicy
+    }
+
+    /**
+     * Test the property 'maxSessionTtl'
+     */
+    @Test
+    public void maxSessionTtlTest() {
+        // TODO: test maxSessionTtl
+    }
+
 }

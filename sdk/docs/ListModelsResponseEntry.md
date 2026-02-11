@@ -8,16 +8,16 @@ AI model
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Model ID |  [optional] [readonly] |
-|**name** | **String** | Model name |  [optional] |
-|**status** | [**StatusEnum**](#StatusEnum) | Model status |  [optional] |
-|**modelSize** | **Long** | Model size (nullable) |  [optional] |
-|**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
 |**updatedAt** | **OffsetDateTime** | Update time |  [optional] [readonly] |
+|**name** | **String** | Model name |  [optional] |
+|**state** | [**StateEnum**](#StateEnum) | Model state |  [optional] |
+|**id** | **UUID** | Model ID |  [optional] [readonly] |
+|**modelSize** | **Object** | Model size (nullable) |  [optional] |
+|**createdAt** | **Object** | Creation time |  [optional] [readonly] |
 
 
 
-## Enum: StatusEnum
+## Enum: StateEnum
 
 | Name | Value |
 |---- | -----|
@@ -25,6 +25,7 @@ AI model
 | CREATING | &quot;creating&quot; |
 | DOWNLOADING | &quot;downloading&quot; |
 | ERROR | &quot;error&quot; |
+| CREATED | &quot;created&quot; |
 
 
 
