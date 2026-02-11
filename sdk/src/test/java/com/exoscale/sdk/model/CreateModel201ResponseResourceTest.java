@@ -19,34 +19,39 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for Title
+ * Model tests for CreateModel201ResponseResource
  */
-public class TitleTest {
-    private final Title model = new Title();
+public class CreateModel201ResponseResourceTest {
+    private final CreateModel201ResponseResource model = new CreateModel201ResponseResource();
 
     /**
-     * Model tests for Title
+     * Model tests for CreateModel201ResponseResource
      */
     @Test
-    public void testTitle() {
-        // TODO: test Title
+    public void testCreateModel201ResponseResource() {
+        // TODO: test CreateModel201ResponseResource
     }
 
     /**
-     * Test the property 'apiKey'
+     * Test the property 'type'
      */
     @Test
-    public void apiKeyTest() {
-        // TODO: test apiKey
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
 }

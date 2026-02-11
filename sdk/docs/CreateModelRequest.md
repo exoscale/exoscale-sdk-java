@@ -8,8 +8,8 @@ AI model
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **Object** | Model name |  [optional] |
-|**huggingfaceToken** | **Object** | Huggingface Token |  [optional] |
+|**name** | **String** | Model name |  [optional] |
+|**huggingfaceToken** | **String** | Huggingface Token |  [optional] |
 
 
 

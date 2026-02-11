@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -41,17 +37,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetOrganizationUsageResponse {
   public static final String JSON_PROPERTY_GPU = "gpu";
-  private JsonNullable<Object> gpu = JsonNullable.<Object>of(null);
+  private Long gpu;
 
   public GetOrganizationUsageResponse() { 
   }
 
   @JsonCreator
   public GetOrganizationUsageResponse(
-    @JsonProperty(JSON_PROPERTY_GPU) Object gpu
+    @JsonProperty(JSON_PROPERTY_GPU) Long gpu
   ) {
   this();
-    this.gpu = gpu == null ? JsonNullable.<Object>undefined() : JsonNullable.of(gpu);
+    this.gpu = gpu;
   }
 
    /**
@@ -60,27 +56,13 @@ public class GetOrganizationUsageResponse {
    * @return gpu
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getGpu() {
-    
-    if (gpu == null) {
-      gpu = JsonNullable.<Object>of(null);
-    }
-    return gpu.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_GPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getGpu_JsonNullable() {
+  public Long getGpu() {
     return gpu;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GPU)
-  private void setGpu_JsonNullable(JsonNullable<Object> gpu) {
-    this.gpu = gpu;
-  }
+
 
 
 
@@ -96,23 +78,12 @@ public class GetOrganizationUsageResponse {
       return false;
     }
     GetOrganizationUsageResponse getOrganizationUsageResponse = (GetOrganizationUsageResponse) o;
-    return equalsNullable(this.gpu, getOrganizationUsageResponse.gpu);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.gpu, getOrganizationUsageResponse.gpu);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(gpu));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(gpu);
   }
 
   @Override

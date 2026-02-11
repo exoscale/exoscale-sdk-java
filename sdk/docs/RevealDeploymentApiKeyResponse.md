@@ -8,7 +8,7 @@ AI deployment inference endpoint authentication key
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**apiKey** | **Object** |  |  [optional] |
+|**apiKey** | **String** |  |  [optional] |
 
 
 

@@ -12,8 +12,8 @@ AI model
 |**name** | **String** | Model name |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Model state |  [optional] |
 |**id** | **UUID** | Model ID |  [optional] [readonly] |
-|**modelSize** | **Object** | Model size (nullable) |  [optional] |
-|**createdAt** | **Object** | Creation time |  [optional] [readonly] |
+|**modelSize** | **Long** | Model size (nullable) |  [optional] |
+|**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
 
 
 

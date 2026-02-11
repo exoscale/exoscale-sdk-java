@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.InferenceEngineVersion;
-import com.exoscale.sdk.model.Title3Model;
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -31,10 +31,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -60,7 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentResponse {
   public static final String JSON_PROPERTY_GPU_COUNT = "gpu-count";
-  private JsonNullable<Object> gpuCount = JsonNullable.<Object>of(null);
+  private Long gpuCount;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
@@ -126,19 +122,19 @@ public class GetDeploymentResponse {
   private UUID id;
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
-  private JsonNullable<Object> replicas = JsonNullable.<Object>of(null);
+  private Long replicas;
 
   public static final String JSON_PROPERTY_STATE_DETAILS = "state-details";
   private String stateDetails;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private JsonNullable<Object> createdAt = JsonNullable.<Object>of(null);
+  private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
-  private List<Object> inferenceEngineParameters;
+  private List<String> inferenceEngineParameters;
 
   public static final String JSON_PROPERTY_MODEL = "model";
-  private Title3Model model;
+  private ModelRef model;
 
   public GetDeploymentResponse() { 
   }
@@ -147,16 +143,16 @@ public class GetDeploymentResponse {
   public GetDeploymentResponse(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT) Object createdAt
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.updatedAt = updatedAt;
     this.id = id;
-    this.createdAt = createdAt == null ? JsonNullable.<Object>undefined() : JsonNullable.of(createdAt);
+    this.createdAt = createdAt;
   }
 
-  public GetDeploymentResponse gpuCount(Object gpuCount) {
-    this.gpuCount = JsonNullable.<Object>of(gpuCount);
+  public GetDeploymentResponse gpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
     return this;
   }
 
@@ -166,26 +162,18 @@ public class GetDeploymentResponse {
    * @return gpuCount
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getGpuCount() {
-        return gpuCount.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_GPU_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getGpuCount_JsonNullable() {
+  public Long getGpuCount() {
     return gpuCount;
   }
-  
-  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  public void setGpuCount_JsonNullable(JsonNullable<Object> gpuCount) {
-    this.gpuCount = gpuCount;
-  }
 
-  public void setGpuCount(Object gpuCount) {
-    this.gpuCount = JsonNullable.<Object>of(gpuCount);
+
+  @JsonProperty(JSON_PROPERTY_GPU_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpuCount(Long gpuCount) {
+    this.gpuCount = gpuCount;
   }
 
 
@@ -369,8 +357,8 @@ public class GetDeploymentResponse {
 
 
 
-  public GetDeploymentResponse replicas(Object replicas) {
-    this.replicas = JsonNullable.<Object>of(replicas);
+  public GetDeploymentResponse replicas(Long replicas) {
+    this.replicas = replicas;
     return this;
   }
 
@@ -380,26 +368,18 @@ public class GetDeploymentResponse {
    * @return replicas
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getReplicas() {
-        return replicas.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getReplicas_JsonNullable() {
+  public Long getReplicas() {
     return replicas;
   }
-  
-  @JsonProperty(JSON_PROPERTY_REPLICAS)
-  public void setReplicas_JsonNullable(JsonNullable<Object> replicas) {
-    this.replicas = replicas;
-  }
 
-  public void setReplicas(Object replicas) {
-    this.replicas = JsonNullable.<Object>of(replicas);
+
+  @JsonProperty(JSON_PROPERTY_REPLICAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setReplicas(Long replicas) {
+    this.replicas = replicas;
   }
 
 
@@ -433,36 +413,22 @@ public class GetDeploymentResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getCreatedAt() {
-    
-    if (createdAt == null) {
-      createdAt = JsonNullable.<Object>of(null);
-    }
-    return createdAt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCreatedAt_JsonNullable() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  private void setCreatedAt_JsonNullable(JsonNullable<Object> createdAt) {
-    this.createdAt = createdAt;
-  }
 
 
 
-  public GetDeploymentResponse inferenceEngineParameters(List<Object> inferenceEngineParameters) {
+
+  public GetDeploymentResponse inferenceEngineParameters(List<String> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
     return this;
   }
 
-  public GetDeploymentResponse addInferenceEngineParametersItem(Object inferenceEngineParametersItem) {
+  public GetDeploymentResponse addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
     if (this.inferenceEngineParameters == null) {
       this.inferenceEngineParameters = new ArrayList<>();
     }
@@ -478,19 +444,19 @@ public class GetDeploymentResponse {
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getInferenceEngineParameters() {
+  public List<String> getInferenceEngineParameters() {
     return inferenceEngineParameters;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInferenceEngineParameters(List<Object> inferenceEngineParameters) {
+  public void setInferenceEngineParameters(List<String> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
   }
 
 
-  public GetDeploymentResponse model(Title3Model model) {
+  public GetDeploymentResponse model(ModelRef model) {
     this.model = model;
     return this;
   }
@@ -503,14 +469,14 @@ public class GetDeploymentResponse {
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Title3Model getModel() {
+  public ModelRef getModel() {
     return model;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModel(Title3Model model) {
+  public void setModel(ModelRef model) {
     this.model = model;
   }
 
@@ -527,7 +493,7 @@ public class GetDeploymentResponse {
       return false;
     }
     GetDeploymentResponse getDeploymentResponse = (GetDeploymentResponse) o;
-    return equalsNullable(this.gpuCount, getDeploymentResponse.gpuCount) &&
+    return Objects.equals(this.gpuCount, getDeploymentResponse.gpuCount) &&
         Objects.equals(this.updatedAt, getDeploymentResponse.updatedAt) &&
         Objects.equals(this.deploymentUrl, getDeploymentResponse.deploymentUrl) &&
         Objects.equals(this.serviceLevel, getDeploymentResponse.serviceLevel) &&
@@ -536,27 +502,16 @@ public class GetDeploymentResponse {
         Objects.equals(this.state, getDeploymentResponse.state) &&
         Objects.equals(this.gpuType, getDeploymentResponse.gpuType) &&
         Objects.equals(this.id, getDeploymentResponse.id) &&
-        equalsNullable(this.replicas, getDeploymentResponse.replicas) &&
+        Objects.equals(this.replicas, getDeploymentResponse.replicas) &&
         Objects.equals(this.stateDetails, getDeploymentResponse.stateDetails) &&
-        equalsNullable(this.createdAt, getDeploymentResponse.createdAt) &&
+        Objects.equals(this.createdAt, getDeploymentResponse.createdAt) &&
         Objects.equals(this.inferenceEngineParameters, getDeploymentResponse.inferenceEngineParameters) &&
         Objects.equals(this.model, getDeploymentResponse.model);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(gpuCount), updatedAt, deploymentUrl, serviceLevel, inferenceEngineVersion, name, state, gpuType, id, hashCodeNullable(replicas), stateDetails, hashCodeNullable(createdAt), inferenceEngineParameters, model);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(gpuCount, updatedAt, deploymentUrl, serviceLevel, inferenceEngineVersion, name, state, gpuType, id, replicas, stateDetails, createdAt, inferenceEngineParameters, model);
   }
 
   @Override

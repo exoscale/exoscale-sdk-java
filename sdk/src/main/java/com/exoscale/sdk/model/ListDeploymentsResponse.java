@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.Title5DeploymentsInner;
+import com.exoscale.sdk.model.ListDeploymentsResponseEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,17 +40,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListDeploymentsResponse {
   public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
-  private List<Title5DeploymentsInner> deployments;
+  private List<ListDeploymentsResponseEntry> deployments;
 
   public ListDeploymentsResponse() { 
   }
 
-  public ListDeploymentsResponse deployments(List<Title5DeploymentsInner> deployments) {
+  public ListDeploymentsResponse deployments(List<ListDeploymentsResponseEntry> deployments) {
     this.deployments = deployments;
     return this;
   }
 
-  public ListDeploymentsResponse addDeploymentsItem(Title5DeploymentsInner deploymentsItem) {
+  public ListDeploymentsResponse addDeploymentsItem(ListDeploymentsResponseEntry deploymentsItem) {
     if (this.deployments == null) {
       this.deployments = new ArrayList<>();
     }
@@ -66,14 +66,14 @@ public class ListDeploymentsResponse {
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Title5DeploymentsInner> getDeployments() {
+  public List<ListDeploymentsResponseEntry> getDeployments() {
     return deployments;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployments(List<Title5DeploymentsInner> deployments) {
+  public void setDeployments(List<ListDeploymentsResponseEntry> deployments) {
     this.deployments = deployments;
   }
 

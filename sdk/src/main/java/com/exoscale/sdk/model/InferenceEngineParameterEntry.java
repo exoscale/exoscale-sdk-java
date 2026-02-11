@@ -27,10 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -49,31 +45,31 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class InferenceEngineParameterEntry {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<Object> description = JsonNullable.<Object>of(null);
+  private String description;
 
   public static final String JSON_PROPERTY_ALLOWED_VALUES = "allowed-values";
-  private List<Object> allowedValues;
+  private List<String> allowedValues;
 
   public static final String JSON_PROPERTY_DEFAULT = "default";
-  private JsonNullable<Object> _default = JsonNullable.<Object>of(null);
+  private String _default;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+  private String name;
 
   public static final String JSON_PROPERTY_SECTION = "section";
-  private JsonNullable<Object> section = JsonNullable.<Object>of(null);
+  private String section;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<Object> type = JsonNullable.<Object>of(null);
+  private String type;
 
   public static final String JSON_PROPERTY_FLAGS = "flags";
-  private List<Object> flags;
+  private List<String> flags;
 
   public InferenceEngineParameterEntry() { 
   }
 
-  public InferenceEngineParameterEntry description(Object description) {
-    this.description = JsonNullable.<Object>of(description);
+  public InferenceEngineParameterEntry description(String description) {
+    this.description = description;
     return this;
   }
 
@@ -82,35 +78,27 @@ public class InferenceEngineParameterEntry {
    * @return description
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getDescription() {
-        return description.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDescription_JsonNullable() {
+  public String getDescription() {
     return description;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<Object> description) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
     this.description = description;
   }
 
-  public void setDescription(Object description) {
-    this.description = JsonNullable.<Object>of(description);
-  }
 
-
-  public InferenceEngineParameterEntry allowedValues(List<Object> allowedValues) {
+  public InferenceEngineParameterEntry allowedValues(List<String> allowedValues) {
     this.allowedValues = allowedValues;
     return this;
   }
 
-  public InferenceEngineParameterEntry addAllowedValuesItem(Object allowedValuesItem) {
+  public InferenceEngineParameterEntry addAllowedValuesItem(String allowedValuesItem) {
     if (this.allowedValues == null) {
       this.allowedValues = new ArrayList<>();
     }
@@ -126,20 +114,20 @@ public class InferenceEngineParameterEntry {
   @JsonProperty(JSON_PROPERTY_ALLOWED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getAllowedValues() {
+  public List<String> getAllowedValues() {
     return allowedValues;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ALLOWED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedValues(List<Object> allowedValues) {
+  public void setAllowedValues(List<String> allowedValues) {
     this.allowedValues = allowedValues;
   }
 
 
-  public InferenceEngineParameterEntry _default(Object _default) {
-    this._default = JsonNullable.<Object>of(_default);
+  public InferenceEngineParameterEntry _default(String _default) {
+    this._default = _default;
     return this;
   }
 
@@ -148,31 +136,23 @@ public class InferenceEngineParameterEntry {
    * @return _default
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getDefault() {
-        return _default.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDefault_JsonNullable() {
+  public String getDefault() {
     return _default;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_DEFAULT)
-  public void setDefault_JsonNullable(JsonNullable<Object> _default) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefault(String _default) {
     this._default = _default;
   }
 
-  public void setDefault(Object _default) {
-    this._default = JsonNullable.<Object>of(_default);
-  }
 
-
-  public InferenceEngineParameterEntry name(Object name) {
-    this.name = JsonNullable.<Object>of(name);
+  public InferenceEngineParameterEntry name(String name) {
+    this.name = name;
     return this;
   }
 
@@ -181,31 +161,23 @@ public class InferenceEngineParameterEntry {
    * @return name
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getName() {
-        return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getName_JsonNullable() {
+  public String getName() {
     return name;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<Object> name) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
     this.name = name;
   }
 
-  public void setName(Object name) {
-    this.name = JsonNullable.<Object>of(name);
-  }
 
-
-  public InferenceEngineParameterEntry section(Object section) {
-    this.section = JsonNullable.<Object>of(section);
+  public InferenceEngineParameterEntry section(String section) {
+    this.section = section;
     return this;
   }
 
@@ -214,31 +186,23 @@ public class InferenceEngineParameterEntry {
    * @return section
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getSection() {
-        return section.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getSection_JsonNullable() {
+  public String getSection() {
     return section;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_SECTION)
-  public void setSection_JsonNullable(JsonNullable<Object> section) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSection(String section) {
     this.section = section;
   }
 
-  public void setSection(Object section) {
-    this.section = JsonNullable.<Object>of(section);
-  }
 
-
-  public InferenceEngineParameterEntry type(Object type) {
-    this.type = JsonNullable.<Object>of(type);
+  public InferenceEngineParameterEntry type(String type) {
+    this.type = type;
     return this;
   }
 
@@ -247,35 +211,27 @@ public class InferenceEngineParameterEntry {
    * @return type
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getType() {
-        return type.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getType_JsonNullable() {
+  public String getType() {
     return type;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<Object> type) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(String type) {
     this.type = type;
   }
 
-  public void setType(Object type) {
-    this.type = JsonNullable.<Object>of(type);
-  }
 
-
-  public InferenceEngineParameterEntry flags(List<Object> flags) {
+  public InferenceEngineParameterEntry flags(List<String> flags) {
     this.flags = flags;
     return this;
   }
 
-  public InferenceEngineParameterEntry addFlagsItem(Object flagsItem) {
+  public InferenceEngineParameterEntry addFlagsItem(String flagsItem) {
     if (this.flags == null) {
       this.flags = new ArrayList<>();
     }
@@ -291,14 +247,14 @@ public class InferenceEngineParameterEntry {
   @JsonProperty(JSON_PROPERTY_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getFlags() {
+  public List<String> getFlags() {
     return flags;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlags(List<Object> flags) {
+  public void setFlags(List<String> flags) {
     this.flags = flags;
   }
 
@@ -315,29 +271,18 @@ public class InferenceEngineParameterEntry {
       return false;
     }
     InferenceEngineParameterEntry inferenceEngineParameterEntry = (InferenceEngineParameterEntry) o;
-    return equalsNullable(this.description, inferenceEngineParameterEntry.description) &&
+    return Objects.equals(this.description, inferenceEngineParameterEntry.description) &&
         Objects.equals(this.allowedValues, inferenceEngineParameterEntry.allowedValues) &&
-        equalsNullable(this._default, inferenceEngineParameterEntry._default) &&
-        equalsNullable(this.name, inferenceEngineParameterEntry.name) &&
-        equalsNullable(this.section, inferenceEngineParameterEntry.section) &&
-        equalsNullable(this.type, inferenceEngineParameterEntry.type) &&
+        Objects.equals(this._default, inferenceEngineParameterEntry._default) &&
+        Objects.equals(this.name, inferenceEngineParameterEntry.name) &&
+        Objects.equals(this.section, inferenceEngineParameterEntry.section) &&
+        Objects.equals(this.type, inferenceEngineParameterEntry.type) &&
         Objects.equals(this.flags, inferenceEngineParameterEntry.flags);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), allowedValues, hashCodeNullable(_default), hashCodeNullable(name), hashCodeNullable(section), hashCodeNullable(type), flags);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(description, allowedValues, _default, name, section, type, flags);
   }
 
   @Override

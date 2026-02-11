@@ -25,10 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -42,16 +39,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ModelRef {
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+  private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private UUID id;
 
   public ModelRef() { 
   }
 
-  public ModelRef name(Object name) {
-    this.name = JsonNullable.<Object>of(name);
+  public ModelRef name(String name) {
+    this.name = name;
     return this;
   }
 
@@ -60,31 +57,23 @@ public class ModelRef {
    * @return name
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getName() {
-        return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getName_JsonNullable() {
+  public String getName() {
     return name;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<Object> name) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
     this.name = name;
   }
 
-  public void setName(Object name) {
-    this.name = JsonNullable.<Object>of(name);
-  }
 
-
-  public ModelRef id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+  public ModelRef id(UUID id) {
+    this.id = id;
     return this;
   }
 
@@ -93,26 +82,18 @@ public class ModelRef {
    * @return id
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public UUID getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
-  public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(UUID id) {
+    this.id = id;
   }
 
 
@@ -128,24 +109,13 @@ public class ModelRef {
       return false;
     }
     ModelRef modelRef = (ModelRef) o;
-    return equalsNullable(this.name, modelRef.name) &&
-        equalsNullable(this.id, modelRef.id);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.name, modelRef.name) &&
+        Objects.equals(this.id, modelRef.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(id));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(name, id);
   }
 
   @Override

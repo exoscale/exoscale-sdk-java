@@ -8,7 +8,7 @@ AI deployment
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**gpuCount** | **Object** | Number of GPUs |  [optional] |
+|**gpuCount** | **Long** | Number of GPUs |  [optional] |
 |**updatedAt** | **OffsetDateTime** | Update time |  [optional] [readonly] |
 |**deploymentUrl** | **String** | Deployment URL (nullable) |  [optional] |
 |**serviceLevel** | **String** | Service level |  [optional] |
@@ -16,9 +16,9 @@ AI deployment
 |**state** | [**StateEnum**](#StateEnum) | Deployment state |  [optional] |
 |**gpuType** | **String** | GPU type family |  [optional] |
 |**id** | **UUID** | Deployment ID |  [optional] [readonly] |
-|**replicas** | **Object** | Number of replicas (&gt;&#x3D;0) |  [optional] |
-|**createdAt** | **Object** | Creation time |  [optional] [readonly] |
-|**model** | [**Title3Model**](Title3Model.md) |  |  [optional] |
+|**replicas** | **Long** | Number of replicas (&gt;&#x3D;0) |  [optional] |
+|**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
+|**model** | [**ModelRef**](ModelRef.md) |  |  [optional] |
 
 
 

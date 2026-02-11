@@ -39,17 +39,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DeleteModelConflictResponse {
   public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
-  private List<Object> deployments;
+  private List<String> deployments;
 
   public DeleteModelConflictResponse() { 
   }
 
-  public DeleteModelConflictResponse deployments(List<Object> deployments) {
+  public DeleteModelConflictResponse deployments(List<String> deployments) {
     this.deployments = deployments;
     return this;
   }
 
-  public DeleteModelConflictResponse addDeploymentsItem(Object deploymentsItem) {
+  public DeleteModelConflictResponse addDeploymentsItem(String deploymentsItem) {
     if (this.deployments == null) {
       this.deployments = new ArrayList<>();
     }
@@ -65,14 +65,14 @@ public class DeleteModelConflictResponse {
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getDeployments() {
+  public List<String> getDeployments() {
     return deployments;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployments(List<Object> deployments) {
+  public void setDeployments(List<String> deployments) {
     this.deployments = deployments;
   }
 

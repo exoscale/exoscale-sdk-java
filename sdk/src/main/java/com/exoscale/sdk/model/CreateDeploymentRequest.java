@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.InferenceEngineVersion;
-import com.exoscale.sdk.model.Title3Model;
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -56,16 +56,16 @@ public class CreateDeploymentRequest {
   private String name;
 
   public static final String JSON_PROPERTY_GPU_TYPE = "gpu-type";
-  private Object gpuType = null;
+  private String gpuType;
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
-  private Object replicas = null;
+  private Long replicas;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
-  private List<Object> inferenceEngineParameters;
+  private List<String> inferenceEngineParameters;
 
   public static final String JSON_PROPERTY_MODEL = "model";
-  private Title3Model model;
+  private ModelRef model;
 
   public CreateDeploymentRequest() { 
   }
@@ -146,7 +146,7 @@ public class CreateDeploymentRequest {
   }
 
 
-  public CreateDeploymentRequest gpuType(Object gpuType) {
+  public CreateDeploymentRequest gpuType(String gpuType) {
     this.gpuType = gpuType;
     return this;
   }
@@ -155,23 +155,23 @@ public class CreateDeploymentRequest {
    * GPU type family (e.g., gpua5000, gpu3080ti)
    * @return gpuType
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getGpuType() {
+  public String getGpuType() {
     return gpuType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGpuType(Object gpuType) {
+  public void setGpuType(String gpuType) {
     this.gpuType = gpuType;
   }
 
 
-  public CreateDeploymentRequest replicas(Object replicas) {
+  public CreateDeploymentRequest replicas(Long replicas) {
     this.replicas = replicas;
     return this;
   }
@@ -181,28 +181,28 @@ public class CreateDeploymentRequest {
    * minimum: 1
    * @return replicas
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getReplicas() {
+  public Long getReplicas() {
     return replicas;
   }
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setReplicas(Object replicas) {
+  public void setReplicas(Long replicas) {
     this.replicas = replicas;
   }
 
 
-  public CreateDeploymentRequest inferenceEngineParameters(List<Object> inferenceEngineParameters) {
+  public CreateDeploymentRequest inferenceEngineParameters(List<String> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
     return this;
   }
 
-  public CreateDeploymentRequest addInferenceEngineParametersItem(Object inferenceEngineParametersItem) {
+  public CreateDeploymentRequest addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
     if (this.inferenceEngineParameters == null) {
       this.inferenceEngineParameters = new ArrayList<>();
     }
@@ -218,19 +218,19 @@ public class CreateDeploymentRequest {
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getInferenceEngineParameters() {
+  public List<String> getInferenceEngineParameters() {
     return inferenceEngineParameters;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInferenceEngineParameters(List<Object> inferenceEngineParameters) {
+  public void setInferenceEngineParameters(List<String> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
   }
 
 
-  public CreateDeploymentRequest model(Title3Model model) {
+  public CreateDeploymentRequest model(ModelRef model) {
     this.model = model;
     return this;
   }
@@ -243,14 +243,14 @@ public class CreateDeploymentRequest {
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Title3Model getModel() {
+  public ModelRef getModel() {
     return model;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModel(Title3Model model) {
+  public void setModel(ModelRef model) {
     this.model = model;
   }
 

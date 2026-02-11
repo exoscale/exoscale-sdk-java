@@ -14,7 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.InferenceEngineVersion;
-import com.exoscale.sdk.model.Title3Model;
+import com.exoscale.sdk.model.ModelRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

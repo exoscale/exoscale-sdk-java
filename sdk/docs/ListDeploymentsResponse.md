@@ -8,7 +8,7 @@ AI model list
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**deployments** | [**List&lt;Title5DeploymentsInner&gt;**](Title5DeploymentsInner.md) |  |  [optional] |
+|**deployments** | [**List&lt;ListDeploymentsResponseEntry&gt;**](ListDeploymentsResponseEntry.md) |  |  [optional] |
 
 
 

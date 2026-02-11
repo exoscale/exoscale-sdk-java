@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.CreateModel201ResponseResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,25 +26,33 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for Title1Resource
+ * Model tests for CreateModel201Response
  */
-public class Title1ResourceTest {
-    private final Title1Resource model = new Title1Resource();
+public class CreateModel201ResponseTest {
+    private final CreateModel201Response model = new CreateModel201Response();
 
     /**
-     * Model tests for Title1Resource
+     * Model tests for CreateModel201Response
      */
     @Test
-    public void testTitle1Resource() {
-        // TODO: test Title1Resource
+    public void testCreateModel201Response() {
+        // TODO: test CreateModel201Response
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'state'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
+     * Test the property 'reason'
+     */
+    @Test
+    public void reasonTest() {
+        // TODO: test reason
     }
 
     /**
@@ -52,6 +61,22 @@ public class Title1ResourceTest {
     @Test
     public void idTest() {
         // TODO: test id
+    }
+
+    /**
+     * Test the property 'resource'
+     */
+    @Test
+    public void resourceTest() {
+        // TODO: test resource
+    }
+
+    /**
+     * Test the property 'message'
+     */
+    @Test
+    public void messageTest() {
+        // TODO: test message
     }
 
 }

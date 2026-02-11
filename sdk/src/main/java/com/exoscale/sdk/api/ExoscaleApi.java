@@ -48,6 +48,7 @@ import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
+import com.exoscale.sdk.model.CreateDeploymentRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
 import com.exoscale.sdk.model.CreateElasticIpRequest;
@@ -55,6 +56,7 @@ import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
+import com.exoscale.sdk.model.CreateModel201Response;
 import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
@@ -101,6 +103,7 @@ import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserThanosSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
+import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
@@ -108,6 +111,7 @@ import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
 import com.exoscale.sdk.model.ElasticIp;
 import com.exoscale.sdk.model.EnvImpactReport;
+import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
@@ -126,8 +130,11 @@ import com.exoscale.sdk.model.GetDbaasSettingsOpensearch200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsPg200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsThanos200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
+import com.exoscale.sdk.model.GetDeploymentLogsResponse;
+import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
+import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -151,6 +158,7 @@ import com.exoscale.sdk.model.ListDbaasIntegrationTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServiceTypes200Response;
 import com.exoscale.sdk.model.ListDbaasServices200Response;
 import com.exoscale.sdk.model.ListDeployTargets200Response;
+import com.exoscale.sdk.model.ListDeploymentsResponse;
 import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
@@ -159,6 +167,7 @@ import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
+import com.exoscale.sdk.model.ListModelsResponse;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
 import com.exoscale.sdk.model.ListQuotas200Response;
 import com.exoscale.sdk.model.ListSecurityGroups200Response;
@@ -187,8 +196,10 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
+import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
+import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
@@ -201,18 +212,6 @@ import com.exoscale.sdk.model.Snapshot;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.StartInstanceRequest;
 import com.exoscale.sdk.model.Template;
-import com.exoscale.sdk.model.Title;
-import com.exoscale.sdk.model.Title1;
-import com.exoscale.sdk.model.Title10;
-import com.exoscale.sdk.model.Title11;
-import com.exoscale.sdk.model.Title2;
-import com.exoscale.sdk.model.Title3;
-import com.exoscale.sdk.model.Title4;
-import com.exoscale.sdk.model.Title5;
-import com.exoscale.sdk.model.Title6;
-import com.exoscale.sdk.model.Title7;
-import com.exoscale.sdk.model.Title8;
-import com.exoscale.sdk.model.Title9;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
@@ -3932,26 +3931,26 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
-   * Create Deployment
-   * @param title6  (required)
-   * @return Title4
+   * [BETA] Create Deployment
+   * Deploy a model on an inference server
+   * @param createDeploymentRequest  (required)
+   * @return CreateModel201Response
    * @throws ApiException if fails to make API call
    */
-  public Title4 createDeployment(Title6 title6) throws ApiException {
-    ApiResponse<Title4> localVarResponse = createDeploymentWithHttpInfo(title6);
+  public CreateModel201Response createDeployment(CreateDeploymentRequest createDeploymentRequest) throws ApiException {
+    ApiResponse<CreateModel201Response> localVarResponse = createDeploymentWithHttpInfo(createDeploymentRequest);
     return localVarResponse.getData();
   }
 
   /**
-   * 
-   * Create Deployment
-   * @param title6  (required)
-   * @return ApiResponse&lt;Title4&gt;
+   * [BETA] Create Deployment
+   * Deploy a model on an inference server
+   * @param createDeploymentRequest  (required)
+   * @return ApiResponse&lt;CreateModel201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title4> createDeploymentWithHttpInfo(Title6 title6) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createDeploymentRequestBuilder(title6);
+  private ApiResponse<CreateModel201Response> createDeploymentWithHttpInfo(CreateDeploymentRequest createDeploymentRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDeploymentRequestBuilder(createDeploymentRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -3963,10 +3962,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createDeployment", localVarResponse);
         }
-        return new ApiResponse<Title4>(
+        return new ApiResponse<CreateModel201Response>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title4>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateModel201Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -3979,20 +3978,20 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder createDeploymentRequestBuilder(Title6 title6) throws ApiException {
-    // verify the required parameter 'title6' is set
-    if (title6 == null) {
-      throw new ApiException(400, "Missing the required parameter 'title6' when calling createDeployment");
+  private HttpRequest.Builder createDeploymentRequestBuilder(CreateDeploymentRequest createDeploymentRequest) throws ApiException {
+    // verify the required parameter 'createDeploymentRequest' is set
+    if (createDeploymentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDeploymentRequest' when calling createDeployment");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment";
+    String localVarPath = "/ai/deployment";
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(title6);
+          requestBody = memberVarObjectMapper.writeValueAsString(createDeploymentRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -4635,25 +4634,25 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
-   * Create Model
+   * [BETA] Create Model
+   * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
    * @param createModelRequest  (required)
-   * @return Title4
+   * @return CreateModel201Response
    * @throws ApiException if fails to make API call
    */
-  public Title4 createModel(CreateModelRequest createModelRequest) throws ApiException {
-    ApiResponse<Title4> localVarResponse = createModelWithHttpInfo(createModelRequest);
+  public CreateModel201Response createModel(CreateModelRequest createModelRequest) throws ApiException {
+    ApiResponse<CreateModel201Response> localVarResponse = createModelWithHttpInfo(createModelRequest);
     return localVarResponse.getData();
   }
 
   /**
-   * 
-   * Create Model
+   * [BETA] Create Model
+   * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
    * @param createModelRequest  (required)
-   * @return ApiResponse&lt;Title4&gt;
+   * @return ApiResponse&lt;CreateModel201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title4> createModelWithHttpInfo(CreateModelRequest createModelRequest) throws ApiException {
+  private ApiResponse<CreateModel201Response> createModelWithHttpInfo(CreateModelRequest createModelRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createModelRequestBuilder(createModelRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -4666,10 +4665,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createModel", localVarResponse);
         }
-        return new ApiResponse<Title4>(
+        return new ApiResponse<CreateModel201Response>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title4>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateModel201Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -4691,7 +4690,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/model";
+    String localVarPath = "/ai/model";
       String requestBody = null;
       String authorizationValue;
           try{
@@ -7612,25 +7611,25 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] Delete Deployment
    * Delete Deployment
    * @param id  (required)
-   * @return Title4
+   * @return CreateModel201Response
    * @throws ApiException if fails to make API call
    */
-  public Title4 deleteDeployment(String id) throws ApiException {
-    ApiResponse<Title4> localVarResponse = deleteDeploymentWithHttpInfo(id);
+  public CreateModel201Response deleteDeployment(UUID id) throws ApiException {
+    ApiResponse<CreateModel201Response> localVarResponse = deleteDeploymentWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] Delete Deployment
    * Delete Deployment
    * @param id  (required)
-   * @return ApiResponse&lt;Title4&gt;
+   * @return ApiResponse&lt;CreateModel201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title4> deleteDeploymentWithHttpInfo(String id) throws ApiException {
+  private ApiResponse<CreateModel201Response> deleteDeploymentWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteDeploymentRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -7643,10 +7642,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteDeployment", localVarResponse);
         }
-        return new ApiResponse<Title4>(
+        return new ApiResponse<CreateModel201Response>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title4>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateModel201Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -7659,7 +7658,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDeploymentRequestBuilder(String id) throws ApiException {
+  private HttpRequest.Builder deleteDeploymentRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDeployment");
@@ -7668,7 +7667,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment/{id}"
+    String localVarPath = "/ai/deployment/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -8364,25 +8363,25 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] Delete Model
    * Delete Model
    * @param id  (required)
-   * @return Title4
+   * @return CreateModel201Response
    * @throws ApiException if fails to make API call
    */
-  public Title4 deleteModel(String id) throws ApiException {
-    ApiResponse<Title4> localVarResponse = deleteModelWithHttpInfo(id);
+  public CreateModel201Response deleteModel(UUID id) throws ApiException {
+    ApiResponse<CreateModel201Response> localVarResponse = deleteModelWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] Delete Model
    * Delete Model
    * @param id  (required)
-   * @return ApiResponse&lt;Title4&gt;
+   * @return ApiResponse&lt;CreateModel201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title4> deleteModelWithHttpInfo(String id) throws ApiException {
+  private ApiResponse<CreateModel201Response> deleteModelWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteModelRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8395,10 +8394,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteModel", localVarResponse);
         }
-        return new ApiResponse<Title4>(
+        return new ApiResponse<CreateModel201Response>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title4>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateModel201Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -8411,7 +8410,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteModelRequestBuilder(String id) throws ApiException {
+  private HttpRequest.Builder deleteModelRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling deleteModel");
@@ -8420,7 +8419,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/model/{id}"
+    String localVarPath = "/ai/model/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -13371,25 +13370,25 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] Get Deployment
    * Get Deployment details
    * @param id  (required)
-   * @return Title3
+   * @return GetDeploymentResponse
    * @throws ApiException if fails to make API call
    */
-  public Title3 getDeployment(String id) throws ApiException {
-    ApiResponse<Title3> localVarResponse = getDeploymentWithHttpInfo(id);
+  public GetDeploymentResponse getDeployment(UUID id) throws ApiException {
+    ApiResponse<GetDeploymentResponse> localVarResponse = getDeploymentWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] Get Deployment
    * Get Deployment details
    * @param id  (required)
-   * @return ApiResponse&lt;Title3&gt;
+   * @return ApiResponse&lt;GetDeploymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title3> getDeploymentWithHttpInfo(String id) throws ApiException {
+  private ApiResponse<GetDeploymentResponse> getDeploymentWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getDeploymentRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -13402,10 +13401,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getDeployment", localVarResponse);
         }
-        return new ApiResponse<Title3>(
+        return new ApiResponse<GetDeploymentResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title3>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetDeploymentResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -13418,7 +13417,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDeploymentRequestBuilder(String id) throws ApiException {
+  private HttpRequest.Builder getDeploymentRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getDeployment");
@@ -13427,7 +13426,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment/{id}"
+    String localVarPath = "/ai/deployment/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -13453,26 +13452,30 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
-   * Get Deployment Logs
+   * [BETA] Get Deployment Logs
+   * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param deploymentUuid  (required)
-   * @return Title9
+   * @param stream  (optional)
+   * @param tail  (optional)
+   * @return GetDeploymentLogsResponse
    * @throws ApiException if fails to make API call
    */
-  public Title9 getDeploymentLogs(String deploymentUuid) throws ApiException {
-    ApiResponse<Title9> localVarResponse = getDeploymentLogsWithHttpInfo(deploymentUuid);
+  public GetDeploymentLogsResponse getDeploymentLogs(UUID deploymentUuid, Boolean stream, Long tail) throws ApiException {
+    ApiResponse<GetDeploymentLogsResponse> localVarResponse = getDeploymentLogsWithHttpInfo(deploymentUuid, stream, tail);
     return localVarResponse.getData();
   }
 
   /**
-   * 
-   * Get Deployment Logs
+   * [BETA] Get Deployment Logs
+   * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param deploymentUuid  (required)
-   * @return ApiResponse&lt;Title9&gt;
+   * @param stream  (optional)
+   * @param tail  (optional)
+   * @return ApiResponse&lt;GetDeploymentLogsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title9> getDeploymentLogsWithHttpInfo(String deploymentUuid) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getDeploymentLogsRequestBuilder(deploymentUuid);
+  private ApiResponse<GetDeploymentLogsResponse> getDeploymentLogsWithHttpInfo(UUID deploymentUuid, Boolean stream, Long tail) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDeploymentLogsRequestBuilder(deploymentUuid, stream, tail);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -13484,10 +13487,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getDeploymentLogs", localVarResponse);
         }
-        return new ApiResponse<Title9>(
+        return new ApiResponse<GetDeploymentLogsResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title9>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetDeploymentLogsResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -13500,7 +13503,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getDeploymentLogsRequestBuilder(String deploymentUuid) throws ApiException {
+  private HttpRequest.Builder getDeploymentLogsRequestBuilder(UUID deploymentUuid, Boolean stream, Long tail) throws ApiException {
     // verify the required parameter 'deploymentUuid' is set
     if (deploymentUuid == null) {
       throw new ApiException(400, "Missing the required parameter 'deploymentUuid' when calling getDeploymentLogs");
@@ -13509,7 +13512,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment/{deployment-uuid}/logs"
+    String localVarPath = "/ai/deployment/{deployment-uuid}/logs"
         .replace("{deployment-uuid}", ApiClient.urlEncode(deploymentUuid.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -13521,7 +13524,24 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "stream";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("stream", stream));
+    localVarQueryParameterBaseName = "tail";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("tail", tail));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -14111,22 +14131,24 @@ public class ExoscaleApi {
   /**
    * [BETA] Get inference-engine Help
    * Get list of allowed inference engine parameters with their descriptions and allowed values
+   * @param version  (optional)
    * @return GetInferenceEngineHelpResponse
    * @throws ApiException if fails to make API call
    */
-  public GetInferenceEngineHelpResponse getInferenceEngineHelp() throws ApiException {
-    ApiResponse<GetInferenceEngineHelpResponse> localVarResponse = getInferenceEngineHelpWithHttpInfo();
+  public GetInferenceEngineHelpResponse getInferenceEngineHelp(String version) throws ApiException {
+    ApiResponse<GetInferenceEngineHelpResponse> localVarResponse = getInferenceEngineHelpWithHttpInfo(version);
     return localVarResponse.getData();
   }
 
   /**
    * [BETA] Get inference-engine Help
    * Get list of allowed inference engine parameters with their descriptions and allowed values
+   * @param version  (optional)
    * @return ApiResponse&lt;GetInferenceEngineHelpResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<GetInferenceEngineHelpResponse> getInferenceEngineHelpWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getInferenceEngineHelpRequestBuilder();
+  private ApiResponse<GetInferenceEngineHelpResponse> getInferenceEngineHelpWithHttpInfo(String version) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getInferenceEngineHelpRequestBuilder(version);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -14154,7 +14176,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getInferenceEngineHelpRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getInferenceEngineHelpRequestBuilder(String version) throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -14170,7 +14192,22 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "version";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("version", version));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -14601,25 +14638,25 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] Get Model
    * Get Model details
    * @param id  (required)
-   * @return Title7
+   * @return GetModelResponse
    * @throws ApiException if fails to make API call
    */
-  public Title7 getModel(String id) throws ApiException {
-    ApiResponse<Title7> localVarResponse = getModelWithHttpInfo(id);
+  public GetModelResponse getModel(UUID id) throws ApiException {
+    ApiResponse<GetModelResponse> localVarResponse = getModelWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] Get Model
    * Get Model details
    * @param id  (required)
-   * @return ApiResponse&lt;Title7&gt;
+   * @return ApiResponse&lt;GetModelResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title7> getModelWithHttpInfo(String id) throws ApiException {
+  private ApiResponse<GetModelResponse> getModelWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getModelRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -14632,10 +14669,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getModel", localVarResponse);
         }
-        return new ApiResponse<Title7>(
+        return new ApiResponse<GetModelResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title7>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetModelResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -14648,7 +14685,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder getModelRequestBuilder(String id) throws ApiException {
+  private HttpRequest.Builder getModelRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling getModel");
@@ -14657,7 +14694,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/model/{id}"
+    String localVarPath = "/ai/model/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -16974,23 +17011,23 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] List Deployments
    * List Deployments
-   * @return Title5
+   * @return ListDeploymentsResponse
    * @throws ApiException if fails to make API call
    */
-  public Title5 listDeployments() throws ApiException {
-    ApiResponse<Title5> localVarResponse = listDeploymentsWithHttpInfo();
+  public ListDeploymentsResponse listDeployments() throws ApiException {
+    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] List Deployments
    * List Deployments
-   * @return ApiResponse&lt;Title5&gt;
+   * @return ApiResponse&lt;ListDeploymentsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title5> listDeploymentsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17003,10 +17040,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("listDeployments", localVarResponse);
         }
-        return new ApiResponse<Title5>(
+        return new ApiResponse<ListDeploymentsResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title5>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListDeploymentsResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -17024,7 +17061,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment";
+    String localVarPath = "/ai/deployment";
       String requestBody = null;
       String authorizationValue;
 
@@ -17777,23 +17814,23 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] List Models
    * List Models
-   * @return Title10
+   * @return ListModelsResponse
    * @throws ApiException if fails to make API call
    */
-  public Title10 listModels() throws ApiException {
-    ApiResponse<Title10> localVarResponse = listModelsWithHttpInfo();
+  public ListModelsResponse listModels() throws ApiException {
+    ApiResponse<ListModelsResponse> localVarResponse = listModelsWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] List Models
    * List Models
-   * @return ApiResponse&lt;Title10&gt;
+   * @return ApiResponse&lt;ListModelsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title10> listModelsWithHttpInfo() throws ApiException {
+  private ApiResponse<ListModelsResponse> listModelsWithHttpInfo() throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = listModelsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17806,10 +17843,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("listModels", localVarResponse);
         }
-        return new ApiResponse<Title10>(
+        return new ApiResponse<ListModelsResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title10>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListModelsResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -17827,7 +17864,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/model";
+    String localVarPath = "/ai/model";
       String requestBody = null;
       String authorizationValue;
 
@@ -18818,11 +18855,11 @@ public class ExoscaleApi {
    * Update AI deployment
    * @param id  (required)
    * @param patchDeploymentRequest  (required)
-   * @return Title1
+   * @return CreateModel201Response
    * @throws ApiException if fails to make API call
    */
-  public Title1 patchDeployment(UUID id, PatchDeploymentRequest patchDeploymentRequest) throws ApiException {
-    ApiResponse<Title1> localVarResponse = patchDeploymentWithHttpInfo(id, patchDeploymentRequest);
+  public CreateModel201Response patchDeployment(UUID id, PatchDeploymentRequest patchDeploymentRequest) throws ApiException {
+    ApiResponse<CreateModel201Response> localVarResponse = patchDeploymentWithHttpInfo(id, patchDeploymentRequest);
     return localVarResponse.getData();
   }
 
@@ -18831,10 +18868,10 @@ public class ExoscaleApi {
    * Update AI deployment
    * @param id  (required)
    * @param patchDeploymentRequest  (required)
-   * @return ApiResponse&lt;Title1&gt;
+   * @return ApiResponse&lt;CreateModel201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title1> patchDeploymentWithHttpInfo(UUID id, PatchDeploymentRequest patchDeploymentRequest) throws ApiException {
+  private ApiResponse<CreateModel201Response> patchDeploymentWithHttpInfo(UUID id, PatchDeploymentRequest patchDeploymentRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = patchDeploymentRequestBuilder(id, patchDeploymentRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -18847,10 +18884,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("patchDeployment", localVarResponse);
         }
-        return new ApiResponse<Title1>(
+        return new ApiResponse<CreateModel201Response>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateModel201Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -21725,25 +21762,25 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] Reveal Deployment API Key
    * Get Deployment API Key
    * @param deploymentUuid  (required)
-   * @return Title
+   * @return RevealDeploymentApiKeyResponse
    * @throws ApiException if fails to make API call
    */
-  public Title revealDeploymentApiKey(String deploymentUuid) throws ApiException {
-    ApiResponse<Title> localVarResponse = revealDeploymentApiKeyWithHttpInfo(deploymentUuid);
+  public RevealDeploymentApiKeyResponse revealDeploymentApiKey(UUID deploymentUuid) throws ApiException {
+    ApiResponse<RevealDeploymentApiKeyResponse> localVarResponse = revealDeploymentApiKeyWithHttpInfo(deploymentUuid);
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] Reveal Deployment API Key
    * Get Deployment API Key
    * @param deploymentUuid  (required)
-   * @return ApiResponse&lt;Title&gt;
+   * @return ApiResponse&lt;RevealDeploymentApiKeyResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title> revealDeploymentApiKeyWithHttpInfo(String deploymentUuid) throws ApiException {
+  private ApiResponse<RevealDeploymentApiKeyResponse> revealDeploymentApiKeyWithHttpInfo(UUID deploymentUuid) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = revealDeploymentApiKeyRequestBuilder(deploymentUuid);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -21756,10 +21793,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("revealDeploymentApiKey", localVarResponse);
         }
-        return new ApiResponse<Title>(
+        return new ApiResponse<RevealDeploymentApiKeyResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RevealDeploymentApiKeyResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -21772,7 +21809,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder revealDeploymentApiKeyRequestBuilder(String deploymentUuid) throws ApiException {
+  private HttpRequest.Builder revealDeploymentApiKeyRequestBuilder(UUID deploymentUuid) throws ApiException {
     // verify the required parameter 'deploymentUuid' is set
     if (deploymentUuid == null) {
       throw new ApiException(400, "Missing the required parameter 'deploymentUuid' when calling revealDeploymentApiKey");
@@ -21781,7 +21818,7 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment/{deployment-uuid}/api-key"
+    String localVarPath = "/ai/deployment/{deployment-uuid}/api-key"
         .replace("{deployment-uuid}", ApiClient.urlEncode(deploymentUuid.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -22311,28 +22348,28 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * 
+   * [BETA] Scale Deployment
    * Scale Deployment
    * @param id  (required)
-   * @param title11  (required)
-   * @return Title4
+   * @param scaleDeploymentRequest  (required)
+   * @return CreateModel201Response
    * @throws ApiException if fails to make API call
    */
-  public Title4 scaleDeployment(String id, Title11 title11) throws ApiException {
-    ApiResponse<Title4> localVarResponse = scaleDeploymentWithHttpInfo(id, title11);
+  public CreateModel201Response scaleDeployment(UUID id, ScaleDeploymentRequest scaleDeploymentRequest) throws ApiException {
+    ApiResponse<CreateModel201Response> localVarResponse = scaleDeploymentWithHttpInfo(id, scaleDeploymentRequest);
     return localVarResponse.getData();
   }
 
   /**
-   * 
+   * [BETA] Scale Deployment
    * Scale Deployment
    * @param id  (required)
-   * @param title11  (required)
-   * @return ApiResponse&lt;Title4&gt;
+   * @param scaleDeploymentRequest  (required)
+   * @return ApiResponse&lt;CreateModel201Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Title4> scaleDeploymentWithHttpInfo(String id, Title11 title11) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = scaleDeploymentRequestBuilder(id, title11);
+  private ApiResponse<CreateModel201Response> scaleDeploymentWithHttpInfo(UUID id, ScaleDeploymentRequest scaleDeploymentRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = scaleDeploymentRequestBuilder(id, scaleDeploymentRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -22344,10 +22381,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("scaleDeployment", localVarResponse);
         }
-        return new ApiResponse<Title4>(
+        return new ApiResponse<CreateModel201Response>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Title4>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateModel201Response>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -22360,25 +22397,25 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder scaleDeploymentRequestBuilder(String id, Title11 title11) throws ApiException {
+  private HttpRequest.Builder scaleDeploymentRequestBuilder(UUID id, ScaleDeploymentRequest scaleDeploymentRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling scaleDeployment");
     }
-    // verify the required parameter 'title11' is set
-    if (title11 == null) {
-      throw new ApiException(400, "Missing the required parameter 'title11' when calling scaleDeployment");
+    // verify the required parameter 'scaleDeploymentRequest' is set
+    if (scaleDeploymentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'scaleDeploymentRequest' when calling scaleDeployment");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/deployment/{id}/scale"
+    String localVarPath = "/ai/deployment/{id}/scale"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(title11);
+          requestBody = memberVarObjectMapper.writeValueAsString(scaleDeploymentRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

@@ -19,67 +19,86 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.Title10ModelsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI model list
+ * Related resource
  */
 @JsonPropertyOrder({
-  Title10.JSON_PROPERTY_MODELS
+  CreateModel201ResponseResource.JSON_PROPERTY_TYPE,
+  CreateModel201ResponseResource.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class Title10 {
-  public static final String JSON_PROPERTY_MODELS = "models";
-  private List<Title10ModelsInner> models;
+public class CreateModel201ResponseResource {
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
-  public Title10() { 
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
+  public CreateModel201ResponseResource() { 
   }
 
-  public Title10 models(List<Title10ModelsInner> models) {
-    this.models = models;
-    return this;
-  }
-
-  public Title10 addModelsItem(Title10ModelsInner modelsItem) {
-    if (this.models == null) {
-      this.models = new ArrayList<>();
-    }
-    this.models.add(modelsItem);
+  public CreateModel201ResponseResource type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get models
-   * @return models
+   * Resource type
+   * @return type
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<Title10ModelsInner> getModels() {
-    return models;
+  public String getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MODELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModels(List<Title10ModelsInner> models) {
-    this.models = models;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public CreateModel201ResponseResource id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Resource ID
+   * @return id
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setId(UUID id) {
+    this.id = id;
   }
 
 
   /**
-   * Return true if this title_10 object is equal to o.
+   * Return true if this create_model_201_response_resource object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +108,22 @@ public class Title10 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Title10 title10 = (Title10) o;
-    return Objects.equals(this.models, title10.models);
+    CreateModel201ResponseResource createModel201ResponseResource = (CreateModel201ResponseResource) o;
+    return Objects.equals(this.type, createModel201ResponseResource.type) &&
+        Objects.equals(this.id, createModel201ResponseResource.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(models);
+    return Objects.hash(type, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Title10 {\n");
-    sb.append("    models: ").append(toIndentedString(models)).append("\n");
+    sb.append("class CreateModel201ResponseResource {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,14 +171,14 @@ public class Title10 {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `models` to the URL query string
-    if (getModels() != null) {
-      for (int i = 0; i < getModels().size(); i++) {
-        if (getModels().get(i) != null) {
-          joiner.add(getModels().get(i).toUrlQueryString(String.format("%smodels%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

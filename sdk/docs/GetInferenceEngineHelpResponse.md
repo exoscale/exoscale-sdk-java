@@ -8,7 +8,7 @@ List of allowed inference-engine parameters
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**parameters** | [**List&lt;GetInferenceEngineHelpResponseParametersInner&gt;**](GetInferenceEngineHelpResponseParametersInner.md) |  |  [optional] |
+|**parameters** | [**List&lt;InferenceEngineParameterEntry&gt;**](InferenceEngineParameterEntry.md) |  |  [optional] |
 
 
 

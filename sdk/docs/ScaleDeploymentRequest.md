@@ -8,7 +8,7 @@ Scale AI deployment
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**replicas** | **Object** | Number of replicas (&gt;&#x3D;0) |  |
+|**replicas** | **Long** | Number of replicas (&gt;&#x3D;0) |  |
 
 
 

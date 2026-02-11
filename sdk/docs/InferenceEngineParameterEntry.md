@@ -8,13 +8,13 @@ inference-engine parameter definition
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **Object** | Parameter description |  [optional] |
-|**allowedValues** | **List&lt;Object&gt;** | Allowed values |  [optional] |
-|**_default** | **Object** | Default value if nothing is specified |  [optional] |
-|**name** | **Object** | Parameter name |  [optional] |
-|**section** | **Object** | Section |  [optional] |
-|**type** | **Object** | Parameter type |  [optional] |
-|**flags** | **List&lt;Object&gt;** | Flag name |  [optional] |
+|**description** | **String** | Parameter description |  [optional] |
+|**allowedValues** | **List&lt;String&gt;** | Allowed values |  [optional] |
+|**_default** | **String** | Default value if nothing is specified |  [optional] |
+|**name** | **String** | Parameter name |  [optional] |
+|**section** | **String** | Section |  [optional] |
+|**type** | **String** | Parameter type |  [optional] |
+|**flags** | **List&lt;String&gt;** | Flag name |  [optional] |
 
 
 

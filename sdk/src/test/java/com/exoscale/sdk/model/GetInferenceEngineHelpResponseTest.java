@@ -13,7 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.GetInferenceEngineHelpResponseParametersInner;
+import com.exoscale.sdk.model.InferenceEngineParameterEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;

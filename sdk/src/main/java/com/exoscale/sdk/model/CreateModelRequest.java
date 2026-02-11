@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -42,16 +38,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateModelRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+  private String name;
 
   public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
-  private JsonNullable<Object> huggingfaceToken = JsonNullable.<Object>of(null);
+  private String huggingfaceToken;
 
   public CreateModelRequest() { 
   }
 
-  public CreateModelRequest name(Object name) {
-    this.name = JsonNullable.<Object>of(name);
+  public CreateModelRequest name(String name) {
+    this.name = name;
     return this;
   }
 
@@ -60,31 +56,23 @@ public class CreateModelRequest {
    * @return name
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getName() {
-        return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getName_JsonNullable() {
+  public String getName() {
     return name;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<Object> name) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
     this.name = name;
   }
 
-  public void setName(Object name) {
-    this.name = JsonNullable.<Object>of(name);
-  }
 
-
-  public CreateModelRequest huggingfaceToken(Object huggingfaceToken) {
-    this.huggingfaceToken = JsonNullable.<Object>of(huggingfaceToken);
+  public CreateModelRequest huggingfaceToken(String huggingfaceToken) {
+    this.huggingfaceToken = huggingfaceToken;
     return this;
   }
 
@@ -93,26 +81,18 @@ public class CreateModelRequest {
    * @return huggingfaceToken
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getHuggingfaceToken() {
-        return huggingfaceToken.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getHuggingfaceToken_JsonNullable() {
+  public String getHuggingfaceToken() {
     return huggingfaceToken;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  public void setHuggingfaceToken_JsonNullable(JsonNullable<Object> huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-  }
 
-  public void setHuggingfaceToken(Object huggingfaceToken) {
-    this.huggingfaceToken = JsonNullable.<Object>of(huggingfaceToken);
+
+  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHuggingfaceToken(String huggingfaceToken) {
+    this.huggingfaceToken = huggingfaceToken;
   }
 
 
@@ -128,24 +108,13 @@ public class CreateModelRequest {
       return false;
     }
     CreateModelRequest createModelRequest = (CreateModelRequest) o;
-    return equalsNullable(this.name, createModelRequest.name) &&
-        equalsNullable(this.huggingfaceToken, createModelRequest.huggingfaceToken);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.name, createModelRequest.name) &&
+        Objects.equals(this.huggingfaceToken, createModelRequest.huggingfaceToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(huggingfaceToken));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(name, huggingfaceToken);
   }
 
   @Override

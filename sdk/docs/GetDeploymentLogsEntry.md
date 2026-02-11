@@ -8,9 +8,9 @@ A single log entry
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**time** | **Object** | Timestamp of the log entry |  [optional] |
-|**node** | **Object** | Node identifier |  [optional] |
-|**message** | **Object** | Log message content |  [optional] |
+|**time** | **String** | Timestamp of the log entry |  [optional] |
+|**node** | **String** | Node identifier |  [optional] |
+|**message** | **String** | Log message content |  [optional] |
 
 
 

@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -43,19 +39,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentLogsEntry {
   public static final String JSON_PROPERTY_TIME = "time";
-  private JsonNullable<Object> time = JsonNullable.<Object>of(null);
+  private String time;
 
   public static final String JSON_PROPERTY_NODE = "node";
-  private JsonNullable<Object> node = JsonNullable.<Object>of(null);
+  private String node;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  private JsonNullable<Object> message = JsonNullable.<Object>of(null);
+  private String message;
 
   public GetDeploymentLogsEntry() { 
   }
 
-  public GetDeploymentLogsEntry time(Object time) {
-    this.time = JsonNullable.<Object>of(time);
+  public GetDeploymentLogsEntry time(String time) {
+    this.time = time;
     return this;
   }
 
@@ -64,31 +60,23 @@ public class GetDeploymentLogsEntry {
    * @return time
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getTime() {
-        return time.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getTime_JsonNullable() {
+  public String getTime() {
     return time;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_TIME)
-  public void setTime_JsonNullable(JsonNullable<Object> time) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTime(String time) {
     this.time = time;
   }
 
-  public void setTime(Object time) {
-    this.time = JsonNullable.<Object>of(time);
-  }
 
-
-  public GetDeploymentLogsEntry node(Object node) {
-    this.node = JsonNullable.<Object>of(node);
+  public GetDeploymentLogsEntry node(String node) {
+    this.node = node;
     return this;
   }
 
@@ -97,31 +85,23 @@ public class GetDeploymentLogsEntry {
    * @return node
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getNode() {
-        return node.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getNode_JsonNullable() {
+  public String getNode() {
     return node;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_NODE)
-  public void setNode_JsonNullable(JsonNullable<Object> node) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNode(String node) {
     this.node = node;
   }
 
-  public void setNode(Object node) {
-    this.node = JsonNullable.<Object>of(node);
-  }
 
-
-  public GetDeploymentLogsEntry message(Object message) {
-    this.message = JsonNullable.<Object>of(message);
+  public GetDeploymentLogsEntry message(String message) {
+    this.message = message;
     return this;
   }
 
@@ -130,26 +110,18 @@ public class GetDeploymentLogsEntry {
    * @return message
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMessage() {
-        return message.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMessage_JsonNullable() {
+  public String getMessage() {
     return message;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  public void setMessage_JsonNullable(JsonNullable<Object> message) {
-    this.message = message;
-  }
 
-  public void setMessage(Object message) {
-    this.message = JsonNullable.<Object>of(message);
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -165,25 +137,14 @@ public class GetDeploymentLogsEntry {
       return false;
     }
     GetDeploymentLogsEntry getDeploymentLogsEntry = (GetDeploymentLogsEntry) o;
-    return equalsNullable(this.time, getDeploymentLogsEntry.time) &&
-        equalsNullable(this.node, getDeploymentLogsEntry.node) &&
-        equalsNullable(this.message, getDeploymentLogsEntry.message);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.time, getDeploymentLogsEntry.time) &&
+        Objects.equals(this.node, getDeploymentLogsEntry.node) &&
+        Objects.equals(this.message, getDeploymentLogsEntry.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(time), hashCodeNullable(node), hashCodeNullable(message));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(time, node, message);
   }
 
   @Override

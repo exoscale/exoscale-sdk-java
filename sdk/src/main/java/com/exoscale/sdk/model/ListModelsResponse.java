@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.Title10ModelsInner;
+import com.exoscale.sdk.model.ListModelsResponseEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,17 +40,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListModelsResponse {
   public static final String JSON_PROPERTY_MODELS = "models";
-  private List<Title10ModelsInner> models;
+  private List<ListModelsResponseEntry> models;
 
   public ListModelsResponse() { 
   }
 
-  public ListModelsResponse models(List<Title10ModelsInner> models) {
+  public ListModelsResponse models(List<ListModelsResponseEntry> models) {
     this.models = models;
     return this;
   }
 
-  public ListModelsResponse addModelsItem(Title10ModelsInner modelsItem) {
+  public ListModelsResponse addModelsItem(ListModelsResponseEntry modelsItem) {
     if (this.models == null) {
       this.models = new ArrayList<>();
     }
@@ -66,14 +66,14 @@ public class ListModelsResponse {
   @JsonProperty(JSON_PROPERTY_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Title10ModelsInner> getModels() {
+  public List<ListModelsResponseEntry> getModels() {
     return models;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MODELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setModels(List<Title10ModelsInner> models) {
+  public void setModels(List<ListModelsResponseEntry> models) {
     this.models = models;
   }
 

@@ -27,10 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -101,10 +97,10 @@ public class GetModelResponse {
   private UUID id;
 
   public static final String JSON_PROPERTY_MODEL_SIZE = "model-size";
-  private JsonNullable<Object> modelSize = JsonNullable.<Object>of(null);
+  private Long modelSize;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private JsonNullable<Object> createdAt = JsonNullable.<Object>of(null);
+  private OffsetDateTime createdAt;
 
   public GetModelResponse() { 
   }
@@ -113,12 +109,12 @@ public class GetModelResponse {
   public GetModelResponse(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT) Object createdAt
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.updatedAt = updatedAt;
     this.id = id;
-    this.createdAt = createdAt == null ? JsonNullable.<Object>undefined() : JsonNullable.of(createdAt);
+    this.createdAt = createdAt;
   }
 
    /**
@@ -201,8 +197,8 @@ public class GetModelResponse {
 
 
 
-  public GetModelResponse modelSize(Object modelSize) {
-    this.modelSize = JsonNullable.<Object>of(modelSize);
+  public GetModelResponse modelSize(Long modelSize) {
+    this.modelSize = modelSize;
     return this;
   }
 
@@ -212,26 +208,18 @@ public class GetModelResponse {
    * @return modelSize
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getModelSize() {
-        return modelSize.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getModelSize_JsonNullable() {
+  public Long getModelSize() {
     return modelSize;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
-  public void setModelSize_JsonNullable(JsonNullable<Object> modelSize) {
-    this.modelSize = modelSize;
-  }
 
-  public void setModelSize(Object modelSize) {
-    this.modelSize = JsonNullable.<Object>of(modelSize);
+
+  @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setModelSize(Long modelSize) {
+    this.modelSize = modelSize;
   }
 
 
@@ -240,27 +228,13 @@ public class GetModelResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getCreatedAt() {
-    
-    if (createdAt == null) {
-      createdAt = JsonNullable.<Object>of(null);
-    }
-    return createdAt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCreatedAt_JsonNullable() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  private void setCreatedAt_JsonNullable(JsonNullable<Object> createdAt) {
-    this.createdAt = createdAt;
-  }
+
 
 
 
@@ -280,24 +254,13 @@ public class GetModelResponse {
         Objects.equals(this.name, getModelResponse.name) &&
         Objects.equals(this.state, getModelResponse.state) &&
         Objects.equals(this.id, getModelResponse.id) &&
-        equalsNullable(this.modelSize, getModelResponse.modelSize) &&
-        equalsNullable(this.createdAt, getModelResponse.createdAt);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.modelSize, getModelResponse.modelSize) &&
+        Objects.equals(this.createdAt, getModelResponse.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, state, id, hashCodeNullable(modelSize), hashCodeNullable(createdAt));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(updatedAt, name, state, id, modelSize, createdAt);
   }
 
   @Override

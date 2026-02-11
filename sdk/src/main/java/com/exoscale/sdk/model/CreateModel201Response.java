@@ -19,17 +19,14 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.Title4Resource;
+import com.exoscale.sdk.model.CreateModel201ResponseResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -37,14 +34,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * User Operation
  */
 @JsonPropertyOrder({
-  Title4.JSON_PROPERTY_STATE,
-  Title4.JSON_PROPERTY_REASON,
-  Title4.JSON_PROPERTY_ID,
-  Title4.JSON_PROPERTY_RESOURCE,
-  Title4.JSON_PROPERTY_MESSAGE
+  CreateModel201Response.JSON_PROPERTY_STATE,
+  CreateModel201Response.JSON_PROPERTY_REASON,
+  CreateModel201Response.JSON_PROPERTY_ID,
+  CreateModel201Response.JSON_PROPERTY_RESOURCE,
+  CreateModel201Response.JSON_PROPERTY_MESSAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class Title4 {
+public class CreateModel201Response {
   /**
    * Operation state
    */
@@ -144,18 +141,18 @@ public class Title4 {
   private ReasonEnum reason;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private Object id = null;
+  private UUID id;
 
   public static final String JSON_PROPERTY_RESOURCE = "resource";
-  private Title4Resource resource;
+  private CreateModel201ResponseResource resource;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  private JsonNullable<Object> message = JsonNullable.<Object>of(null);
+  private String message;
 
-  public Title4() { 
+  public CreateModel201Response() { 
   }
 
-  public Title4 state(StateEnum state) {
+  public CreateModel201Response state(StateEnum state) {
     this.state = state;
     return this;
   }
@@ -180,7 +177,7 @@ public class Title4 {
   }
 
 
-  public Title4 reason(ReasonEnum reason) {
+  public CreateModel201Response reason(ReasonEnum reason) {
     this.reason = reason;
     return this;
   }
@@ -205,7 +202,7 @@ public class Title4 {
   }
 
 
-  public Title4 id(Object id) {
+  public CreateModel201Response id(UUID id) {
     this.id = id;
     return this;
   }
@@ -214,23 +211,23 @@ public class Title4 {
    * Operation ID
    * @return id
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getId() {
+  public UUID getId() {
     return id;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Object id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public Title4 resource(Title4Resource resource) {
+  public CreateModel201Response resource(CreateModel201ResponseResource resource) {
     this.resource = resource;
     return this;
   }
@@ -243,20 +240,20 @@ public class Title4 {
   @JsonProperty(JSON_PROPERTY_RESOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Title4Resource getResource() {
+  public CreateModel201ResponseResource getResource() {
     return resource;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RESOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setResource(Title4Resource resource) {
+  public void setResource(CreateModel201ResponseResource resource) {
     this.resource = resource;
   }
 
 
-  public Title4 message(Object message) {
-    this.message = JsonNullable.<Object>of(message);
+  public CreateModel201Response message(String message) {
+    this.message = message;
     return this;
   }
 
@@ -265,31 +262,23 @@ public class Title4 {
    * @return message
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMessage() {
-        return message.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMessage_JsonNullable() {
+  public String getMessage() {
     return message;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  public void setMessage_JsonNullable(JsonNullable<Object> message) {
-    this.message = message;
-  }
 
-  public void setMessage(Object message) {
-    this.message = JsonNullable.<Object>of(message);
+
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
   /**
-   * Return true if this title_4 object is equal to o.
+   * Return true if this create_model_201_response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -299,34 +288,23 @@ public class Title4 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Title4 title4 = (Title4) o;
-    return Objects.equals(this.state, title4.state) &&
-        Objects.equals(this.reason, title4.reason) &&
-        Objects.equals(this.id, title4.id) &&
-        Objects.equals(this.resource, title4.resource) &&
-        equalsNullable(this.message, title4.message);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    CreateModel201Response createModel201Response = (CreateModel201Response) o;
+    return Objects.equals(this.state, createModel201Response.state) &&
+        Objects.equals(this.reason, createModel201Response.reason) &&
+        Objects.equals(this.id, createModel201Response.id) &&
+        Objects.equals(this.resource, createModel201Response.resource) &&
+        Objects.equals(this.message, createModel201Response.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(state, reason, id, resource, hashCodeNullable(message));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(state, reason, id, resource, message);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Title4 {\n");
+    sb.append("class CreateModel201Response {\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

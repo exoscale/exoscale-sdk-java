@@ -25,10 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -41,13 +37,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class RevealDeploymentApiKeyResponse {
   public static final String JSON_PROPERTY_API_KEY = "api-key";
-  private JsonNullable<Object> apiKey = JsonNullable.<Object>of(null);
+  private String apiKey;
 
   public RevealDeploymentApiKeyResponse() { 
   }
 
-  public RevealDeploymentApiKeyResponse apiKey(Object apiKey) {
-    this.apiKey = JsonNullable.<Object>of(apiKey);
+  public RevealDeploymentApiKeyResponse apiKey(String apiKey) {
+    this.apiKey = apiKey;
     return this;
   }
 
@@ -56,26 +52,18 @@ public class RevealDeploymentApiKeyResponse {
    * @return apiKey
   **/
   @javax.annotation.Nullable
-  @JsonIgnore
-
-  public Object getApiKey() {
-        return apiKey.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getApiKey_JsonNullable() {
+  public String getApiKey() {
     return apiKey;
   }
-  
-  @JsonProperty(JSON_PROPERTY_API_KEY)
-  public void setApiKey_JsonNullable(JsonNullable<Object> apiKey) {
-    this.apiKey = apiKey;
-  }
 
-  public void setApiKey(Object apiKey) {
-    this.apiKey = JsonNullable.<Object>of(apiKey);
+
+  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
   }
 
 
@@ -91,23 +79,12 @@ public class RevealDeploymentApiKeyResponse {
       return false;
     }
     RevealDeploymentApiKeyResponse revealDeploymentApiKeyResponse = (RevealDeploymentApiKeyResponse) o;
-    return equalsNullable(this.apiKey, revealDeploymentApiKeyResponse.apiKey);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.apiKey, revealDeploymentApiKeyResponse.apiKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(apiKey));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(apiKey);
   }
 
   @Override
