@@ -52,7 +52,7 @@
               </additionalProperties>
               <output>${project.basedir}/sdk</output>
               <templateDirectory>generator</templateDirectory>
-	      <skipValidateSpec>true</skipValidateSpec>
+              <skipValidateSpec>true</skipValidateSpec>
             </configuration>
           </execution>
         </executions>
