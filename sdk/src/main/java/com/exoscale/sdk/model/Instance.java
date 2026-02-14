@@ -19,16 +19,16 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.ElasticIp;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.ElasticIpRef;
 import com.exoscale.sdk.model.InstanceState;
 import com.exoscale.sdk.model.InstanceType;
 import com.exoscale.sdk.model.ListInstances200ResponseInstancesInnerPrivateNetworksInner;
 import com.exoscale.sdk.model.Manager;
 import com.exoscale.sdk.model.PublicIpAssignment;
-import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.Snapshot;
+import com.exoscale.sdk.model.SecurityGroupRef;
+import com.exoscale.sdk.model.SnapshotRef;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.Template;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -82,7 +82,7 @@ public class Instance {
   private Boolean applicationConsistentSnapshotEnabled;
 
   public static final String JSON_PROPERTY_ANTI_AFFINITY_GROUPS = "anti-affinity-groups";
-  private List<AntiAffinityGroup> antiAffinityGroups;
+  private List<AntiAffinityGroupRef> antiAffinityGroups;
 
   public static final String JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT = "public-ip-assignment";
   private PublicIpAssignment publicIpAssignment;
@@ -91,10 +91,10 @@ public class Instance {
   private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
-  private List<SecurityGroup> securityGroups;
+  private List<SecurityGroupRef> securityGroups;
 
   public static final String JSON_PROPERTY_ELASTIC_IPS = "elastic-ips";
-  private List<ElasticIp> elasticIps;
+  private List<ElasticIpRef> elasticIps;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -130,7 +130,7 @@ public class Instance {
   private Boolean tpmEnabled;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
-  private DeployTarget deployTarget;
+  private DeployTargetRef deployTarget;
 
   public static final String JSON_PROPERTY_IPV6_ADDRESS = "ipv6-address";
   private String ipv6Address;
@@ -139,7 +139,7 @@ public class Instance {
   private UUID id;
 
   public static final String JSON_PROPERTY_SNAPSHOTS = "snapshots";
-  private List<Snapshot> snapshots;
+  private List<SnapshotRef> snapshots;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -197,12 +197,12 @@ public class Instance {
   }
 
 
-  public Instance antiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
+  public Instance antiAffinityGroups(List<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
     return this;
   }
 
-  public Instance addAntiAffinityGroupsItem(AntiAffinityGroup antiAffinityGroupsItem) {
+  public Instance addAntiAffinityGroupsItem(AntiAffinityGroupRef antiAffinityGroupsItem) {
     if (this.antiAffinityGroups == null) {
       this.antiAffinityGroups = new ArrayList<>();
     }
@@ -218,14 +218,14 @@ public class Instance {
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<AntiAffinityGroup> getAntiAffinityGroups() {
+  public List<AntiAffinityGroupRef> getAntiAffinityGroups() {
     return antiAffinityGroups;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ANTI_AFFINITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAntiAffinityGroups(List<AntiAffinityGroup> antiAffinityGroups) {
+  public void setAntiAffinityGroups(List<AntiAffinityGroupRef> antiAffinityGroups) {
     this.antiAffinityGroups = antiAffinityGroups;
   }
 
@@ -288,12 +288,12 @@ public class Instance {
   }
 
 
-  public Instance securityGroups(List<SecurityGroup> securityGroups) {
+  public Instance securityGroups(List<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
     return this;
   }
 
-  public Instance addSecurityGroupsItem(SecurityGroup securityGroupsItem) {
+  public Instance addSecurityGroupsItem(SecurityGroupRef securityGroupsItem) {
     if (this.securityGroups == null) {
       this.securityGroups = new ArrayList<>();
     }
@@ -309,24 +309,24 @@ public class Instance {
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<SecurityGroup> getSecurityGroups() {
+  public List<SecurityGroupRef> getSecurityGroups() {
     return securityGroups;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SECURITY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSecurityGroups(List<SecurityGroup> securityGroups) {
+  public void setSecurityGroups(List<SecurityGroupRef> securityGroups) {
     this.securityGroups = securityGroups;
   }
 
 
-  public Instance elasticIps(List<ElasticIp> elasticIps) {
+  public Instance elasticIps(List<ElasticIpRef> elasticIps) {
     this.elasticIps = elasticIps;
     return this;
   }
 
-  public Instance addElasticIpsItem(ElasticIp elasticIpsItem) {
+  public Instance addElasticIpsItem(ElasticIpRef elasticIpsItem) {
     if (this.elasticIps == null) {
       this.elasticIps = new ArrayList<>();
     }
@@ -342,14 +342,14 @@ public class Instance {
   @JsonProperty(JSON_PROPERTY_ELASTIC_IPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ElasticIp> getElasticIps() {
+  public List<ElasticIpRef> getElasticIps() {
     return elasticIps;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ELASTIC_IPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setElasticIps(List<ElasticIp> elasticIps) {
+  public void setElasticIps(List<ElasticIpRef> elasticIps) {
     this.elasticIps = elasticIps;
   }
 
@@ -627,7 +627,7 @@ public class Instance {
   }
 
 
-  public Instance deployTarget(DeployTarget deployTarget) {
+  public Instance deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
   }
@@ -640,14 +640,14 @@ public class Instance {
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public DeployTarget getDeployTarget() {
+  public DeployTargetRef getDeployTarget() {
     return deployTarget;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployTarget(DeployTarget deployTarget) {
+  public void setDeployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
   }
 
@@ -682,12 +682,12 @@ public class Instance {
 
 
 
-  public Instance snapshots(List<Snapshot> snapshots) {
+  public Instance snapshots(List<SnapshotRef> snapshots) {
     this.snapshots = snapshots;
     return this;
   }
 
-  public Instance addSnapshotsItem(Snapshot snapshotsItem) {
+  public Instance addSnapshotsItem(SnapshotRef snapshotsItem) {
     if (this.snapshots == null) {
       this.snapshots = new ArrayList<>();
     }
@@ -703,14 +703,14 @@ public class Instance {
   @JsonProperty(JSON_PROPERTY_SNAPSHOTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Snapshot> getSnapshots() {
+  public List<SnapshotRef> getSnapshots() {
     return snapshots;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SNAPSHOTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSnapshots(List<Snapshot> snapshots) {
+  public void setSnapshots(List<SnapshotRef> snapshots) {
     this.snapshots = snapshots;
   }
 

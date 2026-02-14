@@ -35,14 +35,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Update AI deployment
  */
 @JsonPropertyOrder({
-  PatchDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_VERSION,
-  PatchDeploymentRequest.JSON_PROPERTY_NAME,
-  PatchDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS
+  UpdateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_VERSION,
+  UpdateDeploymentRequest.JSON_PROPERTY_NAME,
+  UpdateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class PatchDeploymentRequest {
+public class UpdateDeploymentRequest {
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._12_0;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -50,10 +50,10 @@ public class PatchDeploymentRequest {
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
   private List<String> inferenceEngineParameters;
 
-  public PatchDeploymentRequest() { 
+  public UpdateDeploymentRequest() { 
   }
 
-  public PatchDeploymentRequest inferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
+  public UpdateDeploymentRequest inferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
     this.inferenceEngineVersion = inferenceEngineVersion;
     return this;
   }
@@ -78,7 +78,7 @@ public class PatchDeploymentRequest {
   }
 
 
-  public PatchDeploymentRequest name(String name) {
+  public UpdateDeploymentRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -103,12 +103,12 @@ public class PatchDeploymentRequest {
   }
 
 
-  public PatchDeploymentRequest inferenceEngineParameters(List<String> inferenceEngineParameters) {
+  public UpdateDeploymentRequest inferenceEngineParameters(List<String> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
     return this;
   }
 
-  public PatchDeploymentRequest addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
+  public UpdateDeploymentRequest addInferenceEngineParametersItem(String inferenceEngineParametersItem) {
     if (this.inferenceEngineParameters == null) {
       this.inferenceEngineParameters = new ArrayList<>();
     }
@@ -137,7 +137,7 @@ public class PatchDeploymentRequest {
 
 
   /**
-   * Return true if this patch-deployment-request object is equal to o.
+   * Return true if this update-deployment-request object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -147,10 +147,10 @@ public class PatchDeploymentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PatchDeploymentRequest patchDeploymentRequest = (PatchDeploymentRequest) o;
-    return Objects.equals(this.inferenceEngineVersion, patchDeploymentRequest.inferenceEngineVersion) &&
-        Objects.equals(this.name, patchDeploymentRequest.name) &&
-        Objects.equals(this.inferenceEngineParameters, patchDeploymentRequest.inferenceEngineParameters);
+    UpdateDeploymentRequest updateDeploymentRequest = (UpdateDeploymentRequest) o;
+    return Objects.equals(this.inferenceEngineVersion, updateDeploymentRequest.inferenceEngineVersion) &&
+        Objects.equals(this.name, updateDeploymentRequest.name) &&
+        Objects.equals(this.inferenceEngineParameters, updateDeploymentRequest.inferenceEngineParameters);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class PatchDeploymentRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PatchDeploymentRequest {\n");
+    sb.append("class UpdateDeploymentRequest {\n");
     sb.append("    inferenceEngineVersion: ").append(toIndentedString(inferenceEngineVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    inferenceEngineParameters: ").append(toIndentedString(inferenceEngineParameters)).append("\n");
@@ -214,7 +214,7 @@ public class PatchDeploymentRequest {
 
     // add `inference-engine-version` to the URL query string
     if (getInferenceEngineVersion() != null) {
-      joiner.add(getInferenceEngineVersion().toUrlQueryString(prefix + "inference-engine-version" + suffix));
+      joiner.add(String.format("%sinference-engine-version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInferenceEngineVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string

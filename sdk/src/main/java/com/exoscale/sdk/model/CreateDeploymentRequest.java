@@ -50,7 +50,7 @@ public class CreateDeploymentRequest {
   private Long gpuCount;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._12_0;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -346,7 +346,7 @@ public class CreateDeploymentRequest {
 
     // add `inference-engine-version` to the URL query string
     if (getInferenceEngineVersion() != null) {
-      joiner.add(getInferenceEngineVersion().toUrlQueryString(prefix + "inference-engine-version" + suffix));
+      joiner.add(String.format("%sinference-engine-version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInferenceEngineVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string

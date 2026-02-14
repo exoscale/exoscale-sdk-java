@@ -13,16 +13,16 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.AntiAffinityGroup;
-import com.exoscale.sdk.model.DeployTarget;
-import com.exoscale.sdk.model.ElasticIp;
+import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.DeployTargetRef;
+import com.exoscale.sdk.model.ElasticIpRef;
 import com.exoscale.sdk.model.InstanceState;
 import com.exoscale.sdk.model.InstanceType;
 import com.exoscale.sdk.model.ListInstances200ResponseInstancesInnerPrivateNetworksInner;
 import com.exoscale.sdk.model.Manager;
 import com.exoscale.sdk.model.PublicIpAssignment;
-import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.Snapshot;
+import com.exoscale.sdk.model.SecurityGroupRef;
+import com.exoscale.sdk.model.SnapshotRef;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.Template;
 import com.fasterxml.jackson.annotation.JsonInclude;

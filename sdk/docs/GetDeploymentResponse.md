@@ -12,7 +12,7 @@ AI deployment
 |**updatedAt** | **OffsetDateTime** | Update time |  [optional] [readonly] |
 |**deploymentUrl** | **String** | Deployment URL (nullable) |  [optional] |
 |**serviceLevel** | **String** | Service level |  [optional] |
-|**inferenceEngineVersion** | [**InferenceEngineVersion**](InferenceEngineVersion.md) |  |  [optional] |
+|**inferenceEngineVersion** | **InferenceEngineVersion** |  |  [optional] |
 |**name** | **String** | Deployment name |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Deployment state |  [optional] |
 |**gpuType** | **String** | GPU type family |  [optional] |

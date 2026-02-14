@@ -1,6 +1,6 @@
 
 
-# PatchDeploymentRequest
+# UpdateDeploymentRequest
 
 Update AI deployment
 
@@ -8,7 +8,7 @@ Update AI deployment
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**inferenceEngineVersion** | [**InferenceEngineVersion**](InferenceEngineVersion.md) |  |  [optional] |
+|**inferenceEngineVersion** | **InferenceEngineVersion** |  |  [optional] |
 |**name** | **String** | Deployment name |  [optional] |
 |**inferenceEngineParameters** | **List&lt;String&gt;** | Optional extra inference engine server CLI args |  [optional] |
 

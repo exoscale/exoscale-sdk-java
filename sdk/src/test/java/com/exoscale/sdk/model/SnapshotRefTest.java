@@ -25,25 +25,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateModel201ResponseResource
+ * Model tests for SnapshotRef
  */
-public class CreateModel201ResponseResourceTest {
-    private final CreateModel201ResponseResource model = new CreateModel201ResponseResource();
+public class SnapshotRefTest {
+    private final SnapshotRef model = new SnapshotRef();
 
     /**
-     * Model tests for CreateModel201ResponseResource
+     * Model tests for SnapshotRef
      */
     @Test
-    public void testCreateModel201ResponseResource() {
-        // TODO: test CreateModel201ResponseResource
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
+    public void testSnapshotRef() {
+        // TODO: test SnapshotRef
     }
 
     /**

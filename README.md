@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-02-11T22:21:41.643844850Z[Etc/UTC]
+- Build date: 2026-02-14T07:18:01.015438951Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-4719c2e</version>
+    <version>0.0.5-SNAPSHOT-55babf9</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4719c2e'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-55babf9'
 }
 ```
 
@@ -234,7 +234,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasTask**](sdk/docs/ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task
 *ExoscaleApi* | [**getDeployTarget**](sdk/docs/ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details
 *ExoscaleApi* | [**getDeployment**](sdk/docs/ExoscaleApi.md#getDeployment) | **GET** /ai/deployment/{id} | [BETA] Get Deployment
-*ExoscaleApi* | [**getDeploymentLogs**](sdk/docs/ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{deployment-uuid}/logs | [BETA] Get Deployment Logs
+*ExoscaleApi* | [**getDeploymentLogs**](sdk/docs/ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | [BETA] Get Deployment Logs
 *ExoscaleApi* | [**getDnsDomain**](sdk/docs/ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details
 *ExoscaleApi* | [**getDnsDomainRecord**](sdk/docs/ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
 *ExoscaleApi* | [**getDnsDomainZoneFile**](sdk/docs/ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
@@ -300,7 +300,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listTemplates**](sdk/docs/ExoscaleApi.md#listTemplates) | **GET** /template | List Templates
 *ExoscaleApi* | [**listUsers**](sdk/docs/ExoscaleApi.md#listUsers) | **GET** /user | List Users
 *ExoscaleApi* | [**listZones**](sdk/docs/ExoscaleApi.md#listZones) | **GET** /zone | List Zones
-*ExoscaleApi* | [**patchDeployment**](sdk/docs/ExoscaleApi.md#patchDeployment) | **PATCH** /ai/deployment/{id} | 
 *ExoscaleApi* | [**promoteSnapshotToTemplate**](sdk/docs/ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
 *ExoscaleApi* | [**rebootInstance**](sdk/docs/ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
 *ExoscaleApi* | [**registerSshKey**](sdk/docs/ExoscaleApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key
@@ -332,7 +331,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
 *ExoscaleApi* | [**revealDbaasThanosUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasThanosUserPassword) | **GET** /dbaas-thanos/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Thanos user
 *ExoscaleApi* | [**revealDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user
-*ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{deployment-uuid}/api-key | [BETA] Reveal Deployment API Key
+*ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
@@ -374,6 +373,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasServicePg**](sdk/docs/ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
 *ExoscaleApi* | [**updateDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#updateDbaasServiceThanos) | **PUT** /dbaas-thanos/{name} | 
 *ExoscaleApi* | [**updateDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} | 
+*ExoscaleApi* | [**updateDeployment**](sdk/docs/ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} | 
 *ExoscaleApi* | [**updateDnsDomainRecord**](sdk/docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
 *ExoscaleApi* | [**updateIamAssumeRolePolicy**](sdk/docs/ExoscaleApi.md#updateIamAssumeRolePolicy) | **PUT** /iam-role/{id}:assume-role-policy | Update IAM Assume role Policy
@@ -449,8 +449,6 @@ Class | Method | HTTP request | Description
  - [CreateInstancePoolRequest](sdk/docs/CreateInstancePoolRequest.md)
  - [CreateInstanceRequest](sdk/docs/CreateInstanceRequest.md)
  - [CreateLoadBalancerRequest](sdk/docs/CreateLoadBalancerRequest.md)
- - [CreateModel201Response](sdk/docs/CreateModel201Response.md)
- - [CreateModel201ResponseResource](sdk/docs/CreateModel201ResponseResource.md)
  - [CreateModelRequest](sdk/docs/CreateModelRequest.md)
  - [CreatePrivateNetworkRequest](sdk/docs/CreatePrivateNetworkRequest.md)
  - [CreateSecurityGroupRequest](sdk/docs/CreateSecurityGroupRequest.md)
@@ -736,7 +734,6 @@ Class | Method | HTTP request | Description
  - [Operation](sdk/docs/Operation.md)
  - [OperationReference](sdk/docs/OperationReference.md)
  - [Organization](sdk/docs/Organization.md)
- - [PatchDeploymentRequest](sdk/docs/PatchDeploymentRequest.md)
  - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
  - [PrimaryParameterNode](sdk/docs/PrimaryParameterNode.md)
  - [PrimaryParameterShard](sdk/docs/PrimaryParameterShard.md)
@@ -785,6 +782,7 @@ Class | Method | HTTP request | Description
  - [SksOidc](sdk/docs/SksOidc.md)
  - [Snapshot](sdk/docs/Snapshot.md)
  - [SnapshotExport](sdk/docs/SnapshotExport.md)
+ - [SnapshotRef](sdk/docs/SnapshotRef.md)
  - [SosBucketUsage](sdk/docs/SosBucketUsage.md)
  - [SshKey](sdk/docs/SshKey.md)
  - [SshKeyRef](sdk/docs/SshKeyRef.md)
@@ -813,6 +811,7 @@ Class | Method | HTTP request | Description
  - [UpdateDbaasServicePgRequest](sdk/docs/UpdateDbaasServicePgRequest.md)
  - [UpdateDbaasServiceThanosRequest](sdk/docs/UpdateDbaasServiceThanosRequest.md)
  - [UpdateDbaasServiceValkeyRequest](sdk/docs/UpdateDbaasServiceValkeyRequest.md)
+ - [UpdateDeploymentRequest](sdk/docs/UpdateDeploymentRequest.md)
  - [UpdateDnsDomainRecordRequest](sdk/docs/UpdateDnsDomainRecordRequest.md)
  - [UpdateElasticIpRequest](sdk/docs/UpdateElasticIpRequest.md)
  - [UpdateIamRoleRequest](sdk/docs/UpdateIamRoleRequest.md)

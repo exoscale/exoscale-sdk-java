@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,8 +21,6 @@ import org.junit.Test;
  * Model tests for InferenceEngineVersion
  */
 public class InferenceEngineVersionTest {
-    private final InferenceEngineVersion model = new InferenceEngineVersion();
-
     /**
      * Model tests for InferenceEngineVersion
      */

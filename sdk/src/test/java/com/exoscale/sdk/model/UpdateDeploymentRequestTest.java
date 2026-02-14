@@ -27,17 +27,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for PatchDeploymentRequest
+ * Model tests for UpdateDeploymentRequest
  */
-public class PatchDeploymentRequestTest {
-    private final PatchDeploymentRequest model = new PatchDeploymentRequest();
+public class UpdateDeploymentRequestTest {
+    private final UpdateDeploymentRequest model = new UpdateDeploymentRequest();
 
     /**
-     * Model tests for PatchDeploymentRequest
+     * Model tests for UpdateDeploymentRequest
      */
     @Test
-    public void testPatchDeploymentRequest() {
-        // TODO: test PatchDeploymentRequest
+    public void testUpdateDeploymentRequest() {
+        // TODO: test UpdateDeploymentRequest
     }
 
     /**

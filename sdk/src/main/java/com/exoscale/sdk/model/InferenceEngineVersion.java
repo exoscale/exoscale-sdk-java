@@ -19,65 +19,45 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Inference engine version
  */
-@JsonPropertyOrder({
-})
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class InferenceEngineVersion {
-  public InferenceEngineVersion() { 
+public enum InferenceEngineVersion {
+  
+  _12_0("0.12.0"),
+  
+  _15_1("0.15.1");
+
+  private String value;
+
+  InferenceEngineVersion(String value) {
+    this.value = value;
   }
 
-  /**
-   * Return true if this inference-engine-version object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return true;
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash();
+  @JsonValue
+  public String getValue() {
+    return value;
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class InferenceEngineVersion {\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @JsonCreator
+  public static InferenceEngineVersion fromValue(String value) {
+    for (InferenceEngineVersion b : InferenceEngineVersion.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-
-  /**
-   * Convert the instance into URL query string.
-   *
-   * @return URL query string
-   */
-  public String toUrlQueryString() {
-    return toUrlQueryString(null);
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
   /**
@@ -87,23 +67,12 @@ public class InferenceEngineVersion {
    * @return URL query string
    */
   public String toUrlQueryString(String prefix) {
-    String suffix = "";
-    String containerSuffix = "";
-    String containerPrefix = "";
     if (prefix == null) {
-      // style=form, explode=true, e.g. /pet?name=cat&type=manx
       prefix = "";
-    } else {
-      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
-      prefix = prefix + "[";
-      suffix = "]";
-      containerSuffix = "]";
-      containerPrefix = "[";
     }
 
-    StringJoiner joiner = new StringJoiner("&");
-
-    return joiner.toString();
+    return String.format("%s=%s", prefix, this.toString());
   }
+
 }
 

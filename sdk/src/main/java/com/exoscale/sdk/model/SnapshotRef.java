@@ -30,60 +30,31 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Related resource
+ * Snapshot reference
  */
 @JsonPropertyOrder({
-  CreateModel201ResponseResource.JSON_PROPERTY_TYPE,
-  CreateModel201ResponseResource.JSON_PROPERTY_ID
+  SnapshotRef.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateModel201ResponseResource {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
-
+public class SnapshotRef {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public CreateModel201ResponseResource() { 
+  public SnapshotRef() { 
   }
 
-  public CreateModel201ResponseResource type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Resource type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
-    return type;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public CreateModel201ResponseResource id(UUID id) {
+  public SnapshotRef id(UUID id) {
     this.id = id;
     return this;
   }
 
    /**
-   * Resource ID
+   * Snapshot ID
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
     return id;
@@ -91,14 +62,14 @@ public class CreateModel201ResponseResource {
 
 
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
   }
 
 
   /**
-   * Return true if this create_model_201_response_resource object is equal to o.
+   * Return true if this snapshot-ref object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -108,21 +79,19 @@ public class CreateModel201ResponseResource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateModel201ResponseResource createModel201ResponseResource = (CreateModel201ResponseResource) o;
-    return Objects.equals(this.type, createModel201ResponseResource.type) &&
-        Objects.equals(this.id, createModel201ResponseResource.id);
+    SnapshotRef snapshotRef = (SnapshotRef) o;
+    return Objects.equals(this.id, snapshotRef.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id);
+    return Objects.hash(id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateModel201ResponseResource {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class SnapshotRef {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -170,11 +139,6 @@ public class CreateModel201ResponseResource {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
 
     // add `id` to the URL query string
     if (getId() != null) {

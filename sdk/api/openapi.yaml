@@ -1452,12 +1452,12 @@ paths:
               $ref: '#/components/schemas/create-model-request'
         required: true
       responses:
-        "201":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/create_model_201_response'
-          description: "201"
+                $ref: '#/components/schemas/operation'
+          description: "200"
       summary: "[BETA] Create Model"
       tags:
       - exoscale
@@ -1528,12 +1528,12 @@ paths:
               $ref: '#/components/schemas/scale-deployment-request'
         required: true
       responses:
-        "202":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/create_model_201_response'
-          description: "202"
+                $ref: '#/components/schemas/operation'
+          description: "200"
       summary: "[BETA] Scale Deployment"
       tags:
       - exoscale
@@ -1981,18 +1981,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "412"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "400"
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/create_model_201_response'
-          description: "201"
       summary: "[BETA] Create Deployment"
       tags:
       - exoscale
@@ -2846,12 +2846,12 @@ paths:
           type: string
         style: simple
       responses:
-        "202":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/create_model_201_response'
-          description: "202"
+                $ref: '#/components/schemas/operation'
+          description: "200"
       summary: "[BETA] Delete Deployment"
       tags:
       - exoscale
@@ -2887,7 +2887,7 @@ paths:
       x-accepts: application/json
     patch:
       description: Update AI deployment
-      operationId: patch-deployment
+      operationId: update-deployment
       parameters:
       - explode: false
         in: path
@@ -2901,15 +2901,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/patch-deployment-request'
+              $ref: '#/components/schemas/update-deployment-request'
         required: true
       responses:
-        "202":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/create_model_201_response'
-          description: "202"
+                $ref: '#/components/schemas/operation'
+          description: "200"
       summary: ""
       tags:
       - exoscale
@@ -5474,12 +5474,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/delete-model-conflict-response'
           description: "412"
-        "202":
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/create_model_201_response'
-          description: "202"
+                $ref: '#/components/schemas/operation'
+          description: "200"
       summary: "[BETA] Delete Model"
       tags:
       - exoscale
@@ -7632,64 +7632,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /ai/deployment/{deployment-uuid}/logs:
-    get:
-      description: Return logs for the vLLM deployment (deploy/<release-name>--deployment-vllm).
-        Optional ?stream=true to request streaming (may not be supported).
-      operationId: get-deployment-logs
-      parameters:
-      - explode: false
-        in: path
-        name: deployment-uuid
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: stream
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: tail
-        required: false
-        schema:
-          format: int64
-          type: integer
-        style: form
-      responses:
-        "500":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error-response'
-          description: "500"
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error-response'
-          description: "404"
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/get-deployment-logs-response'
-          description: "200"
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error-response'
-          description: "400"
-      summary: "[BETA] Get Deployment Logs"
-      tags:
-      - exoscale
-      x-accepts: application/json
   /dbaas-opensearch/{service-name}/user/{username}/password/reveal:
     get:
       operationId: reveal-dbaas-opensearch-user-password
@@ -7738,30 +7680,6 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Initiate Valkey maintenance update
-      tags:
-      - exoscale
-      x-accepts: application/json
-  /ai/deployment/{deployment-uuid}/api-key:
-    get:
-      description: Get Deployment API Key
-      operationId: reveal-deployment-api-key
-      parameters:
-      - explode: false
-        in: path
-        name: deployment-uuid
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/reveal-deployment-api-key-response'
-          description: "200"
-      summary: "[BETA] Reveal Deployment API Key"
       tags:
       - exoscale
       x-accepts: application/json
@@ -8188,6 +8106,30 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /ai/deployment/{id}/api-key:
+    get:
+      description: Get Deployment API Key
+      operationId: reveal-deployment-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reveal-deployment-api-key-response'
+          description: "200"
+      summary: "[BETA] Reveal Deployment API Key"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /anti-affinity-group/{id}:
     delete:
       description: ""
@@ -8426,6 +8368,64 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
+      x-accepts: application/json
+  /ai/deployment/{id}/logs:
+    get:
+      description: Return logs for the vLLM deployment (deploy/<release-name>--deployment-vllm).
+        Optional ?stream=true to request streaming (may not be supported).
+      operationId: get-deployment-logs
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: stream
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: tail
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      responses:
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "500"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get-deployment-logs-response'
+          description: "200"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "400"
+      summary: "[BETA] Get Deployment Logs"
+      tags:
+      - exoscale
       x-accepts: application/json
   /sks-cluster/{id}/upgrade:
     put:
@@ -8716,7 +8716,6 @@ components:
           items:
             $ref: '#/components/schemas/get-deployment-logs-entry'
           type: array
-      title: get-deployment-logs-response
       type: object
     json-schema-schema-registry:
       additionalProperties: false
@@ -8793,22 +8792,6 @@ components:
           description: Resource name
           type: string
       type: object
-    patch-deployment-request:
-      description: Update AI deployment
-      properties:
-        inference-engine-version:
-          $ref: '#/components/schemas/inference-engine-version'
-        name:
-          description: Deployment name
-          minLength: 1
-          type: string
-        inference-engine-parameters:
-          description: Optional extra inference engine server CLI args
-          items:
-            type: string
-          type: array
-      title: patch-deployment-request
-      type: object
     dbaas-kafka-topic-acl-entry:
       example:
         topic: topic
@@ -8876,7 +8859,6 @@ components:
           description: Associated model ID
           format: uuid
           type: string
-      title: model-ref
       type: object
     dbaas-pg-pool-size:
       exclusiveMaximum: false
@@ -8996,7 +8978,6 @@ components:
         message:
           description: Log message content
           type: string
-      title: get-deployment-logs-entry
       type: object
     anti-affinity-group-ref:
       description: Anti-affinity group reference
@@ -9089,7 +9070,6 @@ components:
           items:
             $ref: '#/components/schemas/inference-engine-parameter-entry'
           type: array
-      title: get-inference-engine-help-response
       type: object
     dbaas-user-valkey-secrets:
       description: Valkey User secrets
@@ -9429,7 +9409,6 @@ components:
           items:
             type: string
           type: array
-      title: delete-model-conflict-response
       type: object
     dbaas-service-type:
       description: DBaaS service
@@ -10073,13 +10052,13 @@ components:
         healthcheck:
           mode: tcp
           tls-sni: tls-sni
-          strikes-fail: 5
-          port: 46277
-          strikes-ok: 11
+          strikes-fail: 12
+          port: 9607
+          strikes-ok: 2
           tls-skip-verify: true
-          interval: 279
+          interval: 180
           uri: uri
-          timeout: 22
+          timeout: 34
         ip: ip
         addressfamily: inet4
         description: description
@@ -10135,15 +10114,14 @@ components:
         huggingface-token:
           description: Huggingface Token
           type: string
-      title: create-model-request
       type: object
     inference-engine-version:
+      default: 0.12.0
       description: Inference engine version
       enum:
       - 0.12.0
       - 0.15.1
-      title: inference-engine-version
-      type: object
+      type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
       example:
@@ -10183,7 +10161,6 @@ components:
       properties:
         api-key:
           type: string
-      title: reveal-deployment-api-key-response
       type: object
     json-schema-kafka:
       additionalProperties: false
@@ -12599,8 +12576,85 @@ components:
     snapshot:
       description: Snapshot
       example:
-        instance: null
-        size: 5255
+        instance:
+          template:
+            visibility: private
+            description: description
+            default-user: default-user
+            password-enabled: true
+            zones:
+            - null
+            - null
+            version: version
+            application-consistent-snapshot-enabled: true
+            maintainer: maintainer
+            url: url
+            size: 0
+            build: build
+            boot-mode: legacy
+            name: name
+            checksum: checksum
+            ssh-key-enabled: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            family: family
+          secureboot-enabled: true
+          security-groups:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          private-networks:
+          - mac-address: mac-address
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - mac-address: mac-address
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          user-data: user-data
+          created-at: 2000-01-23T04:56:07.000+00:00
+          state: null
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          elastic-ips:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip-assignment: null
+          mac-address: mac-address
+          ssh-keys:
+          - name: name
+            fingerprint: fingerprint
+          - name: name
+            fingerprint: fingerprint
+          ssh-key:
+            name: name
+            fingerprint: fingerprint
+          manager:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: sks-nodepool
+          deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          instance-type:
+            memory: 0
+            size: large
+            cpus: 0
+            gpus: 0
+            authorized: true
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            family: gpu3
+            zones:
+            - null
+            - null
+          application-consistent-snapshot-enabled: true
+          labels:
+            key: labels
+          tpm-enabled: true
+          ipv6-address: ipv6-address
+          snapshots:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip: public-ip
+          name: name
+          disk-size: 28867
+          anti-affinity-groups:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        size: 4109
         name: name
         application-consistent: true
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -12896,13 +12950,13 @@ components:
       example:
         mode: tcp
         tls-sni: tls-sni
-        strikes-fail: 5
-        port: 46277
-        strikes-ok: 11
+        strikes-fail: 12
+        port: 9607
+        strikes-ok: 2
         tls-skip-verify: true
-        interval: 279
+        interval: 180
         uri: uri
-        timeout: 22
+        timeout: 34
       properties:
         strikes-ok:
           description: "Number of attempts before considering the target healthy (default:\
@@ -13312,7 +13366,6 @@ components:
           description: Error description
           readOnly: true
           type: string
-      title: error-response
       type: object
     enum-kafka-auth-method:
       enum:
@@ -13504,6 +13557,21 @@ components:
           description: Enable or Disable Kubernetes Audit
           type: boolean
       type: object
+    update-deployment-request:
+      description: Update AI deployment
+      properties:
+        inference-engine-version:
+          $ref: '#/components/schemas/inference-engine-version'
+        name:
+          description: Deployment name
+          minLength: 1
+          type: string
+        inference-engine-parameters:
+          description: Optional extra inference engine server CLI args
+          items:
+            type: string
+          type: array
+      type: object
     enum-service-state:
       enum:
       - running
@@ -13540,6 +13608,16 @@ components:
           items:
             $ref: '#/components/schemas/dbaas-kafka-schema-registry-acl-entry'
           type: array
+      type: object
+    snapshot-ref:
+      description: Snapshot reference
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: Snapshot ID
+          format: uuid
+          type: string
       type: object
     private-network-options:
       description: Private Network DHCP Options
@@ -14378,7 +14456,6 @@ components:
           type: array
         model:
           $ref: '#/components/schemas/model-ref'
-      title: get-deployment-response
       type: object
     iam-policy:
       description: Policy
@@ -14814,7 +14891,6 @@ components:
           items:
             $ref: '#/components/schemas/list-models-response-entry'
           type: array
-      title: list-models-response
       type: object
     instance-pool-ref:
       description: Target Instance Pool
@@ -14878,76 +14954,8 @@ components:
           family: family
         secureboot-enabled: true
         security-groups:
-        - name: name
-          description: description
-          rules:
-          - protocol: tcp
-            flow-direction: ingress
-            end-port: 39073
-            start-port: 5249
-            security-group:
-              visibility: private
-              name: name
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            icmp:
-              code: 152
-              type: 36
-            network: network
-          - protocol: tcp
-            flow-direction: ingress
-            end-port: 39073
-            start-port: 5249
-            security-group:
-              visibility: private
-              name: name
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            icmp:
-              code: 152
-              type: 36
-            network: network
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          external-sources:
-          - external-sources
-          - external-sources
-        - name: name
-          description: description
-          rules:
-          - protocol: tcp
-            flow-direction: ingress
-            end-port: 39073
-            start-port: 5249
-            security-group:
-              visibility: private
-              name: name
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            icmp:
-              code: 152
-              type: 36
-            network: network
-          - protocol: tcp
-            flow-direction: ingress
-            end-port: 39073
-            start-port: 5249
-            security-group:
-              visibility: private
-              name: name
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            icmp:
-              code: 152
-              type: 36
-            network: network
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          external-sources:
-          - external-sources
-          - external-sources
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         private-networks:
         - mac-address: mac-address
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14958,40 +14966,8 @@ components:
         state: null
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         elastic-ips:
-        - healthcheck:
-            mode: tcp
-            tls-sni: tls-sni
-            strikes-fail: 5
-            port: 46277
-            strikes-ok: 11
-            tls-skip-verify: true
-            interval: 279
-            uri: uri
-            timeout: 22
-          ip: ip
-          addressfamily: inet4
-          description: description
-          cidr: cidr
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          labels:
-            key: labels
-        - healthcheck:
-            mode: tcp
-            tls-sni: tls-sni
-            strikes-fail: 5
-            port: 46277
-            strikes-ok: 11
-            tls-skip-verify: true
-            interval: 279
-            uri: uri
-            timeout: 22
-          ip: ip
-          addressfamily: inet4
-          description: description
-          cidr: cidr
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          labels:
-            key: labels
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         public-ip-assignment: null
         mac-address: mac-address
         ssh-keys:
@@ -15006,10 +14982,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           type: sks-nodepool
         deploy-target:
-          name: name
-          description: description
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          type: edge
         instance-type:
           memory: 0
           size: large
@@ -15027,32 +15000,14 @@ components:
         tpm-enabled: true
         ipv6-address: ipv6-address
         snapshots:
-        - instance: null
-          size: 5255
-          name: name
-          application-consistent: true
-          created-at: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          state: snapshotting
-          export:
-            md5sum: md5sum
-            presigned-url: presigned-url
-        - instance: null
-          size: 5255
-          name: name
-          application-consistent: true
-          created-at: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          state: snapshotting
-          export:
-            md5sum: md5sum
-            presigned-url: presigned-url
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         public-ip: public-ip
         name: name
-        disk-size: 7634
+        disk-size: 28867
         anti-affinity-groups:
-        - null
-        - null
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         application-consistent-snapshot-enabled:
           description: Indicates if the instance will take application-consistent
@@ -15061,7 +15016,7 @@ components:
         anti-affinity-groups:
           description: Instance Anti-affinity Groups
           items:
-            $ref: '#/components/schemas/anti-affinity-group'
+            $ref: '#/components/schemas/anti-affinity-group-ref'
           type: array
         public-ip-assignment:
           $ref: '#/components/schemas/public-ip-assignment'
@@ -15072,12 +15027,12 @@ components:
         security-groups:
           description: Instance Security Groups
           items:
-            $ref: '#/components/schemas/security-group'
+            $ref: '#/components/schemas/security-group-ref'
           type: array
         elastic-ips:
           description: Instance Elastic IPs
           items:
-            $ref: '#/components/schemas/elastic-ip'
+            $ref: '#/components/schemas/elastic-ip-ref'
           type: array
         name:
           description: Instance name
@@ -15114,7 +15069,7 @@ components:
           description: Indicates if the instance has tpm enabled
           type: boolean
         deploy-target:
-          $ref: '#/components/schemas/deploy-target'
+          $ref: '#/components/schemas/deploy-target-ref'
         ipv6-address:
           description: Instance IPv6 address
           readOnly: true
@@ -15127,7 +15082,7 @@ components:
         snapshots:
           description: Instance Snapshots
           items:
-            $ref: '#/components/schemas/snapshot'
+            $ref: '#/components/schemas/snapshot-ref'
           type: array
         disk-size:
           description: Instance disk size in GiB
@@ -15222,7 +15177,6 @@ components:
           items:
             type: string
           type: array
-      title: inference-engine-parameter-entry
       type: object
     dbaas-user-mysql-secrets:
       description: MySQL User secrets
@@ -15412,7 +15366,6 @@ components:
           type: string
         model:
           $ref: '#/components/schemas/model-ref'
-      title: list-deployments-response-entry
       type: object
     dbaas-endpoint-elasticsearch-secrets:
       properties:
@@ -16011,7 +15964,6 @@ components:
           type: integer
       required:
       - replicas
-      title: scale-deployment-request
       type: object
     dbaas-integration-type:
       example:
@@ -17538,7 +17490,6 @@ components:
           items:
             $ref: '#/components/schemas/list-deployments-response-entry'
           type: array
-      title: list-deployments-response
       type: object
     anti-affinity-group:
       description: Anti-affinity Group
@@ -17567,76 +17518,8 @@ components:
             family: family
           secureboot-enabled: true
           security-groups:
-          - name: name
-            description: description
-            rules:
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            external-sources:
-            - external-sources
-            - external-sources
-          - name: name
-            description: description
-            rules:
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            external-sources:
-            - external-sources
-            - external-sources
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           private-networks:
           - mac-address: mac-address
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17647,40 +17530,8 @@ components:
           state: null
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           elastic-ips:
-          - healthcheck:
-              mode: tcp
-              tls-sni: tls-sni
-              strikes-fail: 5
-              port: 46277
-              strikes-ok: 11
-              tls-skip-verify: true
-              interval: 279
-              uri: uri
-              timeout: 22
-            ip: ip
-            addressfamily: inet4
-            description: description
-            cidr: cidr
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            labels:
-              key: labels
-          - healthcheck:
-              mode: tcp
-              tls-sni: tls-sni
-              strikes-fail: 5
-              port: 46277
-              strikes-ok: 11
-              tls-skip-verify: true
-              interval: 279
-              uri: uri
-              timeout: 22
-            ip: ip
-            addressfamily: inet4
-            description: description
-            cidr: cidr
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            labels:
-              key: labels
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: null
           mac-address: mac-address
           ssh-keys:
@@ -17695,10 +17546,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             type: sks-nodepool
           deploy-target:
-            name: name
-            description: description
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            type: edge
           instance-type:
             memory: 0
             size: large
@@ -17716,32 +17564,14 @@ components:
           tpm-enabled: true
           ipv6-address: ipv6-address
           snapshots:
-          - instance: null
-            size: 5255
-            name: name
-            application-consistent: true
-            created-at: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            state: snapshotting
-            export:
-              md5sum: md5sum
-              presigned-url: presigned-url
-          - instance: null
-            size: 5255
-            name: name
-            application-consistent: true
-            created-at: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            state: snapshotting
-            export:
-              md5sum: md5sum
-              presigned-url: presigned-url
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip: public-ip
           name: name
-          disk-size: 7634
+          disk-size: 28867
           anti-affinity-groups:
-          - null
-          - null
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - template:
             visibility: private
             description: description
@@ -17765,76 +17595,8 @@ components:
             family: family
           secureboot-enabled: true
           security-groups:
-          - name: name
-            description: description
-            rules:
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            external-sources:
-            - external-sources
-            - external-sources
-          - name: name
-            description: description
-            rules:
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            - protocol: tcp
-              flow-direction: ingress
-              end-port: 39073
-              start-port: 5249
-              security-group:
-                visibility: private
-                name: name
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              icmp:
-                code: 152
-                type: 36
-              network: network
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            external-sources:
-            - external-sources
-            - external-sources
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           private-networks:
           - mac-address: mac-address
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17845,40 +17607,8 @@ components:
           state: null
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           elastic-ips:
-          - healthcheck:
-              mode: tcp
-              tls-sni: tls-sni
-              strikes-fail: 5
-              port: 46277
-              strikes-ok: 11
-              tls-skip-verify: true
-              interval: 279
-              uri: uri
-              timeout: 22
-            ip: ip
-            addressfamily: inet4
-            description: description
-            cidr: cidr
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            labels:
-              key: labels
-          - healthcheck:
-              mode: tcp
-              tls-sni: tls-sni
-              strikes-fail: 5
-              port: 46277
-              strikes-ok: 11
-              tls-skip-verify: true
-              interval: 279
-              uri: uri
-              timeout: 22
-            ip: ip
-            addressfamily: inet4
-            description: description
-            cidr: cidr
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            labels:
-              key: labels
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: null
           mac-address: mac-address
           ssh-keys:
@@ -17893,10 +17623,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             type: sks-nodepool
           deploy-target:
-            name: name
-            description: description
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            type: edge
           instance-type:
             memory: 0
             size: large
@@ -17914,32 +17641,14 @@ components:
           tpm-enabled: true
           ipv6-address: ipv6-address
           snapshots:
-          - instance: null
-            size: 5255
-            name: name
-            application-consistent: true
-            created-at: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            state: snapshotting
-            export:
-              md5sum: md5sum
-              presigned-url: presigned-url
-          - instance: null
-            size: 5255
-            name: name
-            application-consistent: true
-            created-at: 2000-01-23T04:56:07.000+00:00
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            state: snapshotting
-            export:
-              md5sum: md5sum
-              presigned-url: presigned-url
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip: public-ip
           name: name
-          disk-size: 7634
+          disk-size: 28867
           anti-affinity-groups:
-          - null
-          - null
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         description: description
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18095,7 +17804,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-      title: get-model-response
       type: object
     dbaas-endpoint-elasticsearch-input-update:
       properties:
@@ -18163,7 +17871,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-      title: list-models-response-entry
       type: object
     dbaas-endpoint-opensearch-input-create:
       properties:
@@ -18179,7 +17886,6 @@ components:
           minimum: 0
           readOnly: true
           type: integer
-      title: get-organization-usage-response
       type: object
     dbaas-service-type-name:
       maxLength: 64
@@ -19512,7 +19218,6 @@ components:
       - gpu-count
       - gpu-type
       - replicas
-      title: create-deployment-request
       type: object
     enum-migration-method:
       enum:
@@ -19715,76 +19420,8 @@ components:
               family: family
             secureboot-enabled: true
             security-groups:
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             private-networks:
             - mac-address: mac-address
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19795,40 +19432,8 @@ components:
             state: null
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             elastic-ips:
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: null
             mac-address: mac-address
             ssh-keys:
@@ -19843,10 +19448,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
-              name: name
-              description: description
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              type: edge
             instance-type:
               memory: 0
               size: large
@@ -19864,32 +19466,14 @@ components:
             tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip: public-ip
             name: name
-            disk-size: 7634
+            disk-size: 28867
             anti-affinity-groups:
-            - null
-            - null
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               visibility: private
               description: description
@@ -19913,76 +19497,8 @@ components:
               family: family
             secureboot-enabled: true
             security-groups:
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             private-networks:
             - mac-address: mac-address
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19993,40 +19509,8 @@ components:
             state: null
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             elastic-ips:
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: null
             mac-address: mac-address
             ssh-keys:
@@ -20041,10 +19525,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
-              name: name
-              description: description
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              type: edge
             instance-type:
               memory: 0
               size: large
@@ -20062,32 +19543,14 @@ components:
             tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip: public-ip
             name: name
-            disk-size: 7634
+            disk-size: 28867
             anti-affinity-groups:
-            - null
-            - null
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
           description: description
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20115,76 +19578,8 @@ components:
               family: family
             secureboot-enabled: true
             security-groups:
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             private-networks:
             - mac-address: mac-address
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20195,40 +19590,8 @@ components:
             state: null
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             elastic-ips:
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: null
             mac-address: mac-address
             ssh-keys:
@@ -20243,10 +19606,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
-              name: name
-              description: description
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              type: edge
             instance-type:
               memory: 0
               size: large
@@ -20264,32 +19624,14 @@ components:
             tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip: public-ip
             name: name
-            disk-size: 7634
+            disk-size: 28867
             anti-affinity-groups:
-            - null
-            - null
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               visibility: private
               description: description
@@ -20313,76 +19655,8 @@ components:
               family: family
             secureboot-enabled: true
             security-groups:
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
-            - name: name
-              description: description
-              rules:
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              - protocol: tcp
-                flow-direction: ingress
-                end-port: 39073
-                start-port: 5249
-                security-group:
-                  visibility: private
-                  name: name
-                  id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                description: description
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-                icmp:
-                  code: 152
-                  type: 36
-                network: network
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              external-sources:
-              - external-sources
-              - external-sources
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             private-networks:
             - mac-address: mac-address
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20393,40 +19667,8 @@ components:
             state: null
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             elastic-ips:
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
-            - healthcheck:
-                mode: tcp
-                tls-sni: tls-sni
-                strikes-fail: 5
-                port: 46277
-                strikes-ok: 11
-                tls-skip-verify: true
-                interval: 279
-                uri: uri
-                timeout: 22
-              ip: ip
-              addressfamily: inet4
-              description: description
-              cidr: cidr
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              labels:
-                key: labels
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: null
             mac-address: mac-address
             ssh-keys:
@@ -20441,10 +19683,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
-              name: name
-              description: description
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              type: edge
             instance-type:
               memory: 0
               size: large
@@ -20462,32 +19701,14 @@ components:
             tpm-enabled: true
             ipv6-address: ipv6-address
             snapshots:
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
-            - instance: null
-              size: 5255
-              name: name
-              application-consistent: true
-              created-at: 2000-01-23T04:56:07.000+00:00
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              state: snapshotting
-              export:
-                md5sum: md5sum
-                presigned-url: presigned-url
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip: public-ip
             name: name
-            disk-size: 7634
+            disk-size: 28867
             anti-affinity-groups:
-            - null
-            - null
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
           description: description
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21254,71 +20475,6 @@ components:
       required:
       - instance
       type: object
-    create_model_201_response_resource:
-      description: Related resource
-      example:
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        type: type
-      properties:
-        type:
-          description: Resource type
-          type: string
-        id:
-          description: Resource ID
-          format: uuid
-          type: string
-      required:
-      - id
-      - type
-      type: object
-    create_model_201_response:
-      description: User Operation
-      example:
-        reason: incorrect
-        resource:
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          type: type
-        state: failure
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        message: message
-      properties:
-        state:
-          description: Operation state
-          enum:
-          - failure
-          - pending
-          - success
-          - timeout
-          type: string
-        reason:
-          description: Failure reason
-          enum:
-          - incorrect
-          - unknown
-          - unavailable
-          - forbidden
-          - busy
-          - fault
-          - partial
-          - not-found
-          - interrupted
-          - unsupported
-          - conflict
-          type: string
-        id:
-          description: Operation ID
-          format: uuid
-          type: string
-        resource:
-          $ref: '#/components/schemas/create_model_201_response_resource'
-        message:
-          description: Failure message
-          type: string
-      required:
-      - id
-      - resource
-      - state
-      type: object
     create_dbaas_mysql_user_request:
       properties:
         username:
@@ -21545,13 +20701,13 @@ components:
         - healthcheck:
             mode: tcp
             tls-sni: tls-sni
-            strikes-fail: 5
-            port: 46277
-            strikes-ok: 11
+            strikes-fail: 12
+            port: 9607
+            strikes-ok: 2
             tls-skip-verify: true
-            interval: 279
+            interval: 180
             uri: uri
-            timeout: 22
+            timeout: 34
           ip: ip
           addressfamily: inet4
           description: description
@@ -21562,13 +20718,13 @@ components:
         - healthcheck:
             mode: tcp
             tls-sni: tls-sni
-            strikes-fail: 5
-            port: 46277
-            strikes-ok: 11
+            strikes-fail: 12
+            port: 9607
+            strikes-ok: 2
             tls-skip-verify: true
-            interval: 279
+            interval: 180
             uri: uri
-            timeout: 22
+            timeout: 34
           ip: ip
           addressfamily: inet4
           description: description
@@ -22958,8 +22114,85 @@ components:
     list_snapshots_200_response:
       example:
         snapshots:
-        - instance: null
-          size: 5255
+        - instance:
+            template:
+              visibility: private
+              description: description
+              default-user: default-user
+              password-enabled: true
+              zones:
+              - null
+              - null
+              version: version
+              application-consistent-snapshot-enabled: true
+              maintainer: maintainer
+              url: url
+              size: 0
+              build: build
+              boot-mode: legacy
+              name: name
+              checksum: checksum
+              ssh-key-enabled: true
+              created-at: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              family: family
+            secureboot-enabled: true
+            security-groups:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            private-networks:
+            - mac-address: mac-address
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - mac-address: mac-address
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            user-data: user-data
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: null
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            elastic-ips:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: null
+            mac-address: mac-address
+            ssh-keys:
+            - name: name
+              fingerprint: fingerprint
+            - name: name
+              fingerprint: fingerprint
+            ssh-key:
+              name: name
+              fingerprint: fingerprint
+            manager:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: sks-nodepool
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              memory: 0
+              size: large
+              cpus: 0
+              gpus: 0
+              authorized: true
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              family: gpu3
+              zones:
+              - null
+              - null
+            application-consistent-snapshot-enabled: true
+            labels:
+              key: labels
+            tpm-enabled: true
+            ipv6-address: ipv6-address
+            snapshots:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip: public-ip
+            name: name
+            disk-size: 28867
+            anti-affinity-groups:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          size: 4109
           name: name
           application-consistent: true
           created-at: 2000-01-23T04:56:07.000+00:00
@@ -22968,8 +22201,85 @@ components:
           export:
             md5sum: md5sum
             presigned-url: presigned-url
-        - instance: null
-          size: 5255
+        - instance:
+            template:
+              visibility: private
+              description: description
+              default-user: default-user
+              password-enabled: true
+              zones:
+              - null
+              - null
+              version: version
+              application-consistent-snapshot-enabled: true
+              maintainer: maintainer
+              url: url
+              size: 0
+              build: build
+              boot-mode: legacy
+              name: name
+              checksum: checksum
+              ssh-key-enabled: true
+              created-at: 2000-01-23T04:56:07.000+00:00
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              family: family
+            secureboot-enabled: true
+            security-groups:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            private-networks:
+            - mac-address: mac-address
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - mac-address: mac-address
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            user-data: user-data
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: null
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            elastic-ips:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: null
+            mac-address: mac-address
+            ssh-keys:
+            - name: name
+              fingerprint: fingerprint
+            - name: name
+              fingerprint: fingerprint
+            ssh-key:
+              name: name
+              fingerprint: fingerprint
+            manager:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: sks-nodepool
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              memory: 0
+              size: large
+              cpus: 0
+              gpus: 0
+              authorized: true
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              family: gpu3
+              zones:
+              - null
+              - null
+            application-consistent-snapshot-enabled: true
+            labels:
+              key: labels
+            tpm-enabled: true
+            ipv6-address: ipv6-address
+            snapshots:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip: public-ip
+            name: name
+            disk-size: 28867
+            anti-affinity-groups:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          size: 4109
           name: name
           application-consistent: true
           created-at: 2000-01-23T04:56:07.000+00:00

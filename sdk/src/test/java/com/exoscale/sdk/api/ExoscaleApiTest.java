@@ -52,7 +52,6 @@ import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
-import com.exoscale.sdk.model.CreateModel201Response;
 import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
@@ -180,7 +179,6 @@ import com.exoscale.sdk.model.LoadBalancerService;
 import java.time.OffsetDateTime;
 import com.exoscale.sdk.model.Operation;
 import com.exoscale.sdk.model.Organization;
-import com.exoscale.sdk.model.PatchDeploymentRequest;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
 import com.exoscale.sdk.model.Quota;
@@ -221,6 +219,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
+import com.exoscale.sdk.model.UpdateDeploymentRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
 import com.exoscale.sdk.model.UpdateIamRoleRequest;
@@ -963,7 +962,7 @@ public class ExoscaleApiTest {
     @Test
     public void createDeploymentTest() throws ApiException {
         CreateDeploymentRequest createDeploymentRequest = null;
-        CreateModel201Response response = 
+        Operation response = 
         api.createDeployment(createDeploymentRequest);
         
         // TODO: test validations
@@ -1100,7 +1099,7 @@ public class ExoscaleApiTest {
     @Test
     public void createModelTest() throws ApiException {
         CreateModelRequest createModelRequest = null;
-        CreateModel201Response response = 
+        Operation response = 
         api.createModel(createModelRequest);
         
         // TODO: test validations
@@ -1706,7 +1705,7 @@ public class ExoscaleApiTest {
     @Test
     public void deleteDeploymentTest() throws ApiException {
         UUID id = null;
-        CreateModel201Response response = 
+        Operation response = 
         api.deleteDeployment(id);
         
         // TODO: test validations
@@ -1861,7 +1860,7 @@ public class ExoscaleApiTest {
     @Test
     public void deleteModelTest() throws ApiException {
         UUID id = null;
-        CreateModel201Response response = 
+        Operation response = 
         api.deleteModel(id);
         
         // TODO: test validations
@@ -2903,11 +2902,11 @@ public class ExoscaleApiTest {
      */
     @Test
     public void getDeploymentLogsTest() throws ApiException {
-        UUID deploymentUuid = null;
+        UUID id = null;
         Boolean stream = null;
         Long tail = null;
         GetDeploymentLogsResponse response = 
-        api.getDeploymentLogs(deploymentUuid, stream, tail);
+        api.getDeploymentLogs(id, stream, tail);
         
         // TODO: test validations
     }
@@ -4002,24 +4001,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * 
-     *
-     * Update AI deployment
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void patchDeploymentTest() throws ApiException {
-        UUID id = null;
-        PatchDeploymentRequest patchDeploymentRequest = null;
-        CreateModel201Response response = 
-        api.patchDeployment(id, patchDeploymentRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Promote a Snapshot to a Template
      *
      * 
@@ -4586,9 +4567,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void revealDeploymentApiKeyTest() throws ApiException {
-        UUID deploymentUuid = null;
+        UUID id = null;
         RevealDeploymentApiKeyResponse response = 
-        api.revealDeploymentApiKey(deploymentUuid);
+        api.revealDeploymentApiKey(id);
         
         // TODO: test validations
     }
@@ -4708,7 +4689,7 @@ public class ExoscaleApiTest {
     public void scaleDeploymentTest() throws ApiException {
         UUID id = null;
         ScaleDeploymentRequest scaleDeploymentRequest = null;
-        CreateModel201Response response = 
+        Operation response = 
         api.scaleDeployment(id, scaleDeploymentRequest);
         
         // TODO: test validations
@@ -5314,6 +5295,24 @@ public class ExoscaleApiTest {
         UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest = null;
         Operation response = 
         api.updateDbaasServiceValkey(name, updateDbaasServiceValkeyRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Update AI deployment
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDeploymentTest() throws ApiException {
+        UUID id = null;
+        UpdateDeploymentRequest updateDeploymentRequest = null;
+        Operation response = 
+        api.updateDeployment(id, updateDeploymentRequest);
         
         // TODO: test validations
     }

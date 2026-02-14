@@ -9,11 +9,11 @@ Instance
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**applicationConsistentSnapshotEnabled** | **Boolean** | Indicates if the instance will take application-consistent snapshots |  [optional] |
-|**antiAffinityGroups** | [**List&lt;AntiAffinityGroup&gt;**](AntiAffinityGroup.md) | Instance Anti-affinity Groups |  [optional] |
+|**antiAffinityGroups** | [**List&lt;AntiAffinityGroupRef&gt;**](AntiAffinityGroupRef.md) | Instance Anti-affinity Groups |  [optional] |
 |**publicIpAssignment** | **PublicIpAssignment** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**securityGroups** | [**List&lt;SecurityGroup&gt;**](SecurityGroup.md) | Instance Security Groups |  [optional] |
-|**elasticIps** | [**List&lt;ElasticIp&gt;**](ElasticIp.md) | Instance Elastic IPs |  [optional] |
+|**securityGroups** | [**List&lt;SecurityGroupRef&gt;**](SecurityGroupRef.md) | Instance Security Groups |  [optional] |
+|**elasticIps** | [**List&lt;ElasticIpRef&gt;**](ElasticIpRef.md) | Instance Elastic IPs |  [optional] |
 |**name** | **String** | Instance name |  [optional] |
 |**instanceType** | [**InstanceType**](InstanceType.md) |  |  [optional] |
 |**privateNetworks** | [**List&lt;ListInstances200ResponseInstancesInnerPrivateNetworksInner&gt;**](ListInstances200ResponseInstancesInnerPrivateNetworksInner.md) | Instance Private Networks |  [optional] |
@@ -25,10 +25,10 @@ Instance
 |**macAddress** | **String** | Instance MAC address |  [optional] [readonly] |
 |**manager** | [**Manager**](Manager.md) |  |  [optional] |
 |**tpmEnabled** | **Boolean** | Indicates if the instance has tpm enabled |  [optional] |
-|**deployTarget** | [**DeployTarget**](DeployTarget.md) |  |  [optional] |
+|**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Address** | **String** | Instance IPv6 address |  [optional] [readonly] |
 |**id** | **UUID** | Instance ID |  [optional] [readonly] |
-|**snapshots** | [**List&lt;Snapshot&gt;**](Snapshot.md) | Instance Snapshots |  [optional] |
+|**snapshots** | [**List&lt;SnapshotRef&gt;**](SnapshotRef.md) | Instance Snapshots |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  [optional] |
 |**sshKeys** | [**List&lt;SshKey&gt;**](SshKey.md) | Instance SSH Keys |  [optional] |
 |**createdAt** | **OffsetDateTime** | Instance creation date |  [optional] [readonly] |

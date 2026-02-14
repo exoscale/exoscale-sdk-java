@@ -54,8 +54,6 @@ docs/CreateIamRoleRequest.md
 docs/CreateInstancePoolRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateLoadBalancerRequest.md
-docs/CreateModel201Response.md
-docs/CreateModel201ResponseResource.md
 docs/CreateModelRequest.md
 docs/CreatePrivateNetworkRequest.md
 docs/CreateSecurityGroupRequest.md
@@ -342,7 +340,6 @@ docs/OperatingFactor.md
 docs/Operation.md
 docs/OperationReference.md
 docs/Organization.md
-docs/PatchDeploymentRequest.md
 docs/PrimaryParameter.md
 docs/PrimaryParameterNode.md
 docs/PrimaryParameterShard.md
@@ -391,6 +388,7 @@ docs/SksNodepoolTaint.md
 docs/SksOidc.md
 docs/Snapshot.md
 docs/SnapshotExport.md
+docs/SnapshotRef.md
 docs/SosBucketUsage.md
 docs/SshKey.md
 docs/SshKeyRef.md
@@ -419,6 +417,7 @@ docs/UpdateDbaasServiceOpensearchRequestOpensearchDashboards.md
 docs/UpdateDbaasServicePgRequest.md
 docs/UpdateDbaasServiceThanosRequest.md
 docs/UpdateDbaasServiceValkeyRequest.md
+docs/UpdateDeploymentRequest.md
 docs/UpdateDnsDomainRecordRequest.md
 docs/UpdateElasticIpRequest.md
 docs/UpdateIamRoleRequest.md
@@ -505,8 +504,6 @@ src/main/java/com/exoscale/sdk/model/CreateIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/CreateLoadBalancerRequest.java
-src/main/java/com/exoscale/sdk/model/CreateModel201Response.java
-src/main/java/com/exoscale/sdk/model/CreateModel201ResponseResource.java
 src/main/java/com/exoscale/sdk/model/CreateModelRequest.java
 src/main/java/com/exoscale/sdk/model/CreatePrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/CreateSecurityGroupRequest.java
@@ -792,7 +789,6 @@ src/main/java/com/exoscale/sdk/model/OperatingFactor.java
 src/main/java/com/exoscale/sdk/model/Operation.java
 src/main/java/com/exoscale/sdk/model/OperationReference.java
 src/main/java/com/exoscale/sdk/model/Organization.java
-src/main/java/com/exoscale/sdk/model/PatchDeploymentRequest.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameter.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameterNode.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameterShard.java
@@ -841,6 +837,7 @@ src/main/java/com/exoscale/sdk/model/SksNodepoolTaint.java
 src/main/java/com/exoscale/sdk/model/SksOidc.java
 src/main/java/com/exoscale/sdk/model/Snapshot.java
 src/main/java/com/exoscale/sdk/model/SnapshotExport.java
+src/main/java/com/exoscale/sdk/model/SnapshotRef.java
 src/main/java/com/exoscale/sdk/model/SosBucketUsage.java
 src/main/java/com/exoscale/sdk/model/SshKey.java
 src/main/java/com/exoscale/sdk/model/SshKeyRef.java
@@ -869,6 +866,7 @@ src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceOpensearchRequestOpensear
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServicePgRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceThanosRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceValkeyRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDeploymentRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateIamRoleRequest.java
