@@ -206,6 +206,7 @@ docs/ExoscaleApi.md
 docs/GenerateSksClusterKubeconfig200Response.md
 docs/GenericOAuthIntegration.md
 docs/GetActiveNodepoolTemplate200Response.md
+docs/GetConfederatioUsageResponse.md
 docs/GetConsoleProxyUrl200Response.md
 docs/GetDbaasCaCertificate200Response.md
 docs/GetDbaasExternalIntegrationSettingsDatadog200Response.md
@@ -270,6 +271,7 @@ docs/InstancePoolRef.md
 docs/InstanceRef.md
 docs/InstanceState.md
 docs/InstanceType.md
+docs/InstanceTypeEntry.md
 docs/InstanceTypeRef.md
 docs/InternalAuthenticationBackendLimiting.md
 docs/JsonSchemaGrafana.md
@@ -286,6 +288,7 @@ docs/JsonSchemaThanos.md
 docs/JsonSchemaTimescaledb.md
 docs/JsonSchemaValkey.md
 docs/KubeletImageGc.md
+docs/ListAiInstanceTypesResponse.md
 docs/ListAntiAffinityGroups200Response.md
 docs/ListApiKeys200Response.md
 docs/ListBlockStorageSnapshots200Response.md
@@ -340,6 +343,7 @@ docs/OperatingFactor.md
 docs/Operation.md
 docs/OperationReference.md
 docs/Organization.md
+docs/OrganizationUsage.md
 docs/PrimaryParameter.md
 docs/PrimaryParameterNode.md
 docs/PrimaryParameterShard.md
@@ -655,6 +659,7 @@ src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.java
 src/main/java/com/exoscale/sdk/model/GenericOAuthIntegration.java
 src/main/java/com/exoscale/sdk/model/GetActiveNodepoolTemplate200Response.java
+src/main/java/com/exoscale/sdk/model/GetConfederatioUsageResponse.java
 src/main/java/com/exoscale/sdk/model/GetConsoleProxyUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasCaCertificate200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasExternalIntegrationSettingsDatadog200Response.java
@@ -719,6 +724,7 @@ src/main/java/com/exoscale/sdk/model/InstancePoolRef.java
 src/main/java/com/exoscale/sdk/model/InstanceRef.java
 src/main/java/com/exoscale/sdk/model/InstanceState.java
 src/main/java/com/exoscale/sdk/model/InstanceType.java
+src/main/java/com/exoscale/sdk/model/InstanceTypeEntry.java
 src/main/java/com/exoscale/sdk/model/InstanceTypeRef.java
 src/main/java/com/exoscale/sdk/model/InternalAuthenticationBackendLimiting.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaGrafana.java
@@ -735,6 +741,7 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaThanos.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaTimescaledb.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaValkey.java
 src/main/java/com/exoscale/sdk/model/KubeletImageGc.java
+src/main/java/com/exoscale/sdk/model/ListAiInstanceTypesResponse.java
 src/main/java/com/exoscale/sdk/model/ListAntiAffinityGroups200Response.java
 src/main/java/com/exoscale/sdk/model/ListApiKeys200Response.java
 src/main/java/com/exoscale/sdk/model/ListBlockStorageSnapshots200Response.java
@@ -789,6 +796,7 @@ src/main/java/com/exoscale/sdk/model/OperatingFactor.java
 src/main/java/com/exoscale/sdk/model/Operation.java
 src/main/java/com/exoscale/sdk/model/OperationReference.java
 src/main/java/com/exoscale/sdk/model/Organization.java
+src/main/java/com/exoscale/sdk/model/OrganizationUsage.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameter.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameterNode.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameterShard.java

@@ -19,85 +19,67 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.InstanceTypeEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI model
+ * List of available instance types with authorization status
  */
 @JsonPropertyOrder({
-  CreateModelRequest.JSON_PROPERTY_NAME,
-  CreateModelRequest.JSON_PROPERTY_HUGGINGFACE_TOKEN
+  ListAiInstanceTypesResponse.JSON_PROPERTY_INSTANCE_TYPES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateModelRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+public class ListAiInstanceTypesResponse {
+  public static final String JSON_PROPERTY_INSTANCE_TYPES = "instance-types";
+  private List<InstanceTypeEntry> instanceTypes;
 
-  public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
-  private String huggingfaceToken;
-
-  public CreateModelRequest() { 
+  public ListAiInstanceTypesResponse() { 
   }
 
-  public CreateModelRequest name(String name) {
-    this.name = name;
+  public ListAiInstanceTypesResponse instanceTypes(List<InstanceTypeEntry> instanceTypes) {
+    this.instanceTypes = instanceTypes;
+    return this;
+  }
+
+  public ListAiInstanceTypesResponse addInstanceTypesItem(InstanceTypeEntry instanceTypesItem) {
+    if (this.instanceTypes == null) {
+      this.instanceTypes = new ArrayList<>();
+    }
+    this.instanceTypes.add(instanceTypesItem);
     return this;
   }
 
    /**
-   * Model name
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CreateModelRequest huggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-    return this;
-  }
-
-   /**
-   * Huggingface Token
-   * @return huggingfaceToken
+   * Get instanceTypes
+   * @return instanceTypes
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
+  @JsonProperty(JSON_PROPERTY_INSTANCE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getHuggingfaceToken() {
-    return huggingfaceToken;
+  public List<InstanceTypeEntry> getInstanceTypes() {
+    return instanceTypes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
+  @JsonProperty(JSON_PROPERTY_INSTANCE_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHuggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
+  public void setInstanceTypes(List<InstanceTypeEntry> instanceTypes) {
+    this.instanceTypes = instanceTypes;
   }
 
 
   /**
-   * Return true if this create-model-request object is equal to o.
+   * Return true if this list-ai-instance-types-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +89,20 @@ public class CreateModelRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateModelRequest createModelRequest = (CreateModelRequest) o;
-    return Objects.equals(this.name, createModelRequest.name) &&
-        Objects.equals(this.huggingfaceToken, createModelRequest.huggingfaceToken);
+    ListAiInstanceTypesResponse listAiInstanceTypesResponse = (ListAiInstanceTypesResponse) o;
+    return Objects.equals(this.instanceTypes, listAiInstanceTypesResponse.instanceTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, huggingfaceToken);
+    return Objects.hash(instanceTypes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateModelRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    huggingfaceToken: ").append(toIndentedString(huggingfaceToken)).append("\n");
+    sb.append("class ListAiInstanceTypesResponse {\n");
+    sb.append("    instanceTypes: ").append(toIndentedString(instanceTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +150,14 @@ public class CreateModelRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `huggingface-token` to the URL query string
-    if (getHuggingfaceToken() != null) {
-      joiner.add(String.format("%shuggingface-token%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHuggingfaceToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `instance-types` to the URL query string
+    if (getInstanceTypes() != null) {
+      for (int i = 0; i < getInstanceTypes().size(); i++) {
+        if (getInstanceTypes().get(i) != null) {
+          joiner.add(getInstanceTypes().get(i).toUrlQueryString(String.format("%sinstance-types%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

@@ -29,75 +29,47 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI model
+ * Organization GPU usage
  */
 @JsonPropertyOrder({
-  CreateModelRequest.JSON_PROPERTY_NAME,
-  CreateModelRequest.JSON_PROPERTY_HUGGINGFACE_TOKEN
+  OrganizationUsage.JSON_PROPERTY_GPU
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateModelRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+public class OrganizationUsage {
+  public static final String JSON_PROPERTY_GPU = "gpu";
+  private Long gpu;
 
-  public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
-  private String huggingfaceToken;
-
-  public CreateModelRequest() { 
+  public OrganizationUsage() { 
   }
 
-  public CreateModelRequest name(String name) {
-    this.name = name;
+  public OrganizationUsage gpu(Long gpu) {
+    this.gpu = gpu;
     return this;
   }
 
    /**
-   * Model name
-   * @return name
+   * Total GPU count
+   * minimum: 0
+   * @return gpu
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_GPU)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getName() {
-    return name;
+  public Long getGpu() {
+    return gpu;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_GPU)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CreateModelRequest huggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-    return this;
-  }
-
-   /**
-   * Huggingface Token
-   * @return huggingfaceToken
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getHuggingfaceToken() {
-    return huggingfaceToken;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHuggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
+  public void setGpu(Long gpu) {
+    this.gpu = gpu;
   }
 
 
   /**
-   * Return true if this create-model-request object is equal to o.
+   * Return true if this organization-usage object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +79,20 @@ public class CreateModelRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateModelRequest createModelRequest = (CreateModelRequest) o;
-    return Objects.equals(this.name, createModelRequest.name) &&
-        Objects.equals(this.huggingfaceToken, createModelRequest.huggingfaceToken);
+    OrganizationUsage organizationUsage = (OrganizationUsage) o;
+    return Objects.equals(this.gpu, organizationUsage.gpu);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, huggingfaceToken);
+    return Objects.hash(gpu);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateModelRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    huggingfaceToken: ").append(toIndentedString(huggingfaceToken)).append("\n");
+    sb.append("class OrganizationUsage {\n");
+    sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +140,9 @@ public class CreateModelRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `huggingface-token` to the URL query string
-    if (getHuggingfaceToken() != null) {
-      joiner.add(String.format("%shuggingface-token%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHuggingfaceToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `gpu` to the URL query string
+    if (getGpu() != null) {
+      joiner.add(String.format("%sgpu%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

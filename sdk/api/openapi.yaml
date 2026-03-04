@@ -3341,6 +3341,23 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /ai/instance-type:
+    get:
+      description: List available instance types with authorization status based on
+        GPU availability
+      operationId: list-ai-instance-types
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-ai-instance-types-response'
+          description: "200"
+      summary: List Instance Types
+      tags:
+      - exoscale
+      x-accepts: application/json
   /load-balancer/{id}/{field}:
     delete:
       description: ""
@@ -8846,6 +8863,16 @@ components:
       - datadog
       - elasticsearch
       type: string
+    get-confederatio-usage-response:
+      description: GPU usage for all organizations
+      properties:
+        organizations_usages:
+          additionalProperties:
+            $ref: '#/components/schemas/organization-usage'
+          type: object
+      required:
+      - organizations_usages
+      type: object
     model-ref:
       example:
         name: name
@@ -10114,6 +10141,8 @@ components:
         huggingface-token:
           description: Huggingface Token
           type: string
+      required:
+      - name
       type: object
     inference-engine-version:
       default: 0.12.0
@@ -13326,6 +13355,20 @@ components:
             $ref: '#/components/schemas/access-key-resource'
           type: array
       type: object
+    list-ai-instance-types-response:
+      description: List of available instance types with authorization status
+      example:
+        instance-types:
+        - authorized: true
+          family: family
+        - authorized: true
+          family: family
+      properties:
+        instance-types:
+          items:
+            $ref: '#/components/schemas/instance-type-entry'
+          type: array
+      type: object
     dbaas-endpoint-opensearch-secrets:
       properties:
         ca:
@@ -15944,6 +15987,17 @@ components:
             $ref: '#/components/schemas/ssh-key-ref'
           type: array
       type: object
+    organization-usage:
+      description: Organization GPU usage
+      properties:
+        gpu:
+          description: Total GPU count
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - gpu
+      type: object
     block-storage-volume-ref:
       description: Target block storage volume
       example:
@@ -16239,6 +16293,19 @@ components:
     sks-cluster-labels:
       additionalProperties:
         type: string
+      type: object
+    instance-type-entry:
+      description: Instance type with authorization status
+      example:
+        authorized: true
+        family: family
+      properties:
+        family:
+          description: GPU family name
+          type: string
+        authorized:
+          description: Whether this instance type is authorized based on server availability
+          type: boolean
       type: object
     enum-integration-types:
       enum:
@@ -19217,6 +19284,8 @@ components:
       required:
       - gpu-count
       - gpu-type
+      - model
+      - name
       - replicas
       type: object
     enum-migration-method:

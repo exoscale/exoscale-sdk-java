@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-02-14T07:18:01.015438951Z[Etc/UTC]
+- Build date: 2026-03-04T07:20:07.358719508Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-55babf9</version>
+    <version>0.0.5-SNAPSHOT-9076bc0</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-55babf9'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9076bc0'
 }
 ```
 
@@ -265,6 +265,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getSshKey**](sdk/docs/ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details
 *ExoscaleApi* | [**getTemplate**](sdk/docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
 *ExoscaleApi* | [**getUsageReport**](sdk/docs/ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports
+*ExoscaleApi* | [**listAiInstanceTypes**](sdk/docs/ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types
 *ExoscaleApi* | [**listAntiAffinityGroups**](sdk/docs/ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
 *ExoscaleApi* | [**listApiKeys**](sdk/docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
 *ExoscaleApi* | [**listBlockStorageSnapshots**](sdk/docs/ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots
@@ -600,6 +601,7 @@ Class | Method | HTTP request | Description
  - [GenerateSksClusterKubeconfig200Response](sdk/docs/GenerateSksClusterKubeconfig200Response.md)
  - [GenericOAuthIntegration](sdk/docs/GenericOAuthIntegration.md)
  - [GetActiveNodepoolTemplate200Response](sdk/docs/GetActiveNodepoolTemplate200Response.md)
+ - [GetConfederatioUsageResponse](sdk/docs/GetConfederatioUsageResponse.md)
  - [GetConsoleProxyUrl200Response](sdk/docs/GetConsoleProxyUrl200Response.md)
  - [GetDbaasCaCertificate200Response](sdk/docs/GetDbaasCaCertificate200Response.md)
  - [GetDbaasExternalIntegrationSettingsDatadog200Response](sdk/docs/GetDbaasExternalIntegrationSettingsDatadog200Response.md)
@@ -664,6 +666,7 @@ Class | Method | HTTP request | Description
  - [InstanceRef](sdk/docs/InstanceRef.md)
  - [InstanceState](sdk/docs/InstanceState.md)
  - [InstanceType](sdk/docs/InstanceType.md)
+ - [InstanceTypeEntry](sdk/docs/InstanceTypeEntry.md)
  - [InstanceTypeRef](sdk/docs/InstanceTypeRef.md)
  - [InternalAuthenticationBackendLimiting](sdk/docs/InternalAuthenticationBackendLimiting.md)
  - [JsonSchemaGrafana](sdk/docs/JsonSchemaGrafana.md)
@@ -680,6 +683,7 @@ Class | Method | HTTP request | Description
  - [JsonSchemaTimescaledb](sdk/docs/JsonSchemaTimescaledb.md)
  - [JsonSchemaValkey](sdk/docs/JsonSchemaValkey.md)
  - [KubeletImageGc](sdk/docs/KubeletImageGc.md)
+ - [ListAiInstanceTypesResponse](sdk/docs/ListAiInstanceTypesResponse.md)
  - [ListAntiAffinityGroups200Response](sdk/docs/ListAntiAffinityGroups200Response.md)
  - [ListApiKeys200Response](sdk/docs/ListApiKeys200Response.md)
  - [ListBlockStorageSnapshots200Response](sdk/docs/ListBlockStorageSnapshots200Response.md)
@@ -734,6 +738,7 @@ Class | Method | HTTP request | Description
  - [Operation](sdk/docs/Operation.md)
  - [OperationReference](sdk/docs/OperationReference.md)
  - [Organization](sdk/docs/Organization.md)
+ - [OrganizationUsage](sdk/docs/OrganizationUsage.md)
  - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
  - [PrimaryParameterNode](sdk/docs/PrimaryParameterNode.md)
  - [PrimaryParameterShard](sdk/docs/PrimaryParameterShard.md)

@@ -145,6 +145,7 @@ import com.exoscale.sdk.model.Instance;
 import com.exoscale.sdk.model.InstancePassword;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.ListAiInstanceTypesResponse;
 import com.exoscale.sdk.model.ListAntiAffinityGroups200Response;
 import com.exoscale.sdk.model.ListApiKeys200Response;
 import com.exoscale.sdk.model.ListBlockStorageSnapshots200Response;
@@ -16052,6 +16053,81 @@ public class ExoscaleApi {
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * List Instance Types
+   * List available instance types with authorization status based on GPU availability
+   * @return ListAiInstanceTypesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAiInstanceTypesResponse listAiInstanceTypes() throws ApiException {
+    ApiResponse<ListAiInstanceTypesResponse> localVarResponse = listAiInstanceTypesWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List Instance Types
+   * List available instance types with authorization status based on GPU availability
+   * @return ApiResponse&lt;ListAiInstanceTypesResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListAiInstanceTypesResponse> listAiInstanceTypesWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listAiInstanceTypesRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listAiInstanceTypes", localVarResponse);
+        }
+        return new ApiResponse<ListAiInstanceTypesResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListAiInstanceTypesResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listAiInstanceTypesRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/instance-type";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 

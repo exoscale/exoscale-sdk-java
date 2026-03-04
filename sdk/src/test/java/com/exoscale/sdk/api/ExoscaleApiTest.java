@@ -141,6 +141,7 @@ import com.exoscale.sdk.model.Instance;
 import com.exoscale.sdk.model.InstancePassword;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.ListAiInstanceTypesResponse;
 import com.exoscale.sdk.model.ListAntiAffinityGroups200Response;
 import com.exoscale.sdk.model.ListApiKeys200Response;
 import com.exoscale.sdk.model.ListBlockStorageSnapshots200Response;
@@ -3420,6 +3421,22 @@ public class ExoscaleApiTest {
         String period = null;
         GetUsageReport200Response response = 
         api.getUsageReport(period);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * List Instance Types
+     *
+     * List available instance types with authorization status based on GPU availability
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listAiInstanceTypesTest() throws ApiException {
+        ListAiInstanceTypesResponse response = 
+        api.listAiInstanceTypes();
         
         // TODO: test validations
     }

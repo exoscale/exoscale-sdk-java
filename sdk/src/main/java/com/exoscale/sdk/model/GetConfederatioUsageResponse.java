@@ -19,85 +19,67 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.OrganizationUsage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI model
+ * GPU usage for all organizations
  */
 @JsonPropertyOrder({
-  CreateModelRequest.JSON_PROPERTY_NAME,
-  CreateModelRequest.JSON_PROPERTY_HUGGINGFACE_TOKEN
+  GetConfederatioUsageResponse.JSON_PROPERTY_ORGANIZATIONS_USAGES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateModelRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+public class GetConfederatioUsageResponse {
+  public static final String JSON_PROPERTY_ORGANIZATIONS_USAGES = "organizations_usages";
+  private Map<String, OrganizationUsage> organizationsUsages = new HashMap<>();
 
-  public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
-  private String huggingfaceToken;
-
-  public CreateModelRequest() { 
+  public GetConfederatioUsageResponse() { 
   }
 
-  public CreateModelRequest name(String name) {
-    this.name = name;
+  public GetConfederatioUsageResponse organizationsUsages(Map<String, OrganizationUsage> organizationsUsages) {
+    this.organizationsUsages = organizationsUsages;
+    return this;
+  }
+
+  public GetConfederatioUsageResponse putOrganizationsUsagesItem(String key, OrganizationUsage organizationsUsagesItem) {
+    if (this.organizationsUsages == null) {
+      this.organizationsUsages = new HashMap<>();
+    }
+    this.organizationsUsages.put(key, organizationsUsagesItem);
     return this;
   }
 
    /**
-   * Model name
-   * @return name
+   * Get organizationsUsages
+   * @return organizationsUsages
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ORGANIZATIONS_USAGES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getName() {
-    return name;
+  public Map<String, OrganizationUsage> getOrganizationsUsages() {
+    return organizationsUsages;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ORGANIZATIONS_USAGES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CreateModelRequest huggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-    return this;
-  }
-
-   /**
-   * Huggingface Token
-   * @return huggingfaceToken
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getHuggingfaceToken() {
-    return huggingfaceToken;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHuggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
+  public void setOrganizationsUsages(Map<String, OrganizationUsage> organizationsUsages) {
+    this.organizationsUsages = organizationsUsages;
   }
 
 
   /**
-   * Return true if this create-model-request object is equal to o.
+   * Return true if this get-confederatio-usage-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +89,20 @@ public class CreateModelRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateModelRequest createModelRequest = (CreateModelRequest) o;
-    return Objects.equals(this.name, createModelRequest.name) &&
-        Objects.equals(this.huggingfaceToken, createModelRequest.huggingfaceToken);
+    GetConfederatioUsageResponse getConfederatioUsageResponse = (GetConfederatioUsageResponse) o;
+    return Objects.equals(this.organizationsUsages, getConfederatioUsageResponse.organizationsUsages);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, huggingfaceToken);
+    return Objects.hash(organizationsUsages);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateModelRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    huggingfaceToken: ").append(toIndentedString(huggingfaceToken)).append("\n");
+    sb.append("class GetConfederatioUsageResponse {\n");
+    sb.append("    organizationsUsages: ").append(toIndentedString(organizationsUsages)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +150,14 @@ public class CreateModelRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `huggingface-token` to the URL query string
-    if (getHuggingfaceToken() != null) {
-      joiner.add(String.format("%shuggingface-token%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHuggingfaceToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `organizations_usages` to the URL query string
+    if (getOrganizationsUsages() != null) {
+      for (String _key : getOrganizationsUsages().keySet()) {
+        if (getOrganizationsUsages().get(_key) != null) {
+          joiner.add(getOrganizationsUsages().get(_key).toUrlQueryString(String.format("%sorganizations_usages%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

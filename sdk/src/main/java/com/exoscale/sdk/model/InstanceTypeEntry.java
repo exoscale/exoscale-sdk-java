@@ -29,75 +29,75 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI model
+ * Instance type with authorization status
  */
 @JsonPropertyOrder({
-  CreateModelRequest.JSON_PROPERTY_NAME,
-  CreateModelRequest.JSON_PROPERTY_HUGGINGFACE_TOKEN
+  InstanceTypeEntry.JSON_PROPERTY_FAMILY,
+  InstanceTypeEntry.JSON_PROPERTY_AUTHORIZED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateModelRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+public class InstanceTypeEntry {
+  public static final String JSON_PROPERTY_FAMILY = "family";
+  private String family;
 
-  public static final String JSON_PROPERTY_HUGGINGFACE_TOKEN = "huggingface-token";
-  private String huggingfaceToken;
+  public static final String JSON_PROPERTY_AUTHORIZED = "authorized";
+  private Boolean authorized;
 
-  public CreateModelRequest() { 
+  public InstanceTypeEntry() { 
   }
 
-  public CreateModelRequest name(String name) {
-    this.name = name;
+  public InstanceTypeEntry family(String family) {
+    this.family = family;
     return this;
   }
 
    /**
-   * Model name
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CreateModelRequest huggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
-    return this;
-  }
-
-   /**
-   * Huggingface Token
-   * @return huggingfaceToken
+   * GPU family name
+   * @return family
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
+  @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getHuggingfaceToken() {
-    return huggingfaceToken;
+  public String getFamily() {
+    return family;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HUGGINGFACE_TOKEN)
+  @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHuggingfaceToken(String huggingfaceToken) {
-    this.huggingfaceToken = huggingfaceToken;
+  public void setFamily(String family) {
+    this.family = family;
+  }
+
+
+  public InstanceTypeEntry authorized(Boolean authorized) {
+    this.authorized = authorized;
+    return this;
+  }
+
+   /**
+   * Whether this instance type is authorized based on server availability
+   * @return authorized
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTHORIZED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAuthorized() {
+    return authorized;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AUTHORIZED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAuthorized(Boolean authorized) {
+    this.authorized = authorized;
   }
 
 
   /**
-   * Return true if this create-model-request object is equal to o.
+   * Return true if this instance-type-entry object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +107,22 @@ public class CreateModelRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateModelRequest createModelRequest = (CreateModelRequest) o;
-    return Objects.equals(this.name, createModelRequest.name) &&
-        Objects.equals(this.huggingfaceToken, createModelRequest.huggingfaceToken);
+    InstanceTypeEntry instanceTypeEntry = (InstanceTypeEntry) o;
+    return Objects.equals(this.family, instanceTypeEntry.family) &&
+        Objects.equals(this.authorized, instanceTypeEntry.authorized);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, huggingfaceToken);
+    return Objects.hash(family, authorized);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateModelRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    huggingfaceToken: ").append(toIndentedString(huggingfaceToken)).append("\n");
+    sb.append("class InstanceTypeEntry {\n");
+    sb.append("    family: ").append(toIndentedString(family)).append("\n");
+    sb.append("    authorized: ").append(toIndentedString(authorized)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +170,14 @@ public class CreateModelRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `family` to the URL query string
+    if (getFamily() != null) {
+      joiner.add(String.format("%sfamily%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFamily()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `huggingface-token` to the URL query string
-    if (getHuggingfaceToken() != null) {
-      joiner.add(String.format("%shuggingface-token%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHuggingfaceToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `authorized` to the URL query string
+    if (getAuthorized() != null) {
+      joiner.add(String.format("%sauthorized%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAuthorized()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
