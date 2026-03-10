@@ -19,50 +19,210 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ErrorResponseErrorsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Error
+ * RFC 9457 Problem Details error response
  */
 @JsonPropertyOrder({
-  ErrorResponse.JSON_PROPERTY_ERROR
+  ErrorResponse.JSON_PROPERTY_TYPE,
+  ErrorResponse.JSON_PROPERTY_TITLE,
+  ErrorResponse.JSON_PROPERTY_STATUS,
+  ErrorResponse.JSON_PROPERTY_DETAIL,
+  ErrorResponse.JSON_PROPERTY_INSTANCE,
+  ErrorResponse.JSON_PROPERTY_ERRORS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ErrorResponse {
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private String error;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private Integer status;
+
+  public static final String JSON_PROPERTY_DETAIL = "detail";
+  private String detail;
+
+  public static final String JSON_PROPERTY_INSTANCE = "instance";
+  private String instance;
+
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<ErrorResponseErrorsInner> errors;
 
   public ErrorResponse() { 
   }
 
-  @JsonCreator
-  public ErrorResponse(
-    @JsonProperty(JSON_PROPERTY_ERROR) String error
-  ) {
-  this();
-    this.error = error;
+  public ErrorResponse type(String type) {
+    this.type = type;
+    return this;
   }
 
    /**
-   * Error description
-   * @return error
+   * Get type
+   * @return type
   **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getError() {
-    return error;
+  public String getType() {
+    return type;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public ErrorResponse title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * Get title
+   * @return title
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
+  public ErrorResponse status(Integer status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * minimum: 100
+   * maximum: 599
+   * @return status
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+
+  public ErrorResponse detail(String detail) {
+    this.detail = detail;
+    return this;
+  }
+
+   /**
+   * Get detail
+   * @return detail
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getDetail() {
+    return detail;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
+
+  public ErrorResponse instance(String instance) {
+    this.instance = instance;
+    return this;
+  }
+
+   /**
+   * Get instance
+   * @return instance
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getInstance() {
+    return instance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INSTANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstance(String instance) {
+    this.instance = instance;
+  }
+
+
+  public ErrorResponse errors(List<ErrorResponseErrorsInner> errors) {
+    this.errors = errors;
+    return this;
+  }
+
+  public ErrorResponse addErrorsItem(ErrorResponseErrorsInner errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+   /**
+   * Get errors
+   * @return errors
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<ErrorResponseErrorsInner> getErrors() {
+    return errors;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrors(List<ErrorResponseErrorsInner> errors) {
+    this.errors = errors;
+  }
 
 
   /**
@@ -77,19 +237,29 @@ public class ErrorResponse {
       return false;
     }
     ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.error, errorResponse.error);
+    return Objects.equals(this.type, errorResponse.type) &&
+        Objects.equals(this.title, errorResponse.title) &&
+        Objects.equals(this.status, errorResponse.status) &&
+        Objects.equals(this.detail, errorResponse.detail) &&
+        Objects.equals(this.instance, errorResponse.instance) &&
+        Objects.equals(this.errors, errorResponse.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error);
+    return Objects.hash(type, title, status, detail, instance, errors);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorResponse {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,9 +307,39 @@ public class ErrorResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `error` to the URL query string
-    if (getError() != null) {
-      joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `title` to the URL query string
+    if (getTitle() != null) {
+      joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `detail` to the URL query string
+    if (getDetail() != null) {
+      joiner.add(String.format("%sdetail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `instance` to the URL query string
+    if (getInstance() != null) {
+      joiner.add(String.format("%sinstance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInstance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `errors` to the URL query string
+    if (getErrors() != null) {
+      for (int i = 0; i < getErrors().size(); i++) {
+        if (getErrors().get(i) != null) {
+          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

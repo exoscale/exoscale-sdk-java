@@ -18,57 +18,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceValkeyUsersInnerAccessControl
+ * Model tests for ListKmsKeyRotationsResponseEntry
  */
-public class DbaasServiceValkeyUsersInnerAccessControlTest {
-    private final DbaasServiceValkeyUsersInnerAccessControl model = new DbaasServiceValkeyUsersInnerAccessControl();
+public class ListKmsKeyRotationsResponseEntryTest {
+    private final ListKmsKeyRotationsResponseEntry model = new ListKmsKeyRotationsResponseEntry();
 
     /**
-     * Model tests for DbaasServiceValkeyUsersInnerAccessControl
+     * Model tests for ListKmsKeyRotationsResponseEntry
      */
     @Test
-    public void testDbaasServiceValkeyUsersInnerAccessControl() {
-        // TODO: test DbaasServiceValkeyUsersInnerAccessControl
+    public void testListKmsKeyRotationsResponseEntry() {
+        // TODO: test ListKmsKeyRotationsResponseEntry
     }
 
     /**
-     * Test the property 'categories'
+     * Test the property 'version'
      */
     @Test
-    public void categoriesTest() {
-        // TODO: test categories
+    public void versionTest() {
+        // TODO: test version
     }
 
     /**
-     * Test the property 'channels'
+     * Test the property 'rotatedAt'
      */
     @Test
-    public void channelsTest() {
-        // TODO: test channels
+    public void rotatedAtTest() {
+        // TODO: test rotatedAt
     }
 
     /**
-     * Test the property 'commands'
+     * Test the property 'automatic'
      */
     @Test
-    public void commandsTest() {
-        // TODO: test commands
-    }
-
-    /**
-     * Test the property 'keys'
-     */
-    @Test
-    public void keysTest() {
-        // TODO: test keys
+    public void automaticTest() {
+        // TODO: test automatic
     }
 
 }

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-03-04T07:20:07.358719508Z[Etc/UTC]
+- Build date: 2026-03-10T13:27:01.936582142Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-9076bc0</version>
+    <version>0.0.5-SNAPSHOT-d2821a6</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9076bc0'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d2821a6'
 }
 ```
 
@@ -91,6 +91,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**attachInstanceToElasticIp**](sdk/docs/ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
 *ExoscaleApi* | [**attachInstanceToPrivateNetwork**](sdk/docs/ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
 *ExoscaleApi* | [**attachInstanceToSecurityGroup**](sdk/docs/ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
+*ExoscaleApi* | [**cancelKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [Beta] Cancel KMS Key Deletion
 *ExoscaleApi* | [**copyTemplate**](sdk/docs/ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
 *ExoscaleApi* | [**createAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
 *ExoscaleApi* | [**createApiKey**](sdk/docs/ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key
@@ -128,6 +129,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createIamRole**](sdk/docs/ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role
 *ExoscaleApi* | [**createInstance**](sdk/docs/ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance
 *ExoscaleApi* | [**createInstancePool**](sdk/docs/ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool
+*ExoscaleApi* | [**createKmsKey**](sdk/docs/ExoscaleApi.md#createKmsKey) | **POST** /kms-key | [BETA] Create KMS Key
 *ExoscaleApi* | [**createLoadBalancer**](sdk/docs/ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer
 *ExoscaleApi* | [**createModel**](sdk/docs/ExoscaleApi.md#createModel) | **POST** /ai/model | [BETA] Create Model
 *ExoscaleApi* | [**createPrivateNetwork**](sdk/docs/ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network
@@ -136,6 +138,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createSksNodepool**](sdk/docs/ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
 *ExoscaleApi* | [**createSnapshot**](sdk/docs/ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
 *ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
+*ExoscaleApi* | [**decrypt**](sdk/docs/ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt
 *ExoscaleApi* | [**deleteAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
@@ -190,11 +193,17 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**detachInstanceFromElasticIp**](sdk/docs/ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
 *ExoscaleApi* | [**detachInstanceFromPrivateNetwork**](sdk/docs/ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network
 *ExoscaleApi* | [**detachInstanceFromSecurityGroup**](sdk/docs/ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group
+*ExoscaleApi* | [**disableKmsKey**](sdk/docs/ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | [BETA] Disable KMS Key
+*ExoscaleApi* | [**disableKmsKeyRotation**](sdk/docs/ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | [BETA] Disable Key Rotation
 *ExoscaleApi* | [**enableDbaasMysqlWrites**](sdk/docs/ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage
+*ExoscaleApi* | [**enableKmsKey**](sdk/docs/ExoscaleApi.md#enableKmsKey) | **POST** /kms-key/{id}/enable | [BETA] Enable KMS Key
+*ExoscaleApi* | [**enableKmsKeyRotation**](sdk/docs/ExoscaleApi.md#enableKmsKeyRotation) | **POST** /kms-key/{id}/enable-key-rotation | [BETA] Enable Key Rotation
 *ExoscaleApi* | [**enableTpm**](sdk/docs/ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | Enable tpm for the instance.
+*ExoscaleApi* | [**encrypt**](sdk/docs/ExoscaleApi.md#encrypt) | **POST** /kms-key/{id}/encrypt | [BETA] Encrypt
 *ExoscaleApi* | [**evictInstancePoolMembers**](sdk/docs/ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members
 *ExoscaleApi* | [**evictSksNodepoolMembers**](sdk/docs/ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members
 *ExoscaleApi* | [**exportSnapshot**](sdk/docs/ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot
+*ExoscaleApi* | [**generateDataKey**](sdk/docs/ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key
 *ExoscaleApi* | [**generateSksClusterKubeconfig**](sdk/docs/ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
 *ExoscaleApi* | [**getActiveNodepoolTemplate**](sdk/docs/ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} | 
 *ExoscaleApi* | [**getAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
@@ -246,6 +255,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getInstance**](sdk/docs/ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details
 *ExoscaleApi* | [**getInstancePool**](sdk/docs/ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
 *ExoscaleApi* | [**getInstanceType**](sdk/docs/ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
+*ExoscaleApi* | [**getKmsKey**](sdk/docs/ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | [BETA] Get KMS Key
 *ExoscaleApi* | [**getLoadBalancer**](sdk/docs/ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
 *ExoscaleApi* | [**getLoadBalancerService**](sdk/docs/ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
 *ExoscaleApi* | [**getModel**](sdk/docs/ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | [BETA] Get Model
@@ -277,6 +287,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listDbaasIntegrationTypes**](sdk/docs/ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types | 
 *ExoscaleApi* | [**listDbaasServiceTypes**](sdk/docs/ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types
 *ExoscaleApi* | [**listDbaasServices**](sdk/docs/ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services
+*ExoscaleApi* | [**listDbaasValkeyUsers**](sdk/docs/ExoscaleApi.md#listDbaasValkeyUsers) | **GET** /dbaas-valkey/{service-name}/user | List DBaaS Valkey users with ACL configuration
 *ExoscaleApi* | [**listDeployTargets**](sdk/docs/ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets
 *ExoscaleApi* | [**listDeployments**](sdk/docs/ExoscaleApi.md#listDeployments) | **GET** /ai/deployment | [BETA] List Deployments
 *ExoscaleApi* | [**listDnsDomainRecords**](sdk/docs/ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records
@@ -287,6 +298,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listInstancePools**](sdk/docs/ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools
 *ExoscaleApi* | [**listInstanceTypes**](sdk/docs/ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types
 *ExoscaleApi* | [**listInstances**](sdk/docs/ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances
+*ExoscaleApi* | [**listKmsKeyRotations**](sdk/docs/ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | [BETA] List KMS Key Rotations
+*ExoscaleApi* | [**listKmsKeys**](sdk/docs/ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | [BETA] List KMS Keys
 *ExoscaleApi* | [**listLoadBalancers**](sdk/docs/ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers
 *ExoscaleApi* | [**listModels**](sdk/docs/ExoscaleApi.md#listModels) | **GET** /ai/model | [BETA] List Models
 *ExoscaleApi* | [**listPrivateNetworks**](sdk/docs/ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks
@@ -302,11 +315,13 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listUsers**](sdk/docs/ExoscaleApi.md#listUsers) | **GET** /user | List Users
 *ExoscaleApi* | [**listZones**](sdk/docs/ExoscaleApi.md#listZones) | **GET** /zone | List Zones
 *ExoscaleApi* | [**promoteSnapshotToTemplate**](sdk/docs/ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
+*ExoscaleApi* | [**reEncrypt**](sdk/docs/ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | [BETA] Re-encrypt
 *ExoscaleApi* | [**rebootInstance**](sdk/docs/ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance
 *ExoscaleApi* | [**registerSshKey**](sdk/docs/ExoscaleApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key
 *ExoscaleApi* | [**registerTemplate**](sdk/docs/ExoscaleApi.md#registerTemplate) | **POST** /template | Register a Template
 *ExoscaleApi* | [**removeExternalSourceFromSecurityGroup**](sdk/docs/ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
 *ExoscaleApi* | [**removeInstanceProtection**](sdk/docs/ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
+*ExoscaleApi* | [**replicateKmsKey**](sdk/docs/ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | [BETA] Replicate KMS Key
 *ExoscaleApi* | [**resetDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user
 *ExoscaleApi* | [**resetDbaasKafkaUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
 *ExoscaleApi* | [**resetDbaasMysqlUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
@@ -335,6 +350,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
+*ExoscaleApi* | [**rotateKmsKey**](sdk/docs/ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials
 *ExoscaleApi* | [**rotateSksKarpenterCredentials**](sdk/docs/ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials
@@ -343,6 +359,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**scaleInstance**](sdk/docs/ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type
 *ExoscaleApi* | [**scaleInstancePool**](sdk/docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
 *ExoscaleApi* | [**scaleSksNodepool**](sdk/docs/ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
+*ExoscaleApi* | [**scheduleKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | [BETA] Schedule KMS Key Deletion
 *ExoscaleApi* | [**startDbaasGrafanaMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
 *ExoscaleApi* | [**startDbaasKafkaMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update
 *ExoscaleApi* | [**startDbaasMysqlMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
@@ -374,6 +391,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasServicePg**](sdk/docs/ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service
 *ExoscaleApi* | [**updateDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#updateDbaasServiceThanos) | **PUT** /dbaas-thanos/{name} | 
 *ExoscaleApi* | [**updateDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} | 
+*ExoscaleApi* | [**updateDbaasValkeyUserAccessControl**](sdk/docs/ExoscaleApi.md#updateDbaasValkeyUserAccessControl) | **PUT** /dbaas-valkey/{service-name}/user/{username} | Update access control for one DBaaS Valkey service user
 *ExoscaleApi* | [**updateDeployment**](sdk/docs/ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} | 
 *ExoscaleApi* | [**updateDnsDomainRecord**](sdk/docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
@@ -442,6 +460,7 @@ Class | Method | HTTP request | Description
  - [CreateDbaasServiceThanosRequest](sdk/docs/CreateDbaasServiceThanosRequest.md)
  - [CreateDbaasServiceValkeyRequest](sdk/docs/CreateDbaasServiceValkeyRequest.md)
  - [CreateDbaasTaskMigrationCheckRequest](sdk/docs/CreateDbaasTaskMigrationCheckRequest.md)
+ - [CreateDbaasValkeyUserRequest](sdk/docs/CreateDbaasValkeyUserRequest.md)
  - [CreateDeploymentRequest](sdk/docs/CreateDeploymentRequest.md)
  - [CreateDnsDomainRecordRequest](sdk/docs/CreateDnsDomainRecordRequest.md)
  - [CreateDnsDomainRequest](sdk/docs/CreateDnsDomainRequest.md)
@@ -449,6 +468,8 @@ Class | Method | HTTP request | Description
  - [CreateIamRoleRequest](sdk/docs/CreateIamRoleRequest.md)
  - [CreateInstancePoolRequest](sdk/docs/CreateInstancePoolRequest.md)
  - [CreateInstanceRequest](sdk/docs/CreateInstanceRequest.md)
+ - [CreateKmsKeyRequest](sdk/docs/CreateKmsKeyRequest.md)
+ - [CreateKmsKeyResponse](sdk/docs/CreateKmsKeyResponse.md)
  - [CreateLoadBalancerRequest](sdk/docs/CreateLoadBalancerRequest.md)
  - [CreateModelRequest](sdk/docs/CreateModelRequest.md)
  - [CreatePrivateNetworkRequest](sdk/docs/CreatePrivateNetworkRequest.md)
@@ -551,7 +572,6 @@ Class | Method | HTTP request | Description
  - [DbaasServiceValkey](sdk/docs/DbaasServiceValkey.md)
  - [DbaasServiceValkeyConnectionInfo](sdk/docs/DbaasServiceValkeyConnectionInfo.md)
  - [DbaasServiceValkeyUsersInner](sdk/docs/DbaasServiceValkeyUsersInner.md)
- - [DbaasServiceValkeyUsersInnerAccessControl](sdk/docs/DbaasServiceValkeyUsersInnerAccessControl.md)
  - [DbaasTask](sdk/docs/DbaasTask.md)
  - [DbaasTaskResultCodesInner](sdk/docs/DbaasTaskResultCodesInner.md)
  - [DbaasUserGrafanaSecrets](sdk/docs/DbaasUserGrafanaSecrets.md)
@@ -562,16 +582,27 @@ Class | Method | HTTP request | Description
  - [DbaasUserPostgresSecrets](sdk/docs/DbaasUserPostgresSecrets.md)
  - [DbaasUserThanosSecrets](sdk/docs/DbaasUserThanosSecrets.md)
  - [DbaasUserValkeySecrets](sdk/docs/DbaasUserValkeySecrets.md)
+ - [DbaasValkeyUser](sdk/docs/DbaasValkeyUser.md)
+ - [DbaasValkeyUserAccessControl](sdk/docs/DbaasValkeyUserAccessControl.md)
+ - [DbaasValkeyUsers](sdk/docs/DbaasValkeyUsers.md)
+ - [DecryptRequest](sdk/docs/DecryptRequest.md)
+ - [DecryptResponse](sdk/docs/DecryptResponse.md)
  - [DeleteModelConflictResponse](sdk/docs/DeleteModelConflictResponse.md)
  - [DeployTarget](sdk/docs/DeployTarget.md)
  - [DeployTargetRef](sdk/docs/DeployTargetRef.md)
  - [DetachDbaasServiceFromEndpointRequest](sdk/docs/DetachDbaasServiceFromEndpointRequest.md)
  - [DetachInstanceFromPrivateNetworkRequest](sdk/docs/DetachInstanceFromPrivateNetworkRequest.md)
+ - [DisableKmsKeyRotationRequest](sdk/docs/DisableKmsKeyRotationRequest.md)
+ - [DisableKmsKeyRotationResponse](sdk/docs/DisableKmsKeyRotationResponse.md)
  - [DnsDomain](sdk/docs/DnsDomain.md)
  - [DnsDomainRecord](sdk/docs/DnsDomainRecord.md)
  - [ElasticIp](sdk/docs/ElasticIp.md)
  - [ElasticIpHealthcheck](sdk/docs/ElasticIpHealthcheck.md)
  - [ElasticIpRef](sdk/docs/ElasticIpRef.md)
+ - [EnableKmsKeyRotationRequest](sdk/docs/EnableKmsKeyRotationRequest.md)
+ - [EnableKmsKeyRotationResponse](sdk/docs/EnableKmsKeyRotationResponse.md)
+ - [EncryptRequest](sdk/docs/EncryptRequest.md)
+ - [EncryptResponse](sdk/docs/EncryptResponse.md)
  - [EnumComponentRoute](sdk/docs/EnumComponentRoute.md)
  - [EnumComponentUsage](sdk/docs/EnumComponentUsage.md)
  - [EnumDatadogSite](sdk/docs/EnumDatadogSite.md)
@@ -595,9 +626,12 @@ Class | Method | HTTP request | Description
  - [EnvMetadataEntry](sdk/docs/EnvMetadataEntry.md)
  - [EnvProduct](sdk/docs/EnvProduct.md)
  - [ErrorResponse](sdk/docs/ErrorResponse.md)
+ - [ErrorResponseErrorsInner](sdk/docs/ErrorResponseErrorsInner.md)
  - [Event](sdk/docs/Event.md)
  - [EvictInstancePoolMembersRequest](sdk/docs/EvictInstancePoolMembersRequest.md)
  - [EvictSksNodepoolMembersRequest](sdk/docs/EvictSksNodepoolMembersRequest.md)
+ - [GenerateDataKeyRequest](sdk/docs/GenerateDataKeyRequest.md)
+ - [GenerateDataKeyResponse](sdk/docs/GenerateDataKeyResponse.md)
  - [GenerateSksClusterKubeconfig200Response](sdk/docs/GenerateSksClusterKubeconfig200Response.md)
  - [GenericOAuthIntegration](sdk/docs/GenericOAuthIntegration.md)
  - [GetActiveNodepoolTemplate200Response](sdk/docs/GetActiveNodepoolTemplate200Response.md)
@@ -640,6 +674,7 @@ Class | Method | HTTP request | Description
  - [GetDeploymentResponse](sdk/docs/GetDeploymentResponse.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
  - [GetInferenceEngineHelpResponse](sdk/docs/GetInferenceEngineHelpResponse.md)
+ - [GetKmsKeyResponse](sdk/docs/GetKmsKeyResponse.md)
  - [GetModelResponse](sdk/docs/GetModelResponse.md)
  - [GetOrganizationUsageResponse](sdk/docs/GetOrganizationUsageResponse.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
@@ -682,6 +717,8 @@ Class | Method | HTTP request | Description
  - [JsonSchemaThanos](sdk/docs/JsonSchemaThanos.md)
  - [JsonSchemaTimescaledb](sdk/docs/JsonSchemaTimescaledb.md)
  - [JsonSchemaValkey](sdk/docs/JsonSchemaValkey.md)
+ - [KeyMaterial](sdk/docs/KeyMaterial.md)
+ - [KeyRotationConfig](sdk/docs/KeyRotationConfig.md)
  - [KubeletImageGc](sdk/docs/KubeletImageGc.md)
  - [ListAiInstanceTypesResponse](sdk/docs/ListAiInstanceTypesResponse.md)
  - [ListAntiAffinityGroups200Response](sdk/docs/ListAntiAffinityGroups200Response.md)
@@ -709,6 +746,10 @@ Class | Method | HTTP request | Description
  - [ListInstances200Response](sdk/docs/ListInstances200Response.md)
  - [ListInstances200ResponseInstancesInner](sdk/docs/ListInstances200ResponseInstancesInner.md)
  - [ListInstances200ResponseInstancesInnerPrivateNetworksInner](sdk/docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md)
+ - [ListKmsKeyRotationsResponse](sdk/docs/ListKmsKeyRotationsResponse.md)
+ - [ListKmsKeyRotationsResponseEntry](sdk/docs/ListKmsKeyRotationsResponseEntry.md)
+ - [ListKmsKeysResponse](sdk/docs/ListKmsKeysResponse.md)
+ - [ListKmsKeysResponseEntry](sdk/docs/ListKmsKeysResponseEntry.md)
  - [ListLoadBalancers200Response](sdk/docs/ListLoadBalancers200Response.md)
  - [ListModelsResponse](sdk/docs/ListModelsResponse.md)
  - [ListModelsResponseEntry](sdk/docs/ListModelsResponseEntry.md)
@@ -737,6 +778,7 @@ Class | Method | HTTP request | Description
  - [OperatingFactor](sdk/docs/OperatingFactor.md)
  - [Operation](sdk/docs/Operation.md)
  - [OperationReference](sdk/docs/OperationReference.md)
+ - [OperationResourceRef](sdk/docs/OperationResourceRef.md)
  - [Organization](sdk/docs/Organization.md)
  - [OrganizationUsage](sdk/docs/OrganizationUsage.md)
  - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
@@ -749,9 +791,16 @@ Class | Method | HTTP request | Description
  - [PromoteSnapshotToTemplateRequest](sdk/docs/PromoteSnapshotToTemplateRequest.md)
  - [PublicIpAssignment](sdk/docs/PublicIpAssignment.md)
  - [Quota](sdk/docs/Quota.md)
+ - [ReEncryptRequest](sdk/docs/ReEncryptRequest.md)
+ - [ReEncryptRequestDestination](sdk/docs/ReEncryptRequestDestination.md)
+ - [ReEncryptRequestSource](sdk/docs/ReEncryptRequestSource.md)
+ - [ReEncryptResponse](sdk/docs/ReEncryptResponse.md)
  - [RegisterSshKeyRequest](sdk/docs/RegisterSshKeyRequest.md)
  - [RegisterTemplateRequest](sdk/docs/RegisterTemplateRequest.md)
  - [RemoveExternalSourceFromSecurityGroupRequest](sdk/docs/RemoveExternalSourceFromSecurityGroupRequest.md)
+ - [ReplicaFailure](sdk/docs/ReplicaFailure.md)
+ - [ReplicaState](sdk/docs/ReplicaState.md)
+ - [ReplicateKmsKeyRequest](sdk/docs/ReplicateKmsKeyRequest.md)
  - [ResetDbaasMysqlUserPasswordRequest](sdk/docs/ResetDbaasMysqlUserPasswordRequest.md)
  - [ResetDbaasValkeyUserPasswordRequest](sdk/docs/ResetDbaasValkeyUserPasswordRequest.md)
  - [ResetInstanceRequest](sdk/docs/ResetInstanceRequest.md)
@@ -761,11 +810,14 @@ Class | Method | HTTP request | Description
  - [RevealDeploymentApiKeyResponse](sdk/docs/RevealDeploymentApiKeyResponse.md)
  - [ReverseDnsRecord](sdk/docs/ReverseDnsRecord.md)
  - [RevertInstanceToSnapshotRequest](sdk/docs/RevertInstanceToSnapshotRequest.md)
+ - [RevisionStamp](sdk/docs/RevisionStamp.md)
+ - [RotateKmsKeyResponse](sdk/docs/RotateKmsKeyResponse.md)
  - [SMTPServerSettings](sdk/docs/SMTPServerSettings.md)
  - [ScaleDeploymentRequest](sdk/docs/ScaleDeploymentRequest.md)
  - [ScaleInstancePoolRequest](sdk/docs/ScaleInstancePoolRequest.md)
  - [ScaleInstanceRequest](sdk/docs/ScaleInstanceRequest.md)
  - [ScaleSksNodepoolRequest](sdk/docs/ScaleSksNodepoolRequest.md)
+ - [ScheduleKmsKeyDeletionRequest](sdk/docs/ScheduleKmsKeyDeletionRequest.md)
  - [SearchBackpressureSettings](sdk/docs/SearchBackpressureSettings.md)
  - [SearchShardSettings](sdk/docs/SearchShardSettings.md)
  - [SearchTaskSettings](sdk/docs/SearchTaskSettings.md)
@@ -792,6 +844,7 @@ Class | Method | HTTP request | Description
  - [SshKey](sdk/docs/SshKey.md)
  - [SshKeyRef](sdk/docs/SshKeyRef.md)
  - [StartInstanceRequest](sdk/docs/StartInstanceRequest.md)
+ - [SuccessResponse](sdk/docs/SuccessResponse.md)
  - [Template](sdk/docs/Template.md)
  - [TemplateRef](sdk/docs/TemplateRef.md)
  - [ThanosCompactorUserConfig](sdk/docs/ThanosCompactorUserConfig.md)
@@ -816,6 +869,7 @@ Class | Method | HTTP request | Description
  - [UpdateDbaasServicePgRequest](sdk/docs/UpdateDbaasServicePgRequest.md)
  - [UpdateDbaasServiceThanosRequest](sdk/docs/UpdateDbaasServiceThanosRequest.md)
  - [UpdateDbaasServiceValkeyRequest](sdk/docs/UpdateDbaasServiceValkeyRequest.md)
+ - [UpdateDbaasValkeyUserAccessControlRequest](sdk/docs/UpdateDbaasValkeyUserAccessControlRequest.md)
  - [UpdateDeploymentRequest](sdk/docs/UpdateDeploymentRequest.md)
  - [UpdateDnsDomainRecordRequest](sdk/docs/UpdateDnsDomainRecordRequest.md)
  - [UpdateElasticIpRequest](sdk/docs/UpdateElasticIpRequest.md)

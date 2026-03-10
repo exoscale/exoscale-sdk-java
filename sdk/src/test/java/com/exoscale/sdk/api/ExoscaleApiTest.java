@@ -44,6 +44,7 @@ import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
+import com.exoscale.sdk.model.CreateDbaasValkeyUserRequest;
 import com.exoscale.sdk.model.CreateDeploymentRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
@@ -51,6 +52,8 @@ import com.exoscale.sdk.model.CreateElasticIpRequest;
 import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
+import com.exoscale.sdk.model.CreateKmsKeyRequest;
+import com.exoscale.sdk.model.CreateKmsKeyResponse;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
 import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
@@ -98,18 +101,29 @@ import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserThanosSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
+import com.exoscale.sdk.model.DbaasValkeyUsers;
+import com.exoscale.sdk.model.DecryptRequest;
+import com.exoscale.sdk.model.DecryptResponse;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
+import com.exoscale.sdk.model.DisableKmsKeyRotationRequest;
+import com.exoscale.sdk.model.DisableKmsKeyRotationResponse;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
 import com.exoscale.sdk.model.ElasticIp;
+import com.exoscale.sdk.model.EnableKmsKeyRotationRequest;
+import com.exoscale.sdk.model.EnableKmsKeyRotationResponse;
+import com.exoscale.sdk.model.EncryptRequest;
+import com.exoscale.sdk.model.EncryptResponse;
 import com.exoscale.sdk.model.EnvImpactReport;
 import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
+import com.exoscale.sdk.model.GenerateDataKeyRequest;
+import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
 import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
@@ -129,6 +143,7 @@ import com.exoscale.sdk.model.GetDeploymentLogsResponse;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
+import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
@@ -162,6 +177,8 @@ import com.exoscale.sdk.model.ListIamRoles200Response;
 import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
+import com.exoscale.sdk.model.ListKmsKeyRotationsResponse;
+import com.exoscale.sdk.model.ListKmsKeysResponse;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
 import com.exoscale.sdk.model.ListModelsResponse;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
@@ -183,9 +200,12 @@ import com.exoscale.sdk.model.Organization;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
 import com.exoscale.sdk.model.Quota;
+import com.exoscale.sdk.model.ReEncryptRequest;
+import com.exoscale.sdk.model.ReEncryptResponse;
 import com.exoscale.sdk.model.RegisterSshKeyRequest;
 import com.exoscale.sdk.model.RegisterTemplateRequest;
 import com.exoscale.sdk.model.RemoveExternalSourceFromSecurityGroupRequest;
+import com.exoscale.sdk.model.ReplicateKmsKeyRequest;
 import com.exoscale.sdk.model.ResetDbaasMysqlUserPasswordRequest;
 import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
@@ -194,10 +214,12 @@ import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
 import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
+import com.exoscale.sdk.model.RotateKmsKeyResponse;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
+import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.SecurityGroup;
 import com.exoscale.sdk.model.SksCluster;
 import com.exoscale.sdk.model.SksClusterDeprecatedResource;
@@ -206,6 +228,7 @@ import com.exoscale.sdk.model.SksNodepool;
 import com.exoscale.sdk.model.Snapshot;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.StartInstanceRequest;
+import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
@@ -220,6 +243,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
+import com.exoscale.sdk.model.UpdateDbaasValkeyUserAccessControlRequest;
 import com.exoscale.sdk.model.UpdateDeploymentRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
@@ -412,6 +436,23 @@ public class ExoscaleApiTest {
         DetachInstanceFromPrivateNetworkRequest detachInstanceFromPrivateNetworkRequest = null;
         Operation response = 
         api.attachInstanceToSecurityGroup(id, detachInstanceFromPrivateNetworkRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [Beta] Cancel KMS Key Deletion
+     *
+     * Cancel the scheduled deletion of a KMS Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cancelKmsKeyDeletionTest() throws ApiException {
+        UUID id = null;
+        
+        api.cancelKmsKeyDeletion(id);
         
         // TODO: test validations
     }
@@ -945,9 +986,9 @@ public class ExoscaleApiTest {
     @Test
     public void createDbaasValkeyUserTest() throws ApiException {
         String serviceName = null;
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = null;
+        CreateDbaasValkeyUserRequest createDbaasValkeyUserRequest = null;
         Operation response = 
-        api.createDbaasValkeyUser(serviceName, createDbaasKafkaUserRequest);
+        api.createDbaasValkeyUser(serviceName, createDbaasValkeyUserRequest);
         
         // TODO: test validations
     }
@@ -1068,6 +1109,23 @@ public class ExoscaleApiTest {
         CreateInstancePoolRequest createInstancePoolRequest = null;
         Operation response = 
         api.createInstancePool(createInstancePoolRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Create KMS Key
+     *
+     * Create a KMS Key in a given zone with a given name.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createKmsKeyTest() throws ApiException {
+        CreateKmsKeyRequest createKmsKeyRequest = null;
+        CreateKmsKeyResponse response = 
+        api.createKmsKey(createKmsKeyRequest);
         
         // TODO: test validations
     }
@@ -1205,6 +1263,24 @@ public class ExoscaleApiTest {
         CreateUserRequest createUserRequest = null;
         Operation response = 
         api.createUser(createUserRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Decrypt
+     *
+     * Decrypt a ciphertext.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void decryptTest() throws ApiException {
+        UUID id = null;
+        DecryptRequest decryptRequest = null;
+        DecryptResponse response = 
+        api.decrypt(id, decryptRequest);
         
         // TODO: test validations
     }
@@ -2146,6 +2222,41 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Disable KMS Key
+     *
+     * Disable a KMS Key
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void disableKmsKeyTest() throws ApiException {
+        UUID id = null;
+        SuccessResponse response = 
+        api.disableKmsKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Disable Key Rotation
+     *
+     * Disable the periodic rotation of a KMS Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void disableKmsKeyRotationTest() throws ApiException {
+        UUID id = null;
+        DisableKmsKeyRotationRequest disableKmsKeyRotationRequest = null;
+        DisableKmsKeyRotationResponse response = 
+        api.disableKmsKeyRotation(id, disableKmsKeyRotationRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Temporarily enable writes for MySQL services in read-only mode due to filled up storage
      *
      * 
@@ -2163,6 +2274,41 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Enable KMS Key
+     *
+     * Enable a KMS Key\&quot;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void enableKmsKeyTest() throws ApiException {
+        UUID id = null;
+        SuccessResponse response = 
+        api.enableKmsKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Enable Key Rotation
+     *
+     * Enable the periodic rotation of a KMS Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void enableKmsKeyRotationTest() throws ApiException {
+        UUID id = null;
+        EnableKmsKeyRotationRequest enableKmsKeyRotationRequest = null;
+        EnableKmsKeyRotationResponse response = 
+        api.enableKmsKeyRotation(id, enableKmsKeyRotationRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Enable tpm for the instance.
      *
      * 
@@ -2175,6 +2321,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.enableTpm(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Encrypt
+     *
+     * Encrypt a plaintext.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void encryptTest() throws ApiException {
+        UUID id = null;
+        EncryptRequest encryptRequest = null;
+        EncryptResponse response = 
+        api.encrypt(id, encryptRequest);
         
         // TODO: test validations
     }
@@ -2229,6 +2393,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.exportSnapshot(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Generate Data Key
+     *
+     * Generate a Data Encryption Key from a given KMS Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void generateDataKeyTest() throws ApiException {
+        UUID id = null;
+        GenerateDataKeyRequest generateDataKeyRequest = null;
+        GenerateDataKeyResponse response = 
+        api.generateDataKey(id, generateDataKeyRequest);
         
         // TODO: test validations
     }
@@ -3100,6 +3282,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Get KMS Key
+     *
+     * Retrieve KMS Key details.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getKmsKeyTest() throws ApiException {
+        UUID id = null;
+        GetKmsKeyResponse response = 
+        api.getKmsKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieve Load Balancer details
      *
      * 
@@ -3623,6 +3822,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * List DBaaS Valkey users with ACL configuration
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDbaasValkeyUsersTest() throws ApiException {
+        String serviceName = null;
+        DbaasValkeyUsers response = 
+        api.listDbaasValkeyUsers(serviceName);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List Deploy Targets
      *
      * 
@@ -3784,6 +4000,39 @@ public class ExoscaleApiTest {
         String ipAddress = null;
         ListInstances200Response response = 
         api.listInstances(managerId, managerType, ipAddress);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] List KMS Key Rotations
+     *
+     * List all the key material versions of a KMS Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listKmsKeyRotationsTest() throws ApiException {
+        UUID id = null;
+        ListKmsKeyRotationsResponse response = 
+        api.listKmsKeyRotations(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] List KMS Keys
+     *
+     * List KMS Keys details for an organization in a given zone.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listKmsKeysTest() throws ApiException {
+        ListKmsKeysResponse response = 
+        api.listKmsKeys();
         
         // TODO: test validations
     }
@@ -4036,6 +4285,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Re-encrypt
+     *
+     * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void reEncryptTest() throws ApiException {
+        UUID id = null;
+        ReEncryptRequest reEncryptRequest = null;
+        ReEncryptResponse response = 
+        api.reEncrypt(id, reEncryptRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reboot a Compute instance
      *
      * 
@@ -4117,6 +4384,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.removeInstanceProtection(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Replicate KMS Key
+     *
+     * Replicate a KMS key to a target zone.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void replicateKmsKeyTest() throws ApiException {
+        UUID id = null;
+        ReplicateKmsKeyRequest replicateKmsKeyRequest = null;
+        Operation response = 
+        api.replicateKmsKey(id, replicateKmsKeyRequest);
         
         // TODO: test validations
     }
@@ -4627,6 +4912,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Rotate Key
+     *
+     * Perform a manual rotation of the key material for a symmetric key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void rotateKmsKeyTest() throws ApiException {
+        UUID id = null;
+        RotateKmsKeyResponse response = 
+        api.rotateKmsKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Rotate Exoscale CCM credentials
      *
      * 
@@ -4763,6 +5065,24 @@ public class ExoscaleApiTest {
         ScaleSksNodepoolRequest scaleSksNodepoolRequest = null;
         Operation response = 
         api.scaleSksNodepool(id, sksNodepoolId, scaleSksNodepoolRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Schedule KMS Key Deletion
+     *
+     * Schedule a KMS key for deletion after a delay.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void scheduleKmsKeyDeletionTest() throws ApiException {
+        UUID id = null;
+        ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest = null;
+        
+        api.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
         
         // TODO: test validations
     }
@@ -5312,6 +5632,25 @@ public class ExoscaleApiTest {
         UpdateDbaasServiceValkeyRequest updateDbaasServiceValkeyRequest = null;
         Operation response = 
         api.updateDbaasServiceValkey(name, updateDbaasServiceValkeyRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update access control for one DBaaS Valkey service user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasValkeyUserAccessControlTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        UpdateDbaasValkeyUserAccessControlRequest updateDbaasValkeyUserAccessControlRequest = null;
+        Operation response = 
+        api.updateDbaasValkeyUserAccessControl(serviceName, username, updateDbaasValkeyUserAccessControlRequest);
         
         // TODO: test validations
     }

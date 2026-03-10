@@ -13,6 +13,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToPrivateNetwork**](ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
+| [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [Beta] Cancel KMS Key Deletion |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
@@ -50,6 +51,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createIamRole**](ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role |
 | [**createInstance**](ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance |
 | [**createInstancePool**](ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool |
+| [**createKmsKey**](ExoscaleApi.md#createKmsKey) | **POST** /kms-key | [BETA] Create KMS Key |
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
 | [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | [BETA] Create Model |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
@@ -58,6 +60,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createSksNodepool**](ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
+| [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
@@ -112,11 +115,17 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
 | [**detachInstanceFromPrivateNetwork**](ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
 | [**detachInstanceFromSecurityGroup**](ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group |
+| [**disableKmsKey**](ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | [BETA] Disable KMS Key |
+| [**disableKmsKeyRotation**](ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | [BETA] Disable Key Rotation |
 | [**enableDbaasMysqlWrites**](ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage |
+| [**enableKmsKey**](ExoscaleApi.md#enableKmsKey) | **POST** /kms-key/{id}/enable | [BETA] Enable KMS Key |
+| [**enableKmsKeyRotation**](ExoscaleApi.md#enableKmsKeyRotation) | **POST** /kms-key/{id}/enable-key-rotation | [BETA] Enable Key Rotation |
 | [**enableTpm**](ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | Enable tpm for the instance. |
+| [**encrypt**](ExoscaleApi.md#encrypt) | **POST** /kms-key/{id}/encrypt | [BETA] Encrypt |
 | [**evictInstancePoolMembers**](ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members |
 | [**evictSksNodepoolMembers**](ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members |
 | [**exportSnapshot**](ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot |
+| [**generateDataKey**](ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key |
 | [**generateSksClusterKubeconfig**](ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster |
 | [**getActiveNodepoolTemplate**](ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} |  |
 | [**getAntiAffinityGroup**](ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details |
@@ -168,6 +177,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
+| [**getKmsKey**](ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | [BETA] Get KMS Key |
 | [**getLoadBalancer**](ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
 | [**getLoadBalancerService**](ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details |
 | [**getModel**](ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | [BETA] Get Model |
@@ -199,6 +209,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listDbaasIntegrationTypes**](ExoscaleApi.md#listDbaasIntegrationTypes) | **GET** /dbaas-integration-types |  |
 | [**listDbaasServiceTypes**](ExoscaleApi.md#listDbaasServiceTypes) | **GET** /dbaas-service-type | DBaaS Service Types |
 | [**listDbaasServices**](ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services |
+| [**listDbaasValkeyUsers**](ExoscaleApi.md#listDbaasValkeyUsers) | **GET** /dbaas-valkey/{service-name}/user | List DBaaS Valkey users with ACL configuration |
 | [**listDeployTargets**](ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets |
 | [**listDeployments**](ExoscaleApi.md#listDeployments) | **GET** /ai/deployment | [BETA] List Deployments |
 | [**listDnsDomainRecords**](ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
@@ -209,6 +220,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listInstancePools**](ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools |
 | [**listInstanceTypes**](ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types |
 | [**listInstances**](ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances |
+| [**listKmsKeyRotations**](ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | [BETA] List KMS Key Rotations |
+| [**listKmsKeys**](ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | [BETA] List KMS Keys |
 | [**listLoadBalancers**](ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers |
 | [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | [BETA] List Models |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
@@ -224,11 +237,13 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listUsers**](ExoscaleApi.md#listUsers) | **GET** /user | List Users |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
+| [**reEncrypt**](ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | [BETA] Re-encrypt |
 | [**rebootInstance**](ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance |
 | [**registerSshKey**](ExoscaleApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key |
 | [**registerTemplate**](ExoscaleApi.md#registerTemplate) | **POST** /template | Register a Template |
 | [**removeExternalSourceFromSecurityGroup**](ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
 | [**removeInstanceProtection**](ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
+| [**replicateKmsKey**](ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | [BETA] Replicate KMS Key |
 | [**resetDbaasGrafanaUserPassword**](ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
 | [**resetDbaasKafkaUserPassword**](ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasMysqlUserPassword**](ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
@@ -257,6 +272,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
+| [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
 | [**rotateSksKarpenterCredentials**](ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials |
@@ -265,6 +281,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**scaleInstance**](ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
+| [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | [BETA] Schedule KMS Key Deletion |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
 | [**startDbaasKafkaMaintenance**](ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
 | [**startDbaasMysqlMaintenance**](ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
@@ -296,6 +313,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDbaasServicePg**](ExoscaleApi.md#updateDbaasServicePg) | **PUT** /dbaas-postgres/{name} | Update a DBaaS PostgreSQL service |
 | [**updateDbaasServiceThanos**](ExoscaleApi.md#updateDbaasServiceThanos) | **PUT** /dbaas-thanos/{name} |  |
 | [**updateDbaasServiceValkey**](ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} |  |
+| [**updateDbaasValkeyUserAccessControl**](ExoscaleApi.md#updateDbaasValkeyUserAccessControl) | **PUT** /dbaas-valkey/{service-name}/user/{username} | Update access control for one DBaaS Valkey service user |
 | [**updateDeployment**](ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} |  |
 | [**updateDnsDomainRecord**](ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
 | [**updateElasticIp**](ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP |
@@ -1170,6 +1188,97 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## cancelKmsKeyDeletion
+
+> void cancelKmsKeyDeletion(id)
+
+[Beta] Cancel KMS Key Deletion
+
+Cancel the scheduled deletion of a KMS Key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            client.cancelKmsKeyDeletion(id);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#cancelKmsKeyDeletion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+
+ApiResponse<Void>
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | 400 |  -  |
 
 
 ## copyTemplate
@@ -3897,7 +4006,7 @@ No authorization required
 
 ## createDbaasValkeyUser
 
-> Operation createDbaasValkeyUser(serviceName, createDbaasKafkaUserRequest)
+> Operation createDbaasValkeyUser(serviceName, createDbaasValkeyUserRequest)
 
 Create a DBaaS Valkey user
 
@@ -3915,11 +4024,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest = new CreateDbaasKafkaUserRequest(); // CreateDbaasKafkaUserRequest |  please add at least all the required fields
+        CreateDbaasValkeyUserRequest createDbaasValkeyUserRequest = new CreateDbaasValkeyUserRequest(); // CreateDbaasValkeyUserRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.createDbaasValkeyUser(serviceName, createDbaasKafkaUserRequest);
+            Operation result = client.createDbaasValkeyUser(serviceName, createDbaasValkeyUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasValkeyUser");
@@ -3938,7 +4047,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
-| **createDbaasKafkaUserRequest** | [**CreateDbaasKafkaUserRequest**](CreateDbaasKafkaUserRequest.md)|  | |
+| **createDbaasValkeyUserRequest** | [**CreateDbaasValkeyUserRequest**](CreateDbaasValkeyUserRequest.md)|  | |
 
 ### Return type
 
@@ -3966,7 +4075,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
-| **createDbaasKafkaUserRequest** | [**CreateDbaasKafkaUserRequest**](CreateDbaasKafkaUserRequest.md)|  | |
+| **createDbaasValkeyUserRequest** | [**CreateDbaasValkeyUserRequest**](CreateDbaasValkeyUserRequest.md)|  | |
 
 ### Return type
 
@@ -4637,6 +4746,102 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## createKmsKey
+
+> CreateKmsKeyResponse createKmsKey(createKmsKeyRequest)
+
+[BETA] Create KMS Key
+
+Create a KMS Key in a given zone with a given name.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateKmsKeyRequest createKmsKeyRequest = new CreateKmsKeyRequest(); // CreateKmsKeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            CreateKmsKeyResponse result = client.createKmsKey(createKmsKeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createKmsKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createKmsKeyRequest** | [**CreateKmsKeyRequest**](CreateKmsKeyRequest.md)|  | |
+
+### Return type
+
+[**CreateKmsKeyResponse**](CreateKmsKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | 201 |  -  |
+| **400** | 400 |  -  |
+| **409** | 409 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createKmsKeyRequest** | [**CreateKmsKeyRequest**](CreateKmsKeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**CreateKmsKeyResponse**](CreateKmsKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | 201 |  -  |
+| **400** | 400 |  -  |
+| **409** | 409 |  -  |
 
 
 ## createLoadBalancer
@@ -5374,6 +5579,103 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## decrypt
+
+> DecryptResponse decrypt(id, decryptRequest)
+
+[BETA] Decrypt
+
+Decrypt a ciphertext.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        DecryptRequest decryptRequest = new DecryptRequest(); // DecryptRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            DecryptResponse result = client.decrypt(id, decryptRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#decrypt");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **decryptRequest** | [**DecryptRequest**](DecryptRequest.md)|  | |
+
+### Return type
+
+[**DecryptResponse**](DecryptResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **decryptRequest** | [**DecryptRequest**](DecryptRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**DecryptResponse**](DecryptResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -10364,6 +10666,197 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## disableKmsKey
+
+> SuccessResponse disableKmsKey(id)
+
+[BETA] Disable KMS Key
+
+Disable a KMS Key
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            SuccessResponse result = client.disableKmsKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#disableKmsKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**SuccessResponse**](SuccessResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+## disableKmsKeyRotation
+
+> DisableKmsKeyRotationResponse disableKmsKeyRotation(id, disableKmsKeyRotationRequest)
+
+[BETA] Disable Key Rotation
+
+Disable the periodic rotation of a KMS Key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        DisableKmsKeyRotationRequest disableKmsKeyRotationRequest = new DisableKmsKeyRotationRequest(); // DisableKmsKeyRotationRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            DisableKmsKeyRotationResponse result = client.disableKmsKeyRotation(id, disableKmsKeyRotationRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#disableKmsKeyRotation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **disableKmsKeyRotationRequest** | [**DisableKmsKeyRotationRequest**](DisableKmsKeyRotationRequest.md)|  | |
+
+### Return type
+
+[**DisableKmsKeyRotationResponse**](DisableKmsKeyRotationResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **disableKmsKeyRotationRequest** | [**DisableKmsKeyRotationRequest**](DisableKmsKeyRotationRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**DisableKmsKeyRotationResponse**](DisableKmsKeyRotationResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
 ## enableDbaasMysqlWrites
 
 > Operation enableDbaasMysqlWrites(name)
@@ -10452,6 +10945,197 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## enableKmsKey
+
+> SuccessResponse enableKmsKey(id)
+
+[BETA] Enable KMS Key
+
+Enable a KMS Key\&quot;
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            SuccessResponse result = client.enableKmsKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#enableKmsKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**SuccessResponse**](SuccessResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+## enableKmsKeyRotation
+
+> EnableKmsKeyRotationResponse enableKmsKeyRotation(id, enableKmsKeyRotationRequest)
+
+[BETA] Enable Key Rotation
+
+Enable the periodic rotation of a KMS Key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        EnableKmsKeyRotationRequest enableKmsKeyRotationRequest = new EnableKmsKeyRotationRequest(); // EnableKmsKeyRotationRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            EnableKmsKeyRotationResponse result = client.enableKmsKeyRotation(id, enableKmsKeyRotationRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#enableKmsKeyRotation");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **enableKmsKeyRotationRequest** | [**EnableKmsKeyRotationRequest**](EnableKmsKeyRotationRequest.md)|  | |
+
+### Return type
+
+[**EnableKmsKeyRotationResponse**](EnableKmsKeyRotationResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **enableKmsKeyRotationRequest** | [**EnableKmsKeyRotationRequest**](EnableKmsKeyRotationRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**EnableKmsKeyRotationResponse**](EnableKmsKeyRotationResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## enableTpm
@@ -10544,6 +11228,103 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## encrypt
+
+> EncryptResponse encrypt(id, encryptRequest)
+
+[BETA] Encrypt
+
+Encrypt a plaintext.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        EncryptRequest encryptRequest = new EncryptRequest(); // EncryptRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            EncryptResponse result = client.encrypt(id, encryptRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#encrypt");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **encryptRequest** | [**EncryptRequest**](EncryptRequest.md)|  | |
+
+### Return type
+
+[**EncryptResponse**](EncryptResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **encryptRequest** | [**EncryptRequest**](EncryptRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**EncryptResponse**](EncryptResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## evictInstancePoolMembers
@@ -10829,6 +11610,103 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## generateDataKey
+
+> GenerateDataKeyResponse generateDataKey(id, generateDataKeyRequest)
+
+[BETA] Generate Data Key
+
+Generate a Data Encryption Key from a given KMS Key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        GenerateDataKeyRequest generateDataKeyRequest = new GenerateDataKeyRequest(); // GenerateDataKeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            GenerateDataKeyResponse result = client.generateDataKey(id, generateDataKeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#generateDataKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **generateDataKeyRequest** | [**GenerateDataKeyRequest**](GenerateDataKeyRequest.md)|  | |
+
+### Return type
+
+[**GenerateDataKeyResponse**](GenerateDataKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **generateDataKeyRequest** | [**GenerateDataKeyRequest**](GenerateDataKeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**GenerateDataKeyResponse**](GenerateDataKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## generateSksClusterKubeconfig
@@ -15482,6 +16360,102 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getKmsKey
+
+> GetKmsKeyResponse getKmsKey(id)
+
+[BETA] Get KMS Key
+
+Retrieve KMS Key details.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            GetKmsKeyResponse result = client.getKmsKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getKmsKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**GetKmsKeyResponse**](GetKmsKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+| **404** | 404 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GetKmsKeyResponse**](GetKmsKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+| **404** | 404 |  -  |
+
+
 ## getLoadBalancer
 
 > LoadBalancer getLoadBalancer(id)
@@ -18282,6 +19256,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listDbaasValkeyUsers
+
+> DbaasValkeyUsers listDbaasValkeyUsers(serviceName)
+
+List DBaaS Valkey users with ACL configuration
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasValkeyUsers result = client.listDbaasValkeyUsers(serviceName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasValkeyUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+[**DbaasValkeyUsers**](DbaasValkeyUsers.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasValkeyUsers**](DbaasValkeyUsers.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listDeployTargets
 
 > ListDeployTargets200Response listDeployTargets()
@@ -19160,6 +20224,187 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## listKmsKeyRotations
+
+> ListKmsKeyRotationsResponse listKmsKeyRotations(id)
+
+[BETA] List KMS Key Rotations
+
+List all the key material versions of a KMS Key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            ListKmsKeyRotationsResponse result = client.listKmsKeyRotations(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listKmsKeyRotations");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**ListKmsKeyRotationsResponse**](ListKmsKeyRotationsResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**ListKmsKeyRotationsResponse**](ListKmsKeyRotationsResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+## listKmsKeys
+
+> ListKmsKeysResponse listKmsKeys()
+
+[BETA] List KMS Keys
+
+List KMS Keys details for an organization in a given zone.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            ListKmsKeysResponse result = client.listKmsKeys();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listKmsKeys");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListKmsKeysResponse**](ListKmsKeysResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListKmsKeysResponse**](ListKmsKeysResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## listLoadBalancers
@@ -20476,6 +21721,103 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## reEncrypt
+
+> ReEncryptResponse reEncrypt(id, reEncryptRequest)
+
+[BETA] Re-encrypt
+
+Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        ReEncryptRequest reEncryptRequest = new ReEncryptRequest(); // ReEncryptRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            ReEncryptResponse result = client.reEncrypt(id, reEncryptRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#reEncrypt");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **reEncryptRequest** | [**ReEncryptRequest**](ReEncryptRequest.md)|  | |
+
+### Return type
+
+[**ReEncryptResponse**](ReEncryptResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **reEncryptRequest** | [**ReEncryptRequest**](ReEncryptRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**ReEncryptResponse**](ReEncryptResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
 ## rebootInstance
 
 > Operation rebootInstance(id)
@@ -20937,6 +22279,103 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## replicateKmsKey
+
+> Operation replicateKmsKey(id, replicateKmsKeyRequest)
+
+[BETA] Replicate KMS Key
+
+Replicate a KMS key to a target zone.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        ReplicateKmsKeyRequest replicateKmsKeyRequest = new ReplicateKmsKeyRequest(); // ReplicateKmsKeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.replicateKmsKey(id, replicateKmsKeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#replicateKmsKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **replicateKmsKeyRequest** | [**ReplicateKmsKeyRequest**](ReplicateKmsKeyRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **replicateKmsKeyRequest** | [**ReplicateKmsKeyRequest**](ReplicateKmsKeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## resetDbaasGrafanaUserPassword
@@ -23582,6 +25021,100 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## rotateKmsKey
+
+> RotateKmsKeyResponse rotateKmsKey(id)
+
+[BETA] Rotate Key
+
+Perform a manual rotation of the key material for a symmetric key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            RotateKmsKeyResponse result = client.rotateKmsKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#rotateKmsKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**RotateKmsKeyResponse**](RotateKmsKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**RotateKmsKeyResponse**](RotateKmsKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
 ## rotateSksCcmCredentials
 
 > Operation rotateSksCcmCredentials(id)
@@ -24331,6 +25864,100 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## scheduleKmsKeyDeletion
+
+> void scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest)
+
+[BETA] Schedule KMS Key Deletion
+
+Schedule a KMS key for deletion after a delay.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest = new ScheduleKmsKeyDeletionRequest(); // ScheduleKmsKeyDeletionRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            client.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#scheduleKmsKeyDeletion");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **scheduleKmsKeyDeletionRequest** | [**ScheduleKmsKeyDeletionRequest**](ScheduleKmsKeyDeletionRequest.md)|  | |
+
+### Return type
+
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **scheduleKmsKeyDeletionRequest** | [**ScheduleKmsKeyDeletionRequest**](ScheduleKmsKeyDeletionRequest.md)|  | |
+
+### Return type
+
+
+ApiResponse<Void>
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | 400 |  -  |
 
 
 ## startDbaasGrafanaMaintenance
@@ -27204,6 +28831,102 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
 | **updateDbaasServiceValkeyRequest** | [**UpdateDbaasServiceValkeyRequest**](UpdateDbaasServiceValkeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasValkeyUserAccessControl
+
+> Operation updateDbaasValkeyUserAccessControl(serviceName, username, updateDbaasValkeyUserAccessControlRequest)
+
+Update access control for one DBaaS Valkey service user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        UpdateDbaasValkeyUserAccessControlRequest updateDbaasValkeyUserAccessControlRequest = new UpdateDbaasValkeyUserAccessControlRequest(); // UpdateDbaasValkeyUserAccessControlRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.updateDbaasValkeyUserAccessControl(serviceName, username, updateDbaasValkeyUserAccessControlRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasValkeyUserAccessControl");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **updateDbaasValkeyUserAccessControlRequest** | [**UpdateDbaasValkeyUserAccessControlRequest**](UpdateDbaasValkeyUserAccessControlRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **updateDbaasValkeyUserAccessControlRequest** | [**UpdateDbaasValkeyUserAccessControlRequest**](UpdateDbaasValkeyUserAccessControlRequest.md)|  | |
 
 ### Return type
 

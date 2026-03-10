@@ -13,12 +13,15 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.ErrorResponseErrorsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -38,11 +41,51 @@ public class ErrorResponseTest {
     }
 
     /**
-     * Test the property 'error'
+     * Test the property 'type'
      */
     @Test
-    public void errorTest() {
-        // TODO: test error
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'title'
+     */
+    @Test
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'detail'
+     */
+    @Test
+    public void detailTest() {
+        // TODO: test detail
+    }
+
+    /**
+     * Test the property 'instance'
+     */
+    @Test
+    public void instanceTest() {
+        // TODO: test instance
+    }
+
+    /**
+     * Test the property 'errors'
+     */
+    @Test
+    public void errorsTest() {
+        // TODO: test errors
     }
 
 }

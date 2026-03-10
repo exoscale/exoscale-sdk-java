@@ -48,6 +48,7 @@ import com.exoscale.sdk.model.CreateDbaasServicePgRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceValkeyRequest;
 import com.exoscale.sdk.model.CreateDbaasTaskMigrationCheckRequest;
+import com.exoscale.sdk.model.CreateDbaasValkeyUserRequest;
 import com.exoscale.sdk.model.CreateDeploymentRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.CreateDnsDomainRequest;
@@ -55,6 +56,8 @@ import com.exoscale.sdk.model.CreateElasticIpRequest;
 import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
+import com.exoscale.sdk.model.CreateKmsKeyRequest;
+import com.exoscale.sdk.model.CreateKmsKeyResponse;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
 import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
@@ -102,18 +105,29 @@ import com.exoscale.sdk.model.DbaasUserOpensearchSecrets;
 import com.exoscale.sdk.model.DbaasUserPostgresSecrets;
 import com.exoscale.sdk.model.DbaasUserThanosSecrets;
 import com.exoscale.sdk.model.DbaasUserValkeySecrets;
+import com.exoscale.sdk.model.DbaasValkeyUsers;
+import com.exoscale.sdk.model.DecryptRequest;
+import com.exoscale.sdk.model.DecryptResponse;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
+import com.exoscale.sdk.model.DisableKmsKeyRotationRequest;
+import com.exoscale.sdk.model.DisableKmsKeyRotationResponse;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
 import com.exoscale.sdk.model.ElasticIp;
+import com.exoscale.sdk.model.EnableKmsKeyRotationRequest;
+import com.exoscale.sdk.model.EnableKmsKeyRotationResponse;
+import com.exoscale.sdk.model.EncryptRequest;
+import com.exoscale.sdk.model.EncryptResponse;
 import com.exoscale.sdk.model.EnvImpactReport;
 import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
+import com.exoscale.sdk.model.GenerateDataKeyRequest;
+import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
 import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
@@ -133,6 +147,7 @@ import com.exoscale.sdk.model.GetDeploymentLogsResponse;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
+import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
@@ -166,6 +181,8 @@ import com.exoscale.sdk.model.ListIamRoles200Response;
 import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
+import com.exoscale.sdk.model.ListKmsKeyRotationsResponse;
+import com.exoscale.sdk.model.ListKmsKeysResponse;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
 import com.exoscale.sdk.model.ListModelsResponse;
 import com.exoscale.sdk.model.ListPrivateNetworks200Response;
@@ -187,9 +204,12 @@ import com.exoscale.sdk.model.Organization;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
 import com.exoscale.sdk.model.Quota;
+import com.exoscale.sdk.model.ReEncryptRequest;
+import com.exoscale.sdk.model.ReEncryptResponse;
 import com.exoscale.sdk.model.RegisterSshKeyRequest;
 import com.exoscale.sdk.model.RegisterTemplateRequest;
 import com.exoscale.sdk.model.RemoveExternalSourceFromSecurityGroupRequest;
+import com.exoscale.sdk.model.ReplicateKmsKeyRequest;
 import com.exoscale.sdk.model.ResetDbaasMysqlUserPasswordRequest;
 import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
@@ -198,10 +218,12 @@ import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
 import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
+import com.exoscale.sdk.model.RotateKmsKeyResponse;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
+import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.SecurityGroup;
 import com.exoscale.sdk.model.SksCluster;
 import com.exoscale.sdk.model.SksClusterDeprecatedResource;
@@ -210,6 +232,7 @@ import com.exoscale.sdk.model.SksNodepool;
 import com.exoscale.sdk.model.Snapshot;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.StartInstanceRequest;
+import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
@@ -224,6 +247,7 @@ import com.exoscale.sdk.model.UpdateDbaasServiceOpensearchRequest;
 import com.exoscale.sdk.model.UpdateDbaasServicePgRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceThanosRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceValkeyRequest;
+import com.exoscale.sdk.model.UpdateDbaasValkeyUserAccessControlRequest;
 import com.exoscale.sdk.model.UpdateDeploymentRequest;
 import com.exoscale.sdk.model.UpdateDnsDomainRecordRequest;
 import com.exoscale.sdk.model.UpdateElasticIpRequest;
@@ -1130,6 +1154,91 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [Beta] Cancel KMS Key Deletion
+   * Cancel the scheduled deletion of a KMS Key.
+   * @param id  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void cancelKmsKeyDeletion(UUID id) throws ApiException {
+    cancelKmsKeyDeletionWithHttpInfo(id);
+  }
+
+  /**
+   * [Beta] Cancel KMS Key Deletion
+   * Cancel the scheduled deletion of a KMS Key.
+   * @param id  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Void> cancelKmsKeyDeletionWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = cancelKmsKeyDeletionRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("cancelKmsKeyDeletion", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder cancelKmsKeyDeletionRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling cancelKmsKeyDeletion");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/cancel-deletion"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -3840,12 +3949,12 @@ public class ExoscaleApi {
    * Create a DBaaS Valkey user
    * 
    * @param serviceName  (required)
-   * @param createDbaasKafkaUserRequest  (required)
+   * @param createDbaasValkeyUserRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation createDbaasValkeyUser(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = createDbaasValkeyUserWithHttpInfo(serviceName, createDbaasKafkaUserRequest);
+  public Operation createDbaasValkeyUser(String serviceName, CreateDbaasValkeyUserRequest createDbaasValkeyUserRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasValkeyUserWithHttpInfo(serviceName, createDbaasValkeyUserRequest);
     return localVarResponse.getData();
   }
 
@@ -3853,12 +3962,12 @@ public class ExoscaleApi {
    * Create a DBaaS Valkey user
    * 
    * @param serviceName  (required)
-   * @param createDbaasKafkaUserRequest  (required)
+   * @param createDbaasValkeyUserRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> createDbaasValkeyUserWithHttpInfo(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createDbaasValkeyUserRequestBuilder(serviceName, createDbaasKafkaUserRequest);
+  private ApiResponse<Operation> createDbaasValkeyUserWithHttpInfo(String serviceName, CreateDbaasValkeyUserRequest createDbaasValkeyUserRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasValkeyUserRequestBuilder(serviceName, createDbaasValkeyUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -3886,14 +3995,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder createDbaasValkeyUserRequestBuilder(String serviceName, CreateDbaasKafkaUserRequest createDbaasKafkaUserRequest) throws ApiException {
+  private HttpRequest.Builder createDbaasValkeyUserRequestBuilder(String serviceName, CreateDbaasValkeyUserRequest createDbaasValkeyUserRequest) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling createDbaasValkeyUser");
     }
-    // verify the required parameter 'createDbaasKafkaUserRequest' is set
-    if (createDbaasKafkaUserRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'createDbaasKafkaUserRequest' when calling createDbaasValkeyUser");
+    // verify the required parameter 'createDbaasValkeyUserRequest' is set
+    if (createDbaasValkeyUserRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasValkeyUserRequest' when calling createDbaasValkeyUser");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -3904,7 +4013,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasKafkaUserRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasValkeyUserRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -4521,6 +4630,93 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createInstancePoolRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Create KMS Key
+   * Create a KMS Key in a given zone with a given name.
+   * @param createKmsKeyRequest  (required)
+   * @return CreateKmsKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CreateKmsKeyResponse createKmsKey(CreateKmsKeyRequest createKmsKeyRequest) throws ApiException {
+    ApiResponse<CreateKmsKeyResponse> localVarResponse = createKmsKeyWithHttpInfo(createKmsKeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Create KMS Key
+   * Create a KMS Key in a given zone with a given name.
+   * @param createKmsKeyRequest  (required)
+   * @return ApiResponse&lt;CreateKmsKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<CreateKmsKeyResponse> createKmsKeyWithHttpInfo(CreateKmsKeyRequest createKmsKeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createKmsKeyRequestBuilder(createKmsKeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createKmsKey", localVarResponse);
+        }
+        return new ApiResponse<CreateKmsKeyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<CreateKmsKeyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createKmsKeyRequestBuilder(CreateKmsKeyRequest createKmsKeyRequest) throws ApiException {
+    // verify the required parameter 'createKmsKeyRequest' is set
+    if (createKmsKeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createKmsKeyRequest' when calling createKmsKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key";
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createKmsKeyRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -5219,6 +5415,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createUserRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Decrypt
+   * Decrypt a ciphertext.
+   * @param id  (required)
+   * @param decryptRequest  (required)
+   * @return DecryptResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DecryptResponse decrypt(UUID id, DecryptRequest decryptRequest) throws ApiException {
+    ApiResponse<DecryptResponse> localVarResponse = decryptWithHttpInfo(id, decryptRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Decrypt
+   * Decrypt a ciphertext.
+   * @param id  (required)
+   * @param decryptRequest  (required)
+   * @return ApiResponse&lt;DecryptResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DecryptResponse> decryptWithHttpInfo(UUID id, DecryptRequest decryptRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = decryptRequestBuilder(id, decryptRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("decrypt", localVarResponse);
+        }
+        return new ApiResponse<DecryptResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DecryptResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder decryptRequestBuilder(UUID id, DecryptRequest decryptRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling decrypt");
+    }
+    // verify the required parameter 'decryptRequest' is set
+    if (decryptRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'decryptRequest' when calling decrypt");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/decrypt"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(decryptRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -9819,6 +10109,182 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Disable KMS Key
+   * Disable a KMS Key
+   * @param id  (required)
+   * @return SuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SuccessResponse disableKmsKey(UUID id) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = disableKmsKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Disable KMS Key
+   * Disable a KMS Key
+   * @param id  (required)
+   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SuccessResponse> disableKmsKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = disableKmsKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("disableKmsKey", localVarResponse);
+        }
+        return new ApiResponse<SuccessResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder disableKmsKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling disableKmsKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/disable"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Disable Key Rotation
+   * Disable the periodic rotation of a KMS Key.
+   * @param id  (required)
+   * @param disableKmsKeyRotationRequest  (required)
+   * @return DisableKmsKeyRotationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DisableKmsKeyRotationResponse disableKmsKeyRotation(UUID id, DisableKmsKeyRotationRequest disableKmsKeyRotationRequest) throws ApiException {
+    ApiResponse<DisableKmsKeyRotationResponse> localVarResponse = disableKmsKeyRotationWithHttpInfo(id, disableKmsKeyRotationRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Disable Key Rotation
+   * Disable the periodic rotation of a KMS Key.
+   * @param id  (required)
+   * @param disableKmsKeyRotationRequest  (required)
+   * @return ApiResponse&lt;DisableKmsKeyRotationResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DisableKmsKeyRotationResponse> disableKmsKeyRotationWithHttpInfo(UUID id, DisableKmsKeyRotationRequest disableKmsKeyRotationRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = disableKmsKeyRotationRequestBuilder(id, disableKmsKeyRotationRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("disableKmsKeyRotation", localVarResponse);
+        }
+        return new ApiResponse<DisableKmsKeyRotationResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DisableKmsKeyRotationResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder disableKmsKeyRotationRequestBuilder(UUID id, DisableKmsKeyRotationRequest disableKmsKeyRotationRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling disableKmsKeyRotation");
+    }
+    // verify the required parameter 'disableKmsKeyRotationRequest' is set
+    if (disableKmsKeyRotationRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'disableKmsKeyRotationRequest' when calling disableKmsKeyRotation");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/disable-key-rotation"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(disableKmsKeyRotationRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Temporarily enable writes for MySQL services in read-only mode due to filled up storage
    * 
    * @param name  (required)
@@ -9901,6 +10367,182 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Enable KMS Key
+   * Enable a KMS Key\&quot;
+   * @param id  (required)
+   * @return SuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SuccessResponse enableKmsKey(UUID id) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = enableKmsKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Enable KMS Key
+   * Enable a KMS Key\&quot;
+   * @param id  (required)
+   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SuccessResponse> enableKmsKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = enableKmsKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("enableKmsKey", localVarResponse);
+        }
+        return new ApiResponse<SuccessResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder enableKmsKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling enableKmsKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/enable"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Enable Key Rotation
+   * Enable the periodic rotation of a KMS Key.
+   * @param id  (required)
+   * @param enableKmsKeyRotationRequest  (required)
+   * @return EnableKmsKeyRotationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EnableKmsKeyRotationResponse enableKmsKeyRotation(UUID id, EnableKmsKeyRotationRequest enableKmsKeyRotationRequest) throws ApiException {
+    ApiResponse<EnableKmsKeyRotationResponse> localVarResponse = enableKmsKeyRotationWithHttpInfo(id, enableKmsKeyRotationRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Enable Key Rotation
+   * Enable the periodic rotation of a KMS Key.
+   * @param id  (required)
+   * @param enableKmsKeyRotationRequest  (required)
+   * @return ApiResponse&lt;EnableKmsKeyRotationResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<EnableKmsKeyRotationResponse> enableKmsKeyRotationWithHttpInfo(UUID id, EnableKmsKeyRotationRequest enableKmsKeyRotationRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = enableKmsKeyRotationRequestBuilder(id, enableKmsKeyRotationRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("enableKmsKeyRotation", localVarResponse);
+        }
+        return new ApiResponse<EnableKmsKeyRotationResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<EnableKmsKeyRotationResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder enableKmsKeyRotationRequestBuilder(UUID id, EnableKmsKeyRotationRequest enableKmsKeyRotationRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling enableKmsKeyRotation");
+    }
+    // verify the required parameter 'enableKmsKeyRotationRequest' is set
+    if (enableKmsKeyRotationRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'enableKmsKeyRotationRequest' when calling enableKmsKeyRotation");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/enable-key-rotation"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(enableKmsKeyRotationRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Enable tpm for the instance.
    * 
    * @param id  (required)
@@ -9974,6 +10616,100 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Encrypt
+   * Encrypt a plaintext.
+   * @param id  (required)
+   * @param encryptRequest  (required)
+   * @return EncryptResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EncryptResponse encrypt(UUID id, EncryptRequest encryptRequest) throws ApiException {
+    ApiResponse<EncryptResponse> localVarResponse = encryptWithHttpInfo(id, encryptRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Encrypt
+   * Encrypt a plaintext.
+   * @param id  (required)
+   * @param encryptRequest  (required)
+   * @return ApiResponse&lt;EncryptResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<EncryptResponse> encryptWithHttpInfo(UUID id, EncryptRequest encryptRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = encryptRequestBuilder(id, encryptRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("encrypt", localVarResponse);
+        }
+        return new ApiResponse<EncryptResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<EncryptResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder encryptRequestBuilder(UUID id, EncryptRequest encryptRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling encrypt");
+    }
+    // verify the required parameter 'encryptRequest' is set
+    if (encryptRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'encryptRequest' when calling encrypt");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/encrypt"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(encryptRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -10251,6 +10987,100 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Generate Data Key
+   * Generate a Data Encryption Key from a given KMS Key.
+   * @param id  (required)
+   * @param generateDataKeyRequest  (required)
+   * @return GenerateDataKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GenerateDataKeyResponse generateDataKey(UUID id, GenerateDataKeyRequest generateDataKeyRequest) throws ApiException {
+    ApiResponse<GenerateDataKeyResponse> localVarResponse = generateDataKeyWithHttpInfo(id, generateDataKeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Generate Data Key
+   * Generate a Data Encryption Key from a given KMS Key.
+   * @param id  (required)
+   * @param generateDataKeyRequest  (required)
+   * @return ApiResponse&lt;GenerateDataKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GenerateDataKeyResponse> generateDataKeyWithHttpInfo(UUID id, GenerateDataKeyRequest generateDataKeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = generateDataKeyRequestBuilder(id, generateDataKeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("generateDataKey", localVarResponse);
+        }
+        return new ApiResponse<GenerateDataKeyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GenerateDataKeyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder generateDataKeyRequestBuilder(UUID id, GenerateDataKeyRequest generateDataKeyRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling generateDataKey");
+    }
+    // verify the required parameter 'generateDataKeyRequest' is set
+    if (generateDataKeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'generateDataKeyRequest' when calling generateDataKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/generate-data-key"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(generateDataKeyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -14467,6 +15297,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Get KMS Key
+   * Retrieve KMS Key details.
+   * @param id  (required)
+   * @return GetKmsKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetKmsKeyResponse getKmsKey(UUID id) throws ApiException {
+    ApiResponse<GetKmsKeyResponse> localVarResponse = getKmsKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get KMS Key
+   * Retrieve KMS Key details.
+   * @param id  (required)
+   * @return ApiResponse&lt;GetKmsKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetKmsKeyResponse> getKmsKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getKmsKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getKmsKey", localVarResponse);
+        }
+        return new ApiResponse<GetKmsKeyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetKmsKeyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getKmsKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getKmsKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Retrieve Load Balancer details
    * 
    * @param id  (required)
@@ -17011,6 +17923,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * List DBaaS Valkey users with ACL configuration
+   * 
+   * @param serviceName  (required)
+   * @return DbaasValkeyUsers
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasValkeyUsers listDbaasValkeyUsers(String serviceName) throws ApiException {
+    ApiResponse<DbaasValkeyUsers> localVarResponse = listDbaasValkeyUsersWithHttpInfo(serviceName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List DBaaS Valkey users with ACL configuration
+   * 
+   * @param serviceName  (required)
+   * @return ApiResponse&lt;DbaasValkeyUsers&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasValkeyUsers> listDbaasValkeyUsersWithHttpInfo(String serviceName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDbaasValkeyUsersRequestBuilder(serviceName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listDbaasValkeyUsers", localVarResponse);
+        }
+        return new ApiResponse<DbaasValkeyUsers>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasValkeyUsers>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listDbaasValkeyUsersRequestBuilder(String serviceName) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling listDbaasValkeyUsers");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{service-name}/user"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Deploy Targets
    * 
    * @return ListDeployTargets200Response
@@ -17801,6 +18795,163 @@ public class ExoscaleApi {
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] List KMS Key Rotations
+   * List all the key material versions of a KMS Key.
+   * @param id  (required)
+   * @return ListKmsKeyRotationsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListKmsKeyRotationsResponse listKmsKeyRotations(UUID id) throws ApiException {
+    ApiResponse<ListKmsKeyRotationsResponse> localVarResponse = listKmsKeyRotationsWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List KMS Key Rotations
+   * List all the key material versions of a KMS Key.
+   * @param id  (required)
+   * @return ApiResponse&lt;ListKmsKeyRotationsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListKmsKeyRotationsResponse> listKmsKeyRotationsWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listKmsKeyRotationsRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listKmsKeyRotations", localVarResponse);
+        }
+        return new ApiResponse<ListKmsKeyRotationsResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListKmsKeyRotationsResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listKmsKeyRotationsRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling listKmsKeyRotations");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/list-key-rotations"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] List KMS Keys
+   * List KMS Keys details for an organization in a given zone.
+   * @return ListKmsKeysResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListKmsKeysResponse listKmsKeys() throws ApiException {
+    ApiResponse<ListKmsKeysResponse> localVarResponse = listKmsKeysWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List KMS Keys
+   * List KMS Keys details for an organization in a given zone.
+   * @return ApiResponse&lt;ListKmsKeysResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListKmsKeysResponse> listKmsKeysWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listKmsKeysRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listKmsKeys", localVarResponse);
+        }
+        return new ApiResponse<ListKmsKeysResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListKmsKeysResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listKmsKeysRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -19020,6 +20171,100 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Re-encrypt
+   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+   * @param id  (required)
+   * @param reEncryptRequest  (required)
+   * @return ReEncryptResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ReEncryptResponse reEncrypt(UUID id, ReEncryptRequest reEncryptRequest) throws ApiException {
+    ApiResponse<ReEncryptResponse> localVarResponse = reEncryptWithHttpInfo(id, reEncryptRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Re-encrypt
+   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+   * @param id  (required)
+   * @param reEncryptRequest  (required)
+   * @return ApiResponse&lt;ReEncryptResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ReEncryptResponse> reEncryptWithHttpInfo(UUID id, ReEncryptRequest reEncryptRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = reEncryptRequestBuilder(id, reEncryptRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("reEncrypt", localVarResponse);
+        }
+        return new ApiResponse<ReEncryptResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ReEncryptResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder reEncryptRequestBuilder(UUID id, ReEncryptRequest reEncryptRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling reEncrypt");
+    }
+    // verify the required parameter 'reEncryptRequest' is set
+    if (reEncryptRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'reEncryptRequest' when calling reEncrypt");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/re-encrypt"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(reEncryptRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Reboot a Compute instance
    * 
    * @param id  (required)
@@ -19443,6 +20688,100 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Replicate KMS Key
+   * Replicate a KMS key to a target zone.
+   * @param id  (required)
+   * @param replicateKmsKeyRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation replicateKmsKey(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = replicateKmsKeyWithHttpInfo(id, replicateKmsKeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Replicate KMS Key
+   * Replicate a KMS key to a target zone.
+   * @param id  (required)
+   * @param replicateKmsKeyRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> replicateKmsKeyWithHttpInfo(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = replicateKmsKeyRequestBuilder(id, replicateKmsKeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("replicateKmsKey", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder replicateKmsKeyRequestBuilder(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling replicateKmsKey");
+    }
+    // verify the required parameter 'replicateKmsKeyRequest' is set
+    if (replicateKmsKeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'replicateKmsKeyRequest' when calling replicateKmsKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/replicate"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(replicateKmsKeyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -22001,6 +23340,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Rotate Key
+   * Perform a manual rotation of the key material for a symmetric key.
+   * @param id  (required)
+   * @return RotateKmsKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RotateKmsKeyResponse rotateKmsKey(UUID id) throws ApiException {
+    ApiResponse<RotateKmsKeyResponse> localVarResponse = rotateKmsKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Rotate Key
+   * Perform a manual rotation of the key material for a symmetric key.
+   * @param id  (required)
+   * @return ApiResponse&lt;RotateKmsKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<RotateKmsKeyResponse> rotateKmsKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = rotateKmsKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("rotateKmsKey", localVarResponse);
+        }
+        return new ApiResponse<RotateKmsKeyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RotateKmsKeyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder rotateKmsKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling rotateKmsKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/rotate"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Rotate Exoscale CCM credentials
    * 
    * @param id  (required)
@@ -22703,6 +24124,103 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Schedule KMS Key Deletion
+   * Schedule a KMS key for deletion after a delay.
+   * @param id  (required)
+   * @param scheduleKmsKeyDeletionRequest  (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void scheduleKmsKeyDeletion(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+    scheduleKmsKeyDeletionWithHttpInfo(id, scheduleKmsKeyDeletionRequest);
+  }
+
+  /**
+   * [BETA] Schedule KMS Key Deletion
+   * Schedule a KMS key for deletion after a delay.
+   * @param id  (required)
+   * @param scheduleKmsKeyDeletionRequest  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Void> scheduleKmsKeyDeletionWithHttpInfo(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = scheduleKmsKeyDeletionRequestBuilder(id, scheduleKmsKeyDeletionRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("scheduleKmsKeyDeletion", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder scheduleKmsKeyDeletionRequestBuilder(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling scheduleKmsKeyDeletion");
+    }
+    // verify the required parameter 'scheduleKmsKeyDeletionRequest' is set
+    if (scheduleKmsKeyDeletionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'scheduleKmsKeyDeletionRequest' when calling scheduleKmsKeyDeletion");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/schedule-deletion"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(scheduleKmsKeyDeletionRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -25482,6 +27000,107 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasServiceValkeyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update access control for one DBaaS Valkey service user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param updateDbaasValkeyUserAccessControlRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasValkeyUserAccessControl(String serviceName, String username, UpdateDbaasValkeyUserAccessControlRequest updateDbaasValkeyUserAccessControlRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasValkeyUserAccessControlWithHttpInfo(serviceName, username, updateDbaasValkeyUserAccessControlRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update access control for one DBaaS Valkey service user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param updateDbaasValkeyUserAccessControlRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateDbaasValkeyUserAccessControlWithHttpInfo(String serviceName, String username, UpdateDbaasValkeyUserAccessControlRequest updateDbaasValkeyUserAccessControlRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasValkeyUserAccessControlRequestBuilder(serviceName, username, updateDbaasValkeyUserAccessControlRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasValkeyUserAccessControl", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasValkeyUserAccessControlRequestBuilder(String serviceName, String username, UpdateDbaasValkeyUserAccessControlRequest updateDbaasValkeyUserAccessControlRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling updateDbaasValkeyUserAccessControl");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling updateDbaasValkeyUserAccessControl");
+    }
+    // verify the required parameter 'updateDbaasValkeyUserAccessControlRequest' is set
+    if (updateDbaasValkeyUserAccessControlRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasValkeyUserAccessControlRequest' when calling updateDbaasValkeyUserAccessControl");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-valkey/{service-name}/user/{username}"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasValkeyUserAccessControlRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
