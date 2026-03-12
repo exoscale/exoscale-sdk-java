@@ -13,61 +13,62 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.DbaasServiceValkeyUsersInnerAccessControl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceValkeyUsersInner
+ * Model tests for DbaasServiceValkeyUsersInnerAccessControl
  */
-public class DbaasServiceValkeyUsersInnerTest {
-    private final DbaasServiceValkeyUsersInner model = new DbaasServiceValkeyUsersInner();
+public class DbaasServiceValkeyUsersInnerAccessControlTest {
+    private final DbaasServiceValkeyUsersInnerAccessControl model = new DbaasServiceValkeyUsersInnerAccessControl();
 
     /**
-     * Model tests for DbaasServiceValkeyUsersInner
+     * Model tests for DbaasServiceValkeyUsersInnerAccessControl
      */
     @Test
-    public void testDbaasServiceValkeyUsersInner() {
-        // TODO: test DbaasServiceValkeyUsersInner
+    public void testDbaasServiceValkeyUsersInnerAccessControl() {
+        // TODO: test DbaasServiceValkeyUsersInnerAccessControl
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'categories'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void categoriesTest() {
+        // TODO: test categories
     }
 
     /**
-     * Test the property 'username'
+     * Test the property 'channels'
      */
     @Test
-    public void usernameTest() {
-        // TODO: test username
+    public void channelsTest() {
+        // TODO: test channels
     }
 
     /**
-     * Test the property 'password'
+     * Test the property 'commands'
      */
     @Test
-    public void passwordTest() {
-        // TODO: test password
+    public void commandsTest() {
+        // TODO: test commands
     }
 
     /**
-     * Test the property 'accessControl'
+     * Test the property 'keys'
      */
     @Test
-    public void accessControlTest() {
-        // TODO: test accessControl
+    public void keysTest() {
+        // TODO: test keys
     }
 
 }

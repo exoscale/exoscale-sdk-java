@@ -10,7 +10,7 @@
 |**type** | **String** |  |  [optional] |
 |**username** | **String** |  |  [optional] |
 |**password** | **String** |  |  [optional] |
-|**accessControl** | **List&lt;Object&gt;** |  |  [optional] |
+|**accessControl** | [**DbaasServiceValkeyUsersInnerAccessControl**](DbaasServiceValkeyUsersInnerAccessControl.md) |  |  [optional] |
 
 
 

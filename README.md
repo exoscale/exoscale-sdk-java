@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-03-10T13:27:01.936582142Z[Etc/UTC]
+- Build date: 2026-03-12T07:23:35.871457837Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d2821a6</version>
+    <version>0.0.5-SNAPSHOT-a37faff</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d2821a6'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-a37faff'
 }
 ```
 
@@ -572,6 +572,7 @@ Class | Method | HTTP request | Description
  - [DbaasServiceValkey](sdk/docs/DbaasServiceValkey.md)
  - [DbaasServiceValkeyConnectionInfo](sdk/docs/DbaasServiceValkeyConnectionInfo.md)
  - [DbaasServiceValkeyUsersInner](sdk/docs/DbaasServiceValkeyUsersInner.md)
+ - [DbaasServiceValkeyUsersInnerAccessControl](sdk/docs/DbaasServiceValkeyUsersInnerAccessControl.md)
  - [DbaasTask](sdk/docs/DbaasTask.md)
  - [DbaasTaskResultCodesInner](sdk/docs/DbaasTaskResultCodesInner.md)
  - [DbaasUserGrafanaSecrets](sdk/docs/DbaasUserGrafanaSecrets.md)

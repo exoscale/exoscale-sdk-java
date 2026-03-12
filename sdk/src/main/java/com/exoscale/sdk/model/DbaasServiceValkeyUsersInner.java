@@ -19,14 +19,13 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.DbaasServiceValkeyUsersInnerAccessControl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -51,7 +50,7 @@ public class DbaasServiceValkeyUsersInner {
   private String password;
 
   public static final String JSON_PROPERTY_ACCESS_CONTROL = "access-control";
-  private List<Object> accessControl;
+  private DbaasServiceValkeyUsersInnerAccessControl accessControl;
 
   public DbaasServiceValkeyUsersInner() { 
   }
@@ -131,16 +130,8 @@ public class DbaasServiceValkeyUsersInner {
   }
 
 
-  public DbaasServiceValkeyUsersInner accessControl(List<Object> accessControl) {
+  public DbaasServiceValkeyUsersInner accessControl(DbaasServiceValkeyUsersInnerAccessControl accessControl) {
     this.accessControl = accessControl;
-    return this;
-  }
-
-  public DbaasServiceValkeyUsersInner addAccessControlItem(Object accessControlItem) {
-    if (this.accessControl == null) {
-      this.accessControl = new ArrayList<>();
-    }
-    this.accessControl.add(accessControlItem);
     return this;
   }
 
@@ -152,14 +143,14 @@ public class DbaasServiceValkeyUsersInner {
   @JsonProperty(JSON_PROPERTY_ACCESS_CONTROL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getAccessControl() {
+  public DbaasServiceValkeyUsersInnerAccessControl getAccessControl() {
     return accessControl;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ACCESS_CONTROL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccessControl(List<Object> accessControl) {
+  public void setAccessControl(DbaasServiceValkeyUsersInnerAccessControl accessControl) {
     this.accessControl = accessControl;
   }
 
@@ -259,11 +250,7 @@ public class DbaasServiceValkeyUsersInner {
 
     // add `access-control` to the URL query string
     if (getAccessControl() != null) {
-      for (int i = 0; i < getAccessControl().size(); i++) {
-        joiner.add(String.format("%saccess-control%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getAccessControl().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+      joiner.add(getAccessControl().toUrlQueryString(prefix + "access-control" + suffix));
     }
 
     return joiner.toString();

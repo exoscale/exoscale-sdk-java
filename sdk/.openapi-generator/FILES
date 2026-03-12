@@ -158,6 +158,7 @@ docs/DbaasServiceUpdate.md
 docs/DbaasServiceValkey.md
 docs/DbaasServiceValkeyConnectionInfo.md
 docs/DbaasServiceValkeyUsersInner.md
+docs/DbaasServiceValkeyUsersInnerAccessControl.md
 docs/DbaasTask.md
 docs/DbaasTaskResultCodesInner.md
 docs/DbaasUserGrafanaSecrets.md
@@ -648,6 +649,7 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceUpdate.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkey.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyConnectionInfo.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyUsersInner.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyUsersInnerAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasTask.java
 src/main/java/com/exoscale/sdk/model/DbaasTaskResultCodesInner.java
 src/main/java/com/exoscale/sdk/model/DbaasUserGrafanaSecrets.java

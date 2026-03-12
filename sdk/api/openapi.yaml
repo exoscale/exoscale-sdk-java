@@ -19444,14 +19444,59 @@ components:
           usage: null
           host: host
           ssl: true
+        connection-info:
+          slave:
+          - slave
+          - slave
+          password: password
+          uri:
+          - uri
+          - uri
         node-memory: 0
-        ip-filter:
-        - ip-filter
-        - ip-filter
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
         type: type
+        uri: uri
+        users:
+        - password: password
+          type: type
+          access-control:
+            channels:
+            - channels
+            - channels
+            keys:
+            - keys
+            - keys
+            categories:
+            - categories
+            - categories
+            commands:
+            - commands
+            - commands
+          username: username
+        - password: password
+          type: type
+          access-control:
+            channels:
+            - channels
+            - channels
+            keys:
+            - keys
+            - keys
+            categories:
+            - categories
+            - categories
+            commands:
+            - commands
+            - commands
+          username: username
         uri-params: "{}"
+        node-count: 0
         zone: zone
         node-cpu-count: 0
+        termination-protection: true
         node-states:
         - role: standby
           name: name
@@ -19485,6 +19530,8 @@ components:
             min: 0
             max: 0
             completed: true
+        name: name
+        disk-size: 0
         created-at: 2000-01-23T04:56:07.000+00:00
         state: null
         valkey-settings:
@@ -19499,38 +19546,6 @@ components:
           timeout: 17778031
           acl_channels_default: allchannels
           notify_keyspace_events: ""
-        plan: plan
-        connection-info:
-          slave:
-          - slave
-          - slave
-          password: password
-          uri:
-          - uri
-          - uri
-        updated-at: 2000-01-23T04:56:07.000+00:00
-        prometheus-uri:
-          port: 36944
-          host: host
-        uri: uri
-        version: version
-        users:
-        - password: password
-          type: type
-          access-control:
-          - ""
-          - ""
-          username: username
-        - password: password
-          type: type
-          access-control:
-          - ""
-          - ""
-          username: username
-        node-count: 0
-        termination-protection: true
-        name: name
-        disk-size: 0
         integrations:
         - settings: "{}"
           description: description
@@ -19562,6 +19577,7 @@ components:
             start-after: 2000-01-23T04:56:07.000+00:00
             deadline: 2000-01-23T04:56:07.000+00:00
           dow: saturday
+        plan: plan
         notifications:
         - metadata: "{}"
           level: warning
@@ -19624,11 +19640,6 @@ components:
           $ref: '#/components/schemas/enum-service-state'
         valkey-settings:
           $ref: '#/components/schemas/json-schema-valkey'
-        ip-filter:
-          description: Allowed CIDR address blocks for incoming connections
-          items:
-            type: string
-          type: array
         backups:
           description: List of backups for the service
           items:
@@ -19667,9 +19678,6 @@ components:
         uri-params:
           description: service_uri parameterized into key-value pairs
           type: object
-        version:
-          description: Valkey version
-          type: string
         created-at:
           description: Service creation timestamp (ISO 8601)
           format: date-time
@@ -28674,13 +28682,55 @@ components:
             type: string
           type: array
       type: object
+    dbaas_service_valkey_users_inner_access_control:
+      example:
+        channels:
+        - channels
+        - channels
+        keys:
+        - keys
+        - keys
+        categories:
+        - categories
+        - categories
+        commands:
+        - commands
+        - commands
+      properties:
+        categories:
+          items:
+            type: string
+          type: array
+        channels:
+          items:
+            type: string
+          type: array
+        commands:
+          items:
+            type: string
+          type: array
+        keys:
+          items:
+            type: string
+          type: array
+      type: object
     dbaas_service_valkey_users_inner:
       example:
         password: password
         type: type
         access-control:
-        - ""
-        - ""
+          channels:
+          - channels
+          - channels
+          keys:
+          - keys
+          - keys
+          categories:
+          - categories
+          - categories
+          commands:
+          - commands
+          - commands
         username: username
       properties:
         type:
@@ -28690,8 +28740,7 @@ components:
         password:
           type: string
         access-control:
-          items: {}
-          type: array
+          $ref: '#/components/schemas/dbaas_service_valkey_users_inner_access_control'
       type: object
     Node_duress_settings:
       additionalProperties: false
