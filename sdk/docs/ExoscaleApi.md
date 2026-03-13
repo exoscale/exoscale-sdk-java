@@ -1192,7 +1192,7 @@ No authorization required
 
 ## cancelKmsKeyDeletion
 
-> void cancelKmsKeyDeletion(id)
+> SuccessResponse cancelKmsKeyDeletion(id)
 
 [Beta] Cancel KMS Key Deletion
 
@@ -1215,7 +1215,8 @@ public class Example {
 
         try {
             // Invoke the API method
-            client.cancelKmsKeyDeletion(id);
+            SuccessResponse result = client.cancelKmsKeyDeletion(id);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#cancelKmsKeyDeletion");
             System.err.println("Status code: " + e.getCode());
@@ -1236,8 +1237,8 @@ public class Example {
 
 ### Return type
 
+[**SuccessResponse**](SuccessResponse.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -1251,6 +1252,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | 200 |  -  |
 | **400** | 400 |  -  |
 
 
@@ -1263,8 +1265,8 @@ No authorization required
 
 ### Return type
 
+ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -1278,6 +1280,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | 200 |  -  |
 | **400** | 400 |  -  |
 
 
@@ -4810,7 +4813,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | 201 |  -  |
+| **200** | 200 |  -  |
 | **400** | 400 |  -  |
 | **409** | 409 |  -  |
 
@@ -4839,7 +4842,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | 201 |  -  |
+| **200** | 200 |  -  |
 | **400** | 400 |  -  |
 | **409** | 409 |  -  |
 
@@ -20130,7 +20133,7 @@ No authorization required
 
 ## listInstances
 
-> ListInstances200Response listInstances(managerId, managerType, ipAddress)
+> ListInstances200Response listInstances(managerId, managerType, ipAddress, labels)
 
 List Compute instances
 
@@ -20152,10 +20155,11 @@ public class Example {
         UUID managerId = UUID.randomUUID(); // UUID | 
         String managerType = "instance-pool"; // String | 
         String ipAddress = "ipAddress_example"; // String | 
+        String labels = "labels_example"; // String | 
 
         try {
             // Invoke the API method
-            ListInstances200Response result = client.listInstances(managerId, managerType, ipAddress);
+            ListInstances200Response result = client.listInstances(managerId, managerType, ipAddress, labels);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listInstances");
@@ -20176,6 +20180,7 @@ public class Example {
 | **managerId** | **UUID**|  | [optional] |
 | **managerType** | **String**|  | [optional] [enum: instance-pool] |
 | **ipAddress** | **String**|  | [optional] |
+| **labels** | **String**|  | [optional] |
 
 ### Return type
 
@@ -20205,6 +20210,7 @@ No authorization required
 | **managerId** | **UUID**|  | [optional] |
 | **managerType** | **String**|  | [optional] [enum: instance-pool] |
 | **ipAddress** | **String**|  | [optional] |
+| **labels** | **String**|  | [optional] |
 
 ### Return type
 
@@ -25868,7 +25874,7 @@ No authorization required
 
 ## scheduleKmsKeyDeletion
 
-> void scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest)
+> SuccessResponse scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest)
 
 [BETA] Schedule KMS Key Deletion
 
@@ -25892,7 +25898,8 @@ public class Example {
 
         try {
             // Invoke the API method
-            client.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
+            SuccessResponse result = client.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#scheduleKmsKeyDeletion");
             System.err.println("Status code: " + e.getCode());
@@ -25914,8 +25921,8 @@ public class Example {
 
 ### Return type
 
+[**SuccessResponse**](SuccessResponse.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -25929,6 +25936,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | 200 |  -  |
 | **400** | 400 |  -  |
 
 
@@ -25942,8 +25950,8 @@ No authorization required
 
 ### Return type
 
+ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -25957,6 +25965,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | 200 |  -  |
 | **400** | 400 |  -  |
 
 

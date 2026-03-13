@@ -58,6 +58,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceValkey.JSON_PROPERTY_TYPE,
   DbaasServiceValkey.JSON_PROPERTY_STATE,
   DbaasServiceValkey.JSON_PROPERTY_VALKEY_SETTINGS,
+  DbaasServiceValkey.JSON_PROPERTY_IP_FILTER,
   DbaasServiceValkey.JSON_PROPERTY_BACKUPS,
   DbaasServiceValkey.JSON_PROPERTY_TERMINATION_PROTECTION,
   DbaasServiceValkey.JSON_PROPERTY_NOTIFICATIONS,
@@ -67,6 +68,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceValkey.JSON_PROPERTY_NODE_MEMORY,
   DbaasServiceValkey.JSON_PROPERTY_URI,
   DbaasServiceValkey.JSON_PROPERTY_URI_PARAMS,
+  DbaasServiceValkey.JSON_PROPERTY_VERSION,
   DbaasServiceValkey.JSON_PROPERTY_CREATED_AT,
   DbaasServiceValkey.JSON_PROPERTY_PLAN,
   DbaasServiceValkey.JSON_PROPERTY_USERS
@@ -109,6 +111,9 @@ public class DbaasServiceValkey {
   public static final String JSON_PROPERTY_VALKEY_SETTINGS = "valkey-settings";
   private JsonSchemaValkey valkeySettings;
 
+  public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
+  private List<String> ipFilter;
+
   public static final String JSON_PROPERTY_BACKUPS = "backups";
   private List<DbaasServiceBackup> backups;
 
@@ -135,6 +140,9 @@ public class DbaasServiceValkey {
 
   public static final String JSON_PROPERTY_URI_PARAMS = "uri-params";
   private Object uriParams;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
@@ -466,6 +474,39 @@ public class DbaasServiceValkey {
   }
 
 
+  public DbaasServiceValkey ipFilter(List<String> ipFilter) {
+    this.ipFilter = ipFilter;
+    return this;
+  }
+
+  public DbaasServiceValkey addIpFilterItem(String ipFilterItem) {
+    if (this.ipFilter == null) {
+      this.ipFilter = new ArrayList<>();
+    }
+    this.ipFilter.add(ipFilterItem);
+    return this;
+  }
+
+   /**
+   * Allowed CIDR address blocks for incoming connections
+   * @return ipFilter
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getIpFilter() {
+    return ipFilter;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIpFilter(List<String> ipFilter) {
+    this.ipFilter = ipFilter;
+  }
+
+
   public DbaasServiceValkey backups(List<DbaasServiceBackup> backups) {
     this.backups = backups;
     return this;
@@ -717,6 +758,31 @@ public class DbaasServiceValkey {
   }
 
 
+  public DbaasServiceValkey version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Valkey version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+
   public DbaasServiceValkey createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
@@ -824,6 +890,7 @@ public class DbaasServiceValkey {
         Objects.equals(this.type, dbaasServiceValkey.type) &&
         Objects.equals(this.state, dbaasServiceValkey.state) &&
         Objects.equals(this.valkeySettings, dbaasServiceValkey.valkeySettings) &&
+        Objects.equals(this.ipFilter, dbaasServiceValkey.ipFilter) &&
         Objects.equals(this.backups, dbaasServiceValkey.backups) &&
         Objects.equals(this.terminationProtection, dbaasServiceValkey.terminationProtection) &&
         Objects.equals(this.notifications, dbaasServiceValkey.notifications) &&
@@ -833,6 +900,7 @@ public class DbaasServiceValkey {
         Objects.equals(this.nodeMemory, dbaasServiceValkey.nodeMemory) &&
         Objects.equals(this.uri, dbaasServiceValkey.uri) &&
         Objects.equals(this.uriParams, dbaasServiceValkey.uriParams) &&
+        Objects.equals(this.version, dbaasServiceValkey.version) &&
         Objects.equals(this.createdAt, dbaasServiceValkey.createdAt) &&
         Objects.equals(this.plan, dbaasServiceValkey.plan) &&
         Objects.equals(this.users, dbaasServiceValkey.users);
@@ -840,7 +908,7 @@ public class DbaasServiceValkey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, valkeySettings, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, createdAt, plan, users);
+    return Objects.hash(updatedAt, nodeCount, connectionInfo, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, valkeySettings, ipFilter, backups, terminationProtection, notifications, components, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users);
   }
 
   @Override
@@ -859,6 +927,7 @@ public class DbaasServiceValkey {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    valkeySettings: ").append(toIndentedString(valkeySettings)).append("\n");
+    sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
     sb.append("    backups: ").append(toIndentedString(backups)).append("\n");
     sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
@@ -868,6 +937,7 @@ public class DbaasServiceValkey {
     sb.append("    nodeMemory: ").append(toIndentedString(nodeMemory)).append("\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    uriParams: ").append(toIndentedString(uriParams)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
@@ -988,6 +1058,15 @@ public class DbaasServiceValkey {
       joiner.add(getValkeySettings().toUrlQueryString(prefix + "valkey-settings" + suffix));
     }
 
+    // add `ip-filter` to the URL query string
+    if (getIpFilter() != null) {
+      for (int i = 0; i < getIpFilter().size(); i++) {
+        joiner.add(String.format("%sip-filter%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getIpFilter().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
     // add `backups` to the URL query string
     if (getBackups() != null) {
       for (int i = 0; i < getBackups().size(); i++) {
@@ -1046,6 +1125,11 @@ public class DbaasServiceValkey {
     // add `uri-params` to the URL query string
     if (getUriParams() != null) {
       joiner.add(String.format("%suri-params%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUriParams()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string

@@ -451,7 +451,7 @@ public class ExoscaleApiTest {
     @Test
     public void cancelKmsKeyDeletionTest() throws ApiException {
         UUID id = null;
-        
+        SuccessResponse response = 
         api.cancelKmsKeyDeletion(id);
         
         // TODO: test validations
@@ -3998,8 +3998,9 @@ public class ExoscaleApiTest {
         UUID managerId = null;
         String managerType = null;
         String ipAddress = null;
+        String labels = null;
         ListInstances200Response response = 
-        api.listInstances(managerId, managerType, ipAddress);
+        api.listInstances(managerId, managerType, ipAddress, labels);
         
         // TODO: test validations
     }
@@ -5081,7 +5082,7 @@ public class ExoscaleApiTest {
     public void scheduleKmsKeyDeletionTest() throws ApiException {
         UUID id = null;
         ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest = null;
-        
+        SuccessResponse response = 
         api.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
         
         // TODO: test validations

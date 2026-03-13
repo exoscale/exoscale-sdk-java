@@ -70,7 +70,7 @@ public class DbaasValkeyUserAccessControl {
   }
 
    /**
-   * Get categories
+   * Use +@&lt;category&gt; to allow and -@&lt;category&gt; to disallow. Separate entries with a single space. Example: +@all -@dangerous.
    * @return categories
   **/
   @javax.annotation.Nullable
@@ -103,7 +103,7 @@ public class DbaasValkeyUserAccessControl {
   }
 
    /**
-   * Get channels
+   * Patterns use standard glob syntax and must be separated by a single space. Example: ~* &amp;events.
    * @return channels
   **/
   @javax.annotation.Nullable
@@ -136,7 +136,7 @@ public class DbaasValkeyUserAccessControl {
   }
 
    /**
-   * Get commands
+   * Use +&lt;command&gt; to allow and -&lt;command&gt; to disallow. You can also use @&lt;category&gt;. Separate entries with a single space. Example: +@all -flushall.
    * @return commands
   **/
   @javax.annotation.Nullable
@@ -169,7 +169,7 @@ public class DbaasValkeyUserAccessControl {
   }
 
    /**
-   * Get keys
+   * Patterns use standard glob syntax and must be separated by a single space. Example: cache:* session:*.
    * @return keys
   **/
   @javax.annotation.Nullable

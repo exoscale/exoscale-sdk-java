@@ -148,6 +148,14 @@ public class DbaasServiceValkeyTest {
     }
 
     /**
+     * Test the property 'ipFilter'
+     */
+    @Test
+    public void ipFilterTest() {
+        // TODO: test ipFilter
+    }
+
+    /**
      * Test the property 'backups'
      */
     @Test
@@ -217,6 +225,14 @@ public class DbaasServiceValkeyTest {
     @Test
     public void uriParamsTest() {
         // TODO: test uriParams
+    }
+
+    /**
+     * Test the property 'version'
+     */
+    @Test
+    public void versionTest() {
+        // TODO: test version
     }
 
     /**

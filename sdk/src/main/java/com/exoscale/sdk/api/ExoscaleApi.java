@@ -1166,20 +1166,22 @@ public class ExoscaleApi {
    * [Beta] Cancel KMS Key Deletion
    * Cancel the scheduled deletion of a KMS Key.
    * @param id  (required)
+   * @return SuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public void cancelKmsKeyDeletion(UUID id) throws ApiException {
-    cancelKmsKeyDeletionWithHttpInfo(id);
+  public SuccessResponse cancelKmsKeyDeletion(UUID id) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = cancelKmsKeyDeletionWithHttpInfo(id);
+    return localVarResponse.getData();
   }
 
   /**
    * [Beta] Cancel KMS Key Deletion
    * Cancel the scheduled deletion of a KMS Key.
    * @param id  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Void> cancelKmsKeyDeletionWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<SuccessResponse> cancelKmsKeyDeletionWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = cancelKmsKeyDeletionRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1192,17 +1194,12 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("cancelKmsKeyDeletion", localVarResponse);
         }
-        return new ApiResponse<Void>(
+        return new ApiResponse<SuccessResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          null
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
         );
       } finally {
-        // Drain the InputStream
-        while (localVarResponse.body().read() != -1) {
-            // Ignore
-        }
-        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -18713,11 +18710,12 @@ public class ExoscaleApi {
    * @param managerId  (optional)
    * @param managerType  (optional)
    * @param ipAddress  (optional)
+   * @param labels  (optional)
    * @return ListInstances200Response
    * @throws ApiException if fails to make API call
    */
-  public ListInstances200Response listInstances(UUID managerId, String managerType, String ipAddress) throws ApiException {
-    ApiResponse<ListInstances200Response> localVarResponse = listInstancesWithHttpInfo(managerId, managerType, ipAddress);
+  public ListInstances200Response listInstances(UUID managerId, String managerType, String ipAddress, String labels) throws ApiException {
+    ApiResponse<ListInstances200Response> localVarResponse = listInstancesWithHttpInfo(managerId, managerType, ipAddress, labels);
     return localVarResponse.getData();
   }
 
@@ -18727,11 +18725,12 @@ public class ExoscaleApi {
    * @param managerId  (optional)
    * @param managerType  (optional)
    * @param ipAddress  (optional)
+   * @param labels  (optional)
    * @return ApiResponse&lt;ListInstances200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<ListInstances200Response> listInstancesWithHttpInfo(UUID managerId, String managerType, String ipAddress) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listInstancesRequestBuilder(managerId, managerType, ipAddress);
+  private ApiResponse<ListInstances200Response> listInstancesWithHttpInfo(UUID managerId, String managerType, String ipAddress, String labels) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listInstancesRequestBuilder(managerId, managerType, ipAddress, labels);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -18759,7 +18758,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder listInstancesRequestBuilder(UUID managerId, String managerType, String ipAddress) throws ApiException {
+  private HttpRequest.Builder listInstancesRequestBuilder(UUID managerId, String managerType, String ipAddress, String labels) throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -18784,6 +18783,8 @@ public class ExoscaleApi {
     localVarQueryParams.addAll(ApiClient.parameterToPairs("manager-type", managerType));
     localVarQueryParameterBaseName = "ip-address";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("ip-address", ipAddress));
+    localVarQueryParameterBaseName = "labels";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("labels", labels));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -24137,10 +24138,12 @@ public class ExoscaleApi {
    * Schedule a KMS key for deletion after a delay.
    * @param id  (required)
    * @param scheduleKmsKeyDeletionRequest  (required)
+   * @return SuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public void scheduleKmsKeyDeletion(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
-    scheduleKmsKeyDeletionWithHttpInfo(id, scheduleKmsKeyDeletionRequest);
+  public SuccessResponse scheduleKmsKeyDeletion(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = scheduleKmsKeyDeletionWithHttpInfo(id, scheduleKmsKeyDeletionRequest);
+    return localVarResponse.getData();
   }
 
   /**
@@ -24148,10 +24151,10 @@ public class ExoscaleApi {
    * Schedule a KMS key for deletion after a delay.
    * @param id  (required)
    * @param scheduleKmsKeyDeletionRequest  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Void> scheduleKmsKeyDeletionWithHttpInfo(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+  private ApiResponse<SuccessResponse> scheduleKmsKeyDeletionWithHttpInfo(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scheduleKmsKeyDeletionRequestBuilder(id, scheduleKmsKeyDeletionRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24164,17 +24167,12 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("scheduleKmsKeyDeletion", localVarResponse);
         }
-        return new ApiResponse<Void>(
+        return new ApiResponse<SuccessResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          null
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
         );
       } finally {
-        // Drain the InputStream
-        while (localVarResponse.body().read() != -1) {
-            // Ignore
-        }
-        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);

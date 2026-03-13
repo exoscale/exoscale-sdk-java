@@ -7226,12 +7226,12 @@ paths:
               $ref: '#/components/schemas/create-kms-key-request'
         required: true
       responses:
-        "201":
+        "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/create-kms-key-response'
-          description: "201"
+          description: "200"
         "400":
           content:
             application/json:
@@ -7770,6 +7770,12 @@ paths:
               $ref: '#/components/schemas/schedule-kms-key-deletion-request'
         required: true
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success-response'
+          description: "200"
         "400":
           content:
             application/json:
@@ -8794,6 +8800,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: labels
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9037,6 +9050,12 @@ paths:
           type: string
         style: simple
       responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success-response'
+          description: "200"
         "400":
           content:
             application/json:
@@ -10482,18 +10501,27 @@ components:
         - commands
       properties:
         categories:
+          description: "Use +@<category> to allow and -@<category> to disallow. Separate\
+            \ entries with a single space. Example: +@all -@dangerous."
           items:
             type: string
           type: array
         channels:
+          description: "Patterns use standard glob syntax and must be separated by\
+            \ a single space. Example: ~* &events."
           items:
             type: string
           type: array
         commands:
+          description: "Use +<command> to allow and -<command> to disallow. You can\
+            \ also use @<category>. Separate entries with a single space. Example:\
+            \ +@all -flushall."
           items:
             type: string
           type: array
         keys:
+          description: "Patterns use standard glob syntax and must be separated by\
+            \ a single space. Example: cache:* session:*."
           items:
             type: string
           type: array
@@ -19444,59 +19472,14 @@ components:
           usage: null
           host: host
           ssl: true
-        connection-info:
-          slave:
-          - slave
-          - slave
-          password: password
-          uri:
-          - uri
-          - uri
         node-memory: 0
-        updated-at: 2000-01-23T04:56:07.000+00:00
-        prometheus-uri:
-          port: 36944
-          host: host
+        ip-filter:
+        - ip-filter
+        - ip-filter
         type: type
-        uri: uri
-        users:
-        - password: password
-          type: type
-          access-control:
-            channels:
-            - channels
-            - channels
-            keys:
-            - keys
-            - keys
-            categories:
-            - categories
-            - categories
-            commands:
-            - commands
-            - commands
-          username: username
-        - password: password
-          type: type
-          access-control:
-            channels:
-            - channels
-            - channels
-            keys:
-            - keys
-            - keys
-            categories:
-            - categories
-            - categories
-            commands:
-            - commands
-            - commands
-          username: username
         uri-params: "{}"
-        node-count: 0
         zone: zone
         node-cpu-count: 0
-        termination-protection: true
         node-states:
         - role: standby
           name: name
@@ -19530,8 +19513,6 @@ components:
             min: 0
             max: 0
             completed: true
-        name: name
-        disk-size: 0
         created-at: 2000-01-23T04:56:07.000+00:00
         state: null
         valkey-settings:
@@ -19546,6 +19527,58 @@ components:
           timeout: 17778031
           acl_channels_default: allchannels
           notify_keyspace_events: ""
+        plan: plan
+        connection-info:
+          slave:
+          - slave
+          - slave
+          password: password
+          uri:
+          - uri
+          - uri
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        prometheus-uri:
+          port: 36944
+          host: host
+        uri: uri
+        version: version
+        users:
+        - password: password
+          type: type
+          access-control:
+            channels:
+            - channels
+            - channels
+            keys:
+            - keys
+            - keys
+            categories:
+            - categories
+            - categories
+            commands:
+            - commands
+            - commands
+          username: username
+        - password: password
+          type: type
+          access-control:
+            channels:
+            - channels
+            - channels
+            keys:
+            - keys
+            - keys
+            categories:
+            - categories
+            - categories
+            commands:
+            - commands
+            - commands
+          username: username
+        node-count: 0
+        termination-protection: true
+        name: name
+        disk-size: 0
         integrations:
         - settings: "{}"
           description: description
@@ -19577,7 +19610,6 @@ components:
             start-after: 2000-01-23T04:56:07.000+00:00
             deadline: 2000-01-23T04:56:07.000+00:00
           dow: saturday
-        plan: plan
         notifications:
         - metadata: "{}"
           level: warning
@@ -19640,6 +19672,11 @@ components:
           $ref: '#/components/schemas/enum-service-state'
         valkey-settings:
           $ref: '#/components/schemas/json-schema-valkey'
+        ip-filter:
+          description: Allowed CIDR address blocks for incoming connections
+          items:
+            type: string
+          type: array
         backups:
           description: List of backups for the service
           items:
@@ -19678,6 +19715,9 @@ components:
         uri-params:
           description: service_uri parameterized into key-value pairs
           type: object
+        version:
+          description: Valkey version
+          type: string
         created-at:
           description: Service creation timestamp (ISO 8601)
           format: date-time
