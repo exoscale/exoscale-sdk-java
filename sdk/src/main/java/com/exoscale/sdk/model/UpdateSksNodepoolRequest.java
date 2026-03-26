@@ -22,6 +22,7 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
+import com.exoscale.sdk.model.KubeletImageGc;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
@@ -52,6 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateSksNodepoolRequest.JSON_PROPERTY_NAME,
   UpdateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_TYPE,
   UpdateSksNodepoolRequest.JSON_PROPERTY_PRIVATE_NETWORKS,
+  UpdateSksNodepoolRequest.JSON_PROPERTY_KUBELET_IMAGE_GC,
   UpdateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
   UpdateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
   UpdateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE
@@ -119,6 +121,9 @@ public class UpdateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
   private Set<PrivateNetworkRef> privateNetworks;
+
+  public static final String JSON_PROPERTY_KUBELET_IMAGE_GC = "kubelet-image-gc";
+  private KubeletImageGc kubeletImageGc;
 
   public static final String JSON_PROPERTY_INSTANCE_PREFIX = "instance-prefix";
   private String instancePrefix;
@@ -400,6 +405,31 @@ public class UpdateSksNodepoolRequest {
   }
 
 
+  public UpdateSksNodepoolRequest kubeletImageGc(KubeletImageGc kubeletImageGc) {
+    this.kubeletImageGc = kubeletImageGc;
+    return this;
+  }
+
+   /**
+   * Get kubeletImageGc
+   * @return kubeletImageGc
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KUBELET_IMAGE_GC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public KubeletImageGc getKubeletImageGc() {
+    return kubeletImageGc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KUBELET_IMAGE_GC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKubeletImageGc(KubeletImageGc kubeletImageGc) {
+    this.kubeletImageGc = kubeletImageGc;
+  }
+
+
   public UpdateSksNodepoolRequest instancePrefix(String instancePrefix) {
     this.instancePrefix = instancePrefix;
     return this;
@@ -498,6 +528,7 @@ public class UpdateSksNodepoolRequest {
         Objects.equals(this.name, updateSksNodepoolRequest.name) &&
         Objects.equals(this.instanceType, updateSksNodepoolRequest.instanceType) &&
         Objects.equals(this.privateNetworks, updateSksNodepoolRequest.privateNetworks) &&
+        Objects.equals(this.kubeletImageGc, updateSksNodepoolRequest.kubeletImageGc) &&
         Objects.equals(this.instancePrefix, updateSksNodepoolRequest.instancePrefix) &&
         Objects.equals(this.deployTarget, updateSksNodepoolRequest.deployTarget) &&
         Objects.equals(this.diskSize, updateSksNodepoolRequest.diskSize);
@@ -505,7 +536,7 @@ public class UpdateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, instancePrefix, deployTarget, diskSize);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, kubeletImageGc, instancePrefix, deployTarget, diskSize);
   }
 
   @Override
@@ -521,6 +552,7 @@ public class UpdateSksNodepoolRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    privateNetworks: ").append(toIndentedString(privateNetworks)).append("\n");
+    sb.append("    kubeletImageGc: ").append(toIndentedString(kubeletImageGc)).append("\n");
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
@@ -644,6 +676,11 @@ public class UpdateSksNodepoolRequest {
         }
       }
       i++;
+    }
+
+    // add `kubelet-image-gc` to the URL query string
+    if (getKubeletImageGc() != null) {
+      joiner.add(getKubeletImageGc().toUrlQueryString(prefix + "kubelet-image-gc" + suffix));
     }
 
     // add `instance-prefix` to the URL query string

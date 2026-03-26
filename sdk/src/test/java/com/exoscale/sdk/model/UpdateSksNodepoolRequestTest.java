@@ -16,6 +16,7 @@ package com.exoscale.sdk.model;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
+import com.exoscale.sdk.model.KubeletImageGc;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
@@ -118,6 +119,14 @@ public class UpdateSksNodepoolRequestTest {
     @Test
     public void privateNetworksTest() {
         // TODO: test privateNetworks
+    }
+
+    /**
+     * Test the property 'kubeletImageGc'
+     */
+    @Test
+    public void kubeletImageGcTest() {
+        // TODO: test kubeletImageGc
     }
 
     /**
