@@ -22,6 +22,8 @@ import com.exoscale.sdk.model.AddExternalSourceToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
+import com.exoscale.sdk.model.AssumeIamRole200Response;
+import com.exoscale.sdk.model.AssumeIamRoleRequest;
 import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
@@ -667,6 +669,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(addServiceToLoadBalancerRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Request generation of key/secret that allow caller to assume target role
+   * [BETA] Request generation of key/secret that allow caller to assume target role
+   * @param targetRoleId  (required)
+   * @param assumeIamRoleRequest  (required)
+   * @return AssumeIamRole200Response
+   * @throws ApiException if fails to make API call
+   */
+  public AssumeIamRole200Response assumeIamRole(UUID targetRoleId, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
+    ApiResponse<AssumeIamRole200Response> localVarResponse = assumeIamRoleWithHttpInfo(targetRoleId, assumeIamRoleRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Request generation of key/secret that allow caller to assume target role
+   * [BETA] Request generation of key/secret that allow caller to assume target role
+   * @param targetRoleId  (required)
+   * @param assumeIamRoleRequest  (required)
+   * @return ApiResponse&lt;AssumeIamRole200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<AssumeIamRole200Response> assumeIamRoleWithHttpInfo(UUID targetRoleId, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = assumeIamRoleRequestBuilder(targetRoleId, assumeIamRoleRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("assumeIamRole", localVarResponse);
+        }
+        return new ApiResponse<AssumeIamRole200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<AssumeIamRole200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder assumeIamRoleRequestBuilder(UUID targetRoleId, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
+    // verify the required parameter 'targetRoleId' is set
+    if (targetRoleId == null) {
+      throw new ApiException(400, "Missing the required parameter 'targetRoleId' when calling assumeIamRole");
+    }
+    // verify the required parameter 'assumeIamRoleRequest' is set
+    if (assumeIamRoleRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'assumeIamRoleRequest' when calling assumeIamRole");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/iam-role/{target-role-id}/assume"
+        .replace("{target-role-id}", ApiClient.urlEncode(targetRoleId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(assumeIamRoleRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -27414,100 +27510,6 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Update IAM Assume role Policy
-   * 
-   * @param id  (required)
-   * @param iamPolicy  (required)
-   * @return Operation
-   * @throws ApiException if fails to make API call
-   */
-  public Operation updateIamAssumeRolePolicy(UUID id, IamPolicy iamPolicy) throws ApiException {
-    ApiResponse<Operation> localVarResponse = updateIamAssumeRolePolicyWithHttpInfo(id, iamPolicy);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Update IAM Assume role Policy
-   * 
-   * @param id  (required)
-   * @param iamPolicy  (required)
-   * @return ApiResponse&lt;Operation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  private ApiResponse<Operation> updateIamAssumeRolePolicyWithHttpInfo(UUID id, IamPolicy iamPolicy) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateIamAssumeRolePolicyRequestBuilder(id, iamPolicy);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("updateIamAssumeRolePolicy", localVarResponse);
-        }
-        return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder updateIamAssumeRolePolicyRequestBuilder(UUID id, IamPolicy iamPolicy) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateIamAssumeRolePolicy");
-    }
-    // verify the required parameter 'iamPolicy' is set
-    if (iamPolicy == null) {
-      throw new ApiException(400, "Missing the required parameter 'iamPolicy' when calling updateIamAssumeRolePolicy");
-    }
-
-    Credentials credentials = apiClient.getCredentials();
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/iam-role/{id}:assume-role-policy"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
-      String requestBody = null;
-      String authorizationValue;
-          try{
-          requestBody = memberVarObjectMapper.writeValueAsString(iamPolicy);
-          } catch (JsonProcessingException e) {
-          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
-          }
-
-
-      try{
-      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Content-Type", "application/json");
-    localVarRequestBuilder.header("Accept", "application/json");
-
-      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-  /**
    * Update IAM Organization Policy
    * 
    * @param iamPolicy  (required)
@@ -27663,6 +27665,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateIamRoleRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update IAM Assume role Policy
+   * 
+   * @param id  (required)
+   * @param iamPolicy  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateIamRoleAssumePolicy(UUID id, IamPolicy iamPolicy) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateIamRoleAssumePolicyWithHttpInfo(id, iamPolicy);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update IAM Assume role Policy
+   * 
+   * @param id  (required)
+   * @param iamPolicy  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateIamRoleAssumePolicyWithHttpInfo(UUID id, IamPolicy iamPolicy) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateIamRoleAssumePolicyRequestBuilder(id, iamPolicy);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateIamRoleAssumePolicy", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateIamRoleAssumePolicyRequestBuilder(UUID id, IamPolicy iamPolicy) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateIamRoleAssumePolicy");
+    }
+    // verify the required parameter 'iamPolicy' is set
+    if (iamPolicy == null) {
+      throw new ApiException(400, "Missing the required parameter 'iamPolicy' when calling updateIamRoleAssumePolicy");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/iam-role/{id}:assume-role-policy"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(iamPolicy);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

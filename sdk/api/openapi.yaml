@@ -1352,6 +1352,39 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /iam-role/{target-role-id}/assume:
+    post:
+      description: "[BETA] Request generation of key/secret that allow caller to assume\
+        \ target role"
+      operationId: assume-iam-role
+      parameters:
+      - explode: false
+        in: path
+        name: target-role-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/assume_iam_role_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/assume_iam_role_200_response'
+          description: "200"
+      summary: "[BETA] Request generation of key/secret that allow caller to assume\
+        \ target role"
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /private-network/{id}:attach:
     put:
       description: ""
@@ -5071,7 +5104,7 @@ paths:
   /iam-role/{id}:assume-role-policy:
     put:
       description: ""
-      operationId: update-iam-assume-role-policy
+      operationId: update-iam-role-assume-policy
       parameters:
       - explode: false
         in: path
@@ -21948,6 +21981,35 @@ components:
           type: integer
       required:
       - plan
+      type: object
+    assume_iam_role_request:
+      properties:
+        ttl:
+          description: TTL in seconds for the generated access key (cannot exceed
+            the max TTL defined in the targeted assume role)
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+      type: object
+    assume_iam_role_200_response:
+      example:
+        role-id: role-id
+        name: name
+        org-id: org-id
+        secret: secret
+        key: key
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        org-id:
+          type: string
+        role-id:
+          type: string
+        secret:
+          type: string
       type: object
     attach_instance_to_private_network_request_instance:
       description: Compute instance

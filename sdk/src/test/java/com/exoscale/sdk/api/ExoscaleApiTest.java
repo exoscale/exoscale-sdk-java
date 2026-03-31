@@ -18,6 +18,8 @@ import com.exoscale.sdk.model.AddExternalSourceToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
+import com.exoscale.sdk.model.AssumeIamRole200Response;
+import com.exoscale.sdk.model.AssumeIamRoleRequest;
 import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
@@ -346,6 +348,24 @@ public class ExoscaleApiTest {
         AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest = null;
         Operation response = 
         api.addServiceToLoadBalancer(id, addServiceToLoadBalancerRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Request generation of key/secret that allow caller to assume target role
+     *
+     * [BETA] Request generation of key/secret that allow caller to assume target role
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void assumeIamRoleTest() throws ApiException {
+        UUID targetRoleId = null;
+        AssumeIamRoleRequest assumeIamRoleRequest = null;
+        AssumeIamRole200Response response = 
+        api.assumeIamRole(targetRoleId, assumeIamRoleRequest);
         
         // TODO: test validations
     }
@@ -5712,24 +5732,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Update IAM Assume role Policy
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateIamAssumeRolePolicyTest() throws ApiException {
-        UUID id = null;
-        IamPolicy iamPolicy = null;
-        Operation response = 
-        api.updateIamAssumeRolePolicy(id, iamPolicy);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Update IAM Organization Policy
      *
      * 
@@ -5760,6 +5762,24 @@ public class ExoscaleApiTest {
         UpdateIamRoleRequest updateIamRoleRequest = null;
         Operation response = 
         api.updateIamRole(id, updateIamRoleRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update IAM Assume role Policy
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateIamRoleAssumePolicyTest() throws ApiException {
+        UUID id = null;
+        IamPolicy iamPolicy = null;
+        Operation response = 
+        api.updateIamRoleAssumePolicy(id, iamPolicy);
         
         // TODO: test validations
     }

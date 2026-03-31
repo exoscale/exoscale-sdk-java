@@ -8,6 +8,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**addInstanceProtection**](ExoscaleApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection |
 | [**addRuleToSecurityGroup**](ExoscaleApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule |
 | [**addServiceToLoadBalancer**](ExoscaleApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service |
+| [**assumeIamRole**](ExoscaleApi.md#assumeIamRole) | **POST** /iam-role/{target-role-id}/assume | [BETA] Request generation of key/secret that allow caller to assume target role |
 | [**attachBlockStorageVolumeToInstance**](ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance |
 | [**attachDbaasServiceToEndpoint**](ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach |  |
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
@@ -317,9 +318,9 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDeployment**](ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} |  |
 | [**updateDnsDomainRecord**](ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record |
 | [**updateElasticIp**](ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP |
-| [**updateIamAssumeRolePolicy**](ExoscaleApi.md#updateIamAssumeRolePolicy) | **PUT** /iam-role/{id}:assume-role-policy | Update IAM Assume role Policy |
 | [**updateIamOrganizationPolicy**](ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy |
 | [**updateIamRole**](ExoscaleApi.md#updateIamRole) | **PUT** /iam-role/{id} | Update IAM Role |
+| [**updateIamRoleAssumePolicy**](ExoscaleApi.md#updateIamRoleAssumePolicy) | **PUT** /iam-role/{id}:assume-role-policy | Update IAM Assume role Policy |
 | [**updateIamRolePolicy**](ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy |
 | [**updateInstance**](ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance |
 | [**updateInstancePool**](ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool |
@@ -698,6 +699,101 @@ No authorization required
 ### Return type
 
 ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## assumeIamRole
+
+> AssumeIamRole200Response assumeIamRole(targetRoleId, assumeIamRoleRequest)
+
+[BETA] Request generation of key/secret that allow caller to assume target role
+
+[BETA] Request generation of key/secret that allow caller to assume target role
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID targetRoleId = UUID.randomUUID(); // UUID | 
+        AssumeIamRoleRequest assumeIamRoleRequest = new AssumeIamRoleRequest(); // AssumeIamRoleRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            AssumeIamRole200Response result = client.assumeIamRole(targetRoleId, assumeIamRoleRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#assumeIamRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetRoleId** | **UUID**|  | |
+| **assumeIamRoleRequest** | [**AssumeIamRoleRequest**](AssumeIamRoleRequest.md)|  | |
+
+### Return type
+
+[**AssumeIamRole200Response**](AssumeIamRole200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetRoleId** | **UUID**|  | |
+| **assumeIamRoleRequest** | [**AssumeIamRoleRequest**](AssumeIamRoleRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**AssumeIamRole200Response**](AssumeIamRole200Response.md)>
 
 
 ### Authorization
@@ -29245,101 +29341,6 @@ No authorization required
 | **200** | 200 |  -  |
 
 
-## updateIamAssumeRolePolicy
-
-> Operation updateIamAssumeRolePolicy(id, iamPolicy)
-
-Update IAM Assume role Policy
-
-
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.*;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) throws ApiException, InterruptedException{
-        // Initialize the client with credentials
-        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy |  please add at least all the required fields
-
-        try {
-            // Invoke the API method
-            Operation result = client.updateIamAssumeRolePolicy(id, iamPolicy);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateIamAssumeRolePolicy");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **iamPolicy** | [**IamPolicy**](IamPolicy.md)|  | |
-
-### Return type
-
-[**Operation**](Operation.md)
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | 200 |  -  |
-
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **iamPolicy** | [**IamPolicy**](IamPolicy.md)|  | |
-
-### Return type
-
-ApiResponse<[**Operation**](Operation.md)>
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | 200 |  -  |
-
-
 ## updateIamOrganizationPolicy
 
 > Operation updateIamOrganizationPolicy(iamPolicy)
@@ -29506,6 +29507,101 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **updateIamRoleRequest** | [**UpdateIamRoleRequest**](UpdateIamRoleRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateIamRoleAssumePolicy
+
+> Operation updateIamRoleAssumePolicy(id, iamPolicy)
+
+Update IAM Assume role Policy
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        IamPolicy iamPolicy = new IamPolicy(); // IamPolicy |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.updateIamRoleAssumePolicy(id, iamPolicy);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateIamRoleAssumePolicy");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **iamPolicy** | [**IamPolicy**](IamPolicy.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **iamPolicy** | [**IamPolicy**](IamPolicy.md)|  | |
 
 ### Return type
 

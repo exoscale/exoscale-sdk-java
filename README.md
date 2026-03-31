@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-03-26T07:31:40.171665964Z[Etc/UTC]
+- Build date: 2026-03-31T07:35:39.927420497Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-523d291</version>
+    <version>0.0.5-SNAPSHOT-c9b7e0d</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-523d291'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c9b7e0d'
 }
 ```
 
@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**addInstanceProtection**](sdk/docs/ExoscaleApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection
 *ExoscaleApi* | [**addRuleToSecurityGroup**](sdk/docs/ExoscaleApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule
 *ExoscaleApi* | [**addServiceToLoadBalancer**](sdk/docs/ExoscaleApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
+*ExoscaleApi* | [**assumeIamRole**](sdk/docs/ExoscaleApi.md#assumeIamRole) | **POST** /iam-role/{target-role-id}/assume | [BETA] Request generation of key/secret that allow caller to assume target role
 *ExoscaleApi* | [**attachBlockStorageVolumeToInstance**](sdk/docs/ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
 *ExoscaleApi* | [**attachDbaasServiceToEndpoint**](sdk/docs/ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach | 
 *ExoscaleApi* | [**attachInstanceToElasticIp**](sdk/docs/ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
@@ -395,9 +396,9 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDeployment**](sdk/docs/ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} | 
 *ExoscaleApi* | [**updateDnsDomainRecord**](sdk/docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
-*ExoscaleApi* | [**updateIamAssumeRolePolicy**](sdk/docs/ExoscaleApi.md#updateIamAssumeRolePolicy) | **PUT** /iam-role/{id}:assume-role-policy | Update IAM Assume role Policy
 *ExoscaleApi* | [**updateIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy
 *ExoscaleApi* | [**updateIamRole**](sdk/docs/ExoscaleApi.md#updateIamRole) | **PUT** /iam-role/{id} | Update IAM Role
+*ExoscaleApi* | [**updateIamRoleAssumePolicy**](sdk/docs/ExoscaleApi.md#updateIamRoleAssumePolicy) | **PUT** /iam-role/{id}:assume-role-policy | Update IAM Assume role Policy
 *ExoscaleApi* | [**updateIamRolePolicy**](sdk/docs/ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
 *ExoscaleApi* | [**updateInstance**](sdk/docs/ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance
 *ExoscaleApi* | [**updateInstancePool**](sdk/docs/ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool
@@ -426,6 +427,8 @@ Class | Method | HTTP request | Description
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AntiAffinityGroupRef](sdk/docs/AntiAffinityGroupRef.md)
+ - [AssumeIamRole200Response](sdk/docs/AssumeIamRole200Response.md)
+ - [AssumeIamRoleRequest](sdk/docs/AssumeIamRoleRequest.md)
  - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
  - [AttachDbaasServiceToEndpointRequest](sdk/docs/AttachDbaasServiceToEndpointRequest.md)
  - [AttachInstanceToPrivateNetworkRequest](sdk/docs/AttachInstanceToPrivateNetworkRequest.md)
