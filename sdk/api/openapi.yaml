@@ -23662,8 +23662,8 @@ components:
           type: object
         max-session-ttl:
           description: Maximum TTL requester is allowed to ask for when assuming a
-            role
-          exclusiveMinimum: true
+            role. A value of 0 resets the property to its default.
+          exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
