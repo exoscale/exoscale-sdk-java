@@ -181,7 +181,6 @@ docs/DeployTarget.md
 docs/DeployTargetRef.md
 docs/DetachDbaasServiceFromEndpointRequest.md
 docs/DetachInstanceFromPrivateNetworkRequest.md
-docs/DisableKmsKeyRotationRequest.md
 docs/DisableKmsKeyRotationResponse.md
 docs/DnsDomain.md
 docs/DnsDomainRecord.md
@@ -674,7 +673,6 @@ src/main/java/com/exoscale/sdk/model/DeployTarget.java
 src/main/java/com/exoscale/sdk/model/DeployTargetRef.java
 src/main/java/com/exoscale/sdk/model/DetachDbaasServiceFromEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/DetachInstanceFromPrivateNetworkRequest.java
-src/main/java/com/exoscale/sdk/model/DisableKmsKeyRotationRequest.java
 src/main/java/com/exoscale/sdk/model/DisableKmsKeyRotationResponse.java
 src/main/java/com/exoscale/sdk/model/DnsDomain.java
 src/main/java/com/exoscale/sdk/model/DnsDomainRecord.java

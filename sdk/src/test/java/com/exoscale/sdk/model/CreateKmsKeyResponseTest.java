@@ -81,14 +81,6 @@ public class CreateKmsKeyResponseTest {
     }
 
     /**
-     * Test the property 'policy'
-     */
-    @Test
-    public void policyTest() {
-        // TODO: test policy
-    }
-
-    /**
      * Test the property 'usage'
      */
     @Test
@@ -102,14 +94,6 @@ public class CreateKmsKeyResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'statusSince'
-     */
-    @Test
-    public void statusSinceTest() {
-        // TODO: test statusSince
     }
 
     /**

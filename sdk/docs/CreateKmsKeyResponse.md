@@ -12,10 +12,8 @@
 |**name** | **String** |  |  |
 |**multiZone** | **Boolean** |  |  |
 |**source** | [**SourceEnum**](#SourceEnum) |  |  |
-|**policy** | **String** |  |  |
 |**usage** | **String** |  |  |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  |
-|**statusSince** | **OffsetDateTime** |  |  |
 |**id** | **UUID** |  |  |
 |**originZone** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |

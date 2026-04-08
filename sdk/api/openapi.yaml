@@ -1015,12 +1015,6 @@ paths:
           format: uuid
           type: string
         style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/disable-kms-key-rotation-request'
-        required: true
       responses:
         "200":
           content:
@@ -1037,7 +1031,6 @@ paths:
       summary: "[BETA] Disable Key Rotation"
       tags:
       - exoscale
-      x-content-type: application/json
       x-accepts: application/json
   /dbaas-postgres/{service}/upgrade-check:
     post:
@@ -8768,7 +8761,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/operation'
+                $ref: '#/components/schemas/success-response'
           description: "200"
         "400":
           content:
@@ -9095,7 +9088,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "400"
-      summary: "[Beta] Cancel KMS Key Deletion"
+      summary: "[BETA] Cancel KMS Key Deletion"
       tags:
       - exoscale
       x-accepts: application/json
@@ -9801,14 +9794,6 @@ components:
       properties:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_rsyslog_input_update_settings'
-      type: object
-    disable-kms-key-rotation-request:
-      properties:
-        id:
-          format: uuid
-          type: string
-      required:
-      - id
       type: object
     json-schema-grafana:
       example:
@@ -10823,16 +10808,11 @@ components:
       type: object
     enable-kms-key-rotation-request:
       properties:
-        id:
-          format: uuid
-          type: string
         rotation-period:
           default: 365
           maximum: 2560
           minimum: 90
           type: integer
-      required:
-      - id
       type: object
     elastic-ip:
       description: Elastic IP
@@ -14389,6 +14369,7 @@ components:
           default: success
           enum:
           - success
+          - target-registered
           type: string
       required:
       - status
@@ -19138,7 +19119,6 @@ components:
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         multi-zone: true
-        policy: policy
         status: enabled
       properties:
         description:
@@ -19154,8 +19134,6 @@ components:
         source:
           enum:
           - exoscale-kms
-          type: string
-        policy:
           type: string
         usage:
           type: string
@@ -19194,7 +19172,6 @@ components:
       - multi-zone
       - name
       - origin-zone
-      - policy
       - replicas
       - revision
       - rotation
@@ -19206,7 +19183,6 @@ components:
       type: object
     create-kms-key-response:
       example:
-        status-since: 2000-01-23T04:56:07.000+00:00
         usage: usage
         name: name
         description: description
@@ -19218,7 +19194,6 @@ components:
         revision:
           at: 2000-01-23T04:56:07.000+00:00
           seq: 0
-        policy: policy
         status: enabled
       properties:
         description:
@@ -19233,8 +19208,6 @@ components:
           enum:
           - exoscale-kms
           type: string
-        policy:
-          type: string
         usage:
           type: string
         status:
@@ -19242,9 +19215,6 @@ components:
           - enabled
           - disabled
           - pending-deletion
-          type: string
-        status-since:
-          format: date-time
           type: string
         id:
           format: uuid
@@ -19261,7 +19231,6 @@ components:
       - multi-zone
       - name
       - origin-zone
-      - policy
       - revision
       - source
       - status
@@ -23662,8 +23631,8 @@ components:
           type: object
         max-session-ttl:
           description: Maximum TTL requester is allowed to ask for when assuming a
-            role. A value of 0 resets the property to its default.
-          exclusiveMinimum: false
+            role
+          exclusiveMinimum: true
           format: int64
           minimum: 0
           type: integer

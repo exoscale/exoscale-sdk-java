@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -33,44 +32,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * EnableKmsKeyRotationRequest
  */
 @JsonPropertyOrder({
-  EnableKmsKeyRotationRequest.JSON_PROPERTY_ID,
   EnableKmsKeyRotationRequest.JSON_PROPERTY_ROTATION_PERIOD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class EnableKmsKeyRotationRequest {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
   public static final String JSON_PROPERTY_ROTATION_PERIOD = "rotation-period";
   private Integer rotationPeriod = 365;
 
   public EnableKmsKeyRotationRequest() { 
   }
-
-  public EnableKmsKeyRotationRequest id(UUID id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
 
   public EnableKmsKeyRotationRequest rotationPeriod(Integer rotationPeriod) {
     this.rotationPeriod = rotationPeriod;
@@ -111,20 +81,18 @@ public class EnableKmsKeyRotationRequest {
       return false;
     }
     EnableKmsKeyRotationRequest enableKmsKeyRotationRequest = (EnableKmsKeyRotationRequest) o;
-    return Objects.equals(this.id, enableKmsKeyRotationRequest.id) &&
-        Objects.equals(this.rotationPeriod, enableKmsKeyRotationRequest.rotationPeriod);
+    return Objects.equals(this.rotationPeriod, enableKmsKeyRotationRequest.rotationPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, rotationPeriod);
+    return Objects.hash(rotationPeriod);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnableKmsKeyRotationRequest {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rotationPeriod: ").append(toIndentedString(rotationPeriod)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -172,11 +140,6 @@ public class EnableKmsKeyRotationRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
 
     // add `rotation-period` to the URL query string
     if (getRotationPeriod() != null) {

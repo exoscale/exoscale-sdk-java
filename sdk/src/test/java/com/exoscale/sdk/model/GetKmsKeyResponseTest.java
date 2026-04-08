@@ -94,14 +94,6 @@ public class GetKmsKeyResponseTest {
     }
 
     /**
-     * Test the property 'policy'
-     */
-    @Test
-    public void policyTest() {
-        // TODO: test policy
-    }
-
-    /**
      * Test the property 'usage'
      */
     @Test

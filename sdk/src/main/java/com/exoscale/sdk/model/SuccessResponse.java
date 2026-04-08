@@ -40,7 +40,9 @@ public class SuccessResponse {
    * Gets or Sets status
    */
   public enum StatusEnum {
-    SUCCESS("success");
+    SUCCESS("success"),
+    
+    TARGET_REGISTERED("target-registered");
 
     private String value;
 

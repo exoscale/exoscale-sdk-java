@@ -19,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -36,14 +35,6 @@ public class EnableKmsKeyRotationRequestTest {
     @Test
     public void testEnableKmsKeyRotationRequest() {
         // TODO: test EnableKmsKeyRotationRequest
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
     }
 
     /**

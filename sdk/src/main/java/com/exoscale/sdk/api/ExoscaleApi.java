@@ -114,7 +114,6 @@ import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
-import com.exoscale.sdk.model.DisableKmsKeyRotationRequest;
 import com.exoscale.sdk.model.DisableKmsKeyRotationResponse;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
@@ -1259,7 +1258,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [Beta] Cancel KMS Key Deletion
+   * [BETA] Cancel KMS Key Deletion
    * Cancel the scheduled deletion of a KMS Key.
    * @param id  (required)
    * @return SuccessResponse
@@ -1271,7 +1270,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [Beta] Cancel KMS Key Deletion
+   * [BETA] Cancel KMS Key Deletion
    * Cancel the scheduled deletion of a KMS Key.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
@@ -10287,12 +10286,11 @@ public class ExoscaleApi {
    * [BETA] Disable Key Rotation
    * Disable the periodic rotation of a KMS Key.
    * @param id  (required)
-   * @param disableKmsKeyRotationRequest  (required)
    * @return DisableKmsKeyRotationResponse
    * @throws ApiException if fails to make API call
    */
-  public DisableKmsKeyRotationResponse disableKmsKeyRotation(UUID id, DisableKmsKeyRotationRequest disableKmsKeyRotationRequest) throws ApiException {
-    ApiResponse<DisableKmsKeyRotationResponse> localVarResponse = disableKmsKeyRotationWithHttpInfo(id, disableKmsKeyRotationRequest);
+  public DisableKmsKeyRotationResponse disableKmsKeyRotation(UUID id) throws ApiException {
+    ApiResponse<DisableKmsKeyRotationResponse> localVarResponse = disableKmsKeyRotationWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
@@ -10300,12 +10298,11 @@ public class ExoscaleApi {
    * [BETA] Disable Key Rotation
    * Disable the periodic rotation of a KMS Key.
    * @param id  (required)
-   * @param disableKmsKeyRotationRequest  (required)
    * @return ApiResponse&lt;DisableKmsKeyRotationResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<DisableKmsKeyRotationResponse> disableKmsKeyRotationWithHttpInfo(UUID id, DisableKmsKeyRotationRequest disableKmsKeyRotationRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = disableKmsKeyRotationRequestBuilder(id, disableKmsKeyRotationRequest);
+  private ApiResponse<DisableKmsKeyRotationResponse> disableKmsKeyRotationWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = disableKmsKeyRotationRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10333,14 +10330,10 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder disableKmsKeyRotationRequestBuilder(UUID id, DisableKmsKeyRotationRequest disableKmsKeyRotationRequest) throws ApiException {
+  private HttpRequest.Builder disableKmsKeyRotationRequestBuilder(UUID id) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling disableKmsKeyRotation");
-    }
-    // verify the required parameter 'disableKmsKeyRotationRequest' is set
-    if (disableKmsKeyRotationRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'disableKmsKeyRotationRequest' when calling disableKmsKeyRotation");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -10350,11 +10343,6 @@ public class ExoscaleApi {
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
-          try{
-          requestBody = memberVarObjectMapper.writeValueAsString(disableKmsKeyRotationRequest);
-          } catch (JsonProcessingException e) {
-          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
-          }
 
 
       try{
@@ -10365,10 +10353,9 @@ public class ExoscaleApi {
       localVarRequestBuilder.header("Authorization", authorizationValue);
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
-    localVarRequestBuilder.header("Content-Type", "application/json");
     localVarRequestBuilder.header("Accept", "application/json");
 
-      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -20798,11 +20785,11 @@ public class ExoscaleApi {
    * Replicate a KMS key to a target zone.
    * @param id  (required)
    * @param replicateKmsKeyRequest  (required)
-   * @return Operation
+   * @return SuccessResponse
    * @throws ApiException if fails to make API call
    */
-  public Operation replicateKmsKey(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = replicateKmsKeyWithHttpInfo(id, replicateKmsKeyRequest);
+  public SuccessResponse replicateKmsKey(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = replicateKmsKeyWithHttpInfo(id, replicateKmsKeyRequest);
     return localVarResponse.getData();
   }
 
@@ -20811,10 +20798,10 @@ public class ExoscaleApi {
    * Replicate a KMS key to a target zone.
    * @param id  (required)
    * @param replicateKmsKeyRequest  (required)
-   * @return ApiResponse&lt;Operation&gt;
+   * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> replicateKmsKeyWithHttpInfo(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
+  private ApiResponse<SuccessResponse> replicateKmsKeyWithHttpInfo(UUID id, ReplicateKmsKeyRequest replicateKmsKeyRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = replicateKmsKeyRequestBuilder(id, replicateKmsKeyRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -20827,10 +20814,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("replicateKmsKey", localVarResponse);
         }
-        return new ApiResponse<Operation>(
+        return new ApiResponse<SuccessResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
         );
       } finally {
       }

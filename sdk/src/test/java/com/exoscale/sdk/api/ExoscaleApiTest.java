@@ -110,7 +110,6 @@ import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
 import com.exoscale.sdk.model.DetachInstanceFromPrivateNetworkRequest;
-import com.exoscale.sdk.model.DisableKmsKeyRotationRequest;
 import com.exoscale.sdk.model.DisableKmsKeyRotationResponse;
 import com.exoscale.sdk.model.DnsDomain;
 import com.exoscale.sdk.model.DnsDomainRecord;
@@ -461,7 +460,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [Beta] Cancel KMS Key Deletion
+     * [BETA] Cancel KMS Key Deletion
      *
      * Cancel the scheduled deletion of a KMS Key.
      *
@@ -2269,9 +2268,8 @@ public class ExoscaleApiTest {
     @Test
     public void disableKmsKeyRotationTest() throws ApiException {
         UUID id = null;
-        DisableKmsKeyRotationRequest disableKmsKeyRotationRequest = null;
         DisableKmsKeyRotationResponse response = 
-        api.disableKmsKeyRotation(id, disableKmsKeyRotationRequest);
+        api.disableKmsKeyRotation(id);
         
         // TODO: test validations
     }
@@ -4421,7 +4419,7 @@ public class ExoscaleApiTest {
     public void replicateKmsKeyTest() throws ApiException {
         UUID id = null;
         ReplicateKmsKeyRequest replicateKmsKeyRequest = null;
-        Operation response = 
+        SuccessResponse response = 
         api.replicateKmsKey(id, replicateKmsKeyRequest);
         
         // TODO: test validations

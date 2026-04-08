@@ -46,7 +46,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetKmsKeyResponse.JSON_PROPERTY_NAME,
   GetKmsKeyResponse.JSON_PROPERTY_MULTI_ZONE,
   GetKmsKeyResponse.JSON_PROPERTY_SOURCE,
-  GetKmsKeyResponse.JSON_PROPERTY_POLICY,
   GetKmsKeyResponse.JSON_PROPERTY_USAGE,
   GetKmsKeyResponse.JSON_PROPERTY_REPLICAS_STATUS,
   GetKmsKeyResponse.JSON_PROPERTY_STATUS,
@@ -109,9 +108,6 @@ public class GetKmsKeyResponse {
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private SourceEnum source;
-
-  public static final String JSON_PROPERTY_POLICY = "policy";
-  private String policy;
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private String usage;
@@ -327,31 +323,6 @@ public class GetKmsKeyResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSource(SourceEnum source) {
     this.source = source;
-  }
-
-
-  public GetKmsKeyResponse policy(String policy) {
-    this.policy = policy;
-    return this;
-  }
-
-   /**
-   * Get policy
-   * @return policy
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getPolicy() {
-    return policy;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPolicy(String policy) {
-    this.policy = policy;
   }
 
 
@@ -614,7 +585,6 @@ public class GetKmsKeyResponse {
         Objects.equals(this.name, getKmsKeyResponse.name) &&
         Objects.equals(this.multiZone, getKmsKeyResponse.multiZone) &&
         Objects.equals(this.source, getKmsKeyResponse.source) &&
-        Objects.equals(this.policy, getKmsKeyResponse.policy) &&
         Objects.equals(this.usage, getKmsKeyResponse.usage) &&
         Objects.equals(this.replicasStatus, getKmsKeyResponse.replicasStatus) &&
         Objects.equals(this.status, getKmsKeyResponse.status) &&
@@ -628,7 +598,7 @@ public class GetKmsKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, rotation, revision, name, multiZone, source, policy, usage, replicasStatus, status, statusSince, id, replicas, material, originZone, createdAt);
+    return Objects.hash(description, rotation, revision, name, multiZone, source, usage, replicasStatus, status, statusSince, id, replicas, material, originZone, createdAt);
   }
 
   @Override
@@ -641,7 +611,6 @@ public class GetKmsKeyResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    replicasStatus: ").append(toIndentedString(replicasStatus)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -726,11 +695,6 @@ public class GetKmsKeyResponse {
     // add `source` to the URL query string
     if (getSource() != null) {
       joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `policy` to the URL query string
-    if (getPolicy() != null) {
-      joiner.add(String.format("%spolicy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `usage` to the URL query string

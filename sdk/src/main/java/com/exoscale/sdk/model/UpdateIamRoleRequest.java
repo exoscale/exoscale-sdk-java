@@ -192,7 +192,7 @@ public class UpdateIamRoleRequest {
   }
 
    /**
-   * Maximum TTL requester is allowed to ask for when assuming a role. A value of 0 resets the property to its default.
+   * Maximum TTL requester is allowed to ask for when assuming a role
    * minimum: 0
    * @return maxSessionTtl
   **/

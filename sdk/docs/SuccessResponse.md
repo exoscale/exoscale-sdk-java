@@ -16,6 +16,7 @@
 | Name | Value |
 |---- | -----|
 | SUCCESS | &quot;success&quot; |
+| TARGET_REGISTERED | &quot;target-registered&quot; |
 
 
 

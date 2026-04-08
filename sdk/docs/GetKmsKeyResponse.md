@@ -13,7 +13,6 @@
 |**name** | **String** |  |  |
 |**multiZone** | **Boolean** |  |  |
 |**source** | [**SourceEnum**](#SourceEnum) |  |  |
-|**policy** | **String** |  |  |
 |**usage** | **String** |  |  |
 |**replicasStatus** | [**List&lt;ReplicaState&gt;**](ReplicaState.md) |  |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  |

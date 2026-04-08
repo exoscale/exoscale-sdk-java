@@ -40,10 +40,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateKmsKeyResponse.JSON_PROPERTY_NAME,
   CreateKmsKeyResponse.JSON_PROPERTY_MULTI_ZONE,
   CreateKmsKeyResponse.JSON_PROPERTY_SOURCE,
-  CreateKmsKeyResponse.JSON_PROPERTY_POLICY,
   CreateKmsKeyResponse.JSON_PROPERTY_USAGE,
   CreateKmsKeyResponse.JSON_PROPERTY_STATUS,
-  CreateKmsKeyResponse.JSON_PROPERTY_STATUS_SINCE,
   CreateKmsKeyResponse.JSON_PROPERTY_ID,
   CreateKmsKeyResponse.JSON_PROPERTY_ORIGIN_ZONE,
   CreateKmsKeyResponse.JSON_PROPERTY_CREATED_AT
@@ -98,9 +96,6 @@ public class CreateKmsKeyResponse {
   public static final String JSON_PROPERTY_SOURCE = "source";
   private SourceEnum source;
 
-  public static final String JSON_PROPERTY_POLICY = "policy";
-  private String policy;
-
   public static final String JSON_PROPERTY_USAGE = "usage";
   private String usage;
 
@@ -143,9 +138,6 @@ public class CreateKmsKeyResponse {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
-
-  public static final String JSON_PROPERTY_STATUS_SINCE = "status-since";
-  private OffsetDateTime statusSince;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -284,31 +276,6 @@ public class CreateKmsKeyResponse {
   }
 
 
-  public CreateKmsKeyResponse policy(String policy) {
-    this.policy = policy;
-    return this;
-  }
-
-   /**
-   * Get policy
-   * @return policy
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getPolicy() {
-    return policy;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPolicy(String policy) {
-    this.policy = policy;
-  }
-
-
   public CreateKmsKeyResponse usage(String usage) {
     this.usage = usage;
     return this;
@@ -356,31 +323,6 @@ public class CreateKmsKeyResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(StatusEnum status) {
     this.status = status;
-  }
-
-
-  public CreateKmsKeyResponse statusSince(OffsetDateTime statusSince) {
-    this.statusSince = statusSince;
-    return this;
-  }
-
-   /**
-   * Get statusSince
-   * @return statusSince
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public OffsetDateTime getStatusSince() {
-    return statusSince;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStatusSince(OffsetDateTime statusSince) {
-    this.statusSince = statusSince;
   }
 
 
@@ -476,10 +418,8 @@ public class CreateKmsKeyResponse {
         Objects.equals(this.name, createKmsKeyResponse.name) &&
         Objects.equals(this.multiZone, createKmsKeyResponse.multiZone) &&
         Objects.equals(this.source, createKmsKeyResponse.source) &&
-        Objects.equals(this.policy, createKmsKeyResponse.policy) &&
         Objects.equals(this.usage, createKmsKeyResponse.usage) &&
         Objects.equals(this.status, createKmsKeyResponse.status) &&
-        Objects.equals(this.statusSince, createKmsKeyResponse.statusSince) &&
         Objects.equals(this.id, createKmsKeyResponse.id) &&
         Objects.equals(this.originZone, createKmsKeyResponse.originZone) &&
         Objects.equals(this.createdAt, createKmsKeyResponse.createdAt);
@@ -487,7 +427,7 @@ public class CreateKmsKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, revision, name, multiZone, source, policy, usage, status, statusSince, id, originZone, createdAt);
+    return Objects.hash(description, revision, name, multiZone, source, usage, status, id, originZone, createdAt);
   }
 
   @Override
@@ -499,10 +439,8 @@ public class CreateKmsKeyResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
-    sb.append("    policy: ").append(toIndentedString(policy)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    statusSince: ").append(toIndentedString(statusSince)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    originZone: ").append(toIndentedString(originZone)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -578,11 +516,6 @@ public class CreateKmsKeyResponse {
       joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `policy` to the URL query string
-    if (getPolicy() != null) {
-      joiner.add(String.format("%spolicy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `usage` to the URL query string
     if (getUsage() != null) {
       joiner.add(String.format("%susage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -591,11 +524,6 @@ public class CreateKmsKeyResponse {
     // add `status` to the URL query string
     if (getStatus() != null) {
       joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `status-since` to the URL query string
-    if (getStatusSince() != null) {
-      joiner.add(String.format("%sstatus-since%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `id` to the URL query string

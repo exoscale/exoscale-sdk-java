@@ -14,7 +14,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToPrivateNetwork**](ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
-| [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [Beta] Cancel KMS Key Deletion |
+| [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
@@ -1290,7 +1290,7 @@ No authorization required
 
 > SuccessResponse cancelKmsKeyDeletion(id)
 
-[Beta] Cancel KMS Key Deletion
+[BETA] Cancel KMS Key Deletion
 
 Cancel the scheduled deletion of a KMS Key.
 
@@ -10861,7 +10861,7 @@ No authorization required
 
 ## disableKmsKeyRotation
 
-> DisableKmsKeyRotationResponse disableKmsKeyRotation(id, disableKmsKeyRotationRequest)
+> DisableKmsKeyRotationResponse disableKmsKeyRotation(id)
 
 [BETA] Disable Key Rotation
 
@@ -10881,11 +10881,10 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        DisableKmsKeyRotationRequest disableKmsKeyRotationRequest = new DisableKmsKeyRotationRequest(); // DisableKmsKeyRotationRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            DisableKmsKeyRotationResponse result = client.disableKmsKeyRotation(id, disableKmsKeyRotationRequest);
+            DisableKmsKeyRotationResponse result = client.disableKmsKeyRotation(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#disableKmsKeyRotation");
@@ -10904,7 +10903,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **disableKmsKeyRotationRequest** | [**DisableKmsKeyRotationRequest**](DisableKmsKeyRotationRequest.md)|  | |
 
 ### Return type
 
@@ -10917,7 +10915,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
@@ -10933,7 +10931,6 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **disableKmsKeyRotationRequest** | [**DisableKmsKeyRotationRequest**](DisableKmsKeyRotationRequest.md)|  | |
 
 ### Return type
 
@@ -10946,7 +10943,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details
@@ -22385,7 +22382,7 @@ No authorization required
 
 ## replicateKmsKey
 
-> Operation replicateKmsKey(id, replicateKmsKeyRequest)
+> SuccessResponse replicateKmsKey(id, replicateKmsKeyRequest)
 
 [BETA] Replicate KMS Key
 
@@ -22409,7 +22406,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Operation result = client.replicateKmsKey(id, replicateKmsKeyRequest);
+            SuccessResponse result = client.replicateKmsKey(id, replicateKmsKeyRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#replicateKmsKey");
@@ -22432,7 +22429,7 @@ public class Example {
 
 ### Return type
 
-[**Operation**](Operation.md)
+[**SuccessResponse**](SuccessResponse.md)
 
 
 ### Authorization
@@ -22461,7 +22458,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**Operation**](Operation.md)>
+ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
 
 
 ### Authorization

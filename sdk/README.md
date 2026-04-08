@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-04-03T07:32:43.697293736Z[Etc/UTC]
+- Build date: 2026-04-08T07:37:00.415965829Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-a3dbf2c</version>
+    <version>0.0.5-SNAPSHOT-1b0efe4</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-a3dbf2c'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-1b0efe4'
 }
 ```
 
@@ -92,7 +92,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**attachInstanceToElasticIp**](sdk/docs/ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP
 *ExoscaleApi* | [**attachInstanceToPrivateNetwork**](sdk/docs/ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network
 *ExoscaleApi* | [**attachInstanceToSecurityGroup**](sdk/docs/ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
-*ExoscaleApi* | [**cancelKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [Beta] Cancel KMS Key Deletion
+*ExoscaleApi* | [**cancelKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion
 *ExoscaleApi* | [**copyTemplate**](sdk/docs/ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
 *ExoscaleApi* | [**createAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
 *ExoscaleApi* | [**createApiKey**](sdk/docs/ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key
@@ -596,7 +596,6 @@ Class | Method | HTTP request | Description
  - [DeployTargetRef](sdk/docs/DeployTargetRef.md)
  - [DetachDbaasServiceFromEndpointRequest](sdk/docs/DetachDbaasServiceFromEndpointRequest.md)
  - [DetachInstanceFromPrivateNetworkRequest](sdk/docs/DetachInstanceFromPrivateNetworkRequest.md)
- - [DisableKmsKeyRotationRequest](sdk/docs/DisableKmsKeyRotationRequest.md)
  - [DisableKmsKeyRotationResponse](sdk/docs/DisableKmsKeyRotationResponse.md)
  - [DnsDomain](sdk/docs/DnsDomain.md)
  - [DnsDomainRecord](sdk/docs/DnsDomainRecord.md)
