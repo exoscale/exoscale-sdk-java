@@ -17,6 +17,8 @@ import com.exoscale.sdk.client.ApiException;
 import com.exoscale.sdk.model.AddExternalSourceToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
+import com.exoscale.sdk.model.AiApiKey;
+import com.exoscale.sdk.model.AiApiKeyWithValue;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
@@ -26,6 +28,7 @@ import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
+import com.exoscale.sdk.model.CreateAiApiKeyRequest;
 import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
@@ -106,6 +109,7 @@ import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DbaasValkeyUsers;
 import com.exoscale.sdk.model.DecryptRequest;
 import com.exoscale.sdk.model.DecryptResponse;
+import com.exoscale.sdk.model.DeleteAiApiKey200Response;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
@@ -123,6 +127,7 @@ import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
+import com.exoscale.sdk.model.ForbiddenOperationResponse;
 import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
@@ -157,6 +162,7 @@ import com.exoscale.sdk.model.Instance;
 import com.exoscale.sdk.model.InstancePassword;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.ListAiApiKeysResponse;
 import com.exoscale.sdk.model.ListAiInstanceTypesResponse;
 import com.exoscale.sdk.model.ListAntiAffinityGroups200Response;
 import com.exoscale.sdk.model.ListApiKeys200Response;
@@ -232,6 +238,7 @@ import com.exoscale.sdk.model.StartInstanceRequest;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
+import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -490,6 +497,23 @@ public class ExoscaleApiTest {
         CopyTemplateRequest copyTemplateRequest = null;
         Operation response = 
         api.copyTemplate(id, copyTemplateRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Create AI API Key
+     *
+     * Create a new AI API key
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createAiApiKeyTest() throws ApiException {
+        CreateAiApiKeyRequest createAiApiKeyRequest = null;
+        AiApiKeyWithValue response = 
+        api.createAiApiKey(createAiApiKeyRequest);
         
         // TODO: test validations
     }
@@ -1013,7 +1037,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create Deployment
+     * Create Deployment
      *
      * Deploy a model on an inference server
      *
@@ -1167,7 +1191,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create Model
+     * Create Model
      *
      * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
      *
@@ -1300,6 +1324,23 @@ public class ExoscaleApiTest {
         DecryptRequest decryptRequest = null;
         DecryptResponse response = 
         api.decrypt(id, decryptRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete AI API Key
+     *
+     * Delete AI API key
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        DeleteAiApiKey200Response response = 
+        api.deleteAiApiKey(id);
         
         // TODO: test validations
     }
@@ -1791,7 +1832,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete Deployment
+     * Delete Deployment
      *
      * Delete Deployment
      *
@@ -1946,7 +1987,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete Model
+     * Delete Model
      *
      * Delete Model
      *
@@ -2465,6 +2506,23 @@ public class ExoscaleApiTest {
         String variant = null;
         GetActiveNodepoolTemplate200Response response = 
         api.getActiveNodepoolTemplate(kubeVersion, variant);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Get AI API Key
+     *
+     * Get AI API key metadata
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        AiApiKey response = 
+        api.getAiApiKey(id);
         
         // TODO: test validations
     }
@@ -3077,7 +3135,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get Deployment
+     * Get Deployment
      *
      * Get Deployment details
      *
@@ -3094,7 +3152,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get Deployment Logs
+     * Get Deployment Logs
      *
      * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
      *
@@ -3232,7 +3290,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get inference-engine Help
+     * Get inference-engine Help
      *
      * Get list of allowed inference engine parameters with their descriptions and allowed values
      *
@@ -3352,7 +3410,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get Model
+     * Get Model
      *
      * Get Model details
      *
@@ -3643,6 +3701,22 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * List AI API Keys
+     *
+     * List AI API keys for an organization
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listAiApiKeysTest() throws ApiException {
+        ListAiApiKeysResponse response = 
+        api.listAiApiKeys();
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List Instance Types
      *
      * List available instance types with authorization status based on GPU availability
@@ -3873,7 +3947,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List Deployments
+     * List Deployments
      *
      * List Deployments
      *
@@ -3882,8 +3956,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listDeploymentsTest() throws ApiException {
+        String visibility = null;
         ListDeploymentsResponse response = 
-        api.listDeployments();
+        api.listDeployments(visibility);
         
         // TODO: test validations
     }
@@ -4073,7 +4148,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List Models
+     * List Models
      *
      * List Models
      *
@@ -4082,8 +4157,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listModelsTest() throws ApiException {
+        String visibility = null;
         ListModelsResponse response = 
-        api.listModels();
+        api.listModels(visibility);
         
         // TODO: test validations
     }
@@ -4879,7 +4955,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Reveal Deployment API Key
+     * Reveal Deployment API Key
      *
      * Get Deployment API Key
      *
@@ -4926,6 +5002,23 @@ public class ExoscaleApiTest {
         RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest = null;
         Operation response = 
         api.revertInstanceToSnapshot(instanceId, revertInstanceToSnapshotRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Rotate AI API Key
+     *
+     * Rotate AI API key value
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void rotateAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        AiApiKeyWithValue response = 
+        api.rotateAiApiKey(id);
         
         // TODO: test validations
     }
@@ -5016,7 +5109,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Scale Deployment
+     * Scale Deployment
      *
      * Scale Deployment
      *
@@ -5307,6 +5400,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.stopInstance(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update AI API Key
+     *
+     * Update AI API key name and/or scope
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        UpdateAiApiKeyRequest updateAiApiKeyRequest = null;
+        AiApiKey response = 
+        api.updateAiApiKey(id, updateAiApiKeyRequest);
         
         // TODO: test validations
     }

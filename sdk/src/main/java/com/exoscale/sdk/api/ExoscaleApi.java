@@ -21,6 +21,8 @@ import com.exoscale.sdk.client.Pair;
 import com.exoscale.sdk.model.AddExternalSourceToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
+import com.exoscale.sdk.model.AiApiKey;
+import com.exoscale.sdk.model.AiApiKeyWithValue;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
@@ -30,6 +32,7 @@ import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
+import com.exoscale.sdk.model.CreateAiApiKeyRequest;
 import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
@@ -110,6 +113,7 @@ import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DbaasValkeyUsers;
 import com.exoscale.sdk.model.DecryptRequest;
 import com.exoscale.sdk.model.DecryptResponse;
+import com.exoscale.sdk.model.DeleteAiApiKey200Response;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
@@ -127,6 +131,7 @@ import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
+import com.exoscale.sdk.model.ForbiddenOperationResponse;
 import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
@@ -161,6 +166,7 @@ import com.exoscale.sdk.model.Instance;
 import com.exoscale.sdk.model.InstancePassword;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.ListAiApiKeysResponse;
 import com.exoscale.sdk.model.ListAiInstanceTypesResponse;
 import com.exoscale.sdk.model.ListAntiAffinityGroups200Response;
 import com.exoscale.sdk.model.ListApiKeys200Response;
@@ -236,6 +242,7 @@ import com.exoscale.sdk.model.StartInstanceRequest;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
+import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -1408,6 +1415,93 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(copyTemplateRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Create AI API Key
+   * Create a new AI API key
+   * @param createAiApiKeyRequest  (required)
+   * @return AiApiKeyWithValue
+   * @throws ApiException if fails to make API call
+   */
+  public AiApiKeyWithValue createAiApiKey(CreateAiApiKeyRequest createAiApiKeyRequest) throws ApiException {
+    ApiResponse<AiApiKeyWithValue> localVarResponse = createAiApiKeyWithHttpInfo(createAiApiKeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create AI API Key
+   * Create a new AI API key
+   * @param createAiApiKeyRequest  (required)
+   * @return ApiResponse&lt;AiApiKeyWithValue&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<AiApiKeyWithValue> createAiApiKeyWithHttpInfo(CreateAiApiKeyRequest createAiApiKeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createAiApiKeyRequestBuilder(createAiApiKeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createAiApiKey", localVarResponse);
+        }
+        return new ApiResponse<AiApiKeyWithValue>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<AiApiKeyWithValue>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createAiApiKeyRequestBuilder(CreateAiApiKeyRequest createAiApiKeyRequest) throws ApiException {
+    // verify the required parameter 'createAiApiKeyRequest' is set
+    if (createAiApiKeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createAiApiKeyRequest' when calling createAiApiKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/ai-api-key";
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createAiApiKeyRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -4132,7 +4226,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create Deployment
+   * Create Deployment
    * Deploy a model on an inference server
    * @param createDeploymentRequest  (required)
    * @return Operation
@@ -4144,7 +4238,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create Deployment
+   * Create Deployment
    * Deploy a model on an inference server
    * @param createDeploymentRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -4922,7 +5016,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create Model
+   * Create Model
    * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
    * @param createModelRequest  (required)
    * @return Operation
@@ -4934,7 +5028,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create Model
+   * Create Model
    * Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
    * @param createModelRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -5618,6 +5712,88 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Delete AI API Key
+   * Delete AI API key
+   * @param id  (required)
+   * @return DeleteAiApiKey200Response
+   * @throws ApiException if fails to make API call
+   */
+  public DeleteAiApiKey200Response deleteAiApiKey(UUID id) throws ApiException {
+    ApiResponse<DeleteAiApiKey200Response> localVarResponse = deleteAiApiKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete AI API Key
+   * Delete AI API key
+   * @param id  (required)
+   * @return ApiResponse&lt;DeleteAiApiKey200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DeleteAiApiKey200Response> deleteAiApiKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteAiApiKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteAiApiKey", localVarResponse);
+        }
+        return new ApiResponse<DeleteAiApiKey200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DeleteAiApiKey200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteAiApiKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteAiApiKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/ai-api-key/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -7993,7 +8169,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete Deployment
+   * Delete Deployment
    * Delete Deployment
    * @param id  (required)
    * @return Operation
@@ -8005,7 +8181,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete Deployment
+   * Delete Deployment
    * Delete Deployment
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -8745,7 +8921,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete Model
+   * Delete Model
    * Delete Model
    * @param id  (required)
    * @return Operation
@@ -8757,7 +8933,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete Model
+   * Delete Model
    * Delete Model
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -11329,6 +11505,88 @@ public class ExoscaleApi {
     String localVarPath = "/sks-template/{kube-version}/{variant}"
         .replace("{kube-version}", ApiClient.urlEncode(kubeVersion.toString()))
         .replace("{variant}", ApiClient.urlEncode(variant.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Get AI API Key
+   * Get AI API key metadata
+   * @param id  (required)
+   * @return AiApiKey
+   * @throws ApiException if fails to make API call
+   */
+  public AiApiKey getAiApiKey(UUID id) throws ApiException {
+    ApiResponse<AiApiKey> localVarResponse = getAiApiKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get AI API Key
+   * Get AI API key metadata
+   * @param id  (required)
+   * @return ApiResponse&lt;AiApiKey&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<AiApiKey> getAiApiKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getAiApiKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getAiApiKey", localVarResponse);
+        }
+        return new ApiResponse<AiApiKey>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<AiApiKey>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getAiApiKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getAiApiKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/ai-api-key/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -14280,7 +14538,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get Deployment
+   * Get Deployment
    * Get Deployment details
    * @param id  (required)
    * @return GetDeploymentResponse
@@ -14292,7 +14550,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get Deployment
+   * Get Deployment
    * Get Deployment details
    * @param id  (required)
    * @return ApiResponse&lt;GetDeploymentResponse&gt;
@@ -14362,7 +14620,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get Deployment Logs
+   * Get Deployment Logs
    * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param id  (required)
    * @param stream  (optional)
@@ -14376,7 +14634,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get Deployment Logs
+   * Get Deployment Logs
    * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param id  (required)
    * @param stream  (optional)
@@ -15039,7 +15297,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get inference-engine Help
+   * Get inference-engine Help
    * Get list of allowed inference engine parameters with their descriptions and allowed values
    * @param version  (optional)
    * @return GetInferenceEngineHelpResponse
@@ -15051,7 +15309,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get inference-engine Help
+   * Get inference-engine Help
    * Get list of allowed inference engine parameters with their descriptions and allowed values
    * @param version  (optional)
    * @return ApiResponse&lt;GetInferenceEngineHelpResponse&gt;
@@ -15630,7 +15888,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get Model
+   * Get Model
    * Get Model details
    * @param id  (required)
    * @return GetModelResponse
@@ -15642,7 +15900,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get Model
+   * Get Model
    * Get Model details
    * @param id  (required)
    * @return ApiResponse&lt;GetModelResponse&gt;
@@ -17058,6 +17316,81 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * List AI API Keys
+   * List AI API keys for an organization
+   * @return ListAiApiKeysResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAiApiKeysResponse listAiApiKeys() throws ApiException {
+    ApiResponse<ListAiApiKeysResponse> localVarResponse = listAiApiKeysWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List AI API Keys
+   * List AI API keys for an organization
+   * @return ApiResponse&lt;ListAiApiKeysResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListAiApiKeysResponse> listAiApiKeysWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listAiApiKeysRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listAiApiKeys", localVarResponse);
+        }
+        return new ApiResponse<ListAiApiKeysResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListAiApiKeysResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listAiApiKeysRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/ai-api-key";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Instance Types
    * List available instance types with authorization status based on GPU availability
    * @return ListAiInstanceTypesResponse
@@ -18160,24 +18493,26 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List Deployments
    * List Deployments
+   * List Deployments
+   * @param visibility  (optional)
    * @return ListDeploymentsResponse
    * @throws ApiException if fails to make API call
    */
-  public ListDeploymentsResponse listDeployments() throws ApiException {
-    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo();
+  public ListDeploymentsResponse listDeployments(String visibility) throws ApiException {
+    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo(visibility);
     return localVarResponse.getData();
   }
 
   /**
-   * [BETA] List Deployments
    * List Deployments
+   * List Deployments
+   * @param visibility  (optional)
    * @return ApiResponse&lt;ListDeploymentsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder();
+  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo(String visibility) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder(visibility);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -18205,7 +18540,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder listDeploymentsRequestBuilder() throws ApiException {
+  private HttpRequest.Builder listDeploymentsRequestBuilder(String visibility) throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -18221,7 +18556,22 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "visibility";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("visibility", visibility));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -19124,24 +19474,26 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List Models
    * List Models
+   * List Models
+   * @param visibility  (optional)
    * @return ListModelsResponse
    * @throws ApiException if fails to make API call
    */
-  public ListModelsResponse listModels() throws ApiException {
-    ApiResponse<ListModelsResponse> localVarResponse = listModelsWithHttpInfo();
+  public ListModelsResponse listModels(String visibility) throws ApiException {
+    ApiResponse<ListModelsResponse> localVarResponse = listModelsWithHttpInfo(visibility);
     return localVarResponse.getData();
   }
 
   /**
-   * [BETA] List Models
    * List Models
+   * List Models
+   * @param visibility  (optional)
    * @return ApiResponse&lt;ListModelsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<ListModelsResponse> listModelsWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listModelsRequestBuilder();
+  private ApiResponse<ListModelsResponse> listModelsWithHttpInfo(String visibility) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listModelsRequestBuilder(visibility);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -19169,7 +19521,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder listModelsRequestBuilder() throws ApiException {
+  private HttpRequest.Builder listModelsRequestBuilder(String visibility) throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -19185,7 +19537,22 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "visibility";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("visibility", visibility));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -23166,7 +23533,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Reveal Deployment API Key
+   * Reveal Deployment API Key
    * Get Deployment API Key
    * @param id  (required)
    * @return RevealDeploymentApiKeyResponse
@@ -23178,7 +23545,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Reveal Deployment API Key
+   * Reveal Deployment API Key
    * Get Deployment API Key
    * @param id  (required)
    * @return ApiResponse&lt;RevealDeploymentApiKeyResponse&gt;
@@ -23415,6 +23782,88 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Rotate AI API Key
+   * Rotate AI API key value
+   * @param id  (required)
+   * @return AiApiKeyWithValue
+   * @throws ApiException if fails to make API call
+   */
+  public AiApiKeyWithValue rotateAiApiKey(UUID id) throws ApiException {
+    ApiResponse<AiApiKeyWithValue> localVarResponse = rotateAiApiKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Rotate AI API Key
+   * Rotate AI API key value
+   * @param id  (required)
+   * @return ApiResponse&lt;AiApiKeyWithValue&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<AiApiKeyWithValue> rotateAiApiKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = rotateAiApiKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("rotateAiApiKey", localVarResponse);
+        }
+        return new ApiResponse<AiApiKeyWithValue>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<AiApiKeyWithValue>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder rotateAiApiKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling rotateAiApiKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/ai-api-key/{id}/rotate"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -23834,7 +24283,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Scale Deployment
+   * Scale Deployment
    * Scale Deployment
    * @param id  (required)
    * @param scaleDeploymentRequest  (required)
@@ -23847,7 +24296,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Scale Deployment
+   * Scale Deployment
    * Scale Deployment
    * @param id  (required)
    * @param scaleDeploymentRequest  (required)
@@ -25298,6 +25747,100 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update AI API Key
+   * Update AI API key name and/or scope
+   * @param id  (required)
+   * @param updateAiApiKeyRequest  (required)
+   * @return AiApiKey
+   * @throws ApiException if fails to make API call
+   */
+  public AiApiKey updateAiApiKey(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
+    ApiResponse<AiApiKey> localVarResponse = updateAiApiKeyWithHttpInfo(id, updateAiApiKeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update AI API Key
+   * Update AI API key name and/or scope
+   * @param id  (required)
+   * @param updateAiApiKeyRequest  (required)
+   * @return ApiResponse&lt;AiApiKey&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<AiApiKey> updateAiApiKeyWithHttpInfo(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateAiApiKeyRequestBuilder(id, updateAiApiKeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateAiApiKey", localVarResponse);
+        }
+        return new ApiResponse<AiApiKey>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<AiApiKey>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateAiApiKeyRequestBuilder(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAiApiKey");
+    }
+    // verify the required parameter 'updateAiApiKeyRequest' is set
+    if (updateAiApiKeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateAiApiKeyRequest' when calling updateAiApiKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/ai-api-key/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateAiApiKeyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PATCH", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

@@ -16,6 +16,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
 | [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
+| [**createAiApiKey**](ExoscaleApi.md#createAiApiKey) | **POST** /ai/ai-api-key | Create AI API Key |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
 | [**createBlockStorageSnapshot**](ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
@@ -45,7 +46,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasServiceValkey**](ExoscaleApi.md#createDbaasServiceValkey) | **POST** /dbaas-valkey/{name} | Create a DBaaS Valkey service |
 | [**createDbaasTaskMigrationCheck**](ExoscaleApi.md#createDbaasTaskMigrationCheck) | **POST** /dbaas-task-migration-check/{service} |  |
 | [**createDbaasValkeyUser**](ExoscaleApi.md#createDbaasValkeyUser) | **POST** /dbaas-valkey/{service-name}/user | Create a DBaaS Valkey user |
-| [**createDeployment**](ExoscaleApi.md#createDeployment) | **POST** /ai/deployment | [BETA] Create Deployment |
+| [**createDeployment**](ExoscaleApi.md#createDeployment) | **POST** /ai/deployment | Create Deployment |
 | [**createDnsDomain**](ExoscaleApi.md#createDnsDomain) | **POST** /dns-domain | Create DNS domain |
 | [**createDnsDomainRecord**](ExoscaleApi.md#createDnsDomainRecord) | **POST** /dns-domain/{domain-id}/record | Create DNS domain record |
 | [**createElasticIp**](ExoscaleApi.md#createElasticIp) | **POST** /elastic-ip | Create an Elastic IP |
@@ -54,7 +55,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createInstancePool**](ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool |
 | [**createKmsKey**](ExoscaleApi.md#createKmsKey) | **POST** /kms-key | [BETA] Create KMS Key |
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
-| [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | [BETA] Create Model |
+| [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
 | [**createSecurityGroup**](ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group |
 | [**createSksCluster**](ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster |
@@ -62,6 +63,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
 | [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt |
+| [**deleteAiApiKey**](ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/ai-api-key/{id} | Delete AI API Key |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
@@ -90,7 +92,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasServiceThanos**](ExoscaleApi.md#deleteDbaasServiceThanos) | **DELETE** /dbaas-thanos/{name} | Delete a Thanos service |
 | [**deleteDbaasServiceValkey**](ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service |
 | [**deleteDbaasValkeyUser**](ExoscaleApi.md#deleteDbaasValkeyUser) | **DELETE** /dbaas-valkey/{service-name}/user/{username} | Delete a DBaaS Valkey user |
-| [**deleteDeployment**](ExoscaleApi.md#deleteDeployment) | **DELETE** /ai/deployment/{id} | [BETA] Delete Deployment |
+| [**deleteDeployment**](ExoscaleApi.md#deleteDeployment) | **DELETE** /ai/deployment/{id} | Delete Deployment |
 | [**deleteDnsDomain**](ExoscaleApi.md#deleteDnsDomain) | **DELETE** /dns-domain/{id} | Delete DNS Domain |
 | [**deleteDnsDomainRecord**](ExoscaleApi.md#deleteDnsDomainRecord) | **DELETE** /dns-domain/{domain-id}/record/{record-id} | Delete DNS domain record |
 | [**deleteElasticIp**](ExoscaleApi.md#deleteElasticIp) | **DELETE** /elastic-ip/{id} | Delete an Elastic IP |
@@ -99,7 +101,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteInstancePool**](ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool |
 | [**deleteLoadBalancer**](ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer |
 | [**deleteLoadBalancerService**](ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service |
-| [**deleteModel**](ExoscaleApi.md#deleteModel) | **DELETE** /ai/model/{id} | [BETA] Delete Model |
+| [**deleteModel**](ExoscaleApi.md#deleteModel) | **DELETE** /ai/model/{id} | Delete Model |
 | [**deletePrivateNetwork**](ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network |
 | [**deleteReverseDnsElasticIp**](ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP |
 | [**deleteReverseDnsInstance**](ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance |
@@ -129,6 +131,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**generateDataKey**](ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key |
 | [**generateSksClusterKubeconfig**](ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster |
 | [**getActiveNodepoolTemplate**](ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} |  |
+| [**getAiApiKey**](ExoscaleApi.md#getAiApiKey) | **GET** /ai/ai-api-key/{id} | Get AI API Key |
 | [**getAntiAffinityGroup**](ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details |
 | [**getApiKey**](ExoscaleApi.md#getApiKey) | **GET** /api-key/{id} | Get API key |
 | [**getBlockStorageSnapshot**](ExoscaleApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details |
@@ -165,8 +168,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasSettingsValkey**](ExoscaleApi.md#getDbaasSettingsValkey) | **GET** /dbaas-settings-valkey | Get DBaaS Valkey settings |
 | [**getDbaasTask**](ExoscaleApi.md#getDbaasTask) | **GET** /dbaas-task/{service}/{id} | Get a DBaaS task |
 | [**getDeployTarget**](ExoscaleApi.md#getDeployTarget) | **GET** /deploy-target/{id} | Retrieve Deploy Target details |
-| [**getDeployment**](ExoscaleApi.md#getDeployment) | **GET** /ai/deployment/{id} | [BETA] Get Deployment |
-| [**getDeploymentLogs**](ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | [BETA] Get Deployment Logs |
+| [**getDeployment**](ExoscaleApi.md#getDeployment) | **GET** /ai/deployment/{id} | Get Deployment |
+| [**getDeploymentLogs**](ExoscaleApi.md#getDeploymentLogs) | **GET** /ai/deployment/{id}/logs | Get Deployment Logs |
 | [**getDnsDomain**](ExoscaleApi.md#getDnsDomain) | **GET** /dns-domain/{id} | Retrieve DNS domain details |
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
@@ -174,14 +177,14 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
-| [**getInferenceEngineHelp**](ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | [BETA] Get inference-engine Help |
+| [**getInferenceEngineHelp**](ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | Get inference-engine Help |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
 | [**getKmsKey**](ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | [BETA] Get KMS Key |
 | [**getLoadBalancer**](ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
 | [**getLoadBalancerService**](ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details |
-| [**getModel**](ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | [BETA] Get Model |
+| [**getModel**](ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | Get Model |
 | [**getOperation**](ExoscaleApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details |
 | [**getOrganization**](ExoscaleApi.md#getOrganization) | **GET** /organization | Retrieve an organization |
 | [**getPrivateNetwork**](ExoscaleApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details |
@@ -198,6 +201,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getSshKey**](ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details |
 | [**getTemplate**](ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details |
 | [**getUsageReport**](ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports |
+| [**listAiApiKeys**](ExoscaleApi.md#listAiApiKeys) | **GET** /ai/ai-api-key | List AI API Keys |
 | [**listAiInstanceTypes**](ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types |
 | [**listAntiAffinityGroups**](ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups |
 | [**listApiKeys**](ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys |
@@ -212,7 +216,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listDbaasServices**](ExoscaleApi.md#listDbaasServices) | **GET** /dbaas-service | List DBaaS services |
 | [**listDbaasValkeyUsers**](ExoscaleApi.md#listDbaasValkeyUsers) | **GET** /dbaas-valkey/{service-name}/user | List DBaaS Valkey users with ACL configuration |
 | [**listDeployTargets**](ExoscaleApi.md#listDeployTargets) | **GET** /deploy-target | List Deploy Targets |
-| [**listDeployments**](ExoscaleApi.md#listDeployments) | **GET** /ai/deployment | [BETA] List Deployments |
+| [**listDeployments**](ExoscaleApi.md#listDeployments) | **GET** /ai/deployment | List Deployments |
 | [**listDnsDomainRecords**](ExoscaleApi.md#listDnsDomainRecords) | **GET** /dns-domain/{domain-id}/record | List DNS domain records |
 | [**listDnsDomains**](ExoscaleApi.md#listDnsDomains) | **GET** /dns-domain | List DNS domains |
 | [**listElasticIps**](ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs |
@@ -224,7 +228,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listKmsKeyRotations**](ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | [BETA] List KMS Key Rotations |
 | [**listKmsKeys**](ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | [BETA] List KMS Keys |
 | [**listLoadBalancers**](ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers |
-| [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | [BETA] List Models |
+| [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | List Models |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
 | [**listQuotas**](ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas |
 | [**listSecurityGroups**](ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups. |
@@ -270,15 +274,16 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDbaasPostgresUserPassword**](ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user |
 | [**revealDbaasThanosUserPassword**](ExoscaleApi.md#revealDbaasThanosUserPassword) | **GET** /dbaas-thanos/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Thanos user |
 | [**revealDbaasValkeyUserPassword**](ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user |
-| [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | [BETA] Reveal Deployment API Key |
+| [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
+| [**rotateAiApiKey**](ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/ai-api-key/{id}/rotate | Rotate AI API Key |
 | [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
 | [**rotateSksKarpenterCredentials**](ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials |
 | [**rotateSksOperatorsCa**](ExoscaleApi.md#rotateSksOperatorsCa) | **PUT** /sks-cluster/{id}/rotate-operators-ca | Rotate operators certificate authority |
-| [**scaleDeployment**](ExoscaleApi.md#scaleDeployment) | **POST** /ai/deployment/{id}/scale | [BETA] Scale Deployment |
+| [**scaleDeployment**](ExoscaleApi.md#scaleDeployment) | **POST** /ai/deployment/{id}/scale | Scale Deployment |
 | [**scaleInstance**](ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
@@ -295,6 +300,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**stopDbaasPgMigration**](ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
 | [**stopDbaasValkeyMigration**](ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration |
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
+| [**updateAiApiKey**](ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/ai-api-key/{id} | Update AI API Key |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
 | [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
@@ -1473,6 +1479,104 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## createAiApiKey
+
+> AiApiKeyWithValue createAiApiKey(createAiApiKeyRequest)
+
+Create AI API Key
+
+Create a new AI API key
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateAiApiKeyRequest createAiApiKeyRequest = new CreateAiApiKeyRequest(); // CreateAiApiKeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            AiApiKeyWithValue result = client.createAiApiKey(createAiApiKeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAiApiKeyRequest** | [**CreateAiApiKeyRequest**](CreateAiApiKeyRequest.md)|  | |
+
+### Return type
+
+[**AiApiKeyWithValue**](AiApiKeyWithValue.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAiApiKeyRequest** | [**CreateAiApiKeyRequest**](CreateAiApiKeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**AiApiKeyWithValue**](AiApiKeyWithValue.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## createAntiAffinityGroup
@@ -4200,7 +4304,7 @@ No authorization required
 
 > Operation createDeployment(createDeploymentRequest)
 
-[BETA] Create Deployment
+Create Deployment
 
 Deploy a model on an inference server
 
@@ -4259,6 +4363,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **412** | 412 |  -  |
+| **403** | 403 |  -  |
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
 
@@ -4288,6 +4393,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **412** | 412 |  -  |
+| **403** | 403 |  -  |
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
 
@@ -5039,7 +5145,7 @@ No authorization required
 
 > Operation createModel(createModelRequest)
 
-[BETA] Create Model
+Create Model
 
 Model files will be downloaded from Huggingface.  Name must be the exact name of the model on huggingface (ex: openai/gpt-oss-120b or ggml-org/gpt-oss-120b-GGUF).  If the model is under a license then you must provide a Huggingface access token for an account that signed the license agreement
 
@@ -5097,6 +5203,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | 403 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -5124,6 +5231,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | 403 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -5775,6 +5883,102 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
+
+
+## deleteAiApiKey
+
+> DeleteAiApiKey200Response deleteAiApiKey(id)
+
+Delete AI API Key
+
+Delete AI API key
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            DeleteAiApiKey200Response result = client.deleteAiApiKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**DeleteAiApiKey200Response**](DeleteAiApiKey200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**DeleteAiApiKey200Response**](DeleteAiApiKey200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -8353,7 +8557,7 @@ No authorization required
 
 > Operation deleteDeployment(id)
 
-[BETA] Delete Deployment
+Delete Deployment
 
 Delete Deployment
 
@@ -8411,6 +8615,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -8438,6 +8644,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -9187,7 +9395,7 @@ No authorization required
 
 > Operation deleteModel(id)
 
-[BETA] Delete Model
+Delete Model
 
 Delete Model
 
@@ -9246,6 +9454,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **412** | 412 |  -  |
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -9274,6 +9484,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **412** | 412 |  -  |
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -11992,6 +12204,102 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getAiApiKey
+
+> AiApiKey getAiApiKey(id)
+
+Get AI API Key
+
+Get AI API key metadata
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            AiApiKey result = client.getAiApiKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**AiApiKey**](AiApiKey.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**AiApiKey**](AiApiKey.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -15254,7 +15562,7 @@ No authorization required
 
 > GetDeploymentResponse getDeployment(id)
 
-[BETA] Get Deployment
+Get Deployment
 
 Get Deployment details
 
@@ -15348,7 +15656,7 @@ No authorization required
 
 > GetDeploymentLogsResponse getDeploymentLogs(id, stream, tail)
 
-[BETA] Get Deployment Logs
+Get Deployment Logs
 
 Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
 
@@ -16092,7 +16400,7 @@ No authorization required
 
 > GetInferenceEngineHelpResponse getInferenceEngineHelp(version)
 
-[BETA] Get inference-engine Help
+Get inference-engine Help
 
 Get list of allowed inference engine parameters with their descriptions and allowed values
 
@@ -16743,7 +17051,7 @@ No authorization required
 
 > GetModelResponse getModel(id)
 
-[BETA] Get Model
+Get Model
 
 Get Model details
 
@@ -18307,6 +18615,93 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listAiApiKeys
+
+> ListAiApiKeysResponse listAiApiKeys()
+
+List AI API Keys
+
+List AI API keys for an organization
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            ListAiApiKeysResponse result = client.listAiApiKeys();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listAiApiKeys");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListAiApiKeysResponse**](ListAiApiKeysResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListAiApiKeysResponse**](ListAiApiKeysResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **200** | 200 |  -  |
+
+
 ## listAiInstanceTypes
 
 > ListAiInstanceTypesResponse listAiInstanceTypes()
@@ -19529,9 +19924,9 @@ No authorization required
 
 ## listDeployments
 
-> ListDeploymentsResponse listDeployments()
+> ListDeploymentsResponse listDeployments(visibility)
 
-[BETA] List Deployments
+List Deployments
 
 List Deployments
 
@@ -19548,10 +19943,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListDeploymentsResponse result = client.listDeployments();
+            ListDeploymentsResponse result = client.listDeployments(visibility);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDeployments");
@@ -19566,7 +19962,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -19586,11 +19985,15 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -19610,6 +20013,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## listDnsDomainRecords
@@ -20593,9 +20997,9 @@ No authorization required
 
 ## listModels
 
-> ListModelsResponse listModels()
+> ListModelsResponse listModels(visibility)
 
-[BETA] List Models
+List Models
 
 List Models
 
@@ -20612,10 +21016,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListModelsResponse result = client.listModels();
+            ListModelsResponse result = client.listModels(visibility);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listModels");
@@ -20630,7 +21035,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -20654,7 +21062,10 @@ No authorization required
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -24845,7 +25256,7 @@ No authorization required
 
 > RevealDeploymentApiKeyResponse revealDeploymentApiKey(id)
 
-[BETA] Reveal Deployment API Key
+Reveal Deployment API Key
 
 Get Deployment API Key
 
@@ -24903,6 +25314,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -24930,6 +25342,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -25117,6 +25530,102 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## rotateAiApiKey
+
+> AiApiKeyWithValue rotateAiApiKey(id)
+
+Rotate AI API Key
+
+Rotate AI API key value
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            AiApiKeyWithValue result = client.rotateAiApiKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#rotateAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**AiApiKeyWithValue**](AiApiKeyWithValue.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**AiApiKeyWithValue**](AiApiKeyWithValue.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -25586,7 +26095,7 @@ No authorization required
 
 > Operation scaleDeployment(id, scaleDeploymentRequest)
 
-[BETA] Scale Deployment
+Scale Deployment
 
 Scale Deployment
 
@@ -25646,6 +26155,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **412** | 412 |  -  |
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -25674,6 +26186,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **412** | 412 |  -  |
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
 
@@ -27147,6 +27662,107 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## updateAiApiKey
+
+> AiApiKey updateAiApiKey(id, updateAiApiKeyRequest)
+
+Update AI API Key
+
+Update AI API key name and/or scope
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateAiApiKeyRequest updateAiApiKeyRequest = new UpdateAiApiKeyRequest(); // UpdateAiApiKeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            AiApiKey result = client.updateAiApiKey(id, updateAiApiKeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateAiApiKeyRequest** | [**UpdateAiApiKeyRequest**](UpdateAiApiKeyRequest.md)|  | |
+
+### Return type
+
+[**AiApiKey**](AiApiKey.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateAiApiKeyRequest** | [**UpdateAiApiKeyRequest**](UpdateAiApiKeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**AiApiKey**](AiApiKey.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
+| **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## updateBlockStorageSnapshot
@@ -29114,7 +29730,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ### Parameters
@@ -29142,7 +29761,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **403** | 403 |  -  |
+| **404** | 404 |  -  |
 | **200** | 200 |  -  |
+| **400** | 400 |  -  |
 
 
 ## updateDnsDomainRecord

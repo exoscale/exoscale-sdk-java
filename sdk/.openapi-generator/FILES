@@ -10,6 +10,8 @@ docs/AddExternalSourceToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
+docs/AiApiKey.md
+docs/AiApiKeyWithValue.md
 docs/AntiAffinityGroup.md
 docs/AntiAffinityGroupRef.md
 docs/AssumeIamRole200Response.md
@@ -27,6 +29,7 @@ docs/BlockStorageVolume.md
 docs/BlockStorageVolumeRef.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
+docs/CreateAiApiKeyRequest.md
 docs/CreateAntiAffinityGroupRequest.md
 docs/CreateApiKeyRequest.md
 docs/CreateBlockStorageSnapshotRequest.md
@@ -176,6 +179,7 @@ docs/DbaasValkeyUserAccessControl.md
 docs/DbaasValkeyUsers.md
 docs/DecryptRequest.md
 docs/DecryptResponse.md
+docs/DeleteAiApiKey200Response.md
 docs/DeleteModelConflictResponse.md
 docs/DeployTarget.md
 docs/DeployTargetRef.md
@@ -219,6 +223,7 @@ docs/Event.md
 docs/EvictInstancePoolMembersRequest.md
 docs/EvictSksNodepoolMembersRequest.md
 docs/ExoscaleApi.md
+docs/ForbiddenOperationResponse.md
 docs/GenerateDataKeyRequest.md
 docs/GenerateDataKeyResponse.md
 docs/GenerateSksClusterKubeconfig200Response.md
@@ -309,6 +314,7 @@ docs/JsonSchemaValkey.md
 docs/KeyMaterial.md
 docs/KeyRotationConfig.md
 docs/KubeletImageGc.md
+docs/ListAiApiKeysResponse.md
 docs/ListAiInstanceTypesResponse.md
 docs/ListAntiAffinityGroups200Response.md
 docs/ListApiKeys200Response.md
@@ -384,6 +390,7 @@ docs/ReEncryptRequest.md
 docs/ReEncryptRequestDestination.md
 docs/ReEncryptRequestSource.md
 docs/ReEncryptResponse.md
+docs/RecomputeBundleResponse.md
 docs/RegisterSshKeyRequest.md
 docs/RegisterTemplateRequest.md
 docs/RemoveExternalSourceFromSecurityGroupRequest.md
@@ -439,6 +446,7 @@ docs/TemplateRef.md
 docs/ThanosCompactorUserConfig.md
 docs/ThanosQueryFrontendUserConfig.md
 docs/ThanosQueryUserConfig.md
+docs/UpdateAiApiKeyRequest.md
 docs/UpdateBlockStorageSnapshotRequest.md
 docs/UpdateBlockStorageVolumeRequest.md
 docs/UpdateDbaasIntegrationRequest.md
@@ -502,6 +510,8 @@ src/main/java/com/exoscale/sdk/model/AddExternalSourceToSecurityGroupRequest.jav
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
+src/main/java/com/exoscale/sdk/model/AiApiKey.java
+src/main/java/com/exoscale/sdk/model/AiApiKeyWithValue.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroupRef.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRole200Response.java
@@ -519,6 +529,7 @@ src/main/java/com/exoscale/sdk/model/BlockStorageVolume.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolumeRef.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java
+src/main/java/com/exoscale/sdk/model/CreateAiApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateAntiAffinityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateBlockStorageSnapshotRequest.java
@@ -668,6 +679,7 @@ src/main/java/com/exoscale/sdk/model/DbaasValkeyUserAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasValkeyUsers.java
 src/main/java/com/exoscale/sdk/model/DecryptRequest.java
 src/main/java/com/exoscale/sdk/model/DecryptResponse.java
+src/main/java/com/exoscale/sdk/model/DeleteAiApiKey200Response.java
 src/main/java/com/exoscale/sdk/model/DeleteModelConflictResponse.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java
 src/main/java/com/exoscale/sdk/model/DeployTargetRef.java
@@ -710,6 +722,7 @@ src/main/java/com/exoscale/sdk/model/ErrorResponseErrorsInner.java
 src/main/java/com/exoscale/sdk/model/Event.java
 src/main/java/com/exoscale/sdk/model/EvictInstancePoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java
+src/main/java/com/exoscale/sdk/model/ForbiddenOperationResponse.java
 src/main/java/com/exoscale/sdk/model/GenerateDataKeyRequest.java
 src/main/java/com/exoscale/sdk/model/GenerateDataKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.java
@@ -800,6 +813,7 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaValkey.java
 src/main/java/com/exoscale/sdk/model/KeyMaterial.java
 src/main/java/com/exoscale/sdk/model/KeyRotationConfig.java
 src/main/java/com/exoscale/sdk/model/KubeletImageGc.java
+src/main/java/com/exoscale/sdk/model/ListAiApiKeysResponse.java
 src/main/java/com/exoscale/sdk/model/ListAiInstanceTypesResponse.java
 src/main/java/com/exoscale/sdk/model/ListAntiAffinityGroups200Response.java
 src/main/java/com/exoscale/sdk/model/ListApiKeys200Response.java
@@ -875,6 +889,7 @@ src/main/java/com/exoscale/sdk/model/ReEncryptRequest.java
 src/main/java/com/exoscale/sdk/model/ReEncryptRequestDestination.java
 src/main/java/com/exoscale/sdk/model/ReEncryptRequestSource.java
 src/main/java/com/exoscale/sdk/model/ReEncryptResponse.java
+src/main/java/com/exoscale/sdk/model/RecomputeBundleResponse.java
 src/main/java/com/exoscale/sdk/model/RegisterSshKeyRequest.java
 src/main/java/com/exoscale/sdk/model/RegisterTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/RemoveExternalSourceFromSecurityGroupRequest.java
@@ -930,6 +945,7 @@ src/main/java/com/exoscale/sdk/model/TemplateRef.java
 src/main/java/com/exoscale/sdk/model/ThanosCompactorUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryFrontendUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryUserConfig.java
+src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasIntegrationRequest.java

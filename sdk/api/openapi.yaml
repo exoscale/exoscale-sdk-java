@@ -888,6 +888,68 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /ai/ai-api-key:
+    get:
+      description: List AI API keys for an organization
+      operationId: list-ai-api-keys
+      parameters: []
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-ai-api-keys-response'
+          description: "200"
+      summary: List AI API Keys
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: Create a new AI API key
+      operationId: create-ai-api-key
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-ai-api-key-request'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ai-api-key-with-value'
+          description: "200"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "400"
+      summary: Create AI API Key
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /usage-report:
     get:
       description: Returns aggregated usage reports for an organization
@@ -1119,7 +1181,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/get-inference-engine-help-response'
           description: "200"
-      summary: "[BETA] Get inference-engine Help"
+      summary: Get inference-engine Help
       tags:
       - exoscale
       x-accepts: application/json
@@ -1548,7 +1610,14 @@ paths:
     get:
       description: List Models
       operationId: list-models
-      parameters: []
+      parameters:
+      - explode: true
+        in: query
+        name: visibility
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -1556,7 +1625,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list-models-response'
           description: "200"
-      summary: "[BETA] List Models"
+      summary: List Models
       tags:
       - exoscale
       x-accepts: application/json
@@ -1576,13 +1645,19 @@ paths:
               $ref: '#/components/schemas/create-model-request'
         required: true
       responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Create Model"
+      summary: Create Model
       tags:
       - exoscale
       x-content-type: application/json
@@ -1652,13 +1727,31 @@ paths:
               $ref: '#/components/schemas/scale-deployment-request'
         required: true
       responses:
+        "412":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "412"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Scale Deployment"
+      summary: Scale Deployment
       tags:
       - exoscale
       x-content-type: application/json
@@ -2076,7 +2169,14 @@ paths:
     get:
       description: List Deployments
       operationId: list-deployments
-      parameters: []
+      parameters:
+      - explode: true
+        in: query
+        name: visibility
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2084,7 +2184,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/list-deployments-response'
           description: "200"
-      summary: "[BETA] List Deployments"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "400"
+      summary: List Deployments
       tags:
       - exoscale
       x-accepts: application/json
@@ -2105,6 +2211,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "412"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
         "200":
           content:
             application/json:
@@ -2117,7 +2229,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "400"
-      summary: "[BETA] Create Deployment"
+      summary: Create Deployment
       tags:
       - exoscale
       x-content-type: application/json
@@ -3030,13 +3142,25 @@ paths:
           type: string
         style: simple
       responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Delete Deployment"
+      summary: Delete Deployment
       tags:
       - exoscale
       x-accepts: application/json
@@ -3065,7 +3189,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/get-deployment-response'
           description: "200"
-      summary: "[BETA] Get Deployment"
+      summary: Get Deployment
       tags:
       - exoscale
       x-accepts: application/json
@@ -3088,12 +3212,30 @@ paths:
               $ref: '#/components/schemas/update-deployment-request'
         required: true
       responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "400"
       summary: ""
       tags:
       - exoscale
@@ -3213,6 +3355,125 @@ paths:
       summary: Retrieve Resource Quota
       tags:
       - exoscale
+      x-accepts: application/json
+  /ai/ai-api-key/{id}:
+    delete:
+      description: Delete AI API key
+      operationId: delete-ai-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/delete_ai_api_key_200_response'
+          description: "200"
+      summary: Delete AI API Key
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: Get AI API key metadata
+      operationId: get-ai-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ai-api-key'
+          description: "200"
+      summary: Get AI API Key
+      tags:
+      - exoscale
+      x-accepts: application/json
+    patch:
+      description: Update AI API key name and/or scope
+      operationId: update-ai-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update-ai-api-key-request'
+        required: true
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ai-api-key'
+          description: "200"
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "400"
+      summary: Update AI API Key
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /sks-cluster-deprecated-resources/{id}:
     get:
@@ -5844,13 +6105,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/delete-model-conflict-response'
           description: "412"
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Delete Model"
+      summary: Delete Model
       tags:
       - exoscale
       x-accepts: application/json
@@ -5879,7 +6152,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/get-model-response'
           description: "200"
-      summary: "[BETA] Get Model"
+      summary: Get Model
       tags:
       - exoscale
       x-accepts: application/json
@@ -6446,6 +6719,42 @@ paths:
                 $ref: '#/components/schemas/operation'
           description: "200"
       summary: Detach block storage volume
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /ai/ai-api-key/{id}/rotate:
+    post:
+      description: Rotate AI API key value
+      operationId: rotate-ai-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/forbidden-operation-response'
+          description: "403"
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ai-api-key-with-value'
+          description: "200"
+      summary: Rotate AI API Key
       tags:
       - exoscale
       x-accepts: application/json
@@ -8680,13 +8989,19 @@ paths:
           type: string
         style: simple
       responses:
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "404"
         "200":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/reveal-deployment-api-key-response'
           description: "200"
-      summary: "[BETA] Reveal Deployment API Key"
+      summary: Reveal Deployment API Key
       tags:
       - exoscale
       x-accepts: application/json
@@ -9027,7 +9342,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "400"
-      summary: "[BETA] Get Deployment Logs"
+      summary: Get Deployment Logs
       tags:
       - exoscale
       x-accepts: application/json
@@ -9651,6 +9966,15 @@ components:
           format: byte
           nullable: true
           type: string
+      type: object
+    recompute-bundle-response:
+      description: Response from bundle recompute operation
+      properties:
+        message:
+          description: Status message describing the result
+          type: string
+      required:
+      - message
       type: object
     dbaas-endpoint-prometheus-payload:
       properties:
@@ -10885,14 +11209,37 @@ components:
       required:
       - name
       type: object
+    ai-api-key-with-value:
+      allOf:
+      - $ref: '#/components/schemas/ai-api-key'
+      - properties:
+          value:
+            description: Plaintext AI API key value (returned only on create/rotate)
+            type: string
+        required:
+        - value
+        type: object
+      description: AI API key with plaintext value
+      example:
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        scope: scope
+        name: name
+        org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        value: value
+      type: object
     inference-engine-version:
-      default: 0.17.0
+      default: 0.19.0
       description: Inference engine version
       enum:
       - 0.12.0
       - 0.15.1
       - 0.16.0
       - 0.17.0
+      - 0.18.0
+      - 0.18.1
+      - 0.19.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -13881,6 +14228,26 @@ components:
       - resource
       - username
       type: object
+    forbidden-operation-response:
+      description: Forbidden operation response
+      example:
+        code: forbidden_operation
+        error: error
+      properties:
+        code:
+          description: Machine-readable forbidden error code
+          enum:
+          - forbidden_operation
+          readOnly: true
+          type: string
+        error:
+          description: Forbidden error message
+          readOnly: true
+          type: string
+      required:
+      - code
+      - error
+      type: object
     enum-mysql-authentication-plugin:
       enum:
       - caching_sha2_password
@@ -14166,6 +14533,24 @@ components:
             $ref: '#/components/schemas/access-key-resource'
           type: array
       type: object
+    list-ai-api-keys-response:
+      description: List of AI API keys
+      example:
+        ai-api-keys:
+        - updated-at: 2026-03-25T10:00:00Z
+          name: default-public-key
+          scope: public
+          id: 11111111-1111-1111-1111-111111111111
+          org-uuid: 22222222-2222-2222-2222-222222222222
+          created-at: 2026-03-25T10:00:00Z
+      properties:
+        ai-api-keys:
+          items:
+            $ref: '#/components/schemas/ai-api-key'
+          type: array
+      required:
+      - ai-api-keys
+      type: object
     list-ai-instance-types-response:
       description: List of available instance types with authorization status
       example:
@@ -14227,7 +14612,7 @@ components:
           pointer: pointer
           location: location
           detail: detail
-        status: 173
+        status: 139
       properties:
         type:
           format: uri-reference
@@ -15536,6 +15921,18 @@ components:
       - statement
       - session
       type: string
+    update-ai-api-key-request:
+      description: Request to update an AI API key (at least one property required)
+      minProperties: 1
+      properties:
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+      type: object
     dbaas-service-thanos:
       example:
         components:
@@ -18116,6 +18513,20 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_datadog_input_update_settings'
       type: object
+    create-ai-api-key-request:
+      description: Request to create a new AI API key
+      properties:
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+      required:
+      - name
+      - scope
+      type: object
     zone-name:
       enum:
       - ch-dk-2
@@ -20687,6 +21098,44 @@ components:
       - bearer-token
       - endpoint
       type: object
+    ai-api-key:
+      description: AI API key metadata (without value)
+      example:
+        updated-at: 2000-01-23T04:56:07.000+00:00
+        scope: scope
+        name: name
+        org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        updated-at:
+          description: Last update timestamp
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+        id:
+          description: AI API key ID
+          format: uuid
+          readOnly: true
+          type: string
+        org-uuid:
+          description: Organization UUID that owns this key
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation timestamp
+          format: date-time
+          readOnly: true
+          type: string
+      type: object
     dbaas-user-thanos-secrets:
       description: Thanos User secrets
       example:
@@ -23151,6 +23600,15 @@ components:
       properties:
         cacert:
           type: string
+      type: object
+    delete_ai_api_key_200_response:
+      example:
+        deleted: true
+      properties:
+        deleted:
+          type: boolean
+      required:
+      - deleted
       type: object
     update_block_storage_volume_request:
       properties:
