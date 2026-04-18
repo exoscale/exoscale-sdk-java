@@ -30,6 +30,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -94,6 +98,14 @@ public class SksClusterTest {
     @Test
     public void enableOperatorsCaTest() {
         // TODO: test enableOperatorsCa
+    }
+
+    /**
+     * Test the property 'defaultSecurityGroupId'
+     */
+    @Test
+    public void defaultSecurityGroupIdTest() {
+        // TODO: test defaultSecurityGroupId
     }
 
     /**

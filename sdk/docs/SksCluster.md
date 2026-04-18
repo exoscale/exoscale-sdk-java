@@ -14,6 +14,7 @@ SKS Cluster
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
 |**name** | **String** | Cluster name |  [optional] |
 |**enableOperatorsCa** | **Boolean** | Indicates whether to add operators certificate authority (CA) as part of trusted CAs for the API server. |  [optional] |
+|**defaultSecurityGroupId** | **UUID** | Cluster default Security Group ID |  [optional] [readonly] |
 |**state** | [**StateEnum**](#StateEnum) | Cluster state |  [optional] [readonly] |
 |**enableKubeProxy** | **Boolean** | Indicates whether to deploy the Kubernetes network proxy. |  [optional] |
 |**nodepools** | [**Set&lt;SksNodepool&gt;**](SksNodepool.md) | Cluster Nodepools |  [optional] [readonly] |

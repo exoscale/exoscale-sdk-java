@@ -36,6 +36,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -49,6 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksCluster.JSON_PROPERTY_AUTO_UPGRADE,
   SksCluster.JSON_PROPERTY_NAME,
   SksCluster.JSON_PROPERTY_ENABLE_OPERATORS_CA,
+  SksCluster.JSON_PROPERTY_DEFAULT_SECURITY_GROUP_ID,
   SksCluster.JSON_PROPERTY_STATE,
   SksCluster.JSON_PROPERTY_ENABLE_KUBE_PROXY,
   SksCluster.JSON_PROPERTY_NODEPOOLS,
@@ -115,6 +120,9 @@ public class SksCluster {
 
   public static final String JSON_PROPERTY_ENABLE_OPERATORS_CA = "enable-operators-ca";
   private Boolean enableOperatorsCa;
+
+  public static final String JSON_PROPERTY_DEFAULT_SECURITY_GROUP_ID = "default-security-group-id";
+  private JsonNullable<UUID> defaultSecurityGroupId = JsonNullable.<UUID>undefined();
 
   /**
    * Cluster state
@@ -281,6 +289,7 @@ public class SksCluster {
 
   @JsonCreator
   public SksCluster(
+    @JsonProperty(JSON_PROPERTY_DEFAULT_SECURITY_GROUP_ID) UUID defaultSecurityGroupId, 
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
     @JsonProperty(JSON_PROPERTY_NODEPOOLS) Set<SksNodepool> nodepools, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
@@ -288,6 +297,7 @@ public class SksCluster {
     @JsonProperty(JSON_PROPERTY_ENDPOINT) String endpoint
   ) {
   this();
+    this.defaultSecurityGroupId = defaultSecurityGroupId == null ? JsonNullable.<UUID>undefined() : JsonNullable.of(defaultSecurityGroupId);
     this.state = state;
     this.nodepools = nodepools;
     this.id = id;
@@ -451,6 +461,35 @@ public class SksCluster {
   public void setEnableOperatorsCa(Boolean enableOperatorsCa) {
     this.enableOperatorsCa = enableOperatorsCa;
   }
+
+
+   /**
+   * Cluster default Security Group ID
+   * @return defaultSecurityGroupId
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public UUID getDefaultSecurityGroupId() {
+    
+    if (defaultSecurityGroupId == null) {
+      defaultSecurityGroupId = JsonNullable.<UUID>undefined();
+    }
+    return defaultSecurityGroupId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_SECURITY_GROUP_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<UUID> getDefaultSecurityGroupId_JsonNullable() {
+    return defaultSecurityGroupId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DEFAULT_SECURITY_GROUP_ID)
+  private void setDefaultSecurityGroupId_JsonNullable(JsonNullable<UUID> defaultSecurityGroupId) {
+    this.defaultSecurityGroupId = defaultSecurityGroupId;
+  }
+
 
 
    /**
@@ -713,6 +752,7 @@ public class SksCluster {
         Objects.equals(this.autoUpgrade, sksCluster.autoUpgrade) &&
         Objects.equals(this.name, sksCluster.name) &&
         Objects.equals(this.enableOperatorsCa, sksCluster.enableOperatorsCa) &&
+        equalsNullable(this.defaultSecurityGroupId, sksCluster.defaultSecurityGroupId) &&
         Objects.equals(this.state, sksCluster.state) &&
         Objects.equals(this.enableKubeProxy, sksCluster.enableKubeProxy) &&
         Objects.equals(this.nodepools, sksCluster.nodepools) &&
@@ -726,9 +766,20 @@ public class SksCluster {
         Objects.equals(this.endpoint, sksCluster.endpoint);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(description, labels, cni, autoUpgrade, name, enableOperatorsCa, state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint);
+    return Objects.hash(description, labels, cni, autoUpgrade, name, enableOperatorsCa, hashCodeNullable(defaultSecurityGroupId), state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -741,6 +792,7 @@ public class SksCluster {
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    enableOperatorsCa: ").append(toIndentedString(enableOperatorsCa)).append("\n");
+    sb.append("    defaultSecurityGroupId: ").append(toIndentedString(defaultSecurityGroupId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    enableKubeProxy: ").append(toIndentedString(enableKubeProxy)).append("\n");
     sb.append("    nodepools: ").append(toIndentedString(nodepools)).append("\n");
@@ -831,6 +883,11 @@ public class SksCluster {
     // add `enable-operators-ca` to the URL query string
     if (getEnableOperatorsCa() != null) {
       joiner.add(String.format("%senable-operators-ca%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableOperatorsCa()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `default-security-group-id` to the URL query string
+    if (getDefaultSecurityGroupId() != null) {
+      joiner.add(String.format("%sdefault-security-group-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultSecurityGroupId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `state` to the URL query string

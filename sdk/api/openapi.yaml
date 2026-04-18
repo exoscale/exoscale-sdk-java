@@ -17080,6 +17080,7 @@ components:
         - exoscale-cloud-controller
         auto-upgrade: true
         description: description
+        default-security-group-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         version: version
         feature-gates:
         - feature-gates
@@ -17124,6 +17125,12 @@ components:
           description: Indicates whether to add operators certificate authority (CA)
             as part of trusted CAs for the API server.
           type: boolean
+        default-security-group-id:
+          description: Cluster default Security Group ID
+          format: uuid
+          nullable: true
+          readOnly: true
+          type: string
         state:
           description: Cluster state
           enum:
@@ -24805,6 +24812,7 @@ components:
           - exoscale-cloud-controller
           auto-upgrade: true
           description: description
+          default-security-group-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           version: version
           feature-gates:
           - feature-gates
@@ -25075,6 +25083,7 @@ components:
           - exoscale-cloud-controller
           auto-upgrade: true
           description: description
+          default-security-group-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           version: version
           feature-gates:
           - feature-gates
