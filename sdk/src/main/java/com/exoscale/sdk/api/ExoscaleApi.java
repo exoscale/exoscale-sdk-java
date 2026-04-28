@@ -410,6 +410,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -493,6 +496,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -586,6 +592,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -680,6 +689,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -774,6 +786,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -868,6 +883,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -962,6 +980,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1056,6 +1077,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1150,6 +1174,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1244,6 +1271,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1327,6 +1357,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1420,6 +1453,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1507,6 +1543,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1594,6 +1633,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1681,6 +1723,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1775,6 +1820,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1862,6 +1910,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -1956,6 +2007,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2050,6 +2104,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2144,6 +2201,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2238,6 +2298,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2332,6 +2395,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2419,6 +2485,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2513,6 +2582,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2607,6 +2679,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2701,6 +2776,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2795,6 +2873,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2889,6 +2970,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -2983,6 +3067,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3077,6 +3164,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3171,6 +3261,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3265,6 +3358,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3359,6 +3455,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3453,6 +3552,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3547,6 +3649,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3641,6 +3746,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3735,6 +3843,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3829,6 +3940,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -3923,6 +4037,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4017,6 +4134,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4111,6 +4231,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4205,6 +4328,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4292,6 +4418,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4379,6 +4508,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4473,6 +4605,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4560,6 +4695,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4647,6 +4785,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4734,6 +4875,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4821,6 +4965,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4908,6 +5055,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -4995,6 +5145,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5082,6 +5235,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5169,6 +5325,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5256,6 +5415,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5343,6 +5505,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5437,6 +5602,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5520,6 +5688,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5606,6 +5777,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5700,6 +5874,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5783,6 +5960,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5865,6 +6045,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -5947,6 +6130,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6029,6 +6215,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6111,6 +6300,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6193,6 +6385,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6275,6 +6470,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6357,6 +6555,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6439,6 +6640,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6521,6 +6725,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6603,6 +6810,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6692,6 +6902,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6781,6 +6994,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6870,6 +7086,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -6959,6 +7178,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7048,6 +7270,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7137,6 +7362,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7226,6 +7454,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7315,6 +7546,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7404,6 +7638,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7486,6 +7723,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7568,6 +7808,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7650,6 +7893,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7732,6 +7978,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7814,6 +8063,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7896,6 +8148,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -7978,6 +8233,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8060,6 +8318,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8149,6 +8410,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8231,6 +8495,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8313,6 +8580,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8402,6 +8672,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8484,6 +8757,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8566,6 +8842,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8648,6 +8927,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8730,6 +9012,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8812,6 +9097,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8901,6 +9189,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -8983,6 +9274,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9065,6 +9359,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9147,6 +9444,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9229,6 +9529,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9318,6 +9621,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9400,6 +9706,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9482,6 +9791,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9571,6 +9883,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9653,6 +9968,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9735,6 +10053,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9817,6 +10138,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9899,6 +10223,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -9981,6 +10308,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10074,6 +10404,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10168,6 +10501,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10262,6 +10598,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10356,6 +10695,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10439,6 +10781,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10521,6 +10866,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10603,6 +10951,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10685,6 +11036,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10778,6 +11132,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10861,6 +11218,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -10954,6 +11314,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11048,6 +11411,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11149,6 +11515,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11232,6 +11601,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11325,6 +11697,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11419,6 +11794,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11509,6 +11887,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11591,6 +11972,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11673,6 +12057,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11755,6 +12142,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11837,6 +12227,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -11919,6 +12312,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12001,6 +12397,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12076,6 +12475,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12158,6 +12560,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12240,6 +12645,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12322,6 +12730,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12404,6 +12815,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12486,6 +12900,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12568,6 +12985,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12650,6 +13070,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12732,6 +13155,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12814,6 +13240,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12896,6 +13325,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -12978,6 +13410,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13060,6 +13495,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13142,6 +13580,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13235,6 +13676,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13329,6 +13773,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13412,6 +13859,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13494,6 +13944,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13576,6 +14029,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13658,6 +14114,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13740,6 +14199,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13822,6 +14284,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13897,6 +14362,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -13972,6 +14440,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14047,6 +14518,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14122,6 +14596,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14197,6 +14674,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14272,6 +14752,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14347,6 +14830,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14436,6 +14922,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14518,6 +15007,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14600,6 +15092,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14686,6 +15181,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14785,6 +15283,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14874,6 +15375,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -14956,6 +15460,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15038,6 +15545,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15120,6 +15630,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15195,6 +15708,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15277,6 +15793,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15354,6 +15873,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15451,6 +15973,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15533,6 +16058,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15615,6 +16143,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15697,6 +16228,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15779,6 +16313,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15868,6 +16405,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -15950,6 +16490,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16032,6 +16575,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16107,6 +16653,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16189,6 +16738,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16271,6 +16823,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16353,6 +16908,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16435,6 +16993,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16517,6 +17078,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16599,6 +17163,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16688,6 +17255,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16770,6 +17340,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16859,6 +17432,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -16941,6 +17517,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17025,6 +17604,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17122,6 +17704,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17204,6 +17789,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17281,6 +17869,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17371,6 +17962,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17446,6 +18040,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17521,6 +18118,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17596,6 +18196,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17671,6 +18274,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17748,6 +18354,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17838,6 +18447,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17913,6 +18525,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -17995,6 +18610,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18091,6 +18709,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18166,6 +18787,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18241,6 +18865,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18316,6 +18943,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18398,6 +19028,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18473,6 +19106,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18550,6 +19186,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18647,6 +19286,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18722,6 +19364,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18797,6 +19442,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18876,6 +19524,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -18968,6 +19619,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19043,6 +19697,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19118,6 +19775,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19201,6 +19861,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19304,6 +19967,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19379,6 +20045,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19454,6 +20123,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19531,6 +20203,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19621,6 +20296,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19696,6 +20374,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19773,6 +20454,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19870,6 +20554,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -19947,6 +20634,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20037,6 +20727,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20112,6 +20805,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20187,6 +20883,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20262,6 +20961,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20341,6 +21043,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20433,6 +21138,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20508,12 +21216,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
-      try{
-      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
@@ -20601,6 +21306,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20695,6 +21403,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20778,6 +21489,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20864,6 +21578,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -20951,6 +21668,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21045,6 +21765,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21128,6 +21851,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21221,6 +21947,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21322,6 +22051,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21423,6 +22155,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21524,6 +22259,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21625,6 +22363,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21726,6 +22467,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21827,6 +22571,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21917,6 +22664,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -21992,6 +22742,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22085,6 +22838,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22175,6 +22931,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22257,6 +23016,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22346,6 +23108,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22435,6 +23200,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22531,6 +23299,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22620,6 +23391,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22713,6 +23487,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22807,6 +23584,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22897,6 +23677,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -22979,6 +23762,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23068,6 +23854,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23157,6 +23946,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23246,6 +24038,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23335,6 +24130,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23424,6 +24222,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23513,6 +24314,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23595,6 +24399,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23677,6 +24484,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23770,6 +24580,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23853,6 +24666,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -23935,6 +24751,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24017,6 +24836,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24099,6 +24921,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24181,6 +25006,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24263,6 +25091,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24356,6 +25187,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24450,6 +25284,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24544,6 +25381,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24645,6 +25485,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24739,6 +25582,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24822,6 +25668,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24904,6 +25753,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -24986,6 +25838,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25068,6 +25923,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25150,6 +26008,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25232,6 +26093,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25314,6 +26178,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25407,6 +26274,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25490,6 +26360,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25572,6 +26445,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25654,6 +26530,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25736,6 +26615,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25829,6 +26711,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PATCH", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -25923,6 +26808,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26017,6 +26905,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26111,6 +27002,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26205,6 +27099,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26299,6 +27196,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26393,6 +27293,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26487,6 +27390,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26581,6 +27487,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26675,6 +27584,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26769,6 +27681,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26870,6 +27785,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -26971,6 +27889,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27065,6 +27986,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27159,6 +28083,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27253,6 +28180,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27347,6 +28277,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27441,6 +28374,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27535,6 +28471,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27629,6 +28568,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27730,6 +28672,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27824,6 +28769,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PATCH", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -27925,6 +28873,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28019,6 +28970,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28106,6 +29060,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28200,6 +29157,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28294,6 +29254,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28388,6 +29351,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28482,6 +29448,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28576,6 +29545,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28670,6 +29642,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28771,6 +29746,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28865,6 +29843,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -28959,6 +29940,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29053,6 +30037,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29147,6 +30134,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29241,6 +30231,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29342,6 +30335,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29436,6 +30432,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29530,6 +30529,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29624,6 +30626,9 @@ public class ExoscaleApi {
           }
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
@@ -29707,6 +30712,9 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
       try{
       authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {

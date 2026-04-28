@@ -1946,6 +1946,7 @@ paths:
       summary: List Zones
       tags:
       - exoscale
+      x-skip-auth: true
       x-accepts: application/json
   /instance-pool:
     get:

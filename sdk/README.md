@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-04-18T07:30:19.997697928Z[Etc/UTC]
+- Build date: 2026-04-28T21:12:59.990672440+02:00[Europe/Paris]
 
 
 
