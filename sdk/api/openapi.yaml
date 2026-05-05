@@ -396,15 +396,6 @@ tags:
   x-display-name: KMS
   x-weight: 1120
   x-icon: exo-secgrp
-- description: Dedicated Inference lets you run Large Language Models (LLMs) on Exoscale
-    GPU infrastructure.
-  externalDocs:
-    description: Read more
-    url: https://www.exoscale.com/ai-cloud-infrastructure/dedicated-inference/
-  name: dedicated-inference
-  x-display-name: Dedicated Inference
-  x-weight: 910
-  x-icon: exo-ai-prod
 - description: "Opensearch, the popular open-source search and analytics database."
   externalDocs:
     description: Read more
@@ -466,7 +457,7 @@ tags:
   name: model
   x-display-name: AI Model
   x-weight: 920
-  x-icon: exo-gpu
+  x-icon: exo-ai-prod
 paths:
   /load-balancer/{id}/service/{service-id}:
     delete:
