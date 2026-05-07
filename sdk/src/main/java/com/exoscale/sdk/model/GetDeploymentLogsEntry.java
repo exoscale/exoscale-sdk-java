@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentLogsEntry {
   public static final String JSON_PROPERTY_TIME = "time";
-  private String time;
+  private OffsetDateTime time;
 
   public static final String JSON_PROPERTY_NODE = "node";
   private String node;
@@ -50,7 +51,7 @@ public class GetDeploymentLogsEntry {
   public GetDeploymentLogsEntry() { 
   }
 
-  public GetDeploymentLogsEntry time(String time) {
+  public GetDeploymentLogsEntry time(OffsetDateTime time) {
     this.time = time;
     return this;
   }
@@ -59,18 +60,18 @@ public class GetDeploymentLogsEntry {
    * Timestamp of the log entry
    * @return time
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getTime() {
+  public OffsetDateTime getTime() {
     return time;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTime(String time) {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTime(OffsetDateTime time) {
     this.time = time;
   }
 
@@ -84,9 +85,9 @@ public class GetDeploymentLogsEntry {
    * Node identifier
    * @return node
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNode() {
     return node;
@@ -94,7 +95,7 @@ public class GetDeploymentLogsEntry {
 
 
   @JsonProperty(JSON_PROPERTY_NODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNode(String node) {
     this.node = node;
   }
@@ -109,9 +110,9 @@ public class GetDeploymentLogsEntry {
    * Log message content
    * @return message
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getMessage() {
     return message;
@@ -119,7 +120,7 @@ public class GetDeploymentLogsEntry {
 
 
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMessage(String message) {
     this.message = message;
   }

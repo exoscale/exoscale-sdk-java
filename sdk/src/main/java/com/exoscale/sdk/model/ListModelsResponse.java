@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListModelsResponse {
   public static final String JSON_PROPERTY_MODELS = "models";
-  private List<ListModelsResponseEntry> models;
+  private List<ListModelsResponseEntry> models = new ArrayList<>();
 
   public ListModelsResponse() { 
   }
@@ -62,9 +62,9 @@ public class ListModelsResponse {
    * Get models
    * @return models
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MODELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<ListModelsResponseEntry> getModels() {
     return models;
@@ -72,7 +72,7 @@ public class ListModelsResponse {
 
 
   @JsonProperty(JSON_PROPERTY_MODELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setModels(List<ListModelsResponseEntry> models) {
     this.models = models;
   }

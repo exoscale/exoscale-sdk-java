@@ -24,25 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DeleteAiApiKey200Response
+ * Model tests for RevealAiApiKeyResponse
  */
-public class DeleteAiApiKey200ResponseTest {
-    private final DeleteAiApiKey200Response model = new DeleteAiApiKey200Response();
+public class RevealAiApiKeyResponseTest {
+    private final RevealAiApiKeyResponse model = new RevealAiApiKeyResponse();
 
     /**
-     * Model tests for DeleteAiApiKey200Response
+     * Model tests for RevealAiApiKeyResponse
      */
     @Test
-    public void testDeleteAiApiKey200Response() {
-        // TODO: test DeleteAiApiKey200Response
+    public void testRevealAiApiKeyResponse() {
+        // TODO: test RevealAiApiKeyResponse
     }
 
     /**
-     * Test the property 'deleted'
+     * Test the property 'value'
      */
     @Test
-    public void deletedTest() {
-        // TODO: test deleted
+    public void valueTest() {
+        // TODO: test value
     }
 
 }

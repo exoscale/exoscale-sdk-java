@@ -8,12 +8,12 @@ AI model
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**updatedAt** | **OffsetDateTime** | Update time |  [optional] [readonly] |
-|**name** | **String** | Model name |  [optional] |
-|**state** | [**StateEnum**](#StateEnum) | Model state |  [optional] |
-|**id** | **UUID** | Model ID |  [optional] [readonly] |
-|**modelSize** | **Long** | Model size (nullable) |  [optional] |
-|**createdAt** | **OffsetDateTime** | Creation time |  [optional] [readonly] |
+|**updatedAt** | **OffsetDateTime** | Update time |  [readonly] |
+|**name** | **String** | Model name |  |
+|**state** | [**StateEnum**](#StateEnum) | Model state |  |
+|**id** | **UUID** | Model ID |  [readonly] |
+|**modelSize** | **Long** | Model size in bytes |  |
+|**createdAt** | **OffsetDateTime** | Creation time |  [readonly] |
 
 
 

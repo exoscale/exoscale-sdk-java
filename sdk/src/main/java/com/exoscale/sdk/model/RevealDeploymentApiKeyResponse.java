@@ -48,12 +48,12 @@ public class RevealDeploymentApiKeyResponse {
   }
 
    /**
-   * Get apiKey
+   * Inference endpoint authentication key
    * @return apiKey
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getApiKey() {
     return apiKey;
@@ -61,7 +61,7 @@ public class RevealDeploymentApiKeyResponse {
 
 
   @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }

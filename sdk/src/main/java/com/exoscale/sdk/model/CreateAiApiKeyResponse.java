@@ -31,19 +31,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI API key with plaintext value
+ * Create AI API key response
  */
 @JsonPropertyOrder({
-  AiApiKeyWithValue.JSON_PROPERTY_UPDATED_AT,
-  AiApiKeyWithValue.JSON_PROPERTY_NAME,
-  AiApiKeyWithValue.JSON_PROPERTY_SCOPE,
-  AiApiKeyWithValue.JSON_PROPERTY_ID,
-  AiApiKeyWithValue.JSON_PROPERTY_ORG_UUID,
-  AiApiKeyWithValue.JSON_PROPERTY_CREATED_AT,
-  AiApiKeyWithValue.JSON_PROPERTY_VALUE
+  CreateAiApiKeyResponse.JSON_PROPERTY_UPDATED_AT,
+  CreateAiApiKeyResponse.JSON_PROPERTY_NAME,
+  CreateAiApiKeyResponse.JSON_PROPERTY_SCOPE,
+  CreateAiApiKeyResponse.JSON_PROPERTY_ID,
+  CreateAiApiKeyResponse.JSON_PROPERTY_ORG_UUID,
+  CreateAiApiKeyResponse.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class AiApiKeyWithValue {
+public class CreateAiApiKeyResponse {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
@@ -62,14 +61,11 @@ public class AiApiKeyWithValue {
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
-
-  public AiApiKeyWithValue() { 
+  public CreateAiApiKeyResponse() { 
   }
 
   @JsonCreator
-  public AiApiKeyWithValue(
+  public CreateAiApiKeyResponse(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_ORG_UUID) UUID orgUuid, 
@@ -86,9 +82,9 @@ public class AiApiKeyWithValue {
    * Last update timestamp
    * @return updatedAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -97,7 +93,7 @@ public class AiApiKeyWithValue {
 
 
 
-  public AiApiKeyWithValue name(String name) {
+  public CreateAiApiKeyResponse name(String name) {
     this.name = name;
     return this;
   }
@@ -106,9 +102,9 @@ public class AiApiKeyWithValue {
    * Human-readable name for the AI API key
    * @return name
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -116,13 +112,13 @@ public class AiApiKeyWithValue {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
 
 
-  public AiApiKeyWithValue scope(String scope) {
+  public CreateAiApiKeyResponse scope(String scope) {
     this.scope = scope;
     return this;
   }
@@ -131,9 +127,9 @@ public class AiApiKeyWithValue {
    * Key scope: &#39;public&#39; for all deployments, or a specific deployment UUID
    * @return scope
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getScope() {
     return scope;
@@ -141,7 +137,7 @@ public class AiApiKeyWithValue {
 
 
   @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setScope(String scope) {
     this.scope = scope;
   }
@@ -151,9 +147,9 @@ public class AiApiKeyWithValue {
    * AI API key ID
    * @return id
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
     return id;
@@ -166,9 +162,9 @@ public class AiApiKeyWithValue {
    * Organization UUID that owns this key
    * @return orgUuid
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORG_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getOrgUuid() {
     return orgUuid;
@@ -181,9 +177,9 @@ public class AiApiKeyWithValue {
    * Creation timestamp
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -192,33 +188,8 @@ public class AiApiKeyWithValue {
 
 
 
-  public AiApiKeyWithValue value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Plaintext AI API key value (returned only on create/rotate)
-   * @return value
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getValue() {
-    return value;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
   /**
-   * Return true if this ai-api-key-with-value object is equal to o.
+   * Return true if this create-ai-api-key-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -228,32 +199,30 @@ public class AiApiKeyWithValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AiApiKeyWithValue aiApiKeyWithValue = (AiApiKeyWithValue) o;
-    return Objects.equals(this.updatedAt, aiApiKeyWithValue.updatedAt) &&
-        Objects.equals(this.name, aiApiKeyWithValue.name) &&
-        Objects.equals(this.scope, aiApiKeyWithValue.scope) &&
-        Objects.equals(this.id, aiApiKeyWithValue.id) &&
-        Objects.equals(this.orgUuid, aiApiKeyWithValue.orgUuid) &&
-        Objects.equals(this.createdAt, aiApiKeyWithValue.createdAt) &&
-        Objects.equals(this.value, aiApiKeyWithValue.value);
+    CreateAiApiKeyResponse createAiApiKeyResponse = (CreateAiApiKeyResponse) o;
+    return Objects.equals(this.updatedAt, createAiApiKeyResponse.updatedAt) &&
+        Objects.equals(this.name, createAiApiKeyResponse.name) &&
+        Objects.equals(this.scope, createAiApiKeyResponse.scope) &&
+        Objects.equals(this.id, createAiApiKeyResponse.id) &&
+        Objects.equals(this.orgUuid, createAiApiKeyResponse.orgUuid) &&
+        Objects.equals(this.createdAt, createAiApiKeyResponse.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, scope, id, orgUuid, createdAt, value);
+    return Objects.hash(updatedAt, name, scope, id, orgUuid, createdAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AiApiKeyWithValue {\n");
+    sb.append("class CreateAiApiKeyResponse {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    orgUuid: ").append(toIndentedString(orgUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -329,11 +298,6 @@ public class AiApiKeyWithValue {
     // add `created-at` to the URL query string
     if (getCreatedAt() != null) {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `value` to the URL query string
-    if (getValue() != null) {
-      joiner.add(String.format("%svalue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI API key metadata (without value)
+ * AI API key metadata
  */
 @JsonPropertyOrder({
   AiApiKey.JSON_PROPERTY_UPDATED_AT,
@@ -82,9 +82,9 @@ public class AiApiKey {
    * Last update timestamp
    * @return updatedAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -102,9 +102,9 @@ public class AiApiKey {
    * Human-readable name for the AI API key
    * @return name
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -112,7 +112,7 @@ public class AiApiKey {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -127,9 +127,9 @@ public class AiApiKey {
    * Key scope: &#39;public&#39; for all deployments, or a specific deployment UUID
    * @return scope
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getScope() {
     return scope;
@@ -137,7 +137,7 @@ public class AiApiKey {
 
 
   @JsonProperty(JSON_PROPERTY_SCOPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setScope(String scope) {
     this.scope = scope;
   }
@@ -147,9 +147,9 @@ public class AiApiKey {
    * AI API key ID
    * @return id
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
     return id;
@@ -162,9 +162,9 @@ public class AiApiKey {
    * Organization UUID that owns this key
    * @return orgUuid
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORG_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getOrgUuid() {
     return orgUuid;
@@ -177,9 +177,9 @@ public class AiApiKey {
    * Creation timestamp
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;

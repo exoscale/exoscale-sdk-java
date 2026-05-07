@@ -2,7 +2,7 @@
 
 # CreateDeploymentRequest
 
-Deployment an AI model onto a set of GPUs
+Deploy an AI model onto a set of GPUs
 
 ## Properties
 

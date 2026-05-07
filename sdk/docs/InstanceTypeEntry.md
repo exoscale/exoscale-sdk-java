@@ -8,8 +8,8 @@ Instance type with authorization status
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**family** | **String** | GPU family name |  [optional] |
-|**authorized** | **Boolean** | Whether this instance type is authorized based on server availability |  [optional] |
+|**family** | **String** | GPU family name |  |
+|**authorized** | **Boolean** | Whether this instance type is authorized based on server availability |  |
 
 
 

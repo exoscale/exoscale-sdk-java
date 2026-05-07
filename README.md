@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-05-05T07:43:22.792359434Z[Etc/UTC]
+- Build date: 2026-05-07T07:57:34.204882213Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-4e2441f</version>
+    <version>0.0.5-SNAPSHOT-29c9da2</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4e2441f'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-29c9da2'
 }
 ```
 
@@ -94,7 +94,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**attachInstanceToSecurityGroup**](sdk/docs/ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
 *ExoscaleApi* | [**cancelKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion
 *ExoscaleApi* | [**copyTemplate**](sdk/docs/ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
-*ExoscaleApi* | [**createAiApiKey**](sdk/docs/ExoscaleApi.md#createAiApiKey) | **POST** /ai/ai-api-key | Create AI API Key
+*ExoscaleApi* | [**createAiApiKey**](sdk/docs/ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | Create AI API Key
 *ExoscaleApi* | [**createAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
 *ExoscaleApi* | [**createApiKey**](sdk/docs/ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key
 *ExoscaleApi* | [**createBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
@@ -141,7 +141,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createSnapshot**](sdk/docs/ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
 *ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
 *ExoscaleApi* | [**decrypt**](sdk/docs/ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt
-*ExoscaleApi* | [**deleteAiApiKey**](sdk/docs/ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/ai-api-key/{id} | Delete AI API Key
+*ExoscaleApi* | [**deleteAiApiKey**](sdk/docs/ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | Delete AI API Key
 *ExoscaleApi* | [**deleteAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
@@ -209,7 +209,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**generateDataKey**](sdk/docs/ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key
 *ExoscaleApi* | [**generateSksClusterKubeconfig**](sdk/docs/ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
 *ExoscaleApi* | [**getActiveNodepoolTemplate**](sdk/docs/ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} | 
-*ExoscaleApi* | [**getAiApiKey**](sdk/docs/ExoscaleApi.md#getAiApiKey) | **GET** /ai/ai-api-key/{id} | Get AI API Key
+*ExoscaleApi* | [**getAiApiKey**](sdk/docs/ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | Get AI API Key
 *ExoscaleApi* | [**getAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
 *ExoscaleApi* | [**getApiKey**](sdk/docs/ExoscaleApi.md#getApiKey) | **GET** /api-key/{id} | Get API key
 *ExoscaleApi* | [**getBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details
@@ -279,7 +279,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getSshKey**](sdk/docs/ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details
 *ExoscaleApi* | [**getTemplate**](sdk/docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
 *ExoscaleApi* | [**getUsageReport**](sdk/docs/ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports
-*ExoscaleApi* | [**listAiApiKeys**](sdk/docs/ExoscaleApi.md#listAiApiKeys) | **GET** /ai/ai-api-key | List AI API Keys
+*ExoscaleApi* | [**getUserOrgConsumptionQuota**](sdk/docs/ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota
+*ExoscaleApi* | [**listAiApiKeys**](sdk/docs/ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | List AI API Keys
 *ExoscaleApi* | [**listAiInstanceTypes**](sdk/docs/ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types
 *ExoscaleApi* | [**listAntiAffinityGroups**](sdk/docs/ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
 *ExoscaleApi* | [**listApiKeys**](sdk/docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
@@ -344,6 +345,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resetPrivateNetworkField**](sdk/docs/ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
 *ExoscaleApi* | [**resizeBlockStorageVolume**](sdk/docs/ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
 *ExoscaleApi* | [**resizeInstanceDisk**](sdk/docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
+*ExoscaleApi* | [**revealAiApiKey**](sdk/docs/ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | Reveal AI API Key
 *ExoscaleApi* | [**revealDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
 *ExoscaleApi* | [**revealDbaasKafkaConnectPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect
 *ExoscaleApi* | [**revealDbaasKafkaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
@@ -355,7 +357,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
-*ExoscaleApi* | [**rotateAiApiKey**](sdk/docs/ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/ai-api-key/{id}/rotate | Rotate AI API Key
+*ExoscaleApi* | [**rotateAiApiKey**](sdk/docs/ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | Rotate AI API Key
 *ExoscaleApi* | [**rotateKmsKey**](sdk/docs/ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials
@@ -378,7 +380,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**stopDbaasPgMigration**](sdk/docs/ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
 *ExoscaleApi* | [**stopDbaasValkeyMigration**](sdk/docs/ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration
 *ExoscaleApi* | [**stopInstance**](sdk/docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
-*ExoscaleApi* | [**updateAiApiKey**](sdk/docs/ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/ai-api-key/{id} | Update AI API Key
+*ExoscaleApi* | [**updateAiApiKey**](sdk/docs/ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | Update AI API Key
 *ExoscaleApi* | [**updateBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](sdk/docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
 *ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} | 
@@ -399,7 +401,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#updateDbaasServiceThanos) | **PUT** /dbaas-thanos/{name} | 
 *ExoscaleApi* | [**updateDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#updateDbaasServiceValkey) | **PUT** /dbaas-valkey/{name} | 
 *ExoscaleApi* | [**updateDbaasValkeyUserAccessControl**](sdk/docs/ExoscaleApi.md#updateDbaasValkeyUserAccessControl) | **PUT** /dbaas-valkey/{service-name}/user/{username} | Update access control for one DBaaS Valkey service user
-*ExoscaleApi* | [**updateDeployment**](sdk/docs/ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} | 
+*ExoscaleApi* | [**updateDeployment**](sdk/docs/ExoscaleApi.md#updateDeployment) | **PATCH** /ai/deployment/{id} | Update Deployment
 *ExoscaleApi* | [**updateDnsDomainRecord**](sdk/docs/ExoscaleApi.md#updateDnsDomainRecord) | **PUT** /dns-domain/{domain-id}/record/{record-id} | Update DNS domain record
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
 *ExoscaleApi* | [**updateIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy
@@ -432,9 +434,10 @@ Class | Method | HTTP request | Description
  - [AddRuleToSecurityGroupRequestIcmp](sdk/docs/AddRuleToSecurityGroupRequestIcmp.md)
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
  - [AiApiKey](sdk/docs/AiApiKey.md)
- - [AiApiKeyWithValue](sdk/docs/AiApiKeyWithValue.md)
+ - [AiApiKeyValue](sdk/docs/AiApiKeyValue.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AntiAffinityGroupRef](sdk/docs/AntiAffinityGroupRef.md)
+ - [ApiKeyUsageEntry](sdk/docs/ApiKeyUsageEntry.md)
  - [AssumeIamRole200Response](sdk/docs/AssumeIamRole200Response.md)
  - [AssumeIamRoleRequest](sdk/docs/AssumeIamRoleRequest.md)
  - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
@@ -451,6 +454,7 @@ Class | Method | HTTP request | Description
  - [ConfigureLogCleanerForTopicCompaction](sdk/docs/ConfigureLogCleanerForTopicCompaction.md)
  - [CopyTemplateRequest](sdk/docs/CopyTemplateRequest.md)
  - [CreateAiApiKeyRequest](sdk/docs/CreateAiApiKeyRequest.md)
+ - [CreateAiApiKeyResponse](sdk/docs/CreateAiApiKeyResponse.md)
  - [CreateAntiAffinityGroupRequest](sdk/docs/CreateAntiAffinityGroupRequest.md)
  - [CreateApiKeyRequest](sdk/docs/CreateApiKeyRequest.md)
  - [CreateBlockStorageSnapshotRequest](sdk/docs/CreateBlockStorageSnapshotRequest.md)
@@ -600,7 +604,6 @@ Class | Method | HTTP request | Description
  - [DbaasValkeyUsers](sdk/docs/DbaasValkeyUsers.md)
  - [DecryptRequest](sdk/docs/DecryptRequest.md)
  - [DecryptResponse](sdk/docs/DecryptResponse.md)
- - [DeleteAiApiKey200Response](sdk/docs/DeleteAiApiKey200Response.md)
  - [DeleteModelConflictResponse](sdk/docs/DeleteModelConflictResponse.md)
  - [DeployTarget](sdk/docs/DeployTarget.md)
  - [DeployTargetRef](sdk/docs/DeployTargetRef.md)
@@ -649,6 +652,7 @@ Class | Method | HTTP request | Description
  - [GenerateSksClusterKubeconfig200Response](sdk/docs/GenerateSksClusterKubeconfig200Response.md)
  - [GenericOAuthIntegration](sdk/docs/GenericOAuthIntegration.md)
  - [GetActiveNodepoolTemplate200Response](sdk/docs/GetActiveNodepoolTemplate200Response.md)
+ - [GetAiApiKeyResponse](sdk/docs/GetAiApiKeyResponse.md)
  - [GetConfederatioUsageResponse](sdk/docs/GetConfederatioUsageResponse.md)
  - [GetConsoleProxyUrl200Response](sdk/docs/GetConsoleProxyUrl200Response.md)
  - [GetDbaasCaCertificate200Response](sdk/docs/GetDbaasCaCertificate200Response.md)
@@ -708,6 +712,8 @@ Class | Method | HTTP request | Description
  - [IamServicePolicyRule](sdk/docs/IamServicePolicyRule.md)
  - [InferenceEngineParameterEntry](sdk/docs/InferenceEngineParameterEntry.md)
  - [InferenceEngineVersion](sdk/docs/InferenceEngineVersion.md)
+ - [IngestMeteringRequest](sdk/docs/IngestMeteringRequest.md)
+ - [IngestMeteringResponse](sdk/docs/IngestMeteringResponse.md)
  - [Instance](sdk/docs/Instance.md)
  - [InstancePassword](sdk/docs/InstancePassword.md)
  - [InstancePool](sdk/docs/InstancePool.md)
@@ -735,6 +741,7 @@ Class | Method | HTTP request | Description
  - [KeyRotationConfig](sdk/docs/KeyRotationConfig.md)
  - [KubeletImageGc](sdk/docs/KubeletImageGc.md)
  - [ListAiApiKeysResponse](sdk/docs/ListAiApiKeysResponse.md)
+ - [ListAiApiKeysResponseEntry](sdk/docs/ListAiApiKeysResponseEntry.md)
  - [ListAiInstanceTypesResponse](sdk/docs/ListAiInstanceTypesResponse.md)
  - [ListAntiAffinityGroups200Response](sdk/docs/ListAntiAffinityGroups200Response.md)
  - [ListApiKeys200Response](sdk/docs/ListApiKeys200Response.md)
@@ -785,6 +792,7 @@ Class | Method | HTTP request | Description
  - [LoadBalancerServiceHealthcheck](sdk/docs/LoadBalancerServiceHealthcheck.md)
  - [Manager](sdk/docs/Manager.md)
  - [ModelRef](sdk/docs/ModelRef.md)
+ - [ModelUsageCounters](sdk/docs/ModelUsageCounters.md)
  - [Networking](sdk/docs/Networking.md)
  - [NodeDuressSettings](sdk/docs/NodeDuressSettings.md)
  - [OpensearchEmailSenderSettings](sdk/docs/OpensearchEmailSenderSettings.md)
@@ -794,6 +802,7 @@ Class | Method | HTTP request | Description
  - [Operation](sdk/docs/Operation.md)
  - [OperationReference](sdk/docs/OperationReference.md)
  - [OperationResourceRef](sdk/docs/OperationResourceRef.md)
+ - [OrgConsumptionQuotaResponse](sdk/docs/OrgConsumptionQuotaResponse.md)
  - [Organization](sdk/docs/Organization.md)
  - [OrganizationUsage](sdk/docs/OrganizationUsage.md)
  - [PrimaryParameter](sdk/docs/PrimaryParameter.md)
@@ -823,10 +832,12 @@ Class | Method | HTTP request | Description
  - [ResizeBlockStorageVolumeRequest](sdk/docs/ResizeBlockStorageVolumeRequest.md)
  - [ResizeInstanceDiskRequest](sdk/docs/ResizeInstanceDiskRequest.md)
  - [Resource](sdk/docs/Resource.md)
+ - [RevealAiApiKeyResponse](sdk/docs/RevealAiApiKeyResponse.md)
  - [RevealDeploymentApiKeyResponse](sdk/docs/RevealDeploymentApiKeyResponse.md)
  - [ReverseDnsRecord](sdk/docs/ReverseDnsRecord.md)
  - [RevertInstanceToSnapshotRequest](sdk/docs/RevertInstanceToSnapshotRequest.md)
  - [RevisionStamp](sdk/docs/RevisionStamp.md)
+ - [RotateAiApiKeyResponse](sdk/docs/RotateAiApiKeyResponse.md)
  - [RotateKmsKeyResponse](sdk/docs/RotateKmsKeyResponse.md)
  - [SMTPServerSettings](sdk/docs/SMTPServerSettings.md)
  - [ScaleDeploymentRequest](sdk/docs/ScaleDeploymentRequest.md)
@@ -842,6 +853,7 @@ Class | Method | HTTP request | Description
  - [SecurityGroupResource](sdk/docs/SecurityGroupResource.md)
  - [SecurityGroupRule](sdk/docs/SecurityGroupRule.md)
  - [SecurityGroupRuleIcmp](sdk/docs/SecurityGroupRuleIcmp.md)
+ - [SetOrgConsumptionQuotaRequest](sdk/docs/SetOrgConsumptionQuotaRequest.md)
  - [ShardIndexingBackPressureSettings](sdk/docs/ShardIndexingBackPressureSettings.md)
  - [SksAudit](sdk/docs/SksAudit.md)
  - [SksAuditCreate](sdk/docs/SksAuditCreate.md)
@@ -867,6 +879,7 @@ Class | Method | HTTP request | Description
  - [ThanosQueryFrontendUserConfig](sdk/docs/ThanosQueryFrontendUserConfig.md)
  - [ThanosQueryUserConfig](sdk/docs/ThanosQueryUserConfig.md)
  - [UpdateAiApiKeyRequest](sdk/docs/UpdateAiApiKeyRequest.md)
+ - [UpdateAiApiKeyResponse](sdk/docs/UpdateAiApiKeyResponse.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](sdk/docs/UpdateBlockStorageVolumeRequest.md)
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)

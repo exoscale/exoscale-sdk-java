@@ -17,8 +17,6 @@ import com.exoscale.sdk.client.ApiException;
 import com.exoscale.sdk.model.AddExternalSourceToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddRuleToSecurityGroupRequest;
 import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
-import com.exoscale.sdk.model.AiApiKey;
-import com.exoscale.sdk.model.AiApiKeyWithValue;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
@@ -29,6 +27,7 @@ import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
 import com.exoscale.sdk.model.CreateAiApiKeyRequest;
+import com.exoscale.sdk.model.CreateAiApiKeyResponse;
 import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
@@ -109,7 +108,6 @@ import com.exoscale.sdk.model.DbaasUserValkeySecrets;
 import com.exoscale.sdk.model.DbaasValkeyUsers;
 import com.exoscale.sdk.model.DecryptRequest;
 import com.exoscale.sdk.model.DecryptResponse;
-import com.exoscale.sdk.model.DeleteAiApiKey200Response;
 import com.exoscale.sdk.model.DeleteModelConflictResponse;
 import com.exoscale.sdk.model.DeployTarget;
 import com.exoscale.sdk.model.DetachDbaasServiceFromEndpointRequest;
@@ -132,6 +130,7 @@ import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
 import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
+import com.exoscale.sdk.model.GetAiApiKeyResponse;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
 import com.exoscale.sdk.model.GetDbaasCaCertificate200Response;
 import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Response;
@@ -203,6 +202,7 @@ import com.exoscale.sdk.model.LoadBalancer;
 import com.exoscale.sdk.model.LoadBalancerService;
 import java.time.OffsetDateTime;
 import com.exoscale.sdk.model.Operation;
+import com.exoscale.sdk.model.OrgConsumptionQuotaResponse;
 import com.exoscale.sdk.model.Organization;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
@@ -218,9 +218,11 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
+import com.exoscale.sdk.model.RevealAiApiKeyResponse;
 import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
+import com.exoscale.sdk.model.RotateAiApiKeyResponse;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
@@ -239,6 +241,7 @@ import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
 import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
+import com.exoscale.sdk.model.UpdateAiApiKeyResponse;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -512,7 +515,7 @@ public class ExoscaleApiTest {
     @Test
     public void createAiApiKeyTest() throws ApiException {
         CreateAiApiKeyRequest createAiApiKeyRequest = null;
-        AiApiKeyWithValue response = 
+        CreateAiApiKeyResponse response = 
         api.createAiApiKey(createAiApiKeyRequest);
         
         // TODO: test validations
@@ -1339,7 +1342,7 @@ public class ExoscaleApiTest {
     @Test
     public void deleteAiApiKeyTest() throws ApiException {
         UUID id = null;
-        DeleteAiApiKey200Response response = 
+        
         api.deleteAiApiKey(id);
         
         // TODO: test validations
@@ -2521,7 +2524,7 @@ public class ExoscaleApiTest {
     @Test
     public void getAiApiKeyTest() throws ApiException {
         UUID id = null;
-        AiApiKey response = 
+        GetAiApiKeyResponse response = 
         api.getAiApiKey(id);
         
         // TODO: test validations
@@ -3701,6 +3704,22 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Get Organization Consumption Quota
+     *
+     * Get per-org token consumption quota (tokens/min). Null means unlimited.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getUserOrgConsumptionQuotaTest() throws ApiException {
+        OrgConsumptionQuotaResponse response = 
+        api.getUserOrgConsumptionQuota();
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List AI API Keys
      *
      * List AI API keys for an organization
@@ -4812,6 +4831,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Reveal AI API Key
+     *
+     * Reveal AI API key plaintext value
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        RevealAiApiKeyResponse response = 
+        api.revealAiApiKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reveal the secrets of a DBaaS Grafana user
      *
      * 
@@ -5017,7 +5053,7 @@ public class ExoscaleApiTest {
     @Test
     public void rotateAiApiKeyTest() throws ApiException {
         UUID id = null;
-        AiApiKeyWithValue response = 
+        RotateAiApiKeyResponse response = 
         api.rotateAiApiKey(id);
         
         // TODO: test validations
@@ -5416,7 +5452,7 @@ public class ExoscaleApiTest {
     public void updateAiApiKeyTest() throws ApiException {
         UUID id = null;
         UpdateAiApiKeyRequest updateAiApiKeyRequest = null;
-        AiApiKey response = 
+        UpdateAiApiKeyResponse response = 
         api.updateAiApiKey(id, updateAiApiKeyRequest);
         
         // TODO: test validations
@@ -5786,7 +5822,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * 
+     * Update Deployment
      *
      * Update AI deployment
      *

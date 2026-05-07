@@ -55,9 +55,9 @@ public class GetOrganizationUsageResponse {
    * minimum: 0
    * @return gpu
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_GPU)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getGpu() {
     return gpu;

@@ -29,46 +29,75 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DeleteAiApiKey200Response
+ * Result of a metering ingest operation
  */
 @JsonPropertyOrder({
-  DeleteAiApiKey200Response.JSON_PROPERTY_DELETED
+  IngestMeteringResponse.JSON_PROPERTY_DUPLICATE,
+  IngestMeteringResponse.JSON_PROPERTY_UPSERTED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DeleteAiApiKey200Response {
-  public static final String JSON_PROPERTY_DELETED = "deleted";
-  private Boolean deleted;
+public class IngestMeteringResponse {
+  public static final String JSON_PROPERTY_DUPLICATE = "duplicate";
+  private Boolean duplicate;
 
-  public DeleteAiApiKey200Response() { 
+  public static final String JSON_PROPERTY_UPSERTED = "upserted";
+  private Integer upserted;
+
+  public IngestMeteringResponse() { 
   }
 
-  public DeleteAiApiKey200Response deleted(Boolean deleted) {
-    this.deleted = deleted;
+  public IngestMeteringResponse duplicate(Boolean duplicate) {
+    this.duplicate = duplicate;
     return this;
   }
 
    /**
-   * Get deleted
-   * @return deleted
+   * True if flush-id was already processed (idempotent retry)
+   * @return duplicate
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DELETED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DUPLICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getDeleted() {
-    return deleted;
+  public Boolean getDuplicate() {
+    return duplicate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELETED)
+  @JsonProperty(JSON_PROPERTY_DUPLICATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDuplicate(Boolean duplicate) {
+    this.duplicate = duplicate;
+  }
+
+
+  public IngestMeteringResponse upserted(Integer upserted) {
+    this.upserted = upserted;
+    return this;
+  }
+
+   /**
+   * Number of rows affected (inserted or updated) in usage_minutely; 0 if duplicate flush-id
+   * @return upserted
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_UPSERTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
+
+  public Integer getUpserted() {
+    return upserted;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_UPSERTED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setUpserted(Integer upserted) {
+    this.upserted = upserted;
   }
 
 
   /**
-   * Return true if this delete_ai_api_key_200_response object is equal to o.
+   * Return true if this ingest-metering-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +107,22 @@ public class DeleteAiApiKey200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteAiApiKey200Response deleteAiApiKey200Response = (DeleteAiApiKey200Response) o;
-    return Objects.equals(this.deleted, deleteAiApiKey200Response.deleted);
+    IngestMeteringResponse ingestMeteringResponse = (IngestMeteringResponse) o;
+    return Objects.equals(this.duplicate, ingestMeteringResponse.duplicate) &&
+        Objects.equals(this.upserted, ingestMeteringResponse.upserted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted);
+    return Objects.hash(duplicate, upserted);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteAiApiKey200Response {\n");
-    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("class IngestMeteringResponse {\n");
+    sb.append("    duplicate: ").append(toIndentedString(duplicate)).append("\n");
+    sb.append("    upserted: ").append(toIndentedString(upserted)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +170,14 @@ public class DeleteAiApiKey200Response {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `deleted` to the URL query string
-    if (getDeleted() != null) {
-      joiner.add(String.format("%sdeleted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleted()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `duplicate` to the URL query string
+    if (getDuplicate() != null) {
+      joiner.add(String.format("%sduplicate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDuplicate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `upserted` to the URL query string
+    if (getUpserted() != null) {
+      joiner.add(String.format("%supserted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpserted()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

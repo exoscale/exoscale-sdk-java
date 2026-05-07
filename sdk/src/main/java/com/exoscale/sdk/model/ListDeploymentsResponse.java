@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI model list
+ * AI deployment list
  */
 @JsonPropertyOrder({
   ListDeploymentsResponse.JSON_PROPERTY_DEPLOYMENTS
@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListDeploymentsResponse {
   public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
-  private List<ListDeploymentsResponseEntry> deployments;
+  private List<ListDeploymentsResponseEntry> deployments = new ArrayList<>();
 
   public ListDeploymentsResponse() { 
   }
@@ -62,9 +62,9 @@ public class ListDeploymentsResponse {
    * Get deployments
    * @return deployments
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<ListDeploymentsResponseEntry> getDeployments() {
     return deployments;
@@ -72,7 +72,7 @@ public class ListDeploymentsResponse {
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDeployments(List<ListDeploymentsResponseEntry> deployments) {
     this.deployments = deployments;
   }

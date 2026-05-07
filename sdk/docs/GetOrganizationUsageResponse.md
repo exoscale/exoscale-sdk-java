@@ -8,7 +8,7 @@ GPU usage for an organization
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**gpu** | **Long** | Total GPU count |  [optional] [readonly] |
+|**gpu** | **Long** | Total GPU count |  [readonly] |
 
 
 

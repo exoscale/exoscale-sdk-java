@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListAiInstanceTypesResponse {
   public static final String JSON_PROPERTY_INSTANCE_TYPES = "instance-types";
-  private List<InstanceTypeEntry> instanceTypes;
+  private List<InstanceTypeEntry> instanceTypes = new ArrayList<>();
 
   public ListAiInstanceTypesResponse() { 
   }
@@ -62,9 +62,9 @@ public class ListAiInstanceTypesResponse {
    * Get instanceTypes
    * @return instanceTypes
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<InstanceTypeEntry> getInstanceTypes() {
     return instanceTypes;
@@ -72,7 +72,7 @@ public class ListAiInstanceTypesResponse {
 
 
   @JsonProperty(JSON_PROPERTY_INSTANCE_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInstanceTypes(List<InstanceTypeEntry> instanceTypes) {
     this.instanceTypes = instanceTypes;
   }

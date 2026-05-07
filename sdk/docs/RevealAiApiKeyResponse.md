@@ -1,13 +1,14 @@
 
 
-# DeleteAiApiKey200Response
+# RevealAiApiKeyResponse
 
+Reveal AI API key response
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**deleted** | **Boolean** |  |  |
+|**value** | **String** | Plaintext AI API key value |  |
 
 
 

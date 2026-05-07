@@ -26,17 +26,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AiApiKeyWithValue
+ * Model tests for UpdateAiApiKeyResponse
  */
-public class AiApiKeyWithValueTest {
-    private final AiApiKeyWithValue model = new AiApiKeyWithValue();
+public class UpdateAiApiKeyResponseTest {
+    private final UpdateAiApiKeyResponse model = new UpdateAiApiKeyResponse();
 
     /**
-     * Model tests for AiApiKeyWithValue
+     * Model tests for UpdateAiApiKeyResponse
      */
     @Test
-    public void testAiApiKeyWithValue() {
-        // TODO: test AiApiKeyWithValue
+    public void testUpdateAiApiKeyResponse() {
+        // TODO: test UpdateAiApiKeyResponse
     }
 
     /**
@@ -85,14 +85,6 @@ public class AiApiKeyWithValueTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'value'
-     */
-    @Test
-    public void valueTest() {
-        // TODO: test value
     }
 
 }

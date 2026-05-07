@@ -121,9 +121,9 @@ public class ListModelsResponseEntry {
    * Update time
    * @return updatedAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -141,9 +141,9 @@ public class ListModelsResponseEntry {
    * Model name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -151,7 +151,7 @@ public class ListModelsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -166,9 +166,9 @@ public class ListModelsResponseEntry {
    * Model state
    * @return state
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public StateEnum getState() {
     return state;
@@ -176,7 +176,7 @@ public class ListModelsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setState(StateEnum state) {
     this.state = state;
   }
@@ -186,9 +186,9 @@ public class ListModelsResponseEntry {
    * Model ID
    * @return id
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
     return id;
@@ -203,13 +203,13 @@ public class ListModelsResponseEntry {
   }
 
    /**
-   * Model size (nullable)
+   * Model size in bytes
    * minimum: 0
    * @return modelSize
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getModelSize() {
     return modelSize;
@@ -217,7 +217,7 @@ public class ListModelsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_MODEL_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setModelSize(Long modelSize) {
     this.modelSize = modelSize;
   }
@@ -227,9 +227,9 @@ public class ListModelsResponseEntry {
    * Creation time
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;

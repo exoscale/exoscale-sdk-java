@@ -8,7 +8,7 @@ List of AI API keys
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**aiApiKeys** | [**List&lt;AiApiKey&gt;**](AiApiKey.md) |  |  |
+|**aiApiKeys** | [**List&lt;ListAiApiKeysResponseEntry&gt;**](ListAiApiKeysResponseEntry.md) |  |  |
 
 
 

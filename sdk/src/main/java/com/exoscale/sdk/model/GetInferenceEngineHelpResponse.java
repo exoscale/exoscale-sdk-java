@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetInferenceEngineHelpResponse {
   public static final String JSON_PROPERTY_PARAMETERS = "parameters";
-  private List<InferenceEngineParameterEntry> parameters;
+  private List<InferenceEngineParameterEntry> parameters = new ArrayList<>();
 
   public GetInferenceEngineHelpResponse() { 
   }
@@ -62,9 +62,9 @@ public class GetInferenceEngineHelpResponse {
    * Get parameters
    * @return parameters
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<InferenceEngineParameterEntry> getParameters() {
     return parameters;
@@ -72,7 +72,7 @@ public class GetInferenceEngineHelpResponse {
 
 
   @JsonProperty(JSON_PROPERTY_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setParameters(List<InferenceEngineParameterEntry> parameters) {
     this.parameters = parameters;
   }

@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetConfederatioUsageResponse {
-  public static final String JSON_PROPERTY_ORGANIZATIONS_USAGES = "organizations_usages";
+  public static final String JSON_PROPERTY_ORGANIZATIONS_USAGES = "organizations-usages";
   private Map<String, OrganizationUsage> organizationsUsages = new HashMap<>();
 
   public GetConfederatioUsageResponse() { 
@@ -150,11 +150,11 @@ public class GetConfederatioUsageResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `organizations_usages` to the URL query string
+    // add `organizations-usages` to the URL query string
     if (getOrganizationsUsages() != null) {
       for (String _key : getOrganizationsUsages().keySet()) {
         if (getOrganizationsUsages().get(_key) != null) {
-          joiner.add(getOrganizationsUsages().get(_key).toUrlQueryString(String.format("%sorganizations_usages%s%s", prefix, suffix,
+          joiner.add(getOrganizationsUsages().get(_key).toUrlQueryString(String.format("%sorganizations-usages%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix))));
         }
       }

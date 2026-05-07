@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetDeploymentLogsResponse {
   public static final String JSON_PROPERTY_LOGS = "logs";
-  private List<GetDeploymentLogsEntry> logs;
+  private List<GetDeploymentLogsEntry> logs = new ArrayList<>();
 
   public GetDeploymentLogsResponse() { 
   }
@@ -62,9 +62,9 @@ public class GetDeploymentLogsResponse {
    * List of log entries
    * @return logs
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<GetDeploymentLogsEntry> getLogs() {
     return logs;
@@ -72,7 +72,7 @@ public class GetDeploymentLogsResponse {
 
 
   @JsonProperty(JSON_PROPERTY_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLogs(List<GetDeploymentLogsEntry> logs) {
     this.logs = logs;
   }

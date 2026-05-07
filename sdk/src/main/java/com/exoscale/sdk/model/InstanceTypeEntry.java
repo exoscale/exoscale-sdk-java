@@ -55,9 +55,9 @@ public class InstanceTypeEntry {
    * GPU family name
    * @return family
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getFamily() {
     return family;
@@ -65,7 +65,7 @@ public class InstanceTypeEntry {
 
 
   @JsonProperty(JSON_PROPERTY_FAMILY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFamily(String family) {
     this.family = family;
   }
@@ -80,9 +80,9 @@ public class InstanceTypeEntry {
    * Whether this instance type is authorized based on server availability
    * @return authorized
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AUTHORIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getAuthorized() {
     return authorized;
@@ -90,7 +90,7 @@ public class InstanceTypeEntry {
 
 
   @JsonProperty(JSON_PROPERTY_AUTHORIZED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAuthorized(Boolean authorized) {
     this.authorized = authorized;
   }

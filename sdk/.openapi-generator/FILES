@@ -11,9 +11,10 @@ docs/AddRuleToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
 docs/AiApiKey.md
-docs/AiApiKeyWithValue.md
+docs/AiApiKeyValue.md
 docs/AntiAffinityGroup.md
 docs/AntiAffinityGroupRef.md
+docs/ApiKeyUsageEntry.md
 docs/AssumeIamRole200Response.md
 docs/AssumeIamRoleRequest.md
 docs/AttachBlockStorageVolumeToInstanceRequest.md
@@ -30,6 +31,7 @@ docs/BlockStorageVolumeRef.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
 docs/CreateAiApiKeyRequest.md
+docs/CreateAiApiKeyResponse.md
 docs/CreateAntiAffinityGroupRequest.md
 docs/CreateApiKeyRequest.md
 docs/CreateBlockStorageSnapshotRequest.md
@@ -179,7 +181,6 @@ docs/DbaasValkeyUserAccessControl.md
 docs/DbaasValkeyUsers.md
 docs/DecryptRequest.md
 docs/DecryptResponse.md
-docs/DeleteAiApiKey200Response.md
 docs/DeleteModelConflictResponse.md
 docs/DeployTarget.md
 docs/DeployTargetRef.md
@@ -229,6 +230,7 @@ docs/GenerateDataKeyResponse.md
 docs/GenerateSksClusterKubeconfig200Response.md
 docs/GenericOAuthIntegration.md
 docs/GetActiveNodepoolTemplate200Response.md
+docs/GetAiApiKeyResponse.md
 docs/GetConfederatioUsageResponse.md
 docs/GetConsoleProxyUrl200Response.md
 docs/GetDbaasCaCertificate200Response.md
@@ -288,6 +290,8 @@ docs/IamServicePolicy.md
 docs/IamServicePolicyRule.md
 docs/InferenceEngineParameterEntry.md
 docs/InferenceEngineVersion.md
+docs/IngestMeteringRequest.md
+docs/IngestMeteringResponse.md
 docs/Instance.md
 docs/InstancePassword.md
 docs/InstancePool.md
@@ -315,6 +319,7 @@ docs/KeyMaterial.md
 docs/KeyRotationConfig.md
 docs/KubeletImageGc.md
 docs/ListAiApiKeysResponse.md
+docs/ListAiApiKeysResponseEntry.md
 docs/ListAiInstanceTypesResponse.md
 docs/ListAntiAffinityGroups200Response.md
 docs/ListApiKeys200Response.md
@@ -365,6 +370,7 @@ docs/LoadBalancerService.md
 docs/LoadBalancerServiceHealthcheck.md
 docs/Manager.md
 docs/ModelRef.md
+docs/ModelUsageCounters.md
 docs/Networking.md
 docs/NodeDuressSettings.md
 docs/OpensearchEmailSenderSettings.md
@@ -374,6 +380,7 @@ docs/OperatingFactor.md
 docs/Operation.md
 docs/OperationReference.md
 docs/OperationResourceRef.md
+docs/OrgConsumptionQuotaResponse.md
 docs/Organization.md
 docs/OrganizationUsage.md
 docs/PrimaryParameter.md
@@ -403,10 +410,12 @@ docs/ResetInstanceRequest.md
 docs/ResizeBlockStorageVolumeRequest.md
 docs/ResizeInstanceDiskRequest.md
 docs/Resource.md
+docs/RevealAiApiKeyResponse.md
 docs/RevealDeploymentApiKeyResponse.md
 docs/ReverseDnsRecord.md
 docs/RevertInstanceToSnapshotRequest.md
 docs/RevisionStamp.md
+docs/RotateAiApiKeyResponse.md
 docs/RotateKmsKeyResponse.md
 docs/SMTPServerSettings.md
 docs/ScaleDeploymentRequest.md
@@ -422,6 +431,7 @@ docs/SecurityGroupRef.md
 docs/SecurityGroupResource.md
 docs/SecurityGroupRule.md
 docs/SecurityGroupRuleIcmp.md
+docs/SetOrgConsumptionQuotaRequest.md
 docs/ShardIndexingBackPressureSettings.md
 docs/SksAudit.md
 docs/SksAuditCreate.md
@@ -447,6 +457,7 @@ docs/ThanosCompactorUserConfig.md
 docs/ThanosQueryFrontendUserConfig.md
 docs/ThanosQueryUserConfig.md
 docs/UpdateAiApiKeyRequest.md
+docs/UpdateAiApiKeyResponse.md
 docs/UpdateBlockStorageSnapshotRequest.md
 docs/UpdateBlockStorageVolumeRequest.md
 docs/UpdateDbaasIntegrationRequest.md
@@ -511,9 +522,10 @@ src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
 src/main/java/com/exoscale/sdk/model/AiApiKey.java
-src/main/java/com/exoscale/sdk/model/AiApiKeyWithValue.java
+src/main/java/com/exoscale/sdk/model/AiApiKeyValue.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroupRef.java
+src/main/java/com/exoscale/sdk/model/ApiKeyUsageEntry.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRole200Response.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
@@ -530,6 +542,7 @@ src/main/java/com/exoscale/sdk/model/BlockStorageVolumeRef.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/CreateAiApiKeyRequest.java
+src/main/java/com/exoscale/sdk/model/CreateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/CreateAntiAffinityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateBlockStorageSnapshotRequest.java
@@ -679,7 +692,6 @@ src/main/java/com/exoscale/sdk/model/DbaasValkeyUserAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasValkeyUsers.java
 src/main/java/com/exoscale/sdk/model/DecryptRequest.java
 src/main/java/com/exoscale/sdk/model/DecryptResponse.java
-src/main/java/com/exoscale/sdk/model/DeleteAiApiKey200Response.java
 src/main/java/com/exoscale/sdk/model/DeleteModelConflictResponse.java
 src/main/java/com/exoscale/sdk/model/DeployTarget.java
 src/main/java/com/exoscale/sdk/model/DeployTargetRef.java
@@ -728,6 +740,7 @@ src/main/java/com/exoscale/sdk/model/GenerateDataKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.java
 src/main/java/com/exoscale/sdk/model/GenericOAuthIntegration.java
 src/main/java/com/exoscale/sdk/model/GetActiveNodepoolTemplate200Response.java
+src/main/java/com/exoscale/sdk/model/GetAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GetConfederatioUsageResponse.java
 src/main/java/com/exoscale/sdk/model/GetConsoleProxyUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasCaCertificate200Response.java
@@ -787,6 +800,8 @@ src/main/java/com/exoscale/sdk/model/IamServicePolicy.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicyRule.java
 src/main/java/com/exoscale/sdk/model/InferenceEngineParameterEntry.java
 src/main/java/com/exoscale/sdk/model/InferenceEngineVersion.java
+src/main/java/com/exoscale/sdk/model/IngestMeteringRequest.java
+src/main/java/com/exoscale/sdk/model/IngestMeteringResponse.java
 src/main/java/com/exoscale/sdk/model/Instance.java
 src/main/java/com/exoscale/sdk/model/InstancePassword.java
 src/main/java/com/exoscale/sdk/model/InstancePool.java
@@ -814,6 +829,7 @@ src/main/java/com/exoscale/sdk/model/KeyMaterial.java
 src/main/java/com/exoscale/sdk/model/KeyRotationConfig.java
 src/main/java/com/exoscale/sdk/model/KubeletImageGc.java
 src/main/java/com/exoscale/sdk/model/ListAiApiKeysResponse.java
+src/main/java/com/exoscale/sdk/model/ListAiApiKeysResponseEntry.java
 src/main/java/com/exoscale/sdk/model/ListAiInstanceTypesResponse.java
 src/main/java/com/exoscale/sdk/model/ListAntiAffinityGroups200Response.java
 src/main/java/com/exoscale/sdk/model/ListApiKeys200Response.java
@@ -864,6 +880,7 @@ src/main/java/com/exoscale/sdk/model/LoadBalancerService.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServiceHealthcheck.java
 src/main/java/com/exoscale/sdk/model/Manager.java
 src/main/java/com/exoscale/sdk/model/ModelRef.java
+src/main/java/com/exoscale/sdk/model/ModelUsageCounters.java
 src/main/java/com/exoscale/sdk/model/Networking.java
 src/main/java/com/exoscale/sdk/model/NodeDuressSettings.java
 src/main/java/com/exoscale/sdk/model/OpensearchEmailSenderSettings.java
@@ -873,6 +890,7 @@ src/main/java/com/exoscale/sdk/model/OperatingFactor.java
 src/main/java/com/exoscale/sdk/model/Operation.java
 src/main/java/com/exoscale/sdk/model/OperationReference.java
 src/main/java/com/exoscale/sdk/model/OperationResourceRef.java
+src/main/java/com/exoscale/sdk/model/OrgConsumptionQuotaResponse.java
 src/main/java/com/exoscale/sdk/model/Organization.java
 src/main/java/com/exoscale/sdk/model/OrganizationUsage.java
 src/main/java/com/exoscale/sdk/model/PrimaryParameter.java
@@ -902,10 +920,12 @@ src/main/java/com/exoscale/sdk/model/ResetInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeInstanceDiskRequest.java
 src/main/java/com/exoscale/sdk/model/Resource.java
+src/main/java/com/exoscale/sdk/model/RevealAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/RevealDeploymentApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/ReverseDnsRecord.java
 src/main/java/com/exoscale/sdk/model/RevertInstanceToSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/RevisionStamp.java
+src/main/java/com/exoscale/sdk/model/RotateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/RotateKmsKeyResponse.java
 src/main/java/com/exoscale/sdk/model/SMTPServerSettings.java
 src/main/java/com/exoscale/sdk/model/ScaleDeploymentRequest.java
@@ -921,6 +941,7 @@ src/main/java/com/exoscale/sdk/model/SecurityGroupRef.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupResource.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRule.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRuleIcmp.java
+src/main/java/com/exoscale/sdk/model/SetOrgConsumptionQuotaRequest.java
 src/main/java/com/exoscale/sdk/model/ShardIndexingBackPressureSettings.java
 src/main/java/com/exoscale/sdk/model/SksAudit.java
 src/main/java/com/exoscale/sdk/model/SksAuditCreate.java
@@ -946,6 +967,7 @@ src/main/java/com/exoscale/sdk/model/ThanosCompactorUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryFrontendUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryUserConfig.java
 src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasIntegrationRequest.java

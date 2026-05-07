@@ -72,6 +72,8 @@ public class ListDeploymentsResponseEntry {
     
     CREATING("creating"),
     
+    PREPARING("preparing"),
+    
     ERROR("error"),
     
     DEPLOYING("deploying");
@@ -146,9 +148,9 @@ public class ListDeploymentsResponseEntry {
    * minimum: 1
    * @return gpuCount
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getGpuCount() {
     return gpuCount;
@@ -156,7 +158,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGpuCount(Long gpuCount) {
     this.gpuCount = gpuCount;
   }
@@ -166,9 +168,9 @@ public class ListDeploymentsResponseEntry {
    * Update time
    * @return updatedAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -183,12 +185,12 @@ public class ListDeploymentsResponseEntry {
   }
 
    /**
-   * Deployment URL (nullable)
+   * Deployment inference endpoint URL
    * @return deploymentUrl
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DEPLOYMENT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getDeploymentUrl() {
     return deploymentUrl;
@@ -196,7 +198,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_DEPLOYMENT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDeploymentUrl(String deploymentUrl) {
     this.deploymentUrl = deploymentUrl;
   }
@@ -211,9 +213,9 @@ public class ListDeploymentsResponseEntry {
    * Service level
    * @return serviceLevel
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getServiceLevel() {
     return serviceLevel;
@@ -221,7 +223,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setServiceLevel(String serviceLevel) {
     this.serviceLevel = serviceLevel;
   }
@@ -236,9 +238,9 @@ public class ListDeploymentsResponseEntry {
    * Deployment name
    * @return name
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getName() {
     return name;
@@ -246,7 +248,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
   }
@@ -261,9 +263,9 @@ public class ListDeploymentsResponseEntry {
    * Deployment state
    * @return state
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public StateEnum getState() {
     return state;
@@ -271,7 +273,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setState(StateEnum state) {
     this.state = state;
   }
@@ -286,9 +288,9 @@ public class ListDeploymentsResponseEntry {
    * GPU type family
    * @return gpuType
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getGpuType() {
     return gpuType;
@@ -296,7 +298,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGpuType(String gpuType) {
     this.gpuType = gpuType;
   }
@@ -306,9 +308,9 @@ public class ListDeploymentsResponseEntry {
    * Deployment ID
    * @return id
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getId() {
     return id;
@@ -327,9 +329,9 @@ public class ListDeploymentsResponseEntry {
    * minimum: 0
    * @return replicas
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getReplicas() {
     return replicas;
@@ -337,7 +339,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReplicas(Long replicas) {
     this.replicas = replicas;
   }
@@ -347,9 +349,9 @@ public class ListDeploymentsResponseEntry {
    * Creation time
    * @return createdAt
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -369,7 +371,7 @@ public class ListDeploymentsResponseEntry {
   **/
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public ModelRef getModel() {
     return model;
@@ -377,7 +379,7 @@ public class ListDeploymentsResponseEntry {
 
 
   @JsonProperty(JSON_PROPERTY_MODEL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setModel(ModelRef model) {
     this.model = model;
   }

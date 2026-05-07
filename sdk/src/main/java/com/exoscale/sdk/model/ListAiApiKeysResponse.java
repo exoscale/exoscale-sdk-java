@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AiApiKey;
+import com.exoscale.sdk.model.ListAiApiKeysResponseEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,17 +40,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListAiApiKeysResponse {
   public static final String JSON_PROPERTY_AI_API_KEYS = "ai-api-keys";
-  private List<AiApiKey> aiApiKeys = new ArrayList<>();
+  private List<ListAiApiKeysResponseEntry> aiApiKeys = new ArrayList<>();
 
   public ListAiApiKeysResponse() { 
   }
 
-  public ListAiApiKeysResponse aiApiKeys(List<AiApiKey> aiApiKeys) {
+  public ListAiApiKeysResponse aiApiKeys(List<ListAiApiKeysResponseEntry> aiApiKeys) {
     this.aiApiKeys = aiApiKeys;
     return this;
   }
 
-  public ListAiApiKeysResponse addAiApiKeysItem(AiApiKey aiApiKeysItem) {
+  public ListAiApiKeysResponse addAiApiKeysItem(ListAiApiKeysResponseEntry aiApiKeysItem) {
     if (this.aiApiKeys == null) {
       this.aiApiKeys = new ArrayList<>();
     }
@@ -66,14 +66,14 @@ public class ListAiApiKeysResponse {
   @JsonProperty(JSON_PROPERTY_AI_API_KEYS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<AiApiKey> getAiApiKeys() {
+  public List<ListAiApiKeysResponseEntry> getAiApiKeys() {
     return aiApiKeys;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AI_API_KEYS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAiApiKeys(List<AiApiKey> aiApiKeys) {
+  public void setAiApiKeys(List<ListAiApiKeysResponseEntry> aiApiKeys) {
     this.aiApiKeys = aiApiKeys;
   }
 

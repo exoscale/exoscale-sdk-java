@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Deployment an AI model onto a set of GPUs
+ * Deploy an AI model onto a set of GPUs
  */
 @JsonPropertyOrder({
   CreateDeploymentRequest.JSON_PROPERTY_GPU_COUNT,
@@ -50,7 +50,7 @@ public class CreateDeploymentRequest {
   private Long gpuCount;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._19_0;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._20_1;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -239,7 +239,7 @@ public class CreateDeploymentRequest {
    * Get model
    * @return model
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

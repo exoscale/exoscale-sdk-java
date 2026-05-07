@@ -2,13 +2,13 @@
 
 # ListDeploymentsResponse
 
-AI model list
+AI deployment list
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**deployments** | [**List&lt;ListDeploymentsResponseEntry&gt;**](ListDeploymentsResponseEntry.md) |  |  [optional] |
+|**deployments** | [**List&lt;ListDeploymentsResponseEntry&gt;**](ListDeploymentsResponseEntry.md) |  |  |
 
 
 
