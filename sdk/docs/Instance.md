@@ -30,6 +30,7 @@ Instance
 |**id** | **UUID** | Instance ID |  [optional] [readonly] |
 |**snapshots** | [**List&lt;SnapshotRef&gt;**](SnapshotRef.md) | Instance Snapshots |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  [optional] |
+|**diskEncrypted** | **Boolean** | Indicates if the root volume of the instance is encrypted |  [optional] [readonly] |
 |**sshKeys** | [**List&lt;SshKey&gt;**](SshKey.md) | Instance SSH Keys |  [optional] |
 |**createdAt** | **OffsetDateTime** | Instance creation date |  [optional] [readonly] |
 |**publicIp** | **String** | Instance public IPv4 address |  [optional] [readonly] |

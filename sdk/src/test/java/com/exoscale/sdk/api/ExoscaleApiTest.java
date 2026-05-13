@@ -198,6 +198,7 @@ import com.exoscale.sdk.model.ListSshKeys200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
 import com.exoscale.sdk.model.ListUsers200Response;
 import com.exoscale.sdk.model.ListZones200Response;
+import com.exoscale.sdk.model.LiveBalance;
 import com.exoscale.sdk.model.LoadBalancer;
 import com.exoscale.sdk.model.LoadBalancerService;
 import java.time.OffsetDateTime;
@@ -207,6 +208,7 @@ import com.exoscale.sdk.model.Organization;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
 import com.exoscale.sdk.model.Quota;
+import com.exoscale.sdk.model.RateLimited;
 import com.exoscale.sdk.model.ReEncryptRequest;
 import com.exoscale.sdk.model.ReEncryptResponse;
 import com.exoscale.sdk.model.RegisterSshKeyRequest;
@@ -3373,6 +3375,22 @@ public class ExoscaleApiTest {
         UUID id = null;
         GetKmsKeyResponse response = 
         api.getKmsKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Retrieve the live-balance
+     *
+     * [BETA] Returns the live-balance of the current organization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLiveBalanceTest() throws ApiException {
+        LiveBalance response = 
+        api.getLiveBalance();
         
         // TODO: test validations
     }

@@ -14,7 +14,7 @@ Organization
 |**postcode** | **String** | Organization postcode |  [optional] [readonly] |
 |**city** | **String** | Organization city |  [optional] [readonly] |
 |**country** | **String** | Organization country |  [optional] [readonly] |
-|**balance** | **BigDecimal** | Organization balance |  [optional] [readonly] |
+|**balance** | **BigDecimal** | Organization balance. DEPRECATED: use the dedicated &#x60;live-balance&#x60; endpoint |  [optional] [readonly] |
 |**currency** | **String** | Organization currency |  [optional] [readonly] |
 
 

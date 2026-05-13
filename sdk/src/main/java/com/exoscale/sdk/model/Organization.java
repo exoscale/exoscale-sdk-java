@@ -185,9 +185,11 @@ public class Organization {
 
 
    /**
-   * Organization balance
+   * Organization balance. DEPRECATED: use the dedicated &#x60;live-balance&#x60; endpoint
    * @return balance
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

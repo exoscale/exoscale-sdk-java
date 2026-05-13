@@ -364,6 +364,7 @@ docs/ListSshKeys200Response.md
 docs/ListTemplates200Response.md
 docs/ListUsers200Response.md
 docs/ListZones200Response.md
+docs/LiveBalance.md
 docs/LoadBalancer.md
 docs/LoadBalancerServerStatus.md
 docs/LoadBalancerService.md
@@ -393,6 +394,7 @@ docs/PrivateNetworkRef.md
 docs/PromoteSnapshotToTemplateRequest.md
 docs/PublicIpAssignment.md
 docs/Quota.md
+docs/RateLimited.md
 docs/ReEncryptRequest.md
 docs/ReEncryptRequestDestination.md
 docs/ReEncryptRequestSource.md
@@ -874,6 +876,7 @@ src/main/java/com/exoscale/sdk/model/ListSshKeys200Response.java
 src/main/java/com/exoscale/sdk/model/ListTemplates200Response.java
 src/main/java/com/exoscale/sdk/model/ListUsers200Response.java
 src/main/java/com/exoscale/sdk/model/ListZones200Response.java
+src/main/java/com/exoscale/sdk/model/LiveBalance.java
 src/main/java/com/exoscale/sdk/model/LoadBalancer.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServerStatus.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerService.java
@@ -903,6 +906,7 @@ src/main/java/com/exoscale/sdk/model/PrivateNetworkRef.java
 src/main/java/com/exoscale/sdk/model/PromoteSnapshotToTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/PublicIpAssignment.java
 src/main/java/com/exoscale/sdk/model/Quota.java
+src/main/java/com/exoscale/sdk/model/RateLimited.java
 src/main/java/com/exoscale/sdk/model/ReEncryptRequest.java
 src/main/java/com/exoscale/sdk/model/ReEncryptRequestDestination.java
 src/main/java/com/exoscale/sdk/model/ReEncryptRequestSource.java

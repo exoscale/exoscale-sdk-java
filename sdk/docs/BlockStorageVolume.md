@@ -16,6 +16,7 @@ Block storage volume
 |**blocksize** | **Long** | Volume block size |  [optional] [readonly] |
 |**blockStorageSnapshots** | [**List&lt;BlockStorageSnapshotRef&gt;**](BlockStorageSnapshotRef.md) | Volume snapshots, if any |  [optional] |
 |**id** | **UUID** | Volume ID |  [optional] [readonly] |
+|**encrypted** | **Boolean** | Indicates if the block-storage volume is encrypted |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Volume creation date |  [optional] [readonly] |
 
 

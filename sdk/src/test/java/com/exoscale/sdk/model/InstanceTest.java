@@ -232,6 +232,14 @@ public class InstanceTest {
     }
 
     /**
+     * Test the property 'diskEncrypted'
+     */
+    @Test
+    public void diskEncryptedTest() {
+        // TODO: test diskEncrypted
+    }
+
+    /**
      * Test the property 'sshKeys'
      */
     @Test

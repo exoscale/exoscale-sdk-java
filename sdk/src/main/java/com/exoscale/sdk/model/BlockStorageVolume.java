@@ -48,6 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BlockStorageVolume.JSON_PROPERTY_BLOCKSIZE,
   BlockStorageVolume.JSON_PROPERTY_BLOCK_STORAGE_SNAPSHOTS,
   BlockStorageVolume.JSON_PROPERTY_ID,
+  BlockStorageVolume.JSON_PROPERTY_ENCRYPTED,
   BlockStorageVolume.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -125,6 +126,9 @@ public class BlockStorageVolume {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
+  public static final String JSON_PROPERTY_ENCRYPTED = "encrypted";
+  private Boolean encrypted;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
@@ -136,12 +140,14 @@ public class BlockStorageVolume {
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
     @JsonProperty(JSON_PROPERTY_BLOCKSIZE) Long blocksize, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_ENCRYPTED) Boolean encrypted, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.state = state;
     this.blocksize = blocksize;
     this.id = id;
+    this.encrypted = encrypted;
     this.createdAt = createdAt;
   }
 
@@ -334,6 +340,21 @@ public class BlockStorageVolume {
 
 
    /**
+   * Indicates if the block-storage volume is encrypted
+   * @return encrypted
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENCRYPTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEncrypted() {
+    return encrypted;
+  }
+
+
+
+
+   /**
    * Volume creation date
    * @return createdAt
   **/
@@ -368,12 +389,13 @@ public class BlockStorageVolume {
         Objects.equals(this.blocksize, blockStorageVolume.blocksize) &&
         Objects.equals(this.blockStorageSnapshots, blockStorageVolume.blockStorageSnapshots) &&
         Objects.equals(this.id, blockStorageVolume.id) &&
+        Objects.equals(this.encrypted, blockStorageVolume.encrypted) &&
         Objects.equals(this.createdAt, blockStorageVolume.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(labels, instance, name, state, size, blocksize, blockStorageSnapshots, id, createdAt);
+    return Objects.hash(labels, instance, name, state, size, blocksize, blockStorageSnapshots, id, encrypted, createdAt);
   }
 
   @Override
@@ -388,6 +410,7 @@ public class BlockStorageVolume {
     sb.append("    blocksize: ").append(toIndentedString(blocksize)).append("\n");
     sb.append("    blockStorageSnapshots: ").append(toIndentedString(blockStorageSnapshots)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    encrypted: ").append(toIndentedString(encrypted)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -483,6 +506,11 @@ public class BlockStorageVolume {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `encrypted` to the URL query string
+    if (getEncrypted() != null) {
+      joiner.add(String.format("%sencrypted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncrypted()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string

@@ -24,52 +24,71 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AssumeIamRoleRequest
+ * Live balance
  */
 @JsonPropertyOrder({
-  AssumeIamRoleRequest.JSON_PROPERTY_TTL
+  LiveBalance.JSON_PROPERTY_BALANCE,
+  LiveBalance.JSON_PROPERTY_CURRENCY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class AssumeIamRoleRequest {
-  public static final String JSON_PROPERTY_TTL = "ttl";
-  private Long ttl;
+public class LiveBalance {
+  public static final String JSON_PROPERTY_BALANCE = "balance";
+  private BigDecimal balance;
 
-  public AssumeIamRoleRequest() { 
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
+
+  public LiveBalance() { 
   }
 
-  public AssumeIamRoleRequest ttl(Long ttl) {
-    this.ttl = ttl;
-    return this;
+  @JsonCreator
+  public LiveBalance(
+    @JsonProperty(JSON_PROPERTY_BALANCE) BigDecimal balance, 
+    @JsonProperty(JSON_PROPERTY_CURRENCY) String currency
+  ) {
+  this();
+    this.balance = balance;
+    this.currency = currency;
   }
 
    /**
-   * TTL in seconds for the generated access key (cannot exceed the max TTL defined in the targeted assume role)
-   * minimum: 0
-   * @return ttl
+   * Organization live balance
+   * @return balance
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TTL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BALANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getTtl() {
-    return ttl;
+  public BigDecimal getBalance() {
+    return balance;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TTL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTtl(Long ttl) {
-    this.ttl = ttl;
+
+
+   /**
+   * Organization currency
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
   }
+
+
 
 
   /**
-   * Return true if this assume_iam_role_request object is equal to o.
+   * Return true if this live-balance object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,20 +98,22 @@ public class AssumeIamRoleRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssumeIamRoleRequest assumeIamRoleRequest = (AssumeIamRoleRequest) o;
-    return Objects.equals(this.ttl, assumeIamRoleRequest.ttl);
+    LiveBalance liveBalance = (LiveBalance) o;
+    return Objects.equals(this.balance, liveBalance.balance) &&
+        Objects.equals(this.currency, liveBalance.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ttl);
+    return Objects.hash(balance, currency);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssumeIamRoleRequest {\n");
-    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
+    sb.append("class LiveBalance {\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +161,14 @@ public class AssumeIamRoleRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `ttl` to the URL query string
-    if (getTtl() != null) {
-      joiner.add(String.format("%sttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `balance` to the URL query string
+    if (getBalance() != null) {
+      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

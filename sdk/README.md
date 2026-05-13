@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-05-07T07:57:34.204882213Z[Etc/UTC]
+- Build date: 2026-05-13T08:02:39.632943440Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-29c9da2</version>
+    <version>0.0.5-SNAPSHOT-4edc5dc</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-29c9da2'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4edc5dc'
 }
 ```
 
@@ -260,6 +260,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getInstancePool**](sdk/docs/ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
 *ExoscaleApi* | [**getInstanceType**](sdk/docs/ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
 *ExoscaleApi* | [**getKmsKey**](sdk/docs/ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | [BETA] Get KMS Key
+*ExoscaleApi* | [**getLiveBalance**](sdk/docs/ExoscaleApi.md#getLiveBalance) | **GET** /live-balance | [BETA] Retrieve the live-balance
 *ExoscaleApi* | [**getLoadBalancer**](sdk/docs/ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
 *ExoscaleApi* | [**getLoadBalancerService**](sdk/docs/ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details
 *ExoscaleApi* | [**getModel**](sdk/docs/ExoscaleApi.md#getModel) | **GET** /ai/model/{id} | Get Model
@@ -786,6 +787,7 @@ Class | Method | HTTP request | Description
  - [ListTemplates200Response](sdk/docs/ListTemplates200Response.md)
  - [ListUsers200Response](sdk/docs/ListUsers200Response.md)
  - [ListZones200Response](sdk/docs/ListZones200Response.md)
+ - [LiveBalance](sdk/docs/LiveBalance.md)
  - [LoadBalancer](sdk/docs/LoadBalancer.md)
  - [LoadBalancerServerStatus](sdk/docs/LoadBalancerServerStatus.md)
  - [LoadBalancerService](sdk/docs/LoadBalancerService.md)
@@ -815,6 +817,7 @@ Class | Method | HTTP request | Description
  - [PromoteSnapshotToTemplateRequest](sdk/docs/PromoteSnapshotToTemplateRequest.md)
  - [PublicIpAssignment](sdk/docs/PublicIpAssignment.md)
  - [Quota](sdk/docs/Quota.md)
+ - [RateLimited](sdk/docs/RateLimited.md)
  - [ReEncryptRequest](sdk/docs/ReEncryptRequest.md)
  - [ReEncryptRequestDestination](sdk/docs/ReEncryptRequestDestination.md)
  - [ReEncryptRequestSource](sdk/docs/ReEncryptRequestSource.md)

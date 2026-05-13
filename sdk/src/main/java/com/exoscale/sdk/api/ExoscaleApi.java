@@ -202,6 +202,7 @@ import com.exoscale.sdk.model.ListSshKeys200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
 import com.exoscale.sdk.model.ListUsers200Response;
 import com.exoscale.sdk.model.ListZones200Response;
+import com.exoscale.sdk.model.LiveBalance;
 import com.exoscale.sdk.model.LoadBalancer;
 import com.exoscale.sdk.model.LoadBalancerService;
 import java.time.OffsetDateTime;
@@ -211,6 +212,7 @@ import com.exoscale.sdk.model.Organization;
 import com.exoscale.sdk.model.PrivateNetwork;
 import com.exoscale.sdk.model.PromoteSnapshotToTemplateRequest;
 import com.exoscale.sdk.model.Quota;
+import com.exoscale.sdk.model.RateLimited;
 import com.exoscale.sdk.model.ReEncryptRequest;
 import com.exoscale.sdk.model.ReEncryptResponse;
 import com.exoscale.sdk.model.RegisterSshKeyRequest;
@@ -15699,6 +15701,81 @@ public class ExoscaleApi {
 
     String localVarPath = "/kms-key/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Retrieve the live-balance
+   * [BETA] Returns the live-balance of the current organization.
+   * @return LiveBalance
+   * @throws ApiException if fails to make API call
+   */
+  public LiveBalance getLiveBalance() throws ApiException {
+    ApiResponse<LiveBalance> localVarResponse = getLiveBalanceWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Retrieve the live-balance
+   * [BETA] Returns the live-balance of the current organization.
+   * @return ApiResponse&lt;LiveBalance&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<LiveBalance> getLiveBalanceWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getLiveBalanceRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getLiveBalance", localVarResponse);
+        }
+        return new ApiResponse<LiveBalance>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<LiveBalance>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getLiveBalanceRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/live-balance";
       String requestBody = null;
       String authorizationValue;
 

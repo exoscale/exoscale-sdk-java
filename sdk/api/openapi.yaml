@@ -2163,6 +2163,28 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /live-balance:
+    get:
+      description: "[BETA] Returns the live-balance of the current organization."
+      operationId: get-live-balance
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/live-balance'
+          description: "200"
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rate-limited'
+          description: "429"
+      summary: "[BETA] Retrieve the live-balance"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-postgres/{service-name}/database/{database-name}:
     delete:
       operationId: delete-dbaas-pg-database
@@ -13847,6 +13869,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           secureboot-enabled: true
+          disk-encrypted: true
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -14997,6 +15020,19 @@ components:
           format: uuid
           type: string
       type: object
+    rate-limited:
+      description: Rate Limit
+      example:
+        retry_after: 6.027456183070403
+        error: error
+      properties:
+        error:
+          description: The error message
+          type: string
+        retry_after:
+          description: The time in seconds to wait before the next request
+          type: number
+      type: object
     key-rotation-config:
       example:
         rotation-period: 6
@@ -15919,6 +15955,21 @@ components:
       - default-service-strategy
       - services
       type: object
+    live-balance:
+      description: Live balance
+      example:
+        balance: 0.8008281904610115
+        currency: currency
+      properties:
+        balance:
+          description: Organization live balance
+          readOnly: true
+          type: number
+        currency:
+          description: Organization currency
+          readOnly: true
+          type: string
+      type: object
     replica-state:
       example:
         zone: zone
@@ -16455,6 +16506,7 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           family: family
         secureboot-enabled: true
+        disk-encrypted: true
         security-groups:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -16594,6 +16646,10 @@ components:
           maximum: 51200
           minimum: 10
           type: integer
+        disk-encrypted:
+          description: Indicates if the root volume of the instance is encrypted
+          readOnly: true
+          type: boolean
         ssh-keys:
           description: Instance SSH Keys
           items:
@@ -19301,6 +19357,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           secureboot-enabled: true
+          disk-encrypted: true
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -19378,6 +19435,7 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             family: family
           secureboot-enabled: true
+          disk-encrypted: true
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20628,7 +20686,9 @@ components:
           readOnly: true
           type: string
         balance:
-          description: Organization balance
+          deprecated: true
+          description: "Organization balance. DEPRECATED: use the dedicated `live-balance`\
+            \ endpoint"
           readOnly: true
           type: number
         currency:
@@ -21198,6 +21258,7 @@ components:
         instance:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         size: 1
+        encrypted: true
         block-storage-snapshots:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21256,6 +21317,10 @@ components:
           format: uuid
           readOnly: true
           type: string
+        encrypted:
+          description: Indicates if the block-storage volume is encrypted
+          readOnly: true
+          type: boolean
         created-at:
           description: Volume creation date
           format: date-time
@@ -21619,6 +21684,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             secureboot-enabled: true
+            disk-encrypted: true
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21696,6 +21762,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             secureboot-enabled: true
+            disk-encrypted: true
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21777,6 +21844,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             secureboot-enabled: true
+            disk-encrypted: true
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21854,6 +21922,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             secureboot-enabled: true
+            disk-encrypted: true
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22665,6 +22734,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+      required:
+      - ttl
       type: object
     assume_iam_role_200_response:
       example:
@@ -24368,6 +24439,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             secureboot-enabled: true
+            disk-encrypted: true
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24455,6 +24527,7 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               family: family
             secureboot-enabled: true
+            disk-encrypted: true
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -27497,6 +27570,7 @@ components:
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 1
+          encrypted: true
           block-storage-snapshots:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -27510,6 +27584,7 @@ components:
           instance:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 1
+          encrypted: true
           block-storage-snapshots:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91

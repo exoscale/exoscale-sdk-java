@@ -72,6 +72,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Instance.JSON_PROPERTY_ID,
   Instance.JSON_PROPERTY_SNAPSHOTS,
   Instance.JSON_PROPERTY_DISK_SIZE,
+  Instance.JSON_PROPERTY_DISK_ENCRYPTED,
   Instance.JSON_PROPERTY_SSH_KEYS,
   Instance.JSON_PROPERTY_CREATED_AT,
   Instance.JSON_PROPERTY_PUBLIC_IP
@@ -144,6 +145,9 @@ public class Instance {
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
 
+  public static final String JSON_PROPERTY_DISK_ENCRYPTED = "disk-encrypted";
+  private Boolean diskEncrypted;
+
   public static final String JSON_PROPERTY_SSH_KEYS = "ssh-keys";
   private List<SshKey> sshKeys;
 
@@ -161,6 +165,7 @@ public class Instance {
     @JsonProperty(JSON_PROPERTY_MAC_ADDRESS) String macAddress, 
     @JsonProperty(JSON_PROPERTY_IPV6_ADDRESS) String ipv6Address, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_DISK_ENCRYPTED) Boolean diskEncrypted, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
     @JsonProperty(JSON_PROPERTY_PUBLIC_IP) String publicIp
   ) {
@@ -168,6 +173,7 @@ public class Instance {
     this.macAddress = macAddress;
     this.ipv6Address = ipv6Address;
     this.id = id;
+    this.diskEncrypted = diskEncrypted;
     this.createdAt = createdAt;
     this.publicIp = publicIp;
   }
@@ -742,6 +748,21 @@ public class Instance {
   }
 
 
+   /**
+   * Indicates if the root volume of the instance is encrypted
+   * @return diskEncrypted
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISK_ENCRYPTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDiskEncrypted() {
+    return diskEncrypted;
+  }
+
+
+
+
   public Instance sshKeys(List<SshKey> sshKeys) {
     this.sshKeys = sshKeys;
     return this;
@@ -839,6 +860,7 @@ public class Instance {
         Objects.equals(this.id, instance.id) &&
         Objects.equals(this.snapshots, instance.snapshots) &&
         Objects.equals(this.diskSize, instance.diskSize) &&
+        Objects.equals(this.diskEncrypted, instance.diskEncrypted) &&
         Objects.equals(this.sshKeys, instance.sshKeys) &&
         Objects.equals(this.createdAt, instance.createdAt) &&
         Objects.equals(this.publicIp, instance.publicIp);
@@ -846,7 +868,7 @@ public class Instance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, id, snapshots, diskSize, sshKeys, createdAt, publicIp);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, id, snapshots, diskSize, diskEncrypted, sshKeys, createdAt, publicIp);
   }
 
   @Override
@@ -875,6 +897,7 @@ public class Instance {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
+    sb.append("    diskEncrypted: ").append(toIndentedString(diskEncrypted)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
@@ -1062,6 +1085,11 @@ public class Instance {
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `disk-encrypted` to the URL query string
+    if (getDiskEncrypted() != null) {
+      joiner.add(String.format("%sdisk-encrypted%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskEncrypted()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ssh-keys` to the URL query string

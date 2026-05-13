@@ -24,52 +24,81 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AssumeIamRoleRequest
+ * Rate Limit
  */
 @JsonPropertyOrder({
-  AssumeIamRoleRequest.JSON_PROPERTY_TTL
+  RateLimited.JSON_PROPERTY_ERROR,
+  RateLimited.JSON_PROPERTY_RETRY_AFTER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class AssumeIamRoleRequest {
-  public static final String JSON_PROPERTY_TTL = "ttl";
-  private Long ttl;
+public class RateLimited {
+  public static final String JSON_PROPERTY_ERROR = "error";
+  private String error;
 
-  public AssumeIamRoleRequest() { 
+  public static final String JSON_PROPERTY_RETRY_AFTER = "retry_after";
+  private BigDecimal retryAfter;
+
+  public RateLimited() { 
   }
 
-  public AssumeIamRoleRequest ttl(Long ttl) {
-    this.ttl = ttl;
+  public RateLimited error(String error) {
+    this.error = error;
     return this;
   }
 
    /**
-   * TTL in seconds for the generated access key (cannot exceed the max TTL defined in the targeted assume role)
-   * minimum: 0
-   * @return ttl
+   * The error message
+   * @return error
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TTL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getTtl() {
-    return ttl;
+  public String getError() {
+    return error;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TTL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTtl(Long ttl) {
-    this.ttl = ttl;
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setError(String error) {
+    this.error = error;
+  }
+
+
+  public RateLimited retryAfter(BigDecimal retryAfter) {
+    this.retryAfter = retryAfter;
+    return this;
+  }
+
+   /**
+   * The time in seconds to wait before the next request
+   * @return retryAfter
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RETRY_AFTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getRetryAfter() {
+    return retryAfter;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RETRY_AFTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRetryAfter(BigDecimal retryAfter) {
+    this.retryAfter = retryAfter;
   }
 
 
   /**
-   * Return true if this assume_iam_role_request object is equal to o.
+   * Return true if this rate-limited object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,20 +108,22 @@ public class AssumeIamRoleRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssumeIamRoleRequest assumeIamRoleRequest = (AssumeIamRoleRequest) o;
-    return Objects.equals(this.ttl, assumeIamRoleRequest.ttl);
+    RateLimited rateLimited = (RateLimited) o;
+    return Objects.equals(this.error, rateLimited.error) &&
+        Objects.equals(this.retryAfter, rateLimited.retryAfter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ttl);
+    return Objects.hash(error, retryAfter);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssumeIamRoleRequest {\n");
-    sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
+    sb.append("class RateLimited {\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    retryAfter: ").append(toIndentedString(retryAfter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +171,14 @@ public class AssumeIamRoleRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `ttl` to the URL query string
-    if (getTtl() != null) {
-      joiner.add(String.format("%sttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `error` to the URL query string
+    if (getError() != null) {
+      joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `retry_after` to the URL query string
+    if (getRetryAfter() != null) {
+      joiner.add(String.format("%sretry_after%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRetryAfter()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

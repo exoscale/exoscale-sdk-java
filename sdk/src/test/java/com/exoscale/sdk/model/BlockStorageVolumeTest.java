@@ -110,6 +110,14 @@ public class BlockStorageVolumeTest {
     }
 
     /**
+     * Test the property 'encrypted'
+     */
+    @Test
+    public void encryptedTest() {
+        // TODO: test encrypted
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test
