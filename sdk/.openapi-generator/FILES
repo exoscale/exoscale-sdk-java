@@ -228,6 +228,8 @@ docs/ForbiddenOperationResponse.md
 docs/GenerateDataKeyRequest.md
 docs/GenerateDataKeyResponse.md
 docs/GenerateSksClusterKubeconfig200Response.md
+docs/GenerateSksKarpenterExoscaleNodeclass200Response.md
+docs/GenerateSksKarpenterNodepool200Response.md
 docs/GenericOAuthIntegration.md
 docs/GetActiveNodepoolTemplate200Response.md
 docs/GetAiApiKeyResponse.md
@@ -740,6 +742,8 @@ src/main/java/com/exoscale/sdk/model/ForbiddenOperationResponse.java
 src/main/java/com/exoscale/sdk/model/GenerateDataKeyRequest.java
 src/main/java/com/exoscale/sdk/model/GenerateDataKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.java
+src/main/java/com/exoscale/sdk/model/GenerateSksKarpenterExoscaleNodeclass200Response.java
+src/main/java/com/exoscale/sdk/model/GenerateSksKarpenterNodepool200Response.java
 src/main/java/com/exoscale/sdk/model/GenericOAuthIntegration.java
 src/main/java/com/exoscale/sdk/model/GetActiveNodepoolTemplate200Response.java
 src/main/java/com/exoscale/sdk/model/GetAiApiKeyResponse.java

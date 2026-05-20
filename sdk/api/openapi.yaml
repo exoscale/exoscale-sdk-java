@@ -7714,6 +7714,31 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /sks-cluster/{id}/generate-karpenter-nodepool:
+    put:
+      description: ""
+      operationId: generate-sks-karpenter-nodepool
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generate_sks_karpenter_nodepool_200_response'
+          description: "200"
+      summary: Generate a Karpenter NodePool manifest with minimal configuration for
+        an SKS cluster
+      tags:
+      - exoscale
+      x-accepts: application/json
   /load-balancer/{id}:
     delete:
       description: ""
@@ -8243,6 +8268,31 @@ paths:
       tags:
       - exoscale
       x-content-type: application/json
+      x-accepts: application/json
+  /sks-cluster/{id}/generate-karpenter-exoscale-nodeclass:
+    put:
+      description: ""
+      operationId: generate-sks-karpenter-exoscale-nodeclass
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/generate_sks_karpenter_exoscale_nodeclass_200_response'
+          description: "200"
+      summary: "Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster,\
+        \ including its default security group and feature flags if present"
+      tags:
+      - exoscale
       x-accepts: application/json
   /sks-cluster/{id}/nodepool:
     post:
@@ -25899,6 +25949,13 @@ components:
       required:
       - plan
       type: object
+    generate_sks_karpenter_nodepool_200_response:
+      example:
+        nodepool: nodepool
+      properties:
+        nodepool:
+          type: string
+      type: object
     update_load_balancer_request:
       properties:
         name:
@@ -26264,6 +26321,13 @@ components:
           type: array
       required:
       - plan
+      type: object
+    generate_sks_karpenter_exoscale_nodeclass_200_response:
+      example:
+        exoscale-nodeclass: exoscale-nodeclass
+      properties:
+        exoscale-nodeclass:
+          type: string
       type: object
     create_sks_nodepool_request:
       properties:

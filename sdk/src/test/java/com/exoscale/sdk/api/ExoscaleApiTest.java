@@ -129,6 +129,8 @@ import com.exoscale.sdk.model.ForbiddenOperationResponse;
 import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
+import com.exoscale.sdk.model.GenerateSksKarpenterExoscaleNodeclass200Response;
+import com.exoscale.sdk.model.GenerateSksKarpenterNodepool200Response;
 import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
 import com.exoscale.sdk.model.GetAiApiKeyResponse;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
@@ -2493,6 +2495,40 @@ public class ExoscaleApiTest {
         SksKubeconfigRequest sksKubeconfigRequest = null;
         GenerateSksClusterKubeconfig200Response response = 
         api.generateSksClusterKubeconfig(id, sksKubeconfigRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void generateSksKarpenterExoscaleNodeclassTest() throws ApiException {
+        UUID id = null;
+        GenerateSksKarpenterExoscaleNodeclass200Response response = 
+        api.generateSksKarpenterExoscaleNodeclass(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void generateSksKarpenterNodepoolTest() throws ApiException {
+        UUID id = null;
+        GenerateSksKarpenterNodepool200Response response = 
+        api.generateSksKarpenterNodepool(id);
         
         // TODO: test validations
     }

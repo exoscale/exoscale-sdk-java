@@ -130,6 +130,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**exportSnapshot**](ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot |
 | [**generateDataKey**](ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key |
 | [**generateSksClusterKubeconfig**](ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster |
+| [**generateSksKarpenterExoscaleNodeclass**](ExoscaleApi.md#generateSksKarpenterExoscaleNodeclass) | **PUT** /sks-cluster/{id}/generate-karpenter-exoscale-nodeclass | Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present |
+| [**generateSksKarpenterNodepool**](ExoscaleApi.md#generateSksKarpenterNodepool) | **PUT** /sks-cluster/{id}/generate-karpenter-nodepool | Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster |
 | [**getActiveNodepoolTemplate**](ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} |  |
 | [**getAiApiKey**](ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | Get AI API Key |
 | [**getAntiAffinityGroup**](ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details |
@@ -12104,6 +12106,190 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## generateSksKarpenterExoscaleNodeclass
+
+> GenerateSksKarpenterExoscaleNodeclass200Response generateSksKarpenterExoscaleNodeclass(id)
+
+Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            GenerateSksKarpenterExoscaleNodeclass200Response result = client.generateSksKarpenterExoscaleNodeclass(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#generateSksKarpenterExoscaleNodeclass");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**GenerateSksKarpenterExoscaleNodeclass200Response**](GenerateSksKarpenterExoscaleNodeclass200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GenerateSksKarpenterExoscaleNodeclass200Response**](GenerateSksKarpenterExoscaleNodeclass200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## generateSksKarpenterNodepool
+
+> GenerateSksKarpenterNodepool200Response generateSksKarpenterNodepool(id)
+
+Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            GenerateSksKarpenterNodepool200Response result = client.generateSksKarpenterNodepool(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#generateSksKarpenterNodepool");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**GenerateSksKarpenterNodepool200Response**](GenerateSksKarpenterNodepool200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GenerateSksKarpenterNodepool200Response**](GenerateSksKarpenterNodepool200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 ### HTTP response details

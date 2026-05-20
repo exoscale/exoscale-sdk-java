@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-05-13T08:02:39.632943440Z[Etc/UTC]
+- Build date: 2026-05-20T08:12:52.609071431Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-4edc5dc</version>
+    <version>0.0.5-SNAPSHOT-9eb2b53</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4edc5dc'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9eb2b53'
 }
 ```
 
@@ -208,6 +208,8 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**exportSnapshot**](sdk/docs/ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot
 *ExoscaleApi* | [**generateDataKey**](sdk/docs/ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key
 *ExoscaleApi* | [**generateSksClusterKubeconfig**](sdk/docs/ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster
+*ExoscaleApi* | [**generateSksKarpenterExoscaleNodeclass**](sdk/docs/ExoscaleApi.md#generateSksKarpenterExoscaleNodeclass) | **PUT** /sks-cluster/{id}/generate-karpenter-exoscale-nodeclass | Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present
+*ExoscaleApi* | [**generateSksKarpenterNodepool**](sdk/docs/ExoscaleApi.md#generateSksKarpenterNodepool) | **PUT** /sks-cluster/{id}/generate-karpenter-nodepool | Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster
 *ExoscaleApi* | [**getActiveNodepoolTemplate**](sdk/docs/ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} | 
 *ExoscaleApi* | [**getAiApiKey**](sdk/docs/ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | Get AI API Key
 *ExoscaleApi* | [**getAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
@@ -651,6 +653,8 @@ Class | Method | HTTP request | Description
  - [GenerateDataKeyRequest](sdk/docs/GenerateDataKeyRequest.md)
  - [GenerateDataKeyResponse](sdk/docs/GenerateDataKeyResponse.md)
  - [GenerateSksClusterKubeconfig200Response](sdk/docs/GenerateSksClusterKubeconfig200Response.md)
+ - [GenerateSksKarpenterExoscaleNodeclass200Response](sdk/docs/GenerateSksKarpenterExoscaleNodeclass200Response.md)
+ - [GenerateSksKarpenterNodepool200Response](sdk/docs/GenerateSksKarpenterNodepool200Response.md)
  - [GenericOAuthIntegration](sdk/docs/GenericOAuthIntegration.md)
  - [GetActiveNodepoolTemplate200Response](sdk/docs/GetActiveNodepoolTemplate200Response.md)
  - [GetAiApiKeyResponse](sdk/docs/GetAiApiKeyResponse.md)

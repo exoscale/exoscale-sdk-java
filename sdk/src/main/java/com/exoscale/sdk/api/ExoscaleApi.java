@@ -133,6 +133,8 @@ import com.exoscale.sdk.model.ForbiddenOperationResponse;
 import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
+import com.exoscale.sdk.model.GenerateSksKarpenterExoscaleNodeclass200Response;
+import com.exoscale.sdk.model.GenerateSksKarpenterNodepool200Response;
 import com.exoscale.sdk.model.GetActiveNodepoolTemplate200Response;
 import com.exoscale.sdk.model.GetAiApiKeyResponse;
 import com.exoscale.sdk.model.GetConsoleProxyUrl200Response;
@@ -11439,6 +11441,170 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present
+   * 
+   * @param id  (required)
+   * @return GenerateSksKarpenterExoscaleNodeclass200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GenerateSksKarpenterExoscaleNodeclass200Response generateSksKarpenterExoscaleNodeclass(UUID id) throws ApiException {
+    ApiResponse<GenerateSksKarpenterExoscaleNodeclass200Response> localVarResponse = generateSksKarpenterExoscaleNodeclassWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;GenerateSksKarpenterExoscaleNodeclass200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GenerateSksKarpenterExoscaleNodeclass200Response> generateSksKarpenterExoscaleNodeclassWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = generateSksKarpenterExoscaleNodeclassRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("generateSksKarpenterExoscaleNodeclass", localVarResponse);
+        }
+        return new ApiResponse<GenerateSksKarpenterExoscaleNodeclass200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GenerateSksKarpenterExoscaleNodeclass200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder generateSksKarpenterExoscaleNodeclassRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling generateSksKarpenterExoscaleNodeclass");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sks-cluster/{id}/generate-karpenter-exoscale-nodeclass"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster
+   * 
+   * @param id  (required)
+   * @return GenerateSksKarpenterNodepool200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GenerateSksKarpenterNodepool200Response generateSksKarpenterNodepool(UUID id) throws ApiException {
+    ApiResponse<GenerateSksKarpenterNodepool200Response> localVarResponse = generateSksKarpenterNodepoolWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;GenerateSksKarpenterNodepool200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GenerateSksKarpenterNodepool200Response> generateSksKarpenterNodepoolWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = generateSksKarpenterNodepoolRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("generateSksKarpenterNodepool", localVarResponse);
+        }
+        return new ApiResponse<GenerateSksKarpenterNodepool200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GenerateSksKarpenterNodepool200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder generateSksKarpenterNodepoolRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling generateSksKarpenterNodepool");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sks-cluster/{id}/generate-karpenter-nodepool"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
