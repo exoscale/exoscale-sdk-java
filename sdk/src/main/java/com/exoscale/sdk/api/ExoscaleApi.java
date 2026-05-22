@@ -28628,7 +28628,7 @@ public class ExoscaleApi {
   }
   /**
    * Update IAM Assume role Policy
-   * 
+   * Update IAM Assume role Policy
    * @param id  (required)
    * @param iamPolicy  (required)
    * @return Operation
@@ -28641,7 +28641,7 @@ public class ExoscaleApi {
 
   /**
    * Update IAM Assume role Policy
-   * 
+   * Update IAM Assume role Policy
    * @param id  (required)
    * @param iamPolicy  (required)
    * @return ApiResponse&lt;Operation&gt;

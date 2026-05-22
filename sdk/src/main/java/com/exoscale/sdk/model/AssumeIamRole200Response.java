@@ -36,7 +36,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AssumeIamRole200Response.JSON_PROPERTY_NAME,
   AssumeIamRole200Response.JSON_PROPERTY_ORG_ID,
   AssumeIamRole200Response.JSON_PROPERTY_ROLE_ID,
-  AssumeIamRole200Response.JSON_PROPERTY_SECRET
+  AssumeIamRole200Response.JSON_PROPERTY_SECRET,
+  AssumeIamRole200Response.JSON_PROPERTY_EXPIRES_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class AssumeIamRole200Response {
@@ -54,6 +55,9 @@ public class AssumeIamRole200Response {
 
   public static final String JSON_PROPERTY_SECRET = "secret";
   private String secret;
+
+  public static final String JSON_PROPERTY_EXPIRES_AT = "expires-at";
+  private String expiresAt;
 
   public AssumeIamRole200Response() { 
   }
@@ -183,6 +187,31 @@ public class AssumeIamRole200Response {
   }
 
 
+  public AssumeIamRole200Response expiresAt(String expiresAt) {
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+   /**
+   * Get expiresAt
+   * @return expiresAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXPIRES_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExpiresAt(String expiresAt) {
+    this.expiresAt = expiresAt;
+  }
+
+
   /**
    * Return true if this assume_iam_role_200_response object is equal to o.
    */
@@ -199,12 +228,13 @@ public class AssumeIamRole200Response {
         Objects.equals(this.name, assumeIamRole200Response.name) &&
         Objects.equals(this.orgId, assumeIamRole200Response.orgId) &&
         Objects.equals(this.roleId, assumeIamRole200Response.roleId) &&
-        Objects.equals(this.secret, assumeIamRole200Response.secret);
+        Objects.equals(this.secret, assumeIamRole200Response.secret) &&
+        Objects.equals(this.expiresAt, assumeIamRole200Response.expiresAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, name, orgId, roleId, secret);
+    return Objects.hash(key, name, orgId, roleId, secret, expiresAt);
   }
 
   @Override
@@ -216,6 +246,7 @@ public class AssumeIamRole200Response {
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -286,6 +317,11 @@ public class AssumeIamRole200Response {
     // add `secret` to the URL query string
     if (getSecret() != null) {
       joiner.add(String.format("%ssecret%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `expires-at` to the URL query string
+    if (getExpiresAt() != null) {
+      joiner.add(String.format("%sexpires-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

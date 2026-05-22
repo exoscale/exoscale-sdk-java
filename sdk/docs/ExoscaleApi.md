@@ -30607,7 +30607,7 @@ No authorization required
 
 Update IAM Assume role Policy
 
-
+Update IAM Assume role Policy
 
 ### Example
 

@@ -5338,7 +5338,7 @@ paths:
       x-accepts: application/json
   /iam-role/{id}:assume-role-policy:
     put:
-      description: ""
+      description: Update IAM Assume role Policy
       operationId: update-iam-role-assume-policy
       parameters:
       - explode: false
@@ -22789,6 +22789,7 @@ components:
       type: object
     assume_iam_role_200_response:
       example:
+        expires-at: expires-at
         role-id: role-id
         name: name
         org-id: org-id
@@ -22804,6 +22805,8 @@ components:
         role-id:
           type: string
         secret:
+          type: string
+        expires-at:
           type: string
       type: object
     attach_instance_to_private_network_request_instance:

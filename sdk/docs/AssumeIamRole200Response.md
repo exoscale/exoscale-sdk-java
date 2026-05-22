@@ -12,6 +12,7 @@
 |**orgId** | **String** |  |  [optional] |
 |**roleId** | **String** |  |  [optional] |
 |**secret** | **String** |  |  [optional] |
+|**expiresAt** | **String** |  |  [optional] |
 
 
 

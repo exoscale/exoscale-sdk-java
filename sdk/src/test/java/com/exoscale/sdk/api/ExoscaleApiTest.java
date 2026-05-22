@@ -5968,7 +5968,7 @@ public class ExoscaleApiTest {
     /**
      * Update IAM Assume role Policy
      *
-     * 
+     * Update IAM Assume role Policy
      *
      * @throws ApiException
      *          if the Api call fails

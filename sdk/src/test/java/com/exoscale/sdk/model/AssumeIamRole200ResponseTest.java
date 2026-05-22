@@ -77,4 +77,12 @@ public class AssumeIamRole200ResponseTest {
         // TODO: test secret
     }
 
+    /**
+     * Test the property 'expiresAt'
+     */
+    @Test
+    public void expiresAtTest() {
+        // TODO: test expiresAt
+    }
+
 }
