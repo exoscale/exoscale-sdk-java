@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-05-22T08:11:03.089098503Z[Etc/UTC]
+- Build date: 2026-05-27T08:22:22.851082096Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c48fc6a</version>
+    <version>0.0.5-SNAPSHOT-c921400</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c48fc6a'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c921400'
 }
 ```
 
@@ -86,7 +86,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**addInstanceProtection**](sdk/docs/ExoscaleApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection
 *ExoscaleApi* | [**addRuleToSecurityGroup**](sdk/docs/ExoscaleApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule
 *ExoscaleApi* | [**addServiceToLoadBalancer**](sdk/docs/ExoscaleApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service
-*ExoscaleApi* | [**assumeIamRole**](sdk/docs/ExoscaleApi.md#assumeIamRole) | **POST** /iam-role/{target-role-id}/assume | [BETA] Request generation of key/secret that allow caller to assume target role
+*ExoscaleApi* | [**assumeIamRole**](sdk/docs/ExoscaleApi.md#assumeIamRole) | **POST** /iam-role/{id}/assume | [BETA] Request generation of key/secret that allow caller to assume target role
 *ExoscaleApi* | [**attachBlockStorageVolumeToInstance**](sdk/docs/ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance
 *ExoscaleApi* | [**attachDbaasServiceToEndpoint**](sdk/docs/ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach | 
 *ExoscaleApi* | [**attachInstanceToElasticIp**](sdk/docs/ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP

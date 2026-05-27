@@ -375,10 +375,10 @@ public class ExoscaleApiTest {
      */
     @Test
     public void assumeIamRoleTest() throws ApiException {
-        UUID targetRoleId = null;
+        UUID id = null;
         AssumeIamRoleRequest assumeIamRoleRequest = null;
         AssumeIamRole200Response response = 
-        api.assumeIamRole(targetRoleId, assumeIamRoleRequest);
+        api.assumeIamRole(id, assumeIamRoleRequest);
         
         // TODO: test validations
     }

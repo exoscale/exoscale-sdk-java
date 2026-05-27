@@ -710,26 +710,26 @@ public class ExoscaleApi {
   /**
    * [BETA] Request generation of key/secret that allow caller to assume target role
    * [BETA] Request generation of key/secret that allow caller to assume target role
-   * @param targetRoleId  (required)
+   * @param id  (required)
    * @param assumeIamRoleRequest  (required)
    * @return AssumeIamRole200Response
    * @throws ApiException if fails to make API call
    */
-  public AssumeIamRole200Response assumeIamRole(UUID targetRoleId, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
-    ApiResponse<AssumeIamRole200Response> localVarResponse = assumeIamRoleWithHttpInfo(targetRoleId, assumeIamRoleRequest);
+  public AssumeIamRole200Response assumeIamRole(UUID id, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
+    ApiResponse<AssumeIamRole200Response> localVarResponse = assumeIamRoleWithHttpInfo(id, assumeIamRoleRequest);
     return localVarResponse.getData();
   }
 
   /**
    * [BETA] Request generation of key/secret that allow caller to assume target role
    * [BETA] Request generation of key/secret that allow caller to assume target role
-   * @param targetRoleId  (required)
+   * @param id  (required)
    * @param assumeIamRoleRequest  (required)
    * @return ApiResponse&lt;AssumeIamRole200Response&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<AssumeIamRole200Response> assumeIamRoleWithHttpInfo(UUID targetRoleId, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = assumeIamRoleRequestBuilder(targetRoleId, assumeIamRoleRequest);
+  private ApiResponse<AssumeIamRole200Response> assumeIamRoleWithHttpInfo(UUID id, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = assumeIamRoleRequestBuilder(id, assumeIamRoleRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -757,10 +757,10 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder assumeIamRoleRequestBuilder(UUID targetRoleId, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
-    // verify the required parameter 'targetRoleId' is set
-    if (targetRoleId == null) {
-      throw new ApiException(400, "Missing the required parameter 'targetRoleId' when calling assumeIamRole");
+  private HttpRequest.Builder assumeIamRoleRequestBuilder(UUID id, AssumeIamRoleRequest assumeIamRoleRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling assumeIamRole");
     }
     // verify the required parameter 'assumeIamRoleRequest' is set
     if (assumeIamRoleRequest == null) {
@@ -770,8 +770,8 @@ public class ExoscaleApi {
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/iam-role/{target-role-id}/assume"
-        .replace("{target-role-id}", ApiClient.urlEncode(targetRoleId.toString()));
+    String localVarPath = "/iam-role/{id}/assume"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
           try{

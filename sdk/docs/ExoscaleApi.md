@@ -8,7 +8,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**addInstanceProtection**](ExoscaleApi.md#addInstanceProtection) | **PUT** /instance/{id}:add-protection | Set instance destruction protection |
 | [**addRuleToSecurityGroup**](ExoscaleApi.md#addRuleToSecurityGroup) | **POST** /security-group/{id}/rules | Create a Security Group rule |
 | [**addServiceToLoadBalancer**](ExoscaleApi.md#addServiceToLoadBalancer) | **POST** /load-balancer/{id}/service | Add a Load Balancer Service |
-| [**assumeIamRole**](ExoscaleApi.md#assumeIamRole) | **POST** /iam-role/{target-role-id}/assume | [BETA] Request generation of key/secret that allow caller to assume target role |
+| [**assumeIamRole**](ExoscaleApi.md#assumeIamRole) | **POST** /iam-role/{id}/assume | [BETA] Request generation of key/secret that allow caller to assume target role |
 | [**attachBlockStorageVolumeToInstance**](ExoscaleApi.md#attachBlockStorageVolumeToInstance) | **PUT** /block-storage/{id}:attach | Attach block storage volume to an instance |
 | [**attachDbaasServiceToEndpoint**](ExoscaleApi.md#attachDbaasServiceToEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/attach |  |
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
@@ -729,7 +729,7 @@ No authorization required
 
 ## assumeIamRole
 
-> AssumeIamRole200Response assumeIamRole(targetRoleId, assumeIamRoleRequest)
+> AssumeIamRole200Response assumeIamRole(id, assumeIamRoleRequest)
 
 [BETA] Request generation of key/secret that allow caller to assume target role
 
@@ -748,12 +748,12 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID targetRoleId = UUID.randomUUID(); // UUID | 
+        UUID id = UUID.randomUUID(); // UUID | 
         AssumeIamRoleRequest assumeIamRoleRequest = new AssumeIamRoleRequest(); // AssumeIamRoleRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            AssumeIamRole200Response result = client.assumeIamRole(targetRoleId, assumeIamRoleRequest);
+            AssumeIamRole200Response result = client.assumeIamRole(id, assumeIamRoleRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#assumeIamRole");
@@ -771,7 +771,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **targetRoleId** | **UUID**|  | |
+| **id** | **UUID**|  | |
 | **assumeIamRoleRequest** | [**AssumeIamRoleRequest**](AssumeIamRoleRequest.md)|  | |
 
 ### Return type
@@ -799,7 +799,7 @@ No authorization required
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **targetRoleId** | **UUID**|  | |
+| **id** | **UUID**|  | |
 | **assumeIamRoleRequest** | [**AssumeIamRoleRequest**](AssumeIamRoleRequest.md)|  | |
 
 ### Return type
