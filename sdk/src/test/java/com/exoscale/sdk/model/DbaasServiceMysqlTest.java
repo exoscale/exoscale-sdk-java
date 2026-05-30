@@ -276,4 +276,12 @@ public class DbaasServiceMysqlTest {
         // TODO: test users
     }
 
+    /**
+     * Test the property 'binlogRetentionPeriod'
+     */
+    @Test
+    public void binlogRetentionPeriodTest() {
+        // TODO: test binlogRetentionPeriod
+    }
+
 }

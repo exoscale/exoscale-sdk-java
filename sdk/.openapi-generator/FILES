@@ -311,6 +311,7 @@ docs/JsonSchemaKafkaRest.md
 docs/JsonSchemaMysql.md
 docs/JsonSchemaOpensearch.md
 docs/JsonSchemaPg.md
+docs/JsonSchemaPgaudit.md
 docs/JsonSchemaPgbouncer.md
 docs/JsonSchemaPglookout.md
 docs/JsonSchemaSchemaRegistry.md
@@ -825,6 +826,7 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaKafkaRest.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaMysql.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaOpensearch.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPg.java
+src/main/java/com/exoscale/sdk/model/JsonSchemaPgaudit.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPgbouncer.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPglookout.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaSchemaRegistry.java

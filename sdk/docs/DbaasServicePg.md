@@ -26,6 +26,7 @@
 |**ipFilter** | **List&lt;String&gt;** | Allowed CIDR address blocks for incoming connections |  [optional] |
 |**backups** | [**List&lt;DbaasServiceBackup&gt;**](DbaasServiceBackup.md) | List of backups for the service |  [optional] |
 |**terminationProtection** | **Boolean** | Service is protected against termination and powering off |  [optional] |
+|**pgauditSettings** | [**JsonSchemaPgaudit**](JsonSchemaPgaudit.md) |  |  [optional] |
 |**notifications** | [**List&lt;DbaasServiceNotification&gt;**](DbaasServiceNotification.md) | Service notifications |  [optional] |
 |**components** | [**List&lt;DbaasServiceMysqlComponentsInner&gt;**](DbaasServiceMysqlComponentsInner.md) | Service component information objects |  [optional] |
 |**synchronousReplication** | **EnumPgSynchronousReplication** |  |  [optional] |

@@ -22,6 +22,7 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.EnumPgSynchronousReplication;
 import com.exoscale.sdk.model.EnumPgVariant;
 import com.exoscale.sdk.model.JsonSchemaPg;
+import com.exoscale.sdk.model.JsonSchemaPgaudit;
 import com.exoscale.sdk.model.JsonSchemaPgbouncer;
 import com.exoscale.sdk.model.JsonSchemaPglookout;
 import com.exoscale.sdk.model.JsonSchemaTimescaledb;
@@ -49,6 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateDbaasServicePgRequest.JSON_PROPERTY_TIMESCALEDB_SETTINGS,
   UpdateDbaasServicePgRequest.JSON_PROPERTY_IP_FILTER,
   UpdateDbaasServicePgRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
+  UpdateDbaasServicePgRequest.JSON_PROPERTY_PGAUDIT_SETTINGS,
   UpdateDbaasServicePgRequest.JSON_PROPERTY_SYNCHRONOUS_REPLICATION,
   UpdateDbaasServicePgRequest.JSON_PROPERTY_PGLOOKOUT_SETTINGS,
   UpdateDbaasServicePgRequest.JSON_PROPERTY_MAINTENANCE,
@@ -78,6 +80,9 @@ public class UpdateDbaasServicePgRequest {
 
   public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
   private Boolean terminationProtection;
+
+  public static final String JSON_PROPERTY_PGAUDIT_SETTINGS = "pgaudit-settings";
+  private JsonSchemaPgaudit pgauditSettings;
 
   public static final String JSON_PROPERTY_SYNCHRONOUS_REPLICATION = "synchronous-replication";
   private EnumPgSynchronousReplication synchronousReplication;
@@ -264,6 +269,31 @@ public class UpdateDbaasServicePgRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminationProtection(Boolean terminationProtection) {
     this.terminationProtection = terminationProtection;
+  }
+
+
+  public UpdateDbaasServicePgRequest pgauditSettings(JsonSchemaPgaudit pgauditSettings) {
+    this.pgauditSettings = pgauditSettings;
+    return this;
+  }
+
+   /**
+   * Get pgauditSettings
+   * @return pgauditSettings
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PGAUDIT_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonSchemaPgaudit getPgauditSettings() {
+    return pgauditSettings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PGAUDIT_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPgauditSettings(JsonSchemaPgaudit pgauditSettings) {
+    this.pgauditSettings = pgauditSettings;
   }
 
 
@@ -514,6 +544,7 @@ public class UpdateDbaasServicePgRequest {
         Objects.equals(this.timescaledbSettings, updateDbaasServicePgRequest.timescaledbSettings) &&
         Objects.equals(this.ipFilter, updateDbaasServicePgRequest.ipFilter) &&
         Objects.equals(this.terminationProtection, updateDbaasServicePgRequest.terminationProtection) &&
+        Objects.equals(this.pgauditSettings, updateDbaasServicePgRequest.pgauditSettings) &&
         Objects.equals(this.synchronousReplication, updateDbaasServicePgRequest.synchronousReplication) &&
         Objects.equals(this.pglookoutSettings, updateDbaasServicePgRequest.pglookoutSettings) &&
         Objects.equals(this.maintenance, updateDbaasServicePgRequest.maintenance) &&
@@ -527,7 +558,7 @@ public class UpdateDbaasServicePgRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pgbouncerSettings, backupSchedule, variant, timescaledbSettings, ipFilter, terminationProtection, synchronousReplication, pglookoutSettings, maintenance, version, plan, workMem, sharedBuffersPercentage, pgSettings, migration);
+    return Objects.hash(pgbouncerSettings, backupSchedule, variant, timescaledbSettings, ipFilter, terminationProtection, pgauditSettings, synchronousReplication, pglookoutSettings, maintenance, version, plan, workMem, sharedBuffersPercentage, pgSettings, migration);
   }
 
   @Override
@@ -540,6 +571,7 @@ public class UpdateDbaasServicePgRequest {
     sb.append("    timescaledbSettings: ").append(toIndentedString(timescaledbSettings)).append("\n");
     sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
     sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
+    sb.append("    pgauditSettings: ").append(toIndentedString(pgauditSettings)).append("\n");
     sb.append("    synchronousReplication: ").append(toIndentedString(synchronousReplication)).append("\n");
     sb.append("    pglookoutSettings: ").append(toIndentedString(pglookoutSettings)).append("\n");
     sb.append("    maintenance: ").append(toIndentedString(maintenance)).append("\n");
@@ -628,6 +660,11 @@ public class UpdateDbaasServicePgRequest {
     // add `termination-protection` to the URL query string
     if (getTerminationProtection() != null) {
       joiner.add(String.format("%stermination-protection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminationProtection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `pgaudit-settings` to the URL query string
+    if (getPgauditSettings() != null) {
+      joiner.add(getPgauditSettings().toUrlQueryString(prefix + "pgaudit-settings" + suffix));
     }
 
     // add `synchronous-replication` to the URL query string

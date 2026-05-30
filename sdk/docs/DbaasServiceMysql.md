@@ -35,6 +35,7 @@
 |**createdAt** | **OffsetDateTime** | Service creation timestamp (ISO 8601) |  [optional] |
 |**plan** | **String** | Subscription plan |  |
 |**users** | [**List&lt;DbaasServiceMysqlUsersInner&gt;**](DbaasServiceMysqlUsersInner.md) | List of service users |  [optional] |
+|**binlogRetentionPeriod** | **Long** | The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector. |  [optional] |
 
 
 

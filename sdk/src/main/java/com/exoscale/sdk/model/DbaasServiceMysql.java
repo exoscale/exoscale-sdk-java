@@ -74,7 +74,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DbaasServiceMysql.JSON_PROPERTY_VERSION,
   DbaasServiceMysql.JSON_PROPERTY_CREATED_AT,
   DbaasServiceMysql.JSON_PROPERTY_PLAN,
-  DbaasServiceMysql.JSON_PROPERTY_USERS
+  DbaasServiceMysql.JSON_PROPERTY_USERS,
+  DbaasServiceMysql.JSON_PROPERTY_BINLOG_RETENTION_PERIOD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasServiceMysql {
@@ -161,6 +162,9 @@ public class DbaasServiceMysql {
 
   public static final String JSON_PROPERTY_USERS = "users";
   private List<DbaasServiceMysqlUsersInner> users;
+
+  public static final String JSON_PROPERTY_BINLOG_RETENTION_PERIOD = "binlog-retention-period";
+  private Long binlogRetentionPeriod;
 
   public DbaasServiceMysql() { 
   }
@@ -933,6 +937,32 @@ public class DbaasServiceMysql {
   }
 
 
+  public DbaasServiceMysql binlogRetentionPeriod(Long binlogRetentionPeriod) {
+    this.binlogRetentionPeriod = binlogRetentionPeriod;
+    return this;
+  }
+
+   /**
+   * The minimum amount of time in seconds to keep binlog entries before deletion. This may be extended for services that require binlog entries for longer than the default for example if using the MySQL Debezium Kafka connector.
+   * minimum: 0
+   * @return binlogRetentionPeriod
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BINLOG_RETENTION_PERIOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getBinlogRetentionPeriod() {
+    return binlogRetentionPeriod;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BINLOG_RETENTION_PERIOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBinlogRetentionPeriod(Long binlogRetentionPeriod) {
+    this.binlogRetentionPeriod = binlogRetentionPeriod;
+  }
+
+
   /**
    * Return true if this dbaas-service-mysql object is equal to o.
    */
@@ -972,12 +1002,13 @@ public class DbaasServiceMysql {
         Objects.equals(this.version, dbaasServiceMysql.version) &&
         Objects.equals(this.createdAt, dbaasServiceMysql.createdAt) &&
         Objects.equals(this.plan, dbaasServiceMysql.plan) &&
-        Objects.equals(this.users, dbaasServiceMysql.users);
+        Objects.equals(this.users, dbaasServiceMysql.users) &&
+        Objects.equals(this.binlogRetentionPeriod, dbaasServiceMysql.binlogRetentionPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, nodeCount, connectionInfo, backupSchedule, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, databases, ipFilter, backups, terminationProtection, notifications, components, mysqlSettings, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users);
+    return Objects.hash(updatedAt, nodeCount, connectionInfo, backupSchedule, nodeCpuCount, prometheusUri, integrations, zone, nodeStates, name, type, state, databases, ipFilter, backups, terminationProtection, notifications, components, mysqlSettings, maintenance, diskSize, nodeMemory, uri, uriParams, version, createdAt, plan, users, binlogRetentionPeriod);
   }
 
   @Override
@@ -1012,6 +1043,7 @@ public class DbaasServiceMysql {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
+    sb.append("    binlogRetentionPeriod: ").append(toIndentedString(binlogRetentionPeriod)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1235,6 +1267,11 @@ public class DbaasServiceMysql {
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+    }
+
+    // add `binlog-retention-period` to the URL query string
+    if (getBinlogRetentionPeriod() != null) {
+      joiner.add(String.format("%sbinlog-retention-period%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBinlogRetentionPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -27,6 +27,7 @@ import com.exoscale.sdk.model.DbaasServicePgUsersInner;
 import com.exoscale.sdk.model.EnumPgSynchronousReplication;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaPg;
+import com.exoscale.sdk.model.JsonSchemaPgaudit;
 import com.exoscale.sdk.model.JsonSchemaPgbouncer;
 import com.exoscale.sdk.model.JsonSchemaPglookout;
 import com.exoscale.sdk.model.JsonSchemaTimescaledb;
@@ -207,6 +208,14 @@ public class DbaasServicePgTest {
     @Test
     public void terminationProtectionTest() {
         // TODO: test terminationProtection
+    }
+
+    /**
+     * Test the property 'pgauditSettings'
+     */
+    @Test
+    public void pgauditSettingsTest() {
+        // TODO: test pgauditSettings
     }
 
     /**

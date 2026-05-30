@@ -41,6 +41,14 @@ tags:
   x-display-name: DBaaS Mysql
   x-weight: 420
   x-icon: exo-db-mysql
+- description: API keys for accessing inference deployments.
+  externalDocs:
+    description: Read more
+    url: https://www.exoscale.com/ai-cloud-infrastructure/managed-inference/
+  name: ai-api-key
+  x-display-name: AI API Key
+  x-weight: 940
+  x-icon: exo-license
 - description: "Elastic IPs are additional public IPv4/6 addresses that can be attached\
     \ to Compute instances, with optional healthcheck support."
   externalDocs:
@@ -10965,6 +10973,138 @@ components:
       - command
       - id
       type: object
+    json-schema-pgaudit:
+      description: System-wide settings for the pgaudit extension.
+      example:
+        role: role
+        log_client: false
+        log:
+        - all
+        - all
+        log_level: log
+        log_max_string_length: 61051
+        log_statement_once: false
+        log_parameter_max_size: 5
+        log_nested_statements: true
+        log_rows: false
+        feature_enabled: false
+        log_catalog: true
+        log_relation: false
+        log_statement: true
+        log_parameter: false
+      properties:
+        role:
+          description: Specifies the master role to use for object audit logging.
+          maxLength: 64
+          pattern: "^[_A-Za-z0-9][-._A-Za-z0-9]{0,63}$"
+          title: Role
+          type: string
+        log_parameter:
+          default: false
+          description: Specifies that audit logging should include the parameters
+            that were passed with the statement.
+          title: Log Parameter
+          type: boolean
+        log_rows:
+          default: false
+          title: Log Rows
+          type: boolean
+        log_level:
+          default: log
+          description: Specifies the log level that will be used for log entries.
+          enum:
+          - debug1
+          - debug2
+          - debug3
+          - debug4
+          - debug5
+          - info
+          - notice
+          - warning
+          - log
+          title: Log level
+          type: string
+        log_relation:
+          default: false
+          description: |-
+            Specifies whether session audit logging should create a separate log entry
+            for each relation (TABLE, VIEW, etc.) referenced in a SELECT or DML statement.
+          title: Log Relation
+          type: boolean
+        log_statement_once:
+          default: false
+          description: |-
+            Specifies whether logging will include the statement text and parameters with
+            the first log entry for a statement/substatement combination or with every entry.
+          title: Log Statement Once
+          type: boolean
+        log_max_string_length:
+          default: -1
+          description: |-
+            Crop parameters representation and whole statements if they exceed this threshold.
+            A (default) value of -1 disable the truncation.
+          maximum: 102400
+          minimum: -1
+          title: Log Max String Length
+          type: integer
+        log_catalog:
+          default: true
+          description: |-
+            Specifies that session logging should be enabled in the case where all relations
+            in a statement are in pg_catalog.
+          title: Log Catalog
+          type: boolean
+        log_nested_statements:
+          default: true
+          description: |-
+            This GUC allows to turn off logging nested statements, that is, statements that are
+            executed as part of another ExecutorRun.
+          title: Log Nested Statements
+          type: boolean
+        log_statement:
+          default: true
+          description: Specifies whether logging will include the statement text and
+            parameters (if enabled).
+          title: Log Statement
+          type: boolean
+        log_client:
+          default: false
+          description: Specifies whether log messages will be visible to a client
+            process such as psql.
+          title: Log Client
+          type: boolean
+        feature_enabled:
+          default: false
+          description: "Enable pgaudit extension. When enabled, pgaudit extension\
+            \ will be automatically installed.Otherwise, extension will be uninstalled\
+            \ but auditing configurations will be preserved."
+          title: Enable pgaudit extension.
+          type: boolean
+        log:
+          description: Specifies which classes of statements will be logged by session
+            audit logging.
+          items:
+            enum:
+            - all
+            - ddl
+            - function
+            - misc
+            - misc_set
+            - read
+            - role
+            - write
+            type: string
+          title: Log
+          type: array
+        log_parameter_max_size:
+          default: 0
+          description: |-
+            Specifies that parameter values longer than this setting (in bytes) should not be logged,
+            but replaced with <long param suppressed>.
+          title: Log Parameter Max Size
+          type: integer
+      title: PGAudit settings
+      type: object
     dbaas-valkey-user-access-control:
       example:
         channels:
@@ -11853,40 +11993,40 @@ components:
       additionalProperties: false
       example:
         default_toast_compression: lz4
-        max_logical_replication_workers: 88
+        max_logical_replication_workers: 184
         pg_stat_statements.track: all
-        max_parallel_workers: 64
+        max_parallel_workers: 29
         timezone: Europe/Helsinki
-        max_files_per_process: 2119
+        max_files_per_process: 2283
         log_error_verbosity: TERSE
-        max_standby_streaming_delay: 30493888
+        max_standby_streaming_delay: 443390
         pg_partman_bgw.interval: 3600
         pg_stat_monitor.pgsm_max_buckets: 10
-        max_prepared_transactions: 3093
+        max_prepared_transactions: 885
         jit: true
-        max_standby_archive_delay: 28162862
+        max_standby_archive_delay: 20098353
         track_functions: all
         pg_stat_monitor.pgsm_enable_query_plan: false
-        max_worker_processes: 208
-        io_workers: 4
-        idle_in_transaction_session_timeout: 61970571
+        max_worker_processes: 205
+        io_workers: 22
+        idle_in_transaction_session_timeout: 414097651
         wal:
-          max_wal_senders: 194
-          wal_sender_timeout: 1330034
-          max_slot_wal_keep_size: 890262544
+          max_wal_senders: 44
+          wal_sender_timeout: 1608569
+          max_slot_wal_keep_size: 264465517
           wal_writer_delay: 50
-        log_temp_files: 619369099
-        max_locks_per_transaction: 4358
+        log_temp_files: 1477050466
+        max_locks_per_transaction: 3830
         password_encryption: scram-sha-256
-        max_stack_depth: 4590621
+        max_stack_depth: 3503583
         pg_partman_bgw.role: myrolename
         deadlock_timeout: 1000
-        max_parallel_workers_per_gather: 34
+        max_parallel_workers_per_gather: 12
         io_method: worker
         track_activity_query_size: 1024
         temp_file_limit: 5000000
-        io_max_concurrency: 206
-        max_pred_locks_per_transaction: 817
+        io_max_concurrency: 756
+        max_pred_locks_per_transaction: 3834
         bg-writer:
           bgwriter_lru_maxpages: 100
           bgwriter_lru_multiplier: 2.0
@@ -11894,21 +12034,21 @@ components:
           bgwriter_flush_after: 512
         track_commit_timestamp: "off"
         autovacuum:
-          autovacuum_analyze_scale_factor: 0.9018348186070783
-          autovacuum_vacuum_threshold: 2140135219
-          autovacuum_vacuum_cost_limit: 4964
+          autovacuum_analyze_scale_factor: 0.35571952270680973
+          autovacuum_vacuum_threshold: 1435284096
+          autovacuum_vacuum_cost_limit: 9965
           autovacuum_freeze_max_age: 200000000
-          autovacuum_vacuum_scale_factor: 0.6683562403749608
-          autovacuum_max_workers: 10
-          autovacuum_vacuum_cost_delay: 87
-          autovacuum_naptime: 80950
-          autovacuum_analyze_threshold: 1382640929
-          log_autovacuum_min_duration: 251915776
-        io_max_combine_limit: 88
-        max_sync_workers_per_subscription: 6
-        log_min_duration_statement: 7647586
-        max_replication_slots: 177
-        io_combine_limit: 22
+          autovacuum_vacuum_scale_factor: 0.9018348186070783
+          autovacuum_max_workers: 18
+          autovacuum_vacuum_cost_delay: 64
+          autovacuum_naptime: 75704
+          autovacuum_analyze_threshold: 1495747635
+          log_autovacuum_min_duration: 1079111561
+        io_max_combine_limit: 86
+        max_sync_workers_per_subscription: 4
+        log_min_duration_statement: 56325723
+        max_replication_slots: 37
+        io_combine_limit: 9
         track_io_timing: "off"
         log_line_prefix: "'pid=%p,user=%u,db=%d,app=%a,client=%h '"
       properties:
@@ -12656,6 +12796,7 @@ components:
           - gpu
           - memory
           - gpua5000
+          - gpub300
           - gpurtx6000pro
           - storage
           - standard
@@ -12981,6 +13122,7 @@ components:
             min: 0
             max: 0
             completed: true
+        binlog-retention-period: 0
         created-at: 2000-01-23T04:56:07.000+00:00
         state: null
         plan: plan
@@ -13174,6 +13316,15 @@ components:
           items:
             $ref: '#/components/schemas/dbaas_service_mysql_users_inner'
           type: array
+        binlog-retention-period:
+          description: The minimum amount of time in seconds to keep binlog entries
+            before deletion. This may be extended for services that require binlog
+            entries for longer than the default for example if using the MySQL Debezium
+            Kafka connector.
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
       required:
       - name
       - plan
@@ -15158,7 +15309,7 @@ components:
           port: 13284
           usage: null
           host: host
-        shared-buffers-percentage: 57
+        shared-buffers-percentage: 28
         node-memory: 0
         timescaledb-settings:
           max_background_workers: 8
@@ -15169,6 +15320,23 @@ components:
           backup-minute: 8
           backup-hour: 13
         max-connections: 0
+        pgaudit-settings:
+          role: role
+          log_client: false
+          log:
+          - all
+          - all
+          log_level: log
+          log_max_string_length: 61051
+          log_statement_once: false
+          log_parameter_max_size: 5
+          log_nested_statements: true
+          log_rows: false
+          feature_enabled: false
+          log_catalog: true
+          log_relation: false
+          log_statement: true
+          log_parameter: false
         type: type
         uri-params: "{}"
         zone: zone
@@ -15219,47 +15387,47 @@ components:
             min: 0
             max: 0
             completed: true
-        work-mem: 723
+        work-mem: 370
         synchronous-replication: null
         created-at: 2000-01-23T04:56:07.000+00:00
         state: null
         plan: plan
         pg-settings:
           default_toast_compression: lz4
-          max_logical_replication_workers: 88
+          max_logical_replication_workers: 184
           pg_stat_statements.track: all
-          max_parallel_workers: 64
+          max_parallel_workers: 29
           timezone: Europe/Helsinki
-          max_files_per_process: 2119
+          max_files_per_process: 2283
           log_error_verbosity: TERSE
-          max_standby_streaming_delay: 30493888
+          max_standby_streaming_delay: 443390
           pg_partman_bgw.interval: 3600
           pg_stat_monitor.pgsm_max_buckets: 10
-          max_prepared_transactions: 3093
+          max_prepared_transactions: 885
           jit: true
-          max_standby_archive_delay: 28162862
+          max_standby_archive_delay: 20098353
           track_functions: all
           pg_stat_monitor.pgsm_enable_query_plan: false
-          max_worker_processes: 208
-          io_workers: 4
-          idle_in_transaction_session_timeout: 61970571
+          max_worker_processes: 205
+          io_workers: 22
+          idle_in_transaction_session_timeout: 414097651
           wal:
-            max_wal_senders: 194
-            wal_sender_timeout: 1330034
-            max_slot_wal_keep_size: 890262544
+            max_wal_senders: 44
+            wal_sender_timeout: 1608569
+            max_slot_wal_keep_size: 264465517
             wal_writer_delay: 50
-          log_temp_files: 619369099
-          max_locks_per_transaction: 4358
+          log_temp_files: 1477050466
+          max_locks_per_transaction: 3830
           password_encryption: scram-sha-256
-          max_stack_depth: 4590621
+          max_stack_depth: 3503583
           pg_partman_bgw.role: myrolename
           deadlock_timeout: 1000
-          max_parallel_workers_per_gather: 34
+          max_parallel_workers_per_gather: 12
           io_method: worker
           track_activity_query_size: 1024
           temp_file_limit: 5000000
-          io_max_concurrency: 206
-          max_pred_locks_per_transaction: 817
+          io_max_concurrency: 756
+          max_pred_locks_per_transaction: 3834
           bg-writer:
             bgwriter_lru_maxpages: 100
             bgwriter_lru_multiplier: 2.0
@@ -15267,21 +15435,21 @@ components:
             bgwriter_flush_after: 512
           track_commit_timestamp: "off"
           autovacuum:
-            autovacuum_analyze_scale_factor: 0.9018348186070783
-            autovacuum_vacuum_threshold: 2140135219
-            autovacuum_vacuum_cost_limit: 4964
+            autovacuum_analyze_scale_factor: 0.35571952270680973
+            autovacuum_vacuum_threshold: 1435284096
+            autovacuum_vacuum_cost_limit: 9965
             autovacuum_freeze_max_age: 200000000
-            autovacuum_vacuum_scale_factor: 0.6683562403749608
-            autovacuum_max_workers: 10
-            autovacuum_vacuum_cost_delay: 87
-            autovacuum_naptime: 80950
-            autovacuum_analyze_threshold: 1382640929
-            log_autovacuum_min_duration: 251915776
-          io_max_combine_limit: 88
-          max_sync_workers_per_subscription: 6
-          log_min_duration_statement: 7647586
-          max_replication_slots: 177
-          io_combine_limit: 22
+            autovacuum_vacuum_scale_factor: 0.9018348186070783
+            autovacuum_max_workers: 18
+            autovacuum_vacuum_cost_delay: 64
+            autovacuum_naptime: 75704
+            autovacuum_analyze_threshold: 1495747635
+            log_autovacuum_min_duration: 1079111561
+          io_max_combine_limit: 86
+          max_sync_workers_per_subscription: 4
+          log_min_duration_statement: 56325723
+          max_replication_slots: 37
+          io_combine_limit: 9
           track_io_timing: "off"
           log_line_prefix: "'pid=%p,user=%u,db=%d,app=%a,client=%h '"
         databases:
@@ -15454,6 +15622,8 @@ components:
         termination-protection:
           description: Service is protected against termination and powering off
           type: boolean
+        pgaudit-settings:
+          $ref: '#/components/schemas/json-schema-pgaudit'
         notifications:
           description: Service notifications
           items:
@@ -26654,6 +26824,8 @@ components:
         termination-protection:
           description: Service is protected against termination and powering off
           type: boolean
+        pgaudit-settings:
+          $ref: '#/components/schemas/json-schema-pgaudit'
         synchronous-replication:
           $ref: '#/components/schemas/enum-pg-synchronous-replication'
         pglookout-settings:
@@ -26717,6 +26889,8 @@ components:
         termination-protection:
           description: Service is protected against termination and powering off
           type: boolean
+        pgaudit-settings:
+          $ref: '#/components/schemas/json-schema-pgaudit'
         fork-from-service:
           maxLength: 63
           minLength: 0
@@ -28488,9 +28662,9 @@ components:
       type: object
     Write_ahead_log__WAL__settings:
       example:
-        max_wal_senders: 194
-        wal_sender_timeout: 1330034
-        max_slot_wal_keep_size: 890262544
+        max_wal_senders: 44
+        wal_sender_timeout: 1608569
+        max_slot_wal_keep_size: 264465517
         wal_writer_delay: 50
       properties:
         max_slot_wal_keep_size:
@@ -28529,16 +28703,16 @@ components:
       type: object
     Autovacuum_settings:
       example:
-        autovacuum_analyze_scale_factor: 0.9018348186070783
-        autovacuum_vacuum_threshold: 2140135219
-        autovacuum_vacuum_cost_limit: 4964
+        autovacuum_analyze_scale_factor: 0.35571952270680973
+        autovacuum_vacuum_threshold: 1435284096
+        autovacuum_vacuum_cost_limit: 9965
         autovacuum_freeze_max_age: 200000000
-        autovacuum_vacuum_scale_factor: 0.6683562403749608
-        autovacuum_max_workers: 10
-        autovacuum_vacuum_cost_delay: 87
-        autovacuum_naptime: 80950
-        autovacuum_analyze_threshold: 1382640929
-        log_autovacuum_min_duration: 251915776
+        autovacuum_vacuum_scale_factor: 0.9018348186070783
+        autovacuum_max_workers: 18
+        autovacuum_vacuum_cost_delay: 64
+        autovacuum_naptime: 75704
+        autovacuum_analyze_threshold: 1495747635
+        log_autovacuum_min_duration: 1079111561
       properties:
         log_autovacuum_min_duration:
           description: Causes each action executed by autovacuum to be logged if it

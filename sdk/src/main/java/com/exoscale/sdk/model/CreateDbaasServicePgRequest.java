@@ -24,6 +24,7 @@ import com.exoscale.sdk.model.DbaasPgTargetVersions;
 import com.exoscale.sdk.model.EnumPgSynchronousReplication;
 import com.exoscale.sdk.model.EnumPgVariant;
 import com.exoscale.sdk.model.JsonSchemaPg;
+import com.exoscale.sdk.model.JsonSchemaPgaudit;
 import com.exoscale.sdk.model.JsonSchemaPgbouncer;
 import com.exoscale.sdk.model.JsonSchemaPglookout;
 import com.exoscale.sdk.model.JsonSchemaTimescaledb;
@@ -52,6 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDbaasServicePgRequest.JSON_PROPERTY_TIMESCALEDB_SETTINGS,
   CreateDbaasServicePgRequest.JSON_PROPERTY_IP_FILTER,
   CreateDbaasServicePgRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
+  CreateDbaasServicePgRequest.JSON_PROPERTY_PGAUDIT_SETTINGS,
   CreateDbaasServicePgRequest.JSON_PROPERTY_FORK_FROM_SERVICE,
   CreateDbaasServicePgRequest.JSON_PROPERTY_SYNCHRONOUS_REPLICATION,
   CreateDbaasServicePgRequest.JSON_PROPERTY_RECOVERY_BACKUP_TIME,
@@ -88,6 +90,9 @@ public class CreateDbaasServicePgRequest {
 
   public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
   private Boolean terminationProtection;
+
+  public static final String JSON_PROPERTY_PGAUDIT_SETTINGS = "pgaudit-settings";
+  private JsonSchemaPgaudit pgauditSettings;
 
   public static final String JSON_PROPERTY_FORK_FROM_SERVICE = "fork-from-service";
   private String forkFromService;
@@ -319,6 +324,31 @@ public class CreateDbaasServicePgRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTerminationProtection(Boolean terminationProtection) {
     this.terminationProtection = terminationProtection;
+  }
+
+
+  public CreateDbaasServicePgRequest pgauditSettings(JsonSchemaPgaudit pgauditSettings) {
+    this.pgauditSettings = pgauditSettings;
+    return this;
+  }
+
+   /**
+   * Get pgauditSettings
+   * @return pgauditSettings
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PGAUDIT_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonSchemaPgaudit getPgauditSettings() {
+    return pgauditSettings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PGAUDIT_SETTINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPgauditSettings(JsonSchemaPgaudit pgauditSettings) {
+    this.pgauditSettings = pgauditSettings;
   }
 
 
@@ -670,6 +700,7 @@ public class CreateDbaasServicePgRequest {
         Objects.equals(this.timescaledbSettings, createDbaasServicePgRequest.timescaledbSettings) &&
         Objects.equals(this.ipFilter, createDbaasServicePgRequest.ipFilter) &&
         Objects.equals(this.terminationProtection, createDbaasServicePgRequest.terminationProtection) &&
+        Objects.equals(this.pgauditSettings, createDbaasServicePgRequest.pgauditSettings) &&
         Objects.equals(this.forkFromService, createDbaasServicePgRequest.forkFromService) &&
         Objects.equals(this.synchronousReplication, createDbaasServicePgRequest.synchronousReplication) &&
         Objects.equals(this.recoveryBackupTime, createDbaasServicePgRequest.recoveryBackupTime) &&
@@ -687,7 +718,7 @@ public class CreateDbaasServicePgRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pgbouncerSettings, backupSchedule, variant, integrations, timescaledbSettings, ipFilter, terminationProtection, forkFromService, synchronousReplication, recoveryBackupTime, pglookoutSettings, maintenance, adminUsername, version, plan, workMem, sharedBuffersPercentage, pgSettings, adminPassword, migration);
+    return Objects.hash(pgbouncerSettings, backupSchedule, variant, integrations, timescaledbSettings, ipFilter, terminationProtection, pgauditSettings, forkFromService, synchronousReplication, recoveryBackupTime, pglookoutSettings, maintenance, adminUsername, version, plan, workMem, sharedBuffersPercentage, pgSettings, adminPassword, migration);
   }
 
   @Override
@@ -701,6 +732,7 @@ public class CreateDbaasServicePgRequest {
     sb.append("    timescaledbSettings: ").append(toIndentedString(timescaledbSettings)).append("\n");
     sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
     sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
+    sb.append("    pgauditSettings: ").append(toIndentedString(pgauditSettings)).append("\n");
     sb.append("    forkFromService: ").append(toIndentedString(forkFromService)).append("\n");
     sb.append("    synchronousReplication: ").append(toIndentedString(synchronousReplication)).append("\n");
     sb.append("    recoveryBackupTime: ").append(toIndentedString(recoveryBackupTime)).append("\n");
@@ -803,6 +835,11 @@ public class CreateDbaasServicePgRequest {
     // add `termination-protection` to the URL query string
     if (getTerminationProtection() != null) {
       joiner.add(String.format("%stermination-protection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminationProtection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `pgaudit-settings` to the URL query string
+    if (getPgauditSettings() != null) {
+      joiner.add(getPgauditSettings().toUrlQueryString(prefix + "pgaudit-settings" + suffix));
     }
 
     // add `fork-from-service` to the URL query string
