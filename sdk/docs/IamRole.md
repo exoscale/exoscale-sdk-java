@@ -11,7 +11,7 @@ IAM Role
 |**description** | **String** | IAM Role description |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**permissions** | [**Set&lt;PermissionsEnum&gt;**](#Set&lt;PermissionsEnum&gt;) | IAM Role permissions |  [optional] |
-|**assumeRolePolicy** | [**IamPolicy**](IamPolicy.md) |  |  [optional] |
+|**assumeRolePolicy** | [**IamAssumeRolePolicy**](IamAssumeRolePolicy.md) |  |  [optional] |
 |**editable** | **Boolean** | IAM Role mutability |  [optional] |
 |**name** | **String** | IAM Role name |  [optional] |
 |**maxSessionTtl** | **Long** | Maximum TTL requester is allowed to ask for when assuming a role |  [optional] |

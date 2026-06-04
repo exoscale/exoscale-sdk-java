@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-06-02T08:34:53.366065100Z[Etc/UTC]
+- Build date: 2026-06-04T08:30:16.215480470Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-41e4e3f</version>
+    <version>0.0.5-SNAPSHOT-97e73ad</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-41e4e3f'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-97e73ad'
 }
 ```
 
@@ -409,7 +409,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateElasticIp**](sdk/docs/ExoscaleApi.md#updateElasticIp) | **PUT** /elastic-ip/{id} | Update an Elastic IP
 *ExoscaleApi* | [**updateIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#updateIamOrganizationPolicy) | **PUT** /iam-organization-policy | Update IAM Organization Policy
 *ExoscaleApi* | [**updateIamRole**](sdk/docs/ExoscaleApi.md#updateIamRole) | **PUT** /iam-role/{id} | Update IAM Role
-*ExoscaleApi* | [**updateIamRoleAssumePolicy**](sdk/docs/ExoscaleApi.md#updateIamRoleAssumePolicy) | **PUT** /iam-role/{id}:assume-role-policy | Update IAM Assume role Policy
 *ExoscaleApi* | [**updateIamRolePolicy**](sdk/docs/ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
 *ExoscaleApi* | [**updateInstance**](sdk/docs/ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance
 *ExoscaleApi* | [**updateInstancePool**](sdk/docs/ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool
@@ -711,6 +710,7 @@ Class | Method | HTTP request | Description
  - [IPAddressRateLimitingSettings](sdk/docs/IPAddressRateLimitingSettings.md)
  - [IamApiKey](sdk/docs/IamApiKey.md)
  - [IamApiKeyCreated](sdk/docs/IamApiKeyCreated.md)
+ - [IamAssumeRolePolicy](sdk/docs/IamAssumeRolePolicy.md)
  - [IamPolicy](sdk/docs/IamPolicy.md)
  - [IamRole](sdk/docs/IamRole.md)
  - [IamServicePolicy](sdk/docs/IamServicePolicy.md)

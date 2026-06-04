@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.IamAssumeRolePolicy;
 import com.exoscale.sdk.model.IamPolicy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -103,7 +104,7 @@ public class CreateIamRoleRequest {
   private IamPolicy policy;
 
   public static final String JSON_PROPERTY_ASSUME_ROLE_POLICY = "assume-role-policy";
-  private IamPolicy assumeRolePolicy;
+  private IamAssumeRolePolicy assumeRolePolicy;
 
   public static final String JSON_PROPERTY_MAX_SESSION_TTL = "max-session-ttl";
   private Long maxSessionTtl;
@@ -278,7 +279,7 @@ public class CreateIamRoleRequest {
   }
 
 
-  public CreateIamRoleRequest assumeRolePolicy(IamPolicy assumeRolePolicy) {
+  public CreateIamRoleRequest assumeRolePolicy(IamAssumeRolePolicy assumeRolePolicy) {
     this.assumeRolePolicy = assumeRolePolicy;
     return this;
   }
@@ -291,14 +292,14 @@ public class CreateIamRoleRequest {
   @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IamPolicy getAssumeRolePolicy() {
+  public IamAssumeRolePolicy getAssumeRolePolicy() {
     return assumeRolePolicy;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAssumeRolePolicy(IamPolicy assumeRolePolicy) {
+  public void setAssumeRolePolicy(IamAssumeRolePolicy assumeRolePolicy) {
     this.assumeRolePolicy = assumeRolePolicy;
   }
 

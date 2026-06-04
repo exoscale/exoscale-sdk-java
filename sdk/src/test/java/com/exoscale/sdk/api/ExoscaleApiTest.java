@@ -5966,24 +5966,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Update IAM Assume role Policy
-     *
-     * Update IAM Assume role Policy
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateIamRoleAssumePolicyTest() throws ApiException {
-        UUID id = null;
-        IamPolicy iamPolicy = null;
-        Operation response = 
-        api.updateIamRoleAssumePolicy(id, iamPolicy);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Update IAM Role Policy
      *
      * 

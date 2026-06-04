@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.IamAssumeRolePolicy;
 import com.exoscale.sdk.model.IamPolicy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

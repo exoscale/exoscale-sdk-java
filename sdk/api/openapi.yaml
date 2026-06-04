@@ -5344,37 +5344,6 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
-  /iam-role/{id}:assume-role-policy:
-    put:
-      description: Update IAM Assume role Policy
-      operationId: update-iam-role-assume-policy
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/iam-policy'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Update IAM Assume role Policy
-      tags:
-      - exoscale
-      x-content-type: application/json
-      x-accepts: application/json
   /dbaas-grafana/{service-name}/user/{username}/password/reveal:
     get:
       operationId: reveal-dbaas-grafana-user-password
@@ -12962,21 +12931,17 @@ components:
         two-factor-authentication: true
         role:
           assume-role-policy:
-            services:
-              key:
-                rules:
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                type: rules
-            default-service-strategy: allow
+            rules:
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
           permissions:
           - bypass-governance-retention
           - bypass-governance-retention
@@ -14242,21 +14207,17 @@ components:
         elapsed-ms: 0
         iam-role:
           assume-role-policy:
-            services:
-              key:
-                rules:
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                type: rules
-            default-service-strategy: allow
+            rules:
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
           permissions:
           - bypass-governance-retention
           - bypass-governance-retention
@@ -14287,21 +14248,17 @@ components:
           two-factor-authentication: true
           role:
             assume-role-policy:
-              services:
-                key:
-                  rules:
-                  - expression: expression
-                    action: allow
-                    resources:
-                    - resources
-                    - resources
-                  - expression: expression
-                    action: allow
-                    resources:
-                    - resources
-                    - resources
-                  type: rules
-              default-service-strategy: allow
+              rules:
+              - expression: expression
+                action: allow
+                resources:
+                - resources
+                - resources
+              - expression: expression
+                action: allow
+                resources:
+                - resources
+                - resources
             permissions:
             - bypass-governance-retention
             - bypass-governance-retention
@@ -18168,6 +18125,27 @@ components:
           readOnly: true
           type: string
       type: object
+    iam-assume-role-policy:
+      description: Assume Role Policy
+      example:
+        rules:
+        - expression: expression
+          action: allow
+          resources:
+          - resources
+          - resources
+        - expression: expression
+          action: allow
+          resources:
+          - resources
+          - resources
+      properties:
+        rules:
+          description: IAM Assume Role Policy rules
+          items:
+            $ref: '#/components/schemas/iam-service-policy-rule'
+          type: array
+      type: object
     dbaas-datadog-tag:
       example:
         comment: comment
@@ -20198,21 +20176,17 @@ components:
       description: IAM Role
       example:
         assume-role-policy:
-          services:
-            key:
-              rules:
-              - expression: expression
-                action: allow
-                resources:
-                - resources
-                - resources
-              - expression: expression
-                action: allow
-                resources:
-                - resources
-                - resources
-              type: rules
-          default-service-strategy: allow
+          rules:
+          - expression: expression
+            action: allow
+            resources:
+            - resources
+            - resources
+          - expression: expression
+            action: allow
+            resources:
+            - resources
+            - resources
         permissions:
         - bypass-governance-retention
         - bypass-governance-retention
@@ -20259,7 +20233,7 @@ components:
           type: array
           uniqueItems: true
         assume-role-policy:
-          $ref: '#/components/schemas/iam-policy'
+          $ref: '#/components/schemas/iam-assume-role-policy'
         editable:
           description: IAM Role mutability
           type: boolean
@@ -24635,6 +24609,8 @@ components:
           format: int64
           minimum: 0
           type: integer
+        assume-role-policy:
+          $ref: '#/components/schemas/iam-assume-role-policy'
       type: object
     list_snapshots_200_response:
       example:
@@ -27549,21 +27525,17 @@ components:
       example:
         iam-roles:
         - assume-role-policy:
-            services:
-              key:
-                rules:
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                type: rules
-            default-service-strategy: allow
+            rules:
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
           permissions:
           - bypass-governance-retention
           - bypass-governance-retention
@@ -27591,21 +27563,17 @@ components:
                 type: rules
             default-service-strategy: allow
         - assume-role-policy:
-            services:
-              key:
-                rules:
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                - expression: expression
-                  action: allow
-                  resources:
-                  - resources
-                  - resources
-                type: rules
-            default-service-strategy: allow
+            rules:
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
+            - expression: expression
+              action: allow
+              resources:
+              - resources
+              - resources
           permissions:
           - bypass-governance-retention
           - bypass-governance-retention
@@ -27670,7 +27638,7 @@ components:
         policy:
           $ref: '#/components/schemas/iam-policy'
         assume-role-policy:
-          $ref: '#/components/schemas/iam-policy'
+          $ref: '#/components/schemas/iam-assume-role-policy'
         max-session-ttl:
           description: Maximum TTL requester is allowed to ask for when assuming a
             role
@@ -27687,21 +27655,17 @@ components:
         - two-factor-authentication: true
           role:
             assume-role-policy:
-              services:
-                key:
-                  rules:
-                  - expression: expression
-                    action: allow
-                    resources:
-                    - resources
-                    - resources
-                  - expression: expression
-                    action: allow
-                    resources:
-                    - resources
-                    - resources
-                  type: rules
-              default-service-strategy: allow
+              rules:
+              - expression: expression
+                action: allow
+                resources:
+                - resources
+                - resources
+              - expression: expression
+                action: allow
+                resources:
+                - resources
+                - resources
             permissions:
             - bypass-governance-retention
             - bypass-governance-retention
@@ -27735,21 +27699,17 @@ components:
         - two-factor-authentication: true
           role:
             assume-role-policy:
-              services:
-                key:
-                  rules:
-                  - expression: expression
-                    action: allow
-                    resources:
-                    - resources
-                    - resources
-                  - expression: expression
-                    action: allow
-                    resources:
-                    - resources
-                    - resources
-                  type: rules
-              default-service-strategy: allow
+              rules:
+              - expression: expression
+                action: allow
+                resources:
+                - resources
+                - resources
+              - expression: expression
+                action: allow
+                resources:
+                - resources
+                - resources
             permissions:
             - bypass-governance-retention
             - bypass-governance-retention

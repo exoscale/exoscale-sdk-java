@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.IamAssumeRolePolicy;
 import com.exoscale.sdk.model.IamPolicy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -96,7 +97,7 @@ public class IamRole {
   private Set<PermissionsEnum> permissions;
 
   public static final String JSON_PROPERTY_ASSUME_ROLE_POLICY = "assume-role-policy";
-  private IamPolicy assumeRolePolicy;
+  private IamAssumeRolePolicy assumeRolePolicy;
 
   public static final String JSON_PROPERTY_EDITABLE = "editable";
   private Boolean editable;
@@ -216,7 +217,7 @@ public class IamRole {
   }
 
 
-  public IamRole assumeRolePolicy(IamPolicy assumeRolePolicy) {
+  public IamRole assumeRolePolicy(IamAssumeRolePolicy assumeRolePolicy) {
     this.assumeRolePolicy = assumeRolePolicy;
     return this;
   }
@@ -229,14 +230,14 @@ public class IamRole {
   @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public IamPolicy getAssumeRolePolicy() {
+  public IamAssumeRolePolicy getAssumeRolePolicy() {
     return assumeRolePolicy;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAssumeRolePolicy(IamPolicy assumeRolePolicy) {
+  public void setAssumeRolePolicy(IamAssumeRolePolicy assumeRolePolicy) {
     this.assumeRolePolicy = assumeRolePolicy;
   }
 

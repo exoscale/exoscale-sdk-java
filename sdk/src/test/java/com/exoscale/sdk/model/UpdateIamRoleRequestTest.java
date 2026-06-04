@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.IamAssumeRolePolicy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -72,6 +73,14 @@ public class UpdateIamRoleRequestTest {
     @Test
     public void maxSessionTtlTest() {
         // TODO: test maxSessionTtl
+    }
+
+    /**
+     * Test the property 'assumeRolePolicy'
+     */
+    @Test
+    public void assumeRolePolicyTest() {
+        // TODO: test assumeRolePolicy
     }
 
 }

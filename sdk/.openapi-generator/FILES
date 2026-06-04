@@ -286,6 +286,7 @@ docs/GrafanaDateFormatSpecifications.md
 docs/IPAddressRateLimitingSettings.md
 docs/IamApiKey.md
 docs/IamApiKeyCreated.md
+docs/IamAssumeRolePolicy.md
 docs/IamPolicy.md
 docs/IamRole.md
 docs/IamServicePolicy.md
@@ -801,6 +802,7 @@ src/main/java/com/exoscale/sdk/model/GrafanaDateFormatSpecifications.java
 src/main/java/com/exoscale/sdk/model/IPAddressRateLimitingSettings.java
 src/main/java/com/exoscale/sdk/model/IamApiKey.java
 src/main/java/com/exoscale/sdk/model/IamApiKeyCreated.java
+src/main/java/com/exoscale/sdk/model/IamAssumeRolePolicy.java
 src/main/java/com/exoscale/sdk/model/IamPolicy.java
 src/main/java/com/exoscale/sdk/model/IamRole.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicy.java

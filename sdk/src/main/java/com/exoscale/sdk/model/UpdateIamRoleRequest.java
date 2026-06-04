@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.IamAssumeRolePolicy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,7 +41,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateIamRoleRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateIamRoleRequest.JSON_PROPERTY_PERMISSIONS,
   UpdateIamRoleRequest.JSON_PROPERTY_LABELS,
-  UpdateIamRoleRequest.JSON_PROPERTY_MAX_SESSION_TTL
+  UpdateIamRoleRequest.JSON_PROPERTY_MAX_SESSION_TTL,
+  UpdateIamRoleRequest.JSON_PROPERTY_ASSUME_ROLE_POLICY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateIamRoleRequest {
@@ -90,6 +92,9 @@ public class UpdateIamRoleRequest {
 
   public static final String JSON_PROPERTY_MAX_SESSION_TTL = "max-session-ttl";
   private Long maxSessionTtl;
+
+  public static final String JSON_PROPERTY_ASSUME_ROLE_POLICY = "assume-role-policy";
+  private IamAssumeRolePolicy assumeRolePolicy;
 
   public UpdateIamRoleRequest() { 
   }
@@ -212,6 +217,31 @@ public class UpdateIamRoleRequest {
   }
 
 
+  public UpdateIamRoleRequest assumeRolePolicy(IamAssumeRolePolicy assumeRolePolicy) {
+    this.assumeRolePolicy = assumeRolePolicy;
+    return this;
+  }
+
+   /**
+   * Get assumeRolePolicy
+   * @return assumeRolePolicy
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public IamAssumeRolePolicy getAssumeRolePolicy() {
+    return assumeRolePolicy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ASSUME_ROLE_POLICY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAssumeRolePolicy(IamAssumeRolePolicy assumeRolePolicy) {
+    this.assumeRolePolicy = assumeRolePolicy;
+  }
+
+
   /**
    * Return true if this update_iam_role_request object is equal to o.
    */
@@ -227,12 +257,13 @@ public class UpdateIamRoleRequest {
     return Objects.equals(this.description, updateIamRoleRequest.description) &&
         Objects.equals(this.permissions, updateIamRoleRequest.permissions) &&
         Objects.equals(this.labels, updateIamRoleRequest.labels) &&
-        Objects.equals(this.maxSessionTtl, updateIamRoleRequest.maxSessionTtl);
+        Objects.equals(this.maxSessionTtl, updateIamRoleRequest.maxSessionTtl) &&
+        Objects.equals(this.assumeRolePolicy, updateIamRoleRequest.assumeRolePolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, permissions, labels, maxSessionTtl);
+    return Objects.hash(description, permissions, labels, maxSessionTtl, assumeRolePolicy);
   }
 
   @Override
@@ -243,6 +274,7 @@ public class UpdateIamRoleRequest {
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    maxSessionTtl: ").append(toIndentedString(maxSessionTtl)).append("\n");
+    sb.append("    assumeRolePolicy: ").append(toIndentedString(assumeRolePolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -318,6 +350,11 @@ public class UpdateIamRoleRequest {
     // add `max-session-ttl` to the URL query string
     if (getMaxSessionTtl() != null) {
       joiner.add(String.format("%smax-session-ttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxSessionTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `assume-role-policy` to the URL query string
+    if (getAssumeRolePolicy() != null) {
+      joiner.add(getAssumeRolePolicy().toUrlQueryString(prefix + "assume-role-policy" + suffix));
     }
 
     return joiner.toString();
