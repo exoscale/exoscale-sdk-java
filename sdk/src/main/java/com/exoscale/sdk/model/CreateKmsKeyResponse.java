@@ -42,6 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateKmsKeyResponse.JSON_PROPERTY_SOURCE,
   CreateKmsKeyResponse.JSON_PROPERTY_USAGE,
   CreateKmsKeyResponse.JSON_PROPERTY_STATUS,
+  CreateKmsKeyResponse.JSON_PROPERTY_STATUS_SINCE,
   CreateKmsKeyResponse.JSON_PROPERTY_ID,
   CreateKmsKeyResponse.JSON_PROPERTY_ORIGIN_ZONE,
   CreateKmsKeyResponse.JSON_PROPERTY_CREATED_AT
@@ -138,6 +139,9 @@ public class CreateKmsKeyResponse {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
+
+  public static final String JSON_PROPERTY_STATUS_SINCE = "status-since";
+  private OffsetDateTime statusSince;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -326,6 +330,31 @@ public class CreateKmsKeyResponse {
   }
 
 
+  public CreateKmsKeyResponse statusSince(OffsetDateTime statusSince) {
+    this.statusSince = statusSince;
+    return this;
+  }
+
+   /**
+   * Get statusSince
+   * @return statusSince
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getStatusSince() {
+    return statusSince;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStatusSince(OffsetDateTime statusSince) {
+    this.statusSince = statusSince;
+  }
+
+
   public CreateKmsKeyResponse id(UUID id) {
     this.id = id;
     return this;
@@ -420,6 +449,7 @@ public class CreateKmsKeyResponse {
         Objects.equals(this.source, createKmsKeyResponse.source) &&
         Objects.equals(this.usage, createKmsKeyResponse.usage) &&
         Objects.equals(this.status, createKmsKeyResponse.status) &&
+        Objects.equals(this.statusSince, createKmsKeyResponse.statusSince) &&
         Objects.equals(this.id, createKmsKeyResponse.id) &&
         Objects.equals(this.originZone, createKmsKeyResponse.originZone) &&
         Objects.equals(this.createdAt, createKmsKeyResponse.createdAt);
@@ -427,7 +457,7 @@ public class CreateKmsKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, revision, name, multiZone, source, usage, status, id, originZone, createdAt);
+    return Objects.hash(description, revision, name, multiZone, source, usage, status, statusSince, id, originZone, createdAt);
   }
 
   @Override
@@ -441,6 +471,7 @@ public class CreateKmsKeyResponse {
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusSince: ").append(toIndentedString(statusSince)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    originZone: ").append(toIndentedString(originZone)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -524,6 +555,11 @@ public class CreateKmsKeyResponse {
     // add `status` to the URL query string
     if (getStatus() != null) {
       joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `status-since` to the URL query string
+    if (getStatusSince() != null) {
+      joiner.add(String.format("%sstatus-since%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `id` to the URL query string

@@ -38,19 +38,19 @@ public class ModelUsageCountersTest {
     }
 
     /**
-     * Test the property 'outputTokens'
+     * Test the property 'outputUom'
      */
     @Test
-    public void outputTokensTest() {
-        // TODO: test outputTokens
+    public void outputUomTest() {
+        // TODO: test outputUom
     }
 
     /**
-     * Test the property 'inputTokens'
+     * Test the property 'inputUom'
      */
     @Test
-    public void inputTokensTest() {
-        // TODO: test inputTokens
+    public void inputUomTest() {
+        // TODO: test inputUom
     }
 
     /**

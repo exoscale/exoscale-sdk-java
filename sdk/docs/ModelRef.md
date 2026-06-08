@@ -2,7 +2,7 @@
 
 # ModelRef
 
-Model reference
+Model reference. Provide either id or name.
 
 ## Properties
 

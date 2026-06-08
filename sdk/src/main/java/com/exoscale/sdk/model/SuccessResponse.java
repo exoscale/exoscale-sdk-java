@@ -42,7 +42,9 @@ public class SuccessResponse {
   public enum StatusEnum {
     SUCCESS("success"),
     
-    TARGET_REGISTERED("target-registered");
+    TARGET_REGISTERED("target-registered"),
+    
+    ALREADY_APPLIED("already-applied");
 
     private String value;
 

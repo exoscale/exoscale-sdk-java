@@ -29,20 +29,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Accumulated token counters for one model over a flush window
+ * Accumulated Unit Of Measurement (UOM) counters for one model over a flush window
  */
 @JsonPropertyOrder({
-  ModelUsageCounters.JSON_PROPERTY_OUTPUT_TOKENS,
-  ModelUsageCounters.JSON_PROPERTY_INPUT_TOKENS,
+  ModelUsageCounters.JSON_PROPERTY_OUTPUT_UOM,
+  ModelUsageCounters.JSON_PROPERTY_INPUT_UOM,
   ModelUsageCounters.JSON_PROPERTY_CALL_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ModelUsageCounters {
-  public static final String JSON_PROPERTY_OUTPUT_TOKENS = "output-tokens";
-  private Integer outputTokens;
+  public static final String JSON_PROPERTY_OUTPUT_UOM = "output-uom";
+  private Integer outputUom;
 
-  public static final String JSON_PROPERTY_INPUT_TOKENS = "input-tokens";
-  private Integer inputTokens;
+  public static final String JSON_PROPERTY_INPUT_UOM = "input-uom";
+  private Integer inputUom;
 
   public static final String JSON_PROPERTY_CALL_COUNT = "call-count";
   private Integer callCount;
@@ -50,55 +50,55 @@ public class ModelUsageCounters {
   public ModelUsageCounters() { 
   }
 
-  public ModelUsageCounters outputTokens(Integer outputTokens) {
-    this.outputTokens = outputTokens;
+  public ModelUsageCounters outputUom(Integer outputUom) {
+    this.outputUom = outputUom;
     return this;
   }
 
    /**
-   * Total completion/output tokens across all calls in this flush window
+   * Total completion/output Unit Of Measurement (UOM) across all calls in this flush window (e.g., tokens for LLMs, minutes for TTS, pages for OCR)
    * minimum: 0
-   * @return outputTokens
+   * @return outputUom
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OUTPUT_TOKENS)
+  @JsonProperty(JSON_PROPERTY_OUTPUT_UOM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getOutputTokens() {
-    return outputTokens;
+  public Integer getOutputUom() {
+    return outputUom;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OUTPUT_TOKENS)
+  @JsonProperty(JSON_PROPERTY_OUTPUT_UOM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setOutputTokens(Integer outputTokens) {
-    this.outputTokens = outputTokens;
+  public void setOutputUom(Integer outputUom) {
+    this.outputUom = outputUom;
   }
 
 
-  public ModelUsageCounters inputTokens(Integer inputTokens) {
-    this.inputTokens = inputTokens;
+  public ModelUsageCounters inputUom(Integer inputUom) {
+    this.inputUom = inputUom;
     return this;
   }
 
    /**
-   * Total prompt/input tokens across all calls in this flush window
+   * Total prompt/input Unit Of Measurement (UOM) across all calls in this flush window (e.g., tokens for LLMs, minutes for TTS, pages for OCR)
    * minimum: 0
-   * @return inputTokens
+   * @return inputUom
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INPUT_TOKENS)
+  @JsonProperty(JSON_PROPERTY_INPUT_UOM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getInputTokens() {
-    return inputTokens;
+  public Integer getInputUom() {
+    return inputUom;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INPUT_TOKENS)
+  @JsonProperty(JSON_PROPERTY_INPUT_UOM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInputTokens(Integer inputTokens) {
-    this.inputTokens = inputTokens;
+  public void setInputUom(Integer inputUom) {
+    this.inputUom = inputUom;
   }
 
 
@@ -140,22 +140,22 @@ public class ModelUsageCounters {
       return false;
     }
     ModelUsageCounters modelUsageCounters = (ModelUsageCounters) o;
-    return Objects.equals(this.outputTokens, modelUsageCounters.outputTokens) &&
-        Objects.equals(this.inputTokens, modelUsageCounters.inputTokens) &&
+    return Objects.equals(this.outputUom, modelUsageCounters.outputUom) &&
+        Objects.equals(this.inputUom, modelUsageCounters.inputUom) &&
         Objects.equals(this.callCount, modelUsageCounters.callCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(outputTokens, inputTokens, callCount);
+    return Objects.hash(outputUom, inputUom, callCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModelUsageCounters {\n");
-    sb.append("    outputTokens: ").append(toIndentedString(outputTokens)).append("\n");
-    sb.append("    inputTokens: ").append(toIndentedString(inputTokens)).append("\n");
+    sb.append("    outputUom: ").append(toIndentedString(outputUom)).append("\n");
+    sb.append("    inputUom: ").append(toIndentedString(inputUom)).append("\n");
     sb.append("    callCount: ").append(toIndentedString(callCount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -204,14 +204,14 @@ public class ModelUsageCounters {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `output-tokens` to the URL query string
-    if (getOutputTokens() != null) {
-      joiner.add(String.format("%soutput-tokens%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOutputTokens()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `output-uom` to the URL query string
+    if (getOutputUom() != null) {
+      joiner.add(String.format("%soutput-uom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOutputUom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `input-tokens` to the URL query string
-    if (getInputTokens() != null) {
-      joiner.add(String.format("%sinput-tokens%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInputTokens()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `input-uom` to the URL query string
+    if (getInputUom() != null) {
+      joiner.add(String.format("%sinput-uom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInputUom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `call-count` to the URL query string

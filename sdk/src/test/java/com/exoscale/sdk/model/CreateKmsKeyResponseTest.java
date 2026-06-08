@@ -97,6 +97,14 @@ public class CreateKmsKeyResponseTest {
     }
 
     /**
+     * Test the property 'statusSince'
+     */
+    @Test
+    public void statusSinceTest() {
+        // TODO: test statusSince
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test

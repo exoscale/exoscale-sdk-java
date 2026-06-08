@@ -34,6 +34,8 @@ AI deployment
 | PREPARING | &quot;preparing&quot; |
 | ERROR | &quot;error&quot; |
 | DEPLOYING | &quot;deploying&quot; |
+| SCALING | &quot;scaling&quot; |
+| UPDATING | &quot;updating&quot; |
 
 
 

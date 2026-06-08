@@ -17566,7 +17566,7 @@ public class ExoscaleApi {
   }
   /**
    * Get Organization Consumption Quota
-   * Get per-org token consumption quota (tokens/min). Null means unlimited.
+   * Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
    * @return OrgConsumptionQuotaResponse
    * @throws ApiException if fails to make API call
    */
@@ -17577,7 +17577,7 @@ public class ExoscaleApi {
 
   /**
    * Get Organization Consumption Quota
-   * Get per-org token consumption quota (tokens/min). Null means unlimited.
+   * Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
    * @return ApiResponse&lt;OrgConsumptionQuotaResponse&gt;
    * @throws ApiException if fails to make API call
    */

@@ -14,6 +14,7 @@
 |**source** | [**SourceEnum**](#SourceEnum) |  |  |
 |**usage** | **String** |  |  |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  |
+|**statusSince** | **OffsetDateTime** |  |  |
 |**id** | **UUID** |  |  |
 |**originZone** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |

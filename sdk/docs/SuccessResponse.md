@@ -17,6 +17,7 @@
 |---- | -----|
 | SUCCESS | &quot;success&quot; |
 | TARGET_REGISTERED | &quot;target-registered&quot; |
+| ALREADY_APPLIED | &quot;already-applied&quot; |
 
 
 

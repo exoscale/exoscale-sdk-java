@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  |
-|**description** | **String** |  |  |
-|**usage** | [**UsageEnum**](#UsageEnum) |  |  |
-|**multiZone** | **Boolean** |  |  |
+|**description** | **String** |  |  [optional] |
+|**usage** | [**UsageEnum**](#UsageEnum) |  |  [optional] |
+|**multiZone** | **Boolean** |  |  [optional] |
 
 
 

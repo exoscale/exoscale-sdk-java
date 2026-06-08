@@ -8758,7 +8758,9 @@ paths:
       x-accepts: application/json
   /ai/quota:
     get:
-      description: Get per-org token consumption quota (tokens/min). Null means unlimited.
+      description: "Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min).\
+        \ Null means unlimited. UOM represents weighted units across different AI\
+        \ workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR)."
       operationId: get-user-org-consumption-quota
       parameters: []
       responses:
@@ -9941,12 +9943,11 @@ components:
       - organizations-usages
       type: object
     model-ref:
-      anyOf: []
-      description: Model reference
+      description: Model reference. Provide either id or name.
       example:
         name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-      nullable: true
+      minProperties: 1
       properties:
         name:
           description: Associated model name
@@ -10116,8 +10117,6 @@ components:
           type: string
       type: object
     create-ai-api-key-response:
-      allOf:
-      - $ref: '#/components/schemas/ai-api-key'
       description: Create AI API key response
       example:
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -10126,6 +10125,41 @@ components:
         org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        updated-at:
+          description: Last update timestamp
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+        id:
+          description: AI API key ID
+          format: uuid
+          readOnly: true
+          type: string
+        org-uuid:
+          description: Organization UUID that owns this key
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation timestamp
+          format: date-time
+          readOnly: true
+          type: string
+      required:
+      - created-at
+      - id
+      - name
+      - org-uuid
+      - scope
+      - updated-at
       type: object
     sks-audit-bearer-token:
       maxLength: 2000
@@ -10800,9 +10834,42 @@ components:
       title: Kafka Connect configuration values
       type: object
     list-ai-api-keys-response-entry:
-      allOf:
-      - $ref: '#/components/schemas/ai-api-key'
       description: AI API key list entry
+      properties:
+        updated-at:
+          description: Last update timestamp
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+        id:
+          description: AI API key ID
+          format: uuid
+          readOnly: true
+          type: string
+        org-uuid:
+          description: Organization UUID that owns this key
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation timestamp
+          format: date-time
+          readOnly: true
+          type: string
+      required:
+      - created-at
+      - id
+      - name
+      - org-uuid
+      - scope
+      - updated-at
       type: object
     private-network:
       description: Private Network
@@ -11139,11 +11206,13 @@ components:
           type: array
       type: object
     set-org-consumption-quota-request:
-      description: Request to set per-org token consumption quota
+      description: Request to set per-org Unit Of Measurement (UOM) consumption quota
       properties:
-        quota-tokens-per-minute:
-          description: Per-org token consumption quota (tokens/min). Pass null to
-            remove the limit.
+        quota-uom-per-minute:
+          description: "Per-org Unit Of Measurement (UOM) consumption quota (UOM/min).\
+            \ Pass null to remove the limit. UOM represents weighted units across\
+            \ different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages\
+            \ for OCR)."
           minimum: 0
       type: object
     json-schema-thanos:
@@ -11481,7 +11550,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.20.1
+      default: 0.22.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -11494,6 +11563,9 @@ components:
       - 0.19.1
       - 0.20.0
       - 0.20.1
+      - 0.20.2
+      - 0.21.0
+      - 0.22.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -14619,11 +14691,15 @@ components:
           x-go-findable: "2"
       type: object
     reveal-ai-api-key-response:
-      allOf:
-      - $ref: '#/components/schemas/ai-api-key-value'
       description: Reveal AI API key response
       example:
         value: value
+      properties:
+        value:
+          description: Plaintext AI API key value
+          type: string
+      required:
+      - value
       type: object
     load-balancer-service:
       description: Load Balancer Service
@@ -15021,6 +15097,7 @@ components:
           enum:
           - success
           - target-registered
+          - already-applied
           type: string
       required:
       - status
@@ -15036,12 +15113,14 @@ components:
           type: string
       type: object
     org-consumption-quota-response:
-      description: Per-org token consumption quota response
+      description: Per-org Unit Of Measurement (UOM) consumption quota response
       example:
-        quota-tokens-per-minute: ""
+        quota-uom-per-minute: ""
       properties:
-        quota-tokens-per-minute:
-          description: Per-org token consumption quota (tokens/min). Null means unlimited.
+        quota-uom-per-minute:
+          description: "Per-org Unit Of Measurement (UOM) consumption quota (UOM/min).\
+            \ Null means unlimited. UOM represents weighted units across different\
+            \ AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR)."
           minimum: 0
       type: object
     dbaas-service-maintenance:
@@ -16052,6 +16131,8 @@ components:
           - preparing
           - error
           - deploying
+          - scaling
+          - updating
           type: string
         gpu-type:
           description: GPU type family
@@ -16879,16 +16960,15 @@ components:
         description:
           type: string
         usage:
+          default: encrypt-decrypt
           enum:
           - encrypt-decrypt
           type: string
         multi-zone:
+          default: false
           type: boolean
       required:
-      - description
-      - multi-zone
       - name
-      - usage
       type: object
     inference-engine-parameter-entry:
       description: inference-engine parameter definition
@@ -17098,6 +17178,8 @@ components:
           - preparing
           - error
           - deploying
+          - scaling
+          - updating
           type: string
         gpu-type:
           description: GPU type family
@@ -17759,8 +17841,33 @@ components:
     organization-usage:
       description: Organization GPU usage
       properties:
+        gpu3:
+          description: GPU3 count
+          format: int64
+          minimum: 0
+          type: integer
+        gpua30:
+          description: GPUA30 count
+          format: int64
+          minimum: 0
+          type: integer
+        gpu3080ti:
+          description: GPU3080TI count
+          format: int64
+          minimum: 0
+          type: integer
         gpu:
-          description: Total GPU count
+          description: Total GPU count (sum of all GPU types)
+          format: int64
+          minimum: 0
+          type: integer
+        gpua5000:
+          description: GPUA5000 count
+          format: int64
+          minimum: 0
+          type: integer
+        gpurtx6000pro:
+          description: GPURTX6000PRO count
           format: int64
           minimum: 0
           type: integer
@@ -18164,11 +18271,15 @@ components:
       - tag
       type: object
     rotate-ai-api-key-response:
-      allOf:
-      - $ref: '#/components/schemas/ai-api-key-value'
       description: Rotate AI API key response
       example:
         value: value
+      properties:
+        value:
+          description: Plaintext AI API key value
+          type: string
+      required:
+      - value
       type: object
     sks-cluster-labels:
       additionalProperties:
@@ -19379,8 +19490,6 @@ components:
       - type
       type: object
     get-ai-api-key-response:
-      allOf:
-      - $ref: '#/components/schemas/ai-api-key'
       description: Get AI API key response
       example:
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -19389,6 +19498,41 @@ components:
         org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        updated-at:
+          description: Last update timestamp
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+        id:
+          description: AI API key ID
+          format: uuid
+          readOnly: true
+          type: string
+        org-uuid:
+          description: Organization UUID that owns this key
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation timestamp
+          format: date-time
+          readOnly: true
+          type: string
+      required:
+      - created-at
+      - id
+      - name
+      - org-uuid
+      - scope
+      - updated-at
       type: object
     manager:
       description: Resource manager
@@ -20069,18 +20213,21 @@ components:
       - status
       - status-since
       - usage
-      - zone
       type: object
     model-usage-counters:
-      description: Accumulated token counters for one model over a flush window
+      description: Accumulated Unit Of Measurement (UOM) counters for one model over
+        a flush window
       properties:
-        output-tokens:
-          description: Total completion/output tokens across all calls in this flush
-            window
+        output-uom:
+          description: "Total completion/output Unit Of Measurement (UOM) across all\
+            \ calls in this flush window (e.g., tokens for LLMs, minutes for TTS,\
+            \ pages for OCR)"
           minimum: 0
           type: integer
-        input-tokens:
-          description: Total prompt/input tokens across all calls in this flush window
+        input-uom:
+          description: "Total prompt/input Unit Of Measurement (UOM) across all calls\
+            \ in this flush window (e.g., tokens for LLMs, minutes for TTS, pages\
+            \ for OCR)"
           minimum: 0
           type: integer
         call-count:
@@ -20089,11 +20236,12 @@ components:
           type: integer
       required:
       - call-count
-      - input-tokens
-      - output-tokens
+      - input-uom
+      - output-uom
       type: object
     create-kms-key-response:
       example:
+        status-since: 2000-01-23T04:56:07.000+00:00
         usage: usage
         name: name
         description: description
@@ -20126,6 +20274,9 @@ components:
           - enabled
           - disabled
           - pending-deletion
+          type: string
+        status-since:
+          format: date-time
           type: string
         id:
           format: uuid
@@ -21602,8 +21753,6 @@ components:
       - endpoint
       type: object
     update-ai-api-key-response:
-      allOf:
-      - $ref: '#/components/schemas/ai-api-key'
       description: Update AI API key response
       example:
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -21612,6 +21761,41 @@ components:
         org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        updated-at:
+          description: Last update timestamp
+          format: date-time
+          readOnly: true
+          type: string
+        name:
+          description: Human-readable name for the AI API key
+          type: string
+        scope:
+          description: "Key scope: 'public' for all deployments, or a specific deployment\
+            \ UUID"
+          type: string
+        id:
+          description: AI API key ID
+          format: uuid
+          readOnly: true
+          type: string
+        org-uuid:
+          description: Organization UUID that owns this key
+          format: uuid
+          readOnly: true
+          type: string
+        created-at:
+          description: Creation timestamp
+          format: date-time
+          readOnly: true
+          type: string
+      required:
+      - created-at
+      - id
+      - name
+      - org-uuid
+      - scope
+      - updated-at
       type: object
     ai-api-key:
       description: AI API key metadata

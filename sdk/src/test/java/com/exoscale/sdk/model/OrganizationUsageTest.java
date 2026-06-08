@@ -38,11 +38,51 @@ public class OrganizationUsageTest {
     }
 
     /**
+     * Test the property 'gpu3'
+     */
+    @Test
+    public void gpu3Test() {
+        // TODO: test gpu3
+    }
+
+    /**
+     * Test the property 'gpua30'
+     */
+    @Test
+    public void gpua30Test() {
+        // TODO: test gpua30
+    }
+
+    /**
+     * Test the property 'gpu3080ti'
+     */
+    @Test
+    public void gpu3080tiTest() {
+        // TODO: test gpu3080ti
+    }
+
+    /**
      * Test the property 'gpu'
      */
     @Test
     public void gpuTest() {
         // TODO: test gpu
+    }
+
+    /**
+     * Test the property 'gpua5000'
+     */
+    @Test
+    public void gpua5000Test() {
+        // TODO: test gpua5000
+    }
+
+    /**
+     * Test the property 'gpurtx6000pro'
+     */
+    @Test
+    public void gpurtx6000proTest() {
+        // TODO: test gpurtx6000pro
     }
 
 }

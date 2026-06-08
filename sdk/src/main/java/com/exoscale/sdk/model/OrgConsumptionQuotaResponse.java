@@ -33,50 +33,50 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Per-org token consumption quota response
+ * Per-org Unit Of Measurement (UOM) consumption quota response
  */
 @JsonPropertyOrder({
-  OrgConsumptionQuotaResponse.JSON_PROPERTY_QUOTA_TOKENS_PER_MINUTE
+  OrgConsumptionQuotaResponse.JSON_PROPERTY_QUOTA_UOM_PER_MINUTE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class OrgConsumptionQuotaResponse {
-  public static final String JSON_PROPERTY_QUOTA_TOKENS_PER_MINUTE = "quota-tokens-per-minute";
-  private JsonNullable<Object> quotaTokensPerMinute = JsonNullable.<Object>of(null);
+  public static final String JSON_PROPERTY_QUOTA_UOM_PER_MINUTE = "quota-uom-per-minute";
+  private JsonNullable<Object> quotaUomPerMinute = JsonNullable.<Object>of(null);
 
   public OrgConsumptionQuotaResponse() { 
   }
 
-  public OrgConsumptionQuotaResponse quotaTokensPerMinute(Object quotaTokensPerMinute) {
-    this.quotaTokensPerMinute = JsonNullable.<Object>of(quotaTokensPerMinute);
+  public OrgConsumptionQuotaResponse quotaUomPerMinute(Object quotaUomPerMinute) {
+    this.quotaUomPerMinute = JsonNullable.<Object>of(quotaUomPerMinute);
     return this;
   }
 
    /**
-   * Per-org token consumption quota (tokens/min). Null means unlimited.
+   * Per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
    * minimum: 0
-   * @return quotaTokensPerMinute
+   * @return quotaUomPerMinute
   **/
   @javax.annotation.Nullable
   @JsonIgnore
 
-  public Object getQuotaTokensPerMinute() {
-        return quotaTokensPerMinute.orElse(null);
+  public Object getQuotaUomPerMinute() {
+        return quotaUomPerMinute.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_QUOTA_TOKENS_PER_MINUTE)
+  @JsonProperty(JSON_PROPERTY_QUOTA_UOM_PER_MINUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getQuotaTokensPerMinute_JsonNullable() {
-    return quotaTokensPerMinute;
+  public JsonNullable<Object> getQuotaUomPerMinute_JsonNullable() {
+    return quotaUomPerMinute;
   }
   
-  @JsonProperty(JSON_PROPERTY_QUOTA_TOKENS_PER_MINUTE)
-  public void setQuotaTokensPerMinute_JsonNullable(JsonNullable<Object> quotaTokensPerMinute) {
-    this.quotaTokensPerMinute = quotaTokensPerMinute;
+  @JsonProperty(JSON_PROPERTY_QUOTA_UOM_PER_MINUTE)
+  public void setQuotaUomPerMinute_JsonNullable(JsonNullable<Object> quotaUomPerMinute) {
+    this.quotaUomPerMinute = quotaUomPerMinute;
   }
 
-  public void setQuotaTokensPerMinute(Object quotaTokensPerMinute) {
-    this.quotaTokensPerMinute = JsonNullable.<Object>of(quotaTokensPerMinute);
+  public void setQuotaUomPerMinute(Object quotaUomPerMinute) {
+    this.quotaUomPerMinute = JsonNullable.<Object>of(quotaUomPerMinute);
   }
 
 
@@ -92,7 +92,7 @@ public class OrgConsumptionQuotaResponse {
       return false;
     }
     OrgConsumptionQuotaResponse orgConsumptionQuotaResponse = (OrgConsumptionQuotaResponse) o;
-    return equalsNullable(this.quotaTokensPerMinute, orgConsumptionQuotaResponse.quotaTokensPerMinute);
+    return equalsNullable(this.quotaUomPerMinute, orgConsumptionQuotaResponse.quotaUomPerMinute);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -101,7 +101,7 @@ public class OrgConsumptionQuotaResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(quotaTokensPerMinute));
+    return Objects.hash(hashCodeNullable(quotaUomPerMinute));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -115,7 +115,7 @@ public class OrgConsumptionQuotaResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgConsumptionQuotaResponse {\n");
-    sb.append("    quotaTokensPerMinute: ").append(toIndentedString(quotaTokensPerMinute)).append("\n");
+    sb.append("    quotaUomPerMinute: ").append(toIndentedString(quotaUomPerMinute)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -163,9 +163,9 @@ public class OrgConsumptionQuotaResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `quota-tokens-per-minute` to the URL query string
-    if (getQuotaTokensPerMinute() != null) {
-      joiner.add(String.format("%squota-tokens-per-minute%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuotaTokensPerMinute()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `quota-uom-per-minute` to the URL query string
+    if (getQuotaUomPerMinute() != null) {
+      joiner.add(String.format("%squota-uom-per-minute%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuotaUomPerMinute()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

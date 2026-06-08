@@ -42,11 +42,11 @@ public class SetOrgConsumptionQuotaRequestTest {
     }
 
     /**
-     * Test the property 'quotaTokensPerMinute'
+     * Test the property 'quotaUomPerMinute'
      */
     @Test
-    public void quotaTokensPerMinuteTest() {
-        // TODO: test quotaTokensPerMinute
+    public void quotaUomPerMinuteTest() {
+        // TODO: test quotaUomPerMinute
     }
 
 }

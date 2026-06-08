@@ -32,15 +32,113 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Organization GPU usage
  */
 @JsonPropertyOrder({
-  OrganizationUsage.JSON_PROPERTY_GPU
+  OrganizationUsage.JSON_PROPERTY_GPU3,
+  OrganizationUsage.JSON_PROPERTY_GPUA30,
+  OrganizationUsage.JSON_PROPERTY_GPU3080TI,
+  OrganizationUsage.JSON_PROPERTY_GPU,
+  OrganizationUsage.JSON_PROPERTY_GPUA5000,
+  OrganizationUsage.JSON_PROPERTY_GPURTX6000PRO
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class OrganizationUsage {
+  public static final String JSON_PROPERTY_GPU3 = "gpu3";
+  private Long gpu3;
+
+  public static final String JSON_PROPERTY_GPUA30 = "gpua30";
+  private Long gpua30;
+
+  public static final String JSON_PROPERTY_GPU3080TI = "gpu3080ti";
+  private Long gpu3080ti;
+
   public static final String JSON_PROPERTY_GPU = "gpu";
   private Long gpu;
 
+  public static final String JSON_PROPERTY_GPUA5000 = "gpua5000";
+  private Long gpua5000;
+
+  public static final String JSON_PROPERTY_GPURTX6000PRO = "gpurtx6000pro";
+  private Long gpurtx6000pro;
+
   public OrganizationUsage() { 
   }
+
+  public OrganizationUsage gpu3(Long gpu3) {
+    this.gpu3 = gpu3;
+    return this;
+  }
+
+   /**
+   * GPU3 count
+   * minimum: 0
+   * @return gpu3
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GPU3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getGpu3() {
+    return gpu3;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GPU3)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpu3(Long gpu3) {
+    this.gpu3 = gpu3;
+  }
+
+
+  public OrganizationUsage gpua30(Long gpua30) {
+    this.gpua30 = gpua30;
+    return this;
+  }
+
+   /**
+   * GPUA30 count
+   * minimum: 0
+   * @return gpua30
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GPUA30)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getGpua30() {
+    return gpua30;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GPUA30)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpua30(Long gpua30) {
+    this.gpua30 = gpua30;
+  }
+
+
+  public OrganizationUsage gpu3080ti(Long gpu3080ti) {
+    this.gpu3080ti = gpu3080ti;
+    return this;
+  }
+
+   /**
+   * GPU3080TI count
+   * minimum: 0
+   * @return gpu3080ti
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GPU3080TI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getGpu3080ti() {
+    return gpu3080ti;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GPU3080TI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpu3080ti(Long gpu3080ti) {
+    this.gpu3080ti = gpu3080ti;
+  }
+
 
   public OrganizationUsage gpu(Long gpu) {
     this.gpu = gpu;
@@ -48,7 +146,7 @@ public class OrganizationUsage {
   }
 
    /**
-   * Total GPU count
+   * Total GPU count (sum of all GPU types)
    * minimum: 0
    * @return gpu
   **/
@@ -68,6 +166,58 @@ public class OrganizationUsage {
   }
 
 
+  public OrganizationUsage gpua5000(Long gpua5000) {
+    this.gpua5000 = gpua5000;
+    return this;
+  }
+
+   /**
+   * GPUA5000 count
+   * minimum: 0
+   * @return gpua5000
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GPUA5000)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getGpua5000() {
+    return gpua5000;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GPUA5000)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpua5000(Long gpua5000) {
+    this.gpua5000 = gpua5000;
+  }
+
+
+  public OrganizationUsage gpurtx6000pro(Long gpurtx6000pro) {
+    this.gpurtx6000pro = gpurtx6000pro;
+    return this;
+  }
+
+   /**
+   * GPURTX6000PRO count
+   * minimum: 0
+   * @return gpurtx6000pro
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GPURTX6000PRO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getGpurtx6000pro() {
+    return gpurtx6000pro;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GPURTX6000PRO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGpurtx6000pro(Long gpurtx6000pro) {
+    this.gpurtx6000pro = gpurtx6000pro;
+  }
+
+
   /**
    * Return true if this organization-usage object is equal to o.
    */
@@ -80,19 +230,29 @@ public class OrganizationUsage {
       return false;
     }
     OrganizationUsage organizationUsage = (OrganizationUsage) o;
-    return Objects.equals(this.gpu, organizationUsage.gpu);
+    return Objects.equals(this.gpu3, organizationUsage.gpu3) &&
+        Objects.equals(this.gpua30, organizationUsage.gpua30) &&
+        Objects.equals(this.gpu3080ti, organizationUsage.gpu3080ti) &&
+        Objects.equals(this.gpu, organizationUsage.gpu) &&
+        Objects.equals(this.gpua5000, organizationUsage.gpua5000) &&
+        Objects.equals(this.gpurtx6000pro, organizationUsage.gpurtx6000pro);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpu);
+    return Objects.hash(gpu3, gpua30, gpu3080ti, gpu, gpua5000, gpurtx6000pro);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrganizationUsage {\n");
+    sb.append("    gpu3: ").append(toIndentedString(gpu3)).append("\n");
+    sb.append("    gpua30: ").append(toIndentedString(gpua30)).append("\n");
+    sb.append("    gpu3080ti: ").append(toIndentedString(gpu3080ti)).append("\n");
     sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
+    sb.append("    gpua5000: ").append(toIndentedString(gpua5000)).append("\n");
+    sb.append("    gpurtx6000pro: ").append(toIndentedString(gpurtx6000pro)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +300,34 @@ public class OrganizationUsage {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `gpu3` to the URL query string
+    if (getGpu3() != null) {
+      joiner.add(String.format("%sgpu3%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu3()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `gpua30` to the URL query string
+    if (getGpua30() != null) {
+      joiner.add(String.format("%sgpua30%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpua30()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `gpu3080ti` to the URL query string
+    if (getGpu3080ti() != null) {
+      joiner.add(String.format("%sgpu3080ti%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu3080ti()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `gpu` to the URL query string
     if (getGpu() != null) {
       joiner.add(String.format("%sgpu%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `gpua5000` to the URL query string
+    if (getGpua5000() != null) {
+      joiner.add(String.format("%sgpua5000%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpua5000()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `gpurtx6000pro` to the URL query string
+    if (getGpurtx6000pro() != null) {
+      joiner.add(String.format("%sgpurtx6000pro%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpurtx6000pro()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

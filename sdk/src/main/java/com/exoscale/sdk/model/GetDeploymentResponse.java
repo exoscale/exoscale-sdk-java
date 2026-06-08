@@ -68,7 +68,7 @@ public class GetDeploymentResponse {
   private String serviceLevel;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._20_1;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._22_0;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -85,7 +85,11 @@ public class GetDeploymentResponse {
     
     ERROR("error"),
     
-    DEPLOYING("deploying");
+    DEPLOYING("deploying"),
+    
+    SCALING("scaling"),
+    
+    UPDATING("updating");
 
     private String value;
 
@@ -467,7 +471,7 @@ public class GetDeploymentResponse {
    * Get model
    * @return model
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

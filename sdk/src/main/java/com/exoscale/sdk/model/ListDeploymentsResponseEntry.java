@@ -76,7 +76,11 @@ public class ListDeploymentsResponseEntry {
     
     ERROR("error"),
     
-    DEPLOYING("deploying");
+    DEPLOYING("deploying"),
+    
+    SCALING("scaling"),
+    
+    UPDATING("updating");
 
     private String value;
 
@@ -369,7 +373,7 @@ public class ListDeploymentsResponseEntry {
    * Get model
    * @return model
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MODEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

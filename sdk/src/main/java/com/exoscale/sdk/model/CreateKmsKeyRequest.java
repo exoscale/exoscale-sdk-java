@@ -79,10 +79,10 @@ public class CreateKmsKeyRequest {
   }
 
   public static final String JSON_PROPERTY_USAGE = "usage";
-  private UsageEnum usage;
+  private UsageEnum usage = UsageEnum.ENCRYPT_DECRYPT;
 
   public static final String JSON_PROPERTY_MULTI_ZONE = "multi-zone";
-  private Boolean multiZone;
+  private Boolean multiZone = false;
 
   public CreateKmsKeyRequest() { 
   }
@@ -121,9 +121,9 @@ public class CreateKmsKeyRequest {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
@@ -131,7 +131,7 @@ public class CreateKmsKeyRequest {
 
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -146,9 +146,9 @@ public class CreateKmsKeyRequest {
    * Get usage
    * @return usage
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UsageEnum getUsage() {
     return usage;
@@ -156,7 +156,7 @@ public class CreateKmsKeyRequest {
 
 
   @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUsage(UsageEnum usage) {
     this.usage = usage;
   }
@@ -171,9 +171,9 @@ public class CreateKmsKeyRequest {
    * Get multiZone
    * @return multiZone
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MULTI_ZONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getMultiZone() {
     return multiZone;
@@ -181,7 +181,7 @@ public class CreateKmsKeyRequest {
 
 
   @JsonProperty(JSON_PROPERTY_MULTI_ZONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMultiZone(Boolean multiZone) {
     this.multiZone = multiZone;
   }
