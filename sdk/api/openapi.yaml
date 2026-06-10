@@ -301,6 +301,15 @@ tags:
   x-display-name: Deploy Target
   x-weight: 230
   x-icon: exo-gpu
+- description: "[BETA] Virtual Private Cloud (VPC) provides isolated virtual network\
+    \ environments for your Exoscale resources."
+  externalDocs:
+    description: Read more
+    url: https://community.exoscale.com/documentation/compute/
+  name: vpc
+  x-display-name: VPC
+  x-weight: 195
+  x-icon: exo-vpc
 - description: "Operational management for DBaaS services: logs, metrics, service\
     \ types and lifecycle."
   externalDocs:
@@ -404,6 +413,14 @@ tags:
   x-display-name: KMS
   x-weight: 1120
   x-icon: exo-secgrp
+- description: Deploy and run AI models on dedicated GPUs.
+  externalDocs:
+    description: Read more
+    url: https://www.exoscale.com/ai-cloud-infrastructure/dedicated-inference/
+  name: dedicated-inference
+  x-display-name: Dedicated Inference
+  x-weight: 905
+  x-icon: exo-ai-prod
 - description: "Opensearch, the popular open-source search and analytics database."
   externalDocs:
     description: Read more
@@ -1676,6 +1693,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/forbidden-operation-response'
           description: "403"
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "409"
         "404":
           content:
             application/json:
@@ -3021,6 +3044,44 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /vpc:
+    get:
+      description: ""
+      operationId: list-vpcs
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_vpcs_200_response'
+          description: "200"
+      summary: "[BETA] List VPCs"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: ""
+      operationId: create-vpc
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_vpc_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Create a VPC"
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /ai/api-key/{id}/rotate:
     post:
       description: Rotate AI API key value
@@ -3256,6 +3317,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/forbidden-operation-response'
           description: "403"
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "409"
         "404":
           content:
             application/json:
@@ -3326,6 +3393,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/forbidden-operation-response'
           description: "403"
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: "409"
         "404":
           content:
             application/json:
@@ -9532,6 +9605,83 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /vpc/{id}:
+    delete:
+      description: ""
+      operationId: delete-vpc
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Delete a VPC"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: ""
+      operationId: get-vpc
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vpc'
+          description: "200"
+      summary: "[BETA] Retrieve VPC details"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: ""
+      operationId: update-vpc
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_vpc_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vpc'
+          description: "200"
+      summary: "[BETA] Update a VPC"
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /block-storage:
     get:
       description: ""
@@ -11215,6 +11365,38 @@ components:
             \ for OCR)."
           minimum: 0
       type: object
+    vpc:
+      description: VPC
+      example:
+        name: name
+        description: description
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        labels:
+          key: labels
+      properties:
+        id:
+          description: VPC ID
+          format: uuid
+          type: string
+        name:
+          description: VPC name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: VPC description
+          maxLength: 4096
+          type: string
+        created-at:
+          description: VPC creation date
+          format: date-time
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
     json-schema-thanos:
       example:
         compactor:
@@ -11550,7 +11732,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.22.0
+      default: 0.22.1
       description: Inference engine version
       enum:
       - 0.12.0
@@ -11566,6 +11748,7 @@ components:
       - 0.20.2
       - 0.21.0
       - 0.22.0
+      - 0.22.1
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -15101,6 +15284,38 @@ components:
           type: string
       required:
       - status
+      type: object
+    list-vpc-response-entry:
+      description: VPC
+      example:
+        name: name
+        description: description
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        labels:
+          key: labels
+      properties:
+        id:
+          description: VPC ID
+          format: uuid
+          type: string
+        name:
+          description: VPC name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: VPC description
+          maxLength: 4096
+          type: string
+        created-at:
+          description: VPC creation date
+          format: date-time
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
       type: object
     elastic-ip-ref:
       description: Elastic IP reference
@@ -24292,6 +24507,45 @@ components:
       required:
       - name
       type: object
+    list_vpcs_200_response:
+      example:
+        vpcs:
+        - name: name
+          description: description
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          labels:
+            key: labels
+        - name: name
+          description: description
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          labels:
+            key: labels
+      properties:
+        vpcs:
+          items:
+            $ref: '#/components/schemas/list-vpc-response-entry'
+          type: array
+      type: object
+    create_vpc_request:
+      properties:
+        name:
+          description: VPC name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: VPC description
+          maxLength: 4096
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+      required:
+      - name
+      type: object
     start_instance_request:
       properties:
         rescue-profile:
@@ -27947,6 +28201,24 @@ components:
           type: string
       required:
       - version
+      type: object
+    update_vpc_request:
+      properties:
+        name:
+          description: VPC name
+          maxLength: 255
+          minLength: 1
+          nullable: true
+          type: string
+        description:
+          description: VPC description
+          maxLength: 4096
+          nullable: true
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
       type: object
     list_block_storage_volumes_200_response:
       example:

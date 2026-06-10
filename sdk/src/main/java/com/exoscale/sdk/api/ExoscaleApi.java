@@ -69,6 +69,7 @@ import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
+import com.exoscale.sdk.model.CreateVpcRequest;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
@@ -203,6 +204,7 @@ import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
 import com.exoscale.sdk.model.ListUsers200Response;
+import com.exoscale.sdk.model.ListVpcs200Response;
 import com.exoscale.sdk.model.ListZones200Response;
 import com.exoscale.sdk.model.LiveBalance;
 import com.exoscale.sdk.model.LoadBalancer;
@@ -278,7 +280,9 @@ import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
 import com.exoscale.sdk.model.UpdateTemplateRequest;
 import com.exoscale.sdk.model.UpdateUserRoleRequest;
+import com.exoscale.sdk.model.UpdateVpcRequest;
 import com.exoscale.sdk.model.UpgradeSksClusterRequest;
+import com.exoscale.sdk.model.Vpc;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -5634,6 +5638,93 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Create a VPC
+   * 
+   * @param createVpcRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createVpc(CreateVpcRequest createVpcRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createVpcWithHttpInfo(createVpcRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Create a VPC
+   * 
+   * @param createVpcRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createVpcWithHttpInfo(CreateVpcRequest createVpcRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createVpcRequestBuilder(createVpcRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createVpc", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createVpcRequestBuilder(CreateVpcRequest createVpcRequest) throws ApiException {
+    // verify the required parameter 'createVpcRequest' is set
+    if (createVpcRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createVpcRequest' when calling createVpc");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc";
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createVpcRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * [BETA] Decrypt
    * Decrypt a ciphertext.
    * @param id  (required)
@@ -9904,6 +9995,88 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/user/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Delete a VPC
+   * 
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteVpc(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteVpcWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Delete a VPC
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteVpcWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteVpcRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteVpc", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteVpcRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteVpc");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -17640,6 +17813,88 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Retrieve VPC details
+   * 
+   * @param id  (required)
+   * @return Vpc
+   * @throws ApiException if fails to make API call
+   */
+  public Vpc getVpc(UUID id) throws ApiException {
+    ApiResponse<Vpc> localVarResponse = getVpcWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Retrieve VPC details
+   * 
+   * @param id  (required)
+   * @return ApiResponse&lt;Vpc&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Vpc> getVpcWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getVpcRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getVpc", localVarResponse);
+        }
+        return new ApiResponse<Vpc>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Vpc>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getVpcRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getVpc");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List AI API Keys
    * List AI API keys for an organization
    * @return ListAiApiKeysResponse
@@ -20753,6 +21008,81 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/user";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] List VPCs
+   * 
+   * @return ListVpcs200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListVpcs200Response listVpcs() throws ApiException {
+    ApiResponse<ListVpcs200Response> localVarResponse = listVpcsWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List VPCs
+   * 
+   * @return ApiResponse&lt;ListVpcs200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListVpcs200Response> listVpcsWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listVpcsRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listVpcs", localVarResponse);
+        }
+        return new ApiResponse<ListVpcs200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListVpcs200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listVpcsRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc";
       String requestBody = null;
       String authorizationValue;
 
@@ -29837,6 +30167,100 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateUserRoleRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Update a VPC
+   * 
+   * @param id  (required)
+   * @param updateVpcRequest  (required)
+   * @return Vpc
+   * @throws ApiException if fails to make API call
+   */
+  public Vpc updateVpc(UUID id, UpdateVpcRequest updateVpcRequest) throws ApiException {
+    ApiResponse<Vpc> localVarResponse = updateVpcWithHttpInfo(id, updateVpcRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Update a VPC
+   * 
+   * @param id  (required)
+   * @param updateVpcRequest  (required)
+   * @return ApiResponse&lt;Vpc&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Vpc> updateVpcWithHttpInfo(UUID id, UpdateVpcRequest updateVpcRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateVpcRequestBuilder(id, updateVpcRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateVpc", localVarResponse);
+        }
+        return new ApiResponse<Vpc>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Vpc>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateVpcRequestBuilder(UUID id, UpdateVpcRequest updateVpcRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateVpc");
+    }
+    // verify the required parameter 'updateVpcRequest' is set
+    if (updateVpcRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateVpcRequest' when calling updateVpc");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateVpcRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

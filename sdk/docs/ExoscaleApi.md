@@ -62,6 +62,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createSksNodepool**](ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
+| [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC |
 | [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt |
 | [**deleteAiApiKey**](ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | Delete AI API Key |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
@@ -113,6 +114,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteSshKey**](ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key |
 | [**deleteTemplate**](ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template |
 | [**deleteUser**](ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User |
+| [**deleteVpc**](ExoscaleApi.md#deleteVpc) | **DELETE** /vpc/{id} | [BETA] Delete a VPC |
 | [**detachBlockStorageVolume**](ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
 | [**detachDbaasServiceFromEndpoint**](ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
@@ -205,6 +207,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getTemplate**](ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details |
 | [**getUsageReport**](ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports |
 | [**getUserOrgConsumptionQuota**](ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota |
+| [**getVpc**](ExoscaleApi.md#getVpc) | **GET** /vpc/{id} | [BETA] Retrieve VPC details |
 | [**listAiApiKeys**](ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | List AI API Keys |
 | [**listAiInstanceTypes**](ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types |
 | [**listAntiAffinityGroups**](ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups |
@@ -244,6 +247,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listSshKeys**](ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys |
 | [**listTemplates**](ExoscaleApi.md#listTemplates) | **GET** /template | List Templates |
 | [**listUsers**](ExoscaleApi.md#listUsers) | **GET** /user | List Users |
+| [**listVpcs**](ExoscaleApi.md#listVpcs) | **GET** /vpc | [BETA] List VPCs |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
 | [**reEncrypt**](ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | [BETA] Re-encrypt |
@@ -344,6 +348,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateSksNodepool**](ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool |
 | [**updateTemplate**](ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes |
 | [**updateUserRole**](ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role |
+| [**updateVpc**](ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | [BETA] Update a VPC |
 | [**upgradeSksCluster**](ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster |
 | [**upgradeSksClusterServiceLevel**](ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro |
 
@@ -5792,6 +5797,98 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## createVpc
+
+> Operation createVpc(createVpcRequest)
+
+[BETA] Create a VPC
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        CreateVpcRequest createVpcRequest = new CreateVpcRequest(); // CreateVpcRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createVpc(createVpcRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createVpc");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createVpcRequest** | [**CreateVpcRequest**](CreateVpcRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createVpcRequest** | [**CreateVpcRequest**](CreateVpcRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## decrypt
 
 > DecryptResponse decrypt(id, decryptRequest)
@@ -8617,6 +8714,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | 403 |  -  |
+| **409** | 409 |  -  |
 | **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
@@ -8646,6 +8744,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | 403 |  -  |
+| **409** | 409 |  -  |
 | **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
@@ -10443,6 +10542,98 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteVpc
+
+> Operation deleteVpc(id)
+
+[BETA] Delete a VPC
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteVpc(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteVpc");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -18974,6 +19165,98 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getVpc
+
+> Vpc getVpc(id)
+
+[BETA] Retrieve VPC details
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Vpc result = client.getVpc(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getVpc");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Vpc**](Vpc.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Vpc**](Vpc.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listAiApiKeys
 
 > ListAiApiKeysResponse listAiApiKeys()
@@ -22393,6 +22676,91 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiResponse<[**ListUsers200Response**](ListUsers200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listVpcs
+
+> ListVpcs200Response listVpcs()
+
+[BETA] List VPCs
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            ListVpcs200Response result = client.listVpcs();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listVpcs");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListVpcs200Response**](ListVpcs200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListVpcs200Response**](ListVpcs200Response.md)>
 
 
 ### Authorization
@@ -26610,6 +26978,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **412** | 412 |  -  |
 | **403** | 403 |  -  |
+| **409** | 409 |  -  |
 | **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
@@ -26641,6 +27010,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **412** | 412 |  -  |
 | **403** | 403 |  -  |
+| **409** | 409 |  -  |
 | **404** | 404 |  -  |
 | **200** | 200 |  -  |
 
@@ -30184,6 +30554,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | 403 |  -  |
+| **409** | 409 |  -  |
 | **404** | 404 |  -  |
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
@@ -30215,6 +30586,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **403** | 403 |  -  |
+| **409** | 409 |  -  |
 | **404** | 404 |  -  |
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
@@ -31822,6 +32194,101 @@ No authorization required
 ### Return type
 
 ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateVpc
+
+> Vpc updateVpc(id, updateVpcRequest)
+
+[BETA] Update a VPC
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateVpcRequest updateVpcRequest = new UpdateVpcRequest(); // UpdateVpcRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Vpc result = client.updateVpc(id, updateVpcRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateVpc");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateVpcRequest** | [**UpdateVpcRequest**](UpdateVpcRequest.md)|  | |
+
+### Return type
+
+[**Vpc**](Vpc.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateVpcRequest** | [**UpdateVpcRequest**](UpdateVpcRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Vpc**](Vpc.md)>
 
 
 ### Authorization

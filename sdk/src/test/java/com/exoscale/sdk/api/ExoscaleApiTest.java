@@ -65,6 +65,7 @@ import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
+import com.exoscale.sdk.model.CreateVpcRequest;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
@@ -199,6 +200,7 @@ import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
 import com.exoscale.sdk.model.ListUsers200Response;
+import com.exoscale.sdk.model.ListVpcs200Response;
 import com.exoscale.sdk.model.ListZones200Response;
 import com.exoscale.sdk.model.LiveBalance;
 import com.exoscale.sdk.model.LoadBalancer;
@@ -274,7 +276,9 @@ import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
 import com.exoscale.sdk.model.UpdateTemplateRequest;
 import com.exoscale.sdk.model.UpdateUserRoleRequest;
+import com.exoscale.sdk.model.UpdateVpcRequest;
 import com.exoscale.sdk.model.UpgradeSksClusterRequest;
+import com.exoscale.sdk.model.Vpc;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -1318,6 +1322,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Create a VPC
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createVpcTest() throws ApiException {
+        CreateVpcRequest createVpcRequest = null;
+        Operation response = 
+        api.createVpc(createVpcRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * [BETA] Decrypt
      *
      * Decrypt a ciphertext.
@@ -2195,6 +2216,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.deleteUser(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Delete a VPC
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteVpcTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.deleteVpc(id);
         
         // TODO: test validations
     }
@@ -3774,6 +3812,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Retrieve VPC details
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getVpcTest() throws ApiException {
+        UUID id = null;
+        Vpc response = 
+        api.getVpc(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List AI API Keys
      *
      * List AI API keys for an organization
@@ -4414,6 +4469,22 @@ public class ExoscaleApiTest {
     public void listUsersTest() throws ApiException {
         ListUsers200Response response = 
         api.listUsers();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] List VPCs
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listVpcsTest() throws ApiException {
+        ListVpcs200Response response = 
+        api.listVpcs();
         
         // TODO: test validations
     }
@@ -6197,6 +6268,24 @@ public class ExoscaleApiTest {
         UpdateUserRoleRequest updateUserRoleRequest = null;
         Operation response = 
         api.updateUserRole(id, updateUserRoleRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Update a VPC
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateVpcTest() throws ApiException {
+        UUID id = null;
+        UpdateVpcRequest updateVpcRequest = null;
+        Vpc response = 
+        api.updateVpc(id, updateVpcRequest);
         
         // TODO: test validations
     }

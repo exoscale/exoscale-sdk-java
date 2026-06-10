@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-06-08T08:38:04.940906344Z[Etc/UTC]
+- Build date: 2026-06-10T08:26:16.265880576Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c2624af</version>
+    <version>0.0.5-SNAPSHOT-6c8195b</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c2624af'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-6c8195b'
 }
 ```
 
@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createSksNodepool**](sdk/docs/ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
 *ExoscaleApi* | [**createSnapshot**](sdk/docs/ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
 *ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
+*ExoscaleApi* | [**createVpc**](sdk/docs/ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC
 *ExoscaleApi* | [**decrypt**](sdk/docs/ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt
 *ExoscaleApi* | [**deleteAiApiKey**](sdk/docs/ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | Delete AI API Key
 *ExoscaleApi* | [**deleteAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
@@ -191,6 +192,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteSshKey**](sdk/docs/ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key
 *ExoscaleApi* | [**deleteTemplate**](sdk/docs/ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template
 *ExoscaleApi* | [**deleteUser**](sdk/docs/ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User
+*ExoscaleApi* | [**deleteVpc**](sdk/docs/ExoscaleApi.md#deleteVpc) | **DELETE** /vpc/{id} | [BETA] Delete a VPC
 *ExoscaleApi* | [**detachBlockStorageVolume**](sdk/docs/ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume
 *ExoscaleApi* | [**detachDbaasServiceFromEndpoint**](sdk/docs/ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach | 
 *ExoscaleApi* | [**detachInstanceFromElasticIp**](sdk/docs/ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP
@@ -283,6 +285,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getTemplate**](sdk/docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
 *ExoscaleApi* | [**getUsageReport**](sdk/docs/ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports
 *ExoscaleApi* | [**getUserOrgConsumptionQuota**](sdk/docs/ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota
+*ExoscaleApi* | [**getVpc**](sdk/docs/ExoscaleApi.md#getVpc) | **GET** /vpc/{id} | [BETA] Retrieve VPC details
 *ExoscaleApi* | [**listAiApiKeys**](sdk/docs/ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | List AI API Keys
 *ExoscaleApi* | [**listAiInstanceTypes**](sdk/docs/ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types
 *ExoscaleApi* | [**listAntiAffinityGroups**](sdk/docs/ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
@@ -322,6 +325,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listSshKeys**](sdk/docs/ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys
 *ExoscaleApi* | [**listTemplates**](sdk/docs/ExoscaleApi.md#listTemplates) | **GET** /template | List Templates
 *ExoscaleApi* | [**listUsers**](sdk/docs/ExoscaleApi.md#listUsers) | **GET** /user | List Users
+*ExoscaleApi* | [**listVpcs**](sdk/docs/ExoscaleApi.md#listVpcs) | **GET** /vpc | [BETA] List VPCs
 *ExoscaleApi* | [**listZones**](sdk/docs/ExoscaleApi.md#listZones) | **GET** /zone | List Zones
 *ExoscaleApi* | [**promoteSnapshotToTemplate**](sdk/docs/ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
 *ExoscaleApi* | [**reEncrypt**](sdk/docs/ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | [BETA] Re-encrypt
@@ -422,6 +426,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateSksNodepool**](sdk/docs/ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
 *ExoscaleApi* | [**updateTemplate**](sdk/docs/ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes
 *ExoscaleApi* | [**updateUserRole**](sdk/docs/ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role
+*ExoscaleApi* | [**updateVpc**](sdk/docs/ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | [BETA] Update a VPC
 *ExoscaleApi* | [**upgradeSksCluster**](sdk/docs/ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster
 *ExoscaleApi* | [**upgradeSksClusterServiceLevel**](sdk/docs/ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro
 
@@ -495,6 +500,7 @@ Class | Method | HTTP request | Description
  - [CreateSksClusterRequest](sdk/docs/CreateSksClusterRequest.md)
  - [CreateSksNodepoolRequest](sdk/docs/CreateSksNodepoolRequest.md)
  - [CreateUserRequest](sdk/docs/CreateUserRequest.md)
+ - [CreateVpcRequest](sdk/docs/CreateVpcRequest.md)
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
  - [DbaasDatadogTag](sdk/docs/DbaasDatadogTag.md)
  - [DbaasEndpointDatadogCommon](sdk/docs/DbaasEndpointDatadogCommon.md)
@@ -791,6 +797,8 @@ Class | Method | HTTP request | Description
  - [ListSshKeys200Response](sdk/docs/ListSshKeys200Response.md)
  - [ListTemplates200Response](sdk/docs/ListTemplates200Response.md)
  - [ListUsers200Response](sdk/docs/ListUsers200Response.md)
+ - [ListVpcResponseEntry](sdk/docs/ListVpcResponseEntry.md)
+ - [ListVpcs200Response](sdk/docs/ListVpcs200Response.md)
  - [ListZones200Response](sdk/docs/ListZones200Response.md)
  - [LiveBalance](sdk/docs/LiveBalance.md)
  - [LoadBalancer](sdk/docs/LoadBalancer.md)
@@ -924,8 +932,10 @@ Class | Method | HTTP request | Description
  - [UpdateSksNodepoolRequest](sdk/docs/UpdateSksNodepoolRequest.md)
  - [UpdateTemplateRequest](sdk/docs/UpdateTemplateRequest.md)
  - [UpdateUserRoleRequest](sdk/docs/UpdateUserRoleRequest.md)
+ - [UpdateVpcRequest](sdk/docs/UpdateVpcRequest.md)
  - [UpgradeSksClusterRequest](sdk/docs/UpgradeSksClusterRequest.md)
  - [User](sdk/docs/User.md)
+ - [Vpc](sdk/docs/Vpc.md)
  - [WriteAheadLogWALSettings](sdk/docs/WriteAheadLogWALSettings.md)
  - [Zone](sdk/docs/Zone.md)
  - [ZoneName](sdk/docs/ZoneName.md)
