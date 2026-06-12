@@ -37,116 +37,70 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateDbaasServiceValkeyRequest
  */
 @JsonPropertyOrder({
-  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_MAINTENANCE,
-  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_PLAN,
-  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
-  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_IP_FILTER,
-  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_MIGRATION,
   CreateDbaasServiceValkeyRequest.JSON_PROPERTY_VALKEY_SETTINGS,
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_IP_FILTER,
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
   CreateDbaasServiceValkeyRequest.JSON_PROPERTY_FORK_FROM_SERVICE,
-  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_RECOVERY_BACKUP_NAME
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_MAINTENANCE,
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_VERSION,
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_RECOVERY_BACKUP_NAME,
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_PLAN,
+  CreateDbaasServiceValkeyRequest.JSON_PROPERTY_MIGRATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateDbaasServiceValkeyRequest {
-  public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
-  private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
-
-  public static final String JSON_PROPERTY_PLAN = "plan";
-  private String plan;
-
-  public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
-  private Boolean terminationProtection;
+  public static final String JSON_PROPERTY_VALKEY_SETTINGS = "valkey-settings";
+  private JsonSchemaValkey valkeySettings;
 
   public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
   private List<String> ipFilter;
 
-  public static final String JSON_PROPERTY_MIGRATION = "migration";
-  private UpdateDbaasServiceMysqlRequestMigration migration;
-
-  public static final String JSON_PROPERTY_VALKEY_SETTINGS = "valkey-settings";
-  private JsonSchemaValkey valkeySettings;
+  public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
+  private Boolean terminationProtection;
 
   public static final String JSON_PROPERTY_FORK_FROM_SERVICE = "fork-from-service";
   private String forkFromService;
 
+  public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
+  private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
+
   public static final String JSON_PROPERTY_RECOVERY_BACKUP_NAME = "recovery-backup-name";
   private String recoveryBackupName;
+
+  public static final String JSON_PROPERTY_PLAN = "plan";
+  private String plan;
+
+  public static final String JSON_PROPERTY_MIGRATION = "migration";
+  private UpdateDbaasServiceMysqlRequestMigration migration;
 
   public CreateDbaasServiceValkeyRequest() { 
   }
 
-  public CreateDbaasServiceValkeyRequest maintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
-    this.maintenance = maintenance;
+  public CreateDbaasServiceValkeyRequest valkeySettings(JsonSchemaValkey valkeySettings) {
+    this.valkeySettings = valkeySettings;
     return this;
   }
 
    /**
-   * Get maintenance
-   * @return maintenance
+   * Get valkeySettings
+   * @return valkeySettings
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonProperty(JSON_PROPERTY_VALKEY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UpdateDbaasServiceMysqlRequestMaintenance getMaintenance() {
-    return maintenance;
+  public JsonSchemaValkey getValkeySettings() {
+    return valkeySettings;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonProperty(JSON_PROPERTY_VALKEY_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
-    this.maintenance = maintenance;
-  }
-
-
-  public CreateDbaasServiceValkeyRequest plan(String plan) {
-    this.plan = plan;
-    return this;
-  }
-
-   /**
-   * Subscription plan
-   * @return plan
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PLAN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getPlan() {
-    return plan;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PLAN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPlan(String plan) {
-    this.plan = plan;
-  }
-
-
-  public CreateDbaasServiceValkeyRequest terminationProtection(Boolean terminationProtection) {
-    this.terminationProtection = terminationProtection;
-    return this;
-  }
-
-   /**
-   * Service is protected against termination and powering off
-   * @return terminationProtection
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getTerminationProtection() {
-    return terminationProtection;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTerminationProtection(Boolean terminationProtection) {
-    this.terminationProtection = terminationProtection;
+  public void setValkeySettings(JsonSchemaValkey valkeySettings) {
+    this.valkeySettings = valkeySettings;
   }
 
 
@@ -183,53 +137,28 @@ public class CreateDbaasServiceValkeyRequest {
   }
 
 
-  public CreateDbaasServiceValkeyRequest migration(UpdateDbaasServiceMysqlRequestMigration migration) {
-    this.migration = migration;
+  public CreateDbaasServiceValkeyRequest terminationProtection(Boolean terminationProtection) {
+    this.terminationProtection = terminationProtection;
     return this;
   }
 
    /**
-   * Get migration
-   * @return migration
+   * Service is protected against termination and powering off
+   * @return terminationProtection
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MIGRATION)
+  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UpdateDbaasServiceMysqlRequestMigration getMigration() {
-    return migration;
+  public Boolean getTerminationProtection() {
+    return terminationProtection;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MIGRATION)
+  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMigration(UpdateDbaasServiceMysqlRequestMigration migration) {
-    this.migration = migration;
-  }
-
-
-  public CreateDbaasServiceValkeyRequest valkeySettings(JsonSchemaValkey valkeySettings) {
-    this.valkeySettings = valkeySettings;
-    return this;
-  }
-
-   /**
-   * Get valkeySettings
-   * @return valkeySettings
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALKEY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonSchemaValkey getValkeySettings() {
-    return valkeySettings;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALKEY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setValkeySettings(JsonSchemaValkey valkeySettings) {
-    this.valkeySettings = valkeySettings;
+  public void setTerminationProtection(Boolean terminationProtection) {
+    this.terminationProtection = terminationProtection;
   }
 
 
@@ -258,6 +187,56 @@ public class CreateDbaasServiceValkeyRequest {
   }
 
 
+  public CreateDbaasServiceValkeyRequest maintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
+    this.maintenance = maintenance;
+    return this;
+  }
+
+   /**
+   * Get maintenance
+   * @return maintenance
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UpdateDbaasServiceMysqlRequestMaintenance getMaintenance() {
+    return maintenance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
+    this.maintenance = maintenance;
+  }
+
+
+  public CreateDbaasServiceValkeyRequest version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Valkey major version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+
   public CreateDbaasServiceValkeyRequest recoveryBackupName(String recoveryBackupName) {
     this.recoveryBackupName = recoveryBackupName;
     return this;
@@ -283,6 +262,56 @@ public class CreateDbaasServiceValkeyRequest {
   }
 
 
+  public CreateDbaasServiceValkeyRequest plan(String plan) {
+    this.plan = plan;
+    return this;
+  }
+
+   /**
+   * Subscription plan
+   * @return plan
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PLAN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getPlan() {
+    return plan;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PLAN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPlan(String plan) {
+    this.plan = plan;
+  }
+
+
+  public CreateDbaasServiceValkeyRequest migration(UpdateDbaasServiceMysqlRequestMigration migration) {
+    this.migration = migration;
+    return this;
+  }
+
+   /**
+   * Get migration
+   * @return migration
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MIGRATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UpdateDbaasServiceMysqlRequestMigration getMigration() {
+    return migration;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MIGRATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMigration(UpdateDbaasServiceMysqlRequestMigration migration) {
+    this.migration = migration;
+  }
+
+
   /**
    * Return true if this create_dbaas_service_valkey_request object is equal to o.
    */
@@ -295,33 +324,35 @@ public class CreateDbaasServiceValkeyRequest {
       return false;
     }
     CreateDbaasServiceValkeyRequest createDbaasServiceValkeyRequest = (CreateDbaasServiceValkeyRequest) o;
-    return Objects.equals(this.maintenance, createDbaasServiceValkeyRequest.maintenance) &&
-        Objects.equals(this.plan, createDbaasServiceValkeyRequest.plan) &&
-        Objects.equals(this.terminationProtection, createDbaasServiceValkeyRequest.terminationProtection) &&
+    return Objects.equals(this.valkeySettings, createDbaasServiceValkeyRequest.valkeySettings) &&
         Objects.equals(this.ipFilter, createDbaasServiceValkeyRequest.ipFilter) &&
-        Objects.equals(this.migration, createDbaasServiceValkeyRequest.migration) &&
-        Objects.equals(this.valkeySettings, createDbaasServiceValkeyRequest.valkeySettings) &&
+        Objects.equals(this.terminationProtection, createDbaasServiceValkeyRequest.terminationProtection) &&
         Objects.equals(this.forkFromService, createDbaasServiceValkeyRequest.forkFromService) &&
-        Objects.equals(this.recoveryBackupName, createDbaasServiceValkeyRequest.recoveryBackupName);
+        Objects.equals(this.maintenance, createDbaasServiceValkeyRequest.maintenance) &&
+        Objects.equals(this.version, createDbaasServiceValkeyRequest.version) &&
+        Objects.equals(this.recoveryBackupName, createDbaasServiceValkeyRequest.recoveryBackupName) &&
+        Objects.equals(this.plan, createDbaasServiceValkeyRequest.plan) &&
+        Objects.equals(this.migration, createDbaasServiceValkeyRequest.migration);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maintenance, plan, terminationProtection, ipFilter, migration, valkeySettings, forkFromService, recoveryBackupName);
+    return Objects.hash(valkeySettings, ipFilter, terminationProtection, forkFromService, maintenance, version, recoveryBackupName, plan, migration);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDbaasServiceValkeyRequest {\n");
-    sb.append("    maintenance: ").append(toIndentedString(maintenance)).append("\n");
-    sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
-    sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
-    sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
-    sb.append("    migration: ").append(toIndentedString(migration)).append("\n");
     sb.append("    valkeySettings: ").append(toIndentedString(valkeySettings)).append("\n");
+    sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
+    sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
     sb.append("    forkFromService: ").append(toIndentedString(forkFromService)).append("\n");
+    sb.append("    maintenance: ").append(toIndentedString(maintenance)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    recoveryBackupName: ").append(toIndentedString(recoveryBackupName)).append("\n");
+    sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
+    sb.append("    migration: ").append(toIndentedString(migration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -369,19 +400,9 @@ public class CreateDbaasServiceValkeyRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `maintenance` to the URL query string
-    if (getMaintenance() != null) {
-      joiner.add(getMaintenance().toUrlQueryString(prefix + "maintenance" + suffix));
-    }
-
-    // add `plan` to the URL query string
-    if (getPlan() != null) {
-      joiner.add(String.format("%splan%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlan()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `termination-protection` to the URL query string
-    if (getTerminationProtection() != null) {
-      joiner.add(String.format("%stermination-protection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminationProtection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `valkey-settings` to the URL query string
+    if (getValkeySettings() != null) {
+      joiner.add(getValkeySettings().toUrlQueryString(prefix + "valkey-settings" + suffix));
     }
 
     // add `ip-filter` to the URL query string
@@ -393,14 +414,9 @@ public class CreateDbaasServiceValkeyRequest {
       }
     }
 
-    // add `migration` to the URL query string
-    if (getMigration() != null) {
-      joiner.add(getMigration().toUrlQueryString(prefix + "migration" + suffix));
-    }
-
-    // add `valkey-settings` to the URL query string
-    if (getValkeySettings() != null) {
-      joiner.add(getValkeySettings().toUrlQueryString(prefix + "valkey-settings" + suffix));
+    // add `termination-protection` to the URL query string
+    if (getTerminationProtection() != null) {
+      joiner.add(String.format("%stermination-protection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminationProtection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fork-from-service` to the URL query string
@@ -408,9 +424,29 @@ public class CreateDbaasServiceValkeyRequest {
       joiner.add(String.format("%sfork-from-service%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getForkFromService()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `maintenance` to the URL query string
+    if (getMaintenance() != null) {
+      joiner.add(getMaintenance().toUrlQueryString(prefix + "maintenance" + suffix));
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `recovery-backup-name` to the URL query string
     if (getRecoveryBackupName() != null) {
       joiner.add(String.format("%srecovery-backup-name%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRecoveryBackupName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `plan` to the URL query string
+    if (getPlan() != null) {
+      joiner.add(String.format("%splan%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlan()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `migration` to the URL query string
+    if (getMigration() != null) {
+      joiner.add(getMigration().toUrlQueryString(prefix + "migration" + suffix));
     }
 
     return joiner.toString();

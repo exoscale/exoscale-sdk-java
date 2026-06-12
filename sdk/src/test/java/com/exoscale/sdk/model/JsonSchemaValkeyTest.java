@@ -58,6 +58,14 @@ public class JsonSchemaValkeyTest {
     }
 
     /**
+     * Test the property 'frequentSnapshots'
+     */
+    @Test
+    public void frequentSnapshotsTest() {
+        // TODO: test frequentSnapshots
+    }
+
+    /**
      * Test the property 'maxmemoryPolicy'
      */
     @Test
@@ -87,6 +95,14 @@ public class JsonSchemaValkeyTest {
     @Test
     public void pubsubClientOutputBufferLimitTest() {
         // TODO: test pubsubClientOutputBufferLimit
+    }
+
+    /**
+     * Test the property 'activeExpireEffort'
+     */
+    @Test
+    public void activeExpireEffortTest() {
+        // TODO: test activeExpireEffort
     }
 
     /**

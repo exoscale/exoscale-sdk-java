@@ -9,10 +9,12 @@
 |------------ | ------------- | ------------- | -------------|
 |**ssl** | **Boolean** |  |  [optional] |
 |**lfuLogFactor** | **Integer** |  |  [optional] |
+|**frequentSnapshots** | **Boolean** | When enabled, Valkey will create frequent local RDB snapshots. When disabled, Valkey will only take RDB snapshots when a backup is created, based on the backup schedule. This setting is ignored when &#x60;valkey_persistence&#x60; is set to &#x60;off&#x60;. |  [optional] |
 |**maxmemoryPolicy** | [**MaxmemoryPolicyEnum**](#MaxmemoryPolicyEnum) |  |  [optional] |
 |**ioThreads** | **Integer** | Set Valkey IO thread count. Changing this will cause a restart of the Valkey service. |  [optional] |
 |**lfuDecayTime** | **Integer** |  |  [optional] |
 |**pubsubClientOutputBufferLimit** | **Integer** | Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan. |  [optional] |
+|**activeExpireEffort** | **Integer** | Valkey reclaims expired keys both when accessed and in the background. The background process scans for expired keys to free memory. Increasing the active-expire-effort setting (default 1, max 10) uses more CPU to reclaim expired keys faster, reducing memory usage but potentially increasing latency. |  [optional] |
 |**notifyKeyspaceEvents** | **String** |  |  [optional] |
 |**persistence** | [**PersistenceEnum**](#PersistenceEnum) | When persistence is &#39;rdb&#39;, Valkey does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is &#39;off&#39;, no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can&#39;t be forked. |  [optional] |
 |**timeout** | **Integer** |  |  [optional] |

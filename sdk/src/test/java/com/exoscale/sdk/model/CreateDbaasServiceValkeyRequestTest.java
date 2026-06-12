@@ -43,27 +43,11 @@ public class CreateDbaasServiceValkeyRequestTest {
     }
 
     /**
-     * Test the property 'maintenance'
+     * Test the property 'valkeySettings'
      */
     @Test
-    public void maintenanceTest() {
-        // TODO: test maintenance
-    }
-
-    /**
-     * Test the property 'plan'
-     */
-    @Test
-    public void planTest() {
-        // TODO: test plan
-    }
-
-    /**
-     * Test the property 'terminationProtection'
-     */
-    @Test
-    public void terminationProtectionTest() {
-        // TODO: test terminationProtection
+    public void valkeySettingsTest() {
+        // TODO: test valkeySettings
     }
 
     /**
@@ -75,19 +59,11 @@ public class CreateDbaasServiceValkeyRequestTest {
     }
 
     /**
-     * Test the property 'migration'
+     * Test the property 'terminationProtection'
      */
     @Test
-    public void migrationTest() {
-        // TODO: test migration
-    }
-
-    /**
-     * Test the property 'valkeySettings'
-     */
-    @Test
-    public void valkeySettingsTest() {
-        // TODO: test valkeySettings
+    public void terminationProtectionTest() {
+        // TODO: test terminationProtection
     }
 
     /**
@@ -99,11 +75,43 @@ public class CreateDbaasServiceValkeyRequestTest {
     }
 
     /**
+     * Test the property 'maintenance'
+     */
+    @Test
+    public void maintenanceTest() {
+        // TODO: test maintenance
+    }
+
+    /**
+     * Test the property 'version'
+     */
+    @Test
+    public void versionTest() {
+        // TODO: test version
+    }
+
+    /**
      * Test the property 'recoveryBackupName'
      */
     @Test
     public void recoveryBackupNameTest() {
         // TODO: test recoveryBackupName
+    }
+
+    /**
+     * Test the property 'plan'
+     */
+    @Test
+    public void planTest() {
+        // TODO: test plan
+    }
+
+    /**
+     * Test the property 'migration'
+     */
+    @Test
+    public void migrationTest() {
+        // TODO: test migration
     }
 
 }

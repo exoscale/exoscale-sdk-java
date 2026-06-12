@@ -1603,7 +1603,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "200":
           content:
@@ -1691,7 +1691,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "409":
           content:
@@ -2175,7 +2175,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "200":
           content:
@@ -2911,7 +2911,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "404":
           content:
@@ -2940,7 +2940,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "404":
           content:
@@ -2981,7 +2981,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "404":
           content:
@@ -3100,7 +3100,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "404":
           content:
@@ -3315,7 +3315,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "409":
           content:
@@ -3391,7 +3391,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "409":
           content:
@@ -6140,7 +6140,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "404":
           content:
@@ -8526,7 +8526,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "200":
           content:
@@ -8553,7 +8553,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/forbidden-operation-response'
+                $ref: '#/components/schemas/error-response'
           description: "403"
         "404":
           content:
@@ -13919,15 +13919,17 @@ components:
       type: object
     json-schema-valkey:
       example:
-        pubsub_client_output_buffer_limit: 64
-        lfu_decay_time: 71
         number_of_databases: 16
-        lfu_log_factor: 14
-        persistence: "off"
         io_threads: 1
         ssl: true
+        timeout: 7260015
+        frequent_snapshots: true
+        active_expire_effort: 6
+        pubsub_client_output_buffer_limit: 64
+        lfu_decay_time: 71
+        lfu_log_factor: 14
+        persistence: "off"
         maxmemory_policy: noeviction
-        timeout: 17778031
         acl_channels_default: allchannels
         notify_keyspace_events: ""
       properties:
@@ -13941,6 +13943,14 @@ components:
           minimum: 0
           title: Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies
           type: integer
+        frequent_snapshots:
+          default: true
+          description: "When enabled, Valkey will create frequent local RDB snapshots.\
+            \ When disabled, Valkey will only take RDB snapshots when a backup is\
+            \ created, based on the backup schedule. This setting is ignored when\
+            \ `valkey_persistence` is set to `off`."
+          title: Frequent RDB snapshots
+          type: boolean
         maxmemory_policy:
           default: noeviction
           enum:
@@ -13978,6 +13988,17 @@ components:
           maximum: 512
           minimum: 32
           title: Pub/sub client output buffer hard limit in MB
+          type: integer
+        active_expire_effort:
+          default: 1
+          description: "Valkey reclaims expired keys both when accessed and in the\
+            \ background. The background process scans for expired keys to free memory.\
+            \ Increasing the active-expire-effort setting (default 1, max 10) uses\
+            \ more CPU to reclaim expired keys faster, reducing memory usage but potentially\
+            \ increasing latency."
+          maximum: 10
+          minimum: 1
+          title: Active expire effort
           type: integer
         notify_keyspace_events:
           default: ""
@@ -14739,26 +14760,6 @@ components:
       - permission
       - resource
       - username
-      type: object
-    forbidden-operation-response:
-      description: Forbidden operation response
-      example:
-        code: forbidden_operation
-        error: error
-      properties:
-        code:
-          description: Machine-readable forbidden error code
-          enum:
-          - forbidden_operation
-          readOnly: true
-          type: string
-        error:
-          description: Forbidden error message
-          readOnly: true
-          type: string
-      required:
-      - code
-      - error
       type: object
     enum-mysql-authentication-plugin:
       enum:
@@ -16572,13 +16573,13 @@ components:
         components:
         - component: component
           route: null
-          port: 15087
+          port: 46276
           usage: null
           host: host
           ssl: true
         - component: component
           route: null
-          port: 15087
+          port: 46276
           usage: null
           host: host
           ssl: true
@@ -20737,13 +20738,13 @@ components:
         components:
         - component: component
           route: null
-          port: 15087
+          port: 46276
           usage: null
           host: host
           ssl: true
         - component: component
           route: null
-          port: 15087
+          port: 46276
           usage: null
           host: host
           ssl: true
@@ -20791,15 +20792,17 @@ components:
         created-at: 2000-01-23T04:56:07.000+00:00
         state: null
         valkey-settings:
-          pubsub_client_output_buffer_limit: 64
-          lfu_decay_time: 71
           number_of_databases: 16
-          lfu_log_factor: 14
-          persistence: "off"
           io_threads: 1
           ssl: true
+          timeout: 7260015
+          frequent_snapshots: true
+          active_expire_effort: 6
+          pubsub_client_output_buffer_limit: 64
+          lfu_decay_time: 71
+          lfu_log_factor: 14
+          persistence: "off"
           maxmemory_policy: noeviction
-          timeout: 17778031
           acl_channels_default: allchannels
           notify_keyspace_events: ""
         plan: plan
@@ -26406,34 +26409,38 @@ components:
       type: object
     create_dbaas_service_valkey_request:
       properties:
-        maintenance:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
-        plan:
-          description: Subscription plan
-          maxLength: 128
-          minLength: 1
-          type: string
-        termination-protection:
-          description: Service is protected against termination and powering off
-          type: boolean
+        valkey-settings:
+          $ref: '#/components/schemas/json-schema-valkey'
         ip-filter:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
           type: array
-        migration:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
-        valkey-settings:
-          $ref: '#/components/schemas/json-schema-valkey'
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
         fork-from-service:
           maxLength: 63
           minLength: 0
+          type: string
+        maintenance:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
+        version:
+          description: Valkey major version
+          minLength: 1
           type: string
         recovery-backup-name:
           description: Name of a backup to recover from for services that support
             backup names
           minLength: 1
           type: string
+        plan:
+          description: Subscription plan
+          maxLength: 128
+          minLength: 1
+          type: string
+        migration:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
       required:
       - plan
       type: object
@@ -29725,7 +29732,7 @@ components:
       example:
         component: component
         route: null
-        port: 15087
+        port: 46276
         usage: null
         host: host
         ssl: true

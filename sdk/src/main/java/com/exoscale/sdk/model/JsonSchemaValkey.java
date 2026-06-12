@@ -38,10 +38,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   JsonSchemaValkey.JSON_PROPERTY_SSL,
   JsonSchemaValkey.JSON_PROPERTY_LFU_LOG_FACTOR,
+  JsonSchemaValkey.JSON_PROPERTY_FREQUENT_SNAPSHOTS,
   JsonSchemaValkey.JSON_PROPERTY_MAXMEMORY_POLICY,
   JsonSchemaValkey.JSON_PROPERTY_IO_THREADS,
   JsonSchemaValkey.JSON_PROPERTY_LFU_DECAY_TIME,
   JsonSchemaValkey.JSON_PROPERTY_PUBSUB_CLIENT_OUTPUT_BUFFER_LIMIT,
+  JsonSchemaValkey.JSON_PROPERTY_ACTIVE_EXPIRE_EFFORT,
   JsonSchemaValkey.JSON_PROPERTY_NOTIFY_KEYSPACE_EVENTS,
   JsonSchemaValkey.JSON_PROPERTY_PERSISTENCE,
   JsonSchemaValkey.JSON_PROPERTY_TIMEOUT,
@@ -55,6 +57,9 @@ public class JsonSchemaValkey {
 
   public static final String JSON_PROPERTY_LFU_LOG_FACTOR = "lfu_log_factor";
   private Integer lfuLogFactor = 10;
+
+  public static final String JSON_PROPERTY_FREQUENT_SNAPSHOTS = "frequent_snapshots";
+  private Boolean frequentSnapshots = true;
 
   /**
    * Gets or Sets maxmemoryPolicy
@@ -114,6 +119,9 @@ public class JsonSchemaValkey {
 
   public static final String JSON_PROPERTY_PUBSUB_CLIENT_OUTPUT_BUFFER_LIMIT = "pubsub_client_output_buffer_limit";
   private Integer pubsubClientOutputBufferLimit;
+
+  public static final String JSON_PROPERTY_ACTIVE_EXPIRE_EFFORT = "active_expire_effort";
+  private Integer activeExpireEffort = 1;
 
   public static final String JSON_PROPERTY_NOTIFY_KEYSPACE_EVENTS = "notify_keyspace_events";
   private String notifyKeyspaceEvents = "";
@@ -255,6 +263,31 @@ public class JsonSchemaValkey {
   }
 
 
+  public JsonSchemaValkey frequentSnapshots(Boolean frequentSnapshots) {
+    this.frequentSnapshots = frequentSnapshots;
+    return this;
+  }
+
+   /**
+   * When enabled, Valkey will create frequent local RDB snapshots. When disabled, Valkey will only take RDB snapshots when a backup is created, based on the backup schedule. This setting is ignored when &#x60;valkey_persistence&#x60; is set to &#x60;off&#x60;.
+   * @return frequentSnapshots
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FREQUENT_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getFrequentSnapshots() {
+    return frequentSnapshots;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FREQUENT_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFrequentSnapshots(Boolean frequentSnapshots) {
+    this.frequentSnapshots = frequentSnapshots;
+  }
+
+
   public JsonSchemaValkey maxmemoryPolicy(MaxmemoryPolicyEnum maxmemoryPolicy) {
     this.maxmemoryPolicy = JsonNullable.<MaxmemoryPolicyEnum>of(maxmemoryPolicy);
     return this;
@@ -366,6 +399,33 @@ public class JsonSchemaValkey {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPubsubClientOutputBufferLimit(Integer pubsubClientOutputBufferLimit) {
     this.pubsubClientOutputBufferLimit = pubsubClientOutputBufferLimit;
+  }
+
+
+  public JsonSchemaValkey activeExpireEffort(Integer activeExpireEffort) {
+    this.activeExpireEffort = activeExpireEffort;
+    return this;
+  }
+
+   /**
+   * Valkey reclaims expired keys both when accessed and in the background. The background process scans for expired keys to free memory. Increasing the active-expire-effort setting (default 1, max 10) uses more CPU to reclaim expired keys faster, reducing memory usage but potentially increasing latency.
+   * minimum: 1
+   * maximum: 10
+   * @return activeExpireEffort
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACTIVE_EXPIRE_EFFORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getActiveExpireEffort() {
+    return activeExpireEffort;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACTIVE_EXPIRE_EFFORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setActiveExpireEffort(Integer activeExpireEffort) {
+    this.activeExpireEffort = activeExpireEffort;
   }
 
 
@@ -512,10 +572,12 @@ public class JsonSchemaValkey {
     JsonSchemaValkey jsonSchemaValkey = (JsonSchemaValkey) o;
     return Objects.equals(this.ssl, jsonSchemaValkey.ssl) &&
         Objects.equals(this.lfuLogFactor, jsonSchemaValkey.lfuLogFactor) &&
+        Objects.equals(this.frequentSnapshots, jsonSchemaValkey.frequentSnapshots) &&
         equalsNullable(this.maxmemoryPolicy, jsonSchemaValkey.maxmemoryPolicy) &&
         Objects.equals(this.ioThreads, jsonSchemaValkey.ioThreads) &&
         Objects.equals(this.lfuDecayTime, jsonSchemaValkey.lfuDecayTime) &&
         Objects.equals(this.pubsubClientOutputBufferLimit, jsonSchemaValkey.pubsubClientOutputBufferLimit) &&
+        Objects.equals(this.activeExpireEffort, jsonSchemaValkey.activeExpireEffort) &&
         Objects.equals(this.notifyKeyspaceEvents, jsonSchemaValkey.notifyKeyspaceEvents) &&
         Objects.equals(this.persistence, jsonSchemaValkey.persistence) &&
         Objects.equals(this.timeout, jsonSchemaValkey.timeout) &&
@@ -529,7 +591,7 @@ public class JsonSchemaValkey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ssl, lfuLogFactor, hashCodeNullable(maxmemoryPolicy), ioThreads, lfuDecayTime, pubsubClientOutputBufferLimit, notifyKeyspaceEvents, persistence, timeout, aclChannelsDefault, numberOfDatabases);
+    return Objects.hash(ssl, lfuLogFactor, frequentSnapshots, hashCodeNullable(maxmemoryPolicy), ioThreads, lfuDecayTime, pubsubClientOutputBufferLimit, activeExpireEffort, notifyKeyspaceEvents, persistence, timeout, aclChannelsDefault, numberOfDatabases);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -545,10 +607,12 @@ public class JsonSchemaValkey {
     sb.append("class JsonSchemaValkey {\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    lfuLogFactor: ").append(toIndentedString(lfuLogFactor)).append("\n");
+    sb.append("    frequentSnapshots: ").append(toIndentedString(frequentSnapshots)).append("\n");
     sb.append("    maxmemoryPolicy: ").append(toIndentedString(maxmemoryPolicy)).append("\n");
     sb.append("    ioThreads: ").append(toIndentedString(ioThreads)).append("\n");
     sb.append("    lfuDecayTime: ").append(toIndentedString(lfuDecayTime)).append("\n");
     sb.append("    pubsubClientOutputBufferLimit: ").append(toIndentedString(pubsubClientOutputBufferLimit)).append("\n");
+    sb.append("    activeExpireEffort: ").append(toIndentedString(activeExpireEffort)).append("\n");
     sb.append("    notifyKeyspaceEvents: ").append(toIndentedString(notifyKeyspaceEvents)).append("\n");
     sb.append("    persistence: ").append(toIndentedString(persistence)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
@@ -611,6 +675,11 @@ public class JsonSchemaValkey {
       joiner.add(String.format("%slfu_log_factor%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLfuLogFactor()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `frequent_snapshots` to the URL query string
+    if (getFrequentSnapshots() != null) {
+      joiner.add(String.format("%sfrequent_snapshots%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFrequentSnapshots()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `maxmemory_policy` to the URL query string
     if (getMaxmemoryPolicy() != null) {
       joiner.add(String.format("%smaxmemory_policy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxmemoryPolicy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -629,6 +698,11 @@ public class JsonSchemaValkey {
     // add `pubsub_client_output_buffer_limit` to the URL query string
     if (getPubsubClientOutputBufferLimit() != null) {
       joiner.add(String.format("%spubsub_client_output_buffer_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPubsubClientOutputBufferLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `active_expire_effort` to the URL query string
+    if (getActiveExpireEffort() != null) {
+      joiner.add(String.format("%sactive_expire_effort%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActiveExpireEffort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `notify_keyspace_events` to the URL query string
