@@ -2919,6 +2919,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "404"
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
       summary: Delete AI API Key
       tags:
       - exoscale

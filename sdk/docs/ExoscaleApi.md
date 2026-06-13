@@ -5988,7 +5988,7 @@ No authorization required
 
 ## deleteAiApiKey
 
-> void deleteAiApiKey(id)
+> Operation deleteAiApiKey(id)
 
 Delete AI API Key
 
@@ -6011,7 +6011,8 @@ public class Example {
 
         try {
             // Invoke the API method
-            client.deleteAiApiKey(id);
+            Operation result = client.deleteAiApiKey(id);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteAiApiKey");
             System.err.println("Status code: " + e.getCode());
@@ -6032,8 +6033,8 @@ public class Example {
 
 ### Return type
 
+[**Operation**](Operation.md)
 
-null (empty response body)
 
 ### Authorization
 
@@ -6049,6 +6050,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | 403 |  -  |
 | **404** | 404 |  -  |
+| **200** | 200 |  -  |
 
 
 ### Parameters
@@ -6060,8 +6062,8 @@ No authorization required
 
 ### Return type
 
+ApiResponse<[**Operation**](Operation.md)>
 
-ApiResponse<Void>
 
 ### Authorization
 
@@ -6077,6 +6079,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **403** | 403 |  -  |
 | **404** | 404 |  -  |
+| **200** | 200 |  -  |
 
 
 ## deleteAntiAffinityGroup

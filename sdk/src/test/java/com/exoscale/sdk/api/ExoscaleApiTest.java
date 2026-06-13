@@ -1366,7 +1366,7 @@ public class ExoscaleApiTest {
     @Test
     public void deleteAiApiKeyTest() throws ApiException {
         UUID id = null;
-        
+        Operation response = 
         api.deleteAiApiKey(id);
         
         // TODO: test validations

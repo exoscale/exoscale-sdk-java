@@ -5821,20 +5821,22 @@ public class ExoscaleApi {
    * Delete AI API Key
    * Delete AI API key
    * @param id  (required)
+   * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public void deleteAiApiKey(UUID id) throws ApiException {
-    deleteAiApiKeyWithHttpInfo(id);
+  public Operation deleteAiApiKey(UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteAiApiKeyWithHttpInfo(id);
+    return localVarResponse.getData();
   }
 
   /**
    * Delete AI API Key
    * Delete AI API key
    * @param id  (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Void> deleteAiApiKeyWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Operation> deleteAiApiKeyWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteAiApiKeyRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5847,17 +5849,12 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteAiApiKey", localVarResponse);
         }
-        return new ApiResponse<Void>(
+        return new ApiResponse<Operation>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          null
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
         );
       } finally {
-        // Drain the InputStream
-        while (localVarResponse.body().read() != -1) {
-            // Ignore
-        }
-        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);
