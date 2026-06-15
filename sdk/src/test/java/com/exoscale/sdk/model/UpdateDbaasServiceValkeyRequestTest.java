@@ -83,6 +83,14 @@ public class UpdateDbaasServiceValkeyRequestTest {
     }
 
     /**
+     * Test the property 'version'
+     */
+    @Test
+    public void versionTest() {
+        // TODO: test version
+    }
+
+    /**
      * Test the property 'valkeySettings'
      */
     @Test

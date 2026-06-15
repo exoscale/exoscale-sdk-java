@@ -26410,6 +26410,10 @@ components:
           type: array
         migration:
           $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
+        version:
+          description: Valkey major version
+          minLength: 1
+          type: string
         valkey-settings:
           $ref: '#/components/schemas/json-schema-valkey'
       type: object

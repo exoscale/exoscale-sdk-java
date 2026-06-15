@@ -42,6 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateDbaasServiceValkeyRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
   UpdateDbaasServiceValkeyRequest.JSON_PROPERTY_IP_FILTER,
   UpdateDbaasServiceValkeyRequest.JSON_PROPERTY_MIGRATION,
+  UpdateDbaasServiceValkeyRequest.JSON_PROPERTY_VERSION,
   UpdateDbaasServiceValkeyRequest.JSON_PROPERTY_VALKEY_SETTINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -60,6 +61,9 @@ public class UpdateDbaasServiceValkeyRequest {
 
   public static final String JSON_PROPERTY_MIGRATION = "migration";
   private UpdateDbaasServiceMysqlRequestMigration migration;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
 
   public static final String JSON_PROPERTY_VALKEY_SETTINGS = "valkey-settings";
   private JsonSchemaValkey valkeySettings;
@@ -200,6 +204,31 @@ public class UpdateDbaasServiceValkeyRequest {
   }
 
 
+  public UpdateDbaasServiceValkeyRequest version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Valkey major version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+
   public UpdateDbaasServiceValkeyRequest valkeySettings(JsonSchemaValkey valkeySettings) {
     this.valkeySettings = valkeySettings;
     return this;
@@ -242,12 +271,13 @@ public class UpdateDbaasServiceValkeyRequest {
         Objects.equals(this.terminationProtection, updateDbaasServiceValkeyRequest.terminationProtection) &&
         Objects.equals(this.ipFilter, updateDbaasServiceValkeyRequest.ipFilter) &&
         Objects.equals(this.migration, updateDbaasServiceValkeyRequest.migration) &&
+        Objects.equals(this.version, updateDbaasServiceValkeyRequest.version) &&
         Objects.equals(this.valkeySettings, updateDbaasServiceValkeyRequest.valkeySettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maintenance, plan, terminationProtection, ipFilter, migration, valkeySettings);
+    return Objects.hash(maintenance, plan, terminationProtection, ipFilter, migration, version, valkeySettings);
   }
 
   @Override
@@ -259,6 +289,7 @@ public class UpdateDbaasServiceValkeyRequest {
     sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
     sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
     sb.append("    migration: ").append(toIndentedString(migration)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    valkeySettings: ").append(toIndentedString(valkeySettings)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -334,6 +365,11 @@ public class UpdateDbaasServiceValkeyRequest {
     // add `migration` to the URL query string
     if (getMigration() != null) {
       joiner.add(getMigration().toUrlQueryString(prefix + "migration" + suffix));
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `valkey-settings` to the URL query string
