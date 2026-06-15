@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Bug Fixes
+- `list-zones`: skip `Authorization` header to avoid IAM enforcement on the public endpoint (#14).
+
 ## [0.0.3] - 2024-10-30
 
 ### Enhancements

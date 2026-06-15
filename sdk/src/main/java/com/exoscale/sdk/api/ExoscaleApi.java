@@ -21158,12 +21158,14 @@ public class ExoscaleApi {
       String authorizationValue;
 
 
+      if (credentials != null) {
       try{
       authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
+      }
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");

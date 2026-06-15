@@ -366,12 +366,17 @@ public class {{classname}} {
   {{/bodyParam}}
 
 
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      {{^vendorExtensions.x-skip-auth}}
       try{
       authorizationValue = credentials.generateSignature("{{httpMethod}}", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
+      {{/vendorExtensions.x-skip-auth}}
     {{#hasQueryParams}}
     List<Pair> localVarQueryParams = new ArrayList<>();
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
