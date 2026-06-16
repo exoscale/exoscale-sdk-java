@@ -20,6 +20,27 @@ jobs:
         run: |
           curl -s https://api-ch-gva-2.exoscale.com/v2/openapi.json -o api/openapi.yaml
 
+      - name: Inject vendor extensions into OpenAPI definition
+        shell: bash
+        run: |
+          python3 - <<'EOF'
+          import json
+
+          with open('api/openapi.yaml') as f:
+              spec = json.load(f)
+
+          # list-zones returns public data but the server enforces IAM role policies
+          # on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+          # Mark it with x-skip-auth so the generator omits the Authorization header.
+          for path_item in spec.get('paths', {}).values():
+              for op in path_item.values():
+                  if isinstance(op, dict) and op.get('operationId') == 'list-zones':
+                      op['x-skip-auth'] = True
+
+          with open('api/openapi.yaml', 'w') as f:
+              json.dump(spec, f, separators=(',', ':'))
+          EOF
+
       - name: Check for changes in OpenAPI definition
         id: changes
         run: |
