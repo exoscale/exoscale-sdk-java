@@ -85,7 +85,7 @@ public class Networking {
   }
 
    /**
-   * CIDR range for service cluster IPs. This must not overlap with any IP ranges assigned to nodes or pods. Max of two, comma-separated, dual-stack CIDRs is allowed.               If not specified, defaults to 10.96.0.0/12.
+   * CIDR range for service cluster IPs. This must not overlap with any IP ranges assigned to nodes or pods. Max of two, comma-separated, dual-stack CIDRs is allowed. The IPv6 range must be no larger than a /108 (upstream Kubernetes apiserver limit).               If not specified, defaults to 10.96.0.0/12.
    * @return serviceClusterIpRange
   **/
   @javax.annotation.Nullable
@@ -110,7 +110,7 @@ public class Networking {
   }
 
    /**
-   * Mask size for node cidr in cluster. It must be larger than the Pod CIDR subnet mask. Defaults to 24
+   * Mask size for node cidr in cluster. It must be larger than, and at most 16 bits longer than, the Pod CIDR subnet mask. Defaults to 24
    * minimum: 0
    * @return nodeCidrMaskSizeIpv4
   **/
@@ -136,7 +136,7 @@ public class Networking {
   }
 
    /**
-   * Mask size for node cidr in cluster. It must be larger than the Pod CIDR subnet mask. Defaults to 64
+   * Mask size for node cidr in cluster. It must be larger than, and at most 16 bits longer than, the Pod CIDR subnet mask. Defaults to 64
    * minimum: 0
    * @return nodeCidrMaskSizeIpv6
   **/

@@ -12177,6 +12177,17 @@ components:
           type: integer
       title: Kafka broker configuration values
       type: object
+    nvidia-mig-profiles:
+      description: Nvidia MIG Profiles enabled
+      example:
+        rtxpro6000.96gb: null
+        a30.24gb: null
+      properties:
+        a30.24gb:
+          $ref: '#/components/schemas/nvidia-mig-profile-a30.24gb'
+        rtxpro6000.96gb:
+          $ref: '#/components/schemas/nvidia-mig-profile-rtxpro6000.96gb'
+      type: object
     dbaas-external-integration:
       description: Integrations with other services
       example:
@@ -12968,6 +12979,20 @@ components:
           type: number
       title: mysql.conf configuration values
       type: object
+    nvidia-mig-profile-rtxpro6000.96gb:
+      enum:
+      - 1g.24gb-me
+      - 1g.24gb
+      - 2g.48gb-me
+      - 2g.48gb
+      - 4g.96gb+gfx
+      - 1g.24gb+me
+      - 2g.48gb+me.all
+      - 1g.24gb+gfx
+      - 1g.24gb+me.all
+      - 4g.96gb
+      - 2g.48gb+gfx
+      type: string
     dbaas-pg-database-name:
       maxLength: 63
       minLength: 1
@@ -17455,19 +17480,21 @@ components:
           type: string
         service-cluster-ip-range:
           description: |-
-            CIDR range for service cluster IPs. This must not overlap with any IP ranges assigned to nodes or pods. Max of two, comma-separated, dual-stack CIDRs is allowed.
+            CIDR range for service cluster IPs. This must not overlap with any IP ranges assigned to nodes or pods. Max of two, comma-separated, dual-stack CIDRs is allowed. The IPv6 range must be no larger than a /108 (upstream Kubernetes apiserver limit).
                           If not specified, defaults to 10.96.0.0/12.
           type: string
         node-cidr-mask-size-ipv4:
-          description: Mask size for node cidr in cluster. It must be larger than
-            the Pod CIDR subnet mask. Defaults to 24
+          description: "Mask size for node cidr in cluster. It must be larger than,\
+            \ and at most 16 bits longer than, the Pod CIDR subnet mask. Defaults\
+            \ to 24"
           exclusiveMinimum: true
           format: int64
           minimum: 0
           type: integer
         node-cidr-mask-size-ipv6:
-          description: Mask size for node cidr in cluster. It must be larger than
-            the Pod CIDR subnet mask. Defaults to 64
+          description: "Mask size for node cidr in cluster. It must be larger than,\
+            \ and at most 16 bits longer than, the Pod CIDR subnet mask. Defaults\
+            \ to 64"
           exclusiveMinimum: true
           format: int64
           minimum: 0
@@ -17515,6 +17542,9 @@ components:
             key:
               effect: NoExecute
               value: value
+          nvidia-mig-profiles:
+            rtxpro6000.96gb: null
+            a30.24gb: null
           version: version
           labels:
             key: labels
@@ -17564,6 +17594,9 @@ components:
             key:
               effect: NoExecute
               value: value
+          nvidia-mig-profiles:
+            rtxpro6000.96gb: null
+            a30.24gb: null
           version: version
           labels:
             key: labels
@@ -17613,6 +17646,9 @@ components:
             key:
               effect: NoExecute
               value: value
+          nvidia-mig-profiles:
+            rtxpro6000.96gb: null
+            a30.24gb: null
           version: version
           labels:
             key: labels
@@ -17662,6 +17698,9 @@ components:
             key:
               effect: NoExecute
               value: value
+          nvidia-mig-profiles:
+            rtxpro6000.96gb: null
+            a30.24gb: null
           version: version
           labels:
             key: labels
@@ -17711,6 +17750,9 @@ components:
             key:
               effect: NoExecute
               value: value
+          nvidia-mig-profiles:
+            rtxpro6000.96gb: null
+            a30.24gb: null
           version: version
           labels:
             key: labels
@@ -18315,6 +18357,9 @@ components:
           key:
             effect: NoExecute
             value: value
+        nvidia-mig-profiles:
+          rtxpro6000.96gb: null
+          a30.24gb: null
         version: version
         labels:
           key: labels
@@ -18449,6 +18494,8 @@ components:
           description: Nodepool version
           readOnly: true
           type: string
+        nvidia-mig-profiles:
+          $ref: '#/components/schemas/nvidia-mig-profiles'
         created-at:
           description: Nodepool creation date
           format: date-time
@@ -20337,6 +20384,14 @@ components:
       required:
       - gpu
       type: object
+    nvidia-mig-profile-a30.24gb:
+      enum:
+      - 2g.12gb
+      - 1g.6gb+me
+      - 1g.6gb
+      - 2g.12gb+me
+      - 4g.24gb
+      type: string
     get-kms-key-response:
       example:
         replicas:
@@ -24240,6 +24295,8 @@ components:
           maximum: 51200
           minimum: 20
           type: integer
+        nvidia-mig-profiles:
+          $ref: '#/components/schemas/nvidia-mig-profiles'
       type: object
     update_block_storage_snapshot_request:
       properties:
@@ -25544,6 +25601,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25593,6 +25653,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25642,6 +25705,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25691,6 +25757,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25740,6 +25809,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25815,6 +25887,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25864,6 +25939,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25913,6 +25991,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -25962,6 +26043,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -26011,6 +26095,9 @@ components:
               key:
                 effect: NoExecute
                 value: value
+            nvidia-mig-profiles:
+              rtxpro6000.96gb: null
+              a30.24gb: null
             version: version
             labels:
               key: labels
@@ -27018,6 +27105,8 @@ components:
           maximum: 51200
           minimum: 20
           type: integer
+        nvidia-mig-profiles:
+          $ref: '#/components/schemas/nvidia-mig-profiles'
       required:
       - disk-size
       - instance-type

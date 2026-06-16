@@ -24,6 +24,7 @@ import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstancePoolRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
+import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
@@ -68,6 +69,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksNodepool.JSON_PROPERTY_ID,
   SksNodepool.JSON_PROPERTY_DISK_SIZE,
   SksNodepool.JSON_PROPERTY_VERSION,
+  SksNodepool.JSON_PROPERTY_NVIDIA_MIG_PROFILES,
   SksNodepool.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -244,6 +246,9 @@ public class SksNodepool {
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
+
+  public static final String JSON_PROPERTY_NVIDIA_MIG_PROFILES = "nvidia-mig-profiles";
+  private NvidiaMigProfiles nvidiaMigProfiles;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
@@ -790,6 +795,31 @@ public class SksNodepool {
 
 
 
+  public SksNodepool nvidiaMigProfiles(NvidiaMigProfiles nvidiaMigProfiles) {
+    this.nvidiaMigProfiles = nvidiaMigProfiles;
+    return this;
+  }
+
+   /**
+   * Get nvidiaMigProfiles
+   * @return nvidiaMigProfiles
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NVIDIA_MIG_PROFILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public NvidiaMigProfiles getNvidiaMigProfiles() {
+    return nvidiaMigProfiles;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NVIDIA_MIG_PROFILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNvidiaMigProfiles(NvidiaMigProfiles nvidiaMigProfiles) {
+    this.nvidiaMigProfiles = nvidiaMigProfiles;
+  }
+
+
    /**
    * Nodepool creation date
    * @return createdAt
@@ -837,12 +867,13 @@ public class SksNodepool {
         Objects.equals(this.id, sksNodepool.id) &&
         Objects.equals(this.diskSize, sksNodepool.diskSize) &&
         Objects.equals(this.version, sksNodepool.version) &&
+        Objects.equals(this.nvidiaMigProfiles, sksNodepool.nvidiaMigProfiles) &&
         Objects.equals(this.createdAt, sksNodepool.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, addons, id, diskSize, version, createdAt);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, addons, id, diskSize, version, nvidiaMigProfiles, createdAt);
   }
 
   @Override
@@ -869,6 +900,7 @@ public class SksNodepool {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1051,6 +1083,11 @@ public class SksNodepool {
     // add `version` to the URL query string
     if (getVersion() != null) {
       joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `nvidia-mig-profiles` to the URL query string
+    if (getNvidiaMigProfiles() != null) {
+      joiner.add(getNvidiaMigProfiles().toUrlQueryString(prefix + "nvidia-mig-profiles" + suffix));
     }
 
     // add `created-at` to the URL query string

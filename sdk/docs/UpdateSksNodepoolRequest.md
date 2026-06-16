@@ -20,6 +20,7 @@
 |**instancePrefix** | **String** | Prefix to apply to managed instances names (default: pool), lowercase only |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
+|**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 
 
 

@@ -17,6 +17,7 @@ import com.exoscale.sdk.model.AntiAffinityGroupRef;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
+import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
@@ -151,6 +152,14 @@ public class UpdateSksNodepoolRequestTest {
     @Test
     public void diskSizeTest() {
         // TODO: test diskSize
+    }
+
+    /**
+     * Test the property 'nvidiaMigProfiles'
+     */
+    @Test
+    public void nvidiaMigProfilesTest() {
+        // TODO: test nvidiaMigProfiles
     }
 
 }

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-06-15T09:12:43.609594445Z[Etc/UTC]
+- Build date: 2026-06-16T11:02:14.147477660Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-59957f5</version>
+    <version>0.0.5-SNAPSHOT-431e869</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-59957f5'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-431e869'
 }
 ```
 
@@ -809,6 +809,9 @@ Class | Method | HTTP request | Description
  - [ModelUsageCounters](sdk/docs/ModelUsageCounters.md)
  - [Networking](sdk/docs/Networking.md)
  - [NodeDuressSettings](sdk/docs/NodeDuressSettings.md)
+ - [NvidiaMigProfileA3024gb](sdk/docs/NvidiaMigProfileA3024gb.md)
+ - [NvidiaMigProfileRtxpro600096gb](sdk/docs/NvidiaMigProfileRtxpro600096gb.md)
+ - [NvidiaMigProfiles](sdk/docs/NvidiaMigProfiles.md)
  - [OpensearchEmailSenderSettings](sdk/docs/OpensearchEmailSenderSettings.md)
  - [OpensearchISMHistorySettings](sdk/docs/OpensearchISMHistorySettings.md)
  - [OpensearchSecurityPluginSettings](sdk/docs/OpensearchSecurityPluginSettings.md)

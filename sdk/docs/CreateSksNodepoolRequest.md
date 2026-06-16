@@ -22,6 +22,7 @@
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  |
+|**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 
 
 

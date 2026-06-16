@@ -23,6 +23,7 @@ import com.exoscale.sdk.model.AntiAffinityGroupRef;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
+import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
@@ -56,7 +57,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateSksNodepoolRequest.JSON_PROPERTY_KUBELET_IMAGE_GC,
   UpdateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
   UpdateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
-  UpdateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE
+  UpdateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE,
+  UpdateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateSksNodepoolRequest {
@@ -133,6 +135,9 @@ public class UpdateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
+
+  public static final String JSON_PROPERTY_NVIDIA_MIG_PROFILES = "nvidia-mig-profiles";
+  private NvidiaMigProfiles nvidiaMigProfiles;
 
   public UpdateSksNodepoolRequest() { 
   }
@@ -507,6 +512,31 @@ public class UpdateSksNodepoolRequest {
   }
 
 
+  public UpdateSksNodepoolRequest nvidiaMigProfiles(NvidiaMigProfiles nvidiaMigProfiles) {
+    this.nvidiaMigProfiles = nvidiaMigProfiles;
+    return this;
+  }
+
+   /**
+   * Get nvidiaMigProfiles
+   * @return nvidiaMigProfiles
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NVIDIA_MIG_PROFILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public NvidiaMigProfiles getNvidiaMigProfiles() {
+    return nvidiaMigProfiles;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NVIDIA_MIG_PROFILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNvidiaMigProfiles(NvidiaMigProfiles nvidiaMigProfiles) {
+    this.nvidiaMigProfiles = nvidiaMigProfiles;
+  }
+
+
   /**
    * Return true if this update_sks_nodepool_request object is equal to o.
    */
@@ -531,12 +561,13 @@ public class UpdateSksNodepoolRequest {
         Objects.equals(this.kubeletImageGc, updateSksNodepoolRequest.kubeletImageGc) &&
         Objects.equals(this.instancePrefix, updateSksNodepoolRequest.instancePrefix) &&
         Objects.equals(this.deployTarget, updateSksNodepoolRequest.deployTarget) &&
-        Objects.equals(this.diskSize, updateSksNodepoolRequest.diskSize);
+        Objects.equals(this.diskSize, updateSksNodepoolRequest.diskSize) &&
+        Objects.equals(this.nvidiaMigProfiles, updateSksNodepoolRequest.nvidiaMigProfiles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, kubeletImageGc, instancePrefix, deployTarget, diskSize);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, kubeletImageGc, instancePrefix, deployTarget, diskSize, nvidiaMigProfiles);
   }
 
   @Override
@@ -556,6 +587,7 @@ public class UpdateSksNodepoolRequest {
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
+    sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -696,6 +728,11 @@ public class UpdateSksNodepoolRequest {
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `nvidia-mig-profiles` to the URL query string
+    if (getNvidiaMigProfiles() != null) {
+      joiner.add(getNvidiaMigProfiles().toUrlQueryString(prefix + "nvidia-mig-profiles" + suffix));
     }
 
     return joiner.toString();

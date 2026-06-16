@@ -28,6 +28,7 @@ SKS Nodepool
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
 |**version** | **String** | Nodepool version |  [optional] [readonly] |
+|**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 |**createdAt** | **OffsetDateTime** | Nodepool creation date |  [optional] [readonly] |
 
 
