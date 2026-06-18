@@ -1,6 +1,6 @@
 
 
-# ListVpcResponseEntry
+# ListVpcEntry
 
 VPC
 

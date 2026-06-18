@@ -65,9 +65,11 @@ import com.exoscale.sdk.model.CreateKmsKeyResponse;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
 import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
+import com.exoscale.sdk.model.CreateRouteRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.CreateSubnetRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.CreateVpcRequest;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
@@ -201,8 +203,10 @@ import com.exoscale.sdk.model.ListSksClusters200Response;
 import com.exoscale.sdk.model.ListSnapshots200Response;
 import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
+import com.exoscale.sdk.model.ListSubnets200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
 import com.exoscale.sdk.model.ListUsers200Response;
+import com.exoscale.sdk.model.ListVpcRoutes200Response;
 import com.exoscale.sdk.model.ListVpcs200Response;
 import com.exoscale.sdk.model.ListZones200Response;
 import com.exoscale.sdk.model.LiveBalance;
@@ -233,6 +237,7 @@ import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
 import com.exoscale.sdk.model.RotateAiApiKeyResponse;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
+import com.exoscale.sdk.model.Route;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
@@ -246,6 +251,7 @@ import com.exoscale.sdk.model.SksNodepool;
 import com.exoscale.sdk.model.Snapshot;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.StartInstanceRequest;
+import com.exoscale.sdk.model.Subnet;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
@@ -277,6 +283,7 @@ import com.exoscale.sdk.model.UpdatePrivateNetworkRequest;
 import com.exoscale.sdk.model.UpdateReverseDnsElasticIpRequest;
 import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
+import com.exoscale.sdk.model.UpdateSubnetRequest;
 import com.exoscale.sdk.model.UpdateTemplateRequest;
 import com.exoscale.sdk.model.UpdateUserRoleRequest;
 import com.exoscale.sdk.model.UpdateVpcRequest;
@@ -5359,6 +5366,110 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Create a route
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param createRouteRequest  (required)
+   * @return Route
+   * @throws ApiException if fails to make API call
+   */
+  public Route createRoute(UUID vpcId, UUID subnetId, CreateRouteRequest createRouteRequest) throws ApiException {
+    ApiResponse<Route> localVarResponse = createRouteWithHttpInfo(vpcId, subnetId, createRouteRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Create a route
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param createRouteRequest  (required)
+   * @return ApiResponse&lt;Route&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Route> createRouteWithHttpInfo(UUID vpcId, UUID subnetId, CreateRouteRequest createRouteRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createRouteRequestBuilder(vpcId, subnetId, createRouteRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createRoute", localVarResponse);
+        }
+        return new ApiResponse<Route>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Route>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createRouteRequestBuilder(UUID vpcId, UUID subnetId, CreateRouteRequest createRouteRequest) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling createRoute");
+    }
+    // verify the required parameter 'subnetId' is set
+    if (subnetId == null) {
+      throw new ApiException(400, "Missing the required parameter 'subnetId' when calling createRoute");
+    }
+    // verify the required parameter 'createRouteRequest' is set
+    if (createRouteRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createRouteRequest' when calling createRoute");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{subnet-id}/route"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{subnet-id}", ApiClient.urlEncode(subnetId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createRouteRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Create a Security Group
    * 
    * @param createSecurityGroupRequest  (required)
@@ -5712,6 +5823,103 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Create a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param createSubnetRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createSubnet(UUID vpcId, CreateSubnetRequest createSubnetRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createSubnetWithHttpInfo(vpcId, createSubnetRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Create a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param createSubnetRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createSubnetWithHttpInfo(UUID vpcId, CreateSubnetRequest createSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createSubnetRequestBuilder(vpcId, createSubnetRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createSubnet", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createSubnetRequestBuilder(UUID vpcId, CreateSubnetRequest createSubnetRequest) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling createSubnet");
+    }
+    // verify the required parameter 'createSubnetRequest' is set
+    if (createSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createSubnetRequest' when calling createSubnet");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createSubnetRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -9652,6 +9860,105 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Delete a route
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param id  (required)
+   * @return Route
+   * @throws ApiException if fails to make API call
+   */
+  public Route deleteRoute(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+    ApiResponse<Route> localVarResponse = deleteRouteWithHttpInfo(vpcId, subnetId, id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Delete a route
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param id  (required)
+   * @return ApiResponse&lt;Route&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Route> deleteRouteWithHttpInfo(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteRouteRequestBuilder(vpcId, subnetId, id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteRoute", localVarResponse);
+        }
+        return new ApiResponse<Route>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Route>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteRouteRequestBuilder(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling deleteRoute");
+    }
+    // verify the required parameter 'subnetId' is set
+    if (subnetId == null) {
+      throw new ApiException(400, "Missing the required parameter 'subnetId' when calling deleteRoute");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteRoute");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{subnet-id}/route/{id}"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{subnet-id}", ApiClient.urlEncode(subnetId.toString()))
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Delete a Security Group rule
    * 
    * @param id  (required)
@@ -10149,6 +10456,98 @@ public class ExoscaleApi {
 
     String localVarPath = "/ssh-key/{name}"
         .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Delete a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param id  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteSubnet(UUID vpcId, UUID id) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteSubnetWithHttpInfo(vpcId, id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Delete a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param id  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteSubnetWithHttpInfo(UUID vpcId, UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteSubnetRequestBuilder(vpcId, id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteSubnet", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteSubnetRequestBuilder(UUID vpcId, UUID id) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling deleteSubnet");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSubnet");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{id}"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -18160,6 +18559,98 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Retrieve Subnet details
+   * 
+   * @param vpcId  (required)
+   * @param id  (required)
+   * @return Subnet
+   * @throws ApiException if fails to make API call
+   */
+  public Subnet getSubnet(UUID vpcId, UUID id) throws ApiException {
+    ApiResponse<Subnet> localVarResponse = getSubnetWithHttpInfo(vpcId, id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Retrieve Subnet details
+   * 
+   * @param vpcId  (required)
+   * @param id  (required)
+   * @return ApiResponse&lt;Subnet&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Subnet> getSubnetWithHttpInfo(UUID vpcId, UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getSubnetRequestBuilder(vpcId, id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getSubnet", localVarResponse);
+        }
+        return new ApiResponse<Subnet>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Subnet>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getSubnetRequestBuilder(UUID vpcId, UUID id) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling getSubnet");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSubnet");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{id}"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Retrieve Template details
    * 
    * @param id  (required)
@@ -20993,6 +21484,98 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] List Subnet routes
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @return ListVpcRoutes200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListVpcRoutes200Response listRoutes(UUID vpcId, UUID subnetId) throws ApiException {
+    ApiResponse<ListVpcRoutes200Response> localVarResponse = listRoutesWithHttpInfo(vpcId, subnetId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List Subnet routes
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @return ApiResponse&lt;ListVpcRoutes200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListVpcRoutes200Response> listRoutesWithHttpInfo(UUID vpcId, UUID subnetId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listRoutesRequestBuilder(vpcId, subnetId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listRoutes", localVarResponse);
+        }
+        return new ApiResponse<ListVpcRoutes200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListVpcRoutes200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listRoutesRequestBuilder(UUID vpcId, UUID subnetId) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling listRoutes");
+    }
+    // verify the required parameter 'subnetId' is set
+    if (subnetId == null) {
+      throw new ApiException(400, "Missing the required parameter 'subnetId' when calling listRoutes");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{subnet-id}/route"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{subnet-id}", ApiClient.urlEncode(subnetId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Security Groups.
    * Lists security groups. When visibility is set to public, lists public security groups. Public security groups are objects maintained by Exoscale which contain source addresses for relevant services hosted by Exoscale. They can be used a source in ingress rules and as a destination in egress rules.
    * @param visibility  (optional)
@@ -21580,6 +22163,91 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] List Subnets
+   * 
+   * @param vpcId  (required)
+   * @return ListSubnets200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListSubnets200Response listSubnets(UUID vpcId) throws ApiException {
+    ApiResponse<ListSubnets200Response> localVarResponse = listSubnetsWithHttpInfo(vpcId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List Subnets
+   * 
+   * @param vpcId  (required)
+   * @return ApiResponse&lt;ListSubnets200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListSubnets200Response> listSubnetsWithHttpInfo(UUID vpcId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listSubnetsRequestBuilder(vpcId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listSubnets", localVarResponse);
+        }
+        return new ApiResponse<ListSubnets200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListSubnets200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listSubnetsRequestBuilder(UUID vpcId) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling listSubnets");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Templates
    * 
    * @param visibility  (optional)
@@ -21730,6 +22398,91 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/user";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] List VPC routes
+   * 
+   * @param vpcId  (required)
+   * @return ListVpcRoutes200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListVpcRoutes200Response listVpcRoutes(UUID vpcId) throws ApiException {
+    ApiResponse<ListVpcRoutes200Response> localVarResponse = listVpcRoutesWithHttpInfo(vpcId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List VPC routes
+   * 
+   * @param vpcId  (required)
+   * @return ApiResponse&lt;ListVpcRoutes200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListVpcRoutes200Response> listVpcRoutesWithHttpInfo(UUID vpcId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listVpcRoutesRequestBuilder(vpcId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listVpcRoutes", localVarResponse);
+        }
+        return new ApiResponse<ListVpcRoutes200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListVpcRoutes200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listVpcRoutesRequestBuilder(UUID vpcId) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling listVpcRoutes");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/route"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -30992,6 +31745,110 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateSksNodepoolRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Update a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param id  (required)
+   * @param updateSubnetRequest  (required)
+   * @return Subnet
+   * @throws ApiException if fails to make API call
+   */
+  public Subnet updateSubnet(UUID vpcId, UUID id, UpdateSubnetRequest updateSubnetRequest) throws ApiException {
+    ApiResponse<Subnet> localVarResponse = updateSubnetWithHttpInfo(vpcId, id, updateSubnetRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Update a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param id  (required)
+   * @param updateSubnetRequest  (required)
+   * @return ApiResponse&lt;Subnet&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Subnet> updateSubnetWithHttpInfo(UUID vpcId, UUID id, UpdateSubnetRequest updateSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateSubnetRequestBuilder(vpcId, id, updateSubnetRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateSubnet", localVarResponse);
+        }
+        return new ApiResponse<Subnet>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Subnet>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateSubnetRequestBuilder(UUID vpcId, UUID id, UpdateSubnetRequest updateSubnetRequest) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling updateSubnet");
+    }
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSubnet");
+    }
+    // verify the required parameter 'updateSubnetRequest' is set
+    if (updateSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateSubnetRequest' when calling updateSubnet");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{id}"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateSubnetRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

@@ -28,17 +28,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ListVpcResponseEntry
+ * Model tests for ListVpcEntry
  */
-public class ListVpcResponseEntryTest {
-    private final ListVpcResponseEntry model = new ListVpcResponseEntry();
+public class ListVpcEntryTest {
+    private final ListVpcEntry model = new ListVpcEntry();
 
     /**
-     * Model tests for ListVpcResponseEntry
+     * Model tests for ListVpcEntry
      */
     @Test
-    public void testListVpcResponseEntry() {
-        // TODO: test ListVpcResponseEntry
+    public void testListVpcEntry() {
+        // TODO: test ListVpcEntry
     }
 
     /**

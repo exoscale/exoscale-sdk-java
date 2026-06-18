@@ -24,150 +24,114 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * VPC
+ * UpdateSubnetRequest
  */
 @JsonPropertyOrder({
-  ListVpcResponseEntry.JSON_PROPERTY_ID,
-  ListVpcResponseEntry.JSON_PROPERTY_NAME,
-  ListVpcResponseEntry.JSON_PROPERTY_DESCRIPTION,
-  ListVpcResponseEntry.JSON_PROPERTY_CREATED_AT,
-  ListVpcResponseEntry.JSON_PROPERTY_LABELS
+  UpdateSubnetRequest.JSON_PROPERTY_NAME,
+  UpdateSubnetRequest.JSON_PROPERTY_DESCRIPTION,
+  UpdateSubnetRequest.JSON_PROPERTY_LABELS,
+  UpdateSubnetRequest.JSON_PROPERTY_IPV4_BLOCK
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ListVpcResponseEntry {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
+public class UpdateSubnetRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
 
-  public ListVpcResponseEntry() { 
+  public static final String JSON_PROPERTY_IPV4_BLOCK = "ipv4-block";
+  private JsonNullable<String> ipv4Block = JsonNullable.<String>undefined();
+
+  public UpdateSubnetRequest() { 
   }
 
-  public ListVpcResponseEntry id(UUID id) {
-    this.id = id;
+  public UpdateSubnetRequest name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
    /**
-   * VPC ID
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-
-  public ListVpcResponseEntry name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * VPC name
+   * Subnet name
    * @return name
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
   }
 
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
+  }
 
-  public ListVpcResponseEntry description(String description) {
-    this.description = description;
+
+  public UpdateSubnetRequest description(String description) {
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
    /**
-   * VPC description
+   * Subnet description
    * @return description
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
   }
 
-
-  public ListVpcResponseEntry createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * VPC creation date
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public ListVpcResponseEntry labels(Map<String, String> labels) {
+  public UpdateSubnetRequest labels(Map<String, String> labels) {
     this.labels = labels;
     return this;
   }
 
-  public ListVpcResponseEntry putLabelsItem(String key, String labelsItem) {
+  public UpdateSubnetRequest putLabelsItem(String key, String labelsItem) {
     if (this.labels == null) {
       this.labels = new HashMap<>();
     }
@@ -195,8 +159,41 @@ public class ListVpcResponseEntry {
   }
 
 
+  public UpdateSubnetRequest ipv4Block(String ipv4Block) {
+    this.ipv4Block = JsonNullable.<String>of(ipv4Block);
+    return this;
+  }
+
+   /**
+   * Subnet CIDR
+   * @return ipv4Block
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getIpv4Block() {
+        return ipv4Block.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getIpv4Block_JsonNullable() {
+    return ipv4Block;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
+  public void setIpv4Block_JsonNullable(JsonNullable<String> ipv4Block) {
+    this.ipv4Block = ipv4Block;
+  }
+
+  public void setIpv4Block(String ipv4Block) {
+    this.ipv4Block = JsonNullable.<String>of(ipv4Block);
+  }
+
+
   /**
-   * Return true if this list-vpc-response-entry object is equal to o.
+   * Return true if this update_subnet_request object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -206,28 +203,37 @@ public class ListVpcResponseEntry {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListVpcResponseEntry listVpcResponseEntry = (ListVpcResponseEntry) o;
-    return Objects.equals(this.id, listVpcResponseEntry.id) &&
-        Objects.equals(this.name, listVpcResponseEntry.name) &&
-        Objects.equals(this.description, listVpcResponseEntry.description) &&
-        Objects.equals(this.createdAt, listVpcResponseEntry.createdAt) &&
-        Objects.equals(this.labels, listVpcResponseEntry.labels);
+    UpdateSubnetRequest updateSubnetRequest = (UpdateSubnetRequest) o;
+    return equalsNullable(this.name, updateSubnetRequest.name) &&
+        equalsNullable(this.description, updateSubnetRequest.description) &&
+        Objects.equals(this.labels, updateSubnetRequest.labels) &&
+        equalsNullable(this.ipv4Block, updateSubnetRequest.ipv4Block);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, createdAt, labels);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), labels, hashCodeNullable(ipv4Block));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListVpcResponseEntry {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class UpdateSubnetRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    ipv4Block: ").append(toIndentedString(ipv4Block)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -275,11 +281,6 @@ public class ListVpcResponseEntry {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -290,11 +291,6 @@ public class ListVpcResponseEntry {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `created-at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `labels` to the URL query string
     if (getLabels() != null) {
       for (String _key : getLabels().keySet()) {
@@ -302,6 +298,11 @@ public class ListVpcResponseEntry {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `ipv4-block` to the URL query string
+    if (getIpv4Block() != null) {
+      joiner.add(String.format("%sipv4-block%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv4Block()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ListVpcEntry;
+import com.exoscale.sdk.model.ListRouteEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,54 +32,54 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * ListVpcs200Response
+ * ListVpcRoutes200Response
  */
 @JsonPropertyOrder({
-  ListVpcs200Response.JSON_PROPERTY_VPCS
+  ListVpcRoutes200Response.JSON_PROPERTY_ROUTES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ListVpcs200Response {
-  public static final String JSON_PROPERTY_VPCS = "vpcs";
-  private List<ListVpcEntry> vpcs;
+public class ListVpcRoutes200Response {
+  public static final String JSON_PROPERTY_ROUTES = "routes";
+  private List<ListRouteEntry> routes;
 
-  public ListVpcs200Response() { 
+  public ListVpcRoutes200Response() { 
   }
 
-  public ListVpcs200Response vpcs(List<ListVpcEntry> vpcs) {
-    this.vpcs = vpcs;
+  public ListVpcRoutes200Response routes(List<ListRouteEntry> routes) {
+    this.routes = routes;
     return this;
   }
 
-  public ListVpcs200Response addVpcsItem(ListVpcEntry vpcsItem) {
-    if (this.vpcs == null) {
-      this.vpcs = new ArrayList<>();
+  public ListVpcRoutes200Response addRoutesItem(ListRouteEntry routesItem) {
+    if (this.routes == null) {
+      this.routes = new ArrayList<>();
     }
-    this.vpcs.add(vpcsItem);
+    this.routes.add(routesItem);
     return this;
   }
 
    /**
-   * Get vpcs
-   * @return vpcs
+   * Get routes
+   * @return routes
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VPCS)
+  @JsonProperty(JSON_PROPERTY_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ListVpcEntry> getVpcs() {
-    return vpcs;
+  public List<ListRouteEntry> getRoutes() {
+    return routes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VPCS)
+  @JsonProperty(JSON_PROPERTY_ROUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVpcs(List<ListVpcEntry> vpcs) {
-    this.vpcs = vpcs;
+  public void setRoutes(List<ListRouteEntry> routes) {
+    this.routes = routes;
   }
 
 
   /**
-   * Return true if this list_vpcs_200_response object is equal to o.
+   * Return true if this list_vpc_routes_200_response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +89,20 @@ public class ListVpcs200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListVpcs200Response listVpcs200Response = (ListVpcs200Response) o;
-    return Objects.equals(this.vpcs, listVpcs200Response.vpcs);
+    ListVpcRoutes200Response listVpcRoutes200Response = (ListVpcRoutes200Response) o;
+    return Objects.equals(this.routes, listVpcRoutes200Response.routes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vpcs);
+    return Objects.hash(routes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListVpcs200Response {\n");
-    sb.append("    vpcs: ").append(toIndentedString(vpcs)).append("\n");
+    sb.append("class ListVpcRoutes200Response {\n");
+    sb.append("    routes: ").append(toIndentedString(routes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,11 +150,11 @@ public class ListVpcs200Response {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `vpcs` to the URL query string
-    if (getVpcs() != null) {
-      for (int i = 0; i < getVpcs().size(); i++) {
-        if (getVpcs().get(i) != null) {
-          joiner.add(getVpcs().get(i).toUrlQueryString(String.format("%svpcs%s%s", prefix, suffix,
+    // add `routes` to the URL query string
+    if (getRoutes() != null) {
+      for (int i = 0; i < getRoutes().size(); i++) {
+        if (getRoutes().get(i) != null) {
+          joiner.add(getRoutes().get(i).toUrlQueryString(String.format("%sroutes%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

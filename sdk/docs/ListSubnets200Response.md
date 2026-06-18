@@ -1,13 +1,13 @@
 
 
-# ListVpcs200Response
+# ListSubnets200Response
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**vpcs** | [**List&lt;ListVpcEntry&gt;**](ListVpcEntry.md) |  |  [optional] |
+|**subnets** | [**List&lt;ListSubnetEntry&gt;**](ListSubnetEntry.md) |  |  [optional] |
 
 
 

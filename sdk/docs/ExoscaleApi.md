@@ -57,10 +57,12 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
 | [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
+| [**createRoute**](ExoscaleApi.md#createRoute) | **POST** /vpc/{vpc-id}/subnet/{subnet-id}/route | [BETA] Create a route |
 | [**createSecurityGroup**](ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group |
 | [**createSksCluster**](ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster |
 | [**createSksNodepool**](ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
+| [**createSubnet**](ExoscaleApi.md#createSubnet) | **POST** /vpc/{vpc-id}/subnet | [BETA] Create a Subnet |
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
 | [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC |
 | [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt |
@@ -106,12 +108,14 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deletePrivateNetwork**](ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network |
 | [**deleteReverseDnsElasticIp**](ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP |
 | [**deleteReverseDnsInstance**](ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance |
+| [**deleteRoute**](ExoscaleApi.md#deleteRoute) | **DELETE** /vpc/{vpc-id}/subnet/{subnet-id}/route/{id} | [BETA] Delete a route |
 | [**deleteRuleFromSecurityGroup**](ExoscaleApi.md#deleteRuleFromSecurityGroup) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule |
 | [**deleteSecurityGroup**](ExoscaleApi.md#deleteSecurityGroup) | **DELETE** /security-group/{id} | Delete a Security Group |
 | [**deleteSksCluster**](ExoscaleApi.md#deleteSksCluster) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster |
 | [**deleteSksNodepool**](ExoscaleApi.md#deleteSksNodepool) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool |
 | [**deleteSnapshot**](ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot |
 | [**deleteSshKey**](ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key |
+| [**deleteSubnet**](ExoscaleApi.md#deleteSubnet) | **DELETE** /vpc/{vpc-id}/subnet/{id} | [BETA] Delete a Subnet |
 | [**deleteTemplate**](ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template |
 | [**deleteUser**](ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User |
 | [**deleteVpc**](ExoscaleApi.md#deleteVpc) | **DELETE** /vpc/{id} | [BETA] Delete a VPC |
@@ -204,6 +208,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getSnapshot**](ExoscaleApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details |
 | [**getSosPresignedUrl**](ExoscaleApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object |
 | [**getSshKey**](ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details |
+| [**getSubnet**](ExoscaleApi.md#getSubnet) | **GET** /vpc/{vpc-id}/subnet/{id} | [BETA] Retrieve Subnet details |
 | [**getTemplate**](ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details |
 | [**getUsageReport**](ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports |
 | [**getUserOrgConsumptionQuota**](ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota |
@@ -238,6 +243,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | List Models |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
 | [**listQuotas**](ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas |
+| [**listRoutes**](ExoscaleApi.md#listRoutes) | **GET** /vpc/{vpc-id}/subnet/{subnet-id}/route | [BETA] List Subnet routes |
 | [**listSecurityGroups**](ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups. |
 | [**listSksClusterDeprecatedResources**](ExoscaleApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases |
 | [**listSksClusterVersions**](ExoscaleApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters |
@@ -245,8 +251,10 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listSnapshots**](ExoscaleApi.md#listSnapshots) | **GET** /snapshot | List Snapshots |
 | [**listSosBucketsUsage**](ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage |
 | [**listSshKeys**](ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys |
+| [**listSubnets**](ExoscaleApi.md#listSubnets) | **GET** /vpc/{vpc-id}/subnet | [BETA] List Subnets |
 | [**listTemplates**](ExoscaleApi.md#listTemplates) | **GET** /template | List Templates |
 | [**listUsers**](ExoscaleApi.md#listUsers) | **GET** /user | List Users |
+| [**listVpcRoutes**](ExoscaleApi.md#listVpcRoutes) | **GET** /vpc/{vpc-id}/route | [BETA] List VPC routes |
 | [**listVpcs**](ExoscaleApi.md#listVpcs) | **GET** /vpc | [BETA] List VPCs |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
@@ -346,6 +354,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateReverseDnsInstance**](ExoscaleApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance |
 | [**updateSksCluster**](ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster |
 | [**updateSksNodepool**](ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool |
+| [**updateSubnet**](ExoscaleApi.md#updateSubnet) | **PUT** /vpc/{vpc-id}/subnet/{id} | [BETA] Update a Subnet |
 | [**updateTemplate**](ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes |
 | [**updateUserRole**](ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role |
 | [**updateVpc**](ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | [BETA] Update a VPC |
@@ -5336,6 +5345,104 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## createRoute
+
+> Route createRoute(vpcId, subnetId, createRouteRequest)
+
+[BETA] Create a route
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID subnetId = UUID.randomUUID(); // UUID | 
+        CreateRouteRequest createRouteRequest = new CreateRouteRequest(); // CreateRouteRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Route result = client.createRoute(vpcId, subnetId, createRouteRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createRoute");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **createRouteRequest** | [**CreateRouteRequest**](CreateRouteRequest.md)|  | |
+
+### Return type
+
+[**Route**](Route.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **createRouteRequest** | [**CreateRouteRequest**](CreateRouteRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Route**](Route.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## createSecurityGroup
 
 > Operation createSecurityGroup(createSecurityGroupRequest)
@@ -5699,6 +5806,101 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createSubnet
+
+> Operation createSubnet(vpcId, createSubnetRequest)
+
+[BETA] Create a Subnet
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        CreateSubnetRequest createSubnetRequest = new CreateSubnetRequest(); // CreateSubnetRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createSubnet(vpcId, createSubnetRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createSubnet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **createSubnetRequest** | [**CreateSubnetRequest**](CreateSubnetRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **createSubnetRequest** | [**CreateSubnetRequest**](CreateSubnetRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### HTTP response details
@@ -9868,6 +10070,104 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## deleteRoute
+
+> Route deleteRoute(vpcId, subnetId, id)
+
+[BETA] Delete a route
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID subnetId = UUID.randomUUID(); // UUID | 
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Route result = client.deleteRoute(vpcId, subnetId, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteRoute");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Route**](Route.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Route**](Route.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## deleteRuleFromSecurityGroup
 
 > Operation deleteRuleFromSecurityGroup(id, ruleId)
@@ -10405,6 +10705,101 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteSubnet
+
+> Operation deleteSubnet(vpcId, id)
+
+[BETA] Delete a Subnet
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteSubnet(vpcId, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteSubnet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **id** | **UUID**|  | |
 
 ### Return type
 
@@ -18897,6 +19292,101 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getSubnet
+
+> Subnet getSubnet(vpcId, id)
+
+[BETA] Retrieve Subnet details
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Subnet result = client.getSubnet(vpcId, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getSubnet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Subnet**](Subnet.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Subnet**](Subnet.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## getTemplate
 
 > Template getTemplate(id)
@@ -21902,6 +22392,101 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listRoutes
+
+> ListVpcRoutes200Response listRoutes(vpcId, subnetId)
+
+[BETA] List Subnet routes
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID subnetId = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            ListVpcRoutes200Response result = client.listRoutes(vpcId, subnetId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listRoutes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+
+### Return type
+
+[**ListVpcRoutes200Response**](ListVpcRoutes200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**ListVpcRoutes200Response**](ListVpcRoutes200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listSecurityGroups
 
 > ListSecurityGroups200Response listSecurityGroups(visibility)
@@ -22518,6 +23103,98 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listSubnets
+
+> ListSubnets200Response listSubnets(vpcId)
+
+[BETA] List Subnets
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            ListSubnets200Response result = client.listSubnets(vpcId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listSubnets");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+
+### Return type
+
+[**ListSubnets200Response**](ListSubnets200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**ListSubnets200Response**](ListSubnets200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listTemplates
 
 > ListTemplates200Response listTemplates(visibility, family)
@@ -22679,6 +23356,98 @@ This endpoint does not need any parameter.
 ### Return type
 
 ApiResponse<[**ListUsers200Response**](ListUsers200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listVpcRoutes
+
+> ListVpcRoutes200Response listVpcRoutes(vpcId)
+
+[BETA] List VPC routes
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            ListVpcRoutes200Response result = client.listVpcRoutes(vpcId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listVpcRoutes");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+
+### Return type
+
+[**ListVpcRoutes200Response**](ListVpcRoutes200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**ListVpcRoutes200Response**](ListVpcRoutes200Response.md)>
 
 
 ### Authorization
@@ -32009,6 +32778,104 @@ No authorization required
 ### Return type
 
 ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateSubnet
+
+> Subnet updateSubnet(vpcId, id, updateSubnetRequest)
+
+[BETA] Update a Subnet
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateSubnetRequest updateSubnetRequest = new UpdateSubnetRequest(); // UpdateSubnetRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Subnet result = client.updateSubnet(vpcId, id, updateSubnetRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateSubnet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+| **updateSubnetRequest** | [**UpdateSubnetRequest**](UpdateSubnetRequest.md)|  | |
+
+### Return type
+
+[**Subnet**](Subnet.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **id** | **UUID**|  | |
+| **updateSubnetRequest** | [**UpdateSubnetRequest**](UpdateSubnetRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Subnet**](Subnet.md)>
 
 
 ### Authorization

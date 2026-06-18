@@ -2515,6 +2515,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /vpc/{vpc-id}/route:
+    get:
+      description: ""
+      operationId: list-vpc-routes
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_vpc_routes_200_response'
+          description: "200"
+      summary: "[BETA] List VPC routes"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /sks-cluster/{id}/nodepool/{sks-nodepool-id}:
     delete:
       description: ""
@@ -3488,6 +3512,76 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /vpc/{vpc-id}/subnet/{subnet-id}/route:
+    get:
+      description: ""
+      operationId: list-routes
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: subnet-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_vpc_routes_200_response'
+          description: "200"
+      summary: "[BETA] List Subnet routes"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: ""
+      operationId: create-route
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: subnet-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_route_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/route'
+          description: "200"
+      summary: "[BETA] Create a route"
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /elastic-ip/{id}/{field}:
     delete:
       description: ""
@@ -3543,6 +3637,60 @@ paths:
       summary: Retrieve Resource Quota
       tags:
       - exoscale
+      x-accepts: application/json
+  /vpc/{vpc-id}/subnet:
+    get:
+      description: ""
+      operationId: list-subnets
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_subnets_200_response'
+          description: "200"
+      summary: "[BETA] List Subnets"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: ""
+      operationId: create-subnet
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_subnet_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Create a Subnet"
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /sks-cluster-deprecated-resources/{id}:
     get:
@@ -6454,6 +6602,46 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /vpc/{vpc-id}/subnet/{subnet-id}/route/{id}:
+    delete:
+      description: ""
+      operationId: delete-route
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: subnet-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/route'
+          description: "200"
+      summary: "[BETA] Delete a route"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /kms-key/{id}/encrypt:
     post:
       description: Encrypt a plaintext.
@@ -7401,6 +7589,107 @@ paths:
       summary: Stop a DBaaS MySQL migration
       tags:
       - exoscale
+      x-accepts: application/json
+  /vpc/{vpc-id}/subnet/{id}:
+    delete:
+      description: ""
+      operationId: delete-subnet
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Delete a Subnet"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: ""
+      operationId: get-subnet
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subnet'
+          description: "200"
+      summary: "[BETA] Retrieve Subnet details"
+      tags:
+      - exoscale
+      x-accepts: application/json
+    put:
+      description: ""
+      operationId: update-subnet
+      parameters:
+      - explode: false
+        in: path
+        name: vpc-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_subnet_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subnet'
+          description: "200"
+      summary: "[BETA] Update a Subnet"
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /dbaas-external-endpoints:
     get:
@@ -10402,6 +10691,55 @@ components:
       required:
       - parameters
       type: object
+    subnet:
+      description: Subnet
+      example:
+        ipv4-block: ipv4-block
+        address-space: private
+        name: name
+        addressfamily: inet4
+        description: description
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        labels:
+          key: labels
+      properties:
+        id:
+          description: Subnet ID
+          format: uuid
+          type: string
+        name:
+          description: Subnet name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: Subnet description
+          maxLength: 4096
+          type: string
+        created-at:
+          description: Subnet creation date
+          format: date-time
+          type: string
+        addressfamily:
+          description: Subnet address family
+          enum:
+          - inet4
+          - dual
+          type: string
+        address-space:
+          description: Subnet address space
+          enum:
+          - private
+          type: string
+        ipv4-block:
+          description: Subnet ipv4 CIDR
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
     dbaas-user-valkey-secrets:
       description: Valkey User secrets
       example:
@@ -11338,6 +11676,55 @@ components:
           items:
             type: string
           type: array
+      type: object
+    list-subnet-entry:
+      description: Subnet
+      example:
+        ipv4-block: ipv4-block
+        address-space: private
+        name: name
+        addressfamily: inet4
+        description: description
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        labels:
+          key: labels
+      properties:
+        id:
+          description: Subnet ID
+          format: uuid
+          type: string
+        name:
+          description: Subnet name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: Subnet description
+          maxLength: 4096
+          type: string
+        created-at:
+          description: Subnet creation date
+          format: date-time
+          type: string
+        addressfamily:
+          description: Subnet address family
+          enum:
+          - inet4
+          - dual
+          type: string
+        address-space:
+          description: Subnet address space
+          enum:
+          - private
+          type: string
+        ipv4-block:
+          description: Subnet ipv4 CIDR
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
       type: object
     dbaas-service-logs:
       example:
@@ -13933,6 +14320,36 @@ components:
       - prometheus-uri
       - type
       type: object
+    route:
+      description: Route
+      example:
+        kind: Subnet
+        destination: destination
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        target: target
+      properties:
+        id:
+          description: Route ID
+          format: uuid
+          type: string
+        kind:
+          description: Route kind
+          enum:
+          - Subnet
+          - Vpc
+          type: string
+        description:
+          description: Route description
+          maxLength: 4096
+          type: string
+        destination:
+          description: Route destination CIDR
+          type: string
+        target:
+          description: Route target
+          type: string
+      type: object
     env-impact-detail:
       example:
         amount: 1.4658129805029452
@@ -14453,6 +14870,38 @@ components:
             method
           readOnly: true
           type: boolean
+      type: object
+    list-vpc-entry:
+      description: VPC
+      example:
+        name: name
+        description: description
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        labels:
+          key: labels
+      properties:
+        id:
+          description: VPC ID
+          format: uuid
+          type: string
+        name:
+          description: VPC name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: VPC description
+          maxLength: 4096
+          type: string
+        created-at:
+          description: VPC creation date
+          format: date-time
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
       type: object
     dbaas-endpoint-rsyslog-secrets:
       properties:
@@ -15317,38 +15766,6 @@ components:
           type: string
       required:
       - status
-      type: object
-    list-vpc-response-entry:
-      description: VPC
-      example:
-        name: name
-        description: description
-        created-at: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        labels:
-          key: labels
-      properties:
-        id:
-          description: VPC ID
-          format: uuid
-          type: string
-        name:
-          description: VPC name
-          maxLength: 255
-          minLength: 1
-          type: string
-        description:
-          description: VPC description
-          maxLength: 4096
-          type: string
-        created-at:
-          description: VPC creation date
-          format: date-time
-          type: string
-        labels:
-          additionalProperties:
-            type: string
-          type: object
       type: object
     elastic-ip-ref:
       description: Elastic IP reference
@@ -16426,6 +16843,36 @@ components:
       - state
       - state-details
       - updated-at
+      type: object
+    list-route-entry:
+      description: Route
+      example:
+        kind: Subnet
+        destination: destination
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        target: target
+      properties:
+        id:
+          description: Route ID
+          format: uuid
+          type: string
+        kind:
+          description: Route kind
+          enum:
+          - Subnet
+          - Vpc
+          type: string
+        description:
+          description: Route description
+          maxLength: 4096
+          type: string
+        destination:
+          description: Route destination CIDR
+          type: string
+        target:
+          description: Route target
+          type: string
       type: object
     iam-policy:
       description: Policy
@@ -24225,6 +24672,25 @@ components:
         instance:
           $ref: '#/components/schemas/update_private_network_instance_ip_request_instance'
       type: object
+    list_vpc_routes_200_response:
+      example:
+        routes:
+        - kind: Subnet
+          destination: destination
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          target: target
+        - kind: Subnet
+          destination: destination
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          target: target
+      properties:
+        routes:
+          items:
+            $ref: '#/components/schemas/list-route-entry'
+          type: array
+      type: object
     update_sks_nodepool_request:
       properties:
         anti-affinity-groups:
@@ -24592,7 +25058,7 @@ components:
       properties:
         vpcs:
           items:
-            $ref: '#/components/schemas/list-vpc-response-entry'
+            $ref: '#/components/schemas/list-vpc-entry'
           type: array
       type: object
     create_vpc_request:
@@ -24629,6 +25095,87 @@ components:
       properties:
         cacert:
           type: string
+      type: object
+    create_route_request:
+      properties:
+        name:
+          description: Route name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: Route description
+          maxLength: 4096
+          type: string
+        destination:
+          description: Route destination CIDR
+          type: string
+        target:
+          description: Route target
+          type: string
+      required:
+      - destination
+      - target
+      type: object
+    list_subnets_200_response:
+      example:
+        subnets:
+        - ipv4-block: ipv4-block
+          address-space: private
+          name: name
+          addressfamily: inet4
+          description: description
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          labels:
+            key: labels
+        - ipv4-block: ipv4-block
+          address-space: private
+          name: name
+          addressfamily: inet4
+          description: description
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          labels:
+            key: labels
+      properties:
+        subnets:
+          items:
+            $ref: '#/components/schemas/list-subnet-entry'
+          type: array
+      type: object
+    create_subnet_request:
+      properties:
+        name:
+          description: Subnet name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: Subnet description
+          maxLength: 4096
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        addressfamily:
+          description: Subnet address family
+          enum:
+          - inet4
+          type: string
+        address-space:
+          description: Subnet address space
+          enum:
+          - private
+          type: string
+        ipv4-block:
+          description: Subnet ipv4 CIDR
+          type: string
+      required:
+      - address-space
+      - addressfamily
+      - name
       type: object
     update_block_storage_volume_request:
       properties:
@@ -26563,6 +27110,28 @@ components:
         application-consistent-snapshot-enabled:
           description: Enable/Disable Application Consistent Snapshot for Instance
           type: boolean
+      type: object
+    update_subnet_request:
+      properties:
+        name:
+          description: Subnet name
+          maxLength: 255
+          minLength: 1
+          nullable: true
+          type: string
+        description:
+          description: Subnet description
+          maxLength: 4096
+          nullable: true
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        ipv4-block:
+          description: Subnet CIDR
+          nullable: true
+          type: string
       type: object
     list_dbaas_external_endpoints_200_response:
       example:

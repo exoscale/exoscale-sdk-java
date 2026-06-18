@@ -13,39 +13,60 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ListVpcEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ListVpcs200Response
+ * Model tests for CreateRouteRequest
  */
-public class ListVpcs200ResponseTest {
-    private final ListVpcs200Response model = new ListVpcs200Response();
+public class CreateRouteRequestTest {
+    private final CreateRouteRequest model = new CreateRouteRequest();
 
     /**
-     * Model tests for ListVpcs200Response
+     * Model tests for CreateRouteRequest
      */
     @Test
-    public void testListVpcs200Response() {
-        // TODO: test ListVpcs200Response
+    public void testCreateRouteRequest() {
+        // TODO: test CreateRouteRequest
     }
 
     /**
-     * Test the property 'vpcs'
+     * Test the property 'name'
      */
     @Test
-    public void vpcsTest() {
-        // TODO: test vpcs
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'destination'
+     */
+    @Test
+    public void destinationTest() {
+        // TODO: test destination
+    }
+
+    /**
+     * Test the property 'target'
+     */
+    @Test
+    public void targetTest() {
+        // TODO: test target
     }
 
 }

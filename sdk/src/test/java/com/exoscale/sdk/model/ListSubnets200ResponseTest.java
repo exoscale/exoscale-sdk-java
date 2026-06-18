@@ -13,7 +13,7 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ListVpcEntry;
+import com.exoscale.sdk.model.ListSubnetEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,25 +27,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ListVpcs200Response
+ * Model tests for ListSubnets200Response
  */
-public class ListVpcs200ResponseTest {
-    private final ListVpcs200Response model = new ListVpcs200Response();
+public class ListSubnets200ResponseTest {
+    private final ListSubnets200Response model = new ListSubnets200Response();
 
     /**
-     * Model tests for ListVpcs200Response
+     * Model tests for ListSubnets200Response
      */
     @Test
-    public void testListVpcs200Response() {
-        // TODO: test ListVpcs200Response
+    public void testListSubnets200Response() {
+        // TODO: test ListSubnets200Response
     }
 
     /**
-     * Test the property 'vpcs'
+     * Test the property 'subnets'
      */
     @Test
-    public void vpcsTest() {
-        // TODO: test vpcs
+    public void subnetsTest() {
+        // TODO: test subnets
     }
 
 }

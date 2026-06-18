@@ -1,13 +1,13 @@
 
 
-# ListVpcs200Response
+# ListVpcRoutes200Response
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**vpcs** | [**List&lt;ListVpcEntry&gt;**](ListVpcEntry.md) |  |  [optional] |
+|**routes** | [**List&lt;ListRouteEntry&gt;**](ListRouteEntry.md) |  |  [optional] |
 
 
 

@@ -61,9 +61,11 @@ import com.exoscale.sdk.model.CreateKmsKeyResponse;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
 import com.exoscale.sdk.model.CreateModelRequest;
 import com.exoscale.sdk.model.CreatePrivateNetworkRequest;
+import com.exoscale.sdk.model.CreateRouteRequest;
 import com.exoscale.sdk.model.CreateSecurityGroupRequest;
 import com.exoscale.sdk.model.CreateSksClusterRequest;
 import com.exoscale.sdk.model.CreateSksNodepoolRequest;
+import com.exoscale.sdk.model.CreateSubnetRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.CreateVpcRequest;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
@@ -197,8 +199,10 @@ import com.exoscale.sdk.model.ListSksClusters200Response;
 import com.exoscale.sdk.model.ListSnapshots200Response;
 import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
+import com.exoscale.sdk.model.ListSubnets200Response;
 import com.exoscale.sdk.model.ListTemplates200Response;
 import com.exoscale.sdk.model.ListUsers200Response;
+import com.exoscale.sdk.model.ListVpcRoutes200Response;
 import com.exoscale.sdk.model.ListVpcs200Response;
 import com.exoscale.sdk.model.ListZones200Response;
 import com.exoscale.sdk.model.LiveBalance;
@@ -229,6 +233,7 @@ import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
 import com.exoscale.sdk.model.RotateAiApiKeyResponse;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
+import com.exoscale.sdk.model.Route;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
 import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
@@ -242,6 +247,7 @@ import com.exoscale.sdk.model.SksNodepool;
 import com.exoscale.sdk.model.Snapshot;
 import com.exoscale.sdk.model.SshKey;
 import com.exoscale.sdk.model.StartInstanceRequest;
+import com.exoscale.sdk.model.Subnet;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
@@ -273,6 +279,7 @@ import com.exoscale.sdk.model.UpdatePrivateNetworkRequest;
 import com.exoscale.sdk.model.UpdateReverseDnsElasticIpRequest;
 import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
+import com.exoscale.sdk.model.UpdateSubnetRequest;
 import com.exoscale.sdk.model.UpdateTemplateRequest;
 import com.exoscale.sdk.model.UpdateUserRoleRequest;
 import com.exoscale.sdk.model.UpdateVpcRequest;
@@ -1235,6 +1242,25 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Create a route
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createRouteTest() throws ApiException {
+        UUID vpcId = null;
+        UUID subnetId = null;
+        CreateRouteRequest createRouteRequest = null;
+        Route response = 
+        api.createRoute(vpcId, subnetId, createRouteRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Create a Security Group
      *
      * 
@@ -1299,6 +1325,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.createSnapshot(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Create a Subnet
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createSubnetTest() throws ApiException {
+        UUID vpcId = null;
+        CreateSubnetRequest createSubnetRequest = null;
+        Operation response = 
+        api.createSubnet(vpcId, createSubnetRequest);
         
         // TODO: test validations
     }
@@ -2082,6 +2126,25 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Delete a route
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteRouteTest() throws ApiException {
+        UUID vpcId = null;
+        UUID subnetId = null;
+        UUID id = null;
+        Route response = 
+        api.deleteRoute(vpcId, subnetId, id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Delete a Security Group rule
      *
      * 
@@ -2181,6 +2244,24 @@ public class ExoscaleApiTest {
         String name = null;
         Operation response = 
         api.deleteSshKey(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Delete a Subnet
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubnetTest() throws ApiException {
+        UUID vpcId = null;
+        UUID id = null;
+        Operation response = 
+        api.deleteSubnet(vpcId, id);
         
         // TODO: test validations
     }
@@ -3761,6 +3842,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Retrieve Subnet details
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSubnetTest() throws ApiException {
+        UUID vpcId = null;
+        UUID id = null;
+        Subnet response = 
+        api.getSubnet(vpcId, id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Retrieve Template details
      *
      * 
@@ -4324,6 +4423,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] List Subnet routes
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listRoutesTest() throws ApiException {
+        UUID vpcId = null;
+        UUID subnetId = null;
+        ListVpcRoutes200Response response = 
+        api.listRoutes(vpcId, subnetId);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List Security Groups.
      *
      * Lists security groups. When visibility is set to public, lists public security groups. Public security groups are objects maintained by Exoscale which contain source addresses for relevant services hosted by Exoscale. They can be used a source in ingress rules and as a destination in egress rules.
@@ -4439,6 +4556,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] List Subnets
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listSubnetsTest() throws ApiException {
+        UUID vpcId = null;
+        ListSubnets200Response response = 
+        api.listSubnets(vpcId);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List Templates
      *
      * 
@@ -4468,6 +4602,23 @@ public class ExoscaleApiTest {
     public void listUsersTest() throws ApiException {
         ListUsers200Response response = 
         api.listUsers();
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] List VPC routes
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listVpcRoutesTest() throws ApiException {
+        UUID vpcId = null;
+        ListVpcRoutes200Response response = 
+        api.listVpcRoutes(vpcId);
         
         // TODO: test validations
     }
@@ -6231,6 +6382,25 @@ public class ExoscaleApiTest {
         UpdateSksNodepoolRequest updateSksNodepoolRequest = null;
         Operation response = 
         api.updateSksNodepool(id, sksNodepoolId, updateSksNodepoolRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Update a Subnet
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateSubnetTest() throws ApiException {
+        UUID vpcId = null;
+        UUID id = null;
+        UpdateSubnetRequest updateSubnetRequest = null;
+        Subnet response = 
+        api.updateSubnet(vpcId, id, updateSubnetRequest);
         
         // TODO: test validations
     }

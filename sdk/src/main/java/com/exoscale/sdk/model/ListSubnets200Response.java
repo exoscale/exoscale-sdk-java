@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ListVpcEntry;
+import com.exoscale.sdk.model.ListSubnetEntry;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,54 +32,54 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * ListVpcs200Response
+ * ListSubnets200Response
  */
 @JsonPropertyOrder({
-  ListVpcs200Response.JSON_PROPERTY_VPCS
+  ListSubnets200Response.JSON_PROPERTY_SUBNETS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ListVpcs200Response {
-  public static final String JSON_PROPERTY_VPCS = "vpcs";
-  private List<ListVpcEntry> vpcs;
+public class ListSubnets200Response {
+  public static final String JSON_PROPERTY_SUBNETS = "subnets";
+  private List<ListSubnetEntry> subnets;
 
-  public ListVpcs200Response() { 
+  public ListSubnets200Response() { 
   }
 
-  public ListVpcs200Response vpcs(List<ListVpcEntry> vpcs) {
-    this.vpcs = vpcs;
+  public ListSubnets200Response subnets(List<ListSubnetEntry> subnets) {
+    this.subnets = subnets;
     return this;
   }
 
-  public ListVpcs200Response addVpcsItem(ListVpcEntry vpcsItem) {
-    if (this.vpcs == null) {
-      this.vpcs = new ArrayList<>();
+  public ListSubnets200Response addSubnetsItem(ListSubnetEntry subnetsItem) {
+    if (this.subnets == null) {
+      this.subnets = new ArrayList<>();
     }
-    this.vpcs.add(vpcsItem);
+    this.subnets.add(subnetsItem);
     return this;
   }
 
    /**
-   * Get vpcs
-   * @return vpcs
+   * Get subnets
+   * @return subnets
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VPCS)
+  @JsonProperty(JSON_PROPERTY_SUBNETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ListVpcEntry> getVpcs() {
-    return vpcs;
+  public List<ListSubnetEntry> getSubnets() {
+    return subnets;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VPCS)
+  @JsonProperty(JSON_PROPERTY_SUBNETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVpcs(List<ListVpcEntry> vpcs) {
-    this.vpcs = vpcs;
+  public void setSubnets(List<ListSubnetEntry> subnets) {
+    this.subnets = subnets;
   }
 
 
   /**
-   * Return true if this list_vpcs_200_response object is equal to o.
+   * Return true if this list_subnets_200_response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +89,20 @@ public class ListVpcs200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListVpcs200Response listVpcs200Response = (ListVpcs200Response) o;
-    return Objects.equals(this.vpcs, listVpcs200Response.vpcs);
+    ListSubnets200Response listSubnets200Response = (ListSubnets200Response) o;
+    return Objects.equals(this.subnets, listSubnets200Response.subnets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vpcs);
+    return Objects.hash(subnets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListVpcs200Response {\n");
-    sb.append("    vpcs: ").append(toIndentedString(vpcs)).append("\n");
+    sb.append("class ListSubnets200Response {\n");
+    sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -150,11 +150,11 @@ public class ListVpcs200Response {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `vpcs` to the URL query string
-    if (getVpcs() != null) {
-      for (int i = 0; i < getVpcs().size(); i++) {
-        if (getVpcs().get(i) != null) {
-          joiner.add(getVpcs().get(i).toUrlQueryString(String.format("%svpcs%s%s", prefix, suffix,
+    // add `subnets` to the URL query string
+    if (getSubnets() != null) {
+      for (int i = 0; i < getSubnets().size(); i++) {
+        if (getSubnets().get(i) != null) {
+          joiner.add(getSubnets().get(i).toUrlQueryString(String.format("%ssubnets%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

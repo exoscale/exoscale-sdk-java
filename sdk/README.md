@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-06-16T11:02:14.147477660Z[Etc/UTC]
+- Build date: 2026-06-18T08:35:19.319940020Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-431e869</version>
+    <version>0.0.5-SNAPSHOT-612c4a0</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-431e869'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-612c4a0'
 }
 ```
 
@@ -135,10 +135,12 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createLoadBalancer**](sdk/docs/ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer
 *ExoscaleApi* | [**createModel**](sdk/docs/ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model
 *ExoscaleApi* | [**createPrivateNetwork**](sdk/docs/ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network
+*ExoscaleApi* | [**createRoute**](sdk/docs/ExoscaleApi.md#createRoute) | **POST** /vpc/{vpc-id}/subnet/{subnet-id}/route | [BETA] Create a route
 *ExoscaleApi* | [**createSecurityGroup**](sdk/docs/ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group
 *ExoscaleApi* | [**createSksCluster**](sdk/docs/ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster
 *ExoscaleApi* | [**createSksNodepool**](sdk/docs/ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool
 *ExoscaleApi* | [**createSnapshot**](sdk/docs/ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance
+*ExoscaleApi* | [**createSubnet**](sdk/docs/ExoscaleApi.md#createSubnet) | **POST** /vpc/{vpc-id}/subnet | [BETA] Create a Subnet
 *ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
 *ExoscaleApi* | [**createVpc**](sdk/docs/ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC
 *ExoscaleApi* | [**decrypt**](sdk/docs/ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt
@@ -184,12 +186,14 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deletePrivateNetwork**](sdk/docs/ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network
 *ExoscaleApi* | [**deleteReverseDnsElasticIp**](sdk/docs/ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP
 *ExoscaleApi* | [**deleteReverseDnsInstance**](sdk/docs/ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance
+*ExoscaleApi* | [**deleteRoute**](sdk/docs/ExoscaleApi.md#deleteRoute) | **DELETE** /vpc/{vpc-id}/subnet/{subnet-id}/route/{id} | [BETA] Delete a route
 *ExoscaleApi* | [**deleteRuleFromSecurityGroup**](sdk/docs/ExoscaleApi.md#deleteRuleFromSecurityGroup) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule
 *ExoscaleApi* | [**deleteSecurityGroup**](sdk/docs/ExoscaleApi.md#deleteSecurityGroup) | **DELETE** /security-group/{id} | Delete a Security Group
 *ExoscaleApi* | [**deleteSksCluster**](sdk/docs/ExoscaleApi.md#deleteSksCluster) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster
 *ExoscaleApi* | [**deleteSksNodepool**](sdk/docs/ExoscaleApi.md#deleteSksNodepool) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool
 *ExoscaleApi* | [**deleteSnapshot**](sdk/docs/ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot
 *ExoscaleApi* | [**deleteSshKey**](sdk/docs/ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key
+*ExoscaleApi* | [**deleteSubnet**](sdk/docs/ExoscaleApi.md#deleteSubnet) | **DELETE** /vpc/{vpc-id}/subnet/{id} | [BETA] Delete a Subnet
 *ExoscaleApi* | [**deleteTemplate**](sdk/docs/ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template
 *ExoscaleApi* | [**deleteUser**](sdk/docs/ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User
 *ExoscaleApi* | [**deleteVpc**](sdk/docs/ExoscaleApi.md#deleteVpc) | **DELETE** /vpc/{id} | [BETA] Delete a VPC
@@ -282,6 +286,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getSnapshot**](sdk/docs/ExoscaleApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details
 *ExoscaleApi* | [**getSosPresignedUrl**](sdk/docs/ExoscaleApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object
 *ExoscaleApi* | [**getSshKey**](sdk/docs/ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details
+*ExoscaleApi* | [**getSubnet**](sdk/docs/ExoscaleApi.md#getSubnet) | **GET** /vpc/{vpc-id}/subnet/{id} | [BETA] Retrieve Subnet details
 *ExoscaleApi* | [**getTemplate**](sdk/docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
 *ExoscaleApi* | [**getUsageReport**](sdk/docs/ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports
 *ExoscaleApi* | [**getUserOrgConsumptionQuota**](sdk/docs/ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota
@@ -316,6 +321,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listModels**](sdk/docs/ExoscaleApi.md#listModels) | **GET** /ai/model | List Models
 *ExoscaleApi* | [**listPrivateNetworks**](sdk/docs/ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks
 *ExoscaleApi* | [**listQuotas**](sdk/docs/ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas
+*ExoscaleApi* | [**listRoutes**](sdk/docs/ExoscaleApi.md#listRoutes) | **GET** /vpc/{vpc-id}/subnet/{subnet-id}/route | [BETA] List Subnet routes
 *ExoscaleApi* | [**listSecurityGroups**](sdk/docs/ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups.
 *ExoscaleApi* | [**listSksClusterDeprecatedResources**](sdk/docs/ExoscaleApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases
 *ExoscaleApi* | [**listSksClusterVersions**](sdk/docs/ExoscaleApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters
@@ -323,8 +329,10 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listSnapshots**](sdk/docs/ExoscaleApi.md#listSnapshots) | **GET** /snapshot | List Snapshots
 *ExoscaleApi* | [**listSosBucketsUsage**](sdk/docs/ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage
 *ExoscaleApi* | [**listSshKeys**](sdk/docs/ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys
+*ExoscaleApi* | [**listSubnets**](sdk/docs/ExoscaleApi.md#listSubnets) | **GET** /vpc/{vpc-id}/subnet | [BETA] List Subnets
 *ExoscaleApi* | [**listTemplates**](sdk/docs/ExoscaleApi.md#listTemplates) | **GET** /template | List Templates
 *ExoscaleApi* | [**listUsers**](sdk/docs/ExoscaleApi.md#listUsers) | **GET** /user | List Users
+*ExoscaleApi* | [**listVpcRoutes**](sdk/docs/ExoscaleApi.md#listVpcRoutes) | **GET** /vpc/{vpc-id}/route | [BETA] List VPC routes
 *ExoscaleApi* | [**listVpcs**](sdk/docs/ExoscaleApi.md#listVpcs) | **GET** /vpc | [BETA] List VPCs
 *ExoscaleApi* | [**listZones**](sdk/docs/ExoscaleApi.md#listZones) | **GET** /zone | List Zones
 *ExoscaleApi* | [**promoteSnapshotToTemplate**](sdk/docs/ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template
@@ -424,6 +432,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateReverseDnsInstance**](sdk/docs/ExoscaleApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance
 *ExoscaleApi* | [**updateSksCluster**](sdk/docs/ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster
 *ExoscaleApi* | [**updateSksNodepool**](sdk/docs/ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
+*ExoscaleApi* | [**updateSubnet**](sdk/docs/ExoscaleApi.md#updateSubnet) | **PUT** /vpc/{vpc-id}/subnet/{id} | [BETA] Update a Subnet
 *ExoscaleApi* | [**updateTemplate**](sdk/docs/ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes
 *ExoscaleApi* | [**updateUserRole**](sdk/docs/ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role
 *ExoscaleApi* | [**updateVpc**](sdk/docs/ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | [BETA] Update a VPC
@@ -496,9 +505,11 @@ Class | Method | HTTP request | Description
  - [CreateLoadBalancerRequest](sdk/docs/CreateLoadBalancerRequest.md)
  - [CreateModelRequest](sdk/docs/CreateModelRequest.md)
  - [CreatePrivateNetworkRequest](sdk/docs/CreatePrivateNetworkRequest.md)
+ - [CreateRouteRequest](sdk/docs/CreateRouteRequest.md)
  - [CreateSecurityGroupRequest](sdk/docs/CreateSecurityGroupRequest.md)
  - [CreateSksClusterRequest](sdk/docs/CreateSksClusterRequest.md)
  - [CreateSksNodepoolRequest](sdk/docs/CreateSksNodepoolRequest.md)
+ - [CreateSubnetRequest](sdk/docs/CreateSubnetRequest.md)
  - [CreateUserRequest](sdk/docs/CreateUserRequest.md)
  - [CreateVpcRequest](sdk/docs/CreateVpcRequest.md)
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
@@ -788,15 +799,19 @@ Class | Method | HTTP request | Description
  - [ListModelsResponseEntry](sdk/docs/ListModelsResponseEntry.md)
  - [ListPrivateNetworks200Response](sdk/docs/ListPrivateNetworks200Response.md)
  - [ListQuotas200Response](sdk/docs/ListQuotas200Response.md)
+ - [ListRouteEntry](sdk/docs/ListRouteEntry.md)
  - [ListSecurityGroups200Response](sdk/docs/ListSecurityGroups200Response.md)
  - [ListSksClusterVersions200Response](sdk/docs/ListSksClusterVersions200Response.md)
  - [ListSksClusters200Response](sdk/docs/ListSksClusters200Response.md)
  - [ListSnapshots200Response](sdk/docs/ListSnapshots200Response.md)
  - [ListSosBucketsUsage200Response](sdk/docs/ListSosBucketsUsage200Response.md)
  - [ListSshKeys200Response](sdk/docs/ListSshKeys200Response.md)
+ - [ListSubnetEntry](sdk/docs/ListSubnetEntry.md)
+ - [ListSubnets200Response](sdk/docs/ListSubnets200Response.md)
  - [ListTemplates200Response](sdk/docs/ListTemplates200Response.md)
  - [ListUsers200Response](sdk/docs/ListUsers200Response.md)
- - [ListVpcResponseEntry](sdk/docs/ListVpcResponseEntry.md)
+ - [ListVpcEntry](sdk/docs/ListVpcEntry.md)
+ - [ListVpcRoutes200Response](sdk/docs/ListVpcRoutes200Response.md)
  - [ListVpcs200Response](sdk/docs/ListVpcs200Response.md)
  - [ListZones200Response](sdk/docs/ListZones200Response.md)
  - [LiveBalance](sdk/docs/LiveBalance.md)
@@ -857,6 +872,7 @@ Class | Method | HTTP request | Description
  - [RevisionStamp](sdk/docs/RevisionStamp.md)
  - [RotateAiApiKeyResponse](sdk/docs/RotateAiApiKeyResponse.md)
  - [RotateKmsKeyResponse](sdk/docs/RotateKmsKeyResponse.md)
+ - [Route](sdk/docs/Route.md)
  - [SMTPServerSettings](sdk/docs/SMTPServerSettings.md)
  - [ScaleDeploymentRequest](sdk/docs/ScaleDeploymentRequest.md)
  - [ScaleInstancePoolRequest](sdk/docs/ScaleInstancePoolRequest.md)
@@ -890,6 +906,7 @@ Class | Method | HTTP request | Description
  - [SshKey](sdk/docs/SshKey.md)
  - [SshKeyRef](sdk/docs/SshKeyRef.md)
  - [StartInstanceRequest](sdk/docs/StartInstanceRequest.md)
+ - [Subnet](sdk/docs/Subnet.md)
  - [SuccessResponse](sdk/docs/SuccessResponse.md)
  - [Template](sdk/docs/Template.md)
  - [TemplateRef](sdk/docs/TemplateRef.md)
@@ -932,6 +949,7 @@ Class | Method | HTTP request | Description
  - [UpdateReverseDnsElasticIpRequest](sdk/docs/UpdateReverseDnsElasticIpRequest.md)
  - [UpdateSksClusterRequest](sdk/docs/UpdateSksClusterRequest.md)
  - [UpdateSksNodepoolRequest](sdk/docs/UpdateSksNodepoolRequest.md)
+ - [UpdateSubnetRequest](sdk/docs/UpdateSubnetRequest.md)
  - [UpdateTemplateRequest](sdk/docs/UpdateTemplateRequest.md)
  - [UpdateUserRoleRequest](sdk/docs/UpdateUserRoleRequest.md)
  - [UpdateVpcRequest](sdk/docs/UpdateVpcRequest.md)
