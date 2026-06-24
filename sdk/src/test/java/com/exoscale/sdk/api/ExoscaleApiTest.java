@@ -519,7 +519,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Create AI API Key
+     * [BETA] Create AI API Key
      *
      * Create a new AI API key
      *
@@ -1400,7 +1400,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Delete AI API Key
+     * [BETA] Delete AI API Key
      *
      * Delete AI API key
      *
@@ -2670,7 +2670,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get AI API Key
+     * [BETA] Get AI API Key
      *
      * Get AI API key metadata
      *
@@ -3894,7 +3894,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get Organization Consumption Quota
+     * [BETA] Get Organization Consumption Quota
      *
      * Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
      *
@@ -3927,7 +3927,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * List AI API Keys
+     * [BETA] List AI API Keys
      *
      * List AI API keys for an organization
      *
@@ -5106,7 +5106,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Reveal AI API Key
+     * [BETA] Reveal AI API Key
      *
      * Reveal AI API key plaintext value
      *
@@ -5318,7 +5318,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Rotate AI API Key
+     * [BETA] Rotate AI API Key
      *
      * Rotate AI API key value
      *
@@ -5716,7 +5716,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Update AI API Key
+     * [BETA] Update AI API Key
      *
      * Update AI API key name and/or scope
      *

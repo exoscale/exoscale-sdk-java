@@ -16,7 +16,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
 | [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
-| [**createAiApiKey**](ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | Create AI API Key |
+| [**createAiApiKey**](ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | [BETA] Create AI API Key |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
 | [**createBlockStorageSnapshot**](ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
@@ -66,7 +66,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
 | [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC |
 | [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt |
-| [**deleteAiApiKey**](ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | Delete AI API Key |
+| [**deleteAiApiKey**](ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | [BETA] Delete AI API Key |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
@@ -139,7 +139,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**generateSksKarpenterExoscaleNodeclass**](ExoscaleApi.md#generateSksKarpenterExoscaleNodeclass) | **PUT** /sks-cluster/{id}/generate-karpenter-exoscale-nodeclass | Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present |
 | [**generateSksKarpenterNodepool**](ExoscaleApi.md#generateSksKarpenterNodepool) | **PUT** /sks-cluster/{id}/generate-karpenter-nodepool | Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster |
 | [**getActiveNodepoolTemplate**](ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} |  |
-| [**getAiApiKey**](ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | Get AI API Key |
+| [**getAiApiKey**](ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | [BETA] Get AI API Key |
 | [**getAntiAffinityGroup**](ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details |
 | [**getApiKey**](ExoscaleApi.md#getApiKey) | **GET** /api-key/{id} | Get API key |
 | [**getBlockStorageSnapshot**](ExoscaleApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details |
@@ -211,9 +211,9 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getSubnet**](ExoscaleApi.md#getSubnet) | **GET** /vpc/{vpc-id}/subnet/{id} | [BETA] Retrieve Subnet details |
 | [**getTemplate**](ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details |
 | [**getUsageReport**](ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports |
-| [**getUserOrgConsumptionQuota**](ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota |
+| [**getUserOrgConsumptionQuota**](ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | [BETA] Get Organization Consumption Quota |
 | [**getVpc**](ExoscaleApi.md#getVpc) | **GET** /vpc/{id} | [BETA] Retrieve VPC details |
-| [**listAiApiKeys**](ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | List AI API Keys |
+| [**listAiApiKeys**](ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | [BETA] List AI API Keys |
 | [**listAiInstanceTypes**](ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types |
 | [**listAntiAffinityGroups**](ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups |
 | [**listApiKeys**](ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys |
@@ -282,7 +282,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resetPrivateNetworkField**](ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field |
 | [**resizeBlockStorageVolume**](ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
 | [**resizeInstanceDisk**](ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
-| [**revealAiApiKey**](ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | Reveal AI API Key |
+| [**revealAiApiKey**](ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | [BETA] Reveal AI API Key |
 | [**revealDbaasGrafanaUserPassword**](ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
 | [**revealDbaasKafkaConnectPassword**](ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect |
 | [**revealDbaasKafkaUserPassword**](ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
@@ -294,7 +294,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
-| [**rotateAiApiKey**](ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | Rotate AI API Key |
+| [**rotateAiApiKey**](ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | [BETA] Rotate AI API Key |
 | [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
@@ -317,7 +317,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**stopDbaasPgMigration**](ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
 | [**stopDbaasValkeyMigration**](ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration |
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
-| [**updateAiApiKey**](ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | Update AI API Key |
+| [**updateAiApiKey**](ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | [BETA] Update AI API Key |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
 | [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
@@ -1503,7 +1503,7 @@ No authorization required
 
 > CreateAiApiKeyResponse createAiApiKey(createAiApiKeyRequest)
 
-Create AI API Key
+[BETA] Create AI API Key
 
 Create a new AI API key
 
@@ -6192,7 +6192,7 @@ No authorization required
 
 > Operation deleteAiApiKey(id)
 
-Delete AI API Key
+[BETA] Delete AI API Key
 
 Delete AI API key
 
@@ -12985,7 +12985,7 @@ No authorization required
 
 > GetAiApiKeyResponse getAiApiKey(id)
 
-Get AI API Key
+[BETA] Get AI API Key
 
 Get AI API key metadata
 
@@ -19575,7 +19575,7 @@ No authorization required
 
 > OrgConsumptionQuotaResponse getUserOrgConsumptionQuota()
 
-Get Organization Consumption Quota
+[BETA] Get Organization Consumption Quota
 
 Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
 
@@ -19754,7 +19754,7 @@ No authorization required
 
 > ListAiApiKeysResponse listAiApiKeys()
 
-List AI API Keys
+[BETA] List AI API Keys
 
 List AI API keys for an organization
 
@@ -26014,7 +26014,7 @@ No authorization required
 
 > RevealAiApiKeyResponse revealAiApiKey(id)
 
-Reveal AI API Key
+[BETA] Reveal AI API Key
 
 Reveal AI API key plaintext value
 
@@ -27130,7 +27130,7 @@ No authorization required
 
 > RotateAiApiKeyResponse rotateAiApiKey(id)
 
-Rotate AI API Key
+[BETA] Rotate AI API Key
 
 Rotate AI API key value
 
@@ -29263,7 +29263,7 @@ No authorization required
 
 > UpdateAiApiKeyResponse updateAiApiKey(id, updateAiApiKeyRequest)
 
-Update AI API Key
+[BETA] Update AI API Key
 
 Update AI API key name and/or scope
 

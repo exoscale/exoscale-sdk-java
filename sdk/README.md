@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-06-18T08:35:19.319940020Z[Etc/UTC]
+- Build date: 2026-06-24T08:11:59.673145341Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-612c4a0</version>
+    <version>0.0.5-SNAPSHOT-b48b18e</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-612c4a0'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-b48b18e'
 }
 ```
 
@@ -94,7 +94,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**attachInstanceToSecurityGroup**](sdk/docs/ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
 *ExoscaleApi* | [**cancelKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion
 *ExoscaleApi* | [**copyTemplate**](sdk/docs/ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
-*ExoscaleApi* | [**createAiApiKey**](sdk/docs/ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | Create AI API Key
+*ExoscaleApi* | [**createAiApiKey**](sdk/docs/ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | [BETA] Create AI API Key
 *ExoscaleApi* | [**createAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
 *ExoscaleApi* | [**createApiKey**](sdk/docs/ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key
 *ExoscaleApi* | [**createBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
@@ -144,7 +144,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
 *ExoscaleApi* | [**createVpc**](sdk/docs/ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC
 *ExoscaleApi* | [**decrypt**](sdk/docs/ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt
-*ExoscaleApi* | [**deleteAiApiKey**](sdk/docs/ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | Delete AI API Key
+*ExoscaleApi* | [**deleteAiApiKey**](sdk/docs/ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | [BETA] Delete AI API Key
 *ExoscaleApi* | [**deleteAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
@@ -217,7 +217,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**generateSksKarpenterExoscaleNodeclass**](sdk/docs/ExoscaleApi.md#generateSksKarpenterExoscaleNodeclass) | **PUT** /sks-cluster/{id}/generate-karpenter-exoscale-nodeclass | Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present
 *ExoscaleApi* | [**generateSksKarpenterNodepool**](sdk/docs/ExoscaleApi.md#generateSksKarpenterNodepool) | **PUT** /sks-cluster/{id}/generate-karpenter-nodepool | Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster
 *ExoscaleApi* | [**getActiveNodepoolTemplate**](sdk/docs/ExoscaleApi.md#getActiveNodepoolTemplate) | **GET** /sks-template/{kube-version}/{variant} | 
-*ExoscaleApi* | [**getAiApiKey**](sdk/docs/ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | Get AI API Key
+*ExoscaleApi* | [**getAiApiKey**](sdk/docs/ExoscaleApi.md#getAiApiKey) | **GET** /ai/api-key/{id} | [BETA] Get AI API Key
 *ExoscaleApi* | [**getAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#getAntiAffinityGroup) | **GET** /anti-affinity-group/{id} | Retrieve Anti-affinity Group details
 *ExoscaleApi* | [**getApiKey**](sdk/docs/ExoscaleApi.md#getApiKey) | **GET** /api-key/{id} | Get API key
 *ExoscaleApi* | [**getBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#getBlockStorageSnapshot) | **GET** /block-storage-snapshot/{id} | Retrieve block storage snapshot details
@@ -289,9 +289,9 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getSubnet**](sdk/docs/ExoscaleApi.md#getSubnet) | **GET** /vpc/{vpc-id}/subnet/{id} | [BETA] Retrieve Subnet details
 *ExoscaleApi* | [**getTemplate**](sdk/docs/ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details
 *ExoscaleApi* | [**getUsageReport**](sdk/docs/ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports
-*ExoscaleApi* | [**getUserOrgConsumptionQuota**](sdk/docs/ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | Get Organization Consumption Quota
+*ExoscaleApi* | [**getUserOrgConsumptionQuota**](sdk/docs/ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | [BETA] Get Organization Consumption Quota
 *ExoscaleApi* | [**getVpc**](sdk/docs/ExoscaleApi.md#getVpc) | **GET** /vpc/{id} | [BETA] Retrieve VPC details
-*ExoscaleApi* | [**listAiApiKeys**](sdk/docs/ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | List AI API Keys
+*ExoscaleApi* | [**listAiApiKeys**](sdk/docs/ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | [BETA] List AI API Keys
 *ExoscaleApi* | [**listAiInstanceTypes**](sdk/docs/ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types
 *ExoscaleApi* | [**listAntiAffinityGroups**](sdk/docs/ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups
 *ExoscaleApi* | [**listApiKeys**](sdk/docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
@@ -360,7 +360,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resetPrivateNetworkField**](sdk/docs/ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
 *ExoscaleApi* | [**resizeBlockStorageVolume**](sdk/docs/ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
 *ExoscaleApi* | [**resizeInstanceDisk**](sdk/docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
-*ExoscaleApi* | [**revealAiApiKey**](sdk/docs/ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | Reveal AI API Key
+*ExoscaleApi* | [**revealAiApiKey**](sdk/docs/ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | [BETA] Reveal AI API Key
 *ExoscaleApi* | [**revealDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
 *ExoscaleApi* | [**revealDbaasKafkaConnectPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect
 *ExoscaleApi* | [**revealDbaasKafkaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
@@ -372,7 +372,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
-*ExoscaleApi* | [**rotateAiApiKey**](sdk/docs/ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | Rotate AI API Key
+*ExoscaleApi* | [**rotateAiApiKey**](sdk/docs/ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | [BETA] Rotate AI API Key
 *ExoscaleApi* | [**rotateKmsKey**](sdk/docs/ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials
@@ -395,7 +395,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**stopDbaasPgMigration**](sdk/docs/ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
 *ExoscaleApi* | [**stopDbaasValkeyMigration**](sdk/docs/ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration
 *ExoscaleApi* | [**stopInstance**](sdk/docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
-*ExoscaleApi* | [**updateAiApiKey**](sdk/docs/ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | Update AI API Key
+*ExoscaleApi* | [**updateAiApiKey**](sdk/docs/ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | [BETA] Update AI API Key
 *ExoscaleApi* | [**updateBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](sdk/docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
 *ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} | 
@@ -738,6 +738,7 @@ Class | Method | HTTP request | Description
  - [Instance](sdk/docs/Instance.md)
  - [InstancePassword](sdk/docs/InstancePassword.md)
  - [InstancePool](sdk/docs/InstancePool.md)
+ - [InstancePoolErrorReason](sdk/docs/InstancePoolErrorReason.md)
  - [InstancePoolRef](sdk/docs/InstancePoolRef.md)
  - [InstanceRef](sdk/docs/InstanceRef.md)
  - [InstanceState](sdk/docs/InstanceState.md)

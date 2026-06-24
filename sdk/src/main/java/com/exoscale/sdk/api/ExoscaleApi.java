@@ -1494,7 +1494,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Create AI API Key
+   * [BETA] Create AI API Key
    * Create a new AI API key
    * @param createAiApiKeyRequest  (required)
    * @return CreateAiApiKeyResponse
@@ -1506,7 +1506,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Create AI API Key
+   * [BETA] Create AI API Key
    * Create a new AI API key
    * @param createAiApiKeyRequest  (required)
    * @return ApiResponse&lt;CreateAiApiKeyResponse&gt;
@@ -6206,7 +6206,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Delete AI API Key
+   * [BETA] Delete AI API Key
    * Delete AI API key
    * @param id  (required)
    * @return Operation
@@ -6218,7 +6218,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Delete AI API Key
+   * [BETA] Delete AI API Key
    * Delete AI API key
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -12664,7 +12664,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Get AI API Key
+   * [BETA] Get AI API Key
    * Get AI API key metadata
    * @param id  (required)
    * @return GetAiApiKeyResponse
@@ -12676,7 +12676,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Get AI API Key
+   * [BETA] Get AI API Key
    * Get AI API key metadata
    * @param id  (required)
    * @return ApiResponse&lt;GetAiApiKeyResponse&gt;
@@ -18831,7 +18831,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Get Organization Consumption Quota
+   * [BETA] Get Organization Consumption Quota
    * Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
    * @return OrgConsumptionQuotaResponse
    * @throws ApiException if fails to make API call
@@ -18842,7 +18842,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Get Organization Consumption Quota
+   * [BETA] Get Organization Consumption Quota
    * Get per-org Unit Of Measurement (UOM) consumption quota (UOM/min). Null means unlimited. UOM represents weighted units across different AI workloads (e.g., tokens for LLMs, minutes for TTS, pages for OCR).
    * @return ApiResponse&lt;OrgConsumptionQuotaResponse&gt;
    * @throws ApiException if fails to make API call
@@ -18994,7 +18994,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * List AI API Keys
+   * [BETA] List AI API Keys
    * List AI API keys for an organization
    * @return ListAiApiKeysResponse
    * @throws ApiException if fails to make API call
@@ -19005,7 +19005,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * List AI API Keys
+   * [BETA] List AI API Keys
    * List AI API keys for an organization
    * @return ApiResponse&lt;ListAiApiKeysResponse&gt;
    * @throws ApiException if fails to make API call
@@ -25035,7 +25035,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Reveal AI API Key
+   * [BETA] Reveal AI API Key
    * Reveal AI API key plaintext value
    * @param id  (required)
    * @return RevealAiApiKeyResponse
@@ -25047,7 +25047,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Reveal AI API Key
+   * [BETA] Reveal AI API Key
    * Reveal AI API key plaintext value
    * @param id  (required)
    * @return ApiResponse&lt;RevealAiApiKeyResponse&gt;
@@ -26116,7 +26116,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Rotate AI API Key
+   * [BETA] Rotate AI API Key
    * Rotate AI API key value
    * @param id  (required)
    * @return RotateAiApiKeyResponse
@@ -26128,7 +26128,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Rotate AI API Key
+   * [BETA] Rotate AI API Key
    * Rotate AI API key value
    * @param id  (required)
    * @return ApiResponse&lt;RotateAiApiKeyResponse&gt;
@@ -28150,7 +28150,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Update AI API Key
+   * [BETA] Update AI API Key
    * Update AI API key name and/or scope
    * @param id  (required)
    * @param updateAiApiKeyRequest  (required)
@@ -28163,7 +28163,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Update AI API Key
+   * [BETA] Update AI API Key
    * Update AI API key name and/or scope
    * @param id  (required)
    * @param updateAiApiKeyRequest  (required)

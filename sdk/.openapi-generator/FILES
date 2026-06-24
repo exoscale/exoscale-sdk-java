@@ -300,6 +300,7 @@ docs/IngestMeteringResponse.md
 docs/Instance.md
 docs/InstancePassword.md
 docs/InstancePool.md
+docs/InstancePoolErrorReason.md
 docs/InstancePoolRef.md
 docs/InstanceRef.md
 docs/InstanceState.md
@@ -832,6 +833,7 @@ src/main/java/com/exoscale/sdk/model/IngestMeteringResponse.java
 src/main/java/com/exoscale/sdk/model/Instance.java
 src/main/java/com/exoscale/sdk/model/InstancePassword.java
 src/main/java/com/exoscale/sdk/model/InstancePool.java
+src/main/java/com/exoscale/sdk/model/InstancePoolErrorReason.java
 src/main/java/com/exoscale/sdk/model/InstancePoolRef.java
 src/main/java/com/exoscale/sdk/model/InstanceRef.java
 src/main/java/com/exoscale/sdk/model/InstanceState.java

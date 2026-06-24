@@ -2950,7 +2950,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: Delete AI API Key
+      summary: "[BETA] Delete AI API Key"
       tags:
       - exoscale
       x-accepts: application/json
@@ -2985,7 +2985,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/get-ai-api-key-response'
           description: "200"
-      summary: Get AI API Key
+      summary: "[BETA] Get AI API Key"
       tags:
       - exoscale
       x-accepts: application/json
@@ -3032,7 +3032,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "400"
-      summary: Update AI API Key
+      summary: "[BETA] Update AI API Key"
       tags:
       - exoscale
       x-content-type: application/json
@@ -3145,7 +3145,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/rotate-ai-api-key-response'
           description: "200"
-      summary: Rotate AI API Key
+      summary: "[BETA] Rotate AI API Key"
       tags:
       - exoscale
       x-accepts: application/json
@@ -8727,7 +8727,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/reveal-ai-api-key-response'
           description: "200"
-      summary: Reveal AI API Key
+      summary: "[BETA] Reveal AI API Key"
       tags:
       - exoscale
       x-accepts: application/json
@@ -8830,7 +8830,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list-ai-api-keys-response'
           description: "200"
-      summary: List AI API Keys
+      summary: "[BETA] List AI API Keys"
       tags:
       - exoscale
       x-accepts: application/json
@@ -8869,7 +8869,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/error-response'
           description: "400"
-      summary: Create AI API Key
+      summary: "[BETA] Create AI API Key"
       tags:
       - exoscale
       x-content-type: application/json
@@ -9145,7 +9145,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/org-consumption-quota-response'
           description: "200"
-      summary: Get Organization Consumption Quota
+      summary: "[BETA] Get Organization Consumption Quota"
       tags:
       - exoscale
       x-accepts: application/json
@@ -11844,45 +11844,48 @@ components:
             timeout: 55
           protocol: tcp
           instance-pool:
+            template:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            ipv6-enabled: true
+            instances:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            security-groups:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            private-networks:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            user-data: user-data
+            min-available: 0
+            state: scaling-up
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             elastic-ips:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            template:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: null
             ssh-keys:
             - name: name
             - name: name
-            ipv6-enabled: true
             ssh-key:
               name: name
             manager:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
-            instances:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            security-groups:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             application-consistent-snapshot-enabled: true
             labels:
               key: labels
-            private-networks:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             name: name
-            user-data: user-data
             disk-size: 28867
-            min-available: 0
-            state: scaling-up
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            error-reason:
+              job-id: job-id
+              cause: cause
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -11909,45 +11912,48 @@ components:
             timeout: 55
           protocol: tcp
           instance-pool:
+            template:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            ipv6-enabled: true
+            instances:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            description: description
+            security-groups:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            private-networks:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            user-data: user-data
+            min-available: 0
+            state: scaling-up
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             elastic-ips:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            template:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: null
             ssh-keys:
             - name: name
             - name: name
-            ipv6-enabled: true
             ssh-key:
               name: name
             manager:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
-            instances:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            description: description
-            security-groups:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             application-consistent-snapshot-enabled: true
             labels:
               key: labels
-            private-networks:
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             name: name
-            user-data: user-data
             disk-size: 28867
-            min-available: 0
-            state: scaling-up
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            error-reason:
+              job-id: job-id
+              cause: cause
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -12126,7 +12132,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.22.1
+      default: 0.23.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -12143,6 +12149,7 @@ components:
       - 0.21.0
       - 0.22.0
       - 0.22.1
+      - 0.23.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -15380,45 +15387,48 @@ components:
           timeout: 55
         protocol: tcp
         instance-pool:
+          template:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          ipv6-enabled: true
+          instances:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          security-groups:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          private-networks:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          user-data: user-data
+          min-available: 0
+          state: scaling-up
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           elastic-ips:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          template:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: null
           ssh-keys:
           - name: name
           - name: name
-          ipv6-enabled: true
           ssh-key:
             name: name
           manager:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             type: sks-nodepool
-          instances:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          security-groups:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           application-consistent-snapshot-enabled: true
           labels:
             key: labels
-          private-networks:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           name: name
-          user-data: user-data
           disk-size: 28867
-          min-available: 0
-          state: scaling-up
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          error-reason:
+            job-id: job-id
+            cause: cause
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18395,45 +18405,48 @@ components:
     instance-pool:
       description: Instance Pool
       example:
+        template:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        ipv6-enabled: true
+        instances:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        description: description
+        security-groups:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        private-networks:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        user-data: user-data
+        min-available: 0
+        state: scaling-up
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         elastic-ips:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        template:
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         public-ip-assignment: null
         ssh-keys:
         - name: name
         - name: name
-        ipv6-enabled: true
         ssh-key:
           name: name
         manager:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           type: sks-nodepool
-        instances:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         deploy-target:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        description: description
-        security-groups:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         instance-type:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         application-consistent-snapshot-enabled: true
         labels:
           key: labels
-        private-networks:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         size: 0
         name: name
-        user-data: user-data
         disk-size: 28867
-        min-available: 0
-        state: scaling-up
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        error-reason:
+          job-id: job-id
+          cause: cause
         instance-prefix: instance-prefix
         anti-affinity-groups:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18498,6 +18511,7 @@ components:
           - suspended
           - running
           - updating
+          - error
           readOnly: true
           type: string
         size:
@@ -18526,6 +18540,8 @@ components:
             $ref: '#/components/schemas/instance-ref'
           readOnly: true
           type: array
+        error-reason:
+          $ref: '#/components/schemas/instance_pool_error_reason'
         deploy-target:
           $ref: '#/components/schemas/deploy-target-ref'
         ipv6-enabled:
@@ -23207,45 +23223,48 @@ components:
               timeout: 55
             protocol: tcp
             instance-pool:
+              template:
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              ipv6-enabled: true
+              instances:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
+              security-groups:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              private-networks:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              user-data: user-data
+              min-available: 0
+              state: scaling-up
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               elastic-ips:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              template:
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               public-ip-assignment: null
               ssh-keys:
               - name: name
               - name: name
-              ipv6-enabled: true
               ssh-key:
                 name: name
               manager:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 type: sks-nodepool
-              instances:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               deploy-target:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              security-groups:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               instance-type:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               application-consistent-snapshot-enabled: true
               labels:
                 key: labels
-              private-networks:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               size: 0
               name: name
-              user-data: user-data
               disk-size: 28867
-              min-available: 0
-              state: scaling-up
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              error-reason:
+                job-id: job-id
+                cause: cause
               instance-prefix: instance-prefix
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23272,45 +23291,48 @@ components:
               timeout: 55
             protocol: tcp
             instance-pool:
+              template:
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              ipv6-enabled: true
+              instances:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
+              security-groups:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              private-networks:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              user-data: user-data
+              min-available: 0
+              state: scaling-up
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               elastic-ips:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              template:
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               public-ip-assignment: null
               ssh-keys:
               - name: name
               - name: name
-              ipv6-enabled: true
               ssh-key:
                 name: name
               manager:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 type: sks-nodepool
-              instances:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               deploy-target:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              security-groups:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               instance-type:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               application-consistent-snapshot-enabled: true
               labels:
                 key: labels
-              private-networks:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               size: 0
               name: name
-              user-data: user-data
               disk-size: 28867
-              min-available: 0
-              state: scaling-up
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              error-reason:
+                job-id: job-id
+                cause: cause
               instance-prefix: instance-prefix
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23346,45 +23368,48 @@ components:
               timeout: 55
             protocol: tcp
             instance-pool:
+              template:
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              ipv6-enabled: true
+              instances:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
+              security-groups:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              private-networks:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              user-data: user-data
+              min-available: 0
+              state: scaling-up
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               elastic-ips:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              template:
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               public-ip-assignment: null
               ssh-keys:
               - name: name
               - name: name
-              ipv6-enabled: true
               ssh-key:
                 name: name
               manager:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 type: sks-nodepool
-              instances:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               deploy-target:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              security-groups:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               instance-type:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               application-consistent-snapshot-enabled: true
               labels:
                 key: labels
-              private-networks:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               size: 0
               name: name
-              user-data: user-data
               disk-size: 28867
-              min-available: 0
-              state: scaling-up
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              error-reason:
+                job-id: job-id
+                cause: cause
               instance-prefix: instance-prefix
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -23411,45 +23436,48 @@ components:
               timeout: 55
             protocol: tcp
             instance-pool:
+              template:
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              ipv6-enabled: true
+              instances:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              description: description
+              security-groups:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              private-networks:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              user-data: user-data
+              min-available: 0
+              state: scaling-up
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               elastic-ips:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              template:
-                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               public-ip-assignment: null
               ssh-keys:
               - name: name
               - name: name
-              ipv6-enabled: true
               ssh-key:
                 name: name
               manager:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
                 type: sks-nodepool
-              instances:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               deploy-target:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              description: description
-              security-groups:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               instance-type:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               application-consistent-snapshot-enabled: true
               labels:
                 key: labels
-              private-networks:
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               size: 0
               name: name
-              user-data: user-data
               disk-size: 28867
-              min-available: 0
-              state: scaling-up
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              error-reason:
+                job-id: job-id
+                cause: cause
               instance-prefix: instance-prefix
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24183,88 +24211,94 @@ components:
     list_instance_pools_200_response:
       example:
         instance-pools:
-        - elastic-ips:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          template:
+        - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          ipv6-enabled: true
+          instances:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          security-groups:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          private-networks:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          user-data: user-data
+          min-available: 0
+          state: scaling-up
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          elastic-ips:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: null
           ssh-keys:
           - name: name
           - name: name
-          ipv6-enabled: true
           ssh-key:
             name: name
           manager:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             type: sks-nodepool
-          instances:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          security-groups:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           application-consistent-snapshot-enabled: true
           labels:
             key: labels
-          private-networks:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           name: name
-          user-data: user-data
           disk-size: 28867
-          min-available: 0
-          state: scaling-up
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          error-reason:
+            job-id: job-id
+            cause: cause
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        - elastic-ips:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          template:
+        - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          ipv6-enabled: true
+          instances:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          description: description
+          security-groups:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          private-networks:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          user-data: user-data
+          min-available: 0
+          state: scaling-up
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          elastic-ips:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: null
           ssh-keys:
           - name: name
           - name: name
-          ipv6-enabled: true
           ssh-key:
             name: name
           manager:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             type: sks-nodepool
-          instances:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          description: description
-          security-groups:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           application-consistent-snapshot-enabled: true
           labels:
             key: labels
-          private-networks:
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           name: name
-          user-data: user-data
           disk-size: 28867
-          min-available: 0
-          state: scaling-up
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          error-reason:
+            job-id: job-id
+            cause: cause
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30552,6 +30586,19 @@ components:
       required:
       - datadog-api-key
       - site
+      type: object
+    instance_pool_error_reason:
+      description: Instance Pool Error Reason
+      example:
+        job-id: job-id
+        cause: cause
+      properties:
+        cause:
+          description: Error cause
+          type: string
+        job-id:
+          description: Job ID at the origin of error
+          type: string
       type: object
     dbaas_integration_type_settings:
       description: A JSON schema of additional settings of the integration.
