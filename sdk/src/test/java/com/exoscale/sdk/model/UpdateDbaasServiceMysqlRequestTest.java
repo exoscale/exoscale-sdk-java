@@ -44,27 +44,11 @@ public class UpdateDbaasServiceMysqlRequestTest {
     }
 
     /**
-     * Test the property 'maintenance'
+     * Test the property 'backupSchedule'
      */
     @Test
-    public void maintenanceTest() {
-        // TODO: test maintenance
-    }
-
-    /**
-     * Test the property 'plan'
-     */
-    @Test
-    public void planTest() {
-        // TODO: test plan
-    }
-
-    /**
-     * Test the property 'terminationProtection'
-     */
-    @Test
-    public void terminationProtectionTest() {
-        // TODO: test terminationProtection
+    public void backupScheduleTest() {
+        // TODO: test backupSchedule
     }
 
     /**
@@ -76,11 +60,43 @@ public class UpdateDbaasServiceMysqlRequestTest {
     }
 
     /**
+     * Test the property 'terminationProtection'
+     */
+    @Test
+    public void terminationProtectionTest() {
+        // TODO: test terminationProtection
+    }
+
+    /**
      * Test the property 'mysqlSettings'
      */
     @Test
     public void mysqlSettingsTest() {
         // TODO: test mysqlSettings
+    }
+
+    /**
+     * Test the property 'maintenance'
+     */
+    @Test
+    public void maintenanceTest() {
+        // TODO: test maintenance
+    }
+
+    /**
+     * Test the property 'version'
+     */
+    @Test
+    public void versionTest() {
+        // TODO: test version
+    }
+
+    /**
+     * Test the property 'plan'
+     */
+    @Test
+    public void planTest() {
+        // TODO: test plan
     }
 
     /**
@@ -97,14 +113,6 @@ public class UpdateDbaasServiceMysqlRequestTest {
     @Test
     public void binlogRetentionPeriodTest() {
         // TODO: test binlogRetentionPeriod
-    }
-
-    /**
-     * Test the property 'backupSchedule'
-     */
-    @Test
-    public void backupScheduleTest() {
-        // TODO: test backupSchedule
     }
 
 }

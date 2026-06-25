@@ -38,31 +38,38 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * UpdateDbaasServiceMysqlRequest
  */
 @JsonPropertyOrder({
-  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_MAINTENANCE,
-  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_PLAN,
-  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
+  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_BACKUP_SCHEDULE,
   UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_IP_FILTER,
+  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_TERMINATION_PROTECTION,
   UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_MYSQL_SETTINGS,
+  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_MAINTENANCE,
+  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_VERSION,
+  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_PLAN,
   UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_MIGRATION,
-  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_BINLOG_RETENTION_PERIOD,
-  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_BACKUP_SCHEDULE
+  UpdateDbaasServiceMysqlRequest.JSON_PROPERTY_BINLOG_RETENTION_PERIOD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateDbaasServiceMysqlRequest {
-  public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
-  private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
-
-  public static final String JSON_PROPERTY_PLAN = "plan";
-  private String plan;
-
-  public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
-  private Boolean terminationProtection;
+  public static final String JSON_PROPERTY_BACKUP_SCHEDULE = "backup-schedule";
+  private UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule;
 
   public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
   private List<String> ipFilter;
 
+  public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
+  private Boolean terminationProtection;
+
   public static final String JSON_PROPERTY_MYSQL_SETTINGS = "mysql-settings";
   private JsonSchemaMysql mysqlSettings;
+
+  public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
+  private UpdateDbaasServiceMysqlRequestMaintenance maintenance;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private String version;
+
+  public static final String JSON_PROPERTY_PLAN = "plan";
+  private String plan;
 
   public static final String JSON_PROPERTY_MIGRATION = "migration";
   private UpdateDbaasServiceMysqlRequestMigration migration;
@@ -70,84 +77,31 @@ public class UpdateDbaasServiceMysqlRequest {
   public static final String JSON_PROPERTY_BINLOG_RETENTION_PERIOD = "binlog-retention-period";
   private Long binlogRetentionPeriod;
 
-  public static final String JSON_PROPERTY_BACKUP_SCHEDULE = "backup-schedule";
-  private UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule;
-
   public UpdateDbaasServiceMysqlRequest() { 
   }
 
-  public UpdateDbaasServiceMysqlRequest maintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
-    this.maintenance = maintenance;
+  public UpdateDbaasServiceMysqlRequest backupSchedule(UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule) {
+    this.backupSchedule = backupSchedule;
     return this;
   }
 
    /**
-   * Get maintenance
-   * @return maintenance
+   * Get backupSchedule
+   * @return backupSchedule
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonProperty(JSON_PROPERTY_BACKUP_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UpdateDbaasServiceMysqlRequestMaintenance getMaintenance() {
-    return maintenance;
+  public UpdateDbaasServiceMysqlRequestBackupSchedule getBackupSchedule() {
+    return backupSchedule;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonProperty(JSON_PROPERTY_BACKUP_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
-    this.maintenance = maintenance;
-  }
-
-
-  public UpdateDbaasServiceMysqlRequest plan(String plan) {
-    this.plan = plan;
-    return this;
-  }
-
-   /**
-   * Subscription plan
-   * @return plan
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PLAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getPlan() {
-    return plan;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PLAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlan(String plan) {
-    this.plan = plan;
-  }
-
-
-  public UpdateDbaasServiceMysqlRequest terminationProtection(Boolean terminationProtection) {
-    this.terminationProtection = terminationProtection;
-    return this;
-  }
-
-   /**
-   * Service is protected against termination and powering off
-   * @return terminationProtection
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getTerminationProtection() {
-    return terminationProtection;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTerminationProtection(Boolean terminationProtection) {
-    this.terminationProtection = terminationProtection;
+  public void setBackupSchedule(UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule) {
+    this.backupSchedule = backupSchedule;
   }
 
 
@@ -184,6 +138,31 @@ public class UpdateDbaasServiceMysqlRequest {
   }
 
 
+  public UpdateDbaasServiceMysqlRequest terminationProtection(Boolean terminationProtection) {
+    this.terminationProtection = terminationProtection;
+    return this;
+  }
+
+   /**
+   * Service is protected against termination and powering off
+   * @return terminationProtection
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTerminationProtection() {
+    return terminationProtection;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TERMINATION_PROTECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTerminationProtection(Boolean terminationProtection) {
+    this.terminationProtection = terminationProtection;
+  }
+
+
   public UpdateDbaasServiceMysqlRequest mysqlSettings(JsonSchemaMysql mysqlSettings) {
     this.mysqlSettings = mysqlSettings;
     return this;
@@ -206,6 +185,81 @@ public class UpdateDbaasServiceMysqlRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMysqlSettings(JsonSchemaMysql mysqlSettings) {
     this.mysqlSettings = mysqlSettings;
+  }
+
+
+  public UpdateDbaasServiceMysqlRequest maintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
+    this.maintenance = maintenance;
+    return this;
+  }
+
+   /**
+   * Get maintenance
+   * @return maintenance
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UpdateDbaasServiceMysqlRequestMaintenance getMaintenance() {
+    return maintenance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAINTENANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaintenance(UpdateDbaasServiceMysqlRequestMaintenance maintenance) {
+    this.maintenance = maintenance;
+  }
+
+
+  public UpdateDbaasServiceMysqlRequest version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * MySQL version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+
+  public UpdateDbaasServiceMysqlRequest plan(String plan) {
+    this.plan = plan;
+    return this;
+  }
+
+   /**
+   * Subscription plan
+   * @return plan
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPlan() {
+    return plan;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PLAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPlan(String plan) {
+    this.plan = plan;
   }
 
 
@@ -261,31 +315,6 @@ public class UpdateDbaasServiceMysqlRequest {
   }
 
 
-  public UpdateDbaasServiceMysqlRequest backupSchedule(UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule) {
-    this.backupSchedule = backupSchedule;
-    return this;
-  }
-
-   /**
-   * Get backupSchedule
-   * @return backupSchedule
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BACKUP_SCHEDULE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UpdateDbaasServiceMysqlRequestBackupSchedule getBackupSchedule() {
-    return backupSchedule;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BACKUP_SCHEDULE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBackupSchedule(UpdateDbaasServiceMysqlRequestBackupSchedule backupSchedule) {
-    this.backupSchedule = backupSchedule;
-  }
-
-
   /**
    * Return true if this update_dbaas_service_mysql_request object is equal to o.
    */
@@ -298,33 +327,35 @@ public class UpdateDbaasServiceMysqlRequest {
       return false;
     }
     UpdateDbaasServiceMysqlRequest updateDbaasServiceMysqlRequest = (UpdateDbaasServiceMysqlRequest) o;
-    return Objects.equals(this.maintenance, updateDbaasServiceMysqlRequest.maintenance) &&
-        Objects.equals(this.plan, updateDbaasServiceMysqlRequest.plan) &&
-        Objects.equals(this.terminationProtection, updateDbaasServiceMysqlRequest.terminationProtection) &&
+    return Objects.equals(this.backupSchedule, updateDbaasServiceMysqlRequest.backupSchedule) &&
         Objects.equals(this.ipFilter, updateDbaasServiceMysqlRequest.ipFilter) &&
+        Objects.equals(this.terminationProtection, updateDbaasServiceMysqlRequest.terminationProtection) &&
         Objects.equals(this.mysqlSettings, updateDbaasServiceMysqlRequest.mysqlSettings) &&
+        Objects.equals(this.maintenance, updateDbaasServiceMysqlRequest.maintenance) &&
+        Objects.equals(this.version, updateDbaasServiceMysqlRequest.version) &&
+        Objects.equals(this.plan, updateDbaasServiceMysqlRequest.plan) &&
         Objects.equals(this.migration, updateDbaasServiceMysqlRequest.migration) &&
-        Objects.equals(this.binlogRetentionPeriod, updateDbaasServiceMysqlRequest.binlogRetentionPeriod) &&
-        Objects.equals(this.backupSchedule, updateDbaasServiceMysqlRequest.backupSchedule);
+        Objects.equals(this.binlogRetentionPeriod, updateDbaasServiceMysqlRequest.binlogRetentionPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maintenance, plan, terminationProtection, ipFilter, mysqlSettings, migration, binlogRetentionPeriod, backupSchedule);
+    return Objects.hash(backupSchedule, ipFilter, terminationProtection, mysqlSettings, maintenance, version, plan, migration, binlogRetentionPeriod);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateDbaasServiceMysqlRequest {\n");
-    sb.append("    maintenance: ").append(toIndentedString(maintenance)).append("\n");
-    sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
-    sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
+    sb.append("    backupSchedule: ").append(toIndentedString(backupSchedule)).append("\n");
     sb.append("    ipFilter: ").append(toIndentedString(ipFilter)).append("\n");
+    sb.append("    terminationProtection: ").append(toIndentedString(terminationProtection)).append("\n");
     sb.append("    mysqlSettings: ").append(toIndentedString(mysqlSettings)).append("\n");
+    sb.append("    maintenance: ").append(toIndentedString(maintenance)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
     sb.append("    migration: ").append(toIndentedString(migration)).append("\n");
     sb.append("    binlogRetentionPeriod: ").append(toIndentedString(binlogRetentionPeriod)).append("\n");
-    sb.append("    backupSchedule: ").append(toIndentedString(backupSchedule)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -372,19 +403,9 @@ public class UpdateDbaasServiceMysqlRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `maintenance` to the URL query string
-    if (getMaintenance() != null) {
-      joiner.add(getMaintenance().toUrlQueryString(prefix + "maintenance" + suffix));
-    }
-
-    // add `plan` to the URL query string
-    if (getPlan() != null) {
-      joiner.add(String.format("%splan%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlan()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `termination-protection` to the URL query string
-    if (getTerminationProtection() != null) {
-      joiner.add(String.format("%stermination-protection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminationProtection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `backup-schedule` to the URL query string
+    if (getBackupSchedule() != null) {
+      joiner.add(getBackupSchedule().toUrlQueryString(prefix + "backup-schedule" + suffix));
     }
 
     // add `ip-filter` to the URL query string
@@ -396,9 +417,29 @@ public class UpdateDbaasServiceMysqlRequest {
       }
     }
 
+    // add `termination-protection` to the URL query string
+    if (getTerminationProtection() != null) {
+      joiner.add(String.format("%stermination-protection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTerminationProtection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `mysql-settings` to the URL query string
     if (getMysqlSettings() != null) {
       joiner.add(getMysqlSettings().toUrlQueryString(prefix + "mysql-settings" + suffix));
+    }
+
+    // add `maintenance` to the URL query string
+    if (getMaintenance() != null) {
+      joiner.add(getMaintenance().toUrlQueryString(prefix + "maintenance" + suffix));
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `plan` to the URL query string
+    if (getPlan() != null) {
+      joiner.add(String.format("%splan%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlan()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `migration` to the URL query string
@@ -409,11 +450,6 @@ public class UpdateDbaasServiceMysqlRequest {
     // add `binlog-retention-period` to the URL query string
     if (getBinlogRetentionPeriod() != null) {
       joiner.add(String.format("%sbinlog-retention-period%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBinlogRetentionPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `backup-schedule` to the URL query string
-    if (getBackupSchedule() != null) {
-      joiner.add(getBackupSchedule().toUrlQueryString(prefix + "backup-schedule" + suffix));
     }
 
     return joiner.toString();

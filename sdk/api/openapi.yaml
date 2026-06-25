@@ -23639,6 +23639,29 @@ components:
       - database-name
       - name
       type: object
+    update_dbaas_service_mysql_request_backup_schedule:
+      properties:
+        backup-hour:
+          description: The hour of day (in UTC) when backup for the service is started.
+            New backup is only started if previous backup has already completed.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 23
+          minimum: 0
+          nullable: true
+          type: integer
+        backup-minute:
+          description: The minute of an hour when backup for the service is started.
+            New backup is only started if previous backup has already completed.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 59
+          minimum: 0
+          nullable: true
+          type: integer
+      type: object
     update_dbaas_service_mysql_request_maintenance:
       description: Automatic maintenance settings
       properties:
@@ -23712,48 +23735,30 @@ components:
       - host
       - port
       type: object
-    update_dbaas_service_mysql_request_backup_schedule:
-      properties:
-        backup-hour:
-          description: The hour of day (in UTC) when backup for the service is started.
-            New backup is only started if previous backup has already completed.
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int64
-          maximum: 23
-          minimum: 0
-          nullable: true
-          type: integer
-        backup-minute:
-          description: The minute of an hour when backup for the service is started.
-            New backup is only started if previous backup has already completed.
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int64
-          maximum: 59
-          minimum: 0
-          nullable: true
-          type: integer
-      type: object
     update_dbaas_service_mysql_request:
       properties:
-        maintenance:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
-        plan:
-          description: Subscription plan
-          maxLength: 128
-          minLength: 1
-          type: string
-        termination-protection:
-          description: Service is protected against termination and powering off
-          type: boolean
+        backup-schedule:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_backup_schedule'
         ip-filter:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
           type: array
+        termination-protection:
+          description: Service is protected against termination and powering off
+          type: boolean
         mysql-settings:
           $ref: '#/components/schemas/json-schema-mysql'
+        maintenance:
+          $ref: '#/components/schemas/update_dbaas_service_mysql_request_maintenance'
+        version:
+          description: MySQL version
+          type: string
+        plan:
+          description: Subscription plan
+          maxLength: 128
+          minLength: 1
+          type: string
         migration:
           $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
         binlog-retention-period:
@@ -23767,8 +23772,6 @@ components:
           maximum: 86400
           minimum: 600
           type: integer
-        backup-schedule:
-          $ref: '#/components/schemas/update_dbaas_service_mysql_request_backup_schedule'
       type: object
     create_dbaas_service_mysql_request_integrations_inner:
       properties:
