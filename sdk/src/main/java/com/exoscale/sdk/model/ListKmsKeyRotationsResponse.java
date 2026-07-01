@@ -59,7 +59,7 @@ public class ListKmsKeyRotationsResponse {
   }
 
    /**
-   * Get rotations
+   * A chronologically ordered collection tracking historical rotation lifecycle occurrences for this resource.
    * @return rotations
   **/
   @javax.annotation.Nonnull

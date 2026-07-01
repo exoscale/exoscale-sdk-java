@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**at** | **OffsetDateTime** |  |  |
-|**seq** | **Integer** |  |  |
+|**at** | **OffsetDateTime** | The timestamp recording exactly when this specific revision iteration occurred. |  |
+|**seq** | **Integer** | Monotonically increasing sequencing value utilized for optimistic concurrency control locks. |  |
 
 
 

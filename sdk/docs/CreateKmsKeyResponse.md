@@ -7,17 +7,17 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **String** |  |  |
+|**description** | **String** | An optional detailed description providing additional context about the key&#39;s intended use case. |  [optional] |
 |**revision** | [**RevisionStamp**](RevisionStamp.md) |  |  |
-|**name** | **String** |  |  |
-|**multiZone** | **Boolean** |  |  |
+|**name** | **String** | The display name assigned to the KMS key. |  |
+|**multiZone** | **Boolean** | True if this is a multi-zone key. |  |
 |**source** | [**SourceEnum**](#SourceEnum) |  |  |
-|**usage** | **String** |  |  |
+|**usage** | **String** | The cryptographic operation constraints allowed on this key. |  |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  |
-|**statusSince** | **OffsetDateTime** |  |  |
-|**id** | **UUID** |  |  |
-|**originZone** | **String** |  |  |
-|**createdAt** | **OffsetDateTime** |  |  |
+|**statusSince** | **OffsetDateTime** | The timestamp indicating exactly when the current key status was last transitioned. |  |
+|**id** | **UUID** | The globally unique identifier (UUID) assigned to the newly created KMS key. |  |
+|**originZone** | **String** | The creation zone of the KMS key. |  |
+|**createdAt** | **OffsetDateTime** | The UTC timestamp showing when the KMS key was originally provisioned. |  |
 
 
 

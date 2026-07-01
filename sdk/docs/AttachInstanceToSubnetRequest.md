@@ -1,6 +1,6 @@
 
 
-# AttachBlockStorageVolumeToInstanceRequest
+# AttachInstanceToSubnetRequest
 
 
 ## Properties

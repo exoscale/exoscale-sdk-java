@@ -57,7 +57,7 @@ public class ListKmsKeyRotationsResponseEntry {
   }
 
    /**
-   * Get version
+   * The absolute increment index referencing this specific historical structural material setup.
    * @return version
   **/
   @javax.annotation.Nonnull
@@ -82,7 +82,7 @@ public class ListKmsKeyRotationsResponseEntry {
   }
 
    /**
-   * Get rotatedAt
+   * The UTC timestamp tracking precisely when this historical adjustment pass finished processing.
    * @return rotatedAt
   **/
   @javax.annotation.Nonnull
@@ -107,7 +107,7 @@ public class ListKmsKeyRotationsResponseEntry {
   }
 
    /**
-   * Get automatic
+   * Flag stating whether an automation run handled this historic mutation or if manual actor keys initiated it.
    * @return automatic
   **/
   @javax.annotation.Nonnull

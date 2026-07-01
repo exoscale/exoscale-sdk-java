@@ -14,7 +14,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToPrivateNetwork**](ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
-| [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | [BETA] Cancel KMS Key Deletion |
+| [**attachInstanceToSubnet**](ExoscaleApi.md#attachInstanceToSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/attach | [BETA] Attach a Compute instance to a Subnet |
+| [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | Cancel KMS Key Deletion |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
 | [**createAiApiKey**](ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | [BETA] Create AI API Key |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
@@ -53,7 +54,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createIamRole**](ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role |
 | [**createInstance**](ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance |
 | [**createInstancePool**](ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool |
-| [**createKmsKey**](ExoscaleApi.md#createKmsKey) | **POST** /kms-key | [BETA] Create KMS Key |
+| [**createKmsKey**](ExoscaleApi.md#createKmsKey) | **POST** /kms-key | Create KMS Key |
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
 | [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
@@ -65,7 +66,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createSubnet**](ExoscaleApi.md#createSubnet) | **POST** /vpc/{vpc-id}/subnet | [BETA] Create a Subnet |
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
 | [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC |
-| [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | [BETA] Decrypt |
+| [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | Decrypt |
 | [**deleteAiApiKey**](ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | [BETA] Delete AI API Key |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
@@ -124,17 +125,18 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
 | [**detachInstanceFromPrivateNetwork**](ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
 | [**detachInstanceFromSecurityGroup**](ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group |
-| [**disableKmsKey**](ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | [BETA] Disable KMS Key |
-| [**disableKmsKeyRotation**](ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | [BETA] Disable Key Rotation |
+| [**detachInstanceFromSubnet**](ExoscaleApi.md#detachInstanceFromSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/detach | [BETA] Detach a Compute instance from a Subnet |
+| [**disableKmsKey**](ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | Disable KMS Key |
+| [**disableKmsKeyRotation**](ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | Disable Key Rotation |
 | [**enableDbaasMysqlWrites**](ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage |
-| [**enableKmsKey**](ExoscaleApi.md#enableKmsKey) | **POST** /kms-key/{id}/enable | [BETA] Enable KMS Key |
-| [**enableKmsKeyRotation**](ExoscaleApi.md#enableKmsKeyRotation) | **POST** /kms-key/{id}/enable-key-rotation | [BETA] Enable Key Rotation |
+| [**enableKmsKey**](ExoscaleApi.md#enableKmsKey) | **POST** /kms-key/{id}/enable | Enable KMS Key |
+| [**enableKmsKeyRotation**](ExoscaleApi.md#enableKmsKeyRotation) | **POST** /kms-key/{id}/enable-key-rotation | Enable Key Rotation |
 | [**enableTpm**](ExoscaleApi.md#enableTpm) | **POST** /instance/{id}:enable-tpm | Enable tpm for the instance. |
-| [**encrypt**](ExoscaleApi.md#encrypt) | **POST** /kms-key/{id}/encrypt | [BETA] Encrypt |
+| [**encrypt**](ExoscaleApi.md#encrypt) | **POST** /kms-key/{id}/encrypt | Encrypt |
 | [**evictInstancePoolMembers**](ExoscaleApi.md#evictInstancePoolMembers) | **PUT** /instance-pool/{id}:evict | Evict Instance Pool members |
 | [**evictSksNodepoolMembers**](ExoscaleApi.md#evictSksNodepoolMembers) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:evict | Evict Nodepool members |
 | [**exportSnapshot**](ExoscaleApi.md#exportSnapshot) | **POST** /snapshot/{id}:export | Export a Snapshot |
-| [**generateDataKey**](ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | [BETA] Generate Data Key |
+| [**generateDataKey**](ExoscaleApi.md#generateDataKey) | **POST** /kms-key/{id}/generate-data-key | Generate Data Encryption Key |
 | [**generateSksClusterKubeconfig**](ExoscaleApi.md#generateSksClusterKubeconfig) | **POST** /sks-cluster-kubeconfig/{id} | Generate a new Kubeconfig file for a SKS cluster |
 | [**generateSksKarpenterExoscaleNodeclass**](ExoscaleApi.md#generateSksKarpenterExoscaleNodeclass) | **PUT** /sks-cluster/{id}/generate-karpenter-exoscale-nodeclass | Generate a Karpenter ExoscaleNodeClass manifest for an SKS cluster, including its default security group and feature flags if present |
 | [**generateSksKarpenterNodepool**](ExoscaleApi.md#generateSksKarpenterNodepool) | **PUT** /sks-cluster/{id}/generate-karpenter-nodepool | Generate a Karpenter NodePool manifest with minimal configuration for an SKS cluster |
@@ -189,7 +191,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
-| [**getKmsKey**](ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | [BETA] Get KMS Key |
+| [**getKmsKey**](ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | Get KMS Key |
 | [**getLiveBalance**](ExoscaleApi.md#getLiveBalance) | **GET** /live-balance | [BETA] Retrieve the live-balance |
 | [**getLoadBalancer**](ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
 | [**getLoadBalancerService**](ExoscaleApi.md#getLoadBalancerService) | **GET** /load-balancer/{id}/service/{service-id} | Retrieve Load Balancer Service details |
@@ -237,8 +239,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listInstancePools**](ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools |
 | [**listInstanceTypes**](ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types |
 | [**listInstances**](ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances |
-| [**listKmsKeyRotations**](ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | [BETA] List KMS Key Rotations |
-| [**listKmsKeys**](ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | [BETA] List KMS Keys |
+| [**listKmsKeyRotations**](ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | List KMS Key Rotations |
+| [**listKmsKeys**](ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | List KMS Keys |
 | [**listLoadBalancers**](ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers |
 | [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | List Models |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
@@ -258,13 +260,13 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listVpcs**](ExoscaleApi.md#listVpcs) | **GET** /vpc | [BETA] List VPCs |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
-| [**reEncrypt**](ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | [BETA] Re-encrypt |
+| [**reEncrypt**](ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | Re-encrypt |
 | [**rebootInstance**](ExoscaleApi.md#rebootInstance) | **PUT** /instance/{id}:reboot | Reboot a Compute instance |
 | [**registerSshKey**](ExoscaleApi.md#registerSshKey) | **POST** /ssh-key | Import SSH key |
 | [**registerTemplate**](ExoscaleApi.md#registerTemplate) | **POST** /template | Register a Template |
 | [**removeExternalSourceFromSecurityGroup**](ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
 | [**removeInstanceProtection**](ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
-| [**replicateKmsKey**](ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | [BETA] Replicate KMS Key |
+| [**replicateKmsKey**](ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | Replicate KMS Key |
 | [**resetDbaasGrafanaUserPassword**](ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
 | [**resetDbaasKafkaUserPassword**](ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasMysqlUserPassword**](ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
@@ -295,7 +297,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
 | [**rotateAiApiKey**](ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | [BETA] Rotate AI API Key |
-| [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | [BETA] Rotate Key |
+| [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | Rotate Key |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
 | [**rotateSksKarpenterCredentials**](ExoscaleApi.md#rotateSksKarpenterCredentials) | **PUT** /sks-cluster/{id}/rotate-karpenter-credentials | Rotate Exoscale Karpenter credentials |
@@ -304,7 +306,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**scaleInstance**](ExoscaleApi.md#scaleInstance) | **PUT** /instance/{id}:scale | Scale a Compute instance to a new Instance Type |
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
-| [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | [BETA] Schedule KMS Key Deletion |
+| [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
 | [**startDbaasKafkaMaintenance**](ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
 | [**startDbaasMysqlMaintenance**](ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
@@ -837,7 +839,7 @@ No authorization required
 
 ## attachBlockStorageVolumeToInstance
 
-> Operation attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest)
+> Operation attachBlockStorageVolumeToInstance(id, attachInstanceToSubnetRequest)
 
 Attach block storage volume to an instance
 
@@ -857,11 +859,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
+            Operation result = client.attachBlockStorageVolumeToInstance(id, attachInstanceToSubnetRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachBlockStorageVolumeToInstance");
@@ -880,7 +882,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
 
 ### Return type
 
@@ -908,7 +910,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
 
 ### Return type
 
@@ -1027,7 +1029,7 @@ No authorization required
 
 ## attachInstanceToElasticIp
 
-> Operation attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest)
+> Operation attachInstanceToElasticIp(id, attachInstanceToSubnetRequest)
 
 Attach a Compute instance to an Elastic IP
 
@@ -1047,11 +1049,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
+            Operation result = client.attachInstanceToElasticIp(id, attachInstanceToSubnetRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachInstanceToElasticIp");
@@ -1070,7 +1072,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
 
 ### Return type
 
@@ -1098,7 +1100,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
 
 ### Return type
 
@@ -1310,13 +1312,111 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## attachInstanceToSubnet
+
+> Operation attachInstanceToSubnet(vpcId, subnetId, attachInstanceToSubnetRequest)
+
+[BETA] Attach a Compute instance to a Subnet
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID subnetId = UUID.randomUUID(); // UUID | 
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.attachInstanceToSubnet(vpcId, subnetId, attachInstanceToSubnetRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#attachInstanceToSubnet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## cancelKmsKeyDeletion
 
 > SuccessResponse cancelKmsKeyDeletion(id)
 
-[BETA] Cancel KMS Key Deletion
+Cancel KMS Key Deletion
 
-Cancel the scheduled deletion of a KMS Key.
+Cancels the scheduled deletion of a KMS Key.
 
 ### Example
 
@@ -4975,9 +5075,9 @@ No authorization required
 
 > CreateKmsKeyResponse createKmsKey(createKmsKeyRequest)
 
-[BETA] Create KMS Key
+Create KMS Key
 
-Create a KMS Key in a given zone with a given name.
+Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
 
 ### Example
 
@@ -5035,7 +5135,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
-| **409** | 409 |  -  |
 
 
 ### Parameters
@@ -5064,7 +5163,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
-| **409** | 409 |  -  |
 
 
 ## createLoadBalancer
@@ -6095,9 +6193,9 @@ No authorization required
 
 > DecryptResponse decrypt(id, decryptRequest)
 
-[BETA] Decrypt
+Decrypt
 
-Decrypt a ciphertext.
+Decrypts a ciphertext.
 
 ### Example
 
@@ -10072,7 +10170,7 @@ No authorization required
 
 ## deleteRoute
 
-> Route deleteRoute(vpcId, subnetId, id)
+> Object deleteRoute(vpcId, subnetId, id)
 
 [BETA] Delete a route
 
@@ -10097,7 +10195,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Route result = client.deleteRoute(vpcId, subnetId, id);
+            Object result = client.deleteRoute(vpcId, subnetId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteRoute");
@@ -10121,7 +10219,7 @@ public class Example {
 
 ### Return type
 
-[**Route**](Route.md)
+**Object**
 
 
 ### Authorization
@@ -10150,7 +10248,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**Route**](Route.md)>
+ApiResponse<**Object**>
 
 
 ### Authorization
@@ -10728,7 +10826,7 @@ No authorization required
 
 ## deleteSubnet
 
-> Operation deleteSubnet(vpcId, id)
+> Object deleteSubnet(vpcId, id)
 
 [BETA] Delete a Subnet
 
@@ -10752,7 +10850,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Operation result = client.deleteSubnet(vpcId, id);
+            Object result = client.deleteSubnet(vpcId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSubnet");
@@ -10775,7 +10873,7 @@ public class Example {
 
 ### Return type
 
-[**Operation**](Operation.md)
+**Object**
 
 
 ### Authorization
@@ -10803,7 +10901,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**Operation**](Operation.md)>
+ApiResponse<**Object**>
 
 
 ### Authorization
@@ -11005,7 +11103,7 @@ No authorization required
 
 ## deleteVpc
 
-> Operation deleteVpc(id)
+> Object deleteVpc(id)
 
 [BETA] Delete a VPC
 
@@ -11028,7 +11126,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Operation result = client.deleteVpc(id);
+            Object result = client.deleteVpc(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteVpc");
@@ -11050,7 +11148,7 @@ public class Example {
 
 ### Return type
 
-[**Operation**](Operation.md)
+**Object**
 
 
 ### Authorization
@@ -11077,7 +11175,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**Operation**](Operation.md)>
+ApiResponse<**Object**>
 
 
 ### Authorization
@@ -11284,7 +11382,7 @@ No authorization required
 
 ## detachInstanceFromElasticIp
 
-> Operation detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest)
+> Operation detachInstanceFromElasticIp(id, attachInstanceToSubnetRequest)
 
 Detach a Compute instance from an Elastic IP
 
@@ -11304,11 +11402,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
+            Operation result = client.detachInstanceFromElasticIp(id, attachInstanceToSubnetRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachInstanceFromElasticIp");
@@ -11327,7 +11425,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
 
 ### Return type
 
@@ -11355,7 +11453,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
 
 ### Return type
 
@@ -11567,13 +11665,111 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## detachInstanceFromSubnet
+
+> Operation detachInstanceFromSubnet(vpcId, subnetId, attachInstanceToSubnetRequest)
+
+[BETA] Detach a Compute instance from a Subnet
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID vpcId = UUID.randomUUID(); // UUID | 
+        UUID subnetId = UUID.randomUUID(); // UUID | 
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.detachInstanceFromSubnet(vpcId, subnetId, attachInstanceToSubnetRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#detachInstanceFromSubnet");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vpcId** | **UUID**|  | |
+| **subnetId** | **UUID**|  | |
+| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## disableKmsKey
 
 > SuccessResponse disableKmsKey(id)
 
-[BETA] Disable KMS Key
+Disable KMS Key
 
-Disable a KMS Key
+Disables a KMS Key by setting its state to \&quot;disabled\&quot;. This prevents the use of the KMS key for cryptographic and key lifecycle operations.
 
 ### Example
 
@@ -11665,7 +11861,7 @@ No authorization required
 
 > DisableKmsKeyRotationResponse disableKmsKeyRotation(id)
 
-[BETA] Disable Key Rotation
+Disable Key Rotation
 
 Disable the periodic rotation of a KMS Key.
 
@@ -11849,9 +12045,9 @@ No authorization required
 
 > SuccessResponse enableKmsKey(id)
 
-[BETA] Enable KMS Key
+Enable KMS Key
 
-Enable a KMS Key\&quot;
+Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
 
 ### Example
 
@@ -11943,7 +12139,7 @@ No authorization required
 
 > EnableKmsKeyRotationResponse enableKmsKeyRotation(id, enableKmsKeyRotationRequest)
 
-[BETA] Enable Key Rotation
+Enable Key Rotation
 
 Enable the periodic rotation of a KMS Key.
 
@@ -12132,9 +12328,9 @@ No authorization required
 
 > EncryptResponse encrypt(id, encryptRequest)
 
-[BETA] Encrypt
+Encrypt
 
-Encrypt a plaintext.
+Encrypts a plaintext.
 
 ### Example
 
@@ -12514,7 +12710,7 @@ No authorization required
 
 > GenerateDataKeyResponse generateDataKey(id, generateDataKeyRequest)
 
-[BETA] Generate Data Key
+Generate Data Encryption Key
 
 Generate a Data Encryption Key from a given KMS Key.
 
@@ -17542,7 +17738,7 @@ No authorization required
 
 > GetKmsKeyResponse getKmsKey(id)
 
-[BETA] Get KMS Key
+Get KMS Key
 
 Retrieve KMS Key details.
 
@@ -17602,7 +17798,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
-| **404** | 404 |  -  |
 
 
 ### Parameters
@@ -17631,7 +17826,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
-| **404** | 404 |  -  |
 
 
 ## getLiveBalance
@@ -21868,7 +22062,7 @@ No authorization required
 
 > ListKmsKeyRotationsResponse listKmsKeyRotations(id)
 
-[BETA] List KMS Key Rotations
+List KMS Key Rotations
 
 List all the key material versions of a KMS Key.
 
@@ -21962,9 +22156,9 @@ No authorization required
 
 > ListKmsKeysResponse listKmsKeys()
 
-[BETA] List KMS Keys
+List KMS Keys
 
-List KMS Keys details for an organization in a given zone.
+Lists all KMS Keys in your organization in a given zone.
 
 ### Example
 
@@ -23734,7 +23928,7 @@ No authorization required
 
 > ReEncryptResponse reEncrypt(id, reEncryptRequest)
 
-[BETA] Re-encrypt
+Re-encrypt
 
 Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
 
@@ -24294,7 +24488,7 @@ No authorization required
 
 > SuccessResponse replicateKmsKey(id, replicateKmsKeyRequest)
 
-[BETA] Replicate KMS Key
+Replicate KMS Key
 
 Replicate a KMS key to a target zone.
 
@@ -27226,9 +27420,9 @@ No authorization required
 
 > RotateKmsKeyResponse rotateKmsKey(id)
 
-[BETA] Rotate Key
+Rotate Key
 
-Perform a manual rotation of the key material for a symmetric key.
+Performs an immediate rotation of the key material for a symmetric key.
 
 ### Example
 
@@ -28077,11 +28271,11 @@ No authorization required
 
 ## scheduleKmsKeyDeletion
 
-> SuccessResponse scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest)
+> ScheduleKmsKeyDeletionResponse scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest)
 
-[BETA] Schedule KMS Key Deletion
+Schedule KMS Key Deletion
 
-Schedule a KMS key for deletion after a delay.
+Schedules a KMS key for deletion after a delay. You can specify a delay of 7-30 days.
 
 ### Example
 
@@ -28101,7 +28295,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            SuccessResponse result = client.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
+            ScheduleKmsKeyDeletionResponse result = client.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#scheduleKmsKeyDeletion");
@@ -28124,7 +28318,7 @@ public class Example {
 
 ### Return type
 
-[**SuccessResponse**](SuccessResponse.md)
+[**ScheduleKmsKeyDeletionResponse**](ScheduleKmsKeyDeletionResponse.md)
 
 
 ### Authorization
@@ -28153,7 +28347,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
+ApiResponse<[**ScheduleKmsKeyDeletionResponse**](ScheduleKmsKeyDeletionResponse.md)>
 
 
 ### Authorization

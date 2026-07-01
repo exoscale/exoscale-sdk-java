@@ -57,7 +57,7 @@ public class ReplicaState {
   }
 
    /**
-   * Get zone
+   * The destination target zone tracking this specific replica instance.
    * @return zone
   **/
   @javax.annotation.Nonnull
@@ -82,7 +82,7 @@ public class ReplicaState {
   }
 
    /**
-   * Get lastAppliedWatermark
+   * The latest logical sequence number or state watermark successfully synced to this regional replica.
    * @return lastAppliedWatermark
   **/
   @javax.annotation.Nonnull

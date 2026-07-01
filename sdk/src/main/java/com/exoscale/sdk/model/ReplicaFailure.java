@@ -57,7 +57,7 @@ public class ReplicaFailure {
   }
 
    /**
-   * Get attemptedWatermark
+   * The target sync sequence watermark that triggered the replication failure.
    * @return attemptedWatermark
   **/
   @javax.annotation.Nonnull
@@ -82,7 +82,7 @@ public class ReplicaFailure {
   }
 
    /**
-   * Get error
+   * A descriptive message containing error logs or system details regarding the sync failure.
    * @return error
   **/
   @javax.annotation.Nonnull
@@ -107,7 +107,7 @@ public class ReplicaFailure {
   }
 
    /**
-   * Get failedAt
+   * The UTC timestamp showing exactly when the replication sync window failed.
    * @return failedAt
   **/
   @javax.annotation.Nonnull

@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  |
-|**description** | **String** |  |  [optional] |
+|**name** | **String** | A human-readable display name uniquely identifying the KMS key within the tenant space. |  |
+|**description** | **String** | An optional detailed description providing additional context about the key&#39;s intended use case. |  [optional] |
 |**usage** | [**UsageEnum**](#UsageEnum) |  |  [optional] |
-|**multiZone** | **Boolean** |  |  [optional] |
+|**multiZone** | **Boolean** | True if this is a multi-zone key. |  [optional] |
 
 
 

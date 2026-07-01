@@ -17,10 +17,10 @@ docs/AntiAffinityGroupRef.md
 docs/ApiKeyUsageEntry.md
 docs/AssumeIamRole200Response.md
 docs/AssumeIamRoleRequest.md
-docs/AttachBlockStorageVolumeToInstanceRequest.md
 docs/AttachDbaasServiceToEndpointRequest.md
 docs/AttachInstanceToPrivateNetworkRequest.md
 docs/AttachInstanceToPrivateNetworkRequestInstance.md
+docs/AttachInstanceToSubnetRequest.md
 docs/AutovacuumSettings.md
 docs/AzureADOAuthIntegration.md
 docs/BackgroundBGWriterSettings.md
@@ -222,7 +222,6 @@ docs/EnvImpactReport.md
 docs/EnvMetadataEntry.md
 docs/EnvProduct.md
 docs/ErrorResponse.md
-docs/ErrorResponseErrorsInner.md
 docs/Event.md
 docs/EvictInstancePoolMembersRequest.md
 docs/EvictSksNodepoolMembersRequest.md
@@ -396,7 +395,6 @@ docs/OpensearchSecurityPluginSettings.md
 docs/OperatingFactor.md
 docs/Operation.md
 docs/OperationReference.md
-docs/OperationResourceRef.md
 docs/OrgConsumptionQuotaResponse.md
 docs/Organization.md
 docs/OrganizationUsage.md
@@ -442,6 +440,7 @@ docs/ScaleInstancePoolRequest.md
 docs/ScaleInstanceRequest.md
 docs/ScaleSksNodepoolRequest.md
 docs/ScheduleKmsKeyDeletionRequest.md
+docs/ScheduleKmsKeyDeletionResponse.md
 docs/SearchBackpressureSettings.md
 docs/SearchShardSettings.md
 docs/SearchTaskSettings.md
@@ -551,10 +550,10 @@ src/main/java/com/exoscale/sdk/model/AntiAffinityGroupRef.java
 src/main/java/com/exoscale/sdk/model/ApiKeyUsageEntry.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRole200Response.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRoleRequest.java
-src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/AttachDbaasServiceToEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/AttachInstanceToPrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/AttachInstanceToPrivateNetworkRequestInstance.java
+src/main/java/com/exoscale/sdk/model/AttachInstanceToSubnetRequest.java
 src/main/java/com/exoscale/sdk/model/AutovacuumSettings.java
 src/main/java/com/exoscale/sdk/model/AzureADOAuthIntegration.java
 src/main/java/com/exoscale/sdk/model/BackgroundBGWriterSettings.java
@@ -756,7 +755,6 @@ src/main/java/com/exoscale/sdk/model/EnvImpactReport.java
 src/main/java/com/exoscale/sdk/model/EnvMetadataEntry.java
 src/main/java/com/exoscale/sdk/model/EnvProduct.java
 src/main/java/com/exoscale/sdk/model/ErrorResponse.java
-src/main/java/com/exoscale/sdk/model/ErrorResponseErrorsInner.java
 src/main/java/com/exoscale/sdk/model/Event.java
 src/main/java/com/exoscale/sdk/model/EvictInstancePoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java
@@ -929,7 +927,6 @@ src/main/java/com/exoscale/sdk/model/OpensearchSecurityPluginSettings.java
 src/main/java/com/exoscale/sdk/model/OperatingFactor.java
 src/main/java/com/exoscale/sdk/model/Operation.java
 src/main/java/com/exoscale/sdk/model/OperationReference.java
-src/main/java/com/exoscale/sdk/model/OperationResourceRef.java
 src/main/java/com/exoscale/sdk/model/OrgConsumptionQuotaResponse.java
 src/main/java/com/exoscale/sdk/model/Organization.java
 src/main/java/com/exoscale/sdk/model/OrganizationUsage.java
@@ -975,6 +972,7 @@ src/main/java/com/exoscale/sdk/model/ScaleInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/ScaleInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/ScaleSksNodepoolRequest.java
 src/main/java/com/exoscale/sdk/model/ScheduleKmsKeyDeletionRequest.java
+src/main/java/com/exoscale/sdk/model/ScheduleKmsKeyDeletionResponse.java
 src/main/java/com/exoscale/sdk/model/SearchBackpressureSettings.java
 src/main/java/com/exoscale/sdk/model/SearchShardSettings.java
 src/main/java/com/exoscale/sdk/model/SearchTaskSettings.java

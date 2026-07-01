@@ -24,9 +24,9 @@ import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
-import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
+import com.exoscale.sdk.model.AttachInstanceToSubnetRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
@@ -243,6 +243,7 @@ import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
+import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
 import com.exoscale.sdk.model.SksCluster;
 import com.exoscale.sdk.model.SksClusterDeprecatedResource;
@@ -830,12 +831,12 @@ public class ExoscaleApi {
    * Attach block storage volume to an instance
    * 
    * @param id  (required)
-   * @param attachBlockStorageVolumeToInstanceRequest  (required)
+   * @param attachInstanceToSubnetRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation attachBlockStorageVolumeToInstance(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = attachBlockStorageVolumeToInstanceWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
+  public Operation attachBlockStorageVolumeToInstance(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = attachBlockStorageVolumeToInstanceWithHttpInfo(id, attachInstanceToSubnetRequest);
     return localVarResponse.getData();
   }
 
@@ -843,12 +844,12 @@ public class ExoscaleApi {
    * Attach block storage volume to an instance
    * 
    * @param id  (required)
-   * @param attachBlockStorageVolumeToInstanceRequest  (required)
+   * @param attachInstanceToSubnetRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> attachBlockStorageVolumeToInstanceWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = attachBlockStorageVolumeToInstanceRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
+  private ApiResponse<Operation> attachBlockStorageVolumeToInstanceWithHttpInfo(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = attachBlockStorageVolumeToInstanceRequestBuilder(id, attachInstanceToSubnetRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -876,14 +877,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder attachBlockStorageVolumeToInstanceRequestBuilder(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+  private HttpRequest.Builder attachBlockStorageVolumeToInstanceRequestBuilder(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling attachBlockStorageVolumeToInstance");
     }
-    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
-    if (attachBlockStorageVolumeToInstanceRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling attachBlockStorageVolumeToInstance");
+    // verify the required parameter 'attachInstanceToSubnetRequest' is set
+    if (attachInstanceToSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling attachBlockStorageVolumeToInstance");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -894,7 +895,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1024,12 +1025,12 @@ public class ExoscaleApi {
    * Attach a Compute instance to an Elastic IP
    * 
    * @param id  (required)
-   * @param attachBlockStorageVolumeToInstanceRequest  (required)
+   * @param attachInstanceToSubnetRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation attachInstanceToElasticIp(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = attachInstanceToElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
+  public Operation attachInstanceToElasticIp(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = attachInstanceToElasticIpWithHttpInfo(id, attachInstanceToSubnetRequest);
     return localVarResponse.getData();
   }
 
@@ -1037,12 +1038,12 @@ public class ExoscaleApi {
    * Attach a Compute instance to an Elastic IP
    * 
    * @param id  (required)
-   * @param attachBlockStorageVolumeToInstanceRequest  (required)
+   * @param attachInstanceToSubnetRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> attachInstanceToElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = attachInstanceToElasticIpRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
+  private ApiResponse<Operation> attachInstanceToElasticIpWithHttpInfo(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = attachInstanceToElasticIpRequestBuilder(id, attachInstanceToSubnetRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1070,14 +1071,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder attachInstanceToElasticIpRequestBuilder(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+  private HttpRequest.Builder attachInstanceToElasticIpRequestBuilder(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling attachInstanceToElasticIp");
     }
-    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
-    if (attachBlockStorageVolumeToInstanceRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling attachInstanceToElasticIp");
+    // verify the required parameter 'attachInstanceToSubnetRequest' is set
+    if (attachInstanceToSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling attachInstanceToElasticIp");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -1088,7 +1089,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1312,8 +1313,112 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Cancel KMS Key Deletion
-   * Cancel the scheduled deletion of a KMS Key.
+   * [BETA] Attach a Compute instance to a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param attachInstanceToSubnetRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation attachInstanceToSubnet(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = attachInstanceToSubnetWithHttpInfo(vpcId, subnetId, attachInstanceToSubnetRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Attach a Compute instance to a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param attachInstanceToSubnetRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> attachInstanceToSubnetWithHttpInfo(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = attachInstanceToSubnetRequestBuilder(vpcId, subnetId, attachInstanceToSubnetRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("attachInstanceToSubnet", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder attachInstanceToSubnetRequestBuilder(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling attachInstanceToSubnet");
+    }
+    // verify the required parameter 'subnetId' is set
+    if (subnetId == null) {
+      throw new ApiException(400, "Missing the required parameter 'subnetId' when calling attachInstanceToSubnet");
+    }
+    // verify the required parameter 'attachInstanceToSubnetRequest' is set
+    if (attachInstanceToSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling attachInstanceToSubnet");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{subnet-id}/attach"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{subnet-id}", ApiClient.urlEncode(subnetId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Cancel KMS Key Deletion
+   * Cancels the scheduled deletion of a KMS Key.
    * @param id  (required)
    * @return SuccessResponse
    * @throws ApiException if fails to make API call
@@ -1324,8 +1429,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Cancel KMS Key Deletion
-   * Cancel the scheduled deletion of a KMS Key.
+   * Cancel KMS Key Deletion
+   * Cancels the scheduled deletion of a KMS Key.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
@@ -5006,8 +5111,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create KMS Key
-   * Create a KMS Key in a given zone with a given name.
+   * Create KMS Key
+   * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
    * @param createKmsKeyRequest  (required)
    * @return CreateKmsKeyResponse
    * @throws ApiException if fails to make API call
@@ -5018,8 +5123,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create KMS Key
-   * Create a KMS Key in a given zone with a given name.
+   * Create KMS Key
+   * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
    * @param createKmsKeyRequest  (required)
    * @return ApiResponse&lt;CreateKmsKeyResponse&gt;
    * @throws ApiException if fails to make API call
@@ -6109,8 +6214,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Decrypt
-   * Decrypt a ciphertext.
+   * Decrypt
+   * Decrypts a ciphertext.
    * @param id  (required)
    * @param decryptRequest  (required)
    * @return DecryptResponse
@@ -6122,8 +6227,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Decrypt
-   * Decrypt a ciphertext.
+   * Decrypt
+   * Decrypts a ciphertext.
    * @param id  (required)
    * @param decryptRequest  (required)
    * @return ApiResponse&lt;DecryptResponse&gt;
@@ -9865,11 +9970,11 @@ public class ExoscaleApi {
    * @param vpcId  (required)
    * @param subnetId  (required)
    * @param id  (required)
-   * @return Route
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Route deleteRoute(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
-    ApiResponse<Route> localVarResponse = deleteRouteWithHttpInfo(vpcId, subnetId, id);
+  public Object deleteRoute(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+    ApiResponse<Object> localVarResponse = deleteRouteWithHttpInfo(vpcId, subnetId, id);
     return localVarResponse.getData();
   }
 
@@ -9879,10 +9984,10 @@ public class ExoscaleApi {
    * @param vpcId  (required)
    * @param subnetId  (required)
    * @param id  (required)
-   * @return ApiResponse&lt;Route&gt;
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Route> deleteRouteWithHttpInfo(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+  private ApiResponse<Object> deleteRouteWithHttpInfo(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteRouteRequestBuilder(vpcId, subnetId, id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9895,10 +10000,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteRoute", localVarResponse);
         }
-        return new ApiResponse<Route>(
+        return new ApiResponse<Object>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Route>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -10487,11 +10592,11 @@ public class ExoscaleApi {
    * 
    * @param vpcId  (required)
    * @param id  (required)
-   * @return Operation
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteSubnet(UUID vpcId, UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteSubnetWithHttpInfo(vpcId, id);
+  public Object deleteSubnet(UUID vpcId, UUID id) throws ApiException {
+    ApiResponse<Object> localVarResponse = deleteSubnetWithHttpInfo(vpcId, id);
     return localVarResponse.getData();
   }
 
@@ -10500,10 +10605,10 @@ public class ExoscaleApi {
    * 
    * @param vpcId  (required)
    * @param id  (required)
-   * @return ApiResponse&lt;Operation&gt;
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteSubnetWithHttpInfo(UUID vpcId, UUID id) throws ApiException {
+  private ApiResponse<Object> deleteSubnetWithHttpInfo(UUID vpcId, UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSubnetRequestBuilder(vpcId, id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10516,10 +10621,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteSubnet", localVarResponse);
         }
-        return new ApiResponse<Operation>(
+        return new ApiResponse<Object>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -10748,11 +10853,11 @@ public class ExoscaleApi {
    * [BETA] Delete a VPC
    * 
    * @param id  (required)
-   * @return Operation
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteVpc(UUID id) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteVpcWithHttpInfo(id);
+  public Object deleteVpc(UUID id) throws ApiException {
+    ApiResponse<Object> localVarResponse = deleteVpcWithHttpInfo(id);
     return localVarResponse.getData();
   }
 
@@ -10760,10 +10865,10 @@ public class ExoscaleApi {
    * [BETA] Delete a VPC
    * 
    * @param id  (required)
-   * @return ApiResponse&lt;Operation&gt;
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteVpcWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Object> deleteVpcWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteVpcRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10776,10 +10881,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteVpc", localVarResponse);
         }
-        return new ApiResponse<Operation>(
+        return new ApiResponse<Object>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -11015,12 +11120,12 @@ public class ExoscaleApi {
    * Detach a Compute instance from an Elastic IP
    * 
    * @param id  (required)
-   * @param attachBlockStorageVolumeToInstanceRequest  (required)
+   * @param attachInstanceToSubnetRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation detachInstanceFromElasticIp(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = detachInstanceFromElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
+  public Operation detachInstanceFromElasticIp(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = detachInstanceFromElasticIpWithHttpInfo(id, attachInstanceToSubnetRequest);
     return localVarResponse.getData();
   }
 
@@ -11028,12 +11133,12 @@ public class ExoscaleApi {
    * Detach a Compute instance from an Elastic IP
    * 
    * @param id  (required)
-   * @param attachBlockStorageVolumeToInstanceRequest  (required)
+   * @param attachInstanceToSubnetRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> detachInstanceFromElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromElasticIpRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
+  private ApiResponse<Operation> detachInstanceFromElasticIpWithHttpInfo(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromElasticIpRequestBuilder(id, attachInstanceToSubnetRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -11061,14 +11166,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder detachInstanceFromElasticIpRequestBuilder(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+  private HttpRequest.Builder detachInstanceFromElasticIpRequestBuilder(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling detachInstanceFromElasticIp");
     }
-    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
-    if (attachBlockStorageVolumeToInstanceRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling detachInstanceFromElasticIp");
+    // verify the required parameter 'attachInstanceToSubnetRequest' is set
+    if (attachInstanceToSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling detachInstanceFromElasticIp");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -11079,7 +11184,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -11303,8 +11408,112 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Disable KMS Key
-   * Disable a KMS Key
+   * [BETA] Detach a Compute instance from a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param attachInstanceToSubnetRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation detachInstanceFromSubnet(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = detachInstanceFromSubnetWithHttpInfo(vpcId, subnetId, attachInstanceToSubnetRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Detach a Compute instance from a Subnet
+   * 
+   * @param vpcId  (required)
+   * @param subnetId  (required)
+   * @param attachInstanceToSubnetRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> detachInstanceFromSubnetWithHttpInfo(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromSubnetRequestBuilder(vpcId, subnetId, attachInstanceToSubnetRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("detachInstanceFromSubnet", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder detachInstanceFromSubnetRequestBuilder(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+    // verify the required parameter 'vpcId' is set
+    if (vpcId == null) {
+      throw new ApiException(400, "Missing the required parameter 'vpcId' when calling detachInstanceFromSubnet");
+    }
+    // verify the required parameter 'subnetId' is set
+    if (subnetId == null) {
+      throw new ApiException(400, "Missing the required parameter 'subnetId' when calling detachInstanceFromSubnet");
+    }
+    // verify the required parameter 'attachInstanceToSubnetRequest' is set
+    if (attachInstanceToSubnetRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling detachInstanceFromSubnet");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/vpc/{vpc-id}/subnet/{subnet-id}/detach"
+        .replace("{vpc-id}", ApiClient.urlEncode(vpcId.toString()))
+        .replace("{subnet-id}", ApiClient.urlEncode(subnetId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Disable KMS Key
+   * Disables a KMS Key by setting its state to \&quot;disabled\&quot;. This prevents the use of the KMS key for cryptographic and key lifecycle operations.
    * @param id  (required)
    * @return SuccessResponse
    * @throws ApiException if fails to make API call
@@ -11315,8 +11524,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Disable KMS Key
-   * Disable a KMS Key
+   * Disable KMS Key
+   * Disables a KMS Key by setting its state to \&quot;disabled\&quot;. This prevents the use of the KMS key for cryptographic and key lifecycle operations.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
@@ -11388,7 +11597,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Disable Key Rotation
+   * Disable Key Rotation
    * Disable the periodic rotation of a KMS Key.
    * @param id  (required)
    * @return DisableKmsKeyRotationResponse
@@ -11400,7 +11609,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Disable Key Rotation
+   * Disable Key Rotation
    * Disable the periodic rotation of a KMS Key.
    * @param id  (required)
    * @return ApiResponse&lt;DisableKmsKeyRotationResponse&gt;
@@ -11558,8 +11767,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Enable KMS Key
-   * Enable a KMS Key\&quot;
+   * Enable KMS Key
+   * Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
    * @param id  (required)
    * @return SuccessResponse
    * @throws ApiException if fails to make API call
@@ -11570,8 +11779,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Enable KMS Key
-   * Enable a KMS Key\&quot;
+   * Enable KMS Key
+   * Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
@@ -11643,7 +11852,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Enable Key Rotation
+   * Enable Key Rotation
    * Enable the periodic rotation of a KMS Key.
    * @param id  (required)
    * @param enableKmsKeyRotationRequest  (required)
@@ -11656,7 +11865,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Enable Key Rotation
+   * Enable Key Rotation
    * Enable the periodic rotation of a KMS Key.
    * @param id  (required)
    * @param enableKmsKeyRotationRequest  (required)
@@ -11825,8 +12034,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Encrypt
-   * Encrypt a plaintext.
+   * Encrypt
+   * Encrypts a plaintext.
    * @param id  (required)
    * @param encryptRequest  (required)
    * @return EncryptResponse
@@ -11838,8 +12047,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Encrypt
-   * Encrypt a plaintext.
+   * Encrypt
+   * Encrypts a plaintext.
    * @param id  (required)
    * @param encryptRequest  (required)
    * @return ApiResponse&lt;EncryptResponse&gt;
@@ -12208,7 +12417,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Generate Data Key
+   * Generate Data Encryption Key
    * Generate a Data Encryption Key from a given KMS Key.
    * @param id  (required)
    * @param generateDataKeyRequest  (required)
@@ -12221,7 +12430,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Generate Data Key
+   * Generate Data Encryption Key
    * Generate a Data Encryption Key from a given KMS Key.
    * @param id  (required)
    * @param generateDataKeyRequest  (required)
@@ -16920,7 +17129,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get KMS Key
+   * Get KMS Key
    * Retrieve KMS Key details.
    * @param id  (required)
    * @return GetKmsKeyResponse
@@ -16932,7 +17141,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get KMS Key
+   * Get KMS Key
    * Retrieve KMS Key details.
    * @param id  (required)
    * @return ApiResponse&lt;GetKmsKeyResponse&gt;
@@ -20992,7 +21201,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List KMS Key Rotations
+   * List KMS Key Rotations
    * List all the key material versions of a KMS Key.
    * @param id  (required)
    * @return ListKmsKeyRotationsResponse
@@ -21004,7 +21213,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List KMS Key Rotations
+   * List KMS Key Rotations
    * List all the key material versions of a KMS Key.
    * @param id  (required)
    * @return ApiResponse&lt;ListKmsKeyRotationsResponse&gt;
@@ -21077,8 +21286,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List KMS Keys
-   * List KMS Keys details for an organization in a given zone.
+   * List KMS Keys
+   * Lists all KMS Keys in your organization in a given zone.
    * @return ListKmsKeysResponse
    * @throws ApiException if fails to make API call
    */
@@ -21088,8 +21297,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List KMS Keys
-   * List KMS Keys details for an organization in a given zone.
+   * List KMS Keys
+   * Lists all KMS Keys in your organization in a given zone.
    * @return ApiResponse&lt;ListKmsKeysResponse&gt;
    * @throws ApiException if fails to make API call
    */
@@ -22757,7 +22966,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Re-encrypt
+   * Re-encrypt
    * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
    * @param id  (required)
    * @param reEncryptRequest  (required)
@@ -22770,7 +22979,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Re-encrypt
+   * Re-encrypt
    * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
    * @param id  (required)
    * @param reEncryptRequest  (required)
@@ -23301,7 +23510,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Replicate KMS Key
+   * Replicate KMS Key
    * Replicate a KMS key to a target zone.
    * @param id  (required)
    * @param replicateKmsKeyRequest  (required)
@@ -23314,7 +23523,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Replicate KMS Key
+   * Replicate KMS Key
    * Replicate a KMS key to a target zone.
    * @param id  (required)
    * @param replicateKmsKeyRequest  (required)
@@ -26201,8 +26410,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Rotate Key
-   * Perform a manual rotation of the key material for a symmetric key.
+   * Rotate Key
+   * Performs an immediate rotation of the key material for a symmetric key.
    * @param id  (required)
    * @return RotateKmsKeyResponse
    * @throws ApiException if fails to make API call
@@ -26213,8 +26422,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Rotate Key
-   * Perform a manual rotation of the key material for a symmetric key.
+   * Rotate Key
+   * Performs an immediate rotation of the key material for a symmetric key.
    * @param id  (required)
    * @return ApiResponse&lt;RotateKmsKeyResponse&gt;
    * @throws ApiException if fails to make API call
@@ -27021,27 +27230,27 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Schedule KMS Key Deletion
-   * Schedule a KMS key for deletion after a delay.
+   * Schedule KMS Key Deletion
+   * Schedules a KMS key for deletion after a delay. You can specify a delay of 7-30 days.
    * @param id  (required)
    * @param scheduleKmsKeyDeletionRequest  (required)
-   * @return SuccessResponse
+   * @return ScheduleKmsKeyDeletionResponse
    * @throws ApiException if fails to make API call
    */
-  public SuccessResponse scheduleKmsKeyDeletion(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
-    ApiResponse<SuccessResponse> localVarResponse = scheduleKmsKeyDeletionWithHttpInfo(id, scheduleKmsKeyDeletionRequest);
+  public ScheduleKmsKeyDeletionResponse scheduleKmsKeyDeletion(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+    ApiResponse<ScheduleKmsKeyDeletionResponse> localVarResponse = scheduleKmsKeyDeletionWithHttpInfo(id, scheduleKmsKeyDeletionRequest);
     return localVarResponse.getData();
   }
 
   /**
-   * [BETA] Schedule KMS Key Deletion
-   * Schedule a KMS key for deletion after a delay.
+   * Schedule KMS Key Deletion
+   * Schedules a KMS key for deletion after a delay. You can specify a delay of 7-30 days.
    * @param id  (required)
    * @param scheduleKmsKeyDeletionRequest  (required)
-   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @return ApiResponse&lt;ScheduleKmsKeyDeletionResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<SuccessResponse> scheduleKmsKeyDeletionWithHttpInfo(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
+  private ApiResponse<ScheduleKmsKeyDeletionResponse> scheduleKmsKeyDeletionWithHttpInfo(UUID id, ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = scheduleKmsKeyDeletionRequestBuilder(id, scheduleKmsKeyDeletionRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -27054,10 +27263,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("scheduleKmsKeyDeletion", localVarResponse);
         }
-        return new ApiResponse<SuccessResponse>(
+        return new ApiResponse<ScheduleKmsKeyDeletionResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ScheduleKmsKeyDeletionResponse>() {}) // closes the InputStream
         );
       } finally {
       }

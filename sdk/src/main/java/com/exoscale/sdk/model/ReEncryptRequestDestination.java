@@ -57,7 +57,7 @@ public class ReEncryptRequestDestination {
   }
 
    /**
-   * The ID of the target key.
+   * The ID of the target key chosen to encapsulate the newly shifted data translation.
    * @return key
   **/
   @javax.annotation.Nonnull
@@ -82,7 +82,7 @@ public class ReEncryptRequestDestination {
   }
 
    /**
-   * Optional encryption context appended to the AAD.
+   * Optional new Base64-encoded encryption context to apply under the target destination envelope.
    * @return encryptionContext
   **/
   @javax.annotation.Nullable

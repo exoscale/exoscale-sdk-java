@@ -48,7 +48,7 @@ public class DecryptResponse {
   }
 
    /**
-   * Get plaintext
+   * The recovered Base64-encoded original plaintext payload.
    * @return plaintext
   **/
   @javax.annotation.Nonnull

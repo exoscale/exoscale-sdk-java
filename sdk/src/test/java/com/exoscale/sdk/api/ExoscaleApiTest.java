@@ -20,9 +20,9 @@ import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
-import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
+import com.exoscale.sdk.model.AttachInstanceToSubnetRequest;
 import com.exoscale.sdk.model.BlockStorageSnapshot;
 import com.exoscale.sdk.model.BlockStorageVolume;
 import com.exoscale.sdk.model.CopyTemplateRequest;
@@ -239,6 +239,7 @@ import com.exoscale.sdk.model.ScaleInstancePoolRequest;
 import com.exoscale.sdk.model.ScaleInstanceRequest;
 import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
+import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
 import com.exoscale.sdk.model.SksCluster;
 import com.exoscale.sdk.model.SksClusterDeprecatedResource;
@@ -404,9 +405,9 @@ public class ExoscaleApiTest {
     @Test
     public void attachBlockStorageVolumeToInstanceTest() throws ApiException {
         UUID id = null;
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
         Operation response = 
-        api.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
+        api.attachBlockStorageVolumeToInstance(id, attachInstanceToSubnetRequest);
         
         // TODO: test validations
     }
@@ -440,9 +441,9 @@ public class ExoscaleApiTest {
     @Test
     public void attachInstanceToElasticIpTest() throws ApiException {
         UUID id = null;
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
         Operation response = 
-        api.attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
+        api.attachInstanceToElasticIp(id, attachInstanceToSubnetRequest);
         
         // TODO: test validations
     }
@@ -484,9 +485,28 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Cancel KMS Key Deletion
+     * [BETA] Attach a Compute instance to a Subnet
      *
-     * Cancel the scheduled deletion of a KMS Key.
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void attachInstanceToSubnetTest() throws ApiException {
+        UUID vpcId = null;
+        UUID subnetId = null;
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
+        Operation response = 
+        api.attachInstanceToSubnet(vpcId, subnetId, attachInstanceToSubnetRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Cancel KMS Key Deletion
+     *
+     * Cancels the scheduled deletion of a KMS Key.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1174,9 +1194,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create KMS Key
+     * Create KMS Key
      *
-     * Create a KMS Key in a given zone with a given name.
+     * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1382,9 +1402,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Decrypt
+     * Decrypt
      *
-     * Decrypt a ciphertext.
+     * Decrypts a ciphertext.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2138,7 +2158,7 @@ public class ExoscaleApiTest {
         UUID vpcId = null;
         UUID subnetId = null;
         UUID id = null;
-        Route response = 
+        Object response = 
         api.deleteRoute(vpcId, subnetId, id);
         
         // TODO: test validations
@@ -2260,7 +2280,7 @@ public class ExoscaleApiTest {
     public void deleteSubnetTest() throws ApiException {
         UUID vpcId = null;
         UUID id = null;
-        Operation response = 
+        Object response = 
         api.deleteSubnet(vpcId, id);
         
         // TODO: test validations
@@ -2311,7 +2331,7 @@ public class ExoscaleApiTest {
     @Test
     public void deleteVpcTest() throws ApiException {
         UUID id = null;
-        Operation response = 
+        Object response = 
         api.deleteVpc(id);
         
         // TODO: test validations
@@ -2363,9 +2383,9 @@ public class ExoscaleApiTest {
     @Test
     public void detachInstanceFromElasticIpTest() throws ApiException {
         UUID id = null;
-        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
         Operation response = 
-        api.detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
+        api.detachInstanceFromElasticIp(id, attachInstanceToSubnetRequest);
         
         // TODO: test validations
     }
@@ -2407,9 +2427,28 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Disable KMS Key
+     * [BETA] Detach a Compute instance from a Subnet
      *
-     * Disable a KMS Key
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void detachInstanceFromSubnetTest() throws ApiException {
+        UUID vpcId = null;
+        UUID subnetId = null;
+        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
+        Operation response = 
+        api.detachInstanceFromSubnet(vpcId, subnetId, attachInstanceToSubnetRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Disable KMS Key
+     *
+     * Disables a KMS Key by setting its state to \&quot;disabled\&quot;. This prevents the use of the KMS key for cryptographic and key lifecycle operations.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2424,7 +2463,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Disable Key Rotation
+     * Disable Key Rotation
      *
      * Disable the periodic rotation of a KMS Key.
      *
@@ -2458,9 +2497,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Enable KMS Key
+     * Enable KMS Key
      *
-     * Enable a KMS Key\&quot;
+     * Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2475,7 +2514,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Enable Key Rotation
+     * Enable Key Rotation
      *
      * Enable the periodic rotation of a KMS Key.
      *
@@ -2510,9 +2549,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Encrypt
+     * Encrypt
      *
-     * Encrypt a plaintext.
+     * Encrypts a plaintext.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2582,7 +2621,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Generate Data Key
+     * Generate Data Encryption Key
      *
      * Generate a Data Encryption Key from a given KMS Key.
      *
@@ -3517,7 +3556,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get KMS Key
+     * Get KMS Key
      *
      * Retrieve KMS Key details.
      *
@@ -4325,7 +4364,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List KMS Key Rotations
+     * List KMS Key Rotations
      *
      * List all the key material versions of a KMS Key.
      *
@@ -4342,9 +4381,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List KMS Keys
+     * List KMS Keys
      *
-     * List KMS Keys details for an organization in a given zone.
+     * Lists all KMS Keys in your organization in a given zone.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -4674,7 +4713,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Re-encrypt
+     * Re-encrypt
      *
      * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
      *
@@ -4778,7 +4817,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Replicate KMS Key
+     * Replicate KMS Key
      *
      * Replicate a KMS key to a target zone.
      *
@@ -5335,9 +5374,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Rotate Key
+     * Rotate Key
      *
-     * Perform a manual rotation of the key material for a symmetric key.
+     * Performs an immediate rotation of the key material for a symmetric key.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -5493,9 +5532,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Schedule KMS Key Deletion
+     * Schedule KMS Key Deletion
      *
-     * Schedule a KMS key for deletion after a delay.
+     * Schedules a KMS key for deletion after a delay. You can specify a delay of 7-30 days.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -5504,7 +5543,7 @@ public class ExoscaleApiTest {
     public void scheduleKmsKeyDeletionTest() throws ApiException {
         UUID id = null;
         ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest = null;
-        SuccessResponse response = 
+        ScheduleKmsKeyDeletionResponse response = 
         api.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
         
         // TODO: test validations

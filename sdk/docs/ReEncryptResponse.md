@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ciphertext** | **byte[]** |  |  |
+|**ciphertext** | **byte[]** | The new Base64-encoded ciphertext block safely wrapped by the chosen destination key parameters. |  |
 
 
 

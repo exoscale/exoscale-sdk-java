@@ -13,53 +13,37 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.InstanceRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for OperationResourceRef
+ * Model tests for AttachInstanceToSubnetRequest
  */
-public class OperationResourceRefTest {
-    private final OperationResourceRef model = new OperationResourceRef();
+public class AttachInstanceToSubnetRequestTest {
+    private final AttachInstanceToSubnetRequest model = new AttachInstanceToSubnetRequest();
 
     /**
-     * Model tests for OperationResourceRef
+     * Model tests for AttachInstanceToSubnetRequest
      */
     @Test
-    public void testOperationResourceRef() {
-        // TODO: test OperationResourceRef
+    public void testAttachInstanceToSubnetRequest() {
+        // TODO: test AttachInstanceToSubnetRequest
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'instance'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'link'
-     */
-    @Test
-    public void linkTest() {
-        // TODO: test link
-    }
-
-    /**
-     * Test the property 'command'
-     */
-    @Test
-    public void commandTest() {
-        // TODO: test command
+    public void instanceTest() {
+        // TODO: test instance
     }
 
 }

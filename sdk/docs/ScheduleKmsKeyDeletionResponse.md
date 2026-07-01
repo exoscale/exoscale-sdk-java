@@ -1,13 +1,13 @@
 
 
-# DecryptResponse
+# ScheduleKmsKeyDeletionResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**plaintext** | **byte[]** | The recovered Base64-encoded original plaintext payload. |  |
+|**deleteAt** | **OffsetDateTime** | Timestamp of the key deletion |  [optional] |
 
 
 

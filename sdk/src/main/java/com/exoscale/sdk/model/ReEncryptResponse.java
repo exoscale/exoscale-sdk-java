@@ -48,7 +48,7 @@ public class ReEncryptResponse {
   }
 
    /**
-   * Get ciphertext
+   * The new Base64-encoded ciphertext block safely wrapped by the chosen destination key parameters.
    * @return ciphertext
   **/
   @javax.annotation.Nonnull

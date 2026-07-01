@@ -145,7 +145,7 @@ public class GenerateDataKeyRequest {
   }
 
    /**
-   * Get encryptionContext
+   * Base64-encoded Additional Authenticated Data binding key generation parameters securely to operational scope.
    * @return encryptionContext
   **/
   @javax.annotation.Nullable

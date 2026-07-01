@@ -69,6 +69,14 @@ public class ListKmsKeysResponseEntryTest {
     }
 
     /**
+     * Test the property 'deleteAt'
+     */
+    @Test
+    public void deleteAtTest() {
+        // TODO: test deleteAt
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test

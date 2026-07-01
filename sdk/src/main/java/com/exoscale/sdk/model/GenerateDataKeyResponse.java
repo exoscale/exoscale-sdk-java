@@ -52,7 +52,7 @@ public class GenerateDataKeyResponse {
   }
 
    /**
-   * Get plaintext
+   * The Base64-encoded raw symmetric data key payload. Expose only securely during active application setups.
    * @return plaintext
   **/
   @javax.annotation.Nonnull
@@ -77,7 +77,7 @@ public class GenerateDataKeyResponse {
   }
 
    /**
-   * Get ciphertext
+   * The identical symmetric data key, returned safely wrapped/encrypted using the designated root parent KMS key.
    * @return ciphertext
   **/
   @javax.annotation.Nonnull

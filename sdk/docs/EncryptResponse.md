@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**ciphertext** | **byte[]** |  |  |
+|**ciphertext** | **byte[]** | The resulting Base64-encoded ciphertext after encryption. |  |
 
 
 

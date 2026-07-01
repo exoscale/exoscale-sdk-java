@@ -48,7 +48,7 @@ public class EnableKmsKeyRotationRequest {
   }
 
    /**
-   * Get rotationPeriod
+   * The number of days between each automatic key rotation.
    * minimum: 90
    * maximum: 2560
    * @return rotationPeriod

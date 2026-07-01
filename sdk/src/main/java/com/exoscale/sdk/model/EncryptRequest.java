@@ -56,7 +56,7 @@ public class EncryptRequest {
   }
 
    /**
-   * Get encryptionContext
+   * Base64-encoded bytes to be used as the Additional Authenticated Data (AAD) for encryption integrity.
    * @return encryptionContext
   **/
   @javax.annotation.Nullable
@@ -89,7 +89,7 @@ public class EncryptRequest {
   }
 
    /**
-   * Get plaintext
+   * The Base64-encoded plaintext data you wish to encrypt.
    * @return plaintext
   **/
   @javax.annotation.Nonnull

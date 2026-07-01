@@ -161,12 +161,12 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get description
+   * An optional detailed description providing additional context about the key&#39;s intended use case.
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
@@ -174,7 +174,7 @@ public class CreateKmsKeyResponse {
 
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -211,7 +211,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get name
+   * The display name assigned to the KMS key.
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -236,7 +236,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get multiZone
+   * True if this is a multi-zone key.
    * @return multiZone
   **/
   @javax.annotation.Nonnull
@@ -286,7 +286,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get usage
+   * The cryptographic operation constraints allowed on this key.
    * @return usage
   **/
   @javax.annotation.Nonnull
@@ -336,7 +336,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get statusSince
+   * The timestamp indicating exactly when the current key status was last transitioned.
    * @return statusSince
   **/
   @javax.annotation.Nonnull
@@ -361,7 +361,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get id
+   * The globally unique identifier (UUID) assigned to the newly created KMS key.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -386,7 +386,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get originZone
+   * The creation zone of the KMS key.
    * @return originZone
   **/
   @javax.annotation.Nonnull
@@ -411,7 +411,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get createdAt
+   * The UTC timestamp showing when the KMS key was originally provisioned.
    * @return createdAt
   **/
   @javax.annotation.Nonnull

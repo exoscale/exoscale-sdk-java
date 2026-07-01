@@ -53,7 +53,7 @@ public class RevisionStamp {
   }
 
    /**
-   * Get at
+   * The timestamp recording exactly when this specific revision iteration occurred.
    * @return at
   **/
   @javax.annotation.Nonnull
@@ -78,7 +78,7 @@ public class RevisionStamp {
   }
 
    /**
-   * Get seq
+   * Monotonically increasing sequencing value utilized for optimistic concurrency control locks.
    * minimum: 0
    * @return seq
   **/

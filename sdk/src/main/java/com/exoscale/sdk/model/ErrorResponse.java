@@ -19,15 +19,12 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ErrorResponseErrorsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -38,9 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ErrorResponse.JSON_PROPERTY_TYPE,
   ErrorResponse.JSON_PROPERTY_TITLE,
   ErrorResponse.JSON_PROPERTY_STATUS,
-  ErrorResponse.JSON_PROPERTY_DETAIL,
-  ErrorResponse.JSON_PROPERTY_INSTANCE,
-  ErrorResponse.JSON_PROPERTY_ERRORS
+  ErrorResponse.JSON_PROPERTY_DETAIL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ErrorResponse {
@@ -56,12 +51,6 @@ public class ErrorResponse {
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
-  public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private String instance;
-
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<ErrorResponseErrorsInner> errors;
-
   public ErrorResponse() { 
   }
 
@@ -71,7 +60,7 @@ public class ErrorResponse {
   }
 
    /**
-   * Get type
+   * An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered.
    * @return type
   **/
   @javax.annotation.Nonnull
@@ -96,7 +85,7 @@ public class ErrorResponse {
   }
 
    /**
-   * Get title
+   * A brief summary defining the class of failure, optimal for quick user interface groupings.
    * @return title
   **/
   @javax.annotation.Nonnull
@@ -148,7 +137,7 @@ public class ErrorResponse {
   }
 
    /**
-   * Get detail
+   * A highly contextual, readable explanation breaking down explicitly what triggered this error scenario.
    * @return detail
   **/
   @javax.annotation.Nonnull
@@ -167,64 +156,6 @@ public class ErrorResponse {
   }
 
 
-  public ErrorResponse instance(String instance) {
-    this.instance = instance;
-    return this;
-  }
-
-   /**
-   * Get instance
-   * @return instance
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getInstance() {
-    return instance;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstance(String instance) {
-    this.instance = instance;
-  }
-
-
-  public ErrorResponse errors(List<ErrorResponseErrorsInner> errors) {
-    this.errors = errors;
-    return this;
-  }
-
-  public ErrorResponse addErrorsItem(ErrorResponseErrorsInner errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
-    }
-    this.errors.add(errorsItem);
-    return this;
-  }
-
-   /**
-   * Get errors
-   * @return errors
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<ErrorResponseErrorsInner> getErrors() {
-    return errors;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrors(List<ErrorResponseErrorsInner> errors) {
-    this.errors = errors;
-  }
-
-
   /**
    * Return true if this error-response object is equal to o.
    */
@@ -240,14 +171,12 @@ public class ErrorResponse {
     return Objects.equals(this.type, errorResponse.type) &&
         Objects.equals(this.title, errorResponse.title) &&
         Objects.equals(this.status, errorResponse.status) &&
-        Objects.equals(this.detail, errorResponse.detail) &&
-        Objects.equals(this.instance, errorResponse.instance) &&
-        Objects.equals(this.errors, errorResponse.errors);
+        Objects.equals(this.detail, errorResponse.detail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, title, status, detail, instance, errors);
+    return Objects.hash(type, title, status, detail);
   }
 
   @Override
@@ -258,8 +187,6 @@ public class ErrorResponse {
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -325,21 +252,6 @@ public class ErrorResponse {
     // add `detail` to the URL query string
     if (getDetail() != null) {
       joiner.add(String.format("%sdetail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `instance` to the URL query string
-    if (getInstance() != null) {
-      joiner.add(String.format("%sinstance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInstance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `errors` to the URL query string
-    if (getErrors() != null) {
-      for (int i = 0; i < getErrors().size(); i++) {
-        if (getErrors().get(i) != null) {
-          joiner.add(getErrors().get(i).toUrlQueryString(String.format("%serrors%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
     }
 
     return joiner.toString();

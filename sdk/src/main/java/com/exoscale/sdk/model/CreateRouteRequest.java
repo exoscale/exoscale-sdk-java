@@ -32,16 +32,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateRouteRequest
  */
 @JsonPropertyOrder({
-  CreateRouteRequest.JSON_PROPERTY_NAME,
   CreateRouteRequest.JSON_PROPERTY_DESCRIPTION,
   CreateRouteRequest.JSON_PROPERTY_DESTINATION,
   CreateRouteRequest.JSON_PROPERTY_TARGET
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateRouteRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -53,31 +49,6 @@ public class CreateRouteRequest {
 
   public CreateRouteRequest() { 
   }
-
-  public CreateRouteRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Route name
-   * @return name
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   public CreateRouteRequest description(String description) {
     this.description = description;
@@ -166,22 +137,20 @@ public class CreateRouteRequest {
       return false;
     }
     CreateRouteRequest createRouteRequest = (CreateRouteRequest) o;
-    return Objects.equals(this.name, createRouteRequest.name) &&
-        Objects.equals(this.description, createRouteRequest.description) &&
+    return Objects.equals(this.description, createRouteRequest.description) &&
         Objects.equals(this.destination, createRouteRequest.destination) &&
         Objects.equals(this.target, createRouteRequest.target);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, destination, target);
+    return Objects.hash(description, destination, target);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRouteRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
@@ -231,11 +200,6 @@ public class CreateRouteRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
 
     // add `description` to the URL query string
     if (getDescription() != null) {

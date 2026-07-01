@@ -93,7 +93,7 @@ public class CreateKmsKeyRequest {
   }
 
    /**
-   * Get name
+   * A human-readable display name uniquely identifying the KMS key within the tenant space.
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -118,7 +118,7 @@ public class CreateKmsKeyRequest {
   }
 
    /**
-   * Get description
+   * An optional detailed description providing additional context about the key&#39;s intended use case.
    * @return description
   **/
   @javax.annotation.Nullable
@@ -168,7 +168,7 @@ public class CreateKmsKeyRequest {
   }
 
    /**
-   * Get multiZone
+   * True if this is a multi-zone key.
    * @return multiZone
   **/
   @javax.annotation.Nullable

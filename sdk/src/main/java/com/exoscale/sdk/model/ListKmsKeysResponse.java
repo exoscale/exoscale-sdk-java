@@ -59,7 +59,7 @@ public class ListKmsKeysResponse {
   }
 
    /**
-   * Get kmsKeys
+   * An array containing metadata entries for all available keys for your organization in the requested zone.
    * @return kmsKeys
   **/
   @javax.annotation.Nonnull

@@ -48,7 +48,7 @@ public class EncryptResponse {
   }
 
    /**
-   * Get ciphertext
+   * The resulting Base64-encoded ciphertext after encryption.
    * @return ciphertext
   **/
   @javax.annotation.Nonnull

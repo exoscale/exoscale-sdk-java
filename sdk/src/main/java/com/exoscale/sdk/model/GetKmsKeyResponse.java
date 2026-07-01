@@ -43,6 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetKmsKeyResponse.JSON_PROPERTY_DESCRIPTION,
   GetKmsKeyResponse.JSON_PROPERTY_ROTATION,
   GetKmsKeyResponse.JSON_PROPERTY_REVISION,
+  GetKmsKeyResponse.JSON_PROPERTY_DELETE_AT,
   GetKmsKeyResponse.JSON_PROPERTY_NAME,
   GetKmsKeyResponse.JSON_PROPERTY_MULTI_ZONE,
   GetKmsKeyResponse.JSON_PROPERTY_SOURCE,
@@ -66,6 +67,9 @@ public class GetKmsKeyResponse {
 
   public static final String JSON_PROPERTY_REVISION = "revision";
   private RevisionStamp revision;
+
+  public static final String JSON_PROPERTY_DELETE_AT = "delete-at";
+  private OffsetDateTime deleteAt;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -162,7 +166,7 @@ public class GetKmsKeyResponse {
   private UUID id;
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
-  private List<String> replicas = new ArrayList<>();
+  private List<String> replicas;
 
   public static final String JSON_PROPERTY_MATERIAL = "material";
   private KeyMaterial material;
@@ -182,12 +186,12 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get description
+   * An optional detailed description providing additional context about the key&#39;s intended use case.
    * @return description
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDescription() {
     return description;
@@ -195,7 +199,7 @@ public class GetKmsKeyResponse {
 
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
   }
@@ -251,13 +255,38 @@ public class GetKmsKeyResponse {
   }
 
 
+  public GetKmsKeyResponse deleteAt(OffsetDateTime deleteAt) {
+    this.deleteAt = deleteAt;
+    return this;
+  }
+
+   /**
+   * Get deleteAt
+   * @return deleteAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DELETE_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getDeleteAt() {
+    return deleteAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DELETE_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeleteAt(OffsetDateTime deleteAt) {
+    this.deleteAt = deleteAt;
+  }
+
+
   public GetKmsKeyResponse name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * The display name of the KMS key.
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -282,7 +311,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get multiZone
+   * True if this is a multi-zone key.
    * @return multiZone
   **/
   @javax.annotation.Nonnull
@@ -332,7 +361,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get usage
+   * The cryptographic operation constraints allowed on this key.
    * @return usage
   **/
   @javax.annotation.Nonnull
@@ -365,7 +394,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get replicasStatus
+   * Detailed synchronization metrics for each regional replica mirror.
    * @return replicasStatus
   **/
   @javax.annotation.Nullable
@@ -415,7 +444,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get statusSince
+   * The timestamp indicating exactly when the current key status was last transitioned.
    * @return statusSince
   **/
   @javax.annotation.Nonnull
@@ -440,7 +469,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get id
+   * The globally unique identifier (UUID) of the retrieved KMS key.
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -473,12 +502,12 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get replicas
+   * A list of availability zones where this specific key has active replica mirrors.
    * @return replicas
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getReplicas() {
     return replicas;
@@ -486,7 +515,7 @@ public class GetKmsKeyResponse {
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReplicas(List<String> replicas) {
     this.replicas = replicas;
   }
@@ -523,7 +552,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get originZone
+   * The creation zone of the KMS key.
    * @return originZone
   **/
   @javax.annotation.Nonnull
@@ -548,7 +577,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get createdAt
+   * The UTC timestamp showing when the KMS key was originally provisioned.
    * @return createdAt
   **/
   @javax.annotation.Nonnull
@@ -582,6 +611,7 @@ public class GetKmsKeyResponse {
     return Objects.equals(this.description, getKmsKeyResponse.description) &&
         Objects.equals(this.rotation, getKmsKeyResponse.rotation) &&
         Objects.equals(this.revision, getKmsKeyResponse.revision) &&
+        Objects.equals(this.deleteAt, getKmsKeyResponse.deleteAt) &&
         Objects.equals(this.name, getKmsKeyResponse.name) &&
         Objects.equals(this.multiZone, getKmsKeyResponse.multiZone) &&
         Objects.equals(this.source, getKmsKeyResponse.source) &&
@@ -598,7 +628,7 @@ public class GetKmsKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, rotation, revision, name, multiZone, source, usage, replicasStatus, status, statusSince, id, replicas, material, originZone, createdAt);
+    return Objects.hash(description, rotation, revision, deleteAt, name, multiZone, source, usage, replicasStatus, status, statusSince, id, replicas, material, originZone, createdAt);
   }
 
   @Override
@@ -608,6 +638,7 @@ public class GetKmsKeyResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    rotation: ").append(toIndentedString(rotation)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
+    sb.append("    deleteAt: ").append(toIndentedString(deleteAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -680,6 +711,11 @@ public class GetKmsKeyResponse {
     // add `revision` to the URL query string
     if (getRevision() != null) {
       joiner.add(getRevision().toUrlQueryString(prefix + "revision" + suffix));
+    }
+
+    // add `delete-at` to the URL query string
+    if (getDeleteAt() != null) {
+      joiner.add(String.format("%sdelete-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleteAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string

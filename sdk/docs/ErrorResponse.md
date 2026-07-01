@@ -8,12 +8,10 @@ RFC 9457 Problem Details error response
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **String** |  |  |
-|**title** | **String** |  |  |
+|**type** | **String** | An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered. |  |
+|**title** | **String** | A brief summary defining the class of failure, optimal for quick user interface groupings. |  |
 |**status** | **Integer** |  |  |
-|**detail** | **String** |  |  |
-|**instance** | **String** |  |  [optional] |
-|**errors** | [**List&lt;ErrorResponseErrorsInner&gt;**](ErrorResponseErrorsInner.md) |  |  [optional] |
+|**detail** | **String** | A highly contextual, readable explanation breaking down explicitly what triggered this error scenario. |  |
 
 
 

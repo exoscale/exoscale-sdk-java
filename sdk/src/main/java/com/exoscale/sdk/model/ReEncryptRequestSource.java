@@ -61,7 +61,7 @@ public class ReEncryptRequestSource {
   }
 
    /**
-   * The ID of the source key.
+   * The ID of the source key currently protecting the data payload.
    * @return key
   **/
   @javax.annotation.Nonnull
@@ -86,7 +86,7 @@ public class ReEncryptRequestSource {
   }
 
    /**
-   * Optional encryption context appended to the AAD.
+   * Optional Base64-encoded encryption context originally appended to the AAD to confirm package validation rules.
    * @return encryptionContext
   **/
   @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class ReEncryptRequestSource {
   }
 
    /**
-   * Get ciphertext
+   * The Base64-encoded encrypted payload package ready to undergo source-side key decryption.
    * @return ciphertext
   **/
   @javax.annotation.Nonnull

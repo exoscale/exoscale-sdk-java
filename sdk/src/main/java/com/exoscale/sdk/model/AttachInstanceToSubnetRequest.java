@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.InstanceRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,46 +30,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * ReplicateKmsKeyRequest
+ * AttachInstanceToSubnetRequest
  */
 @JsonPropertyOrder({
-  ReplicateKmsKeyRequest.JSON_PROPERTY_ZONE
+  AttachInstanceToSubnetRequest.JSON_PROPERTY_INSTANCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class ReplicateKmsKeyRequest {
-  public static final String JSON_PROPERTY_ZONE = "zone";
-  private String zone;
+public class AttachInstanceToSubnetRequest {
+  public static final String JSON_PROPERTY_INSTANCE = "instance";
+  private InstanceRef instance;
 
-  public ReplicateKmsKeyRequest() { 
+  public AttachInstanceToSubnetRequest() { 
   }
 
-  public ReplicateKmsKeyRequest zone(String zone) {
-    this.zone = zone;
+  public AttachInstanceToSubnetRequest instance(InstanceRef instance) {
+    this.instance = instance;
     return this;
   }
 
    /**
-   * The targeted cloud zone where the KMS key should be replicated.
-   * @return zone
+   * Get instance
+   * @return instance
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ZONE)
+  @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getZone() {
-    return zone;
+  public InstanceRef getInstance() {
+    return instance;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ZONE)
+  @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setZone(String zone) {
-    this.zone = zone;
+  public void setInstance(InstanceRef instance) {
+    this.instance = instance;
   }
 
 
   /**
-   * Return true if this replicate-kms-key-request object is equal to o.
+   * Return true if this attach_instance_to_subnet_request object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +79,20 @@ public class ReplicateKmsKeyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReplicateKmsKeyRequest replicateKmsKeyRequest = (ReplicateKmsKeyRequest) o;
-    return Objects.equals(this.zone, replicateKmsKeyRequest.zone);
+    AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = (AttachInstanceToSubnetRequest) o;
+    return Objects.equals(this.instance, attachInstanceToSubnetRequest.instance);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zone);
+    return Objects.hash(instance);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReplicateKmsKeyRequest {\n");
-    sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
+    sb.append("class AttachInstanceToSubnetRequest {\n");
+    sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +140,9 @@ public class ReplicateKmsKeyRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `zone` to the URL query string
-    if (getZone() != null) {
-      joiner.add(String.format("%szone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getZone()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `instance` to the URL query string
+    if (getInstance() != null) {
+      joiner.add(getInstance().toUrlQueryString(prefix + "instance" + suffix));
     }
 
     return joiner.toString();

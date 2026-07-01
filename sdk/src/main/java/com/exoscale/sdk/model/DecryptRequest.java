@@ -56,7 +56,7 @@ public class DecryptRequest {
   }
 
    /**
-   * Get encryptionContext
+   * The exact Base64-encoded Additional Authenticated Data (AAD) used during encryption to verify data integrity.
    * @return encryptionContext
   **/
   @javax.annotation.Nullable
@@ -89,7 +89,7 @@ public class DecryptRequest {
   }
 
    /**
-   * Get ciphertext
+   * The Base64-encoded ciphertext payload to be decrypted.
    * @return ciphertext
   **/
   @javax.annotation.Nonnull

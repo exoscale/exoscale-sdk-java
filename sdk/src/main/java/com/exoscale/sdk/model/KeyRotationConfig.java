@@ -61,7 +61,7 @@ public class KeyRotationConfig {
   }
 
    /**
-   * Get manualCount
+   * Total running tally of manual key rotation tasks executed by users over this key resource&#39;s lifecycle.
    * @return manualCount
   **/
   @javax.annotation.Nonnull
@@ -86,7 +86,7 @@ public class KeyRotationConfig {
   }
 
    /**
-   * Get automatic
+   * When set to true, dictates that the system automatically rotates material periodically.
    * @return automatic
   **/
   @javax.annotation.Nonnull
@@ -111,7 +111,7 @@ public class KeyRotationConfig {
   }
 
    /**
-   * Get rotationPeriod
+   * The set frequency period (measured in days) for triggers monitoring auto-rotation loops.
    * @return rotationPeriod
   **/
   @javax.annotation.Nonnull
@@ -136,7 +136,7 @@ public class KeyRotationConfig {
   }
 
    /**
-   * Get nextAt
+   * Scheduled deadline calculation pinpointing the next automated rotational iteration target date.
    * @return nextAt
   **/
   @javax.annotation.Nonnull

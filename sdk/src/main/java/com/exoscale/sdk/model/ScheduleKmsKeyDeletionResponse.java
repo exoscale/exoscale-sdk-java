@@ -19,57 +19,57 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.InstanceRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AttachBlockStorageVolumeToInstanceRequest
+ * ScheduleKmsKeyDeletionResponse
  */
 @JsonPropertyOrder({
-  AttachBlockStorageVolumeToInstanceRequest.JSON_PROPERTY_INSTANCE
+  ScheduleKmsKeyDeletionResponse.JSON_PROPERTY_DELETE_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class AttachBlockStorageVolumeToInstanceRequest {
-  public static final String JSON_PROPERTY_INSTANCE = "instance";
-  private InstanceRef instance;
+public class ScheduleKmsKeyDeletionResponse {
+  public static final String JSON_PROPERTY_DELETE_AT = "delete-at";
+  private OffsetDateTime deleteAt;
 
-  public AttachBlockStorageVolumeToInstanceRequest() { 
+  public ScheduleKmsKeyDeletionResponse() { 
   }
 
-  public AttachBlockStorageVolumeToInstanceRequest instance(InstanceRef instance) {
-    this.instance = instance;
+  public ScheduleKmsKeyDeletionResponse deleteAt(OffsetDateTime deleteAt) {
+    this.deleteAt = deleteAt;
     return this;
   }
 
    /**
-   * Get instance
-   * @return instance
+   * Timestamp of the key deletion
+   * @return deleteAt
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DELETE_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public InstanceRef getInstance() {
-    return instance;
+  public OffsetDateTime getDeleteAt() {
+    return deleteAt;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInstance(InstanceRef instance) {
-    this.instance = instance;
+  @JsonProperty(JSON_PROPERTY_DELETE_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDeleteAt(OffsetDateTime deleteAt) {
+    this.deleteAt = deleteAt;
   }
 
 
   /**
-   * Return true if this attach_block_storage_volume_to_instance_request object is equal to o.
+   * Return true if this schedule-kms-key-deletion-response object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,20 +79,20 @@ public class AttachBlockStorageVolumeToInstanceRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = (AttachBlockStorageVolumeToInstanceRequest) o;
-    return Objects.equals(this.instance, attachBlockStorageVolumeToInstanceRequest.instance);
+    ScheduleKmsKeyDeletionResponse scheduleKmsKeyDeletionResponse = (ScheduleKmsKeyDeletionResponse) o;
+    return Objects.equals(this.deleteAt, scheduleKmsKeyDeletionResponse.deleteAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instance);
+    return Objects.hash(deleteAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachBlockStorageVolumeToInstanceRequest {\n");
-    sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
+    sb.append("class ScheduleKmsKeyDeletionResponse {\n");
+    sb.append("    deleteAt: ").append(toIndentedString(deleteAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -140,9 +140,9 @@ public class AttachBlockStorageVolumeToInstanceRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `instance` to the URL query string
-    if (getInstance() != null) {
-      joiner.add(getInstance().toUrlQueryString(prefix + "instance" + suffix));
+    // add `delete-at` to the URL query string
+    if (getDeleteAt() != null) {
+      joiner.add(String.format("%sdelete-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeleteAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

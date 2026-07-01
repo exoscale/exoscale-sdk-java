@@ -13,37 +13,37 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.InstanceRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AttachBlockStorageVolumeToInstanceRequest
+ * Model tests for ScheduleKmsKeyDeletionResponse
  */
-public class AttachBlockStorageVolumeToInstanceRequestTest {
-    private final AttachBlockStorageVolumeToInstanceRequest model = new AttachBlockStorageVolumeToInstanceRequest();
+public class ScheduleKmsKeyDeletionResponseTest {
+    private final ScheduleKmsKeyDeletionResponse model = new ScheduleKmsKeyDeletionResponse();
 
     /**
-     * Model tests for AttachBlockStorageVolumeToInstanceRequest
+     * Model tests for ScheduleKmsKeyDeletionResponse
      */
     @Test
-    public void testAttachBlockStorageVolumeToInstanceRequest() {
-        // TODO: test AttachBlockStorageVolumeToInstanceRequest
+    public void testScheduleKmsKeyDeletionResponse() {
+        // TODO: test ScheduleKmsKeyDeletionResponse
     }
 
     /**
-     * Test the property 'instance'
+     * Test the property 'deleteAt'
      */
     @Test
-    public void instanceTest() {
-        // TODO: test instance
+    public void deleteAtTest() {
+        // TODO: test deleteAt
     }
 
 }

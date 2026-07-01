@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**keySpec** | [**KeySpecEnum**](#KeySpecEnum) |  |  [optional] |
 |**bytesCount** | **Integer** |  |  [optional] |
-|**encryptionContext** | **byte[]** |  |  [optional] |
+|**encryptionContext** | **byte[]** | Base64-encoded Additional Authenticated Data binding key generation parameters securely to operational scope. |  [optional] |
 
 
 
