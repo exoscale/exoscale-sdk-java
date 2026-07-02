@@ -31,18 +31,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DbaasServiceThanosComponentsInner
+ * DbaasServiceClickhouseComponentsInner
  */
 @JsonPropertyOrder({
-  DbaasServiceThanosComponentsInner.JSON_PROPERTY_COMPONENT,
-  DbaasServiceThanosComponentsInner.JSON_PROPERTY_HOST,
-  DbaasServiceThanosComponentsInner.JSON_PROPERTY_PORT,
-  DbaasServiceThanosComponentsInner.JSON_PROPERTY_ROUTE,
-  DbaasServiceThanosComponentsInner.JSON_PROPERTY_SSL,
-  DbaasServiceThanosComponentsInner.JSON_PROPERTY_USAGE
+  DbaasServiceClickhouseComponentsInner.JSON_PROPERTY_COMPONENT,
+  DbaasServiceClickhouseComponentsInner.JSON_PROPERTY_HOST,
+  DbaasServiceClickhouseComponentsInner.JSON_PROPERTY_PORT,
+  DbaasServiceClickhouseComponentsInner.JSON_PROPERTY_ROUTE,
+  DbaasServiceClickhouseComponentsInner.JSON_PROPERTY_SSL,
+  DbaasServiceClickhouseComponentsInner.JSON_PROPERTY_USAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceThanosComponentsInner {
+public class DbaasServiceClickhouseComponentsInner {
   public static final String JSON_PROPERTY_COMPONENT = "component";
   private String component;
 
@@ -61,10 +61,10 @@ public class DbaasServiceThanosComponentsInner {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private EnumComponentUsage usage;
 
-  public DbaasServiceThanosComponentsInner() { 
+  public DbaasServiceClickhouseComponentsInner() { 
   }
 
-  public DbaasServiceThanosComponentsInner component(String component) {
+  public DbaasServiceClickhouseComponentsInner component(String component) {
     this.component = component;
     return this;
   }
@@ -89,7 +89,7 @@ public class DbaasServiceThanosComponentsInner {
   }
 
 
-  public DbaasServiceThanosComponentsInner host(String host) {
+  public DbaasServiceClickhouseComponentsInner host(String host) {
     this.host = host;
     return this;
   }
@@ -114,7 +114,7 @@ public class DbaasServiceThanosComponentsInner {
   }
 
 
-  public DbaasServiceThanosComponentsInner port(Long port) {
+  public DbaasServiceClickhouseComponentsInner port(Long port) {
     this.port = port;
     return this;
   }
@@ -141,7 +141,7 @@ public class DbaasServiceThanosComponentsInner {
   }
 
 
-  public DbaasServiceThanosComponentsInner route(EnumComponentRoute route) {
+  public DbaasServiceClickhouseComponentsInner route(EnumComponentRoute route) {
     this.route = route;
     return this;
   }
@@ -166,7 +166,7 @@ public class DbaasServiceThanosComponentsInner {
   }
 
 
-  public DbaasServiceThanosComponentsInner ssl(Boolean ssl) {
+  public DbaasServiceClickhouseComponentsInner ssl(Boolean ssl) {
     this.ssl = ssl;
     return this;
   }
@@ -191,7 +191,7 @@ public class DbaasServiceThanosComponentsInner {
   }
 
 
-  public DbaasServiceThanosComponentsInner usage(EnumComponentUsage usage) {
+  public DbaasServiceClickhouseComponentsInner usage(EnumComponentUsage usage) {
     this.usage = usage;
     return this;
   }
@@ -217,7 +217,7 @@ public class DbaasServiceThanosComponentsInner {
 
 
   /**
-   * Return true if this dbaas_service_thanos_components_inner object is equal to o.
+   * Return true if this dbaas_service_clickhouse_components_inner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -227,13 +227,13 @@ public class DbaasServiceThanosComponentsInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceThanosComponentsInner dbaasServiceThanosComponentsInner = (DbaasServiceThanosComponentsInner) o;
-    return Objects.equals(this.component, dbaasServiceThanosComponentsInner.component) &&
-        Objects.equals(this.host, dbaasServiceThanosComponentsInner.host) &&
-        Objects.equals(this.port, dbaasServiceThanosComponentsInner.port) &&
-        Objects.equals(this.route, dbaasServiceThanosComponentsInner.route) &&
-        Objects.equals(this.ssl, dbaasServiceThanosComponentsInner.ssl) &&
-        Objects.equals(this.usage, dbaasServiceThanosComponentsInner.usage);
+    DbaasServiceClickhouseComponentsInner dbaasServiceClickhouseComponentsInner = (DbaasServiceClickhouseComponentsInner) o;
+    return Objects.equals(this.component, dbaasServiceClickhouseComponentsInner.component) &&
+        Objects.equals(this.host, dbaasServiceClickhouseComponentsInner.host) &&
+        Objects.equals(this.port, dbaasServiceClickhouseComponentsInner.port) &&
+        Objects.equals(this.route, dbaasServiceClickhouseComponentsInner.route) &&
+        Objects.equals(this.ssl, dbaasServiceClickhouseComponentsInner.ssl) &&
+        Objects.equals(this.usage, dbaasServiceClickhouseComponentsInner.usage);
   }
 
   @Override
@@ -244,7 +244,7 @@ public class DbaasServiceThanosComponentsInner {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceThanosComponentsInner {\n");
+    sb.append("class DbaasServiceClickhouseComponentsInner {\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

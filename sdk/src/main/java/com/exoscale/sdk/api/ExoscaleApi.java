@@ -36,6 +36,7 @@ import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.CreateBlockStorageVolumeRequest;
+import com.exoscale.sdk.model.CreateDbaasClickhouseUserRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
@@ -44,6 +45,7 @@ import com.exoscale.sdk.model.CreateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.CreateDbaasPgDatabaseRequest;
 import com.exoscale.sdk.model.CreateDbaasPgUpgradeCheckRequest;
 import com.exoscale.sdk.model.CreateDbaasPostgresUserRequest;
+import com.exoscale.sdk.model.CreateDbaasServiceClickhouseRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceGrafanaRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceMysqlRequest;
@@ -72,6 +74,8 @@ import com.exoscale.sdk.model.CreateSksNodepoolRequest;
 import com.exoscale.sdk.model.CreateSubnetRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.CreateVpcRequest;
+import com.exoscale.sdk.model.DbaasClickhouseAclConfig;
+import com.exoscale.sdk.model.DbaasClickhouseUsers;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
@@ -94,6 +98,7 @@ import com.exoscale.sdk.model.DbaasKafkaTopicAclEntry;
 import com.exoscale.sdk.model.DbaasMigrationStatus;
 import com.exoscale.sdk.model.DbaasOpensearchAclConfig;
 import com.exoscale.sdk.model.DbaasPostgresUsers;
+import com.exoscale.sdk.model.DbaasServiceClickhouse;
 import com.exoscale.sdk.model.DbaasServiceGrafana;
 import com.exoscale.sdk.model.DbaasServiceKafka;
 import com.exoscale.sdk.model.DbaasServiceLogs;
@@ -104,6 +109,7 @@ import com.exoscale.sdk.model.DbaasServiceThanos;
 import com.exoscale.sdk.model.DbaasServiceType;
 import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
+import com.exoscale.sdk.model.DbaasUserClickhouseSecrets;
 import com.exoscale.sdk.model.DbaasUserGrafanaSecrets;
 import com.exoscale.sdk.model.DbaasUserKafkaConnectSecrets;
 import com.exoscale.sdk.model.DbaasUserKafkaSecrets;
@@ -145,6 +151,7 @@ import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Respo
 import com.exoscale.sdk.model.GetDbaasServiceLogsRequest;
 import com.exoscale.sdk.model.GetDbaasServiceMetrics200Response;
 import com.exoscale.sdk.model.GetDbaasServiceMetricsRequest;
+import com.exoscale.sdk.model.GetDbaasSettingsClickhouse200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsGrafana200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsKafka200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
@@ -263,6 +270,7 @@ import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.UpdateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.UpdateDbaasPostgresAllowReplicationRequest;
+import com.exoscale.sdk.model.UpdateDbaasServiceClickhouseRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceGrafanaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
@@ -2056,6 +2064,103 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Create a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param createDbaasClickhouseUserRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasClickhouseUser(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasClickhouseUserWithHttpInfo(serviceName, createDbaasClickhouseUserRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Create a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param createDbaasClickhouseUserRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createDbaasClickhouseUserWithHttpInfo(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasClickhouseUserRequestBuilder(serviceName, createDbaasClickhouseUserRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasClickhouseUser", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasClickhouseUserRequestBuilder(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling createDbaasClickhouseUser");
+    }
+    // verify the required parameter 'createDbaasClickhouseUserRequest' is set
+    if (createDbaasClickhouseUserRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasClickhouseUserRequest' when calling createDbaasClickhouseUser");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/user"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasClickhouseUserRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * 
    * [BETA] Create DataDog external integration endpoint
    * @param name  (required)
@@ -3572,6 +3677,103 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createDbaasPostgresUserRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Create a DBaaS ClickHouse service
+   * 
+   * @param name  (required)
+   * @param createDbaasServiceClickhouseRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation createDbaasServiceClickhouse(String name, CreateDbaasServiceClickhouseRequest createDbaasServiceClickhouseRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = createDbaasServiceClickhouseWithHttpInfo(name, createDbaasServiceClickhouseRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Create a DBaaS ClickHouse service
+   * 
+   * @param name  (required)
+   * @param createDbaasServiceClickhouseRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> createDbaasServiceClickhouseWithHttpInfo(String name, CreateDbaasServiceClickhouseRequest createDbaasServiceClickhouseRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasServiceClickhouseRequestBuilder(name, createDbaasServiceClickhouseRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasServiceClickhouse", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasServiceClickhouseRequestBuilder(String name, CreateDbaasServiceClickhouseRequest createDbaasServiceClickhouseRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling createDbaasServiceClickhouse");
+    }
+    // verify the required parameter 'createDbaasServiceClickhouseRequest' is set
+    if (createDbaasServiceClickhouseRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasServiceClickhouseRequest' when calling createDbaasServiceClickhouse");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasServiceClickhouseRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -6736,6 +6938,98 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Delete a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasClickhouseUser(String serviceName, String username) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasClickhouseUserWithHttpInfo(serviceName, username);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Delete a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteDbaasClickhouseUserWithHttpInfo(String serviceName, String username) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasClickhouseUserRequestBuilder(serviceName, username);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasClickhouseUser", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasClickhouseUserRequestBuilder(String serviceName, String username) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling deleteDbaasClickhouseUser");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling deleteDbaasClickhouseUser");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/user/{username}"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * 
    * [BETA] Delete DataDog external integration endpoint
    * @param endpointId  (required)
@@ -8131,6 +8425,91 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/dbaas-service/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Delete a ClickHouse service
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasServiceClickhouse(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasServiceClickhouseWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Delete a ClickHouse service
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteDbaasServiceClickhouseWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasServiceClickhouseRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasServiceClickhouse", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasServiceClickhouseRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling deleteDbaasServiceClickhouse");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{name}"
         .replace("{name}", ApiClient.urlEncode(name.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -13461,6 +13840,91 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Get DBaaS ClickHouse ACL configuration
+   * 
+   * @param serviceName  (required)
+   * @return DbaasClickhouseAclConfig
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasClickhouseAclConfig getDbaasClickhouseAclConfig(String serviceName) throws ApiException {
+    ApiResponse<DbaasClickhouseAclConfig> localVarResponse = getDbaasClickhouseAclConfigWithHttpInfo(serviceName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get DBaaS ClickHouse ACL configuration
+   * 
+   * @param serviceName  (required)
+   * @return ApiResponse&lt;DbaasClickhouseAclConfig&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasClickhouseAclConfig> getDbaasClickhouseAclConfigWithHttpInfo(String serviceName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasClickhouseAclConfigRequestBuilder(serviceName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasClickhouseAclConfig", localVarResponse);
+        }
+        return new ApiResponse<DbaasClickhouseAclConfig>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasClickhouseAclConfig>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasClickhouseAclConfigRequestBuilder(String serviceName) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling getDbaasClickhouseAclConfig");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/acl-config"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * 
    * [BETA] Get DataDog external endpoint settings
    * @param endpointId  (required)
@@ -14396,6 +14860,91 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Get a DBaaS ClickHouse service
+   * 
+   * @param name  (required)
+   * @return DbaasServiceClickhouse
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasServiceClickhouse getDbaasServiceClickhouse(String name) throws ApiException {
+    ApiResponse<DbaasServiceClickhouse> localVarResponse = getDbaasServiceClickhouseWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get a DBaaS ClickHouse service
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;DbaasServiceClickhouse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasServiceClickhouse> getDbaasServiceClickhouseWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasServiceClickhouseRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasServiceClickhouse", localVarResponse);
+        }
+        return new ApiResponse<DbaasServiceClickhouse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasServiceClickhouse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasServiceClickhouseRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling getDbaasServiceClickhouse");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Get a DBaaS Grafana service
    * 
    * @param name  (required)
@@ -15243,6 +15792,84 @@ public class ExoscaleApi {
 
     String localVarPath = "/dbaas-valkey/{name}"
         .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Get DBaaS ClickHouse settings
+   * 
+   * @return GetDbaasSettingsClickhouse200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetDbaasSettingsClickhouse200Response getDbaasSettingsClickhouse() throws ApiException {
+    ApiResponse<GetDbaasSettingsClickhouse200Response> localVarResponse = getDbaasSettingsClickhouseWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Get DBaaS ClickHouse settings
+   * 
+   * @return ApiResponse&lt;GetDbaasSettingsClickhouse200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetDbaasSettingsClickhouse200Response> getDbaasSettingsClickhouseWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDbaasSettingsClickhouseRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDbaasSettingsClickhouse", localVarResponse);
+        }
+        return new ApiResponse<GetDbaasSettingsClickhouse200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetDbaasSettingsClickhouse200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDbaasSettingsClickhouseRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-settings-clickhouse";
       String requestBody = null;
       String authorizationValue;
 
@@ -19688,6 +20315,91 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] List DBaaS ClickHouse users
+   * 
+   * @param serviceName  (required)
+   * @return DbaasClickhouseUsers
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasClickhouseUsers listDbaasClickhouseUsers(String serviceName) throws ApiException {
+    ApiResponse<DbaasClickhouseUsers> localVarResponse = listDbaasClickhouseUsersWithHttpInfo(serviceName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List DBaaS ClickHouse users
+   * 
+   * @param serviceName  (required)
+   * @return ApiResponse&lt;DbaasClickhouseUsers&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasClickhouseUsers> listDbaasClickhouseUsersWithHttpInfo(String serviceName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDbaasClickhouseUsersRequestBuilder(serviceName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listDbaasClickhouseUsers", localVarResponse);
+        }
+        return new ApiResponse<DbaasClickhouseUsers>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasClickhouseUsers>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listDbaasClickhouseUsersRequestBuilder(String serviceName) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling listDbaasClickhouseUsers");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/user"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * 
    * [BETA] List available external endpoint types and their schemas for DBaaS external integrations
    * @return ListDbaasExternalEndpointTypes200Response
@@ -23607,6 +24319,110 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * [BETA] Reset the credentials of a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation resetDbaasClickhouseUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = resetDbaasClickhouseUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Reset the credentials of a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @param resetDbaasValkeyUserPasswordRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> resetDbaasClickhouseUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = resetDbaasClickhouseUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("resetDbaasClickhouseUserPassword", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder resetDbaasClickhouseUserPasswordRequestBuilder(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling resetDbaasClickhouseUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling resetDbaasClickhouseUserPassword");
+    }
+    // verify the required parameter 'resetDbaasValkeyUserPasswordRequest' is set
+    if (resetDbaasValkeyUserPasswordRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'resetDbaasValkeyUserPasswordRequest' when calling resetDbaasClickhouseUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/user/{username}/password/reset"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(resetDbaasValkeyUserPasswordRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Reset the credentials of a DBaaS Grafana user
    * If no password is provided one will be generated automatically.
    * @param serviceName  (required)
@@ -25302,6 +26118,98 @@ public class ExoscaleApi {
 
     String localVarPath = "/ai/api-key/{id}/reveal"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Reveal the secrets of a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return DbaasUserClickhouseSecrets
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasUserClickhouseSecrets revealDbaasClickhouseUserPassword(String serviceName, String username) throws ApiException {
+    ApiResponse<DbaasUserClickhouseSecrets> localVarResponse = revealDbaasClickhouseUserPasswordWithHttpInfo(serviceName, username);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Reveal the secrets of a DBaaS ClickHouse user
+   * 
+   * @param serviceName  (required)
+   * @param username  (required)
+   * @return ApiResponse&lt;DbaasUserClickhouseSecrets&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasUserClickhouseSecrets> revealDbaasClickhouseUserPasswordWithHttpInfo(String serviceName, String username) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = revealDbaasClickhouseUserPasswordRequestBuilder(serviceName, username);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("revealDbaasClickhouseUserPassword", localVarResponse);
+        }
+        return new ApiResponse<DbaasUserClickhouseSecrets>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserClickhouseSecrets>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder revealDbaasClickhouseUserPasswordRequestBuilder(String serviceName, String username) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling revealDbaasClickhouseUserPassword");
+    }
+    // verify the required parameter 'username' is set
+    if (username == null) {
+      throw new ApiException(400, "Missing the required parameter 'username' when calling revealDbaasClickhouseUserPassword");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/user/{username}/password/reveal"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{username}", ApiClient.urlEncode(username.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -27318,6 +28226,91 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Initiate ClickHouse maintenance update
+   * 
+   * @param name  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation startDbaasClickhouseMaintenance(String name) throws ApiException {
+    ApiResponse<Operation> localVarResponse = startDbaasClickhouseMaintenanceWithHttpInfo(name);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Initiate ClickHouse maintenance update
+   * 
+   * @param name  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> startDbaasClickhouseMaintenanceWithHttpInfo(String name) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = startDbaasClickhouseMaintenanceRequestBuilder(name);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("startDbaasClickhouseMaintenance", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder startDbaasClickhouseMaintenanceRequestBuilder(String name) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling startDbaasClickhouseMaintenance");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{name}/maintenance/start"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -29605,6 +30598,103 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasPostgresAllowReplicationRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Update a DBaaS ClickHouse service
+   * 
+   * @param name  (required)
+   * @param updateDbaasServiceClickhouseRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateDbaasServiceClickhouse(String name, UpdateDbaasServiceClickhouseRequest updateDbaasServiceClickhouseRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateDbaasServiceClickhouseWithHttpInfo(name, updateDbaasServiceClickhouseRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Update a DBaaS ClickHouse service
+   * 
+   * @param name  (required)
+   * @param updateDbaasServiceClickhouseRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateDbaasServiceClickhouseWithHttpInfo(String name, UpdateDbaasServiceClickhouseRequest updateDbaasServiceClickhouseRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateDbaasServiceClickhouseRequestBuilder(name, updateDbaasServiceClickhouseRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateDbaasServiceClickhouse", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateDbaasServiceClickhouseRequestBuilder(String name, UpdateDbaasServiceClickhouseRequest updateDbaasServiceClickhouseRequest) throws ApiException {
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(400, "Missing the required parameter 'name' when calling updateDbaasServiceClickhouse");
+    }
+    // verify the required parameter 'updateDbaasServiceClickhouseRequest' is set
+    if (updateDbaasServiceClickhouseRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateDbaasServiceClickhouseRequest' when calling updateDbaasServiceClickhouse");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{name}"
+        .replace("{name}", ApiClient.urlEncode(name.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateDbaasServiceClickhouseRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

@@ -22,10 +22,10 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
+import com.exoscale.sdk.model.DbaasServiceClickhouseComponentsInner;
+import com.exoscale.sdk.model.DbaasServiceClickhousePrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
-import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
-import com.exoscale.sdk.model.DbaasServiceThanosComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceThanosConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceThanosUsersInner;
 import com.exoscale.sdk.model.EnumServiceState;
@@ -87,7 +87,7 @@ public class DbaasServiceThanos {
   private Long nodeCpuCount;
 
   public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
-  private DbaasServiceMysqlPrometheusUri prometheusUri;
+  private DbaasServiceClickhousePrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -120,7 +120,7 @@ public class DbaasServiceThanos {
   private List<DbaasServiceNotification> notifications;
 
   public static final String JSON_PROPERTY_COMPONENTS = "components";
-  private List<DbaasServiceThanosComponentsInner> components;
+  private List<DbaasServiceClickhouseComponentsInner> components;
 
   public static final String JSON_PROPERTY_MAINTENANCE = "maintenance";
   private DbaasServiceMaintenance maintenance;
@@ -254,7 +254,7 @@ public class DbaasServiceThanos {
   }
 
 
-  public DbaasServiceThanos prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public DbaasServiceThanos prometheusUri(DbaasServiceClickhousePrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
     return this;
   }
@@ -267,14 +267,14 @@ public class DbaasServiceThanos {
   @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+  public DbaasServiceClickhousePrometheusUri getPrometheusUri() {
     return prometheusUri;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public void setPrometheusUri(DbaasServiceClickhousePrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
   }
 
@@ -569,12 +569,12 @@ public class DbaasServiceThanos {
   }
 
 
-  public DbaasServiceThanos components(List<DbaasServiceThanosComponentsInner> components) {
+  public DbaasServiceThanos components(List<DbaasServiceClickhouseComponentsInner> components) {
     this.components = components;
     return this;
   }
 
-  public DbaasServiceThanos addComponentsItem(DbaasServiceThanosComponentsInner componentsItem) {
+  public DbaasServiceThanos addComponentsItem(DbaasServiceClickhouseComponentsInner componentsItem) {
     if (this.components == null) {
       this.components = new ArrayList<>();
     }
@@ -590,14 +590,14 @@ public class DbaasServiceThanos {
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DbaasServiceThanosComponentsInner> getComponents() {
+  public List<DbaasServiceClickhouseComponentsInner> getComponents() {
     return components;
   }
 
 
   @JsonProperty(JSON_PROPERTY_COMPONENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponents(List<DbaasServiceThanosComponentsInner> components) {
+  public void setComponents(List<DbaasServiceClickhouseComponentsInner> components) {
     this.components = components;
   }
 

@@ -32,6 +32,7 @@ import com.exoscale.sdk.model.CreateAntiAffinityGroupRequest;
 import com.exoscale.sdk.model.CreateApiKeyRequest;
 import com.exoscale.sdk.model.CreateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.CreateBlockStorageVolumeRequest;
+import com.exoscale.sdk.model.CreateDbaasClickhouseUserRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
@@ -40,6 +41,7 @@ import com.exoscale.sdk.model.CreateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.CreateDbaasPgDatabaseRequest;
 import com.exoscale.sdk.model.CreateDbaasPgUpgradeCheckRequest;
 import com.exoscale.sdk.model.CreateDbaasPostgresUserRequest;
+import com.exoscale.sdk.model.CreateDbaasServiceClickhouseRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceGrafanaRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.CreateDbaasServiceMysqlRequest;
@@ -68,6 +70,8 @@ import com.exoscale.sdk.model.CreateSksNodepoolRequest;
 import com.exoscale.sdk.model.CreateSubnetRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.CreateVpcRequest;
+import com.exoscale.sdk.model.DbaasClickhouseAclConfig;
+import com.exoscale.sdk.model.DbaasClickhouseUsers;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
 import com.exoscale.sdk.model.DbaasEndpointElasticsearchInputCreate;
@@ -90,6 +94,7 @@ import com.exoscale.sdk.model.DbaasKafkaTopicAclEntry;
 import com.exoscale.sdk.model.DbaasMigrationStatus;
 import com.exoscale.sdk.model.DbaasOpensearchAclConfig;
 import com.exoscale.sdk.model.DbaasPostgresUsers;
+import com.exoscale.sdk.model.DbaasServiceClickhouse;
 import com.exoscale.sdk.model.DbaasServiceGrafana;
 import com.exoscale.sdk.model.DbaasServiceKafka;
 import com.exoscale.sdk.model.DbaasServiceLogs;
@@ -100,6 +105,7 @@ import com.exoscale.sdk.model.DbaasServiceThanos;
 import com.exoscale.sdk.model.DbaasServiceType;
 import com.exoscale.sdk.model.DbaasServiceValkey;
 import com.exoscale.sdk.model.DbaasTask;
+import com.exoscale.sdk.model.DbaasUserClickhouseSecrets;
 import com.exoscale.sdk.model.DbaasUserGrafanaSecrets;
 import com.exoscale.sdk.model.DbaasUserKafkaConnectSecrets;
 import com.exoscale.sdk.model.DbaasUserKafkaSecrets;
@@ -141,6 +147,7 @@ import com.exoscale.sdk.model.GetDbaasExternalIntegrationSettingsDatadog200Respo
 import com.exoscale.sdk.model.GetDbaasServiceLogsRequest;
 import com.exoscale.sdk.model.GetDbaasServiceMetrics200Response;
 import com.exoscale.sdk.model.GetDbaasServiceMetricsRequest;
+import com.exoscale.sdk.model.GetDbaasSettingsClickhouse200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsGrafana200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsKafka200Response;
 import com.exoscale.sdk.model.GetDbaasSettingsMysql200Response;
@@ -259,6 +266,7 @@ import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.UpdateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.UpdateDbaasPostgresAllowReplicationRequest;
+import com.exoscale.sdk.model.UpdateDbaasServiceClickhouseRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceGrafanaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceKafkaRequest;
 import com.exoscale.sdk.model.UpdateDbaasServiceMysqlRequest;
@@ -625,6 +633,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Create a DBaaS ClickHouse user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasClickhouseUserTest() throws ApiException {
+        String serviceName = null;
+        CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest = null;
+        Operation response = 
+        api.createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * 
      *
      * [BETA] Create DataDog external integration endpoint
@@ -907,6 +933,24 @@ public class ExoscaleApiTest {
         CreateDbaasPostgresUserRequest createDbaasPostgresUserRequest = null;
         Operation response = 
         api.createDbaasPostgresUser(serviceName, createDbaasPostgresUserRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Create a DBaaS ClickHouse service
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasServiceClickhouseTest() throws ApiException {
+        String name = null;
+        CreateDbaasServiceClickhouseRequest createDbaasServiceClickhouseRequest = null;
+        Operation response = 
+        api.createDbaasServiceClickhouse(name, createDbaasServiceClickhouseRequest);
         
         // TODO: test validations
     }
@@ -1505,6 +1549,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Delete a DBaaS ClickHouse user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasClickhouseUserTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        Operation response = 
+        api.deleteDbaasClickhouseUser(serviceName, username);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * 
      *
      * [BETA] Delete DataDog external integration endpoint
@@ -1781,6 +1843,23 @@ public class ExoscaleApiTest {
         String name = null;
         Operation response = 
         api.deleteDbaasService(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Delete a ClickHouse service
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasServiceClickhouseTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.deleteDbaasServiceClickhouse(name);
         
         // TODO: test validations
     }
@@ -2827,6 +2906,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Get DBaaS ClickHouse ACL configuration
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasClickhouseAclConfigTest() throws ApiException {
+        String serviceName = null;
+        DbaasClickhouseAclConfig response = 
+        api.getDbaasClickhouseAclConfig(serviceName);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * 
      *
      * [BETA] Get DataDog external endpoint settings
@@ -3014,6 +3110,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Get a DBaaS ClickHouse service
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasServiceClickhouseTest() throws ApiException {
+        String name = null;
+        DbaasServiceClickhouse response = 
+        api.getDbaasServiceClickhouse(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Get a DBaaS Grafana service
      *
      * 
@@ -3181,6 +3294,22 @@ public class ExoscaleApiTest {
         String name = null;
         DbaasServiceValkey response = 
         api.getDbaasServiceValkey(name);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Get DBaaS ClickHouse settings
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getDbaasSettingsClickhouseTest() throws ApiException {
+        GetDbaasSettingsClickhouse200Response response = 
+        api.getDbaasSettingsClickhouse();
         
         // TODO: test validations
     }
@@ -4063,6 +4192,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] List DBaaS ClickHouse users
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDbaasClickhouseUsersTest() throws ApiException {
+        String serviceName = null;
+        DbaasClickhouseUsers response = 
+        api.listDbaasClickhouseUsers(serviceName);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * 
      *
      * [BETA] List available external endpoint types and their schemas for DBaaS external integrations
@@ -4835,6 +4981,25 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * [BETA] Reset the credentials of a DBaaS ClickHouse user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resetDbaasClickhouseUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
+        Operation response = 
+        api.resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Reset the credentials of a DBaaS Grafana user
      *
      * If no password is provided one will be generated automatically.
@@ -5157,6 +5322,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         RevealAiApiKeyResponse response = 
         api.revealAiApiKey(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Reveal the secrets of a DBaaS ClickHouse user
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revealDbaasClickhouseUserPasswordTest() throws ApiException {
+        String serviceName = null;
+        String username = null;
+        DbaasUserClickhouseSecrets response = 
+        api.revealDbaasClickhouseUserPassword(serviceName, username);
         
         // TODO: test validations
     }
@@ -5545,6 +5728,23 @@ public class ExoscaleApiTest {
         ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest = null;
         ScheduleKmsKeyDeletionResponse response = 
         api.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Initiate ClickHouse maintenance update
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void startDbaasClickhouseMaintenanceTest() throws ApiException {
+        String name = null;
+        Operation response = 
+        api.startDbaasClickhouseMaintenance(name);
         
         // TODO: test validations
     }
@@ -5986,6 +6186,24 @@ public class ExoscaleApiTest {
         UpdateDbaasPostgresAllowReplicationRequest updateDbaasPostgresAllowReplicationRequest = null;
         DbaasPostgresUsers response = 
         api.updateDbaasPostgresAllowReplication(serviceName, username, updateDbaasPostgresAllowReplicationRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Update a DBaaS ClickHouse service
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateDbaasServiceClickhouseTest() throws ApiException {
+        String name = null;
+        UpdateDbaasServiceClickhouseRequest updateDbaasServiceClickhouseRequest = null;
+        Operation response = 
+        api.updateDbaasServiceClickhouse(name, updateDbaasServiceClickhouseRequest);
         
         // TODO: test validations
     }

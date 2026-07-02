@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ClickHouseServerSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,77 +30,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Prometheus integration URI
+ * JsonSchemaClickhouse
  */
 @JsonPropertyOrder({
-  DbaasServiceMysqlPrometheusUri.JSON_PROPERTY_HOST,
-  DbaasServiceMysqlPrometheusUri.JSON_PROPERTY_PORT
+  JsonSchemaClickhouse.JSON_PROPERTY_SERVER_SETTINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class DbaasServiceMysqlPrometheusUri {
-  public static final String JSON_PROPERTY_HOST = "host";
-  private String host;
+public class JsonSchemaClickhouse {
+  public static final String JSON_PROPERTY_SERVER_SETTINGS = "server_settings";
+  private ClickHouseServerSettings serverSettings;
 
-  public static final String JSON_PROPERTY_PORT = "port";
-  private Long port;
-
-  public DbaasServiceMysqlPrometheusUri() { 
+  public JsonSchemaClickhouse() { 
   }
 
-  public DbaasServiceMysqlPrometheusUri host(String host) {
-    this.host = host;
+  public JsonSchemaClickhouse serverSettings(ClickHouseServerSettings serverSettings) {
+    this.serverSettings = serverSettings;
     return this;
   }
 
    /**
-   * Get host
-   * @return host
+   * Get serverSettings
+   * @return serverSettings
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonProperty(JSON_PROPERTY_SERVER_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getHost() {
-    return host;
+  public ClickHouseServerSettings getServerSettings() {
+    return serverSettings;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonProperty(JSON_PROPERTY_SERVER_SETTINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-
-  public DbaasServiceMysqlPrometheusUri port(Long port) {
-    this.port = port;
-    return this;
-  }
-
-   /**
-   * Get port
-   * minimum: 0
-   * maximum: 65535
-   * @return port
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getPort() {
-    return port;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPort(Long port) {
-    this.port = port;
+  public void setServerSettings(ClickHouseServerSettings serverSettings) {
+    this.serverSettings = serverSettings;
   }
 
 
   /**
-   * Return true if this dbaas_service_mysql_prometheus_uri object is equal to o.
+   * Return true if this json-schema-clickhouse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -109,22 +79,20 @@ public class DbaasServiceMysqlPrometheusUri {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DbaasServiceMysqlPrometheusUri dbaasServiceMysqlPrometheusUri = (DbaasServiceMysqlPrometheusUri) o;
-    return Objects.equals(this.host, dbaasServiceMysqlPrometheusUri.host) &&
-        Objects.equals(this.port, dbaasServiceMysqlPrometheusUri.port);
+    JsonSchemaClickhouse jsonSchemaClickhouse = (JsonSchemaClickhouse) o;
+    return Objects.equals(this.serverSettings, jsonSchemaClickhouse.serverSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, port);
+    return Objects.hash(serverSettings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DbaasServiceMysqlPrometheusUri {\n");
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("class JsonSchemaClickhouse {\n");
+    sb.append("    serverSettings: ").append(toIndentedString(serverSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,14 +140,9 @@ public class DbaasServiceMysqlPrometheusUri {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `host` to the URL query string
-    if (getHost() != null) {
-      joiner.add(String.format("%shost%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHost()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `port` to the URL query string
-    if (getPort() != null) {
-      joiner.add(String.format("%sport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `server_settings` to the URL query string
+    if (getServerSettings() != null) {
+      joiner.add(getServerSettings().toUrlQueryString(prefix + "server_settings" + suffix));
     }
 
     return joiner.toString();

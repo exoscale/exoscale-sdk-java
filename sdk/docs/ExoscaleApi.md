@@ -22,6 +22,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
 | [**createBlockStorageSnapshot**](ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
 | [**createBlockStorageVolume**](ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume |
+| [**createDbaasClickhouseUser**](ExoscaleApi.md#createDbaasClickhouseUser) | **POST** /dbaas-clickhouse/{service-name}/user | [BETA] Create a DBaaS ClickHouse user |
 | [**createDbaasExternalEndpointDatadog**](ExoscaleApi.md#createDbaasExternalEndpointDatadog) | **POST** /dbaas-external-endpoint-datadog/{name} |  |
 | [**createDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#createDbaasExternalEndpointElasticsearch) | **POST** /dbaas-external-endpoint-elasticsearch/{name} |  |
 | [**createDbaasExternalEndpointOpensearch**](ExoscaleApi.md#createDbaasExternalEndpointOpensearch) | **POST** /dbaas-external-endpoint-opensearch/{name} |  |
@@ -38,6 +39,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasPgDatabase**](ExoscaleApi.md#createDbaasPgDatabase) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database |
 | [**createDbaasPgUpgradeCheck**](ExoscaleApi.md#createDbaasPgUpgradeCheck) | **POST** /dbaas-postgres/{service}/upgrade-check |  |
 | [**createDbaasPostgresUser**](ExoscaleApi.md#createDbaasPostgresUser) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user |
+| [**createDbaasServiceClickhouse**](ExoscaleApi.md#createDbaasServiceClickhouse) | **POST** /dbaas-clickhouse/{name} | [BETA] Create a DBaaS ClickHouse service |
 | [**createDbaasServiceGrafana**](ExoscaleApi.md#createDbaasServiceGrafana) | **POST** /dbaas-grafana/{name} |  |
 | [**createDbaasServiceKafka**](ExoscaleApi.md#createDbaasServiceKafka) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service |
 | [**createDbaasServiceMysql**](ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service |
@@ -72,6 +74,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
+| [**deleteDbaasClickhouseUser**](ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{username} | [BETA] Delete a DBaaS ClickHouse user |
 | [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
@@ -88,6 +91,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasPgDatabase**](ExoscaleApi.md#deleteDbaasPgDatabase) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database |
 | [**deleteDbaasPostgresUser**](ExoscaleApi.md#deleteDbaasPostgresUser) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user |
 | [**deleteDbaasService**](ExoscaleApi.md#deleteDbaasService) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service |
+| [**deleteDbaasServiceClickhouse**](ExoscaleApi.md#deleteDbaasServiceClickhouse) | **DELETE** /dbaas-clickhouse/{name} | [BETA] Delete a ClickHouse service |
 | [**deleteDbaasServiceGrafana**](ExoscaleApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service |
 | [**deleteDbaasServiceKafka**](ExoscaleApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service |
 | [**deleteDbaasServiceMysql**](ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service |
@@ -148,6 +152,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getBlockStorageVolume**](ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details |
 | [**getConsoleProxyUrl**](ExoscaleApi.md#getConsoleProxyUrl) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console. |
 | [**getDbaasCaCertificate**](ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
+| [**getDbaasClickhouseAclConfig**](ExoscaleApi.md#getDbaasClickhouseAclConfig) | **GET** /dbaas-clickhouse/{service-name}/acl-config | [BETA] Get DBaaS ClickHouse ACL configuration |
 | [**getDbaasExternalEndpointDatadog**](ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
 | [**getDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
 | [**getDbaasExternalEndpointOpensearch**](ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
@@ -159,6 +164,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasKafkaAclConfig**](ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
 | [**getDbaasMigrationStatus**](ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status |
 | [**getDbaasOpensearchAclConfig**](ExoscaleApi.md#getDbaasOpensearchAclConfig) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration |
+| [**getDbaasServiceClickhouse**](ExoscaleApi.md#getDbaasServiceClickhouse) | **GET** /dbaas-clickhouse/{name} | [BETA] Get a DBaaS ClickHouse service |
 | [**getDbaasServiceGrafana**](ExoscaleApi.md#getDbaasServiceGrafana) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service |
 | [**getDbaasServiceKafka**](ExoscaleApi.md#getDbaasServiceKafka) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service |
 | [**getDbaasServiceLogs**](ExoscaleApi.md#getDbaasServiceLogs) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service |
@@ -169,6 +175,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasServiceThanos**](ExoscaleApi.md#getDbaasServiceThanos) | **GET** /dbaas-thanos/{name} |  |
 | [**getDbaasServiceType**](ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type |
 | [**getDbaasServiceValkey**](ExoscaleApi.md#getDbaasServiceValkey) | **GET** /dbaas-valkey/{name} |  |
+| [**getDbaasSettingsClickhouse**](ExoscaleApi.md#getDbaasSettingsClickhouse) | **GET** /dbaas-settings-clickhouse | [BETA] Get DBaaS ClickHouse settings |
 | [**getDbaasSettingsGrafana**](ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings |
 | [**getDbaasSettingsKafka**](ExoscaleApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings |
 | [**getDbaasSettingsMysql**](ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings |
@@ -221,6 +228,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listApiKeys**](ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys |
 | [**listBlockStorageSnapshots**](ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots |
 | [**listBlockStorageVolumes**](ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes |
+| [**listDbaasClickhouseUsers**](ExoscaleApi.md#listDbaasClickhouseUsers) | **GET** /dbaas-clickhouse/{service-name}/user | [BETA] List DBaaS ClickHouse users |
 | [**listDbaasExternalEndpointTypes**](ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types |  |
 | [**listDbaasExternalEndpoints**](ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints |  |
 | [**listDbaasExternalIntegrations**](ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} |  |
@@ -267,6 +275,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**removeExternalSourceFromSecurityGroup**](ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
 | [**removeInstanceProtection**](ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
 | [**replicateKmsKey**](ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | Replicate KMS Key |
+| [**resetDbaasClickhouseUserPassword**](ExoscaleApi.md#resetDbaasClickhouseUserPassword) | **PUT** /dbaas-clickhouse/{service-name}/user/{username}/password/reset | [BETA] Reset the credentials of a DBaaS ClickHouse user |
 | [**resetDbaasGrafanaUserPassword**](ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
 | [**resetDbaasKafkaUserPassword**](ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasMysqlUserPassword**](ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
@@ -285,6 +294,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resizeBlockStorageVolume**](ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
 | [**resizeInstanceDisk**](ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
 | [**revealAiApiKey**](ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | [BETA] Reveal AI API Key |
+| [**revealDbaasClickhouseUserPassword**](ExoscaleApi.md#revealDbaasClickhouseUserPassword) | **GET** /dbaas-clickhouse/{service-name}/user/{username}/password/reveal | [BETA] Reveal the secrets of a DBaaS ClickHouse user |
 | [**revealDbaasGrafanaUserPassword**](ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
 | [**revealDbaasKafkaConnectPassword**](ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect |
 | [**revealDbaasKafkaUserPassword**](ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
@@ -307,6 +317,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
 | [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion |
+| [**startDbaasClickhouseMaintenance**](ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | [BETA] Initiate ClickHouse maintenance update |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
 | [**startDbaasKafkaMaintenance**](ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
 | [**startDbaasMysqlMaintenance**](ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
@@ -332,6 +343,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDbaasOpensearchAclConfig**](ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
 | [**updateDbaasPgConnectionPool**](ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool |
 | [**updateDbaasPostgresAllowReplication**](ExoscaleApi.md#updateDbaasPostgresAllowReplication) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user |
+| [**updateDbaasServiceClickhouse**](ExoscaleApi.md#updateDbaasServiceClickhouse) | **PUT** /dbaas-clickhouse/{name} | [BETA] Update a DBaaS ClickHouse service |
 | [**updateDbaasServiceGrafana**](ExoscaleApi.md#updateDbaasServiceGrafana) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service |
 | [**updateDbaasServiceKafka**](ExoscaleApi.md#updateDbaasServiceKafka) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service |
 | [**updateDbaasServiceMysql**](ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service |
@@ -2066,6 +2078,99 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## createDbaasClickhouseUser
+
+> Operation createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest)
+
+[BETA] Create a DBaaS ClickHouse user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest = new CreateDbaasClickhouseUserRequest(); // CreateDbaasClickhouseUserRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasClickhouseUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **createDbaasClickhouseUserRequest** | [**CreateDbaasClickhouseUserRequest**](CreateDbaasClickhouseUserRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **createDbaasClickhouseUserRequest** | [**CreateDbaasClickhouseUserRequest**](CreateDbaasClickhouseUserRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## createDbaasExternalEndpointDatadog
 
 > Operation createDbaasExternalEndpointDatadog(name, dbaasEndpointDatadogInputCreate)
@@ -3546,6 +3651,99 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
 | **createDbaasPostgresUserRequest** | [**CreateDbaasPostgresUserRequest**](CreateDbaasPostgresUserRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasServiceClickhouse
+
+> Operation createDbaasServiceClickhouse(name, createDbaasServiceClickhouseRequest)
+
+[BETA] Create a DBaaS ClickHouse service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+        CreateDbaasServiceClickhouseRequest createDbaasServiceClickhouseRequest = new CreateDbaasServiceClickhouseRequest(); // CreateDbaasServiceClickhouseRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.createDbaasServiceClickhouse(name, createDbaasServiceClickhouseRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasServiceClickhouse");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasServiceClickhouseRequest** | [**CreateDbaasServiceClickhouseRequest**](CreateDbaasServiceClickhouseRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **createDbaasServiceClickhouseRequest** | [**CreateDbaasServiceClickhouseRequest**](CreateDbaasServiceClickhouseRequest.md)|  | |
 
 ### Return type
 
@@ -6748,6 +6946,99 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## deleteDbaasClickhouseUser
+
+> Operation deleteDbaasClickhouseUser(serviceName, username)
+
+[BETA] Delete a DBaaS ClickHouse user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDbaasClickhouseUser(serviceName, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasClickhouseUser");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## deleteDbaasExternalEndpointDatadog
 
 > Operation deleteDbaasExternalEndpointDatadog(endpointId)
@@ -8168,6 +8459,96 @@ public class Example {
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasService");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasServiceClickhouse
+
+> Operation deleteDbaasServiceClickhouse(name)
+
+[BETA] Delete a ClickHouse service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDbaasServiceClickhouse(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasServiceClickhouse");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -13816,6 +14197,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getDbaasClickhouseAclConfig
+
+> DbaasClickhouseAclConfig getDbaasClickhouseAclConfig(serviceName)
+
+[BETA] Get DBaaS ClickHouse ACL configuration
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasClickhouseAclConfig result = client.getDbaasClickhouseAclConfig(serviceName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasClickhouseAclConfig");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+[**DbaasClickhouseAclConfig**](DbaasClickhouseAclConfig.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasClickhouseAclConfig**](DbaasClickhouseAclConfig.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## getDbaasExternalEndpointDatadog
 
 > DbaasExternalEndpointDatadogOutput getDbaasExternalEndpointDatadog(endpointId)
@@ -14824,6 +15295,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getDbaasServiceClickhouse
+
+> DbaasServiceClickhouse getDbaasServiceClickhouse(name)
+
+[BETA] Get a DBaaS ClickHouse service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasServiceClickhouse result = client.getDbaasServiceClickhouse(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasServiceClickhouse");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**DbaasServiceClickhouse**](DbaasServiceClickhouse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasServiceClickhouse**](DbaasServiceClickhouse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## getDbaasServiceGrafana
 
 > DbaasServiceGrafana getDbaasServiceGrafana(name)
@@ -15729,6 +16290,89 @@ No authorization required
 ### Return type
 
 ApiResponse<[**DbaasServiceValkey**](DbaasServiceValkey.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## getDbaasSettingsClickhouse
+
+> GetDbaasSettingsClickhouse200Response getDbaasSettingsClickhouse()
+
+[BETA] Get DBaaS ClickHouse settings
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            GetDbaasSettingsClickhouse200Response result = client.getDbaasSettingsClickhouse();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getDbaasSettingsClickhouse");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetDbaasSettingsClickhouse200Response**](GetDbaasSettingsClickhouse200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**GetDbaasSettingsClickhouse200Response**](GetDbaasSettingsClickhouse200Response.md)>
 
 
 ### Authorization
@@ -20461,6 +21105,96 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listDbaasClickhouseUsers
+
+> DbaasClickhouseUsers listDbaasClickhouseUsers(serviceName)
+
+[BETA] List DBaaS ClickHouse users
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasClickhouseUsers result = client.listDbaasClickhouseUsers(serviceName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasClickhouseUsers");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+[**DbaasClickhouseUsers**](DbaasClickhouseUsers.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasClickhouseUsers**](DbaasClickhouseUsers.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listDbaasExternalEndpointTypes
 
 > ListDbaasExternalEndpointTypes200Response listDbaasExternalEndpointTypes()
@@ -24581,6 +25315,102 @@ No authorization required
 | **400** | 400 |  -  |
 
 
+## resetDbaasClickhouseUserPassword
+
+> Operation resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
+
+[BETA] Reset the credentials of a DBaaS ClickHouse user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+        ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = new ResetDbaasValkeyUserPasswordRequest(); // ResetDbaasValkeyUserPasswordRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#resetDbaasClickhouseUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+| **resetDbaasValkeyUserPasswordRequest** | [**ResetDbaasValkeyUserPasswordRequest**](ResetDbaasValkeyUserPasswordRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## resetDbaasGrafanaUserPassword
 
 > Operation resetDbaasGrafanaUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
@@ -26295,6 +27125,99 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **404** | 404 |  -  |
+| **200** | 200 |  -  |
+
+
+## revealDbaasClickhouseUserPassword
+
+> DbaasUserClickhouseSecrets revealDbaasClickhouseUserPassword(serviceName, username)
+
+[BETA] Reveal the secrets of a DBaaS ClickHouse user
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        String username = "username_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasUserClickhouseSecrets result = client.revealDbaasClickhouseUserPassword(serviceName, username);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revealDbaasClickhouseUserPassword");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+[**DbaasUserClickhouseSecrets**](DbaasUserClickhouseSecrets.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **username** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasUserClickhouseSecrets**](DbaasUserClickhouseSecrets.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **200** | 200 |  -  |
 
 
@@ -28364,6 +29287,96 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
 | **400** | 400 |  -  |
+
+
+## startDbaasClickhouseMaintenance
+
+> Operation startDbaasClickhouseMaintenance(name)
+
+[BETA] Initiate ClickHouse maintenance update
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.startDbaasClickhouseMaintenance(name);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#startDbaasClickhouseMaintenance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
 
 
 ## startDbaasGrafanaMaintenance
@@ -30679,6 +31692,99 @@ No authorization required
 ### Return type
 
 ApiResponse<[**DbaasPostgresUsers**](DbaasPostgresUsers.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## updateDbaasServiceClickhouse
+
+> Operation updateDbaasServiceClickhouse(name, updateDbaasServiceClickhouseRequest)
+
+[BETA] Update a DBaaS ClickHouse service
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String name = "name_example"; // String | 
+        UpdateDbaasServiceClickhouseRequest updateDbaasServiceClickhouseRequest = new UpdateDbaasServiceClickhouseRequest(); // UpdateDbaasServiceClickhouseRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            Operation result = client.updateDbaasServiceClickhouse(name, updateDbaasServiceClickhouseRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateDbaasServiceClickhouse");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasServiceClickhouseRequest** | [**UpdateDbaasServiceClickhouseRequest**](UpdateDbaasServiceClickhouseRequest.md)|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**|  | |
+| **updateDbaasServiceClickhouseRequest** | [**UpdateDbaasServiceClickhouseRequest**](UpdateDbaasServiceClickhouseRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
 
 
 ### Authorization

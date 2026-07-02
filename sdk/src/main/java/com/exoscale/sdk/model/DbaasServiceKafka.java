@@ -22,12 +22,12 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
+import com.exoscale.sdk.model.DbaasServiceClickhousePrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceKafkaAuthenticationMethods;
 import com.exoscale.sdk.model.DbaasServiceKafkaComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceKafkaConnectionInfo;
 import com.exoscale.sdk.model.DbaasServiceKafkaUsersInner;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
-import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.EnumServiceState;
 import com.exoscale.sdk.model.JsonSchemaKafka;
@@ -105,7 +105,7 @@ public class DbaasServiceKafka {
   private Boolean kafkaRestEnabled;
 
   public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
-  private DbaasServiceMysqlPrometheusUri prometheusUri;
+  private DbaasServiceClickhousePrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -340,7 +340,7 @@ public class DbaasServiceKafka {
   }
 
 
-  public DbaasServiceKafka prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public DbaasServiceKafka prometheusUri(DbaasServiceClickhousePrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
     return this;
   }
@@ -353,14 +353,14 @@ public class DbaasServiceKafka {
   @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+  public DbaasServiceClickhousePrometheusUri getPrometheusUri() {
     return prometheusUri;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public void setPrometheusUri(DbaasServiceClickhousePrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
   }
 

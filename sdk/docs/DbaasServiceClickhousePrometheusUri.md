@@ -1,6 +1,6 @@
 
 
-# DbaasServiceMysqlPrometheusUri
+# DbaasServiceClickhousePrometheusUri
 
 Prometheus integration URI
 

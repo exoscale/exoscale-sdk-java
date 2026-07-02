@@ -22,11 +22,11 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.DbaasIntegration;
 import com.exoscale.sdk.model.DbaasNodeState;
 import com.exoscale.sdk.model.DbaasServiceBackup;
+import com.exoscale.sdk.model.DbaasServiceClickhousePrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceMaintenance;
 import com.exoscale.sdk.model.DbaasServiceMysqlBackupSchedule;
 import com.exoscale.sdk.model.DbaasServiceMysqlComponentsInner;
 import com.exoscale.sdk.model.DbaasServiceMysqlConnectionInfo;
-import com.exoscale.sdk.model.DbaasServiceMysqlPrometheusUri;
 import com.exoscale.sdk.model.DbaasServiceMysqlUsersInner;
 import com.exoscale.sdk.model.DbaasServiceNotification;
 import com.exoscale.sdk.model.EnumServiceState;
@@ -95,7 +95,7 @@ public class DbaasServiceMysql {
   private Long nodeCpuCount;
 
   public static final String JSON_PROPERTY_PROMETHEUS_URI = "prometheus-uri";
-  private DbaasServiceMysqlPrometheusUri prometheusUri;
+  private DbaasServiceClickhousePrometheusUri prometheusUri;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private List<DbaasIntegration> integrations;
@@ -296,7 +296,7 @@ public class DbaasServiceMysql {
   }
 
 
-  public DbaasServiceMysql prometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public DbaasServiceMysql prometheusUri(DbaasServiceClickhousePrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
     return this;
   }
@@ -309,14 +309,14 @@ public class DbaasServiceMysql {
   @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public DbaasServiceMysqlPrometheusUri getPrometheusUri() {
+  public DbaasServiceClickhousePrometheusUri getPrometheusUri() {
     return prometheusUri;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PROMETHEUS_URI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPrometheusUri(DbaasServiceMysqlPrometheusUri prometheusUri) {
+  public void setPrometheusUri(DbaasServiceClickhousePrometheusUri prometheusUri) {
     this.prometheusUri = prometheusUri;
   }
 

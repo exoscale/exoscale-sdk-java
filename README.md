@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-07-01T08:28:33.790284345Z[Etc/UTC]
+- Build date: 2026-07-02T08:05:40.271954Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-988ddb3</version>
+    <version>0.0.5-SNAPSHOT-939d3ae</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-988ddb3'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-939d3ae'
 }
 ```
 
@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createApiKey**](sdk/docs/ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key
 *ExoscaleApi* | [**createBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot
 *ExoscaleApi* | [**createBlockStorageVolume**](sdk/docs/ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume
+*ExoscaleApi* | [**createDbaasClickhouseUser**](sdk/docs/ExoscaleApi.md#createDbaasClickhouseUser) | **POST** /dbaas-clickhouse/{service-name}/user | [BETA] Create a DBaaS ClickHouse user
 *ExoscaleApi* | [**createDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#createDbaasExternalEndpointDatadog) | **POST** /dbaas-external-endpoint-datadog/{name} | 
 *ExoscaleApi* | [**createDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#createDbaasExternalEndpointElasticsearch) | **POST** /dbaas-external-endpoint-elasticsearch/{name} | 
 *ExoscaleApi* | [**createDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#createDbaasExternalEndpointOpensearch) | **POST** /dbaas-external-endpoint-opensearch/{name} | 
@@ -116,6 +117,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createDbaasPgDatabase**](sdk/docs/ExoscaleApi.md#createDbaasPgDatabase) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database
 *ExoscaleApi* | [**createDbaasPgUpgradeCheck**](sdk/docs/ExoscaleApi.md#createDbaasPgUpgradeCheck) | **POST** /dbaas-postgres/{service}/upgrade-check | 
 *ExoscaleApi* | [**createDbaasPostgresUser**](sdk/docs/ExoscaleApi.md#createDbaasPostgresUser) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user
+*ExoscaleApi* | [**createDbaasServiceClickhouse**](sdk/docs/ExoscaleApi.md#createDbaasServiceClickhouse) | **POST** /dbaas-clickhouse/{name} | [BETA] Create a DBaaS ClickHouse service
 *ExoscaleApi* | [**createDbaasServiceGrafana**](sdk/docs/ExoscaleApi.md#createDbaasServiceGrafana) | **POST** /dbaas-grafana/{name} | 
 *ExoscaleApi* | [**createDbaasServiceKafka**](sdk/docs/ExoscaleApi.md#createDbaasServiceKafka) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service
 *ExoscaleApi* | [**createDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service
@@ -150,6 +152,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
 *ExoscaleApi* | [**deleteBlockStorageVolume**](sdk/docs/ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
+*ExoscaleApi* | [**deleteDbaasClickhouseUser**](sdk/docs/ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{username} | [BETA] Delete a DBaaS ClickHouse user
 *ExoscaleApi* | [**deleteDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} | 
 *ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
 *ExoscaleApi* | [**deleteDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} | 
@@ -166,6 +169,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteDbaasPgDatabase**](sdk/docs/ExoscaleApi.md#deleteDbaasPgDatabase) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database
 *ExoscaleApi* | [**deleteDbaasPostgresUser**](sdk/docs/ExoscaleApi.md#deleteDbaasPostgresUser) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user
 *ExoscaleApi* | [**deleteDbaasService**](sdk/docs/ExoscaleApi.md#deleteDbaasService) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service
+*ExoscaleApi* | [**deleteDbaasServiceClickhouse**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceClickhouse) | **DELETE** /dbaas-clickhouse/{name} | [BETA] Delete a ClickHouse service
 *ExoscaleApi* | [**deleteDbaasServiceGrafana**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service
 *ExoscaleApi* | [**deleteDbaasServiceKafka**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service
 *ExoscaleApi* | [**deleteDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
@@ -226,6 +230,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getBlockStorageVolume**](sdk/docs/ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details
 *ExoscaleApi* | [**getConsoleProxyUrl**](sdk/docs/ExoscaleApi.md#getConsoleProxyUrl) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console.
 *ExoscaleApi* | [**getDbaasCaCertificate**](sdk/docs/ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate
+*ExoscaleApi* | [**getDbaasClickhouseAclConfig**](sdk/docs/ExoscaleApi.md#getDbaasClickhouseAclConfig) | **GET** /dbaas-clickhouse/{service-name}/acl-config | [BETA] Get DBaaS ClickHouse ACL configuration
 *ExoscaleApi* | [**getDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{endpoint-id} | 
 *ExoscaleApi* | [**getDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
 *ExoscaleApi* | [**getDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{endpoint-id} | 
@@ -237,6 +242,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasKafkaAclConfig**](sdk/docs/ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration
 *ExoscaleApi* | [**getDbaasMigrationStatus**](sdk/docs/ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status
 *ExoscaleApi* | [**getDbaasOpensearchAclConfig**](sdk/docs/ExoscaleApi.md#getDbaasOpensearchAclConfig) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration
+*ExoscaleApi* | [**getDbaasServiceClickhouse**](sdk/docs/ExoscaleApi.md#getDbaasServiceClickhouse) | **GET** /dbaas-clickhouse/{name} | [BETA] Get a DBaaS ClickHouse service
 *ExoscaleApi* | [**getDbaasServiceGrafana**](sdk/docs/ExoscaleApi.md#getDbaasServiceGrafana) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service
 *ExoscaleApi* | [**getDbaasServiceKafka**](sdk/docs/ExoscaleApi.md#getDbaasServiceKafka) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service
 *ExoscaleApi* | [**getDbaasServiceLogs**](sdk/docs/ExoscaleApi.md#getDbaasServiceLogs) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service
@@ -247,6 +253,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#getDbaasServiceThanos) | **GET** /dbaas-thanos/{name} | 
 *ExoscaleApi* | [**getDbaasServiceType**](sdk/docs/ExoscaleApi.md#getDbaasServiceType) | **GET** /dbaas-service-type/{service-type-name} | Get a DBaaS service type
 *ExoscaleApi* | [**getDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#getDbaasServiceValkey) | **GET** /dbaas-valkey/{name} | 
+*ExoscaleApi* | [**getDbaasSettingsClickhouse**](sdk/docs/ExoscaleApi.md#getDbaasSettingsClickhouse) | **GET** /dbaas-settings-clickhouse | [BETA] Get DBaaS ClickHouse settings
 *ExoscaleApi* | [**getDbaasSettingsGrafana**](sdk/docs/ExoscaleApi.md#getDbaasSettingsGrafana) | **GET** /dbaas-settings-grafana | Get DBaaS Grafana settings
 *ExoscaleApi* | [**getDbaasSettingsKafka**](sdk/docs/ExoscaleApi.md#getDbaasSettingsKafka) | **GET** /dbaas-settings-kafka | Get DBaaS Kafka settings
 *ExoscaleApi* | [**getDbaasSettingsMysql**](sdk/docs/ExoscaleApi.md#getDbaasSettingsMysql) | **GET** /dbaas-settings-mysql | Get DBaaS MySQL settings
@@ -299,6 +306,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listApiKeys**](sdk/docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
 *ExoscaleApi* | [**listBlockStorageSnapshots**](sdk/docs/ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots
 *ExoscaleApi* | [**listBlockStorageVolumes**](sdk/docs/ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes
+*ExoscaleApi* | [**listDbaasClickhouseUsers**](sdk/docs/ExoscaleApi.md#listDbaasClickhouseUsers) | **GET** /dbaas-clickhouse/{service-name}/user | [BETA] List DBaaS ClickHouse users
 *ExoscaleApi* | [**listDbaasExternalEndpointTypes**](sdk/docs/ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types | 
 *ExoscaleApi* | [**listDbaasExternalEndpoints**](sdk/docs/ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints | 
 *ExoscaleApi* | [**listDbaasExternalIntegrations**](sdk/docs/ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} | 
@@ -345,6 +353,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**removeExternalSourceFromSecurityGroup**](sdk/docs/ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group
 *ExoscaleApi* | [**removeInstanceProtection**](sdk/docs/ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection
 *ExoscaleApi* | [**replicateKmsKey**](sdk/docs/ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | Replicate KMS Key
+*ExoscaleApi* | [**resetDbaasClickhouseUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasClickhouseUserPassword) | **PUT** /dbaas-clickhouse/{service-name}/user/{username}/password/reset | [BETA] Reset the credentials of a DBaaS ClickHouse user
 *ExoscaleApi* | [**resetDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user
 *ExoscaleApi* | [**resetDbaasKafkaUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user
 *ExoscaleApi* | [**resetDbaasMysqlUserPassword**](sdk/docs/ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user
@@ -363,6 +372,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resizeBlockStorageVolume**](sdk/docs/ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
 *ExoscaleApi* | [**resizeInstanceDisk**](sdk/docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
 *ExoscaleApi* | [**revealAiApiKey**](sdk/docs/ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | [BETA] Reveal AI API Key
+*ExoscaleApi* | [**revealDbaasClickhouseUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasClickhouseUserPassword) | **GET** /dbaas-clickhouse/{service-name}/user/{username}/password/reveal | [BETA] Reveal the secrets of a DBaaS ClickHouse user
 *ExoscaleApi* | [**revealDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
 *ExoscaleApi* | [**revealDbaasKafkaConnectPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect
 *ExoscaleApi* | [**revealDbaasKafkaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user
@@ -385,6 +395,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**scaleInstancePool**](sdk/docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
 *ExoscaleApi* | [**scaleSksNodepool**](sdk/docs/ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
 *ExoscaleApi* | [**scheduleKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion
+*ExoscaleApi* | [**startDbaasClickhouseMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | [BETA] Initiate ClickHouse maintenance update
 *ExoscaleApi* | [**startDbaasGrafanaMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
 *ExoscaleApi* | [**startDbaasKafkaMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update
 *ExoscaleApi* | [**startDbaasMysqlMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update
@@ -410,6 +421,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateDbaasOpensearchAclConfig**](sdk/docs/ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration
 *ExoscaleApi* | [**updateDbaasPgConnectionPool**](sdk/docs/ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool
 *ExoscaleApi* | [**updateDbaasPostgresAllowReplication**](sdk/docs/ExoscaleApi.md#updateDbaasPostgresAllowReplication) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user
+*ExoscaleApi* | [**updateDbaasServiceClickhouse**](sdk/docs/ExoscaleApi.md#updateDbaasServiceClickhouse) | **PUT** /dbaas-clickhouse/{name} | [BETA] Update a DBaaS ClickHouse service
 *ExoscaleApi* | [**updateDbaasServiceGrafana**](sdk/docs/ExoscaleApi.md#updateDbaasServiceGrafana) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service
 *ExoscaleApi* | [**updateDbaasServiceKafka**](sdk/docs/ExoscaleApi.md#updateDbaasServiceKafka) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service
 *ExoscaleApi* | [**updateDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service
@@ -469,6 +481,7 @@ Class | Method | HTTP request | Description
  - [BlockStorageSnapshotRef](sdk/docs/BlockStorageSnapshotRef.md)
  - [BlockStorageVolume](sdk/docs/BlockStorageVolume.md)
  - [BlockStorageVolumeRef](sdk/docs/BlockStorageVolumeRef.md)
+ - [ClickHouseServerSettings](sdk/docs/ClickHouseServerSettings.md)
  - [ConfigureLogCleanerForTopicCompaction](sdk/docs/ConfigureLogCleanerForTopicCompaction.md)
  - [CopyTemplateRequest](sdk/docs/CopyTemplateRequest.md)
  - [CreateAiApiKeyRequest](sdk/docs/CreateAiApiKeyRequest.md)
@@ -477,6 +490,7 @@ Class | Method | HTTP request | Description
  - [CreateApiKeyRequest](sdk/docs/CreateApiKeyRequest.md)
  - [CreateBlockStorageSnapshotRequest](sdk/docs/CreateBlockStorageSnapshotRequest.md)
  - [CreateBlockStorageVolumeRequest](sdk/docs/CreateBlockStorageVolumeRequest.md)
+ - [CreateDbaasClickhouseUserRequest](sdk/docs/CreateDbaasClickhouseUserRequest.md)
  - [CreateDbaasIntegrationRequest](sdk/docs/CreateDbaasIntegrationRequest.md)
  - [CreateDbaasKafkaUserRequest](sdk/docs/CreateDbaasKafkaUserRequest.md)
  - [CreateDbaasMysqlDatabaseRequest](sdk/docs/CreateDbaasMysqlDatabaseRequest.md)
@@ -485,6 +499,7 @@ Class | Method | HTTP request | Description
  - [CreateDbaasPgDatabaseRequest](sdk/docs/CreateDbaasPgDatabaseRequest.md)
  - [CreateDbaasPgUpgradeCheckRequest](sdk/docs/CreateDbaasPgUpgradeCheckRequest.md)
  - [CreateDbaasPostgresUserRequest](sdk/docs/CreateDbaasPostgresUserRequest.md)
+ - [CreateDbaasServiceClickhouseRequest](sdk/docs/CreateDbaasServiceClickhouseRequest.md)
  - [CreateDbaasServiceGrafanaRequest](sdk/docs/CreateDbaasServiceGrafanaRequest.md)
  - [CreateDbaasServiceKafkaRequest](sdk/docs/CreateDbaasServiceKafkaRequest.md)
  - [CreateDbaasServiceMysqlRequest](sdk/docs/CreateDbaasServiceMysqlRequest.md)
@@ -515,6 +530,13 @@ Class | Method | HTTP request | Description
  - [CreateUserRequest](sdk/docs/CreateUserRequest.md)
  - [CreateVpcRequest](sdk/docs/CreateVpcRequest.md)
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
+ - [DbaasClickhouseAclConfig](sdk/docs/DbaasClickhouseAclConfig.md)
+ - [DbaasClickhouseUser](sdk/docs/DbaasClickhouseUser.md)
+ - [DbaasClickhouseUserAclConfig](sdk/docs/DbaasClickhouseUserAclConfig.md)
+ - [DbaasClickhouseUserPrivilege](sdk/docs/DbaasClickhouseUserPrivilege.md)
+ - [DbaasClickhouseUserRole](sdk/docs/DbaasClickhouseUserRole.md)
+ - [DbaasClickhouseUserRoleInput](sdk/docs/DbaasClickhouseUserRoleInput.md)
+ - [DbaasClickhouseUsers](sdk/docs/DbaasClickhouseUsers.md)
  - [DbaasDatadogTag](sdk/docs/DbaasDatadogTag.md)
  - [DbaasEndpointDatadogCommon](sdk/docs/DbaasEndpointDatadogCommon.md)
  - [DbaasEndpointDatadogInputCreate](sdk/docs/DbaasEndpointDatadogInputCreate.md)
@@ -574,6 +596,10 @@ Class | Method | HTTP request | Description
  - [DbaasPlan](sdk/docs/DbaasPlan.md)
  - [DbaasPostgresUsers](sdk/docs/DbaasPostgresUsers.md)
  - [DbaasServiceBackup](sdk/docs/DbaasServiceBackup.md)
+ - [DbaasServiceClickhouse](sdk/docs/DbaasServiceClickhouse.md)
+ - [DbaasServiceClickhouseComponentsInner](sdk/docs/DbaasServiceClickhouseComponentsInner.md)
+ - [DbaasServiceClickhouseConnectionInfo](sdk/docs/DbaasServiceClickhouseConnectionInfo.md)
+ - [DbaasServiceClickhousePrometheusUri](sdk/docs/DbaasServiceClickhousePrometheusUri.md)
  - [DbaasServiceCommon](sdk/docs/DbaasServiceCommon.md)
  - [DbaasServiceComponents](sdk/docs/DbaasServiceComponents.md)
  - [DbaasServiceGrafana](sdk/docs/DbaasServiceGrafana.md)
@@ -590,7 +616,6 @@ Class | Method | HTTP request | Description
  - [DbaasServiceMysqlBackupSchedule](sdk/docs/DbaasServiceMysqlBackupSchedule.md)
  - [DbaasServiceMysqlComponentsInner](sdk/docs/DbaasServiceMysqlComponentsInner.md)
  - [DbaasServiceMysqlConnectionInfo](sdk/docs/DbaasServiceMysqlConnectionInfo.md)
- - [DbaasServiceMysqlPrometheusUri](sdk/docs/DbaasServiceMysqlPrometheusUri.md)
  - [DbaasServiceMysqlUsersInner](sdk/docs/DbaasServiceMysqlUsersInner.md)
  - [DbaasServiceNotification](sdk/docs/DbaasServiceNotification.md)
  - [DbaasServiceOpensearch](sdk/docs/DbaasServiceOpensearch.md)
@@ -601,7 +626,6 @@ Class | Method | HTTP request | Description
  - [DbaasServicePgConnectionPoolsInner](sdk/docs/DbaasServicePgConnectionPoolsInner.md)
  - [DbaasServicePgUsersInner](sdk/docs/DbaasServicePgUsersInner.md)
  - [DbaasServiceThanos](sdk/docs/DbaasServiceThanos.md)
- - [DbaasServiceThanosComponentsInner](sdk/docs/DbaasServiceThanosComponentsInner.md)
  - [DbaasServiceThanosConnectionInfo](sdk/docs/DbaasServiceThanosConnectionInfo.md)
  - [DbaasServiceThanosUsersInner](sdk/docs/DbaasServiceThanosUsersInner.md)
  - [DbaasServiceType](sdk/docs/DbaasServiceType.md)
@@ -612,6 +636,7 @@ Class | Method | HTTP request | Description
  - [DbaasServiceValkeyUsersInnerAccessControl](sdk/docs/DbaasServiceValkeyUsersInnerAccessControl.md)
  - [DbaasTask](sdk/docs/DbaasTask.md)
  - [DbaasTaskResultCodesInner](sdk/docs/DbaasTaskResultCodesInner.md)
+ - [DbaasUserClickhouseSecrets](sdk/docs/DbaasUserClickhouseSecrets.md)
  - [DbaasUserGrafanaSecrets](sdk/docs/DbaasUserGrafanaSecrets.md)
  - [DbaasUserKafkaConnectSecrets](sdk/docs/DbaasUserKafkaConnectSecrets.md)
  - [DbaasUserKafkaSecrets](sdk/docs/DbaasUserKafkaSecrets.md)
@@ -681,6 +706,9 @@ Class | Method | HTTP request | Description
  - [GetDbaasServiceLogsRequest](sdk/docs/GetDbaasServiceLogsRequest.md)
  - [GetDbaasServiceMetrics200Response](sdk/docs/GetDbaasServiceMetrics200Response.md)
  - [GetDbaasServiceMetricsRequest](sdk/docs/GetDbaasServiceMetricsRequest.md)
+ - [GetDbaasSettingsClickhouse200Response](sdk/docs/GetDbaasSettingsClickhouse200Response.md)
+ - [GetDbaasSettingsClickhouse200ResponseSettings](sdk/docs/GetDbaasSettingsClickhouse200ResponseSettings.md)
+ - [GetDbaasSettingsClickhouse200ResponseSettingsClickhouse](sdk/docs/GetDbaasSettingsClickhouse200ResponseSettingsClickhouse.md)
  - [GetDbaasSettingsGrafana200Response](sdk/docs/GetDbaasSettingsGrafana200Response.md)
  - [GetDbaasSettingsGrafana200ResponseSettings](sdk/docs/GetDbaasSettingsGrafana200ResponseSettings.md)
  - [GetDbaasSettingsGrafana200ResponseSettingsGrafana](sdk/docs/GetDbaasSettingsGrafana200ResponseSettingsGrafana.md)
@@ -747,6 +775,7 @@ Class | Method | HTTP request | Description
  - [InstanceTypeEntry](sdk/docs/InstanceTypeEntry.md)
  - [InstanceTypeRef](sdk/docs/InstanceTypeRef.md)
  - [InternalAuthenticationBackendLimiting](sdk/docs/InternalAuthenticationBackendLimiting.md)
+ - [JsonSchemaClickhouse](sdk/docs/JsonSchemaClickhouse.md)
  - [JsonSchemaGrafana](sdk/docs/JsonSchemaGrafana.md)
  - [JsonSchemaKafka](sdk/docs/JsonSchemaKafka.md)
  - [JsonSchemaKafkaConnect](sdk/docs/JsonSchemaKafkaConnect.md)
@@ -922,6 +951,7 @@ Class | Method | HTTP request | Description
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)
  - [UpdateDbaasPgConnectionPoolRequest](sdk/docs/UpdateDbaasPgConnectionPoolRequest.md)
  - [UpdateDbaasPostgresAllowReplicationRequest](sdk/docs/UpdateDbaasPostgresAllowReplicationRequest.md)
+ - [UpdateDbaasServiceClickhouseRequest](sdk/docs/UpdateDbaasServiceClickhouseRequest.md)
  - [UpdateDbaasServiceGrafanaRequest](sdk/docs/UpdateDbaasServiceGrafanaRequest.md)
  - [UpdateDbaasServiceKafkaRequest](sdk/docs/UpdateDbaasServiceKafkaRequest.md)
  - [UpdateDbaasServiceKafkaRequestAuthenticationMethods](sdk/docs/UpdateDbaasServiceKafkaRequestAuthenticationMethods.md)

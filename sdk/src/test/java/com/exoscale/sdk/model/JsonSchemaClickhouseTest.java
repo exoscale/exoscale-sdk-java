@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.ClickHouseServerSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -24,33 +25,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceMysqlPrometheusUri
+ * Model tests for JsonSchemaClickhouse
  */
-public class DbaasServiceMysqlPrometheusUriTest {
-    private final DbaasServiceMysqlPrometheusUri model = new DbaasServiceMysqlPrometheusUri();
+public class JsonSchemaClickhouseTest {
+    private final JsonSchemaClickhouse model = new JsonSchemaClickhouse();
 
     /**
-     * Model tests for DbaasServiceMysqlPrometheusUri
+     * Model tests for JsonSchemaClickhouse
      */
     @Test
-    public void testDbaasServiceMysqlPrometheusUri() {
-        // TODO: test DbaasServiceMysqlPrometheusUri
+    public void testJsonSchemaClickhouse() {
+        // TODO: test JsonSchemaClickhouse
     }
 
     /**
-     * Test the property 'host'
+     * Test the property 'serverSettings'
      */
     @Test
-    public void hostTest() {
-        // TODO: test host
-    }
-
-    /**
-     * Test the property 'port'
-     */
-    @Test
-    public void portTest() {
-        // TODO: test port
+    public void serverSettingsTest() {
+        // TODO: test serverSettings
     }
 
 }

@@ -26,17 +26,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for DbaasServiceThanosComponentsInner
+ * Model tests for DbaasServiceClickhouseComponentsInner
  */
-public class DbaasServiceThanosComponentsInnerTest {
-    private final DbaasServiceThanosComponentsInner model = new DbaasServiceThanosComponentsInner();
+public class DbaasServiceClickhouseComponentsInnerTest {
+    private final DbaasServiceClickhouseComponentsInner model = new DbaasServiceClickhouseComponentsInner();
 
     /**
-     * Model tests for DbaasServiceThanosComponentsInner
+     * Model tests for DbaasServiceClickhouseComponentsInner
      */
     @Test
-    public void testDbaasServiceThanosComponentsInner() {
-        // TODO: test DbaasServiceThanosComponentsInner
+    public void testDbaasServiceClickhouseComponentsInner() {
+        // TODO: test DbaasServiceClickhouseComponentsInner
     }
 
     /**

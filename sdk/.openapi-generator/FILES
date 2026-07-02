@@ -28,6 +28,7 @@ docs/BlockStorageSnapshot.md
 docs/BlockStorageSnapshotRef.md
 docs/BlockStorageVolume.md
 docs/BlockStorageVolumeRef.md
+docs/ClickHouseServerSettings.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
 docs/CreateAiApiKeyRequest.md
@@ -36,6 +37,7 @@ docs/CreateAntiAffinityGroupRequest.md
 docs/CreateApiKeyRequest.md
 docs/CreateBlockStorageSnapshotRequest.md
 docs/CreateBlockStorageVolumeRequest.md
+docs/CreateDbaasClickhouseUserRequest.md
 docs/CreateDbaasIntegrationRequest.md
 docs/CreateDbaasKafkaUserRequest.md
 docs/CreateDbaasMysqlDatabaseRequest.md
@@ -44,6 +46,7 @@ docs/CreateDbaasPgConnectionPoolRequest.md
 docs/CreateDbaasPgDatabaseRequest.md
 docs/CreateDbaasPgUpgradeCheckRequest.md
 docs/CreateDbaasPostgresUserRequest.md
+docs/CreateDbaasServiceClickhouseRequest.md
 docs/CreateDbaasServiceGrafanaRequest.md
 docs/CreateDbaasServiceKafkaRequest.md
 docs/CreateDbaasServiceMysqlRequest.md
@@ -74,6 +77,13 @@ docs/CreateSubnetRequest.md
 docs/CreateUserRequest.md
 docs/CreateVpcRequest.md
 docs/DbaasBackupConfig.md
+docs/DbaasClickhouseAclConfig.md
+docs/DbaasClickhouseUser.md
+docs/DbaasClickhouseUserAclConfig.md
+docs/DbaasClickhouseUserPrivilege.md
+docs/DbaasClickhouseUserRole.md
+docs/DbaasClickhouseUserRoleInput.md
+docs/DbaasClickhouseUsers.md
 docs/DbaasDatadogTag.md
 docs/DbaasEndpointDatadogCommon.md
 docs/DbaasEndpointDatadogInputCreate.md
@@ -133,6 +143,10 @@ docs/DbaasPgTargetVersions.md
 docs/DbaasPlan.md
 docs/DbaasPostgresUsers.md
 docs/DbaasServiceBackup.md
+docs/DbaasServiceClickhouse.md
+docs/DbaasServiceClickhouseComponentsInner.md
+docs/DbaasServiceClickhouseConnectionInfo.md
+docs/DbaasServiceClickhousePrometheusUri.md
 docs/DbaasServiceCommon.md
 docs/DbaasServiceComponents.md
 docs/DbaasServiceGrafana.md
@@ -149,7 +163,6 @@ docs/DbaasServiceMysql.md
 docs/DbaasServiceMysqlBackupSchedule.md
 docs/DbaasServiceMysqlComponentsInner.md
 docs/DbaasServiceMysqlConnectionInfo.md
-docs/DbaasServiceMysqlPrometheusUri.md
 docs/DbaasServiceMysqlUsersInner.md
 docs/DbaasServiceNotification.md
 docs/DbaasServiceOpensearch.md
@@ -160,7 +173,6 @@ docs/DbaasServicePgConnectionInfo.md
 docs/DbaasServicePgConnectionPoolsInner.md
 docs/DbaasServicePgUsersInner.md
 docs/DbaasServiceThanos.md
-docs/DbaasServiceThanosComponentsInner.md
 docs/DbaasServiceThanosConnectionInfo.md
 docs/DbaasServiceThanosUsersInner.md
 docs/DbaasServiceType.md
@@ -171,6 +183,7 @@ docs/DbaasServiceValkeyUsersInner.md
 docs/DbaasServiceValkeyUsersInnerAccessControl.md
 docs/DbaasTask.md
 docs/DbaasTaskResultCodesInner.md
+docs/DbaasUserClickhouseSecrets.md
 docs/DbaasUserGrafanaSecrets.md
 docs/DbaasUserKafkaConnectSecrets.md
 docs/DbaasUserKafkaSecrets.md
@@ -241,6 +254,9 @@ docs/GetDbaasExternalIntegrationSettingsDatadog200Response.md
 docs/GetDbaasServiceLogsRequest.md
 docs/GetDbaasServiceMetrics200Response.md
 docs/GetDbaasServiceMetricsRequest.md
+docs/GetDbaasSettingsClickhouse200Response.md
+docs/GetDbaasSettingsClickhouse200ResponseSettings.md
+docs/GetDbaasSettingsClickhouse200ResponseSettingsClickhouse.md
 docs/GetDbaasSettingsGrafana200Response.md
 docs/GetDbaasSettingsGrafana200ResponseSettings.md
 docs/GetDbaasSettingsGrafana200ResponseSettingsGrafana.md
@@ -307,6 +323,7 @@ docs/InstanceType.md
 docs/InstanceTypeEntry.md
 docs/InstanceTypeRef.md
 docs/InternalAuthenticationBackendLimiting.md
+docs/JsonSchemaClickhouse.md
 docs/JsonSchemaGrafana.md
 docs/JsonSchemaKafka.md
 docs/JsonSchemaKafkaConnect.md
@@ -482,6 +499,7 @@ docs/UpdateBlockStorageVolumeRequest.md
 docs/UpdateDbaasIntegrationRequest.md
 docs/UpdateDbaasPgConnectionPoolRequest.md
 docs/UpdateDbaasPostgresAllowReplicationRequest.md
+docs/UpdateDbaasServiceClickhouseRequest.md
 docs/UpdateDbaasServiceGrafanaRequest.md
 docs/UpdateDbaasServiceKafkaRequest.md
 docs/UpdateDbaasServiceKafkaRequestAuthenticationMethods.md
@@ -561,6 +579,7 @@ src/main/java/com/exoscale/sdk/model/BlockStorageSnapshot.java
 src/main/java/com/exoscale/sdk/model/BlockStorageSnapshotRef.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolume.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolumeRef.java
+src/main/java/com/exoscale/sdk/model/ClickHouseServerSettings.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/CreateAiApiKeyRequest.java
@@ -569,6 +588,7 @@ src/main/java/com/exoscale/sdk/model/CreateAntiAffinityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/CreateApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/CreateBlockStorageVolumeRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasClickhouseUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasIntegrationRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasKafkaUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasMysqlDatabaseRequest.java
@@ -577,6 +597,7 @@ src/main/java/com/exoscale/sdk/model/CreateDbaasPgConnectionPoolRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasPgDatabaseRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasPgUpgradeCheckRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasPostgresUserRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasServiceClickhouseRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceGrafanaRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceKafkaRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasServiceMysqlRequest.java
@@ -607,6 +628,13 @@ src/main/java/com/exoscale/sdk/model/CreateSubnetRequest.java
 src/main/java/com/exoscale/sdk/model/CreateUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateVpcRequest.java
 src/main/java/com/exoscale/sdk/model/DbaasBackupConfig.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseAclConfig.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseUser.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseUserAclConfig.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseUserPrivilege.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseUserRole.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseUserRoleInput.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseUsers.java
 src/main/java/com/exoscale/sdk/model/DbaasDatadogTag.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadogCommon.java
 src/main/java/com/exoscale/sdk/model/DbaasEndpointDatadogInputCreate.java
@@ -666,6 +694,10 @@ src/main/java/com/exoscale/sdk/model/DbaasPgTargetVersions.java
 src/main/java/com/exoscale/sdk/model/DbaasPlan.java
 src/main/java/com/exoscale/sdk/model/DbaasPostgresUsers.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceBackup.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceClickhouse.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceClickhouseComponentsInner.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceClickhouseConnectionInfo.java
+src/main/java/com/exoscale/sdk/model/DbaasServiceClickhousePrometheusUri.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceCommon.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceComponents.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceGrafana.java
@@ -682,7 +714,6 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceMysql.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlBackupSchedule.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlComponentsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlConnectionInfo.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlPrometheusUri.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceMysqlUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceNotification.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceOpensearch.java
@@ -693,7 +724,6 @@ src/main/java/com/exoscale/sdk/model/DbaasServicePgConnectionInfo.java
 src/main/java/com/exoscale/sdk/model/DbaasServicePgConnectionPoolsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServicePgUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceThanos.java
-src/main/java/com/exoscale/sdk/model/DbaasServiceThanosComponentsInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceThanosConnectionInfo.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceThanosUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceType.java
@@ -704,6 +734,7 @@ src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyUsersInner.java
 src/main/java/com/exoscale/sdk/model/DbaasServiceValkeyUsersInnerAccessControl.java
 src/main/java/com/exoscale/sdk/model/DbaasTask.java
 src/main/java/com/exoscale/sdk/model/DbaasTaskResultCodesInner.java
+src/main/java/com/exoscale/sdk/model/DbaasUserClickhouseSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserGrafanaSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserKafkaConnectSecrets.java
 src/main/java/com/exoscale/sdk/model/DbaasUserKafkaSecrets.java
@@ -773,6 +804,9 @@ src/main/java/com/exoscale/sdk/model/GetDbaasExternalIntegrationSettingsDatadog2
 src/main/java/com/exoscale/sdk/model/GetDbaasServiceLogsRequest.java
 src/main/java/com/exoscale/sdk/model/GetDbaasServiceMetrics200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasServiceMetricsRequest.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsClickhouse200Response.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsClickhouse200ResponseSettings.java
+src/main/java/com/exoscale/sdk/model/GetDbaasSettingsClickhouse200ResponseSettingsClickhouse.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsGrafana200Response.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsGrafana200ResponseSettings.java
 src/main/java/com/exoscale/sdk/model/GetDbaasSettingsGrafana200ResponseSettingsGrafana.java
@@ -839,6 +873,7 @@ src/main/java/com/exoscale/sdk/model/InstanceType.java
 src/main/java/com/exoscale/sdk/model/InstanceTypeEntry.java
 src/main/java/com/exoscale/sdk/model/InstanceTypeRef.java
 src/main/java/com/exoscale/sdk/model/InternalAuthenticationBackendLimiting.java
+src/main/java/com/exoscale/sdk/model/JsonSchemaClickhouse.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaGrafana.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaKafka.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaKafkaConnect.java
@@ -1014,6 +1049,7 @@ src/main/java/com/exoscale/sdk/model/UpdateBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasIntegrationRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasPgConnectionPoolRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasPostgresAllowReplicationRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceClickhouseRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceGrafanaRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceKafkaRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasServiceKafkaRequestAuthenticationMethods.java

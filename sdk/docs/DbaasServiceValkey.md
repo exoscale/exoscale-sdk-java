@@ -11,7 +11,7 @@
 |**nodeCount** | **Long** | Number of service nodes in the active plan |  [optional] |
 |**connectionInfo** | [**DbaasServiceValkeyConnectionInfo**](DbaasServiceValkeyConnectionInfo.md) |  |  [optional] |
 |**nodeCpuCount** | **Long** | Number of CPUs for each node |  [optional] |
-|**prometheusUri** | [**DbaasServiceMysqlPrometheusUri**](DbaasServiceMysqlPrometheusUri.md) |  |  |
+|**prometheusUri** | [**DbaasServiceClickhousePrometheusUri**](DbaasServiceClickhousePrometheusUri.md) |  |  |
 |**integrations** | [**List&lt;DbaasIntegration&gt;**](DbaasIntegration.md) | Service integrations |  [optional] |
 |**zone** | **String** | The zone where the service is running |  [optional] |
 |**nodeStates** | [**List&lt;DbaasNodeState&gt;**](DbaasNodeState.md) | State of individual service nodes |  [optional] |
@@ -23,7 +23,7 @@
 |**backups** | [**List&lt;DbaasServiceBackup&gt;**](DbaasServiceBackup.md) | List of backups for the service |  [optional] |
 |**terminationProtection** | **Boolean** | Service is protected against termination and powering off |  [optional] |
 |**notifications** | [**List&lt;DbaasServiceNotification&gt;**](DbaasServiceNotification.md) | Service notifications |  [optional] |
-|**components** | [**List&lt;DbaasServiceThanosComponentsInner&gt;**](DbaasServiceThanosComponentsInner.md) | Service component information objects |  [optional] |
+|**components** | [**List&lt;DbaasServiceClickhouseComponentsInner&gt;**](DbaasServiceClickhouseComponentsInner.md) | Service component information objects |  [optional] |
 |**maintenance** | [**DbaasServiceMaintenance**](DbaasServiceMaintenance.md) |  |  [optional] |
 |**diskSize** | **Long** | TODO UNIT disk space for data storage |  [optional] |
 |**nodeMemory** | **Long** | TODO UNIT of memory for each node |  [optional] |
