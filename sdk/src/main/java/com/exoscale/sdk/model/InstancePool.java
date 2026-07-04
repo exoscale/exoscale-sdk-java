@@ -22,7 +22,6 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.ElasticIpRef;
-import com.exoscale.sdk.model.InstancePoolErrorReason;
 import com.exoscale.sdk.model.InstanceRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.Manager;
@@ -68,7 +67,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InstancePool.JSON_PROPERTY_USER_DATA,
   InstancePool.JSON_PROPERTY_MANAGER,
   InstancePool.JSON_PROPERTY_INSTANCES,
-  InstancePool.JSON_PROPERTY_ERROR_REASON,
   InstancePool.JSON_PROPERTY_DEPLOY_TARGET,
   InstancePool.JSON_PROPERTY_IPV6_ENABLED,
   InstancePool.JSON_PROPERTY_ID,
@@ -129,9 +127,7 @@ public class InstancePool {
     
     RUNNING("running"),
     
-    UPDATING("updating"),
-    
-    ERROR("error");
+    UPDATING("updating");
 
     private String value;
 
@@ -180,9 +176,6 @@ public class InstancePool {
 
   public static final String JSON_PROPERTY_INSTANCES = "instances";
   private List<InstanceRef> instances;
-
-  public static final String JSON_PROPERTY_ERROR_REASON = "error-reason";
-  private InstancePoolErrorReason errorReason;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
   private DeployTargetRef deployTarget;
@@ -711,31 +704,6 @@ public class InstancePool {
 
 
 
-  public InstancePool errorReason(InstancePoolErrorReason errorReason) {
-    this.errorReason = errorReason;
-    return this;
-  }
-
-   /**
-   * Get errorReason
-   * @return errorReason
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_REASON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public InstancePoolErrorReason getErrorReason() {
-    return errorReason;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERROR_REASON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrorReason(InstancePoolErrorReason errorReason) {
-    this.errorReason = errorReason;
-  }
-
-
   public InstancePool deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
@@ -892,7 +860,6 @@ public class InstancePool {
         Objects.equals(this.userData, instancePool.userData) &&
         Objects.equals(this.manager, instancePool.manager) &&
         Objects.equals(this.instances, instancePool.instances) &&
-        Objects.equals(this.errorReason, instancePool.errorReason) &&
         Objects.equals(this.deployTarget, instancePool.deployTarget) &&
         Objects.equals(this.ipv6Enabled, instancePool.ipv6Enabled) &&
         Objects.equals(this.id, instancePool.id) &&
@@ -902,7 +869,7 @@ public class InstancePool {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, state, size, sshKey, instancePrefix, userData, manager, instances, errorReason, deployTarget, ipv6Enabled, id, diskSize, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, state, size, sshKey, instancePrefix, userData, manager, instances, deployTarget, ipv6Enabled, id, diskSize, sshKeys);
   }
 
   @Override
@@ -928,7 +895,6 @@ public class InstancePool {
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    manager: ").append(toIndentedString(manager)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
-    sb.append("    errorReason: ").append(toIndentedString(errorReason)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -1103,11 +1069,6 @@ public class InstancePool {
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
-    }
-
-    // add `error-reason` to the URL query string
-    if (getErrorReason() != null) {
-      joiner.add(getErrorReason().toUrlQueryString(prefix + "error-reason" + suffix));
     }
 
     // add `deploy-target` to the URL query string

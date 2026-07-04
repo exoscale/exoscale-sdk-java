@@ -12,6 +12,7 @@ SKS Cluster
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**cni** | [**CniEnum**](#CniEnum) | Cluster CNI |  [optional] |
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
+|**oidc** | [**SksOidc**](SksOidc.md) |  |  [optional] |
 |**name** | **String** | Cluster name |  [optional] |
 |**enableOperatorsCa** | **Boolean** | Indicates whether to add operators certificate authority (CA) as part of trusted CAs for the API server. |  [optional] |
 |**defaultSecurityGroupId** | **UUID** | Cluster default Security Group ID |  [optional] [readonly] |

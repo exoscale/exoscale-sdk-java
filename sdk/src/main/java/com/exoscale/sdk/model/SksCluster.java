@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.SksAudit;
 import com.exoscale.sdk.model.SksNodepool;
+import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -51,6 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksCluster.JSON_PROPERTY_LABELS,
   SksCluster.JSON_PROPERTY_CNI,
   SksCluster.JSON_PROPERTY_AUTO_UPGRADE,
+  SksCluster.JSON_PROPERTY_OIDC,
   SksCluster.JSON_PROPERTY_NAME,
   SksCluster.JSON_PROPERTY_ENABLE_OPERATORS_CA,
   SksCluster.JSON_PROPERTY_DEFAULT_SECURITY_GROUP_ID,
@@ -114,6 +116,9 @@ public class SksCluster {
 
   public static final String JSON_PROPERTY_AUTO_UPGRADE = "auto-upgrade";
   private Boolean autoUpgrade;
+
+  public static final String JSON_PROPERTY_OIDC = "oidc";
+  private SksOidc oidc;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -410,6 +415,31 @@ public class SksCluster {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAutoUpgrade(Boolean autoUpgrade) {
     this.autoUpgrade = autoUpgrade;
+  }
+
+
+  public SksCluster oidc(SksOidc oidc) {
+    this.oidc = oidc;
+    return this;
+  }
+
+   /**
+   * Get oidc
+   * @return oidc
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OIDC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SksOidc getOidc() {
+    return oidc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OIDC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOidc(SksOidc oidc) {
+    this.oidc = oidc;
   }
 
 
@@ -750,6 +780,7 @@ public class SksCluster {
         Objects.equals(this.labels, sksCluster.labels) &&
         Objects.equals(this.cni, sksCluster.cni) &&
         Objects.equals(this.autoUpgrade, sksCluster.autoUpgrade) &&
+        Objects.equals(this.oidc, sksCluster.oidc) &&
         Objects.equals(this.name, sksCluster.name) &&
         Objects.equals(this.enableOperatorsCa, sksCluster.enableOperatorsCa) &&
         equalsNullable(this.defaultSecurityGroupId, sksCluster.defaultSecurityGroupId) &&
@@ -772,7 +803,7 @@ public class SksCluster {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, labels, cni, autoUpgrade, name, enableOperatorsCa, hashCodeNullable(defaultSecurityGroupId), state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint);
+    return Objects.hash(description, labels, cni, autoUpgrade, oidc, name, enableOperatorsCa, hashCodeNullable(defaultSecurityGroupId), state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -790,6 +821,7 @@ public class SksCluster {
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    cni: ").append(toIndentedString(cni)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
+    sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    enableOperatorsCa: ").append(toIndentedString(enableOperatorsCa)).append("\n");
     sb.append("    defaultSecurityGroupId: ").append(toIndentedString(defaultSecurityGroupId)).append("\n");
@@ -873,6 +905,11 @@ public class SksCluster {
     // add `auto-upgrade` to the URL query string
     if (getAutoUpgrade() != null) {
       joiner.add(String.format("%sauto-upgrade%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoUpgrade()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `oidc` to the URL query string
+    if (getOidc() != null) {
+      joiner.add(getOidc().toUrlQueryString(prefix + "oidc" + suffix));
     }
 
     // add `name` to the URL query string

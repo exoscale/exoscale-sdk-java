@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Cluster networking configuration.
+ * EXPERIMENTAL: Cluster networking configuration.
  */
 @JsonPropertyOrder({
   Networking.JSON_PROPERTY_CLUSTER_CIDR,

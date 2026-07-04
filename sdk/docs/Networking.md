@@ -2,7 +2,7 @@
 
 # Networking
 
-Cluster networking configuration.
+EXPERIMENTAL: Cluster networking configuration.
 
 ## Properties
 

@@ -15,6 +15,7 @@ package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.SksAudit;
 import com.exoscale.sdk.model.SksNodepool;
+import com.exoscale.sdk.model.SksOidc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -82,6 +83,14 @@ public class SksClusterTest {
     @Test
     public void autoUpgradeTest() {
         // TODO: test autoUpgrade
+    }
+
+    /**
+     * Test the property 'oidc'
+     */
+    @Test
+    public void oidcTest() {
+        // TODO: test oidc
     }
 
     /**
