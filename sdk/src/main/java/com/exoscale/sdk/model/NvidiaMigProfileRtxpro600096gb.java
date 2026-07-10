@@ -30,27 +30,27 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum NvidiaMigProfileRtxpro600096gb {
   
-  _1G_24GB_ME("1g.24gb-me"),
-  
   _1G_24GB("1g.24gb"),
   
-  _2G_48GB_ME("2g.48gb-me"),
-  
-  _2G_48GB("2g.48gb"),
-  
-  _4G_96GB_GFX("4g.96gb+gfx"),
-  
-  _1G_24GB_ME2("1g.24gb+me"),
-  
-  _2G_48GB_ME_ALL("2g.48gb+me.all"),
+  _1G_24GB_ME("1g.24gb+me"),
   
   _1G_24GB_GFX("1g.24gb+gfx"),
   
   _1G_24GB_ME_ALL("1g.24gb+me.all"),
   
+  _1G_24GB_ME2("1g.24gb-me"),
+  
+  _2G_48GB("2g.48gb"),
+  
+  _2G_48GB_GFX("2g.48gb+gfx"),
+  
+  _2G_48GB_ME_ALL("2g.48gb+me.all"),
+  
+  _2G_48GB_ME("2g.48gb-me"),
+  
   _4G_96GB("4g.96gb"),
   
-  _2G_48GB_GFX("2g.48gb+gfx");
+  _4G_96GB_GFX("4g.96gb+gfx");
 
   private String value;
 

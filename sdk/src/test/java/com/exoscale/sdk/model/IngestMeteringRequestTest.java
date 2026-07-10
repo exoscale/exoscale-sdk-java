@@ -59,19 +59,19 @@ public class IngestMeteringRequestTest {
     }
 
     /**
+     * Test the property 'timestamp'
+     */
+    @Test
+    public void timestampTest() {
+        // TODO: test timestamp
+    }
+
+    /**
      * Test the property 'routerId'
      */
     @Test
     public void routerIdTest() {
         // TODO: test routerId
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
     }
 
 }

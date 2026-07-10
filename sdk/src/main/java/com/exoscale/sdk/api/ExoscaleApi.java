@@ -2068,11 +2068,11 @@ public class ExoscaleApi {
    * 
    * @param serviceName  (required)
    * @param createDbaasClickhouseUserRequest  (required)
-   * @return Operation
+   * @return DbaasUserClickhouseSecrets
    * @throws ApiException if fails to make API call
    */
-  public Operation createDbaasClickhouseUser(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = createDbaasClickhouseUserWithHttpInfo(serviceName, createDbaasClickhouseUserRequest);
+  public DbaasUserClickhouseSecrets createDbaasClickhouseUser(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
+    ApiResponse<DbaasUserClickhouseSecrets> localVarResponse = createDbaasClickhouseUserWithHttpInfo(serviceName, createDbaasClickhouseUserRequest);
     return localVarResponse.getData();
   }
 
@@ -2081,10 +2081,10 @@ public class ExoscaleApi {
    * 
    * @param serviceName  (required)
    * @param createDbaasClickhouseUserRequest  (required)
-   * @return ApiResponse&lt;Operation&gt;
+   * @return ApiResponse&lt;DbaasUserClickhouseSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> createDbaasClickhouseUserWithHttpInfo(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
+  private ApiResponse<DbaasUserClickhouseSecrets> createDbaasClickhouseUserWithHttpInfo(String serviceName, CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createDbaasClickhouseUserRequestBuilder(serviceName, createDbaasClickhouseUserRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -2097,10 +2097,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createDbaasClickhouseUser", localVarResponse);
         }
-        return new ApiResponse<Operation>(
+        return new ApiResponse<DbaasUserClickhouseSecrets>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserClickhouseSecrets>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -24324,11 +24324,11 @@ public class ExoscaleApi {
    * @param serviceName  (required)
    * @param username  (required)
    * @param resetDbaasValkeyUserPasswordRequest  (required)
-   * @return Operation
+   * @return DbaasUserClickhouseSecrets
    * @throws ApiException if fails to make API call
    */
-  public Operation resetDbaasClickhouseUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = resetDbaasClickhouseUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+  public DbaasUserClickhouseSecrets resetDbaasClickhouseUserPassword(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+    ApiResponse<DbaasUserClickhouseSecrets> localVarResponse = resetDbaasClickhouseUserPasswordWithHttpInfo(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     return localVarResponse.getData();
   }
 
@@ -24338,10 +24338,10 @@ public class ExoscaleApi {
    * @param serviceName  (required)
    * @param username  (required)
    * @param resetDbaasValkeyUserPasswordRequest  (required)
-   * @return ApiResponse&lt;Operation&gt;
+   * @return ApiResponse&lt;DbaasUserClickhouseSecrets&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> resetDbaasClickhouseUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
+  private ApiResponse<DbaasUserClickhouseSecrets> resetDbaasClickhouseUserPasswordWithHttpInfo(String serviceName, String username, ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = resetDbaasClickhouseUserPasswordRequestBuilder(serviceName, username, resetDbaasValkeyUserPasswordRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -24354,10 +24354,10 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("resetDbaasClickhouseUserPassword", localVarResponse);
         }
-        return new ApiResponse<Operation>(
+        return new ApiResponse<DbaasUserClickhouseSecrets>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasUserClickhouseSecrets>() {}) // closes the InputStream
         );
       } finally {
       }

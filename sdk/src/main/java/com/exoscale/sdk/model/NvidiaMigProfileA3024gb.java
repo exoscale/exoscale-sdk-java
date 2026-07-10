@@ -30,11 +30,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum NvidiaMigProfileA3024gb {
   
-  _2G_12GB("2g.12gb"),
+  _1G_6GB("1g.6gb"),
   
   _1G_6GB_ME("1g.6gb+me"),
   
-  _1G_6GB("1g.6gb"),
+  _2G_12GB("2g.12gb"),
   
   _2G_12GB_ME("2g.12gb+me"),
   

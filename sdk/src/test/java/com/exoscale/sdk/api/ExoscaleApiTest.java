@@ -644,7 +644,7 @@ public class ExoscaleApiTest {
     public void createDbaasClickhouseUserTest() throws ApiException {
         String serviceName = null;
         CreateDbaasClickhouseUserRequest createDbaasClickhouseUserRequest = null;
-        Operation response = 
+        DbaasUserClickhouseSecrets response = 
         api.createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest);
         
         // TODO: test validations
@@ -4993,7 +4993,7 @@ public class ExoscaleApiTest {
         String serviceName = null;
         String username = null;
         ResetDbaasValkeyUserPasswordRequest resetDbaasValkeyUserPasswordRequest = null;
-        Operation response = 
+        DbaasUserClickhouseSecrets response = 
         api.resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
         
         // TODO: test validations

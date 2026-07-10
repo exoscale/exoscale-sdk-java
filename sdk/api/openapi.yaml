@@ -6003,7 +6003,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/operation'
+                $ref: '#/components/schemas/dbaas-user-clickhouse-secrets'
           description: "200"
       summary: "[BETA] Reset the credentials of a DBaaS ClickHouse user"
       tags:
@@ -6106,7 +6106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/operation'
+                $ref: '#/components/schemas/dbaas-user-clickhouse-secrets'
           description: "200"
       summary: "[BETA] Create a DBaaS ClickHouse user"
       tags:
@@ -14065,18 +14065,30 @@ components:
       type: object
     nvidia-mig-profile-rtxpro6000.96gb:
       enum:
-      - 1g.24gb-me
       - 1g.24gb
-      - 2g.48gb-me
-      - 2g.48gb
-      - 4g.96gb+gfx
       - 1g.24gb+me
-      - 2g.48gb+me.all
       - 1g.24gb+gfx
       - 1g.24gb+me.all
-      - 4g.96gb
+      - 1g.24gb-me
+      - 2g.48gb
       - 2g.48gb+gfx
+      - 2g.48gb+me.all
+      - 2g.48gb-me
+      - 4g.96gb
+      - 4g.96gb+gfx
       type: string
+      x-go-enum-varnames:
+      - 1G24Gb
+      - 1G24GbMe
+      - 1G24GbGfx
+      - 1G24GbMeAll
+      - 1G24GbNoMe
+      - 2G48Gb
+      - 2G48GbGfx
+      - 2G48GbMeAll
+      - 2G48GbNoMe
+      - 4G96Gb
+      - 4G96GbGfx
     dbaas-pg-database-name:
       maxLength: 63
       minLength: 1
@@ -20585,19 +20597,19 @@ components:
           description: Map of api-key-uuid to usage entry. Keys are API key UUIDs.
             Mirrors the router's in-memory accumulator structure directly.
           type: object
-        router-id:
-          description: Router instance identifier that produced this flush
-          minLength: 1
-          type: string
-        created-at:
+        timestamp:
           description: ISO-8601 UTC timestamp when the flush snapshot was created
             (truncated to minute boundary for bucketing)
           format: date-time
           type: string
+        router-id:
+          description: Router instance identifier that produced this flush
+          minLength: 1
+          type: string
       required:
-      - created-at
       - flush-id
       - router-id
+      - timestamp
       - usage
       type: object
     create-ai-api-key-request:
@@ -21736,12 +21748,18 @@ components:
       type: object
     nvidia-mig-profile-a30.24gb:
       enum:
-      - 2g.12gb
-      - 1g.6gb+me
       - 1g.6gb
+      - 1g.6gb+me
+      - 2g.12gb
       - 2g.12gb+me
       - 4g.24gb
       type: string
+      x-go-enum-varnames:
+      - 1G6Gb
+      - 1G6GbMe
+      - 2G12Gb
+      - 2G12GbMe
+      - 4G24Gb
     get-kms-key-response:
       example:
         replicas:
@@ -23357,6 +23375,11 @@ components:
           type: string
         gpu-type:
           description: "GPU type family (e.g., gpua5000, gpu3080ti)"
+          type: string
+        product-name:
+          description: Billing identifier for this deployment. Used by the Router
+            for usage counters and Kafka events.
+          minLength: 1
           type: string
         replicas:
           description: Number of replicas (>=1)

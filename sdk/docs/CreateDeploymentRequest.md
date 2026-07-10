@@ -12,6 +12,7 @@ Deploy an AI model onto a set of GPUs
 |**inferenceEngineVersion** | **InferenceEngineVersion** |  |  [optional] |
 |**name** | **String** | Deployment name |  |
 |**gpuType** | **String** | GPU type family (e.g., gpua5000, gpu3080ti) |  |
+|**productName** | **String** | Billing identifier for this deployment. Used by the Router for usage counters and Kafka events. |  [optional] |
 |**replicas** | **Long** | Number of replicas (&gt;&#x3D;1) |  |
 |**inferenceEngineParameters** | **List&lt;String&gt;** | Optional extra inference engine server CLI args |  [optional] |
 |**model** | [**ModelRef**](ModelRef.md) |  |  |

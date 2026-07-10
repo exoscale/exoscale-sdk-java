@@ -39,8 +39,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   IngestMeteringRequest.JSON_PROPERTY_FLUSH_ID,
   IngestMeteringRequest.JSON_PROPERTY_USAGE,
-  IngestMeteringRequest.JSON_PROPERTY_ROUTER_ID,
-  IngestMeteringRequest.JSON_PROPERTY_CREATED_AT
+  IngestMeteringRequest.JSON_PROPERTY_TIMESTAMP,
+  IngestMeteringRequest.JSON_PROPERTY_ROUTER_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class IngestMeteringRequest {
@@ -50,11 +50,11 @@ public class IngestMeteringRequest {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private Map<String, ApiKeyUsageEntry> usage = new HashMap<>();
 
+  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+  private OffsetDateTime timestamp;
+
   public static final String JSON_PROPERTY_ROUTER_ID = "router-id";
   private String routerId;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
 
   public IngestMeteringRequest() { 
   }
@@ -117,6 +117,31 @@ public class IngestMeteringRequest {
   }
 
 
+  public IngestMeteringRequest timestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+    return this;
+  }
+
+   /**
+   * ISO-8601 UTC timestamp when the flush snapshot was created (truncated to minute boundary for bucketing)
+   * @return timestamp
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTimestamp(OffsetDateTime timestamp) {
+    this.timestamp = timestamp;
+  }
+
+
   public IngestMeteringRequest routerId(String routerId) {
     this.routerId = routerId;
     return this;
@@ -142,31 +167,6 @@ public class IngestMeteringRequest {
   }
 
 
-  public IngestMeteringRequest createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * ISO-8601 UTC timestamp when the flush snapshot was created (truncated to minute boundary for bucketing)
-   * @return createdAt
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
   /**
    * Return true if this ingest-metering-request object is equal to o.
    */
@@ -181,13 +181,13 @@ public class IngestMeteringRequest {
     IngestMeteringRequest ingestMeteringRequest = (IngestMeteringRequest) o;
     return Objects.equals(this.flushId, ingestMeteringRequest.flushId) &&
         Objects.equals(this.usage, ingestMeteringRequest.usage) &&
-        Objects.equals(this.routerId, ingestMeteringRequest.routerId) &&
-        Objects.equals(this.createdAt, ingestMeteringRequest.createdAt);
+        Objects.equals(this.timestamp, ingestMeteringRequest.timestamp) &&
+        Objects.equals(this.routerId, ingestMeteringRequest.routerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flushId, usage, routerId, createdAt);
+    return Objects.hash(flushId, usage, timestamp, routerId);
   }
 
   @Override
@@ -196,8 +196,8 @@ public class IngestMeteringRequest {
     sb.append("class IngestMeteringRequest {\n");
     sb.append("    flushId: ").append(toIndentedString(flushId)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    routerId: ").append(toIndentedString(routerId)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -260,14 +260,14 @@ public class IngestMeteringRequest {
       }
     }
 
+    // add `timestamp` to the URL query string
+    if (getTimestamp() != null) {
+      joiner.add(String.format("%stimestamp%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTimestamp()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `router-id` to the URL query string
     if (getRouterId() != null) {
       joiner.add(String.format("%srouter-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRouterId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `created-at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

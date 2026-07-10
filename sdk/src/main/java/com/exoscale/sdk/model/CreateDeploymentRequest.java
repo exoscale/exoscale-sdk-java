@@ -40,6 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_VERSION,
   CreateDeploymentRequest.JSON_PROPERTY_NAME,
   CreateDeploymentRequest.JSON_PROPERTY_GPU_TYPE,
+  CreateDeploymentRequest.JSON_PROPERTY_PRODUCT_NAME,
   CreateDeploymentRequest.JSON_PROPERTY_REPLICAS,
   CreateDeploymentRequest.JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS,
   CreateDeploymentRequest.JSON_PROPERTY_MODEL
@@ -57,6 +58,9 @@ public class CreateDeploymentRequest {
 
   public static final String JSON_PROPERTY_GPU_TYPE = "gpu-type";
   private String gpuType;
+
+  public static final String JSON_PROPERTY_PRODUCT_NAME = "product-name";
+  private String productName;
 
   public static final String JSON_PROPERTY_REPLICAS = "replicas";
   private Long replicas;
@@ -171,6 +175,31 @@ public class CreateDeploymentRequest {
   }
 
 
+  public CreateDeploymentRequest productName(String productName) {
+    this.productName = productName;
+    return this;
+  }
+
+   /**
+   * Billing identifier for this deployment. Used by the Router for usage counters and Kafka events.
+   * @return productName
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getProductName() {
+    return productName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProductName(String productName) {
+    this.productName = productName;
+  }
+
+
   public CreateDeploymentRequest replicas(Long replicas) {
     this.replicas = replicas;
     return this;
@@ -271,6 +300,7 @@ public class CreateDeploymentRequest {
         Objects.equals(this.inferenceEngineVersion, createDeploymentRequest.inferenceEngineVersion) &&
         Objects.equals(this.name, createDeploymentRequest.name) &&
         Objects.equals(this.gpuType, createDeploymentRequest.gpuType) &&
+        Objects.equals(this.productName, createDeploymentRequest.productName) &&
         Objects.equals(this.replicas, createDeploymentRequest.replicas) &&
         Objects.equals(this.inferenceEngineParameters, createDeploymentRequest.inferenceEngineParameters) &&
         Objects.equals(this.model, createDeploymentRequest.model);
@@ -278,7 +308,7 @@ public class CreateDeploymentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpuCount, inferenceEngineVersion, name, gpuType, replicas, inferenceEngineParameters, model);
+    return Objects.hash(gpuCount, inferenceEngineVersion, name, gpuType, productName, replicas, inferenceEngineParameters, model);
   }
 
   @Override
@@ -289,6 +319,7 @@ public class CreateDeploymentRequest {
     sb.append("    inferenceEngineVersion: ").append(toIndentedString(inferenceEngineVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    gpuType: ").append(toIndentedString(gpuType)).append("\n");
+    sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    replicas: ").append(toIndentedString(replicas)).append("\n");
     sb.append("    inferenceEngineParameters: ").append(toIndentedString(inferenceEngineParameters)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
@@ -357,6 +388,11 @@ public class CreateDeploymentRequest {
     // add `gpu-type` to the URL query string
     if (getGpuType() != null) {
       joiner.add(String.format("%sgpu-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpuType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `product-name` to the URL query string
+    if (getProductName() != null) {
+      joiner.add(String.format("%sproduct-name%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProductName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `replicas` to the URL query string

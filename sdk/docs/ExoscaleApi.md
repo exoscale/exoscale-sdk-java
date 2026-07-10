@@ -2080,7 +2080,7 @@ No authorization required
 
 ## createDbaasClickhouseUser
 
-> Operation createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest)
+> DbaasUserClickhouseSecrets createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest)
 
 [BETA] Create a DBaaS ClickHouse user
 
@@ -2102,7 +2102,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Operation result = client.createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest);
+            DbaasUserClickhouseSecrets result = client.createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#createDbaasClickhouseUser");
@@ -2125,7 +2125,7 @@ public class Example {
 
 ### Return type
 
-[**Operation**](Operation.md)
+[**DbaasUserClickhouseSecrets**](DbaasUserClickhouseSecrets.md)
 
 
 ### Authorization
@@ -2153,7 +2153,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**Operation**](Operation.md)>
+ApiResponse<[**DbaasUserClickhouseSecrets**](DbaasUserClickhouseSecrets.md)>
 
 
 ### Authorization
@@ -25317,7 +25317,7 @@ No authorization required
 
 ## resetDbaasClickhouseUserPassword
 
-> Operation resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
+> DbaasUserClickhouseSecrets resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
 [BETA] Reset the credentials of a DBaaS ClickHouse user
 
@@ -25340,7 +25340,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Operation result = client.resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
+            DbaasUserClickhouseSecrets result = client.resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#resetDbaasClickhouseUserPassword");
@@ -25364,7 +25364,7 @@ public class Example {
 
 ### Return type
 
-[**Operation**](Operation.md)
+[**DbaasUserClickhouseSecrets**](DbaasUserClickhouseSecrets.md)
 
 
 ### Authorization
@@ -25393,7 +25393,7 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**Operation**](Operation.md)>
+ApiResponse<[**DbaasUserClickhouseSecrets**](DbaasUserClickhouseSecrets.md)>
 
 
 ### Authorization

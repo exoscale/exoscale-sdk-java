@@ -74,6 +74,14 @@ public class CreateDeploymentRequestTest {
     }
 
     /**
+     * Test the property 'productName'
+     */
+    @Test
+    public void productNameTest() {
+        // TODO: test productName
+    }
+
+    /**
      * Test the property 'replicas'
      */
     @Test
