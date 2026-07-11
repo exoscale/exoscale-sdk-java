@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   CreateAiApiKeyResponse.JSON_PROPERTY_UPDATED_AT,
   CreateAiApiKeyResponse.JSON_PROPERTY_NAME,
+  CreateAiApiKeyResponse.JSON_PROPERTY_VALUE,
   CreateAiApiKeyResponse.JSON_PROPERTY_SCOPE,
   CreateAiApiKeyResponse.JSON_PROPERTY_ID,
   CreateAiApiKeyResponse.JSON_PROPERTY_ORG_UUID,
@@ -48,6 +49,9 @@ public class CreateAiApiKeyResponse {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
@@ -115,6 +119,31 @@ public class CreateAiApiKeyResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateAiApiKeyResponse value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Plaintext AI API key value
+   * @return value
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getValue() {
+    return value;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -202,6 +231,7 @@ public class CreateAiApiKeyResponse {
     CreateAiApiKeyResponse createAiApiKeyResponse = (CreateAiApiKeyResponse) o;
     return Objects.equals(this.updatedAt, createAiApiKeyResponse.updatedAt) &&
         Objects.equals(this.name, createAiApiKeyResponse.name) &&
+        Objects.equals(this.value, createAiApiKeyResponse.value) &&
         Objects.equals(this.scope, createAiApiKeyResponse.scope) &&
         Objects.equals(this.id, createAiApiKeyResponse.id) &&
         Objects.equals(this.orgUuid, createAiApiKeyResponse.orgUuid) &&
@@ -210,7 +240,7 @@ public class CreateAiApiKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, scope, id, orgUuid, createdAt);
+    return Objects.hash(updatedAt, name, value, scope, id, orgUuid, createdAt);
   }
 
   @Override
@@ -219,6 +249,7 @@ public class CreateAiApiKeyResponse {
     sb.append("class CreateAiApiKeyResponse {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    orgUuid: ").append(toIndentedString(orgUuid)).append("\n");
@@ -278,6 +309,11 @@ public class CreateAiApiKeyResponse {
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `value` to the URL query string
+    if (getValue() != null) {
+      joiner.add(String.format("%svalue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `scope` to the URL query string

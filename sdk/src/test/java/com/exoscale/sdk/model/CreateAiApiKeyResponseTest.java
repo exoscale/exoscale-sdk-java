@@ -56,6 +56,14 @@ public class CreateAiApiKeyResponseTest {
     }
 
     /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
+    /**
      * Test the property 'scope'
      */
     @Test
