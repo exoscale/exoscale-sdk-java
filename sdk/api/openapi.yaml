@@ -17849,6 +17849,9 @@ components:
       properties:
         name:
           description: Human-readable name for the AI API key
+          maxLength: 50
+          minLength: 1
+          pattern: "^[A-Za-z0-9](?:[A-Za-z0-9 _'()-]*[A-Za-z0-9])?$"
           type: string
         scope:
           description: "Key scope: 'public' for all deployments, or a specific deployment\
@@ -20622,6 +20625,9 @@ components:
       properties:
         name:
           description: Human-readable name for the AI API key
+          maxLength: 50
+          minLength: 1
+          pattern: "^[A-Za-z0-9](?:[A-Za-z0-9 _'()-]*[A-Za-z0-9])?$"
           type: string
         scope:
           description: "Key scope: 'public' for all deployments, or a specific deployment\
