@@ -18,6 +18,7 @@ AI deployment
 |**id** | **UUID** | Deployment ID |  [readonly] |
 |**replicas** | **Long** | Number of replicas (&gt;&#x3D;0) |  |
 |**createdAt** | **OffsetDateTime** | Creation time |  [readonly] |
+|**visibility** | [**VisibilityEnum**](#VisibilityEnum) | Deployment visibility: private for your organization&#39;s deployments, public for Exoscale Managed Inference deployments. |  |
 |**model** | [**ModelRef**](ModelRef.md) |  |  |
 
 
@@ -33,6 +34,15 @@ AI deployment
 | DEPLOYING | &quot;deploying&quot; |
 | SCALING | &quot;scaling&quot; |
 | UPDATING | &quot;updating&quot; |
+
+
+
+## Enum: VisibilityEnum
+
+| Name | Value |
+|---- | -----|
+| PUBLIC | &quot;public&quot; |
+| PRIVATE | &quot;private&quot; |
 
 
 

@@ -121,6 +121,14 @@ public class ListDeploymentsResponseEntryTest {
     }
 
     /**
+     * Test the property 'visibility'
+     */
+    @Test
+    public void visibilityTest() {
+        // TODO: test visibility
+    }
+
+    /**
      * Test the property 'model'
      */
     @Test

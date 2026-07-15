@@ -12825,7 +12825,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.24.0
+      default: 0.25.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -12844,6 +12844,7 @@ components:
       - 0.22.1
       - 0.23.0
       - 0.24.0
+      - 0.25.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -17548,6 +17549,7 @@ components:
         inference-engine-parameters:
         - inference-engine-parameters
         - inference-engine-parameters
+        visibility: public
         service-level: service-level
         replicas: 0
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -17620,6 +17622,13 @@ components:
           format: date-time
           readOnly: true
           type: string
+        visibility:
+          description: "Deployment visibility: private for your organization's deployments,\
+            \ public for Exoscale Managed Inference deployments."
+          enum:
+          - public
+          - private
+          type: string
         inference-engine-parameters:
           description: Optional extra inference engine server CLI args
           items:
@@ -17642,6 +17651,7 @@ components:
       - state
       - state-details
       - updated-at
+      - visibility
       type: object
     list-route-entry:
       description: Route
@@ -18660,6 +18670,7 @@ components:
       description: AI deployment
       example:
         gpu-type: gpu-type
+        visibility: public
         service-level: service-level
         replicas: 0
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -18724,6 +18735,13 @@ components:
           format: date-time
           readOnly: true
           type: string
+        visibility:
+          description: "Deployment visibility: private for your organization's deployments,\
+            \ public for Exoscale Managed Inference deployments."
+          enum:
+          - public
+          - private
+          type: string
         model:
           $ref: '#/components/schemas/model-ref'
       required:
@@ -18738,6 +18756,7 @@ components:
       - service-level
       - state
       - updated-at
+      - visibility
       type: object
     dbaas-endpoint-elasticsearch-secrets:
       properties:
@@ -21196,6 +21215,7 @@ components:
       example:
         deployments:
         - gpu-type: gpu-type
+          visibility: public
           service-level: service-level
           replicas: 0
           updated-at: 2000-01-23T04:56:07.000+00:00
@@ -21209,6 +21229,7 @@ components:
           state: ready
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - gpu-type: gpu-type
+          visibility: public
           service-level: service-level
           replicas: 0
           updated-at: 2000-01-23T04:56:07.000+00:00

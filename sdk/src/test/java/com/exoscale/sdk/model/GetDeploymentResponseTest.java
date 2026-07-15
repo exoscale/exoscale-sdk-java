@@ -140,6 +140,14 @@ public class GetDeploymentResponseTest {
     }
 
     /**
+     * Test the property 'visibility'
+     */
+    @Test
+    public void visibilityTest() {
+        // TODO: test visibility
+    }
+
+    /**
      * Test the property 'inferenceEngineParameters'
      */
     @Test
