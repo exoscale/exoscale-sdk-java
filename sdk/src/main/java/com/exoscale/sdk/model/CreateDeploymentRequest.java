@@ -51,7 +51,7 @@ public class CreateDeploymentRequest {
   private Long gpuCount;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._25_0;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._25_1;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

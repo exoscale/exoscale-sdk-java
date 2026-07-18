@@ -30,24 +30,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AttachInstanceToSubnetRequest
+ * AttachBlockStorageVolumeToInstanceRequest
  */
 @JsonPropertyOrder({
-  AttachInstanceToSubnetRequest.JSON_PROPERTY_INSTANCE,
-  AttachInstanceToSubnetRequest.JSON_PROPERTY_IPV4
+  AttachBlockStorageVolumeToInstanceRequest.JSON_PROPERTY_INSTANCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class AttachInstanceToSubnetRequest {
+public class AttachBlockStorageVolumeToInstanceRequest {
   public static final String JSON_PROPERTY_INSTANCE = "instance";
   private InstanceRef instance;
 
-  public static final String JSON_PROPERTY_IPV4 = "ipv4";
-  private String ipv4;
-
-  public AttachInstanceToSubnetRequest() { 
+  public AttachBlockStorageVolumeToInstanceRequest() { 
   }
 
-  public AttachInstanceToSubnetRequest instance(InstanceRef instance) {
+  public AttachBlockStorageVolumeToInstanceRequest instance(InstanceRef instance) {
     this.instance = instance;
     return this;
   }
@@ -72,33 +68,8 @@ public class AttachInstanceToSubnetRequest {
   }
 
 
-  public AttachInstanceToSubnetRequest ipv4(String ipv4) {
-    this.ipv4 = ipv4;
-    return this;
-  }
-
-   /**
-   * Instance IPv4
-   * @return ipv4
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IPV4)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getIpv4() {
-    return ipv4;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IPV4)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpv4(String ipv4) {
-    this.ipv4 = ipv4;
-  }
-
-
   /**
-   * Return true if this attach_instance_to_subnet_request object is equal to o.
+   * Return true if this attach_block_storage_volume_to_instance_request object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -108,22 +79,20 @@ public class AttachInstanceToSubnetRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = (AttachInstanceToSubnetRequest) o;
-    return Objects.equals(this.instance, attachInstanceToSubnetRequest.instance) &&
-        Objects.equals(this.ipv4, attachInstanceToSubnetRequest.ipv4);
+    AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = (AttachBlockStorageVolumeToInstanceRequest) o;
+    return Objects.equals(this.instance, attachBlockStorageVolumeToInstanceRequest.instance);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instance, ipv4);
+    return Objects.hash(instance);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AttachInstanceToSubnetRequest {\n");
+    sb.append("class AttachBlockStorageVolumeToInstanceRequest {\n");
     sb.append("    instance: ").append(toIndentedString(instance)).append("\n");
-    sb.append("    ipv4: ").append(toIndentedString(ipv4)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -174,11 +143,6 @@ public class AttachInstanceToSubnetRequest {
     // add `instance` to the URL query string
     if (getInstance() != null) {
       joiner.add(getInstance().toUrlQueryString(prefix + "instance" + suffix));
-    }
-
-    // add `ipv4` to the URL query string
-    if (getIpv4() != null) {
-      joiner.add(String.format("%sipv4%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv4()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

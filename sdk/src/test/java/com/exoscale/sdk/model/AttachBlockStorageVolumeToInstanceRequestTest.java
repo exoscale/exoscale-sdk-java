@@ -25,17 +25,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AttachInstanceToSubnetRequest
+ * Model tests for AttachBlockStorageVolumeToInstanceRequest
  */
-public class AttachInstanceToSubnetRequestTest {
-    private final AttachInstanceToSubnetRequest model = new AttachInstanceToSubnetRequest();
+public class AttachBlockStorageVolumeToInstanceRequestTest {
+    private final AttachBlockStorageVolumeToInstanceRequest model = new AttachBlockStorageVolumeToInstanceRequest();
 
     /**
-     * Model tests for AttachInstanceToSubnetRequest
+     * Model tests for AttachBlockStorageVolumeToInstanceRequest
      */
     @Test
-    public void testAttachInstanceToSubnetRequest() {
-        // TODO: test AttachInstanceToSubnetRequest
+    public void testAttachBlockStorageVolumeToInstanceRequest() {
+        // TODO: test AttachBlockStorageVolumeToInstanceRequest
     }
 
     /**
@@ -44,14 +44,6 @@ public class AttachInstanceToSubnetRequestTest {
     @Test
     public void instanceTest() {
         // TODO: test instance
-    }
-
-    /**
-     * Test the property 'ipv4'
-     */
-    @Test
-    public void ipv4Test() {
-        // TODO: test ipv4
     }
 
 }

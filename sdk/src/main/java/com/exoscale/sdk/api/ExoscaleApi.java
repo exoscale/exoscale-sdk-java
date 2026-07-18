@@ -24,6 +24,7 @@ import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
+import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.AttachInstanceToSubnetRequest;
@@ -839,12 +840,12 @@ public class ExoscaleApi {
    * Attach block storage volume to an instance
    * 
    * @param id  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation attachBlockStorageVolumeToInstance(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = attachBlockStorageVolumeToInstanceWithHttpInfo(id, attachInstanceToSubnetRequest);
+  public Operation attachBlockStorageVolumeToInstance(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = attachBlockStorageVolumeToInstanceWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
     return localVarResponse.getData();
   }
 
@@ -852,12 +853,12 @@ public class ExoscaleApi {
    * Attach block storage volume to an instance
    * 
    * @param id  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> attachBlockStorageVolumeToInstanceWithHttpInfo(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = attachBlockStorageVolumeToInstanceRequestBuilder(id, attachInstanceToSubnetRequest);
+  private ApiResponse<Operation> attachBlockStorageVolumeToInstanceWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = attachBlockStorageVolumeToInstanceRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -885,14 +886,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder attachBlockStorageVolumeToInstanceRequestBuilder(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+  private HttpRequest.Builder attachBlockStorageVolumeToInstanceRequestBuilder(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling attachBlockStorageVolumeToInstance");
     }
-    // verify the required parameter 'attachInstanceToSubnetRequest' is set
-    if (attachInstanceToSubnetRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling attachBlockStorageVolumeToInstance");
+    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
+    if (attachBlockStorageVolumeToInstanceRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling attachBlockStorageVolumeToInstance");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -903,7 +904,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -1033,12 +1034,12 @@ public class ExoscaleApi {
    * Attach a Compute instance to an Elastic IP
    * 
    * @param id  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation attachInstanceToElasticIp(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = attachInstanceToElasticIpWithHttpInfo(id, attachInstanceToSubnetRequest);
+  public Operation attachInstanceToElasticIp(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = attachInstanceToElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
     return localVarResponse.getData();
   }
 
@@ -1046,12 +1047,12 @@ public class ExoscaleApi {
    * Attach a Compute instance to an Elastic IP
    * 
    * @param id  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> attachInstanceToElasticIpWithHttpInfo(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = attachInstanceToElasticIpRequestBuilder(id, attachInstanceToSubnetRequest);
+  private ApiResponse<Operation> attachInstanceToElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = attachInstanceToElasticIpRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1079,14 +1080,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder attachInstanceToElasticIpRequestBuilder(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+  private HttpRequest.Builder attachInstanceToElasticIpRequestBuilder(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling attachInstanceToElasticIp");
     }
-    // verify the required parameter 'attachInstanceToSubnetRequest' is set
-    if (attachInstanceToSubnetRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling attachInstanceToElasticIp");
+    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
+    if (attachBlockStorageVolumeToInstanceRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling attachInstanceToElasticIp");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -1097,7 +1098,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -5314,7 +5315,7 @@ public class ExoscaleApi {
   }
   /**
    * Create KMS Key
-   * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
+   * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical representation of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
    * @param createKmsKeyRequest  (required)
    * @return CreateKmsKeyResponse
    * @throws ApiException if fails to make API call
@@ -5326,7 +5327,7 @@ public class ExoscaleApi {
 
   /**
    * Create KMS Key
-   * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
+   * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical representation of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
    * @param createKmsKeyRequest  (required)
    * @return ApiResponse&lt;CreateKmsKeyResponse&gt;
    * @throws ApiException if fails to make API call
@@ -11499,12 +11500,12 @@ public class ExoscaleApi {
    * Detach a Compute instance from an Elastic IP
    * 
    * @param id  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation detachInstanceFromElasticIp(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = detachInstanceFromElasticIpWithHttpInfo(id, attachInstanceToSubnetRequest);
+  public Operation detachInstanceFromElasticIp(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = detachInstanceFromElasticIpWithHttpInfo(id, attachBlockStorageVolumeToInstanceRequest);
     return localVarResponse.getData();
   }
 
@@ -11512,12 +11513,12 @@ public class ExoscaleApi {
    * Detach a Compute instance from an Elastic IP
    * 
    * @param id  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> detachInstanceFromElasticIpWithHttpInfo(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromElasticIpRequestBuilder(id, attachInstanceToSubnetRequest);
+  private ApiResponse<Operation> detachInstanceFromElasticIpWithHttpInfo(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromElasticIpRequestBuilder(id, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -11545,14 +11546,14 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder detachInstanceFromElasticIpRequestBuilder(UUID id, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+  private HttpRequest.Builder detachInstanceFromElasticIpRequestBuilder(UUID id, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     // verify the required parameter 'id' is set
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling detachInstanceFromElasticIp");
     }
-    // verify the required parameter 'attachInstanceToSubnetRequest' is set
-    if (attachInstanceToSubnetRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling detachInstanceFromElasticIp");
+    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
+    if (attachBlockStorageVolumeToInstanceRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling detachInstanceFromElasticIp");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -11563,7 +11564,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -11791,12 +11792,12 @@ public class ExoscaleApi {
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation detachInstanceFromSubnet(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = detachInstanceFromSubnetWithHttpInfo(vpcId, subnetId, attachInstanceToSubnetRequest);
+  public Operation detachInstanceFromSubnet(UUID vpcId, UUID subnetId, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = detachInstanceFromSubnetWithHttpInfo(vpcId, subnetId, attachBlockStorageVolumeToInstanceRequest);
     return localVarResponse.getData();
   }
 
@@ -11805,12 +11806,12 @@ public class ExoscaleApi {
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
-   * @param attachInstanceToSubnetRequest  (required)
+   * @param attachBlockStorageVolumeToInstanceRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> detachInstanceFromSubnetWithHttpInfo(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromSubnetRequestBuilder(vpcId, subnetId, attachInstanceToSubnetRequest);
+  private ApiResponse<Operation> detachInstanceFromSubnetWithHttpInfo(UUID vpcId, UUID subnetId, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = detachInstanceFromSubnetRequestBuilder(vpcId, subnetId, attachBlockStorageVolumeToInstanceRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -11838,7 +11839,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder detachInstanceFromSubnetRequestBuilder(UUID vpcId, UUID subnetId, AttachInstanceToSubnetRequest attachInstanceToSubnetRequest) throws ApiException {
+  private HttpRequest.Builder detachInstanceFromSubnetRequestBuilder(UUID vpcId, UUID subnetId, AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest) throws ApiException {
     // verify the required parameter 'vpcId' is set
     if (vpcId == null) {
       throw new ApiException(400, "Missing the required parameter 'vpcId' when calling detachInstanceFromSubnet");
@@ -11847,9 +11848,9 @@ public class ExoscaleApi {
     if (subnetId == null) {
       throw new ApiException(400, "Missing the required parameter 'subnetId' when calling detachInstanceFromSubnet");
     }
-    // verify the required parameter 'attachInstanceToSubnetRequest' is set
-    if (attachInstanceToSubnetRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'attachInstanceToSubnetRequest' when calling detachInstanceFromSubnet");
+    // verify the required parameter 'attachBlockStorageVolumeToInstanceRequest' is set
+    if (attachBlockStorageVolumeToInstanceRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'attachBlockStorageVolumeToInstanceRequest' when calling detachInstanceFromSubnet");
     }
 
     Credentials credentials = apiClient.getCredentials();
@@ -11861,7 +11862,7 @@ public class ExoscaleApi {
       String requestBody = null;
       String authorizationValue;
           try{
-          requestBody = memberVarObjectMapper.writeValueAsString(attachInstanceToSubnetRequest);
+          requestBody = memberVarObjectMapper.writeValueAsString(attachBlockStorageVolumeToInstanceRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -12147,7 +12148,7 @@ public class ExoscaleApi {
   }
   /**
    * Enable KMS Key
-   * Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
+   * Enables a KMS Key by setting its state to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
    * @param id  (required)
    * @return SuccessResponse
    * @throws ApiException if fails to make API call
@@ -12159,7 +12160,7 @@ public class ExoscaleApi {
 
   /**
    * Enable KMS Key
-   * Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
+   * Enables a KMS Key by setting its state to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
@@ -21139,24 +21140,22 @@ public class ExoscaleApi {
   /**
    * List Deployments
    * List Deployments
-   * @param visibility  (optional)
    * @return ListDeploymentsResponse
    * @throws ApiException if fails to make API call
    */
-  public ListDeploymentsResponse listDeployments(String visibility) throws ApiException {
-    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo(visibility);
+  public ListDeploymentsResponse listDeployments() throws ApiException {
+    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
    * List Deployments
    * List Deployments
-   * @param visibility  (optional)
    * @return ApiResponse&lt;ListDeploymentsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo(String visibility) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder(visibility);
+  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -21184,7 +21183,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder listDeploymentsRequestBuilder(String visibility) throws ApiException {
+  private HttpRequest.Builder listDeploymentsRequestBuilder() throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -21203,22 +21202,7 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "visibility";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("visibility", visibility));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -22156,24 +22140,22 @@ public class ExoscaleApi {
   /**
    * List Models
    * List Models
-   * @param visibility  (optional)
    * @return ListModelsResponse
    * @throws ApiException if fails to make API call
    */
-  public ListModelsResponse listModels(String visibility) throws ApiException {
-    ApiResponse<ListModelsResponse> localVarResponse = listModelsWithHttpInfo(visibility);
+  public ListModelsResponse listModels() throws ApiException {
+    ApiResponse<ListModelsResponse> localVarResponse = listModelsWithHttpInfo();
     return localVarResponse.getData();
   }
 
   /**
    * List Models
    * List Models
-   * @param visibility  (optional)
    * @return ApiResponse&lt;ListModelsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<ListModelsResponse> listModelsWithHttpInfo(String visibility) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listModelsRequestBuilder(visibility);
+  private ApiResponse<ListModelsResponse> listModelsWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listModelsRequestBuilder();
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -22201,7 +22183,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder listModelsRequestBuilder(String visibility) throws ApiException {
+  private HttpRequest.Builder listModelsRequestBuilder() throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -22220,22 +22202,7 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "visibility";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("visibility", visibility));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 

@@ -1,6 +1,6 @@
 
 
-# AttachInstanceToSubnetRequest
+# AttachBlockStorageVolumeToInstanceRequest
 
 
 ## Properties
@@ -8,7 +8,6 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**instance** | [**InstanceRef**](InstanceRef.md) |  |  |
-|**ipv4** | **String** | Instance IPv4 |  [optional] |
 
 
 

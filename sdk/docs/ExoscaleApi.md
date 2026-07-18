@@ -851,7 +851,7 @@ No authorization required
 
 ## attachBlockStorageVolumeToInstance
 
-> Operation attachBlockStorageVolumeToInstance(id, attachInstanceToSubnetRequest)
+> Operation attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest)
 
 Attach block storage volume to an instance
 
@@ -871,11 +871,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.attachBlockStorageVolumeToInstance(id, attachInstanceToSubnetRequest);
+            Operation result = client.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachBlockStorageVolumeToInstance");
@@ -894,7 +894,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -922,7 +922,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -1041,7 +1041,7 @@ No authorization required
 
 ## attachInstanceToElasticIp
 
-> Operation attachInstanceToElasticIp(id, attachInstanceToSubnetRequest)
+> Operation attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest)
 
 Attach a Compute instance to an Elastic IP
 
@@ -1061,11 +1061,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.attachInstanceToElasticIp(id, attachInstanceToSubnetRequest);
+            Operation result = client.attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#attachInstanceToElasticIp");
@@ -1084,7 +1084,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -1112,7 +1112,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -1484,8 +1484,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key deletion cancelled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
 
 
 ### Parameters
@@ -1512,8 +1512,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key deletion cancelled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
 
 
 ## copyTemplate
@@ -1673,10 +1673,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ### Parameters
@@ -1703,10 +1703,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## createAntiAffinityGroup
@@ -4678,10 +4678,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **412** | 412 |  -  |
-| **403** | 403 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **412** | 412 (probably insufficient GPUs) |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ### Parameters
@@ -4708,10 +4708,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **412** | 412 |  -  |
-| **403** | 403 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **412** | 412 (probably insufficient GPUs) |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## createDnsDomain
@@ -5275,7 +5275,7 @@ No authorization required
 
 Create KMS Key
 
-Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
+Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical representation of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
 
 ### Example
 
@@ -5331,8 +5331,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Created new KMS key |  -  |
+| **400** | ### Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -5359,8 +5359,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Created new KMS key |  -  |
+| **400** | ### Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## createLoadBalancer
@@ -5517,8 +5517,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -5545,8 +5545,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
 
 
 ## createPrivateNetwork
@@ -6451,8 +6451,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Base64 encoded plaintext. |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ### Parameters
@@ -6480,8 +6480,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Base64 encoded plaintext. |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ## deleteAiApiKey
@@ -6546,9 +6546,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -6575,9 +6575,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -9397,10 +9397,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **409** | 409 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -9427,10 +9427,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **409** | 409 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## deleteDnsDomain
@@ -10237,10 +10237,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **412** | 412 |  -  |
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **412** | Precondition Failed |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -10267,10 +10267,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **412** | 412 |  -  |
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **412** | Precondition Failed |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## deletePrivateNetwork
@@ -11763,7 +11763,7 @@ No authorization required
 
 ## detachInstanceFromElasticIp
 
-> Operation detachInstanceFromElasticIp(id, attachInstanceToSubnetRequest)
+> Operation detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest)
 
 Detach a Compute instance from an Elastic IP
 
@@ -11783,11 +11783,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID id = UUID.randomUUID(); // UUID | 
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.detachInstanceFromElasticIp(id, attachInstanceToSubnetRequest);
+            Operation result = client.detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachInstanceFromElasticIp");
@@ -11806,7 +11806,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -11834,7 +11834,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -12048,7 +12048,7 @@ No authorization required
 
 ## detachInstanceFromSubnet
 
-> Operation detachInstanceFromSubnet(vpcId, subnetId, attachInstanceToSubnetRequest)
+> Operation detachInstanceFromSubnet(vpcId, subnetId, attachBlockStorageVolumeToInstanceRequest)
 
 [BETA] Detach a Compute instance from a Subnet
 
@@ -12069,11 +12069,11 @@ public class Example {
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         UUID vpcId = UUID.randomUUID(); // UUID | 
         UUID subnetId = UUID.randomUUID(); // UUID | 
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = new AttachInstanceToSubnetRequest(); // AttachInstanceToSubnetRequest |  please add at least all the required fields
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = new AttachBlockStorageVolumeToInstanceRequest(); // AttachBlockStorageVolumeToInstanceRequest |  please add at least all the required fields
 
         try {
             // Invoke the API method
-            Operation result = client.detachInstanceFromSubnet(vpcId, subnetId, attachInstanceToSubnetRequest);
+            Operation result = client.detachInstanceFromSubnet(vpcId, subnetId, attachBlockStorageVolumeToInstanceRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#detachInstanceFromSubnet");
@@ -12093,7 +12093,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **vpcId** | **UUID**|  | |
 | **subnetId** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -12122,7 +12122,7 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **vpcId** | **UUID**|  | |
 | **subnetId** | **UUID**|  | |
-| **attachInstanceToSubnetRequest** | [**AttachInstanceToSubnetRequest**](AttachInstanceToSubnetRequest.md)|  | |
+| **attachBlockStorageVolumeToInstanceRequest** | [**AttachBlockStorageVolumeToInstanceRequest**](AttachBlockStorageVolumeToInstanceRequest.md)|  | |
 
 ### Return type
 
@@ -12206,8 +12206,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key disabled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  |  -  |
 
 
 ### Parameters
@@ -12234,8 +12234,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key disabled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  |  -  |
 
 
 ## disableKmsKeyRotation
@@ -12300,8 +12300,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key rotation disabled |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
 
 
 ### Parameters
@@ -12328,8 +12328,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key rotation disabled |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
 
 
 ## enableDbaasMysqlWrites
@@ -12428,7 +12428,7 @@ No authorization required
 
 Enable KMS Key
 
-Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
+Enables a KMS Key by setting its state to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
 
 ### Example
 
@@ -12484,8 +12484,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key enabled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  |  -  |
 
 
 ### Parameters
@@ -12512,8 +12512,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key enabled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  |  -  |
 
 
 ## enableKmsKeyRotation
@@ -12580,8 +12580,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Periodic key rotation enabled |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -12609,8 +12609,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Periodic key rotation enabled |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## enableTpm
@@ -12769,8 +12769,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Base64 encoded ciphertext |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ### Parameters
@@ -12798,8 +12798,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Base64 encoded ciphertext |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ## evictInstancePoolMembers
@@ -13151,8 +13151,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Data Encryption Key in the clear and in its base64 encoded encrypted format. |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ### Parameters
@@ -13180,8 +13180,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Data Encryption Key in the clear and in its base64 encoded encrypted format. |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ## generateSksClusterKubeconfig
@@ -13620,9 +13620,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -13649,9 +13649,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## getAntiAffinityGroup
@@ -17234,8 +17234,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -17262,8 +17262,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## getDeploymentLogs
@@ -17332,10 +17332,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **500** | 500 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **500** | Internal Server Error |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ### Parameters
@@ -17364,10 +17364,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **500** | 500 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **500** | Internal Server Error |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## getDnsDomain
@@ -18072,7 +18072,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -18099,7 +18099,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **200** | OK |  -  |
 
 
 ## getInstance
@@ -18440,8 +18440,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | KMS Key Details |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ### Parameters
@@ -18468,8 +18468,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | KMS Key Details |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ## getLiveBalance
@@ -18808,8 +18808,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -18836,8 +18836,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## getOperation
@@ -20467,8 +20467,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -20492,8 +20492,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## getVpc
@@ -20646,8 +20646,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -20671,8 +20671,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **200** | OK |  -  |
 
 
 ## listAiInstanceTypes
@@ -20733,7 +20733,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -20757,7 +20757,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **200** | OK |  -  |
 
 
 ## listAntiAffinityGroups
@@ -21987,7 +21987,7 @@ No authorization required
 
 ## listDeployments
 
-> ListDeploymentsResponse listDeployments(visibility)
+> ListDeploymentsResponse listDeployments()
 
 List Deployments
 
@@ -22006,11 +22006,10 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListDeploymentsResponse result = client.listDeployments(visibility);
+            ListDeploymentsResponse result = client.listDeployments();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDeployments");
@@ -22025,10 +22024,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **visibility** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -22047,16 +22043,13 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **visibility** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -22075,8 +22068,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## listDnsDomainRecords
@@ -22854,8 +22847,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | The list of all historical rotations for the requested KMS key. |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ### Parameters
@@ -22882,8 +22875,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | The list of all historical rotations for the requested KMS key. |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ## listKmsKeys
@@ -22944,8 +22937,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | A list of all KMS keys in the target zone |  -  |
+| **400** | ### Errors  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -22969,8 +22962,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | A list of all KMS keys in the target zone |  -  |
+| **400** | ### Errors  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## listLoadBalancers
@@ -23060,7 +23053,7 @@ No authorization required
 
 ## listModels
 
-> ListModelsResponse listModels(visibility)
+> ListModelsResponse listModels()
 
 List Models
 
@@ -23079,11 +23072,10 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListModelsResponse result = client.listModels(visibility);
+            ListModelsResponse result = client.listModels();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listModels");
@@ -23098,10 +23090,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **visibility** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -23120,15 +23109,12 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **visibility** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -23147,7 +23133,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **200** | OK |  -  |
 
 
 ## listPrivateNetworks
@@ -24722,8 +24708,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Base64 encoded ciphertext |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -24751,8 +24737,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Base64 encoded ciphertext |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## rebootInstance
@@ -25282,8 +25268,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key replication target registered |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not Multizone: The request was rejected because the KMS key is not a multi-zone key.  Conflict: The request was rejected because the key is already replicated in the target zone.  Invalid Argument: The request was rejected because the target zone is invalid.  |  -  |
 
 
 ### Parameters
@@ -25311,8 +25297,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key replication target registered |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not Multizone: The request was rejected because the KMS key is not a multi-zone key.  Conflict: The request was rejected because the key is already replicated in the target zone.  Invalid Argument: The request was rejected because the target zone is invalid.  |  -  |
 
 
 ## resetDbaasClickhouseUserPassword
@@ -27096,8 +27082,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -27124,8 +27110,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## revealDbaasClickhouseUserPassword
@@ -28024,8 +28010,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -28052,8 +28038,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## revealInstancePassword
@@ -28305,9 +28291,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -28334,9 +28320,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## rotateKmsKey
@@ -28401,8 +28387,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key rotated |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on a Replica: The request was rejected because the operation is not allowed on a replica.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Manual Rotation Limit: The request was rejected because you reached your limit of 10 manual rotations per key for this KMS key.  |  -  |
 
 
 ### Parameters
@@ -28429,8 +28415,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key rotated |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on a Replica: The request was rejected because the operation is not allowed on a replica.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Manual Rotation Limit: The request was rejected because you reached your limit of 10 manual rotations per key for this KMS key.  |  -  |
 
 
 ## rotateSksCcmCredentials
@@ -28865,11 +28851,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **412** | 412 |  -  |
-| **403** | 403 |  -  |
-| **409** | 409 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **412** | Precondition Failed |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ### Parameters
@@ -28897,11 +28883,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **412** | 412 |  -  |
-| **403** | 403 |  -  |
-| **409** | 409 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
+| **412** | Precondition Failed |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## scaleInstance
@@ -29256,8 +29242,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key deletion scheduled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -29285,8 +29271,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **200** | Key deletion scheduled |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## startDbaasClickhouseMaintenance
@@ -30530,10 +30516,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ### Parameters
@@ -30561,10 +30547,10 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## updateBlockStorageSnapshot
@@ -32625,11 +32611,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **409** | 409 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ### Parameters
@@ -32657,11 +32643,11 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **403** | 403 |  -  |
-| **409** | 409 |  -  |
-| **404** | 404 |  -  |
-| **200** | 200 |  -  |
-| **400** | 400 |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## updateDnsDomainRecord

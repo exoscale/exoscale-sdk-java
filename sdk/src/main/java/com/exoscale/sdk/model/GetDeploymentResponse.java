@@ -69,7 +69,7 @@ public class GetDeploymentResponse {
   private String serviceLevel;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._25_0;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._25_1;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -176,7 +176,7 @@ public class GetDeploymentResponse {
   private VisibilityEnum visibility;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS = "inference-engine-parameters";
-  private List<String> inferenceEngineParameters = new ArrayList<>();
+  private List<String> inferenceEngineParameters;
 
   public static final String JSON_PROPERTY_MODEL = "model";
   private ModelRef model;
@@ -206,9 +206,9 @@ public class GetDeploymentResponse {
    * minimum: 1
    * @return gpuCount
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getGpuCount() {
     return gpuCount;
@@ -216,7 +216,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_GPU_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGpuCount(Long gpuCount) {
     this.gpuCount = gpuCount;
   }
@@ -226,9 +226,9 @@ public class GetDeploymentResponse {
    * Update time
    * @return updatedAt
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -271,9 +271,9 @@ public class GetDeploymentResponse {
    * Service level
    * @return serviceLevel
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getServiceLevel() {
     return serviceLevel;
@@ -281,7 +281,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_SERVICE_LEVEL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setServiceLevel(String serviceLevel) {
     this.serviceLevel = serviceLevel;
   }
@@ -296,9 +296,9 @@ public class GetDeploymentResponse {
    * Get inferenceEngineVersion
    * @return inferenceEngineVersion
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public InferenceEngineVersion getInferenceEngineVersion() {
     return inferenceEngineVersion;
@@ -306,7 +306,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInferenceEngineVersion(InferenceEngineVersion inferenceEngineVersion) {
     this.inferenceEngineVersion = inferenceEngineVersion;
   }
@@ -371,9 +371,9 @@ public class GetDeploymentResponse {
    * GPU type family
    * @return gpuType
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGpuType() {
     return gpuType;
@@ -381,7 +381,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_GPU_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGpuType(String gpuType) {
     this.gpuType = gpuType;
   }
@@ -391,9 +391,9 @@ public class GetDeploymentResponse {
    * Deployment ID
    * @return id
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UUID getId() {
     return id;
@@ -412,9 +412,9 @@ public class GetDeploymentResponse {
    * minimum: 0
    * @return replicas
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getReplicas() {
     return replicas;
@@ -422,7 +422,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_REPLICAS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setReplicas(Long replicas) {
     this.replicas = replicas;
   }
@@ -437,9 +437,9 @@ public class GetDeploymentResponse {
    * Deployment state details
    * @return stateDetails
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStateDetails() {
     return stateDetails;
@@ -447,7 +447,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_STATE_DETAILS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStateDetails(String stateDetails) {
     this.stateDetails = stateDetails;
   }
@@ -457,9 +457,9 @@ public class GetDeploymentResponse {
    * Creation time
    * @return createdAt
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -510,9 +510,9 @@ public class GetDeploymentResponse {
    * Optional extra inference engine server CLI args
    * @return inferenceEngineParameters
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getInferenceEngineParameters() {
     return inferenceEngineParameters;
@@ -520,7 +520,7 @@ public class GetDeploymentResponse {
 
 
   @JsonProperty(JSON_PROPERTY_INFERENCE_ENGINE_PARAMETERS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInferenceEngineParameters(List<String> inferenceEngineParameters) {
     this.inferenceEngineParameters = inferenceEngineParameters;
   }

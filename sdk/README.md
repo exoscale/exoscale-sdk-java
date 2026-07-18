@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-07-15T07:39:53.541877456Z[Etc/UTC]
+- Build date: 2026-07-18T07:35:07.714159393Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-56639fd</version>
+    <version>0.0.5-SNAPSHOT-63f0b82</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-56639fd'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-63f0b82'
 }
 ```
 
@@ -470,6 +470,7 @@ Class | Method | HTTP request | Description
  - [ApiKeyUsageEntry](sdk/docs/ApiKeyUsageEntry.md)
  - [AssumeIamRole200Response](sdk/docs/AssumeIamRole200Response.md)
  - [AssumeIamRoleRequest](sdk/docs/AssumeIamRoleRequest.md)
+ - [AttachBlockStorageVolumeToInstanceRequest](sdk/docs/AttachBlockStorageVolumeToInstanceRequest.md)
  - [AttachDbaasServiceToEndpointRequest](sdk/docs/AttachDbaasServiceToEndpointRequest.md)
  - [AttachInstanceToPrivateNetworkRequest](sdk/docs/AttachInstanceToPrivateNetworkRequest.md)
  - [AttachInstanceToPrivateNetworkRequestInstance](sdk/docs/AttachInstanceToPrivateNetworkRequestInstance.md)

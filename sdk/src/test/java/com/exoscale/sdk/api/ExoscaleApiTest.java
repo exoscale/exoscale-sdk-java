@@ -20,6 +20,7 @@ import com.exoscale.sdk.model.AddServiceToLoadBalancerRequest;
 import com.exoscale.sdk.model.AntiAffinityGroup;
 import com.exoscale.sdk.model.AssumeIamRole200Response;
 import com.exoscale.sdk.model.AssumeIamRoleRequest;
+import com.exoscale.sdk.model.AttachBlockStorageVolumeToInstanceRequest;
 import com.exoscale.sdk.model.AttachDbaasServiceToEndpointRequest;
 import com.exoscale.sdk.model.AttachInstanceToPrivateNetworkRequest;
 import com.exoscale.sdk.model.AttachInstanceToSubnetRequest;
@@ -413,9 +414,9 @@ public class ExoscaleApiTest {
     @Test
     public void attachBlockStorageVolumeToInstanceTest() throws ApiException {
         UUID id = null;
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
         Operation response = 
-        api.attachBlockStorageVolumeToInstance(id, attachInstanceToSubnetRequest);
+        api.attachBlockStorageVolumeToInstance(id, attachBlockStorageVolumeToInstanceRequest);
         
         // TODO: test validations
     }
@@ -449,9 +450,9 @@ public class ExoscaleApiTest {
     @Test
     public void attachInstanceToElasticIpTest() throws ApiException {
         UUID id = null;
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
         Operation response = 
-        api.attachInstanceToElasticIp(id, attachInstanceToSubnetRequest);
+        api.attachInstanceToElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
         
         // TODO: test validations
     }
@@ -1240,7 +1241,7 @@ public class ExoscaleApiTest {
     /**
      * Create KMS Key
      *
-     * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical represention of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
+     * Create a customer-managed unique KMS Key in your organization. A KMS Key is a logical representation of a cryptographic key material. It also includes metadata such as a UUID, a name and its state.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2462,9 +2463,9 @@ public class ExoscaleApiTest {
     @Test
     public void detachInstanceFromElasticIpTest() throws ApiException {
         UUID id = null;
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
         Operation response = 
-        api.detachInstanceFromElasticIp(id, attachInstanceToSubnetRequest);
+        api.detachInstanceFromElasticIp(id, attachBlockStorageVolumeToInstanceRequest);
         
         // TODO: test validations
     }
@@ -2517,9 +2518,9 @@ public class ExoscaleApiTest {
     public void detachInstanceFromSubnetTest() throws ApiException {
         UUID vpcId = null;
         UUID subnetId = null;
-        AttachInstanceToSubnetRequest attachInstanceToSubnetRequest = null;
+        AttachBlockStorageVolumeToInstanceRequest attachBlockStorageVolumeToInstanceRequest = null;
         Operation response = 
-        api.detachInstanceFromSubnet(vpcId, subnetId, attachInstanceToSubnetRequest);
+        api.detachInstanceFromSubnet(vpcId, subnetId, attachBlockStorageVolumeToInstanceRequest);
         
         // TODO: test validations
     }
@@ -2578,7 +2579,7 @@ public class ExoscaleApiTest {
     /**
      * Enable KMS Key
      *
-     * Enables a KMS Key by setting its stated to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
+     * Enables a KMS Key by setting its state to \&quot;enabled\&quot;. It restores the ability to fully use the KMS key for cryptographic operations and key lifecycle operations.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -4367,9 +4368,8 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listDeploymentsTest() throws ApiException {
-        String visibility = null;
         ListDeploymentsResponse response = 
-        api.listDeployments(visibility);
+        api.listDeployments();
         
         // TODO: test validations
     }
@@ -4568,9 +4568,8 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listModelsTest() throws ApiException {
-        String visibility = null;
         ListModelsResponse response = 
-        api.listModels(visibility);
+        api.listModels();
         
         // TODO: test validations
     }

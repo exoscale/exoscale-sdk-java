@@ -17,6 +17,7 @@ docs/AntiAffinityGroupRef.md
 docs/ApiKeyUsageEntry.md
 docs/AssumeIamRole200Response.md
 docs/AssumeIamRoleRequest.md
+docs/AttachBlockStorageVolumeToInstanceRequest.md
 docs/AttachDbaasServiceToEndpointRequest.md
 docs/AttachInstanceToPrivateNetworkRequest.md
 docs/AttachInstanceToPrivateNetworkRequestInstance.md
@@ -567,6 +568,7 @@ src/main/java/com/exoscale/sdk/model/AntiAffinityGroupRef.java
 src/main/java/com/exoscale/sdk/model/ApiKeyUsageEntry.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRole200Response.java
 src/main/java/com/exoscale/sdk/model/AssumeIamRoleRequest.java
+src/main/java/com/exoscale/sdk/model/AttachBlockStorageVolumeToInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/AttachDbaasServiceToEndpointRequest.java
 src/main/java/com/exoscale/sdk/model/AttachInstanceToPrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/AttachInstanceToPrivateNetworkRequestInstance.java
