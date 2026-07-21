@@ -289,6 +289,8 @@ docs/GetDeploymentLogsEntry.md
 docs/GetDeploymentLogsResponse.md
 docs/GetDeploymentResponse.md
 docs/GetDnsDomainZoneFile200Response.md
+docs/GetImpactEstimate200Response.md
+docs/GetImpactEstimateRequest.md
 docs/GetInferenceEngineHelpResponse.md
 docs/GetKmsKeyResponse.md
 docs/GetModelResponse.md
@@ -309,6 +311,10 @@ docs/IamPolicy.md
 docs/IamRole.md
 docs/IamServicePolicy.md
 docs/IamServicePolicyRule.md
+docs/ImpactBreakdown.md
+docs/ImpactErrorResponse.md
+docs/ImpactResourceTreeNode.md
+docs/ImpactValueWithUnit.md
 docs/InferenceEngineParameterEntry.md
 docs/InferenceEngineVersion.md
 docs/IngestMeteringRequest.md
@@ -486,6 +492,7 @@ docs/SshKey.md
 docs/SshKeyRef.md
 docs/StartInstanceRequest.md
 docs/Subnet.md
+docs/SubnetInstancesInner.md
 docs/SuccessResponse.md
 docs/Template.md
 docs/TemplateRef.md
@@ -538,6 +545,7 @@ docs/User.md
 docs/Vpc.md
 docs/WriteAheadLogWALSettings.md
 docs/Zone.md
+docs/ZoneImpact.md
 docs/ZoneName.md
 git_push.sh
 gradle.properties
@@ -839,6 +847,8 @@ src/main/java/com/exoscale/sdk/model/GetDeploymentLogsEntry.java
 src/main/java/com/exoscale/sdk/model/GetDeploymentLogsResponse.java
 src/main/java/com/exoscale/sdk/model/GetDeploymentResponse.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
+src/main/java/com/exoscale/sdk/model/GetImpactEstimate200Response.java
+src/main/java/com/exoscale/sdk/model/GetImpactEstimateRequest.java
 src/main/java/com/exoscale/sdk/model/GetInferenceEngineHelpResponse.java
 src/main/java/com/exoscale/sdk/model/GetKmsKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GetModelResponse.java
@@ -859,6 +869,10 @@ src/main/java/com/exoscale/sdk/model/IamPolicy.java
 src/main/java/com/exoscale/sdk/model/IamRole.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicy.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicyRule.java
+src/main/java/com/exoscale/sdk/model/ImpactBreakdown.java
+src/main/java/com/exoscale/sdk/model/ImpactErrorResponse.java
+src/main/java/com/exoscale/sdk/model/ImpactResourceTreeNode.java
+src/main/java/com/exoscale/sdk/model/ImpactValueWithUnit.java
 src/main/java/com/exoscale/sdk/model/InferenceEngineParameterEntry.java
 src/main/java/com/exoscale/sdk/model/InferenceEngineVersion.java
 src/main/java/com/exoscale/sdk/model/IngestMeteringRequest.java
@@ -1036,6 +1050,7 @@ src/main/java/com/exoscale/sdk/model/SshKey.java
 src/main/java/com/exoscale/sdk/model/SshKeyRef.java
 src/main/java/com/exoscale/sdk/model/StartInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/Subnet.java
+src/main/java/com/exoscale/sdk/model/SubnetInstancesInner.java
 src/main/java/com/exoscale/sdk/model/SuccessResponse.java
 src/main/java/com/exoscale/sdk/model/Template.java
 src/main/java/com/exoscale/sdk/model/TemplateRef.java
@@ -1088,4 +1103,5 @@ src/main/java/com/exoscale/sdk/model/User.java
 src/main/java/com/exoscale/sdk/model/Vpc.java
 src/main/java/com/exoscale/sdk/model/WriteAheadLogWALSettings.java
 src/main/java/com/exoscale/sdk/model/Zone.java
+src/main/java/com/exoscale/sdk/model/ZoneImpact.java
 src/main/java/com/exoscale/sdk/model/ZoneName.java

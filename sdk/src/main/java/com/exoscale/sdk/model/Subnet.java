@@ -19,14 +19,17 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.SubnetInstancesInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,28 +39,29 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Subnet
  */
 @JsonPropertyOrder({
-  Subnet.JSON_PROPERTY_ID,
-  Subnet.JSON_PROPERTY_NAME,
   Subnet.JSON_PROPERTY_DESCRIPTION,
-  Subnet.JSON_PROPERTY_CREATED_AT,
+  Subnet.JSON_PROPERTY_LABELS,
+  Subnet.JSON_PROPERTY_NAME,
+  Subnet.JSON_PROPERTY_IPV4_BLOCK,
   Subnet.JSON_PROPERTY_ADDRESSFAMILY,
   Subnet.JSON_PROPERTY_ADDRESS_SPACE,
-  Subnet.JSON_PROPERTY_IPV4_BLOCK,
-  Subnet.JSON_PROPERTY_LABELS
+  Subnet.JSON_PROPERTY_INSTANCES,
+  Subnet.JSON_PROPERTY_ID,
+  Subnet.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class Subnet {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
+  public static final String JSON_PROPERTY_IPV4_BLOCK = "ipv4-block";
+  private String ipv4Block;
 
   /**
    * Subnet address family
@@ -133,37 +137,73 @@ public class Subnet {
   public static final String JSON_PROPERTY_ADDRESS_SPACE = "address-space";
   private AddressSpaceEnum addressSpace;
 
-  public static final String JSON_PROPERTY_IPV4_BLOCK = "ipv4-block";
-  private String ipv4Block;
+  public static final String JSON_PROPERTY_INSTANCES = "instances";
+  private List<SubnetInstancesInner> instances;
 
-  public static final String JSON_PROPERTY_LABELS = "labels";
-  private Map<String, String> labels = new HashMap<>();
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
+  private OffsetDateTime createdAt;
 
   public Subnet() { 
   }
 
-  public Subnet id(UUID id) {
-    this.id = id;
+  public Subnet description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Subnet ID
-   * @return id
+   * Subnet description
+   * @return description
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
-    return id;
+  public String getDescription() {
+    return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(UUID id) {
-    this.id = id;
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public Subnet labels(Map<String, String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public Subnet putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
+    this.labels.put(key, labelsItem);
+    return this;
+  }
+
+   /**
+   * Get labels
+   * @return labels
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabels(Map<String, String> labels) {
+    this.labels = labels;
   }
 
 
@@ -192,53 +232,28 @@ public class Subnet {
   }
 
 
-  public Subnet description(String description) {
-    this.description = description;
+  public Subnet ipv4Block(String ipv4Block) {
+    this.ipv4Block = ipv4Block;
     return this;
   }
 
    /**
-   * Subnet description
-   * @return description
+   * Subnet ipv4 CIDR
+   * @return ipv4Block
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getDescription() {
-    return description;
+  public String getIpv4Block() {
+    return ipv4Block;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public Subnet createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Subnet creation date
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
+  public void setIpv4Block(String ipv4Block) {
+    this.ipv4Block = ipv4Block;
   }
 
 
@@ -292,61 +307,86 @@ public class Subnet {
   }
 
 
-  public Subnet ipv4Block(String ipv4Block) {
-    this.ipv4Block = ipv4Block;
+  public Subnet instances(List<SubnetInstancesInner> instances) {
+    this.instances = instances;
     return this;
   }
 
-   /**
-   * Subnet ipv4 CIDR
-   * @return ipv4Block
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getIpv4Block() {
-    return ipv4Block;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpv4Block(String ipv4Block) {
-    this.ipv4Block = ipv4Block;
-  }
-
-
-  public Subnet labels(Map<String, String> labels) {
-    this.labels = labels;
-    return this;
-  }
-
-  public Subnet putLabelsItem(String key, String labelsItem) {
-    if (this.labels == null) {
-      this.labels = new HashMap<>();
+  public Subnet addInstancesItem(SubnetInstancesInner instancesItem) {
+    if (this.instances == null) {
+      this.instances = new ArrayList<>();
     }
-    this.labels.put(key, labelsItem);
+    this.instances.add(instancesItem);
     return this;
   }
 
    /**
-   * Get labels
-   * @return labels
+   * Instances attached to the subnet
+   * @return instances
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonProperty(JSON_PROPERTY_INSTANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Map<String, String> getLabels() {
-    return labels;
+  public List<SubnetInstancesInner> getInstances() {
+    return instances;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonProperty(JSON_PROPERTY_INSTANCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabels(Map<String, String> labels) {
-    this.labels = labels;
+  public void setInstances(List<SubnetInstancesInner> instances) {
+    this.instances = instances;
+  }
+
+
+  public Subnet id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Subnet ID
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
+  public Subnet createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Subnet creation date
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
 
@@ -362,33 +402,35 @@ public class Subnet {
       return false;
     }
     Subnet subnet = (Subnet) o;
-    return Objects.equals(this.id, subnet.id) &&
+    return Objects.equals(this.description, subnet.description) &&
+        Objects.equals(this.labels, subnet.labels) &&
         Objects.equals(this.name, subnet.name) &&
-        Objects.equals(this.description, subnet.description) &&
-        Objects.equals(this.createdAt, subnet.createdAt) &&
+        Objects.equals(this.ipv4Block, subnet.ipv4Block) &&
         Objects.equals(this.addressfamily, subnet.addressfamily) &&
         Objects.equals(this.addressSpace, subnet.addressSpace) &&
-        Objects.equals(this.ipv4Block, subnet.ipv4Block) &&
-        Objects.equals(this.labels, subnet.labels);
+        Objects.equals(this.instances, subnet.instances) &&
+        Objects.equals(this.id, subnet.id) &&
+        Objects.equals(this.createdAt, subnet.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, createdAt, addressfamily, addressSpace, ipv4Block, labels);
+    return Objects.hash(description, labels, name, ipv4Block, addressfamily, addressSpace, instances, id, createdAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Subnet {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ipv4Block: ").append(toIndentedString(ipv4Block)).append("\n");
     sb.append("    addressfamily: ").append(toIndentedString(addressfamily)).append("\n");
     sb.append("    addressSpace: ").append(toIndentedString(addressSpace)).append("\n");
-    sb.append("    ipv4Block: ").append(toIndentedString(ipv4Block)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -436,9 +478,18 @@ public class Subnet {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      for (String _key : getLabels().keySet()) {
+        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     // add `name` to the URL query string
@@ -446,14 +497,9 @@ public class Subnet {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `created-at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `ipv4-block` to the URL query string
+    if (getIpv4Block() != null) {
+      joiner.add(String.format("%sipv4-block%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv4Block()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `addressfamily` to the URL query string
@@ -466,18 +512,24 @@ public class Subnet {
       joiner.add(String.format("%saddress-space%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddressSpace()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `ipv4-block` to the URL query string
-    if (getIpv4Block() != null) {
-      joiner.add(String.format("%sipv4-block%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv4Block()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `instances` to the URL query string
+    if (getInstances() != null) {
+      for (int i = 0; i < getInstances().size(); i++) {
+        if (getInstances().get(i) != null) {
+          joiner.add(getInstances().get(i).toUrlQueryString(String.format("%sinstances%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
-    // add `labels` to the URL query string
-    if (getLabels() != null) {
-      for (String _key : getLabels().keySet()) {
-        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-      }
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `created-at` to the URL query string
+    if (getCreatedAt() != null) {
+      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

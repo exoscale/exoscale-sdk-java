@@ -163,6 +163,8 @@ import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentLogsResponse;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetImpactEstimate200Response;
+import com.exoscale.sdk.model.GetImpactEstimateRequest;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
 import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
@@ -173,6 +175,8 @@ import com.exoscale.sdk.model.IamApiKey;
 import com.exoscale.sdk.model.IamApiKeyCreated;
 import com.exoscale.sdk.model.IamPolicy;
 import com.exoscale.sdk.model.IamRole;
+import com.exoscale.sdk.model.ImpactBreakdown;
+import com.exoscale.sdk.model.ImpactErrorResponse;
 import com.exoscale.sdk.model.Instance;
 import com.exoscale.sdk.model.InstancePassword;
 import com.exoscale.sdk.model.InstancePool;
@@ -17407,6 +17411,195 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Return an estimate of the impact of a given usage
+   * 
+   * @param getImpactEstimateRequest  (required)
+   * @return GetImpactEstimate200Response
+   * @throws ApiException if fails to make API call
+   */
+  public GetImpactEstimate200Response getImpactEstimate(GetImpactEstimateRequest getImpactEstimateRequest) throws ApiException {
+    ApiResponse<GetImpactEstimate200Response> localVarResponse = getImpactEstimateWithHttpInfo(getImpactEstimateRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Return an estimate of the impact of a given usage
+   * 
+   * @param getImpactEstimateRequest  (required)
+   * @return ApiResponse&lt;GetImpactEstimate200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetImpactEstimate200Response> getImpactEstimateWithHttpInfo(GetImpactEstimateRequest getImpactEstimateRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getImpactEstimateRequestBuilder(getImpactEstimateRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getImpactEstimate", localVarResponse);
+        }
+        return new ApiResponse<GetImpactEstimate200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetImpactEstimate200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getImpactEstimateRequestBuilder(GetImpactEstimateRequest getImpactEstimateRequest) throws ApiException {
+    // verify the required parameter 'getImpactEstimateRequest' is set
+    if (getImpactEstimateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'getImpactEstimateRequest' when calling getImpactEstimate");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/environmental-impact/estimate";
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(getImpactEstimateRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Return an environmental impact report for the given period
+   * 
+   * @param from  (optional)
+   * @param to  (optional)
+   * @return ImpactBreakdown
+   * @throws ApiException if fails to make API call
+   */
+  public ImpactBreakdown getImpactReport(String from, String to) throws ApiException {
+    ApiResponse<ImpactBreakdown> localVarResponse = getImpactReportWithHttpInfo(from, to);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Return an environmental impact report for the given period
+   * 
+   * @param from  (optional)
+   * @param to  (optional)
+   * @return ApiResponse&lt;ImpactBreakdown&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ImpactBreakdown> getImpactReportWithHttpInfo(String from, String to) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getImpactReportRequestBuilder(from, to);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getImpactReport", localVarResponse);
+        }
+        return new ApiResponse<ImpactBreakdown>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ImpactBreakdown>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getImpactReportRequestBuilder(String from, String to) throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/environmental-impact/report";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "from";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("from", from));
+    localVarQueryParameterBaseName = "to";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("to", to));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Get inference-engine Help
    * Get list of allowed inference engine parameters with their descriptions and allowed values
    * @param version  (optional)
@@ -21140,22 +21333,24 @@ public class ExoscaleApi {
   /**
    * List Deployments
    * List Deployments
+   * @param visibility  (optional)
    * @return ListDeploymentsResponse
    * @throws ApiException if fails to make API call
    */
-  public ListDeploymentsResponse listDeployments() throws ApiException {
-    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo();
+  public ListDeploymentsResponse listDeployments(String visibility) throws ApiException {
+    ApiResponse<ListDeploymentsResponse> localVarResponse = listDeploymentsWithHttpInfo(visibility);
     return localVarResponse.getData();
   }
 
   /**
    * List Deployments
    * List Deployments
+   * @param visibility  (optional)
    * @return ApiResponse&lt;ListDeploymentsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder();
+  private ApiResponse<ListDeploymentsResponse> listDeploymentsWithHttpInfo(String visibility) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDeploymentsRequestBuilder(visibility);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -21183,7 +21378,7 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder listDeploymentsRequestBuilder() throws ApiException {
+  private HttpRequest.Builder listDeploymentsRequestBuilder(String visibility) throws ApiException {
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -21202,7 +21397,22 @@ public class ExoscaleApi {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
       localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "visibility";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("visibility", visibility));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/json");
 

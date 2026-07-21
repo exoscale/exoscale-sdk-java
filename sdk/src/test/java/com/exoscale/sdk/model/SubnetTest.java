@@ -13,14 +13,17 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.SubnetInstancesInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.junit.Assert;
@@ -42,11 +45,19 @@ public class SubnetTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'description'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'labels'
+     */
+    @Test
+    public void labelsTest() {
+        // TODO: test labels
     }
 
     /**
@@ -58,19 +69,11 @@ public class SubnetTest {
     }
 
     /**
-     * Test the property 'description'
+     * Test the property 'ipv4Block'
      */
     @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
+    public void ipv4BlockTest() {
+        // TODO: test ipv4Block
     }
 
     /**
@@ -90,19 +93,27 @@ public class SubnetTest {
     }
 
     /**
-     * Test the property 'ipv4Block'
+     * Test the property 'instances'
      */
     @Test
-    public void ipv4BlockTest() {
-        // TODO: test ipv4Block
+    public void instancesTest() {
+        // TODO: test instances
     }
 
     /**
-     * Test the property 'labels'
+     * Test the property 'id'
      */
     @Test
-    public void labelsTest() {
-        // TODO: test labels
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
 }

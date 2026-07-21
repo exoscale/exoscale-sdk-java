@@ -207,6 +207,15 @@ tags:
   x-display-name: DBaaS Valkey
   x-weight: 460
   x-icon: exo-db-valkey
+- description: "View the impact of your past usage, and estimate the impact of future\
+    \ usage."
+  externalDocs:
+    description: Read more
+    url: https://www.exoscale.com/sustainability/
+  name: environmental-impact
+  x-display-name: Environmental Impact
+  x-weight: 1150
+  x-icon: exo-license
 - description: Operations for KMS Key lifecycle management.
   externalDocs:
     description: Read more
@@ -2263,6 +2272,41 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /environmental-impact/estimate:
+    post:
+      description: ""
+      operationId: get-impact-estimate
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/get_impact_estimate_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_impact_estimate_200_response'
+          description: Impact estimate
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/impact-error-response'
+          description: Invalid request (e.g. product does not exist)
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/impact-error-response'
+          description: Internal server error
+      summary: Return an estimate of the impact of a given usage
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /deploy-target:
     get:
       description: ""
@@ -2299,7 +2343,14 @@ paths:
     get:
       description: List Deployments
       operationId: list-deployments
-      parameters: []
+      parameters:
+      - explode: true
+        in: query
+        name: visibility
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -8745,6 +8796,48 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /environmental-impact/report:
+    get:
+      description: ""
+      operationId: get-impact-report
+      parameters:
+      - explode: true
+        in: query
+        name: from
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: to
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/impact-breakdown'
+          description: Environmental impact report
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/impact-error-response'
+          description: Invalid request (e.g. to date before from date)
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/impact-error-response'
+          description: Internal server error
+      summary: Return an environmental impact report for the given period
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-settings-kafka:
     get:
       description: Get DBaaS Kafka settings
@@ -11499,6 +11592,11 @@ components:
       description: Subnet
       example:
         ipv4-block: ipv4-block
+        instances:
+        - ipv4: ipv4
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - ipv4: ipv4
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         address-space: private
         name: name
         addressfamily: inet4
@@ -11508,22 +11606,21 @@ components:
         labels:
           key: labels
       properties:
-        id:
-          description: Subnet ID
-          format: uuid
+        description:
+          description: Subnet description
+          maxLength: 4096
           type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
         name:
           description: Subnet name
           maxLength: 255
           minLength: 1
           type: string
-        description:
-          description: Subnet description
-          maxLength: 4096
-          type: string
-        created-at:
-          description: Subnet creation date
-          format: date-time
+        ipv4-block:
+          description: Subnet ipv4 CIDR
           type: string
         addressfamily:
           description: Subnet address family
@@ -11536,13 +11633,50 @@ components:
           enum:
           - private
           type: string
-        ipv4-block:
-          description: Subnet ipv4 CIDR
+        instances:
+          description: Instances attached to the subnet
+          items:
+            $ref: '#/components/schemas/subnet_instances_inner'
+          type: array
+        id:
+          description: Subnet ID
+          format: uuid
           type: string
-        labels:
+        created-at:
+          description: Subnet creation date
+          format: date-time
+          type: string
+      type: object
+    zone-impact:
+      description: Hierarchical breakdown of impact in a given zone
+      example:
+        impact:
+          key:
+            unit: unit
+            value: 0.8008281904610115
+        resources:
+          key:
+            impact:
+              key:
+                unit: unit
+                value: 0.8008281904610115
+            usage:
+              unit: unit
+              value: 0.8008281904610115
+            resources:
+              key: null
+      properties:
+        impact:
           additionalProperties:
-            type: string
+            $ref: '#/components/schemas/impact-value-with-unit'
           type: object
+        resources:
+          additionalProperties:
+            $ref: '#/components/schemas/impact-resource-tree-node'
+          type: object
+      required:
+      - impact
+      - resources
       type: object
     dbaas-user-valkey-secrets:
       description: Valkey User secrets
@@ -16003,6 +16137,42 @@ components:
       - dual
       - none
       type: string
+    impact-breakdown:
+      example:
+        impact:
+          key:
+            unit: unit
+            value: 0.8008281904610115
+        zones:
+          key:
+            impact:
+              key:
+                unit: unit
+                value: 0.8008281904610115
+            resources:
+              key:
+                impact:
+                  key:
+                    unit: unit
+                    value: 0.8008281904610115
+                usage:
+                  unit: unit
+                  value: 0.8008281904610115
+                resources:
+                  key: null
+      properties:
+        impact:
+          additionalProperties:
+            $ref: '#/components/schemas/impact-value-with-unit'
+          type: object
+        zones:
+          additionalProperties:
+            $ref: '#/components/schemas/zone-impact'
+          type: object
+      required:
+      - impact
+      - zones
+      type: object
     elastic-ip-healthcheck:
       description: Elastic IP address healthcheck
       example:
@@ -16212,6 +16382,20 @@ components:
           items:
             type: string
           type: array
+      type: object
+    impact-value-with-unit:
+      example:
+        unit: unit
+        value: 0.8008281904610115
+      properties:
+        unit:
+          type: string
+        value:
+          format: double
+          type: number
+      required:
+      - unit
+      - value
       type: object
     ssh-key:
       description: SSH key
@@ -16848,6 +17032,35 @@ components:
           description: Snapshot ID
           format: uuid
           type: string
+      type: object
+    impact-resource-tree-node:
+      description: Hierarchical breakdown of impact for a given level in the catalog
+        tree
+      example:
+        impact:
+          key:
+            unit: unit
+            value: 0.8008281904610115
+        usage:
+          unit: unit
+          value: 0.8008281904610115
+        resources:
+          key: null
+      properties:
+        impact:
+          additionalProperties:
+            $ref: '#/components/schemas/impact-value-with-unit'
+          type: object
+        usage:
+          $ref: '#/components/schemas/impact-value-with-unit'
+        resources:
+          additionalProperties:
+            $ref: '#/components/schemas/impact-resource-tree-node'
+          type: object
+      required:
+      - impact
+      - resources
+      - usage
       type: object
     rate-limited:
       description: Rate Limit
@@ -21835,6 +22048,26 @@ components:
       - rotated-at
       - version
       type: object
+    impact-error-response:
+      description: Error response
+      example:
+        detail: detail
+        title: title
+        status: 400
+      properties:
+        title:
+          type: string
+        status:
+          maximum: 599
+          minimum: 100
+          type: integer
+        detail:
+          type: string
+      required:
+      - detail
+      - status
+      - title
+      type: object
     dbaas-endpoint-rsyslog-input-create:
       properties:
         settings:
@@ -25696,6 +25929,29 @@ components:
       properties:
         settings:
           $ref: '#/components/schemas/get_dbaas_settings_grafana_200_response_settings'
+      type: object
+    get_impact_estimate_request:
+      properties:
+        sku:
+          type: string
+        metadata:
+          type: object
+      required:
+      - sku
+      type: object
+    get_impact_estimate_200_response:
+      example:
+        impact:
+          key:
+            unit: unit
+            value: 0.8008281904610115
+      properties:
+        impact:
+          additionalProperties:
+            $ref: '#/components/schemas/impact-value-with-unit'
+          type: object
+      required:
+      - impact
       type: object
     list_deploy_targets_200_response:
       example:
@@ -30391,6 +30647,21 @@ components:
           maxLength: 32
           minLength: 5
           pattern: "^[a-z0-9\\-@_]{5,32}$"
+          type: string
+      type: object
+    subnet_instances_inner:
+      description: Subnet attachements
+      example:
+        ipv4: ipv4
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: Instance uuid
+          format: uuid
+          type: string
+        ipv4:
+          description: Instance Ipv4 address
+          format: ipv4
           type: string
       type: object
     dbaas_endpoint_rsyslog_input_update_settings:

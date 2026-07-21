@@ -194,6 +194,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
+| [**getImpactEstimate**](ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | Return an estimate of the impact of a given usage |
+| [**getImpactReport**](ExoscaleApi.md#getImpactReport) | **GET** /environmental-impact/report | Return an environmental impact report for the given period |
 | [**getInferenceEngineHelp**](ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | Get inference-engine Help |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
@@ -18010,6 +18012,201 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## getImpactEstimate
+
+> GetImpactEstimate200Response getImpactEstimate(getImpactEstimateRequest)
+
+Return an estimate of the impact of a given usage
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        GetImpactEstimateRequest getImpactEstimateRequest = new GetImpactEstimateRequest(); // GetImpactEstimateRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            GetImpactEstimate200Response result = client.getImpactEstimate(getImpactEstimateRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getImpactEstimate");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **getImpactEstimateRequest** | [**GetImpactEstimateRequest**](GetImpactEstimateRequest.md)|  | |
+
+### Return type
+
+[**GetImpactEstimate200Response**](GetImpactEstimate200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Impact estimate |  -  |
+| **400** | Invalid request (e.g. product does not exist) |  -  |
+| **500** | Internal server error |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **getImpactEstimateRequest** | [**GetImpactEstimateRequest**](GetImpactEstimateRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**GetImpactEstimate200Response**](GetImpactEstimate200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Impact estimate |  -  |
+| **400** | Invalid request (e.g. product does not exist) |  -  |
+| **500** | Internal server error |  -  |
+
+
+## getImpactReport
+
+> ImpactBreakdown getImpactReport(from, to)
+
+Return an environmental impact report for the given period
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String from = "from_example"; // String | 
+        String to = "to_example"; // String | 
+
+        try {
+            // Invoke the API method
+            ImpactBreakdown result = client.getImpactReport(from, to);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getImpactReport");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **from** | **String**|  | [optional] |
+| **to** | **String**|  | [optional] |
+
+### Return type
+
+[**ImpactBreakdown**](ImpactBreakdown.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Environmental impact report |  -  |
+| **400** | Invalid request (e.g. to date before from date) |  -  |
+| **500** | Internal server error |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **from** | **String**|  | [optional] |
+| **to** | **String**|  | [optional] |
+
+### Return type
+
+ApiResponse<[**ImpactBreakdown**](ImpactBreakdown.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Environmental impact report |  -  |
+| **400** | Invalid request (e.g. to date before from date) |  -  |
+| **500** | Internal server error |  -  |
+
+
 ## getInferenceEngineHelp
 
 > GetInferenceEngineHelpResponse getInferenceEngineHelp(version)
@@ -21987,7 +22184,7 @@ No authorization required
 
 ## listDeployments
 
-> ListDeploymentsResponse listDeployments()
+> ListDeploymentsResponse listDeployments(visibility)
 
 List Deployments
 
@@ -22006,10 +22203,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListDeploymentsResponse result = client.listDeployments();
+            ListDeploymentsResponse result = client.listDeployments(visibility);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDeployments");
@@ -22024,7 +22222,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -22049,7 +22250,10 @@ No authorization required
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 

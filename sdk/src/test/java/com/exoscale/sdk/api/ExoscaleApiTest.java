@@ -159,6 +159,8 @@ import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentLogsResponse;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetImpactEstimate200Response;
+import com.exoscale.sdk.model.GetImpactEstimateRequest;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
 import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
@@ -169,6 +171,8 @@ import com.exoscale.sdk.model.IamApiKey;
 import com.exoscale.sdk.model.IamApiKeyCreated;
 import com.exoscale.sdk.model.IamPolicy;
 import com.exoscale.sdk.model.IamRole;
+import com.exoscale.sdk.model.ImpactBreakdown;
+import com.exoscale.sdk.model.ImpactErrorResponse;
 import com.exoscale.sdk.model.Instance;
 import com.exoscale.sdk.model.InstancePassword;
 import com.exoscale.sdk.model.InstancePool;
@@ -3618,6 +3622,41 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Return an estimate of the impact of a given usage
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getImpactEstimateTest() throws ApiException {
+        GetImpactEstimateRequest getImpactEstimateRequest = null;
+        GetImpactEstimate200Response response = 
+        api.getImpactEstimate(getImpactEstimateRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Return an environmental impact report for the given period
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getImpactReportTest() throws ApiException {
+        String from = null;
+        String to = null;
+        ImpactBreakdown response = 
+        api.getImpactReport(from, to);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Get inference-engine Help
      *
      * Get list of allowed inference engine parameters with their descriptions and allowed values
@@ -4368,8 +4407,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listDeploymentsTest() throws ApiException {
+        String visibility = null;
         ListDeploymentsResponse response = 
-        api.listDeployments();
+        api.listDeployments(visibility);
         
         // TODO: test validations
     }
