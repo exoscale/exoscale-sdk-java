@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-07-21T07:50:43.368846656Z[Etc/UTC]
+- Build date: 2026-07-29T07:56:58.190363980Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-67bb8b8</version>
+    <version>0.0.5-SNAPSHOT-f908d95</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-67bb8b8'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-f908d95'
 }
 ```
 
@@ -152,7 +152,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
 *ExoscaleApi* | [**deleteBlockStorageVolume**](sdk/docs/ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
-*ExoscaleApi* | [**deleteDbaasClickhouseUser**](sdk/docs/ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{username} | [BETA] Delete a DBaaS ClickHouse user
+*ExoscaleApi* | [**deleteDbaasClickhouseUser**](sdk/docs/ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{user-uuid} | [BETA] Delete a DBaaS ClickHouse user
 *ExoscaleApi* | [**deleteDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} | 
 *ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
 *ExoscaleApi* | [**deleteDbaasExternalEndpointOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} | 
@@ -864,6 +864,7 @@ Class | Method | HTTP request | Description
  - [Networking](sdk/docs/Networking.md)
  - [NodeDuressSettings](sdk/docs/NodeDuressSettings.md)
  - [NvidiaMigProfileA3024gb](sdk/docs/NvidiaMigProfileA3024gb.md)
+ - [NvidiaMigProfileB300269gb](sdk/docs/NvidiaMigProfileB300269gb.md)
  - [NvidiaMigProfileRtxpro600096gb](sdk/docs/NvidiaMigProfileRtxpro600096gb.md)
  - [NvidiaMigProfiles](sdk/docs/NvidiaMigProfiles.md)
  - [OpensearchEmailSenderSettings](sdk/docs/OpensearchEmailSenderSettings.md)

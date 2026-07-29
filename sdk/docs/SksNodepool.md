@@ -50,6 +50,7 @@ SKS Nodepool
 | CREATING | &quot;creating&quot; |
 | DELETING | &quot;deleting&quot; |
 | RUNNING | &quot;running&quot; |
+| DEGRADED | &quot;degraded&quot; |
 | SCALING | &quot;scaling&quot; |
 | UPDATING | &quot;updating&quot; |
 | ERROR | &quot;error&quot; |

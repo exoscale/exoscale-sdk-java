@@ -6946,12 +6946,12 @@ public class ExoscaleApi {
    * [BETA] Delete a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
-   * @param username  (required)
+   * @param userUuid  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
    */
-  public Operation deleteDbaasClickhouseUser(String serviceName, String username) throws ApiException {
-    ApiResponse<Operation> localVarResponse = deleteDbaasClickhouseUserWithHttpInfo(serviceName, username);
+  public Operation deleteDbaasClickhouseUser(String serviceName, UUID userUuid) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasClickhouseUserWithHttpInfo(serviceName, userUuid);
     return localVarResponse.getData();
   }
 
@@ -6959,12 +6959,12 @@ public class ExoscaleApi {
    * [BETA] Delete a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
-   * @param username  (required)
+   * @param userUuid  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Operation> deleteDbaasClickhouseUserWithHttpInfo(String serviceName, String username) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = deleteDbaasClickhouseUserRequestBuilder(serviceName, username);
+  private ApiResponse<Operation> deleteDbaasClickhouseUserWithHttpInfo(String serviceName, UUID userUuid) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasClickhouseUserRequestBuilder(serviceName, userUuid);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -6992,22 +6992,22 @@ public class ExoscaleApi {
     }
   }
 
-  private HttpRequest.Builder deleteDbaasClickhouseUserRequestBuilder(String serviceName, String username) throws ApiException {
+  private HttpRequest.Builder deleteDbaasClickhouseUserRequestBuilder(String serviceName, UUID userUuid) throws ApiException {
     // verify the required parameter 'serviceName' is set
     if (serviceName == null) {
       throw new ApiException(400, "Missing the required parameter 'serviceName' when calling deleteDbaasClickhouseUser");
     }
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      throw new ApiException(400, "Missing the required parameter 'username' when calling deleteDbaasClickhouseUser");
+    // verify the required parameter 'userUuid' is set
+    if (userUuid == null) {
+      throw new ApiException(400, "Missing the required parameter 'userUuid' when calling deleteDbaasClickhouseUser");
     }
 
     Credentials credentials = apiClient.getCredentials();
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/dbaas-clickhouse/{service-name}/user/{username}"
+    String localVarPath = "/dbaas-clickhouse/{service-name}/user/{user-uuid}"
         .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
-        .replace("{username}", ApiClient.urlEncode(username.toString()));
+        .replace("{user-uuid}", ApiClient.urlEncode(userUuid.toString()));
       String requestBody = null;
       String authorizationValue;
 

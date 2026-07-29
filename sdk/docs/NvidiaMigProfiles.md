@@ -10,6 +10,7 @@ Nvidia MIG Profiles enabled
 |------------ | ------------- | ------------- | -------------|
 |**a3024gb** | **NvidiaMigProfileA3024gb** |  |  [optional] |
 |**rtxpro600096gb** | **NvidiaMigProfileRtxpro600096gb** |  |  [optional] |
+|**b300269gb** | **NvidiaMigProfileB300269gb** |  |  [optional] |
 
 
 

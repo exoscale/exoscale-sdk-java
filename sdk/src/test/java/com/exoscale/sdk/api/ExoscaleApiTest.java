@@ -1564,9 +1564,9 @@ public class ExoscaleApiTest {
     @Test
     public void deleteDbaasClickhouseUserTest() throws ApiException {
         String serviceName = null;
-        String username = null;
+        UUID userUuid = null;
         Operation response = 
-        api.deleteDbaasClickhouseUser(serviceName, username);
+        api.deleteDbaasClickhouseUser(serviceName, userUuid);
         
         // TODO: test validations
     }

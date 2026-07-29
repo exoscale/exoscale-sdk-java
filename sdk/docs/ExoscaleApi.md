@@ -74,7 +74,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
-| [**deleteDbaasClickhouseUser**](ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{username} | [BETA] Delete a DBaaS ClickHouse user |
+| [**deleteDbaasClickhouseUser**](ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{user-uuid} | [BETA] Delete a DBaaS ClickHouse user |
 | [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
@@ -6950,7 +6950,7 @@ No authorization required
 
 ## deleteDbaasClickhouseUser
 
-> Operation deleteDbaasClickhouseUser(serviceName, username)
+> Operation deleteDbaasClickhouseUser(serviceName, userUuid)
 
 [BETA] Delete a DBaaS ClickHouse user
 
@@ -6968,11 +6968,11 @@ public class Example {
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
         String serviceName = "serviceName_example"; // String | 
-        String username = "username_example"; // String | 
+        UUID userUuid = UUID.randomUUID(); // UUID | 
 
         try {
             // Invoke the API method
-            Operation result = client.deleteDbaasClickhouseUser(serviceName, username);
+            Operation result = client.deleteDbaasClickhouseUser(serviceName, userUuid);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteDbaasClickhouseUser");
@@ -6991,7 +6991,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
-| **username** | **String**|  | |
+| **userUuid** | **UUID**|  | |
 
 ### Return type
 
@@ -7019,7 +7019,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **serviceName** | **String**|  | |
-| **username** | **String**|  | |
+| **userUuid** | **UUID**|  | |
 
 ### Return type
 

@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.NvidiaMigProfileA3024gb;
+import com.exoscale.sdk.model.NvidiaMigProfileB300269gb;
 import com.exoscale.sdk.model.NvidiaMigProfileRtxpro600096gb;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -53,6 +54,14 @@ public class NvidiaMigProfilesTest {
     @Test
     public void rtxpro600096gbTest() {
         // TODO: test rtxpro600096gb
+    }
+
+    /**
+     * Test the property 'b300269gb'
+     */
+    @Test
+    public void b300269gbTest() {
+        // TODO: test b300269gb
     }
 
 }

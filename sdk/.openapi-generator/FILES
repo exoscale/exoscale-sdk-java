@@ -410,6 +410,7 @@ docs/ModelUsageCounters.md
 docs/Networking.md
 docs/NodeDuressSettings.md
 docs/NvidiaMigProfileA3024gb.md
+docs/NvidiaMigProfileB300269gb.md
 docs/NvidiaMigProfileRtxpro600096gb.md
 docs/NvidiaMigProfiles.md
 docs/OpensearchEmailSenderSettings.md
@@ -968,6 +969,7 @@ src/main/java/com/exoscale/sdk/model/ModelUsageCounters.java
 src/main/java/com/exoscale/sdk/model/Networking.java
 src/main/java/com/exoscale/sdk/model/NodeDuressSettings.java
 src/main/java/com/exoscale/sdk/model/NvidiaMigProfileA3024gb.java
+src/main/java/com/exoscale/sdk/model/NvidiaMigProfileB300269gb.java
 src/main/java/com/exoscale/sdk/model/NvidiaMigProfileRtxpro600096gb.java
 src/main/java/com/exoscale/sdk/model/NvidiaMigProfiles.java
 src/main/java/com/exoscale/sdk/model/OpensearchEmailSenderSettings.java

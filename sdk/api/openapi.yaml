@@ -219,7 +219,7 @@ tags:
 - description: Operations for KMS Key lifecycle management.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/kms/kms-key
+    url: https://community.exoscale.com/documentation/security/kms/overview
   name: kms-key
   x-display-name: KMS Key
   x-weight: 1130
@@ -372,7 +372,7 @@ tags:
 - description: A suite of cryptographic primitives offered by the Exoscale KMS.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/kms/crypto
+    url: https://community.exoscale.com/documentation/security/kms/overview
   name: crypto
   x-display-name: Cryptographic Operations
   x-weight: 1140
@@ -425,7 +425,7 @@ tags:
     \ lets you create, control and manage the lifecycle of cryptographic keys."
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/kms/
+    url: https://community.exoscale.com/documentation/security/kms/
   name: kms
   x-display-name: KMS
   x-weight: 1120
@@ -7288,35 +7288,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /dbaas-clickhouse/{service-name}/user/{username}:
-    delete:
-      operationId: delete-dbaas-clickhouse-user
-      parameters:
-      - explode: false
-        in: path
-        name: service-name
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-service-name'
-        style: simple
-      - explode: false
-        in: path
-        name: username
-        required: true
-        schema:
-          $ref: '#/components/schemas/dbaas-user-username'
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: "[BETA] Delete a DBaaS ClickHouse user"
-      tags:
-      - exoscale
-      x-accepts: application/json
   /dbaas-clickhouse/{service-name}/user/{username}/password/reveal:
     get:
       operationId: reveal-dbaas-clickhouse-user-password
@@ -7727,6 +7698,36 @@ paths:
                 $ref: '#/components/schemas/dbaas-user-thanos-secrets'
           description: "200"
       summary: Reveal the secrets of a DBaaS Thanos user
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /dbaas-clickhouse/{service-name}/user/{user-uuid}:
+    delete:
+      operationId: delete-dbaas-clickhouse-user
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: user-uuid
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Delete a DBaaS ClickHouse user"
       tags:
       - exoscale
       x-accepts: application/json
@@ -13553,11 +13554,14 @@ components:
       example:
         rtxpro6000.96gb: null
         a30.24gb: null
+        b300.269gb: null
       properties:
         a30.24gb:
           $ref: '#/components/schemas/nvidia-mig-profile-a30.24gb'
         rtxpro6000.96gb:
           $ref: '#/components/schemas/nvidia-mig-profile-rtxpro6000.96gb'
+        b300.269gb:
+          $ref: '#/components/schemas/nvidia-mig-profile-b300.269gb'
       type: object
     dbaas-external-integration:
       description: Integrations with other services
@@ -19183,6 +19187,7 @@ components:
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
+            b300.269gb: null
           version: version
           labels:
             key: labels
@@ -19235,6 +19240,7 @@ components:
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
+            b300.269gb: null
           version: version
           labels:
             key: labels
@@ -19287,6 +19293,7 @@ components:
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
+            b300.269gb: null
           version: version
           labels:
             key: labels
@@ -19339,6 +19346,7 @@ components:
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
+            b300.269gb: null
           version: version
           labels:
             key: labels
@@ -19391,6 +19399,7 @@ components:
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
+            b300.269gb: null
           version: version
           labels:
             key: labels
@@ -19798,6 +19807,24 @@ components:
           format: uuid
           type: string
       type: object
+    nvidia-mig-profile-b300.269gb:
+      enum:
+      - 1g.34gb
+      - 1g.34gb+me
+      - 1g.67gb
+      - 2g.67gb
+      - 3g.135gb
+      - 4g.135gb
+      - 7g.269gb
+      type: string
+      x-go-enum-varnames:
+      - 1G34Gb
+      - 1G34GbMe
+      - 1G67Gb
+      - 2G67Gb
+      - 3G135Gb
+      - 4G135Gb
+      - 7G269Gb
     scale-deployment-request:
       description: Scale AI deployment
       properties:
@@ -20023,6 +20050,7 @@ components:
         nvidia-mig-profiles:
           rtxpro6000.96gb: null
           a30.24gb: null
+          b300.269gb: null
         version: version
         labels:
           key: labels
@@ -20109,6 +20137,7 @@ components:
           - creating
           - deleting
           - running
+          - degraded
           - scaling
           - updating
           - error
@@ -27654,6 +27683,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -27706,6 +27736,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -27758,6 +27789,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -27810,6 +27842,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -27862,6 +27895,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -27949,6 +27983,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -28001,6 +28036,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -28053,6 +28089,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -28105,6 +28142,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels
@@ -28157,6 +28195,7 @@ components:
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
+              b300.269gb: null
             version: version
             labels:
               key: labels

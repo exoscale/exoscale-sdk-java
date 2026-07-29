@@ -151,6 +151,8 @@ public class SksNodepool {
     
     RUNNING("running"),
     
+    DEGRADED("degraded"),
+    
     SCALING("scaling"),
     
     UPDATING("updating"),

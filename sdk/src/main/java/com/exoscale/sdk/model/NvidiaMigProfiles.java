@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.NvidiaMigProfileA3024gb;
+import com.exoscale.sdk.model.NvidiaMigProfileB300269gb;
 import com.exoscale.sdk.model.NvidiaMigProfileRtxpro600096gb;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,7 +36,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   NvidiaMigProfiles.JSON_PROPERTY_A3024GB,
-  NvidiaMigProfiles.JSON_PROPERTY_RTXPRO600096GB
+  NvidiaMigProfiles.JSON_PROPERTY_RTXPRO600096GB,
+  NvidiaMigProfiles.JSON_PROPERTY_B300269GB
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class NvidiaMigProfiles {
@@ -44,6 +46,9 @@ public class NvidiaMigProfiles {
 
   public static final String JSON_PROPERTY_RTXPRO600096GB = "rtxpro6000.96gb";
   private NvidiaMigProfileRtxpro600096gb rtxpro600096gb;
+
+  public static final String JSON_PROPERTY_B300269GB = "b300.269gb";
+  private NvidiaMigProfileB300269gb b300269gb;
 
   public NvidiaMigProfiles() { 
   }
@@ -98,6 +103,31 @@ public class NvidiaMigProfiles {
   }
 
 
+  public NvidiaMigProfiles b300269gb(NvidiaMigProfileB300269gb b300269gb) {
+    this.b300269gb = b300269gb;
+    return this;
+  }
+
+   /**
+   * Get b300269gb
+   * @return b300269gb
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_B300269GB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public NvidiaMigProfileB300269gb getB300269gb() {
+    return b300269gb;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_B300269GB)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setB300269gb(NvidiaMigProfileB300269gb b300269gb) {
+    this.b300269gb = b300269gb;
+  }
+
+
   /**
    * Return true if this nvidia-mig-profiles object is equal to o.
    */
@@ -111,12 +141,13 @@ public class NvidiaMigProfiles {
     }
     NvidiaMigProfiles nvidiaMigProfiles = (NvidiaMigProfiles) o;
     return Objects.equals(this.a3024gb, nvidiaMigProfiles.a3024gb) &&
-        Objects.equals(this.rtxpro600096gb, nvidiaMigProfiles.rtxpro600096gb);
+        Objects.equals(this.rtxpro600096gb, nvidiaMigProfiles.rtxpro600096gb) &&
+        Objects.equals(this.b300269gb, nvidiaMigProfiles.b300269gb);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(a3024gb, rtxpro600096gb);
+    return Objects.hash(a3024gb, rtxpro600096gb, b300269gb);
   }
 
   @Override
@@ -125,6 +156,7 @@ public class NvidiaMigProfiles {
     sb.append("class NvidiaMigProfiles {\n");
     sb.append("    a3024gb: ").append(toIndentedString(a3024gb)).append("\n");
     sb.append("    rtxpro600096gb: ").append(toIndentedString(rtxpro600096gb)).append("\n");
+    sb.append("    b300269gb: ").append(toIndentedString(b300269gb)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -180,6 +212,11 @@ public class NvidiaMigProfiles {
     // add `rtxpro6000.96gb` to the URL query string
     if (getRtxpro600096gb() != null) {
       joiner.add(String.format("%srtxpro6000.96gb%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRtxpro600096gb()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `b300.269gb` to the URL query string
+    if (getB300269gb() != null) {
+      joiner.add(String.format("%sb300.269gb%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getB300269gb()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
