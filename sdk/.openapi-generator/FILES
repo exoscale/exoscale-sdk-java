@@ -79,6 +79,10 @@ docs/CreateUserRequest.md
 docs/CreateVpcRequest.md
 docs/DbaasBackupConfig.md
 docs/DbaasClickhouseAclConfig.md
+docs/DbaasClickhouseGrantedRole.md
+docs/DbaasClickhouseRole.md
+docs/DbaasClickhouseRolePrivilege.md
+docs/DbaasClickhouseRoles.md
 docs/DbaasClickhouseUser.md
 docs/DbaasClickhouseUserAclConfig.md
 docs/DbaasClickhouseUserPrivilege.md
@@ -639,6 +643,10 @@ src/main/java/com/exoscale/sdk/model/CreateUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateVpcRequest.java
 src/main/java/com/exoscale/sdk/model/DbaasBackupConfig.java
 src/main/java/com/exoscale/sdk/model/DbaasClickhouseAclConfig.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseGrantedRole.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseRole.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseRolePrivilege.java
+src/main/java/com/exoscale/sdk/model/DbaasClickhouseRoles.java
 src/main/java/com/exoscale/sdk/model/DbaasClickhouseUser.java
 src/main/java/com/exoscale/sdk/model/DbaasClickhouseUserAclConfig.java
 src/main/java/com/exoscale/sdk/model/DbaasClickhouseUserPrivilege.java

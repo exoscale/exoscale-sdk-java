@@ -72,6 +72,7 @@ import com.exoscale.sdk.model.CreateSubnetRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.CreateVpcRequest;
 import com.exoscale.sdk.model.DbaasClickhouseAclConfig;
+import com.exoscale.sdk.model.DbaasClickhouseRoles;
 import com.exoscale.sdk.model.DbaasClickhouseUsers;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
@@ -1549,6 +1550,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.deleteBlockStorageVolume(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Delete a DBaaS ClickHouse role
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteDbaasClickhouseRoleTest() throws ApiException {
+        String serviceName = null;
+        UUID roleUuid = null;
+        Operation response = 
+        api.deleteDbaasClickhouseRole(serviceName, roleUuid);
         
         // TODO: test validations
     }
@@ -4227,6 +4246,23 @@ public class ExoscaleApiTest {
         UUID instanceId = null;
         ListBlockStorageVolumes200Response response = 
         api.listBlockStorageVolumes(instanceId);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] List DBaaS ClickHouse roles
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDbaasClickhouseRolesTest() throws ApiException {
+        String serviceName = null;
+        DbaasClickhouseRoles response = 
+        api.listDbaasClickhouseRoles(serviceName);
         
         // TODO: test validations
     }

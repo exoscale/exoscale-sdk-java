@@ -74,6 +74,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
+| [**deleteDbaasClickhouseRole**](ExoscaleApi.md#deleteDbaasClickhouseRole) | **DELETE** /dbaas-clickhouse/{service-name}/role/{role-uuid} | [BETA] Delete a DBaaS ClickHouse role |
 | [**deleteDbaasClickhouseUser**](ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{user-uuid} | [BETA] Delete a DBaaS ClickHouse user |
 | [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
@@ -230,6 +231,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listApiKeys**](ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys |
 | [**listBlockStorageSnapshots**](ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots |
 | [**listBlockStorageVolumes**](ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes |
+| [**listDbaasClickhouseRoles**](ExoscaleApi.md#listDbaasClickhouseRoles) | **GET** /dbaas-clickhouse/{service-name}/role | [BETA] List DBaaS ClickHouse roles |
 | [**listDbaasClickhouseUsers**](ExoscaleApi.md#listDbaasClickhouseUsers) | **GET** /dbaas-clickhouse/{service-name}/user | [BETA] List DBaaS ClickHouse users |
 | [**listDbaasExternalEndpointTypes**](ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types |  |
 | [**listDbaasExternalEndpoints**](ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints |  |
@@ -6927,6 +6929,99 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## deleteDbaasClickhouseRole
+
+> Operation deleteDbaasClickhouseRole(serviceName, roleUuid)
+
+[BETA] Delete a DBaaS ClickHouse role
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        UUID roleUuid = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.deleteDbaasClickhouseRole(serviceName, roleUuid);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#deleteDbaasClickhouseRole");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **roleUuid** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **roleUuid** | **UUID**|  | |
 
 ### Return type
 
@@ -21285,6 +21380,96 @@ No authorization required
 ### Return type
 
 ApiResponse<[**ListBlockStorageVolumes200Response**](ListBlockStorageVolumes200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## listDbaasClickhouseRoles
+
+> DbaasClickhouseRoles listDbaasClickhouseRoles(serviceName)
+
+[BETA] List DBaaS ClickHouse roles
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+
+        try {
+            // Invoke the API method
+            DbaasClickhouseRoles result = client.listDbaasClickhouseRoles(serviceName);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listDbaasClickhouseRoles");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+[**DbaasClickhouseRoles**](DbaasClickhouseRoles.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+
+### Return type
+
+ApiResponse<[**DbaasClickhouseRoles**](DbaasClickhouseRoles.md)>
 
 
 ### Authorization

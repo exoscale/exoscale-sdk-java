@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -33,12 +34,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * JsonSchemaClickhouse
  */
 @JsonPropertyOrder({
-  JsonSchemaClickhouse.JSON_PROPERTY_SERVER_SETTINGS
+  JsonSchemaClickhouse.JSON_PROPERTY_SERVER_SETTINGS,
+  JsonSchemaClickhouse.JSON_PROPERTY_TIERED_STORAGE_MOVE_FACTOR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class JsonSchemaClickhouse {
   public static final String JSON_PROPERTY_SERVER_SETTINGS = "server_settings";
   private ClickHouseServerSettings serverSettings;
+
+  public static final String JSON_PROPERTY_TIERED_STORAGE_MOVE_FACTOR = "tiered_storage_move_factor";
+  private BigDecimal tieredStorageMoveFactor = new BigDecimal("0.2");
 
   public JsonSchemaClickhouse() { 
   }
@@ -68,6 +73,33 @@ public class JsonSchemaClickhouse {
   }
 
 
+  public JsonSchemaClickhouse tieredStorageMoveFactor(BigDecimal tieredStorageMoveFactor) {
+    this.tieredStorageMoveFactor = tieredStorageMoveFactor;
+    return this;
+  }
+
+   /**
+   * The percentage of free disk space required on local storage before data is moved to object storage. A value of 0.2 means data is moved when local storage has less than 20% free space.
+   * minimum: 0
+   * maximum: 1
+   * @return tieredStorageMoveFactor
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIERED_STORAGE_MOVE_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getTieredStorageMoveFactor() {
+    return tieredStorageMoveFactor;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIERED_STORAGE_MOVE_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTieredStorageMoveFactor(BigDecimal tieredStorageMoveFactor) {
+    this.tieredStorageMoveFactor = tieredStorageMoveFactor;
+  }
+
+
   /**
    * Return true if this json-schema-clickhouse object is equal to o.
    */
@@ -80,12 +112,13 @@ public class JsonSchemaClickhouse {
       return false;
     }
     JsonSchemaClickhouse jsonSchemaClickhouse = (JsonSchemaClickhouse) o;
-    return Objects.equals(this.serverSettings, jsonSchemaClickhouse.serverSettings);
+    return Objects.equals(this.serverSettings, jsonSchemaClickhouse.serverSettings) &&
+        Objects.equals(this.tieredStorageMoveFactor, jsonSchemaClickhouse.tieredStorageMoveFactor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverSettings);
+    return Objects.hash(serverSettings, tieredStorageMoveFactor);
   }
 
   @Override
@@ -93,6 +126,7 @@ public class JsonSchemaClickhouse {
     StringBuilder sb = new StringBuilder();
     sb.append("class JsonSchemaClickhouse {\n");
     sb.append("    serverSettings: ").append(toIndentedString(serverSettings)).append("\n");
+    sb.append("    tieredStorageMoveFactor: ").append(toIndentedString(tieredStorageMoveFactor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,6 +177,11 @@ public class JsonSchemaClickhouse {
     // add `server_settings` to the URL query string
     if (getServerSettings() != null) {
       joiner.add(getServerSettings().toUrlQueryString(prefix + "server_settings" + suffix));
+    }
+
+    // add `tiered_storage_move_factor` to the URL query string
+    if (getTieredStorageMoveFactor() != null) {
+      joiner.add(String.format("%stiered_storage_move_factor%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTieredStorageMoveFactor()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

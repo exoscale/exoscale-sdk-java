@@ -13,46 +13,39 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ClickHouseServerSettings;
+import com.exoscale.sdk.model.DbaasClickhouseRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for JsonSchemaClickhouse
+ * Model tests for DbaasClickhouseRoles
  */
-public class JsonSchemaClickhouseTest {
-    private final JsonSchemaClickhouse model = new JsonSchemaClickhouse();
+public class DbaasClickhouseRolesTest {
+    private final DbaasClickhouseRoles model = new DbaasClickhouseRoles();
 
     /**
-     * Model tests for JsonSchemaClickhouse
+     * Model tests for DbaasClickhouseRoles
      */
     @Test
-    public void testJsonSchemaClickhouse() {
-        // TODO: test JsonSchemaClickhouse
+    public void testDbaasClickhouseRoles() {
+        // TODO: test DbaasClickhouseRoles
     }
 
     /**
-     * Test the property 'serverSettings'
+     * Test the property 'roles'
      */
     @Test
-    public void serverSettingsTest() {
-        // TODO: test serverSettings
-    }
-
-    /**
-     * Test the property 'tieredStorageMoveFactor'
-     */
-    @Test
-    public void tieredStorageMoveFactorTest() {
-        // TODO: test tieredStorageMoveFactor
+    public void rolesTest() {
+        // TODO: test roles
     }
 
 }

@@ -13,46 +13,60 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ClickHouseServerSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for JsonSchemaClickhouse
+ * Model tests for DbaasClickhouseGrantedRole
  */
-public class JsonSchemaClickhouseTest {
-    private final JsonSchemaClickhouse model = new JsonSchemaClickhouse();
+public class DbaasClickhouseGrantedRoleTest {
+    private final DbaasClickhouseGrantedRole model = new DbaasClickhouseGrantedRole();
 
     /**
-     * Model tests for JsonSchemaClickhouse
+     * Model tests for DbaasClickhouseGrantedRole
      */
     @Test
-    public void testJsonSchemaClickhouse() {
-        // TODO: test JsonSchemaClickhouse
+    public void testDbaasClickhouseGrantedRole() {
+        // TODO: test DbaasClickhouseGrantedRole
     }
 
     /**
-     * Test the property 'serverSettings'
+     * Test the property 'name'
      */
     @Test
-    public void serverSettingsTest() {
-        // TODO: test serverSettings
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
-     * Test the property 'tieredStorageMoveFactor'
+     * Test the property 'uuid'
      */
     @Test
-    public void tieredStorageMoveFactorTest() {
-        // TODO: test tieredStorageMoveFactor
+    public void uuidTest() {
+        // TODO: test uuid
+    }
+
+    /**
+     * Test the property 'isDefault'
+     */
+    @Test
+    public void isDefaultTest() {
+        // TODO: test isDefault
+    }
+
+    /**
+     * Test the property 'withAdminOption'
+     */
+    @Test
+    public void withAdminOptionTest() {
+        // TODO: test withAdminOption
     }
 
 }

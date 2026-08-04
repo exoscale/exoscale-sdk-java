@@ -2459,6 +2459,28 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-clickhouse/{service-name}/role:
+    get:
+      operationId: list-dbaas-clickhouse-roles
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-clickhouse-roles'
+          description: "200"
+      summary: "[BETA] List DBaaS ClickHouse roles"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /block-storage/{id}:attach:
     put:
       description: ""
@@ -3489,6 +3511,36 @@ paths:
                 $ref: '#/components/schemas/security-group'
           description: "200"
       summary: Retrieve Security Group details
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /dbaas-clickhouse/{service-name}/role/{role-uuid}:
+    delete:
+      operationId: delete-dbaas-clickhouse-role
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      - explode: false
+        in: path
+        name: role-uuid
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: "[BETA] Delete a DBaaS ClickHouse role"
       tags:
       - exoscale
       x-accepts: application/json
@@ -10888,6 +10940,7 @@ components:
           arrowflight-uri: arrowflight-uri
         updated-at: 2000-01-23T04:56:07.000+00:00
         clickhouse-settings:
+          tiered_storage_move_factor: 0.2
           server_settings:
             vector_similarity_index_cache_size: 0.07
         prometheus-uri:
@@ -11295,11 +11348,22 @@ components:
       type: integer
     json-schema-clickhouse:
       example:
+        tiered_storage_move_factor: 0.2
         server_settings:
           vector_similarity_index_cache_size: 0.07
       properties:
         server_settings:
           $ref: '#/components/schemas/ClickHouse_server_settings'
+        tiered_storage_move_factor:
+          default: 0.2
+          description: The percentage of free disk space required on local storage
+            before data is moved to object storage. A value of 0.2 means data is moved
+            when local storage has less than 20% free space.
+          example: 0.2
+          maximum: 1
+          minimum: 0
+          title: Tiered storage move factor
+          type: number
       title: ClickHouse settings
       type: object
     block-storage-snapshot-ref:
@@ -15540,6 +15604,35 @@ components:
       required:
       - rotation
       type: object
+    dbaas-clickhouse-role-privilege:
+      example:
+        grant-option: true
+        database: database
+        is-partial-revoke: true
+        name: name
+        column: column
+        table: table
+      properties:
+        name:
+          maxLength: 64
+          minLength: 1
+          type: string
+        database:
+          description: Database
+          type: string
+        table:
+          description: Table
+          type: string
+        grant-option:
+          type: boolean
+        column:
+          description: Column
+          type: string
+        is-partial-revoke:
+          type: boolean
+      required:
+      - name
+      type: object
     replica-failure:
       example:
         error: error
@@ -15880,6 +15973,63 @@ components:
             method
           readOnly: true
           type: boolean
+      type: object
+    dbaas-clickhouse-roles:
+      example:
+        roles:
+        - privileges:
+          - grant-option: true
+            database: database
+            is-partial-revoke: true
+            name: name
+            column: column
+            table: table
+          - grant-option: true
+            database: database
+            is-partial-revoke: true
+            name: name
+            column: column
+            table: table
+          name: name
+          uuid: uuid
+          granted-roles:
+          - with-admin-option: true
+            name: name
+            is-default: true
+            uuid: uuid
+          - with-admin-option: true
+            name: name
+            is-default: true
+            uuid: uuid
+        - privileges:
+          - grant-option: true
+            database: database
+            is-partial-revoke: true
+            name: name
+            column: column
+            table: table
+          - grant-option: true
+            database: database
+            is-partial-revoke: true
+            name: name
+            column: column
+            table: table
+          name: name
+          uuid: uuid
+          granted-roles:
+          - with-admin-option: true
+            name: name
+            is-default: true
+            uuid: uuid
+          - with-admin-option: true
+            name: name
+            is-default: true
+            uuid: uuid
+      properties:
+        roles:
+          items:
+            $ref: '#/components/schemas/dbaas-clickhouse-role'
+          type: array
       type: object
     list-vpc-entry:
       description: VPC
@@ -17884,6 +18034,25 @@ components:
           readOnly: true
           type: string
       type: object
+    dbaas-clickhouse-granted-role:
+      example:
+        with-admin-option: true
+        name: name
+        is-default: true
+        uuid: uuid
+      properties:
+        name:
+          description: Granted role name
+          type: string
+        uuid:
+          type: string
+        is-default:
+          type: boolean
+        with-admin-option:
+          type: boolean
+      required:
+      - name
+      type: object
     iam-api-key-created:
       description: IAM API Key
       example:
@@ -19563,6 +19732,50 @@ components:
           description: Cluster endpoint
           readOnly: true
           type: string
+      type: object
+    dbaas-clickhouse-role:
+      example:
+        privileges:
+        - grant-option: true
+          database: database
+          is-partial-revoke: true
+          name: name
+          column: column
+          table: table
+        - grant-option: true
+          database: database
+          is-partial-revoke: true
+          name: name
+          column: column
+          table: table
+        name: name
+        uuid: uuid
+        granted-roles:
+        - with-admin-option: true
+          name: name
+          is-default: true
+          uuid: uuid
+        - with-admin-option: true
+          name: name
+          is-default: true
+          uuid: uuid
+      properties:
+        name:
+          maxLength: 64
+          minLength: 1
+          type: string
+        uuid:
+          type: string
+        privileges:
+          items:
+            $ref: '#/components/schemas/dbaas-clickhouse-role-privilege'
+          type: array
+        granted-roles:
+          items:
+            $ref: '#/components/schemas/dbaas-clickhouse-granted-role'
+          type: array
+      required:
+      - name
       type: object
     dbaas-valkey-users:
       example:

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-07-29T07:56:58.190363980Z[Etc/UTC]
+- Build date: 2026-08-04T07:55:03.502412512Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-f908d95</version>
+    <version>0.0.5-SNAPSHOT-c2eadfe</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-f908d95'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c2eadfe'
 }
 ```
 
@@ -152,6 +152,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
 *ExoscaleApi* | [**deleteBlockStorageVolume**](sdk/docs/ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable
+*ExoscaleApi* | [**deleteDbaasClickhouseRole**](sdk/docs/ExoscaleApi.md#deleteDbaasClickhouseRole) | **DELETE** /dbaas-clickhouse/{service-name}/role/{role-uuid} | [BETA] Delete a DBaaS ClickHouse role
 *ExoscaleApi* | [**deleteDbaasClickhouseUser**](sdk/docs/ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{user-uuid} | [BETA] Delete a DBaaS ClickHouse user
 *ExoscaleApi* | [**deleteDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} | 
 *ExoscaleApi* | [**deleteDbaasExternalEndpointElasticsearch**](sdk/docs/ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} | 
@@ -308,6 +309,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listApiKeys**](sdk/docs/ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys
 *ExoscaleApi* | [**listBlockStorageSnapshots**](sdk/docs/ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots
 *ExoscaleApi* | [**listBlockStorageVolumes**](sdk/docs/ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes
+*ExoscaleApi* | [**listDbaasClickhouseRoles**](sdk/docs/ExoscaleApi.md#listDbaasClickhouseRoles) | **GET** /dbaas-clickhouse/{service-name}/role | [BETA] List DBaaS ClickHouse roles
 *ExoscaleApi* | [**listDbaasClickhouseUsers**](sdk/docs/ExoscaleApi.md#listDbaasClickhouseUsers) | **GET** /dbaas-clickhouse/{service-name}/user | [BETA] List DBaaS ClickHouse users
 *ExoscaleApi* | [**listDbaasExternalEndpointTypes**](sdk/docs/ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types | 
 *ExoscaleApi* | [**listDbaasExternalEndpoints**](sdk/docs/ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints | 
@@ -534,6 +536,10 @@ Class | Method | HTTP request | Description
  - [CreateVpcRequest](sdk/docs/CreateVpcRequest.md)
  - [DbaasBackupConfig](sdk/docs/DbaasBackupConfig.md)
  - [DbaasClickhouseAclConfig](sdk/docs/DbaasClickhouseAclConfig.md)
+ - [DbaasClickhouseGrantedRole](sdk/docs/DbaasClickhouseGrantedRole.md)
+ - [DbaasClickhouseRole](sdk/docs/DbaasClickhouseRole.md)
+ - [DbaasClickhouseRolePrivilege](sdk/docs/DbaasClickhouseRolePrivilege.md)
+ - [DbaasClickhouseRoles](sdk/docs/DbaasClickhouseRoles.md)
  - [DbaasClickhouseUser](sdk/docs/DbaasClickhouseUser.md)
  - [DbaasClickhouseUserAclConfig](sdk/docs/DbaasClickhouseUserAclConfig.md)
  - [DbaasClickhouseUserPrivilege](sdk/docs/DbaasClickhouseUserPrivilege.md)

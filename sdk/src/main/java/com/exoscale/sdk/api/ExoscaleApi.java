@@ -76,6 +76,7 @@ import com.exoscale.sdk.model.CreateSubnetRequest;
 import com.exoscale.sdk.model.CreateUserRequest;
 import com.exoscale.sdk.model.CreateVpcRequest;
 import com.exoscale.sdk.model.DbaasClickhouseAclConfig;
+import com.exoscale.sdk.model.DbaasClickhouseRoles;
 import com.exoscale.sdk.model.DbaasClickhouseUsers;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputCreate;
 import com.exoscale.sdk.model.DbaasEndpointDatadogInputUpdate;
@@ -6916,6 +6917,98 @@ public class ExoscaleApi {
 
     String localVarPath = "/block-storage/{id}"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Delete a DBaaS ClickHouse role
+   * 
+   * @param serviceName  (required)
+   * @param roleUuid  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation deleteDbaasClickhouseRole(String serviceName, UUID roleUuid) throws ApiException {
+    ApiResponse<Operation> localVarResponse = deleteDbaasClickhouseRoleWithHttpInfo(serviceName, roleUuid);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Delete a DBaaS ClickHouse role
+   * 
+   * @param serviceName  (required)
+   * @param roleUuid  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> deleteDbaasClickhouseRoleWithHttpInfo(String serviceName, UUID roleUuid) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteDbaasClickhouseRoleRequestBuilder(serviceName, roleUuid);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteDbaasClickhouseRole", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteDbaasClickhouseRoleRequestBuilder(String serviceName, UUID roleUuid) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling deleteDbaasClickhouseRole");
+    }
+    // verify the required parameter 'roleUuid' is set
+    if (roleUuid == null) {
+      throw new ApiException(400, "Missing the required parameter 'roleUuid' when calling deleteDbaasClickhouseRole");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/role/{role-uuid}"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
+        .replace("{role-uuid}", ApiClient.urlEncode(roleUuid.toString()));
       String requestBody = null;
       String authorizationValue;
 
@@ -20496,6 +20589,91 @@ public class ExoscaleApi {
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] List DBaaS ClickHouse roles
+   * 
+   * @param serviceName  (required)
+   * @return DbaasClickhouseRoles
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasClickhouseRoles listDbaasClickhouseRoles(String serviceName) throws ApiException {
+    ApiResponse<DbaasClickhouseRoles> localVarResponse = listDbaasClickhouseRolesWithHttpInfo(serviceName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] List DBaaS ClickHouse roles
+   * 
+   * @param serviceName  (required)
+   * @return ApiResponse&lt;DbaasClickhouseRoles&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasClickhouseRoles> listDbaasClickhouseRolesWithHttpInfo(String serviceName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listDbaasClickhouseRolesRequestBuilder(serviceName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listDbaasClickhouseRoles", localVarResponse);
+        }
+        return new ApiResponse<DbaasClickhouseRoles>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasClickhouseRoles>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listDbaasClickhouseRolesRequestBuilder(String serviceName) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling listDbaasClickhouseRoles");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-clickhouse/{service-name}/role"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 
