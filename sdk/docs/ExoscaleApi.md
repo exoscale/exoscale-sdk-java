@@ -195,8 +195,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
-| [**getImpactEstimate**](ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | Return an estimate of the impact of a given usage |
-| [**getImpactReport**](ExoscaleApi.md#getImpactReport) | **GET** /environmental-impact/report | Return an environmental impact report for the given period |
+| [**getImpactEstimate**](ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using a product |
+| [**getImpactReport**](ExoscaleApi.md#getImpactReport) | **GET** /environmental-impact/report | [BETA] Get an environmental impact report |
 | [**getInferenceEngineHelp**](ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | Get inference-engine Help |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
@@ -18111,9 +18111,9 @@ No authorization required
 
 > GetImpactEstimate200Response getImpactEstimate(getImpactEstimateRequest)
 
-Return an estimate of the impact of a given usage
+[BETA] Get an estimate of the impact of using a product
 
-
+[BETA] Returns an estimate of the impact of a unit of usage of a given product, e.g. one hour for an Instance
 
 ### Example
 
@@ -18207,9 +18207,9 @@ No authorization required
 
 > ImpactBreakdown getImpactReport(from, to)
 
-Return an environmental impact report for the given period
+[BETA] Get an environmental impact report
 
-
+[BETA] Returns a breakdown of the impact of your organization&#39;s usage over the given period
 
 ### Example
 

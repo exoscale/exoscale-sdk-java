@@ -61,6 +61,8 @@ public class SecurityGroupRule {
     
     ESP("esp"),
     
+    ALL("all"),
+    
     ICMP("icmp"),
     
     UDP("udp"),

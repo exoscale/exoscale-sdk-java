@@ -52,7 +52,7 @@ public class GetImpactEstimateRequest {
   }
 
    /**
-   * Get sku
+   * Product SKU, e.g. compute:ch-gva-2:instance:standard:medium
    * @return sku
   **/
   @javax.annotation.Nonnull

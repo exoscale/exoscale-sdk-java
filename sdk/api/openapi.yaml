@@ -215,7 +215,7 @@ tags:
   name: environmental-impact
   x-display-name: Environmental Impact
   x-weight: 1150
-  x-icon: exo-license
+  x-icon: exo-logo
 - description: Operations for KMS Key lifecycle management.
   externalDocs:
     description: Read more
@@ -2274,7 +2274,8 @@ paths:
       x-accepts: application/json
   /environmental-impact/estimate:
     post:
-      description: ""
+      description: "[BETA] Returns an estimate of the impact of a unit of usage of\
+        \ a given product, e.g. one hour for an Instance"
       operationId: get-impact-estimate
       parameters: []
       requestBody:
@@ -2302,7 +2303,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/impact-error-response'
           description: Internal server error
-      summary: Return an estimate of the impact of a given usage
+      summary: "[BETA] Get an estimate of the impact of using a product"
       tags:
       - exoscale
       x-content-type: application/json
@@ -8851,7 +8852,8 @@ paths:
       x-accepts: application/json
   /environmental-impact/report:
     get:
-      description: ""
+      description: "[BETA] Returns a breakdown of the impact of your organization's\
+        \ usage over the given period"
       operationId: get-impact-report
       parameters:
       - explode: true
@@ -8887,7 +8889,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/impact-error-response'
           description: Internal server error
-      summary: Return an environmental impact report for the given period
+      summary: "[BETA] Get an environmental impact report"
       tags:
       - exoscale
       x-accepts: application/json
@@ -11411,6 +11413,7 @@ components:
           enum:
           - tcp
           - esp
+          - all
           - icmp
           - udp
           - gre
@@ -13170,7 +13173,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.25.1
+      default: 0.26.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -13191,6 +13194,7 @@ components:
       - 0.24.0
       - 0.25.0
       - 0.25.1
+      - 0.26.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -26175,6 +26179,7 @@ components:
     get_impact_estimate_request:
       properties:
         sku:
+          description: "Product SKU, e.g. compute:ch-gva-2:instance:standard:medium"
           type: string
         metadata:
           type: object
@@ -27250,6 +27255,7 @@ components:
           enum:
           - tcp
           - esp
+          - all
           - icmp
           - udp
           - gre

@@ -69,7 +69,7 @@ public class GetDeploymentResponse {
   private String serviceLevel;
 
   public static final String JSON_PROPERTY_INFERENCE_ENGINE_VERSION = "inference-engine-version";
-  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._25_1;
+  private InferenceEngineVersion inferenceEngineVersion = InferenceEngineVersion._26_0;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

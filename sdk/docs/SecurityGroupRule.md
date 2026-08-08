@@ -26,6 +26,7 @@ Security Group rule
 |---- | -----|
 | TCP | &quot;tcp&quot; |
 | ESP | &quot;esp&quot; |
+| ALL | &quot;all&quot; |
 | ICMP | &quot;icmp&quot; |
 | UDP | &quot;udp&quot; |
 | GRE | &quot;gre&quot; |

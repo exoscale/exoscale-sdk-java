@@ -17504,8 +17504,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Return an estimate of the impact of a given usage
-   * 
+   * [BETA] Get an estimate of the impact of using a product
+   * [BETA] Returns an estimate of the impact of a unit of usage of a given product, e.g. one hour for an Instance
    * @param getImpactEstimateRequest  (required)
    * @return GetImpactEstimate200Response
    * @throws ApiException if fails to make API call
@@ -17516,8 +17516,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Return an estimate of the impact of a given usage
-   * 
+   * [BETA] Get an estimate of the impact of using a product
+   * [BETA] Returns an estimate of the impact of a unit of usage of a given product, e.g. one hour for an Instance
    * @param getImpactEstimateRequest  (required)
    * @return ApiResponse&lt;GetImpactEstimate200Response&gt;
    * @throws ApiException if fails to make API call
@@ -17594,8 +17594,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Return an environmental impact report for the given period
-   * 
+   * [BETA] Get an environmental impact report
+   * [BETA] Returns a breakdown of the impact of your organization&#39;s usage over the given period
    * @param from  (optional)
    * @param to  (optional)
    * @return ImpactBreakdown
@@ -17607,8 +17607,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Return an environmental impact report for the given period
-   * 
+   * [BETA] Get an environmental impact report
+   * [BETA] Returns a breakdown of the impact of your organization&#39;s usage over the given period
    * @param from  (optional)
    * @param to  (optional)
    * @return ApiResponse&lt;ImpactBreakdown&gt;

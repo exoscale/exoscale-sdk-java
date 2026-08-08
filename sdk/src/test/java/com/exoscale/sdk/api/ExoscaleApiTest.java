@@ -3641,9 +3641,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Return an estimate of the impact of a given usage
+     * [BETA] Get an estimate of the impact of using a product
      *
-     * 
+     * [BETA] Returns an estimate of the impact of a unit of usage of a given product, e.g. one hour for an Instance
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3658,9 +3658,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Return an environmental impact report for the given period
+     * [BETA] Get an environmental impact report
      *
-     * 
+     * [BETA] Returns a breakdown of the impact of your organization&#39;s usage over the given period
      *
      * @throws ApiException
      *          if the Api call fails
