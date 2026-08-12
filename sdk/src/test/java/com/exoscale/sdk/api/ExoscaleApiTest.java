@@ -3641,9 +3641,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get an estimate of the impact of using a product
+     * [BETA] Get an estimate of the impact of using products
      *
-     * [BETA] Returns an estimate of the impact of a unit of usage of a given product, e.g. one hour for an Instance
+     * [BETA] Returns an estimate of the impact of a unit of usage of one or more products, e.g. the impact of using a standard medium instance for one hour in ch-gva-2
      *
      * @throws ApiException
      *          if the Api call fails

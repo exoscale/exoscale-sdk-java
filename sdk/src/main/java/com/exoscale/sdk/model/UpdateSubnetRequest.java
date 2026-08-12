@@ -40,8 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UpdateSubnetRequest.JSON_PROPERTY_NAME,
   UpdateSubnetRequest.JSON_PROPERTY_DESCRIPTION,
-  UpdateSubnetRequest.JSON_PROPERTY_LABELS,
-  UpdateSubnetRequest.JSON_PROPERTY_IPV4_BLOCK
+  UpdateSubnetRequest.JSON_PROPERTY_LABELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateSubnetRequest {
@@ -53,9 +52,6 @@ public class UpdateSubnetRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
-
-  public static final String JSON_PROPERTY_IPV4_BLOCK = "ipv4-block";
-  private JsonNullable<String> ipv4Block = JsonNullable.<String>undefined();
 
   public UpdateSubnetRequest() { 
   }
@@ -159,39 +155,6 @@ public class UpdateSubnetRequest {
   }
 
 
-  public UpdateSubnetRequest ipv4Block(String ipv4Block) {
-    this.ipv4Block = JsonNullable.<String>of(ipv4Block);
-    return this;
-  }
-
-   /**
-   * Subnet CIDR
-   * @return ipv4Block
-  **/
-  @javax.annotation.Nullable
-  @JsonIgnore
-
-  public String getIpv4Block() {
-        return ipv4Block.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<String> getIpv4Block_JsonNullable() {
-    return ipv4Block;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_IPV4_BLOCK)
-  public void setIpv4Block_JsonNullable(JsonNullable<String> ipv4Block) {
-    this.ipv4Block = ipv4Block;
-  }
-
-  public void setIpv4Block(String ipv4Block) {
-    this.ipv4Block = JsonNullable.<String>of(ipv4Block);
-  }
-
-
   /**
    * Return true if this update_subnet_request object is equal to o.
    */
@@ -206,8 +169,7 @@ public class UpdateSubnetRequest {
     UpdateSubnetRequest updateSubnetRequest = (UpdateSubnetRequest) o;
     return equalsNullable(this.name, updateSubnetRequest.name) &&
         equalsNullable(this.description, updateSubnetRequest.description) &&
-        Objects.equals(this.labels, updateSubnetRequest.labels) &&
-        equalsNullable(this.ipv4Block, updateSubnetRequest.ipv4Block);
+        Objects.equals(this.labels, updateSubnetRequest.labels);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -216,7 +178,7 @@ public class UpdateSubnetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), labels, hashCodeNullable(ipv4Block));
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), labels);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,7 +195,6 @@ public class UpdateSubnetRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-    sb.append("    ipv4Block: ").append(toIndentedString(ipv4Block)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -298,11 +259,6 @@ public class UpdateSubnetRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
-    }
-
-    // add `ipv4-block` to the URL query string
-    if (getIpv4Block() != null) {
-      joiner.add(String.format("%sipv4-block%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv4Block()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

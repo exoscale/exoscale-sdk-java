@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**impact** | [**Map&lt;String, ImpactValueWithUnit&gt;**](ImpactValueWithUnit.md) |  |  |
+|**impact** | **Map&lt;String, Map&lt;String, ImpactValueWithUnit&gt;&gt;** | Map of SKUs to their different impact indicators |  |
 
 
 

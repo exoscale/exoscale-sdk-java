@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-08-08T07:23:03.587203222Z[Etc/UTC]
+- Build date: 2026-08-12T07:33:36.461857885Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-2e73ada</version>
+    <version>0.0.5-SNAPSHOT-d406926</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-2e73ada'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d406926'
 }
 ```
 
@@ -273,7 +273,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports
 *ExoscaleApi* | [**getIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
 *ExoscaleApi* | [**getIamRole**](sdk/docs/ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
-*ExoscaleApi* | [**getImpactEstimate**](sdk/docs/ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using a product
+*ExoscaleApi* | [**getImpactEstimate**](sdk/docs/ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using products
 *ExoscaleApi* | [**getImpactReport**](sdk/docs/ExoscaleApi.md#getImpactReport) | **GET** /environmental-impact/report | [BETA] Get an environmental impact report
 *ExoscaleApi* | [**getInferenceEngineHelp**](sdk/docs/ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | Get inference-engine Help
 *ExoscaleApi* | [**getInstance**](sdk/docs/ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details

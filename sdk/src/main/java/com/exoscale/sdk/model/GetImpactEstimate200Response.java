@@ -40,17 +40,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetImpactEstimate200Response {
   public static final String JSON_PROPERTY_IMPACT = "impact";
-  private Map<String, ImpactValueWithUnit> impact = new HashMap<>();
+  private Map<String, Map<String, ImpactValueWithUnit>> impact = new HashMap<>();
 
   public GetImpactEstimate200Response() { 
   }
 
-  public GetImpactEstimate200Response impact(Map<String, ImpactValueWithUnit> impact) {
+  public GetImpactEstimate200Response impact(Map<String, Map<String, ImpactValueWithUnit>> impact) {
     this.impact = impact;
     return this;
   }
 
-  public GetImpactEstimate200Response putImpactItem(String key, ImpactValueWithUnit impactItem) {
+  public GetImpactEstimate200Response putImpactItem(String key, Map<String, ImpactValueWithUnit> impactItem) {
     if (this.impact == null) {
       this.impact = new HashMap<>();
     }
@@ -59,21 +59,21 @@ public class GetImpactEstimate200Response {
   }
 
    /**
-   * Get impact
+   * Map of SKUs to their different impact indicators
    * @return impact
   **/
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_IMPACT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Map<String, ImpactValueWithUnit> getImpact() {
+  public Map<String, Map<String, ImpactValueWithUnit>> getImpact() {
     return impact;
   }
 
 
   @JsonProperty(JSON_PROPERTY_IMPACT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setImpact(Map<String, ImpactValueWithUnit> impact) {
+  public void setImpact(Map<String, Map<String, ImpactValueWithUnit>> impact) {
     this.impact = impact;
   }
 
@@ -153,10 +153,9 @@ public class GetImpactEstimate200Response {
     // add `impact` to the URL query string
     if (getImpact() != null) {
       for (String _key : getImpact().keySet()) {
-        if (getImpact().get(_key) != null) {
-          joiner.add(getImpact().get(_key).toUrlQueryString(String.format("%simpact%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix))));
-        }
+        joiner.add(String.format("%simpact%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getImpact().get(_key), URLEncoder.encode(String.valueOf(getImpact().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

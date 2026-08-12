@@ -67,12 +67,4 @@ public class UpdateSubnetRequestTest {
         // TODO: test labels
     }
 
-    /**
-     * Test the property 'ipv4Block'
-     */
-    @Test
-    public void ipv4BlockTest() {
-        // TODO: test ipv4Block
-    }
-
 }

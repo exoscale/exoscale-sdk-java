@@ -195,7 +195,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
-| [**getImpactEstimate**](ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using a product |
+| [**getImpactEstimate**](ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using products |
 | [**getImpactReport**](ExoscaleApi.md#getImpactReport) | **GET** /environmental-impact/report | [BETA] Get an environmental impact report |
 | [**getInferenceEngineHelp**](ExoscaleApi.md#getInferenceEngineHelp) | **GET** /ai/help/inference-engine-parameters | Get inference-engine Help |
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
@@ -18111,9 +18111,9 @@ No authorization required
 
 > GetImpactEstimate200Response getImpactEstimate(getImpactEstimateRequest)
 
-[BETA] Get an estimate of the impact of using a product
+[BETA] Get an estimate of the impact of using products
 
-[BETA] Returns an estimate of the impact of a unit of usage of a given product, e.g. one hour for an Instance
+[BETA] Returns an estimate of the impact of a unit of usage of one or more products, e.g. the impact of using a standard medium instance for one hour in ch-gva-2
 
 ### Example
 

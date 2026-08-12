@@ -2275,7 +2275,8 @@ paths:
   /environmental-impact/estimate:
     post:
       description: "[BETA] Returns an estimate of the impact of a unit of usage of\
-        \ a given product, e.g. one hour for an Instance"
+        \ one or more products, e.g. the impact of using a standard medium instance\
+        \ for one hour in ch-gva-2"
       operationId: get-impact-estimate
       parameters: []
       requestBody:
@@ -2303,7 +2304,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/impact-error-response'
           description: Internal server error
-      summary: "[BETA] Get an estimate of the impact of using a product"
+      summary: "[BETA] Get an estimate of the impact of using products"
       tags:
       - exoscale
       x-content-type: application/json
@@ -26179,7 +26180,9 @@ components:
     get_impact_estimate_request:
       properties:
         sku:
-          description: "Product SKU, e.g. compute:ch-gva-2:instance:standard:medium"
+          description: "Product SKU, e.g. compute:ch-gva-2:instance:standard:medium;\
+            \ can also include wildcards, e.g. compute:*:instance:standard:* for all\
+            \ standard instances in all zones"
           type: string
         metadata:
           type: object
@@ -26190,12 +26193,16 @@ components:
       example:
         impact:
           key:
-            unit: unit
-            value: 0.8008281904610115
+            key:
+              unit: unit
+              value: 0.8008281904610115
       properties:
         impact:
           additionalProperties:
-            $ref: '#/components/schemas/impact-value-with-unit'
+            additionalProperties:
+              $ref: '#/components/schemas/impact-value-with-unit'
+            type: object
+          description: Map of SKUs to their different impact indicators
           type: object
       required:
       - impact
@@ -28907,10 +28914,6 @@ components:
           additionalProperties:
             type: string
           type: object
-        ipv4-block:
-          description: Subnet CIDR
-          nullable: true
-          type: string
       type: object
     list_dbaas_external_endpoints_200_response:
       example:

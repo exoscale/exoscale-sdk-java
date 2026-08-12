@@ -52,7 +52,7 @@ public class GetImpactEstimateRequest {
   }
 
    /**
-   * Product SKU, e.g. compute:ch-gva-2:instance:standard:medium
+   * Product SKU, e.g. compute:ch-gva-2:instance:standard:medium; can also include wildcards, e.g. compute:*:instance:standard:* for all standard instances in all zones
    * @return sku
   **/
   @javax.annotation.Nonnull
