@@ -49,13 +49,6 @@ jobs:
           git commit -m "Update version to $BASE_VERSION for release" || true
           git push
 
-
-      - name: Set up GitHub CLI
-        uses: sersoft-gmbh/setup-gh-cli-action@3cb41a4434ca35de4d1c16e00dc7e16d38409494 # v3.0.0
-        with:
-          version: stable
-
-
       - name: Build and install SDK
         run: |
           mvn -B clean process-resources --no-transfer-progress --file pom.xml
