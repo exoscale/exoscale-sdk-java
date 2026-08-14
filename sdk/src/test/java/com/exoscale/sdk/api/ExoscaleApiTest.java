@@ -240,11 +240,9 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
-import com.exoscale.sdk.model.RevealAiApiKeyResponse;
 import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
-import com.exoscale.sdk.model.RotateAiApiKeyResponse;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
 import com.exoscale.sdk.model.Route;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
@@ -265,8 +263,6 @@ import com.exoscale.sdk.model.Subnet;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
-import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
-import com.exoscale.sdk.model.UpdateAiApiKeyResponse;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -5385,23 +5381,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Reveal AI API Key
-     *
-     * Reveal AI API key plaintext value
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void revealAiApiKeyTest() throws ApiException {
-        UUID id = null;
-        RevealAiApiKeyResponse response = 
-        api.revealAiApiKey(id);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * [BETA] Reveal the secrets of a DBaaS ClickHouse user
      *
      * 
@@ -5610,23 +5589,6 @@ public class ExoscaleApiTest {
         RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest = null;
         Operation response = 
         api.revertInstanceToSnapshot(instanceId, revertInstanceToSnapshotRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * [BETA] Rotate AI API Key
-     *
-     * Rotate AI API key value
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void rotateAiApiKeyTest() throws ApiException {
-        UUID id = null;
-        RotateAiApiKeyResponse response = 
-        api.rotateAiApiKey(id);
         
         // TODO: test validations
     }
@@ -6025,24 +5987,6 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.stopInstance(id);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * [BETA] Update AI API Key
-     *
-     * Update AI API key name and/or scope
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void updateAiApiKeyTest() throws ApiException {
-        UUID id = null;
-        UpdateAiApiKeyRequest updateAiApiKeyRequest = null;
-        UpdateAiApiKeyResponse response = 
-        api.updateAiApiKey(id, updateAiApiKeyRequest);
         
         // TODO: test validations
     }

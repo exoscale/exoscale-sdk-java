@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-08-12T07:33:36.461857885Z[Etc/UTC]
+- Build date: 2026-08-14T07:33:33.243644658Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d406926</version>
+    <version>0.0.5-SNAPSHOT-171ef57</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d406926'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-171ef57'
 }
 ```
 
@@ -375,7 +375,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**resetPrivateNetworkField**](sdk/docs/ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field
 *ExoscaleApi* | [**resizeBlockStorageVolume**](sdk/docs/ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume
 *ExoscaleApi* | [**resizeInstanceDisk**](sdk/docs/ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk
-*ExoscaleApi* | [**revealAiApiKey**](sdk/docs/ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | [BETA] Reveal AI API Key
 *ExoscaleApi* | [**revealDbaasClickhouseUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasClickhouseUserPassword) | **GET** /dbaas-clickhouse/{service-name}/user/{username}/password/reveal | [BETA] Reveal the secrets of a DBaaS ClickHouse user
 *ExoscaleApi* | [**revealDbaasGrafanaUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user
 *ExoscaleApi* | [**revealDbaasKafkaConnectPassword**](sdk/docs/ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect
@@ -388,7 +387,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
-*ExoscaleApi* | [**rotateAiApiKey**](sdk/docs/ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | [BETA] Rotate AI API Key
 *ExoscaleApi* | [**rotateKmsKey**](sdk/docs/ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | Rotate Key
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials
@@ -412,7 +410,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**stopDbaasPgMigration**](sdk/docs/ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
 *ExoscaleApi* | [**stopDbaasValkeyMigration**](sdk/docs/ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration
 *ExoscaleApi* | [**stopInstance**](sdk/docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
-*ExoscaleApi* | [**updateAiApiKey**](sdk/docs/ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | [BETA] Update AI API Key
 *ExoscaleApi* | [**updateBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](sdk/docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
 *ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} | 
@@ -910,12 +907,10 @@ Class | Method | HTTP request | Description
  - [ResizeBlockStorageVolumeRequest](sdk/docs/ResizeBlockStorageVolumeRequest.md)
  - [ResizeInstanceDiskRequest](sdk/docs/ResizeInstanceDiskRequest.md)
  - [Resource](sdk/docs/Resource.md)
- - [RevealAiApiKeyResponse](sdk/docs/RevealAiApiKeyResponse.md)
  - [RevealDeploymentApiKeyResponse](sdk/docs/RevealDeploymentApiKeyResponse.md)
  - [ReverseDnsRecord](sdk/docs/ReverseDnsRecord.md)
  - [RevertInstanceToSnapshotRequest](sdk/docs/RevertInstanceToSnapshotRequest.md)
  - [RevisionStamp](sdk/docs/RevisionStamp.md)
- - [RotateAiApiKeyResponse](sdk/docs/RotateAiApiKeyResponse.md)
  - [RotateKmsKeyResponse](sdk/docs/RotateKmsKeyResponse.md)
  - [Route](sdk/docs/Route.md)
  - [SMTPServerSettings](sdk/docs/SMTPServerSettings.md)
@@ -960,8 +955,6 @@ Class | Method | HTTP request | Description
  - [ThanosCompactorUserConfig](sdk/docs/ThanosCompactorUserConfig.md)
  - [ThanosQueryFrontendUserConfig](sdk/docs/ThanosQueryFrontendUserConfig.md)
  - [ThanosQueryUserConfig](sdk/docs/ThanosQueryUserConfig.md)
- - [UpdateAiApiKeyRequest](sdk/docs/UpdateAiApiKeyRequest.md)
- - [UpdateAiApiKeyResponse](sdk/docs/UpdateAiApiKeyResponse.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](sdk/docs/UpdateBlockStorageVolumeRequest.md)
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)

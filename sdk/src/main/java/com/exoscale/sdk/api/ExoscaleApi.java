@@ -244,11 +244,9 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
-import com.exoscale.sdk.model.RevealAiApiKeyResponse;
 import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
-import com.exoscale.sdk.model.RotateAiApiKeyResponse;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
 import com.exoscale.sdk.model.Route;
 import com.exoscale.sdk.model.ScaleDeploymentRequest;
@@ -269,8 +267,6 @@ import com.exoscale.sdk.model.Subnet;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
-import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
-import com.exoscale.sdk.model.UpdateAiApiKeyResponse;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -26415,91 +26411,6 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Reveal AI API Key
-   * Reveal AI API key plaintext value
-   * @param id  (required)
-   * @return RevealAiApiKeyResponse
-   * @throws ApiException if fails to make API call
-   */
-  public RevealAiApiKeyResponse revealAiApiKey(UUID id) throws ApiException {
-    ApiResponse<RevealAiApiKeyResponse> localVarResponse = revealAiApiKeyWithHttpInfo(id);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * [BETA] Reveal AI API Key
-   * Reveal AI API key plaintext value
-   * @param id  (required)
-   * @return ApiResponse&lt;RevealAiApiKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   */
-  private ApiResponse<RevealAiApiKeyResponse> revealAiApiKeyWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = revealAiApiKeyRequestBuilder(id);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("revealAiApiKey", localVarResponse);
-        }
-        return new ApiResponse<RevealAiApiKeyResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RevealAiApiKeyResponse>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder revealAiApiKeyRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling revealAiApiKey");
-    }
-
-    Credentials credentials = apiClient.getCredentials();
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/ai/api-key/{id}/reveal"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
-      String requestBody = null;
-      String authorizationValue;
-
-
-      // Operations tagged x-skip-auth return public data but the server enforces IAM
-      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
-      // Skip signing so those requests are always sent without credentials.
-      try{
-      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-  /**
    * [BETA] Reveal the secrets of a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
@@ -27579,91 +27490,6 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-  /**
-   * [BETA] Rotate AI API Key
-   * Rotate AI API key value
-   * @param id  (required)
-   * @return RotateAiApiKeyResponse
-   * @throws ApiException if fails to make API call
-   */
-  public RotateAiApiKeyResponse rotateAiApiKey(UUID id) throws ApiException {
-    ApiResponse<RotateAiApiKeyResponse> localVarResponse = rotateAiApiKeyWithHttpInfo(id);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * [BETA] Rotate AI API Key
-   * Rotate AI API key value
-   * @param id  (required)
-   * @return ApiResponse&lt;RotateAiApiKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   */
-  private ApiResponse<RotateAiApiKeyResponse> rotateAiApiKeyWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = rotateAiApiKeyRequestBuilder(id);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("rotateAiApiKey", localVarResponse);
-        }
-        return new ApiResponse<RotateAiApiKeyResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RotateAiApiKeyResponse>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder rotateAiApiKeyRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling rotateAiApiKey");
-    }
-
-    Credentials credentials = apiClient.getCredentials();
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/ai/api-key/{id}/rotate"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
-      String requestBody = null;
-      String authorizationValue;
-
-
-      // Operations tagged x-skip-auth return public data but the server enforces IAM
-      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
-      // Skip signing so those requests are always sent without credentials.
-      try{
-      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -29698,103 +29524,6 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-  /**
-   * [BETA] Update AI API Key
-   * Update AI API key name and/or scope
-   * @param id  (required)
-   * @param updateAiApiKeyRequest  (required)
-   * @return UpdateAiApiKeyResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UpdateAiApiKeyResponse updateAiApiKey(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
-    ApiResponse<UpdateAiApiKeyResponse> localVarResponse = updateAiApiKeyWithHttpInfo(id, updateAiApiKeyRequest);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * [BETA] Update AI API Key
-   * Update AI API key name and/or scope
-   * @param id  (required)
-   * @param updateAiApiKeyRequest  (required)
-   * @return ApiResponse&lt;UpdateAiApiKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   */
-  private ApiResponse<UpdateAiApiKeyResponse> updateAiApiKeyWithHttpInfo(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = updateAiApiKeyRequestBuilder(id, updateAiApiKeyRequest);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("updateAiApiKey", localVarResponse);
-        }
-        return new ApiResponse<UpdateAiApiKeyResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UpdateAiApiKeyResponse>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder updateAiApiKeyRequestBuilder(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAiApiKey");
-    }
-    // verify the required parameter 'updateAiApiKeyRequest' is set
-    if (updateAiApiKeyRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'updateAiApiKeyRequest' when calling updateAiApiKey");
-    }
-
-    Credentials credentials = apiClient.getCredentials();
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/ai/api-key/{id}"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
-      String requestBody = null;
-      String authorizationValue;
-          try{
-          requestBody = memberVarObjectMapper.writeValueAsString(updateAiApiKeyRequest);
-          } catch (JsonProcessingException e) {
-          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
-          }
-
-
-      // Operations tagged x-skip-auth return public data but the server enforces IAM
-      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
-      // Skip signing so those requests are always sent without credentials.
-      try{
-      authorizationValue = credentials.generateSignature("PATCH", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Content-Type", "application/json");
-    localVarRequestBuilder.header("Accept", "application/json");
-
-      localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

@@ -297,7 +297,6 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resetPrivateNetworkField**](ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field |
 | [**resizeBlockStorageVolume**](ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
 | [**resizeInstanceDisk**](ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
-| [**revealAiApiKey**](ExoscaleApi.md#revealAiApiKey) | **GET** /ai/api-key/{id}/reveal | [BETA] Reveal AI API Key |
 | [**revealDbaasClickhouseUserPassword**](ExoscaleApi.md#revealDbaasClickhouseUserPassword) | **GET** /dbaas-clickhouse/{service-name}/user/{username}/password/reveal | [BETA] Reveal the secrets of a DBaaS ClickHouse user |
 | [**revealDbaasGrafanaUserPassword**](ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
 | [**revealDbaasKafkaConnectPassword**](ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect |
@@ -310,7 +309,6 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
-| [**rotateAiApiKey**](ExoscaleApi.md#rotateAiApiKey) | **POST** /ai/api-key/{id}/rotate | [BETA] Rotate AI API Key |
 | [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | Rotate Key |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
@@ -334,7 +332,6 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**stopDbaasPgMigration**](ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
 | [**stopDbaasValkeyMigration**](ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration |
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
-| [**updateAiApiKey**](ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | [BETA] Update AI API Key |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
 | [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
@@ -27409,100 +27406,6 @@ No authorization required
 | **200** | 200 |  -  |
 
 
-## revealAiApiKey
-
-> RevealAiApiKeyResponse revealAiApiKey(id)
-
-[BETA] Reveal AI API Key
-
-Reveal AI API key plaintext value
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.*;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) throws ApiException, InterruptedException{
-        // Initialize the client with credentials
-        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-
-        try {
-            // Invoke the API method
-            RevealAiApiKeyResponse result = client.revealAiApiKey(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#revealAiApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-
-### Return type
-
-[**RevealAiApiKeyResponse**](RevealAiApiKeyResponse.md)
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-
-### Return type
-
-ApiResponse<[**RevealAiApiKeyResponse**](RevealAiApiKeyResponse.md)>
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-
 ## revealDbaasClickhouseUserPassword
 
 > DbaasUserClickhouseSecrets revealDbaasClickhouseUserPassword(serviceName, username)
@@ -28616,102 +28519,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
-
-
-## rotateAiApiKey
-
-> RotateAiApiKeyResponse rotateAiApiKey(id)
-
-[BETA] Rotate AI API Key
-
-Rotate AI API key value
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.*;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) throws ApiException, InterruptedException{
-        // Initialize the client with credentials
-        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-
-        try {
-            // Invoke the API method
-            RotateAiApiKeyResponse result = client.rotateAiApiKey(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#rotateAiApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-
-### Return type
-
-[**RotateAiApiKeyResponse**](RotateAiApiKeyResponse.md)
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-
-### Return type
-
-ApiResponse<[**RotateAiApiKeyResponse**](RotateAiApiKeyResponse.md)>
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
 
 ## rotateKmsKey
@@ -30839,107 +30646,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
-
-
-## updateAiApiKey
-
-> UpdateAiApiKeyResponse updateAiApiKey(id, updateAiApiKeyRequest)
-
-[BETA] Update AI API Key
-
-Update AI API key name and/or scope
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.*;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) throws ApiException, InterruptedException{
-        // Initialize the client with credentials
-        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        UpdateAiApiKeyRequest updateAiApiKeyRequest = new UpdateAiApiKeyRequest(); // UpdateAiApiKeyRequest |  please add at least all the required fields
-
-        try {
-            // Invoke the API method
-            UpdateAiApiKeyResponse result = client.updateAiApiKey(id, updateAiApiKeyRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#updateAiApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **updateAiApiKeyRequest** | [**UpdateAiApiKeyRequest**](UpdateAiApiKeyRequest.md)|  | |
-
-### Return type
-
-[**UpdateAiApiKeyResponse**](UpdateAiApiKeyResponse.md)
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **updateAiApiKeyRequest** | [**UpdateAiApiKeyRequest**](UpdateAiApiKeyRequest.md)|  | |
-
-### Return type
-
-ApiResponse<[**UpdateAiApiKeyResponse**](UpdateAiApiKeyResponse.md)>
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 
 
 ## updateBlockStorageSnapshot
