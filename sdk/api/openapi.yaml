@@ -1837,7 +1837,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Delete a ClickHouse service"
+      summary: Delete a ClickHouse service
       tags:
       - exoscale
       x-accepts: application/json
@@ -1858,7 +1858,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-service-clickhouse'
           description: "200"
-      summary: "[BETA] Get a DBaaS ClickHouse service"
+      summary: Get a DBaaS ClickHouse service
       tags:
       - exoscale
       x-accepts: application/json
@@ -1885,7 +1885,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Create a DBaaS ClickHouse service"
+      summary: Create a DBaaS ClickHouse service
       tags:
       - exoscale
       x-content-type: application/json
@@ -1913,7 +1913,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Update a DBaaS ClickHouse service"
+      summary: Update a DBaaS ClickHouse service
       tags:
       - exoscale
       x-content-type: application/json
@@ -2479,7 +2479,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-clickhouse-roles'
           description: "200"
-      summary: "[BETA] List DBaaS ClickHouse roles"
+      summary: List DBaaS ClickHouse roles
       tags:
       - exoscale
       x-accepts: application/json
@@ -3458,7 +3458,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Delete a DBaaS ClickHouse role"
+      summary: Delete a DBaaS ClickHouse role
       tags:
       - exoscale
       x-accepts: application/json
@@ -6104,7 +6104,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-user-clickhouse-secrets'
           description: "200"
-      summary: "[BETA] Reset the credentials of a DBaaS ClickHouse user"
+      summary: Reset the credentials of a DBaaS ClickHouse user
       tags:
       - exoscale
       x-content-type: application/json
@@ -6158,7 +6158,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-clickhouse-acl-config'
           description: "200"
-      summary: "[BETA] Get DBaaS ClickHouse ACL configuration"
+      summary: Get DBaaS ClickHouse ACL configuration
       tags:
       - exoscale
       x-accepts: application/json
@@ -6180,7 +6180,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-clickhouse-users'
           description: "200"
-      summary: "[BETA] List DBaaS ClickHouse users"
+      summary: List DBaaS ClickHouse users
       tags:
       - exoscale
       x-accepts: application/json
@@ -6207,7 +6207,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-user-clickhouse-secrets'
           description: "200"
-      summary: "[BETA] Create a DBaaS ClickHouse user"
+      summary: Create a DBaaS ClickHouse user
       tags:
       - exoscale
       x-content-type: application/json
@@ -7283,7 +7283,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/dbaas-user-clickhouse-secrets'
           description: "200"
-      summary: "[BETA] Reveal the secrets of a DBaaS ClickHouse user"
+      summary: Reveal the secrets of a DBaaS ClickHouse user
       tags:
       - exoscale
       x-accepts: application/json
@@ -7697,7 +7697,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Delete a DBaaS ClickHouse user"
+      summary: Delete a DBaaS ClickHouse user
       tags:
       - exoscale
       x-accepts: application/json
@@ -10282,7 +10282,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Initiate ClickHouse maintenance update"
+      summary: Initiate ClickHouse maintenance update
       tags:
       - exoscale
       x-accepts: application/json
@@ -11549,8 +11549,10 @@ components:
         ipv4-block: ipv4-block
         instances:
         - ipv4: ipv4
+          name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - ipv4: ipv4
+          name: name
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         address-space: private
         name: name
@@ -12677,6 +12679,7 @@ components:
     vpc:
       description: VPC
       example:
+        default: true
         name: name
         description: description
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -12701,6 +12704,9 @@ components:
           description: VPC creation date
           format: date-time
           type: string
+        default:
+          description: Indicates if this is the organization's default VPC
+          type: boolean
         labels:
           additionalProperties:
             type: string
@@ -15927,6 +15933,7 @@ components:
     list-vpc-entry:
       description: VPC
       example:
+        default: true
         name: name
         description: description
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -15951,6 +15958,9 @@ components:
           description: VPC creation date
           format: date-time
           type: string
+        default:
+          description: Indicates if this is the organization's default VPC
+          type: boolean
         labels:
           additionalProperties:
             type: string
@@ -26553,13 +26563,15 @@ components:
     list_vpcs_200_response:
       example:
         vpcs:
-        - name: name
+        - default: true
+          name: name
           description: description
           created-at: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           labels:
             key: labels
-        - name: name
+        - default: true
+          name: name
           description: description
           created-at: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30720,11 +30732,15 @@ components:
       description: Subnet attachements
       example:
         ipv4: ipv4
+        name: name
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
           description: Instance uuid
           format: uuid
+          type: string
+        name:
+          description: Instance name
           type: string
         ipv4:
           description: Instance Ipv4 address

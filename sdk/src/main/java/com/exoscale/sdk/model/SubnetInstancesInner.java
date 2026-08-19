@@ -34,12 +34,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   SubnetInstancesInner.JSON_PROPERTY_ID,
+  SubnetInstancesInner.JSON_PROPERTY_NAME,
   SubnetInstancesInner.JSON_PROPERTY_IPV4
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class SubnetInstancesInner {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public static final String JSON_PROPERTY_IPV4 = "ipv4";
   private String ipv4;
@@ -69,6 +73,31 @@ public class SubnetInstancesInner {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(UUID id) {
     this.id = id;
+  }
+
+
+  public SubnetInstancesInner name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Instance name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -110,12 +139,13 @@ public class SubnetInstancesInner {
     }
     SubnetInstancesInner subnetInstancesInner = (SubnetInstancesInner) o;
     return Objects.equals(this.id, subnetInstancesInner.id) &&
+        Objects.equals(this.name, subnetInstancesInner.name) &&
         Objects.equals(this.ipv4, subnetInstancesInner.ipv4);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, ipv4);
+    return Objects.hash(id, name, ipv4);
   }
 
   @Override
@@ -123,6 +153,7 @@ public class SubnetInstancesInner {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubnetInstancesInner {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ipv4: ").append(toIndentedString(ipv4)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -174,6 +205,11 @@ public class SubnetInstancesInner {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ipv4` to the URL query string

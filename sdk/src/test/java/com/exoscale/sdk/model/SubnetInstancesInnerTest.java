@@ -47,6 +47,14 @@ public class SubnetInstancesInnerTest {
     }
 
     /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
      * Test the property 'ipv4'
      */
     @Test

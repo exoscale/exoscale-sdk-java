@@ -74,6 +74,14 @@ public class ListVpcEntryTest {
     }
 
     /**
+     * Test the property '_default'
+     */
+    @Test
+    public void _defaultTest() {
+        // TODO: test _default
+    }
+
+    /**
      * Test the property 'labels'
      */
     @Test

@@ -2066,7 +2066,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create a DBaaS ClickHouse user
+   * Create a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param createDbaasClickhouseUserRequest  (required)
@@ -2079,7 +2079,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create a DBaaS ClickHouse user
+   * Create a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param createDbaasClickhouseUserRequest  (required)
@@ -3708,7 +3708,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create a DBaaS ClickHouse service
+   * Create a DBaaS ClickHouse service
    * 
    * @param name  (required)
    * @param createDbaasServiceClickhouseRequest  (required)
@@ -3721,7 +3721,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create a DBaaS ClickHouse service
+   * Create a DBaaS ClickHouse service
    * 
    * @param name  (required)
    * @param createDbaasServiceClickhouseRequest  (required)
@@ -6940,7 +6940,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete a DBaaS ClickHouse role
+   * Delete a DBaaS ClickHouse role
    * 
    * @param serviceName  (required)
    * @param roleUuid  (required)
@@ -6953,7 +6953,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete a DBaaS ClickHouse role
+   * Delete a DBaaS ClickHouse role
    * 
    * @param serviceName  (required)
    * @param roleUuid  (required)
@@ -7032,7 +7032,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete a DBaaS ClickHouse user
+   * Delete a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param userUuid  (required)
@@ -7045,7 +7045,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete a DBaaS ClickHouse user
+   * Delete a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param userUuid  (required)
@@ -8547,7 +8547,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete a ClickHouse service
+   * Delete a ClickHouse service
    * 
    * @param name  (required)
    * @return Operation
@@ -8559,7 +8559,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete a ClickHouse service
+   * Delete a ClickHouse service
    * 
    * @param name  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -13934,7 +13934,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get DBaaS ClickHouse ACL configuration
+   * Get DBaaS ClickHouse ACL configuration
    * 
    * @param serviceName  (required)
    * @return DbaasClickhouseAclConfig
@@ -13946,7 +13946,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get DBaaS ClickHouse ACL configuration
+   * Get DBaaS ClickHouse ACL configuration
    * 
    * @param serviceName  (required)
    * @return ApiResponse&lt;DbaasClickhouseAclConfig&gt;
@@ -14954,7 +14954,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Get a DBaaS ClickHouse service
+   * Get a DBaaS ClickHouse service
    * 
    * @param name  (required)
    * @return DbaasServiceClickhouse
@@ -14966,7 +14966,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Get a DBaaS ClickHouse service
+   * Get a DBaaS ClickHouse service
    * 
    * @param name  (required)
    * @return ApiResponse&lt;DbaasServiceClickhouse&gt;
@@ -20598,7 +20598,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List DBaaS ClickHouse roles
+   * List DBaaS ClickHouse roles
    * 
    * @param serviceName  (required)
    * @return DbaasClickhouseRoles
@@ -20610,7 +20610,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List DBaaS ClickHouse roles
+   * List DBaaS ClickHouse roles
    * 
    * @param serviceName  (required)
    * @return ApiResponse&lt;DbaasClickhouseRoles&gt;
@@ -20683,7 +20683,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List DBaaS ClickHouse users
+   * List DBaaS ClickHouse users
    * 
    * @param serviceName  (required)
    * @return DbaasClickhouseUsers
@@ -20695,7 +20695,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List DBaaS ClickHouse users
+   * List DBaaS ClickHouse users
    * 
    * @param serviceName  (required)
    * @return ApiResponse&lt;DbaasClickhouseUsers&gt;
@@ -24670,7 +24670,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Reset the credentials of a DBaaS ClickHouse user
+   * Reset the credentials of a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param username  (required)
@@ -24684,7 +24684,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Reset the credentials of a DBaaS ClickHouse user
+   * Reset the credentials of a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param username  (required)
@@ -26411,7 +26411,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Reveal the secrets of a DBaaS ClickHouse user
+   * Reveal the secrets of a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param username  (required)
@@ -26424,7 +26424,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Reveal the secrets of a DBaaS ClickHouse user
+   * Reveal the secrets of a DBaaS ClickHouse user
    * 
    * @param serviceName  (required)
    * @param username  (required)
@@ -28416,7 +28416,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Initiate ClickHouse maintenance update
+   * Initiate ClickHouse maintenance update
    * 
    * @param name  (required)
    * @return Operation
@@ -28428,7 +28428,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Initiate ClickHouse maintenance update
+   * Initiate ClickHouse maintenance update
    * 
    * @param name  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -30711,7 +30711,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Update a DBaaS ClickHouse service
+   * Update a DBaaS ClickHouse service
    * 
    * @param name  (required)
    * @param updateDbaasServiceClickhouseRequest  (required)
@@ -30724,7 +30724,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Update a DBaaS ClickHouse service
+   * Update a DBaaS ClickHouse service
    * 
    * @param name  (required)
    * @param updateDbaasServiceClickhouseRequest  (required)

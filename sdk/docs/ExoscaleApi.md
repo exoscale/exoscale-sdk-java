@@ -22,7 +22,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createApiKey**](ExoscaleApi.md#createApiKey) | **POST** /api-key | Create a new API key |
 | [**createBlockStorageSnapshot**](ExoscaleApi.md#createBlockStorageSnapshot) | **POST** /block-storage/{id}:create-snapshot | Create a block storage snapshot |
 | [**createBlockStorageVolume**](ExoscaleApi.md#createBlockStorageVolume) | **POST** /block-storage | Create a block storage volume |
-| [**createDbaasClickhouseUser**](ExoscaleApi.md#createDbaasClickhouseUser) | **POST** /dbaas-clickhouse/{service-name}/user | [BETA] Create a DBaaS ClickHouse user |
+| [**createDbaasClickhouseUser**](ExoscaleApi.md#createDbaasClickhouseUser) | **POST** /dbaas-clickhouse/{service-name}/user | Create a DBaaS ClickHouse user |
 | [**createDbaasExternalEndpointDatadog**](ExoscaleApi.md#createDbaasExternalEndpointDatadog) | **POST** /dbaas-external-endpoint-datadog/{name} |  |
 | [**createDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#createDbaasExternalEndpointElasticsearch) | **POST** /dbaas-external-endpoint-elasticsearch/{name} |  |
 | [**createDbaasExternalEndpointOpensearch**](ExoscaleApi.md#createDbaasExternalEndpointOpensearch) | **POST** /dbaas-external-endpoint-opensearch/{name} |  |
@@ -39,7 +39,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasPgDatabase**](ExoscaleApi.md#createDbaasPgDatabase) | **POST** /dbaas-postgres/{service-name}/database | Create a DBaaS Postgres database |
 | [**createDbaasPgUpgradeCheck**](ExoscaleApi.md#createDbaasPgUpgradeCheck) | **POST** /dbaas-postgres/{service}/upgrade-check |  |
 | [**createDbaasPostgresUser**](ExoscaleApi.md#createDbaasPostgresUser) | **POST** /dbaas-postgres/{service-name}/user | Create a DBaaS Postgres user |
-| [**createDbaasServiceClickhouse**](ExoscaleApi.md#createDbaasServiceClickhouse) | **POST** /dbaas-clickhouse/{name} | [BETA] Create a DBaaS ClickHouse service |
+| [**createDbaasServiceClickhouse**](ExoscaleApi.md#createDbaasServiceClickhouse) | **POST** /dbaas-clickhouse/{name} | Create a DBaaS ClickHouse service |
 | [**createDbaasServiceGrafana**](ExoscaleApi.md#createDbaasServiceGrafana) | **POST** /dbaas-grafana/{name} |  |
 | [**createDbaasServiceKafka**](ExoscaleApi.md#createDbaasServiceKafka) | **POST** /dbaas-kafka/{name} | Create a DBaaS Kafka service |
 | [**createDbaasServiceMysql**](ExoscaleApi.md#createDbaasServiceMysql) | **POST** /dbaas-mysql/{name} | Create a DBaaS MySQL service |
@@ -74,8 +74,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
 | [**deleteBlockStorageVolume**](ExoscaleApi.md#deleteBlockStorageVolume) | **DELETE** /block-storage/{id} | Delete a block storage volume, data will be unrecoverable |
-| [**deleteDbaasClickhouseRole**](ExoscaleApi.md#deleteDbaasClickhouseRole) | **DELETE** /dbaas-clickhouse/{service-name}/role/{role-uuid} | [BETA] Delete a DBaaS ClickHouse role |
-| [**deleteDbaasClickhouseUser**](ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{user-uuid} | [BETA] Delete a DBaaS ClickHouse user |
+| [**deleteDbaasClickhouseRole**](ExoscaleApi.md#deleteDbaasClickhouseRole) | **DELETE** /dbaas-clickhouse/{service-name}/role/{role-uuid} | Delete a DBaaS ClickHouse role |
+| [**deleteDbaasClickhouseUser**](ExoscaleApi.md#deleteDbaasClickhouseUser) | **DELETE** /dbaas-clickhouse/{service-name}/user/{user-uuid} | Delete a DBaaS ClickHouse user |
 | [**deleteDbaasExternalEndpointDatadog**](ExoscaleApi.md#deleteDbaasExternalEndpointDatadog) | **DELETE** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#deleteDbaasExternalEndpointElasticsearch) | **DELETE** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
 | [**deleteDbaasExternalEndpointOpensearch**](ExoscaleApi.md#deleteDbaasExternalEndpointOpensearch) | **DELETE** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
@@ -92,7 +92,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteDbaasPgDatabase**](ExoscaleApi.md#deleteDbaasPgDatabase) | **DELETE** /dbaas-postgres/{service-name}/database/{database-name} | Delete a DBaaS Postgres database |
 | [**deleteDbaasPostgresUser**](ExoscaleApi.md#deleteDbaasPostgresUser) | **DELETE** /dbaas-postgres/{service-name}/user/{username} | Delete a DBaaS Postgres user |
 | [**deleteDbaasService**](ExoscaleApi.md#deleteDbaasService) | **DELETE** /dbaas-service/{name} | Delete a DBaaS service |
-| [**deleteDbaasServiceClickhouse**](ExoscaleApi.md#deleteDbaasServiceClickhouse) | **DELETE** /dbaas-clickhouse/{name} | [BETA] Delete a ClickHouse service |
+| [**deleteDbaasServiceClickhouse**](ExoscaleApi.md#deleteDbaasServiceClickhouse) | **DELETE** /dbaas-clickhouse/{name} | Delete a ClickHouse service |
 | [**deleteDbaasServiceGrafana**](ExoscaleApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service |
 | [**deleteDbaasServiceKafka**](ExoscaleApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service |
 | [**deleteDbaasServiceMysql**](ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service |
@@ -153,7 +153,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getBlockStorageVolume**](ExoscaleApi.md#getBlockStorageVolume) | **GET** /block-storage/{id} | Retrieve block storage volume details |
 | [**getConsoleProxyUrl**](ExoscaleApi.md#getConsoleProxyUrl) | **GET** /console/{id} | Retrieve signed url valid for 60 seconds to connect via console-proxy websocket to VM VNC console. |
 | [**getDbaasCaCertificate**](ExoscaleApi.md#getDbaasCaCertificate) | **GET** /dbaas-ca-certificate | Get DBaaS CA Certificate |
-| [**getDbaasClickhouseAclConfig**](ExoscaleApi.md#getDbaasClickhouseAclConfig) | **GET** /dbaas-clickhouse/{service-name}/acl-config | [BETA] Get DBaaS ClickHouse ACL configuration |
+| [**getDbaasClickhouseAclConfig**](ExoscaleApi.md#getDbaasClickhouseAclConfig) | **GET** /dbaas-clickhouse/{service-name}/acl-config | Get DBaaS ClickHouse ACL configuration |
 | [**getDbaasExternalEndpointDatadog**](ExoscaleApi.md#getDbaasExternalEndpointDatadog) | **GET** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
 | [**getDbaasExternalEndpointElasticsearch**](ExoscaleApi.md#getDbaasExternalEndpointElasticsearch) | **GET** /dbaas-external-endpoint-elasticsearch/{endpoint-id} |  |
 | [**getDbaasExternalEndpointOpensearch**](ExoscaleApi.md#getDbaasExternalEndpointOpensearch) | **GET** /dbaas-external-endpoint-opensearch/{endpoint-id} |  |
@@ -165,7 +165,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDbaasKafkaAclConfig**](ExoscaleApi.md#getDbaasKafkaAclConfig) | **GET** /dbaas-kafka/{name}/acl-config | Get DBaaS kafka ACL configuration |
 | [**getDbaasMigrationStatus**](ExoscaleApi.md#getDbaasMigrationStatus) | **GET** /dbaas-migration-status/{name} | Get a DBaaS migration status |
 | [**getDbaasOpensearchAclConfig**](ExoscaleApi.md#getDbaasOpensearchAclConfig) | **GET** /dbaas-opensearch/{name}/acl-config | Get DBaaS OpenSearch ACL configuration |
-| [**getDbaasServiceClickhouse**](ExoscaleApi.md#getDbaasServiceClickhouse) | **GET** /dbaas-clickhouse/{name} | [BETA] Get a DBaaS ClickHouse service |
+| [**getDbaasServiceClickhouse**](ExoscaleApi.md#getDbaasServiceClickhouse) | **GET** /dbaas-clickhouse/{name} | Get a DBaaS ClickHouse service |
 | [**getDbaasServiceGrafana**](ExoscaleApi.md#getDbaasServiceGrafana) | **GET** /dbaas-grafana/{name} | Get a DBaaS Grafana service |
 | [**getDbaasServiceKafka**](ExoscaleApi.md#getDbaasServiceKafka) | **GET** /dbaas-kafka/{name} | Get a DBaaS Kafka service |
 | [**getDbaasServiceLogs**](ExoscaleApi.md#getDbaasServiceLogs) | **POST** /dbaas-service-logs/{service-name} | Get logs of DBaaS service |
@@ -231,8 +231,8 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listApiKeys**](ExoscaleApi.md#listApiKeys) | **GET** /api-key | List API keys |
 | [**listBlockStorageSnapshots**](ExoscaleApi.md#listBlockStorageSnapshots) | **GET** /block-storage-snapshot | List block storage snapshots |
 | [**listBlockStorageVolumes**](ExoscaleApi.md#listBlockStorageVolumes) | **GET** /block-storage | List block storage volumes |
-| [**listDbaasClickhouseRoles**](ExoscaleApi.md#listDbaasClickhouseRoles) | **GET** /dbaas-clickhouse/{service-name}/role | [BETA] List DBaaS ClickHouse roles |
-| [**listDbaasClickhouseUsers**](ExoscaleApi.md#listDbaasClickhouseUsers) | **GET** /dbaas-clickhouse/{service-name}/user | [BETA] List DBaaS ClickHouse users |
+| [**listDbaasClickhouseRoles**](ExoscaleApi.md#listDbaasClickhouseRoles) | **GET** /dbaas-clickhouse/{service-name}/role | List DBaaS ClickHouse roles |
+| [**listDbaasClickhouseUsers**](ExoscaleApi.md#listDbaasClickhouseUsers) | **GET** /dbaas-clickhouse/{service-name}/user | List DBaaS ClickHouse users |
 | [**listDbaasExternalEndpointTypes**](ExoscaleApi.md#listDbaasExternalEndpointTypes) | **GET** /dbaas-external-endpoint-types |  |
 | [**listDbaasExternalEndpoints**](ExoscaleApi.md#listDbaasExternalEndpoints) | **GET** /dbaas-external-endpoints |  |
 | [**listDbaasExternalIntegrations**](ExoscaleApi.md#listDbaasExternalIntegrations) | **GET** /dbaas-external-integrations/{service-name} |  |
@@ -279,7 +279,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**removeExternalSourceFromSecurityGroup**](ExoscaleApi.md#removeExternalSourceFromSecurityGroup) | **PUT** /security-group/{id}:remove-source | Remove an external source from a Security Group |
 | [**removeInstanceProtection**](ExoscaleApi.md#removeInstanceProtection) | **PUT** /instance/{id}:remove-protection | Remove instance destruction protection |
 | [**replicateKmsKey**](ExoscaleApi.md#replicateKmsKey) | **POST** /kms-key/{id}/replicate | Replicate KMS Key |
-| [**resetDbaasClickhouseUserPassword**](ExoscaleApi.md#resetDbaasClickhouseUserPassword) | **PUT** /dbaas-clickhouse/{service-name}/user/{username}/password/reset | [BETA] Reset the credentials of a DBaaS ClickHouse user |
+| [**resetDbaasClickhouseUserPassword**](ExoscaleApi.md#resetDbaasClickhouseUserPassword) | **PUT** /dbaas-clickhouse/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS ClickHouse user |
 | [**resetDbaasGrafanaUserPassword**](ExoscaleApi.md#resetDbaasGrafanaUserPassword) | **PUT** /dbaas-grafana/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Grafana user |
 | [**resetDbaasKafkaUserPassword**](ExoscaleApi.md#resetDbaasKafkaUserPassword) | **PUT** /dbaas-kafka/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS Kafka user |
 | [**resetDbaasMysqlUserPassword**](ExoscaleApi.md#resetDbaasMysqlUserPassword) | **PUT** /dbaas-mysql/{service-name}/user/{username}/password/reset | Reset the credentials of a DBaaS mysql user |
@@ -297,7 +297,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**resetPrivateNetworkField**](ExoscaleApi.md#resetPrivateNetworkField) | **DELETE** /private-network/{id}/{field} | Reset Private Network field |
 | [**resizeBlockStorageVolume**](ExoscaleApi.md#resizeBlockStorageVolume) | **PUT** /block-storage/{id}:resize-volume | Resize a block storage volume |
 | [**resizeInstanceDisk**](ExoscaleApi.md#resizeInstanceDisk) | **PUT** /instance/{id}:resize-disk | Resize a Compute instance disk |
-| [**revealDbaasClickhouseUserPassword**](ExoscaleApi.md#revealDbaasClickhouseUserPassword) | **GET** /dbaas-clickhouse/{service-name}/user/{username}/password/reveal | [BETA] Reveal the secrets of a DBaaS ClickHouse user |
+| [**revealDbaasClickhouseUserPassword**](ExoscaleApi.md#revealDbaasClickhouseUserPassword) | **GET** /dbaas-clickhouse/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS ClickHouse user |
 | [**revealDbaasGrafanaUserPassword**](ExoscaleApi.md#revealDbaasGrafanaUserPassword) | **GET** /dbaas-grafana/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Grafana user |
 | [**revealDbaasKafkaConnectPassword**](ExoscaleApi.md#revealDbaasKafkaConnectPassword) | **GET** /dbaas-kafka/{service-name}/connect/password/reveal | Reveal the secrets for DBaaS Kafka Connect |
 | [**revealDbaasKafkaUserPassword**](ExoscaleApi.md#revealDbaasKafkaUserPassword) | **GET** /dbaas-kafka/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Kafka user |
@@ -319,7 +319,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
 | [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion |
-| [**startDbaasClickhouseMaintenance**](ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | [BETA] Initiate ClickHouse maintenance update |
+| [**startDbaasClickhouseMaintenance**](ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | Initiate ClickHouse maintenance update |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
 | [**startDbaasKafkaMaintenance**](ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
 | [**startDbaasMysqlMaintenance**](ExoscaleApi.md#startDbaasMysqlMaintenance) | **PUT** /dbaas-mysql/{name}/maintenance/start | Initiate MySQL maintenance update |
@@ -344,7 +344,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateDbaasOpensearchAclConfig**](ExoscaleApi.md#updateDbaasOpensearchAclConfig) | **PUT** /dbaas-opensearch/{name}/acl-config | Create a DBaaS OpenSearch ACL configuration |
 | [**updateDbaasPgConnectionPool**](ExoscaleApi.md#updateDbaasPgConnectionPool) | **PUT** /dbaas-postgres/{service-name}/connection-pool/{connection-pool-name} | Update a DBaaS PostgreSQL connection pool |
 | [**updateDbaasPostgresAllowReplication**](ExoscaleApi.md#updateDbaasPostgresAllowReplication) | **PUT** /dbaas-postgres/{service-name}/user/{username}/allow-replication | Update access control for one service user |
-| [**updateDbaasServiceClickhouse**](ExoscaleApi.md#updateDbaasServiceClickhouse) | **PUT** /dbaas-clickhouse/{name} | [BETA] Update a DBaaS ClickHouse service |
+| [**updateDbaasServiceClickhouse**](ExoscaleApi.md#updateDbaasServiceClickhouse) | **PUT** /dbaas-clickhouse/{name} | Update a DBaaS ClickHouse service |
 | [**updateDbaasServiceGrafana**](ExoscaleApi.md#updateDbaasServiceGrafana) | **PUT** /dbaas-grafana/{name} | Update a DBaaS Grafana service |
 | [**updateDbaasServiceKafka**](ExoscaleApi.md#updateDbaasServiceKafka) | **PUT** /dbaas-kafka/{name} | Update a DBaaS Kafka service |
 | [**updateDbaasServiceMysql**](ExoscaleApi.md#updateDbaasServiceMysql) | **PUT** /dbaas-mysql/{name} | Update a DBaaS MySQL service |
@@ -2083,7 +2083,7 @@ No authorization required
 
 > DbaasUserClickhouseSecrets createDbaasClickhouseUser(serviceName, createDbaasClickhouseUserRequest)
 
-[BETA] Create a DBaaS ClickHouse user
+Create a DBaaS ClickHouse user
 
 ### Example
 
@@ -3677,7 +3677,7 @@ No authorization required
 
 > Operation createDbaasServiceClickhouse(name, createDbaasServiceClickhouseRequest)
 
-[BETA] Create a DBaaS ClickHouse service
+Create a DBaaS ClickHouse service
 
 ### Example
 
@@ -6951,7 +6951,7 @@ No authorization required
 
 > Operation deleteDbaasClickhouseRole(serviceName, roleUuid)
 
-[BETA] Delete a DBaaS ClickHouse role
+Delete a DBaaS ClickHouse role
 
 ### Example
 
@@ -7044,7 +7044,7 @@ No authorization required
 
 > Operation deleteDbaasClickhouseUser(serviceName, userUuid)
 
-[BETA] Delete a DBaaS ClickHouse user
+Delete a DBaaS ClickHouse user
 
 ### Example
 
@@ -8620,7 +8620,7 @@ No authorization required
 
 > Operation deleteDbaasServiceClickhouse(name)
 
-[BETA] Delete a ClickHouse service
+Delete a ClickHouse service
 
 ### Example
 
@@ -14295,7 +14295,7 @@ No authorization required
 
 > DbaasClickhouseAclConfig getDbaasClickhouseAclConfig(serviceName)
 
-[BETA] Get DBaaS ClickHouse ACL configuration
+Get DBaaS ClickHouse ACL configuration
 
 ### Example
 
@@ -15393,7 +15393,7 @@ No authorization required
 
 > DbaasServiceClickhouse getDbaasServiceClickhouse(name)
 
-[BETA] Get a DBaaS ClickHouse service
+Get a DBaaS ClickHouse service
 
 ### Example
 
@@ -21398,7 +21398,7 @@ No authorization required
 
 > DbaasClickhouseRoles listDbaasClickhouseRoles(serviceName)
 
-[BETA] List DBaaS ClickHouse roles
+List DBaaS ClickHouse roles
 
 ### Example
 
@@ -21488,7 +21488,7 @@ No authorization required
 
 > DbaasClickhouseUsers listDbaasClickhouseUsers(serviceName)
 
-[BETA] List DBaaS ClickHouse users
+List DBaaS ClickHouse users
 
 ### Example
 
@@ -25691,7 +25691,7 @@ No authorization required
 
 > DbaasUserClickhouseSecrets resetDbaasClickhouseUserPassword(serviceName, username, resetDbaasValkeyUserPasswordRequest)
 
-[BETA] Reset the credentials of a DBaaS ClickHouse user
+Reset the credentials of a DBaaS ClickHouse user
 
 ### Example
 
@@ -27410,7 +27410,7 @@ No authorization required
 
 > DbaasUserClickhouseSecrets revealDbaasClickhouseUserPassword(serviceName, username)
 
-[BETA] Reveal the secrets of a DBaaS ClickHouse user
+Reveal the secrets of a DBaaS ClickHouse user
 
 ### Example
 
@@ -29475,7 +29475,7 @@ No authorization required
 
 > Operation startDbaasClickhouseMaintenance(name)
 
-[BETA] Initiate ClickHouse maintenance update
+Initiate ClickHouse maintenance update
 
 ### Example
 
@@ -31794,7 +31794,7 @@ No authorization required
 
 > Operation updateDbaasServiceClickhouse(name, updateDbaasServiceClickhouseRequest)
 
-[BETA] Update a DBaaS ClickHouse service
+Update a DBaaS ClickHouse service
 
 ### Example
 

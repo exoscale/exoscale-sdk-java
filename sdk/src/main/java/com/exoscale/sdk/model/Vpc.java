@@ -40,6 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Vpc.JSON_PROPERTY_NAME,
   Vpc.JSON_PROPERTY_DESCRIPTION,
   Vpc.JSON_PROPERTY_CREATED_AT,
+  Vpc.JSON_PROPERTY_DEFAULT,
   Vpc.JSON_PROPERTY_LABELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -55,6 +56,9 @@ public class Vpc {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_DEFAULT = "default";
+  private Boolean _default;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
@@ -162,6 +166,31 @@ public class Vpc {
   }
 
 
+  public Vpc _default(Boolean _default) {
+    this._default = _default;
+    return this;
+  }
+
+   /**
+   * Indicates if this is the organization&#39;s default VPC
+   * @return _default
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getDefault() {
+    return _default;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefault(Boolean _default) {
+    this._default = _default;
+  }
+
+
   public Vpc labels(Map<String, String> labels) {
     this.labels = labels;
     return this;
@@ -211,12 +240,13 @@ public class Vpc {
         Objects.equals(this.name, vpc.name) &&
         Objects.equals(this.description, vpc.description) &&
         Objects.equals(this.createdAt, vpc.createdAt) &&
+        Objects.equals(this._default, vpc._default) &&
         Objects.equals(this.labels, vpc.labels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, createdAt, labels);
+    return Objects.hash(id, name, description, createdAt, _default, labels);
   }
 
   @Override
@@ -227,6 +257,7 @@ public class Vpc {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -293,6 +324,11 @@ public class Vpc {
     // add `created-at` to the URL query string
     if (getCreatedAt() != null) {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `default` to the URL query string
+    if (getDefault() != null) {
+      joiner.add(String.format("%sdefault%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefault()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `labels` to the URL query string

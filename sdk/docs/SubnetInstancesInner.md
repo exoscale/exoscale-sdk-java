@@ -9,6 +9,7 @@ Subnet attachements
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** | Instance uuid |  [optional] |
+|**name** | **String** | Instance name |  [optional] |
 |**ipv4** | **String** | Instance Ipv4 address |  [optional] |
 
 

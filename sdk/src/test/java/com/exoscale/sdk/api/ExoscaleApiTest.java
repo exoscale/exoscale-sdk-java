@@ -635,7 +635,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create a DBaaS ClickHouse user
+     * Create a DBaaS ClickHouse user
      *
      * 
      *
@@ -940,7 +940,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create a DBaaS ClickHouse service
+     * Create a DBaaS ClickHouse service
      *
      * 
      *
@@ -1551,7 +1551,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete a DBaaS ClickHouse role
+     * Delete a DBaaS ClickHouse role
      *
      * 
      *
@@ -1569,7 +1569,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete a DBaaS ClickHouse user
+     * Delete a DBaaS ClickHouse user
      *
      * 
      *
@@ -1868,7 +1868,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete a ClickHouse service
+     * Delete a ClickHouse service
      *
      * 
      *
@@ -2926,7 +2926,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get DBaaS ClickHouse ACL configuration
+     * Get DBaaS ClickHouse ACL configuration
      *
      * 
      *
@@ -3130,7 +3130,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Get a DBaaS ClickHouse service
+     * Get a DBaaS ClickHouse service
      *
      * 
      *
@@ -4247,7 +4247,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List DBaaS ClickHouse roles
+     * List DBaaS ClickHouse roles
      *
      * 
      *
@@ -4264,7 +4264,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List DBaaS ClickHouse users
+     * List DBaaS ClickHouse users
      *
      * 
      *
@@ -5052,7 +5052,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Reset the credentials of a DBaaS ClickHouse user
+     * Reset the credentials of a DBaaS ClickHouse user
      *
      * 
      *
@@ -5381,7 +5381,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Reveal the secrets of a DBaaS ClickHouse user
+     * Reveal the secrets of a DBaaS ClickHouse user
      *
      * 
      *
@@ -5770,7 +5770,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Initiate ClickHouse maintenance update
+     * Initiate ClickHouse maintenance update
      *
      * 
      *
@@ -6210,7 +6210,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Update a DBaaS ClickHouse service
+     * Update a DBaaS ClickHouse service
      *
      * 
      *
