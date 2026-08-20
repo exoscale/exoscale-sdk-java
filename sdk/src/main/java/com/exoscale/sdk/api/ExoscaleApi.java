@@ -10443,12 +10443,10 @@ public class ExoscaleApi {
    * @param vpcId  (required)
    * @param subnetId  (required)
    * @param id  (required)
-   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteRoute(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
-    ApiResponse<Object> localVarResponse = deleteRouteWithHttpInfo(vpcId, subnetId, id);
-    return localVarResponse.getData();
+  public void deleteRoute(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+    deleteRouteWithHttpInfo(vpcId, subnetId, id);
   }
 
   /**
@@ -10457,10 +10455,10 @@ public class ExoscaleApi {
    * @param vpcId  (required)
    * @param subnetId  (required)
    * @param id  (required)
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Object> deleteRouteWithHttpInfo(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
+  private ApiResponse<Void> deleteRouteWithHttpInfo(UUID vpcId, UUID subnetId, UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteRouteRequestBuilder(vpcId, subnetId, id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10473,12 +10471,17 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteRoute", localVarResponse);
         }
-        return new ApiResponse<Object>(
+        return new ApiResponse<Void>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
+          null
         );
       } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -11065,12 +11068,10 @@ public class ExoscaleApi {
    * 
    * @param vpcId  (required)
    * @param id  (required)
-   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteSubnet(UUID vpcId, UUID id) throws ApiException {
-    ApiResponse<Object> localVarResponse = deleteSubnetWithHttpInfo(vpcId, id);
-    return localVarResponse.getData();
+  public void deleteSubnet(UUID vpcId, UUID id) throws ApiException {
+    deleteSubnetWithHttpInfo(vpcId, id);
   }
 
   /**
@@ -11078,10 +11079,10 @@ public class ExoscaleApi {
    * 
    * @param vpcId  (required)
    * @param id  (required)
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Object> deleteSubnetWithHttpInfo(UUID vpcId, UUID id) throws ApiException {
+  private ApiResponse<Void> deleteSubnetWithHttpInfo(UUID vpcId, UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteSubnetRequestBuilder(vpcId, id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11094,12 +11095,17 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteSubnet", localVarResponse);
         }
-        return new ApiResponse<Object>(
+        return new ApiResponse<Void>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
+          null
         );
       } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);
@@ -11326,22 +11332,20 @@ public class ExoscaleApi {
    * [BETA] Delete a VPC
    * 
    * @param id  (required)
-   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public Object deleteVpc(UUID id) throws ApiException {
-    ApiResponse<Object> localVarResponse = deleteVpcWithHttpInfo(id);
-    return localVarResponse.getData();
+  public void deleteVpc(UUID id) throws ApiException {
+    deleteVpcWithHttpInfo(id);
   }
 
   /**
    * [BETA] Delete a VPC
    * 
    * @param id  (required)
-   * @return ApiResponse&lt;Object&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<Object> deleteVpcWithHttpInfo(UUID id) throws ApiException {
+  private ApiResponse<Void> deleteVpcWithHttpInfo(UUID id) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = deleteVpcRequestBuilder(id);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -11354,12 +11358,17 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("deleteVpc", localVarResponse);
         }
-        return new ApiResponse<Object>(
+        return new ApiResponse<Void>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Object>() {}) // closes the InputStream
+          null
         );
       } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);

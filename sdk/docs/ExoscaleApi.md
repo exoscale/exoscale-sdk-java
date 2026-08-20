@@ -10645,7 +10645,7 @@ No authorization required
 
 ## deleteRoute
 
-> Object deleteRoute(vpcId, subnetId, id)
+> void deleteRoute(vpcId, subnetId, id)
 
 [BETA] Delete a route
 
@@ -10670,8 +10670,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Object result = client.deleteRoute(vpcId, subnetId, id);
-            System.out.println(result);
+            client.deleteRoute(vpcId, subnetId, id);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteRoute");
             System.err.println("Status code: " + e.getCode());
@@ -10694,8 +10693,8 @@ public class Example {
 
 ### Return type
 
-**Object**
 
+null (empty response body)
 
 ### Authorization
 
@@ -10704,12 +10703,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **204** | 204 |  -  |
 
 
 ### Parameters
@@ -10723,8 +10722,8 @@ No authorization required
 
 ### Return type
 
-ApiResponse<**Object**>
 
+ApiResponse<Void>
 
 ### Authorization
 
@@ -10733,12 +10732,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **204** | 204 |  -  |
 
 
 ## deleteRuleFromSecurityGroup
@@ -11301,7 +11300,7 @@ No authorization required
 
 ## deleteSubnet
 
-> Object deleteSubnet(vpcId, id)
+> void deleteSubnet(vpcId, id)
 
 [BETA] Delete a Subnet
 
@@ -11325,8 +11324,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Object result = client.deleteSubnet(vpcId, id);
-            System.out.println(result);
+            client.deleteSubnet(vpcId, id);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteSubnet");
             System.err.println("Status code: " + e.getCode());
@@ -11348,8 +11346,8 @@ public class Example {
 
 ### Return type
 
-**Object**
 
+null (empty response body)
 
 ### Authorization
 
@@ -11358,12 +11356,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **204** | 204 |  -  |
 
 
 ### Parameters
@@ -11376,8 +11374,8 @@ No authorization required
 
 ### Return type
 
-ApiResponse<**Object**>
 
+ApiResponse<Void>
 
 ### Authorization
 
@@ -11386,12 +11384,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **204** | 204 |  -  |
 
 
 ## deleteTemplate
@@ -11578,7 +11576,7 @@ No authorization required
 
 ## deleteVpc
 
-> Object deleteVpc(id)
+> void deleteVpc(id)
 
 [BETA] Delete a VPC
 
@@ -11601,8 +11599,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            Object result = client.deleteVpc(id);
-            System.out.println(result);
+            client.deleteVpc(id);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#deleteVpc");
             System.err.println("Status code: " + e.getCode());
@@ -11623,8 +11620,8 @@ public class Example {
 
 ### Return type
 
-**Object**
 
+null (empty response body)
 
 ### Authorization
 
@@ -11633,12 +11630,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **204** | 204 |  -  |
 
 
 ### Parameters
@@ -11650,8 +11647,8 @@ No authorization required
 
 ### Return type
 
-ApiResponse<**Object**>
 
+ApiResponse<Void>
 
 ### Authorization
 
@@ -11660,12 +11657,12 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **204** | 204 |  -  |
 
 
 ## detachBlockStorageVolume

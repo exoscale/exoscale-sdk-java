@@ -6997,12 +6997,8 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/empty'
-          description: "200"
+        "204":
+          description: "204"
       summary: "[BETA] Delete a route"
       tags:
       - exoscale
@@ -8043,12 +8039,8 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/empty'
-          description: "200"
+        "204":
+          description: "204"
       summary: "[BETA] Delete a Subnet"
       tags:
       - exoscale
@@ -10471,12 +10463,8 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/empty'
-          description: "200"
+        "204":
+          description: "204"
       summary: "[BETA] Delete a VPC"
       tags:
       - exoscale
@@ -18604,9 +18592,6 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/dbaas_external_endpoint_datadog_output_settings'
-      type: object
-    empty:
-      description: An empty map response
       type: object
     list-models-response:
       description: AI model list

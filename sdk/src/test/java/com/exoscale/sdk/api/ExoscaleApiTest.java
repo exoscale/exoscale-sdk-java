@@ -2257,7 +2257,7 @@ public class ExoscaleApiTest {
         UUID vpcId = null;
         UUID subnetId = null;
         UUID id = null;
-        Object response = 
+        
         api.deleteRoute(vpcId, subnetId, id);
         
         // TODO: test validations
@@ -2379,7 +2379,7 @@ public class ExoscaleApiTest {
     public void deleteSubnetTest() throws ApiException {
         UUID vpcId = null;
         UUID id = null;
-        Object response = 
+        
         api.deleteSubnet(vpcId, id);
         
         // TODO: test validations
@@ -2430,7 +2430,7 @@ public class ExoscaleApiTest {
     @Test
     public void deleteVpcTest() throws ApiException {
         UUID id = null;
-        Object response = 
+        
         api.deleteVpc(id);
         
         // TODO: test validations
