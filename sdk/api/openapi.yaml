@@ -1085,7 +1085,7 @@ paths:
 
             Not on Default: The request was rejected because the operation is not allowed on the default key.
 
-            Not on Replica: The request was rejectde because the operation is not allowed on a replica.
+            Not on Replica: The request was rejected because the operation is not allowed on a replica.
 
             Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.
 
@@ -3709,7 +3709,7 @@ paths:
 
             Not on Default: The request was rejected because the operation is not allowed on the default key.
 
-            Not on Replica: The request was rejectde because the operation is not allowed on a replica.
+            Not on Replica: The request was rejected because the operation is not allowed on a replica.
 
             Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.
 
@@ -8949,7 +8949,7 @@ paths:
 
             Not on Default: The request was rejected because the operation is not allowed on the default key.
 
-            Not on Replica: The request was rejectde because the operation is not allowed on a replica.
+            Not on Replica: The request was rejected because the operation is not allowed on a replica.
 
             Bad Request: The request was rejected because of an invalid request body or path parameter.
       summary: Schedule KMS Key Deletion
@@ -10397,7 +10397,7 @@ paths:
 
             Key Not Found: The request was rejected because the specified KMS Key could not be found.
 
-            Not on Replica: The request was rejectde because the operation is not allowed on a replica.
+            Not on Replica: The request was rejected because the operation is not allowed on a replica.
 
             Not Pending Deletion: The request was rejected because the key is not pending deletion.
       summary: Cancel KMS Key Deletion
@@ -10879,9 +10879,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         updated-at:
@@ -14628,12 +14630,12 @@ components:
         components:
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         node-memory: 0
@@ -14791,9 +14793,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         updated-at:
@@ -15092,9 +15096,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         kafka-settings:
           sasl_oauthbearer_jwks_endpoint_url: sasl_oauthbearer_jwks_endpoint_url
@@ -17184,12 +17190,12 @@ components:
         components:
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         shared-buffers-percentage: 28
@@ -17428,9 +17434,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         pgbouncer-settings:
@@ -18391,9 +18399,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         updated-at:
@@ -20457,12 +20467,12 @@ components:
         components:
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         node-memory: 0
@@ -20703,9 +20713,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         description:
@@ -21130,12 +21142,12 @@ components:
         components:
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         - component: component
           route: null
-          port: 13284
+          port: 27168
           usage: null
           host: host
         node-memory: 0
@@ -21372,9 +21384,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         description:
@@ -21702,8 +21716,8 @@ components:
           format: date-time
           type: string
         automatic:
-          description: A boolean flag indicating whether this specific material version
-            was created during an automated system rotation window.
+          description: Flag stating whether an automation run handled this historic
+            mutation or if manual actor keys initiated it.
           type: boolean
       required:
       - automatic
@@ -22845,9 +22859,11 @@ components:
         backups:
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
         - data-size: 0
           backup-time: 2000-01-23T04:56:07.000+00:00
+          tiered-storage-data-size: 0
           backup-name: backup-name
       properties:
         updated-at:
@@ -24049,6 +24065,7 @@ components:
       example:
         data-size: 0
         backup-time: 2000-01-23T04:56:07.000+00:00
+        tiered-storage-data-size: 0
         backup-name: backup-name
       properties:
         backup-name:
@@ -24059,7 +24076,13 @@ components:
           format: date-time
           type: string
         data-size:
-          description: Backup's original size before compression
+          description: "Backup's original size before compression, in bytes"
+          exclusiveMinimum: false
+          format: int64
+          minimum: 0
+          type: integer
+        tiered-storage-data-size:
+          description: Amount of tiered storage data in bytes referenced by this backup
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -31693,7 +31716,7 @@ components:
       example:
         component: component
         route: null
-        port: 13284
+        port: 27168
         usage: null
         host: host
       properties:

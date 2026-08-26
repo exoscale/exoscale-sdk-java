@@ -107,7 +107,7 @@ public class KeyMaterial {
   }
 
    /**
-   * A boolean flag indicating whether this specific material version was created during an automated system rotation window.
+   * Flag stating whether an automation run handled this historic mutation or if manual actor keys initiated it.
    * @return automatic
   **/
   @javax.annotation.Nonnull

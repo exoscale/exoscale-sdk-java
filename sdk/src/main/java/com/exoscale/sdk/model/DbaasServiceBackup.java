@@ -35,7 +35,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   DbaasServiceBackup.JSON_PROPERTY_BACKUP_NAME,
   DbaasServiceBackup.JSON_PROPERTY_BACKUP_TIME,
-  DbaasServiceBackup.JSON_PROPERTY_DATA_SIZE
+  DbaasServiceBackup.JSON_PROPERTY_DATA_SIZE,
+  DbaasServiceBackup.JSON_PROPERTY_TIERED_STORAGE_DATA_SIZE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasServiceBackup {
@@ -47,6 +48,9 @@ public class DbaasServiceBackup {
 
   public static final String JSON_PROPERTY_DATA_SIZE = "data-size";
   private Long dataSize;
+
+  public static final String JSON_PROPERTY_TIERED_STORAGE_DATA_SIZE = "tiered-storage-data-size";
+  private Long tieredStorageDataSize;
 
   public DbaasServiceBackup() { 
   }
@@ -107,7 +111,7 @@ public class DbaasServiceBackup {
   }
 
    /**
-   * Backup&#39;s original size before compression
+   * Backup&#39;s original size before compression, in bytes
    * minimum: 0
    * @return dataSize
   **/
@@ -127,6 +131,32 @@ public class DbaasServiceBackup {
   }
 
 
+  public DbaasServiceBackup tieredStorageDataSize(Long tieredStorageDataSize) {
+    this.tieredStorageDataSize = tieredStorageDataSize;
+    return this;
+  }
+
+   /**
+   * Amount of tiered storage data in bytes referenced by this backup
+   * minimum: 0
+   * @return tieredStorageDataSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIERED_STORAGE_DATA_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTieredStorageDataSize() {
+    return tieredStorageDataSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIERED_STORAGE_DATA_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTieredStorageDataSize(Long tieredStorageDataSize) {
+    this.tieredStorageDataSize = tieredStorageDataSize;
+  }
+
+
   /**
    * Return true if this dbaas-service-backup object is equal to o.
    */
@@ -141,12 +171,13 @@ public class DbaasServiceBackup {
     DbaasServiceBackup dbaasServiceBackup = (DbaasServiceBackup) o;
     return Objects.equals(this.backupName, dbaasServiceBackup.backupName) &&
         Objects.equals(this.backupTime, dbaasServiceBackup.backupTime) &&
-        Objects.equals(this.dataSize, dbaasServiceBackup.dataSize);
+        Objects.equals(this.dataSize, dbaasServiceBackup.dataSize) &&
+        Objects.equals(this.tieredStorageDataSize, dbaasServiceBackup.tieredStorageDataSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupName, backupTime, dataSize);
+    return Objects.hash(backupName, backupTime, dataSize, tieredStorageDataSize);
   }
 
   @Override
@@ -156,6 +187,7 @@ public class DbaasServiceBackup {
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    backupTime: ").append(toIndentedString(backupTime)).append("\n");
     sb.append("    dataSize: ").append(toIndentedString(dataSize)).append("\n");
+    sb.append("    tieredStorageDataSize: ").append(toIndentedString(tieredStorageDataSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -216,6 +248,11 @@ public class DbaasServiceBackup {
     // add `data-size` to the URL query string
     if (getDataSize() != null) {
       joiner.add(String.format("%sdata-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDataSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tiered-storage-data-size` to the URL query string
+    if (getTieredStorageDataSize() != null) {
+      joiner.add(String.format("%stiered-storage-data-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTieredStorageDataSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

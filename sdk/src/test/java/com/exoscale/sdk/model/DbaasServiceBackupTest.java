@@ -62,4 +62,12 @@ public class DbaasServiceBackupTest {
         // TODO: test dataSize
     }
 
+    /**
+     * Test the property 'tieredStorageDataSize'
+     */
+    @Test
+    public void tieredStorageDataSizeTest() {
+        // TODO: test tieredStorageDataSize
+    }
+
 }

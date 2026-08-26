@@ -1486,7 +1486,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion cancelled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
 
 
 ### Parameters
@@ -1514,7 +1514,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion cancelled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
 
 
 ## copyTemplate
@@ -12392,7 +12392,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key rotation disabled |  -  |
-| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
 
 
 ### Parameters
@@ -12420,7 +12420,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key rotation disabled |  -  |
-| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
 
 
 ## enableDbaasMysqlWrites
@@ -12672,7 +12672,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Periodic key rotation enabled |  -  |
-| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -12701,7 +12701,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Periodic key rotation enabled |  -  |
-| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | ### Errors  Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin \&quot;exoscale-kms\&quot;.  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## enableTpm
@@ -29436,7 +29436,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion scheduled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -29465,7 +29465,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion scheduled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejectde because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## startDbaasClickhouseMaintenance
