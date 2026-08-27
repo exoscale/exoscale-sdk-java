@@ -332,6 +332,8 @@ docs/InstanceState.md
 docs/InstanceType.md
 docs/InstanceTypeEntry.md
 docs/InstanceTypeRef.md
+docs/InstanceVpc.md
+docs/InstanceVpcSubnetsInner.md
 docs/InternalAuthenticationBackendLimiting.md
 docs/JsonSchemaClickhouse.md
 docs/JsonSchemaGrafana.md
@@ -891,6 +893,8 @@ src/main/java/com/exoscale/sdk/model/InstanceState.java
 src/main/java/com/exoscale/sdk/model/InstanceType.java
 src/main/java/com/exoscale/sdk/model/InstanceTypeEntry.java
 src/main/java/com/exoscale/sdk/model/InstanceTypeRef.java
+src/main/java/com/exoscale/sdk/model/InstanceVpc.java
+src/main/java/com/exoscale/sdk/model/InstanceVpcSubnetsInner.java
 src/main/java/com/exoscale/sdk/model/InternalAuthenticationBackendLimiting.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaClickhouse.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaGrafana.java

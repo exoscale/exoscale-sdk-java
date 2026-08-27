@@ -15787,6 +15787,16 @@ components:
             type: sks-nodepool
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            name: name
+            subnets:
+            - ipv4: ipv4
+              name: name
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - ipv4: ipv4
+              name: name
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             memory: 0
             size: large
@@ -18719,6 +18729,16 @@ components:
           type: sks-nodepool
         deploy-target:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        vpc:
+          name: name
+          subnets:
+          - ipv4: ipv4
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - ipv4: ipv4
+            name: name
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         instance-type:
           memory: 0
           size: large
@@ -18810,6 +18830,8 @@ components:
           description: Instance IPv6 address
           readOnly: true
           type: string
+        vpc:
+          $ref: '#/components/schemas/instance_vpc'
         id:
           description: Instance ID
           format: uuid
@@ -21781,6 +21803,16 @@ components:
             type: sks-nodepool
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            name: name
+            subnets:
+            - ipv4: ipv4
+              name: name
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - ipv4: ipv4
+              name: name
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             memory: 0
             size: large
@@ -21858,6 +21890,16 @@ components:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             type: sks-nodepool
           deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            name: name
+            subnets:
+            - ipv4: ipv4
+              name: name
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - ipv4: ipv4
+              name: name
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             memory: 0
@@ -24245,6 +24287,16 @@ components:
               type: sks-nodepool
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              name: name
+              subnets:
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               memory: 0
               size: large
@@ -24322,6 +24374,16 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              name: name
+              subnets:
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               memory: 0
@@ -24405,6 +24467,16 @@ components:
               type: sks-nodepool
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              name: name
+              subnets:
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               memory: 0
               size: large
@@ -24482,6 +24554,16 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              name: name
+              subnets:
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               memory: 0
@@ -25286,6 +25368,10 @@ components:
           format: int64
           minimum: 0
           type: integer
+        org-id:
+          description: Organization ID target of the assume role action
+          format: uuid
+          type: string
       required:
       - ttl
       type: object
@@ -27287,6 +27373,16 @@ components:
               type: sks-nodepool
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              name: name
+              subnets:
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               memory: 0
               size: large
@@ -27374,6 +27470,16 @@ components:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               type: sks-nodepool
             deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              name: name
+              subnets:
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - ipv4: ipv4
+                name: name
+                id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               memory: 0
@@ -32150,6 +32256,51 @@ components:
           maximum: 200000
           minimum: 200
           type: integer
+      type: object
+    instance_vpc_subnets_inner:
+      description: VPC subnet
+      example:
+        ipv4: ipv4
+        name: name
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: VPC subnet ID
+          format: uuid
+          type: string
+        name:
+          description: VPC subnet name
+          type: string
+        ipv4:
+          description: Instance Subnet ipv4 address
+          format: ipv4
+          type: string
+      type: object
+    instance_vpc:
+      description: VPC
+      example:
+        name: name
+        subnets:
+        - ipv4: ipv4
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - ipv4: ipv4
+          name: name
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: VPC ID
+          format: uuid
+          type: string
+        name:
+          description: VPC name
+          type: string
+        subnets:
+          description: Instances attached to the subnet
+          items:
+            $ref: '#/components/schemas/instance_vpc_subnets_inner'
+          type: array
       type: object
     dbaas_endpoint_datadog_input_create_settings:
       properties:

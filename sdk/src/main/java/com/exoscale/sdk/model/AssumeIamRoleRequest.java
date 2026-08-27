@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -32,12 +33,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AssumeIamRoleRequest
  */
 @JsonPropertyOrder({
-  AssumeIamRoleRequest.JSON_PROPERTY_TTL
+  AssumeIamRoleRequest.JSON_PROPERTY_TTL,
+  AssumeIamRoleRequest.JSON_PROPERTY_ORG_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class AssumeIamRoleRequest {
   public static final String JSON_PROPERTY_TTL = "ttl";
   private Long ttl;
+
+  public static final String JSON_PROPERTY_ORG_ID = "org-id";
+  private UUID orgId;
 
   public AssumeIamRoleRequest() { 
   }
@@ -68,6 +73,31 @@ public class AssumeIamRoleRequest {
   }
 
 
+  public AssumeIamRoleRequest orgId(UUID orgId) {
+    this.orgId = orgId;
+    return this;
+  }
+
+   /**
+   * Organization ID target of the assume role action
+   * @return orgId
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getOrgId() {
+    return orgId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ORG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOrgId(UUID orgId) {
+    this.orgId = orgId;
+  }
+
+
   /**
    * Return true if this assume_iam_role_request object is equal to o.
    */
@@ -80,12 +110,13 @@ public class AssumeIamRoleRequest {
       return false;
     }
     AssumeIamRoleRequest assumeIamRoleRequest = (AssumeIamRoleRequest) o;
-    return Objects.equals(this.ttl, assumeIamRoleRequest.ttl);
+    return Objects.equals(this.ttl, assumeIamRoleRequest.ttl) &&
+        Objects.equals(this.orgId, assumeIamRoleRequest.orgId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ttl);
+    return Objects.hash(ttl, orgId);
   }
 
   @Override
@@ -93,6 +124,7 @@ public class AssumeIamRoleRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssumeIamRoleRequest {\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
+    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,6 +175,11 @@ public class AssumeIamRoleRequest {
     // add `ttl` to the URL query string
     if (getTtl() != null) {
       joiner.add(String.format("%sttl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTtl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `org-id` to the URL query string
+    if (getOrgId() != null) {
+      joiner.add(String.format("%sorg-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrgId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

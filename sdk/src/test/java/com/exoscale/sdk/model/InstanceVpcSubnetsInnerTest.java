@@ -25,33 +25,41 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AssumeIamRoleRequest
+ * Model tests for InstanceVpcSubnetsInner
  */
-public class AssumeIamRoleRequestTest {
-    private final AssumeIamRoleRequest model = new AssumeIamRoleRequest();
+public class InstanceVpcSubnetsInnerTest {
+    private final InstanceVpcSubnetsInner model = new InstanceVpcSubnetsInner();
 
     /**
-     * Model tests for AssumeIamRoleRequest
+     * Model tests for InstanceVpcSubnetsInner
      */
     @Test
-    public void testAssumeIamRoleRequest() {
-        // TODO: test AssumeIamRoleRequest
+    public void testInstanceVpcSubnetsInner() {
+        // TODO: test InstanceVpcSubnetsInner
     }
 
     /**
-     * Test the property 'ttl'
+     * Test the property 'id'
      */
     @Test
-    public void ttlTest() {
-        // TODO: test ttl
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'orgId'
+     * Test the property 'name'
      */
     @Test
-    public void orgIdTest() {
-        // TODO: test orgId
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'ipv4'
+     */
+    @Test
+    public void ipv4Test() {
+        // TODO: test ipv4
     }
 
 }

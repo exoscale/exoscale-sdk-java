@@ -24,6 +24,7 @@ import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.ElasticIpRef;
 import com.exoscale.sdk.model.InstanceState;
 import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.InstanceVpc;
 import com.exoscale.sdk.model.ListInstances200ResponseInstancesInnerPrivateNetworksInner;
 import com.exoscale.sdk.model.Manager;
 import com.exoscale.sdk.model.PublicIpAssignment;
@@ -69,6 +70,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Instance.JSON_PROPERTY_TPM_ENABLED,
   Instance.JSON_PROPERTY_DEPLOY_TARGET,
   Instance.JSON_PROPERTY_IPV6_ADDRESS,
+  Instance.JSON_PROPERTY_VPC,
   Instance.JSON_PROPERTY_ID,
   Instance.JSON_PROPERTY_SNAPSHOTS,
   Instance.JSON_PROPERTY_DISK_SIZE,
@@ -135,6 +137,9 @@ public class Instance {
 
   public static final String JSON_PROPERTY_IPV6_ADDRESS = "ipv6-address";
   private String ipv6Address;
+
+  public static final String JSON_PROPERTY_VPC = "vpc";
+  private InstanceVpc vpc;
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -673,6 +678,31 @@ public class Instance {
 
 
 
+  public Instance vpc(InstanceVpc vpc) {
+    this.vpc = vpc;
+    return this;
+  }
+
+   /**
+   * Get vpc
+   * @return vpc
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InstanceVpc getVpc() {
+    return vpc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVpc(InstanceVpc vpc) {
+    this.vpc = vpc;
+  }
+
+
    /**
    * Instance ID
    * @return id
@@ -857,6 +887,7 @@ public class Instance {
         Objects.equals(this.tpmEnabled, instance.tpmEnabled) &&
         Objects.equals(this.deployTarget, instance.deployTarget) &&
         Objects.equals(this.ipv6Address, instance.ipv6Address) &&
+        Objects.equals(this.vpc, instance.vpc) &&
         Objects.equals(this.id, instance.id) &&
         Objects.equals(this.snapshots, instance.snapshots) &&
         Objects.equals(this.diskSize, instance.diskSize) &&
@@ -868,7 +899,7 @@ public class Instance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, id, snapshots, diskSize, diskEncrypted, sshKeys, createdAt, publicIp);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, vpc, id, snapshots, diskSize, diskEncrypted, sshKeys, createdAt, publicIp);
   }
 
   @Override
@@ -894,6 +925,7 @@ public class Instance {
     sb.append("    tpmEnabled: ").append(toIndentedString(tpmEnabled)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Address: ").append(toIndentedString(ipv6Address)).append("\n");
+    sb.append("    vpc: ").append(toIndentedString(vpc)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
@@ -1065,6 +1097,11 @@ public class Instance {
     // add `ipv6-address` to the URL query string
     if (getIpv6Address() != null) {
       joiner.add(String.format("%sipv6-address%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv6Address()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `vpc` to the URL query string
+    if (getVpc() != null) {
+      joiner.add(getVpc().toUrlQueryString(prefix + "vpc" + suffix));
     }
 
     // add `id` to the URL query string

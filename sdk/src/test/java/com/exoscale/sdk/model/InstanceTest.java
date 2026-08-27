@@ -18,6 +18,7 @@ import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.ElasticIpRef;
 import com.exoscale.sdk.model.InstanceState;
 import com.exoscale.sdk.model.InstanceType;
+import com.exoscale.sdk.model.InstanceVpc;
 import com.exoscale.sdk.model.ListInstances200ResponseInstancesInnerPrivateNetworksInner;
 import com.exoscale.sdk.model.Manager;
 import com.exoscale.sdk.model.PublicIpAssignment;
@@ -205,6 +206,14 @@ public class InstanceTest {
     @Test
     public void ipv6AddressTest() {
         // TODO: test ipv6Address
+    }
+
+    /**
+     * Test the property 'vpc'
+     */
+    @Test
+    public void vpcTest() {
+        // TODO: test vpc
     }
 
     /**

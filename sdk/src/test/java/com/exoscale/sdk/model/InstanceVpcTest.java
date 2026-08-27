@@ -13,45 +13,56 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.InstanceVpcSubnetsInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AssumeIamRoleRequest
+ * Model tests for InstanceVpc
  */
-public class AssumeIamRoleRequestTest {
-    private final AssumeIamRoleRequest model = new AssumeIamRoleRequest();
+public class InstanceVpcTest {
+    private final InstanceVpc model = new InstanceVpc();
 
     /**
-     * Model tests for AssumeIamRoleRequest
+     * Model tests for InstanceVpc
      */
     @Test
-    public void testAssumeIamRoleRequest() {
-        // TODO: test AssumeIamRoleRequest
+    public void testInstanceVpc() {
+        // TODO: test InstanceVpc
     }
 
     /**
-     * Test the property 'ttl'
+     * Test the property 'id'
      */
     @Test
-    public void ttlTest() {
-        // TODO: test ttl
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'orgId'
+     * Test the property 'name'
      */
     @Test
-    public void orgIdTest() {
-        // TODO: test orgId
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'subnets'
+     */
+    @Test
+    public void subnetsTest() {
+        // TODO: test subnets
     }
 
 }

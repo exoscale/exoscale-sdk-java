@@ -27,6 +27,7 @@ Instance
 |**tpmEnabled** | **Boolean** | Indicates if the instance has tpm enabled |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Address** | **String** | Instance IPv6 address |  [optional] [readonly] |
+|**vpc** | [**InstanceVpc**](InstanceVpc.md) |  |  [optional] |
 |**id** | **UUID** | Instance ID |  [optional] [readonly] |
 |**snapshots** | [**List&lt;SnapshotRef&gt;**](SnapshotRef.md) | Instance Snapshots |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  [optional] |
