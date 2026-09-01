@@ -24,6 +24,7 @@ SKS Nodepool
 |**instancePool** | [**InstancePoolRef**](InstancePoolRef.md) |  |  [optional] |
 |**instancePrefix** | **String** | The instances created by the Nodepool will be prefixed with this value (default: pool) |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
+|**kubeletMaxPods** | **Long** | Maximum number of pods per node. Set to use a value other than the kubelet default. |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |

@@ -38,6 +38,10 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -58,6 +62,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_IMAGE_GC,
   CreateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
   CreateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
+  CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_MAX_PODS,
   CreateSksNodepoolRequest.JSON_PROPERTY_ADDONS,
   CreateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE,
   CreateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES
@@ -137,6 +142,9 @@ public class CreateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
   private DeployTargetRef deployTarget;
+
+  public static final String JSON_PROPERTY_KUBELET_MAX_PODS = "kubelet-max-pods";
+  private JsonNullable<Long> kubeletMaxPods = JsonNullable.<Long>undefined();
 
   /**
    * Gets or Sets addons
@@ -552,6 +560,41 @@ public class CreateSksNodepoolRequest {
   }
 
 
+  public CreateSksNodepoolRequest kubeletMaxPods(Long kubeletMaxPods) {
+    this.kubeletMaxPods = JsonNullable.<Long>of(kubeletMaxPods);
+    return this;
+  }
+
+   /**
+   * Maximum number of pods per node (kubelet setting)
+   * minimum: 1
+   * maximum: 65535
+   * @return kubeletMaxPods
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Long getKubeletMaxPods() {
+        return kubeletMaxPods.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_KUBELET_MAX_PODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Long> getKubeletMaxPods_JsonNullable() {
+    return kubeletMaxPods;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_KUBELET_MAX_PODS)
+  public void setKubeletMaxPods_JsonNullable(JsonNullable<Long> kubeletMaxPods) {
+    this.kubeletMaxPods = kubeletMaxPods;
+  }
+
+  public void setKubeletMaxPods(Long kubeletMaxPods) {
+    this.kubeletMaxPods = JsonNullable.<Long>of(kubeletMaxPods);
+  }
+
+
   public CreateSksNodepoolRequest addons(Set<AddonsEnum> addons) {
     this.addons = addons;
     return this;
@@ -663,14 +706,26 @@ public class CreateSksNodepoolRequest {
         Objects.equals(this.kubeletImageGc, createSksNodepoolRequest.kubeletImageGc) &&
         Objects.equals(this.instancePrefix, createSksNodepoolRequest.instancePrefix) &&
         Objects.equals(this.deployTarget, createSksNodepoolRequest.deployTarget) &&
+        equalsNullable(this.kubeletMaxPods, createSksNodepoolRequest.kubeletMaxPods) &&
         Objects.equals(this.addons, createSksNodepoolRequest.addons) &&
         Objects.equals(this.diskSize, createSksNodepoolRequest.diskSize) &&
         Objects.equals(this.nvidiaMigProfiles, createSksNodepoolRequest.nvidiaMigProfiles);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, size, kubeletImageGc, instancePrefix, deployTarget, addons, diskSize, nvidiaMigProfiles);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, size, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, diskSize, nvidiaMigProfiles);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -690,6 +745,7 @@ public class CreateSksNodepoolRequest {
     sb.append("    kubeletImageGc: ").append(toIndentedString(kubeletImageGc)).append("\n");
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
+    sb.append("    kubeletMaxPods: ").append(toIndentedString(kubeletMaxPods)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
@@ -833,6 +889,11 @@ public class CreateSksNodepoolRequest {
     // add `deploy-target` to the URL query string
     if (getDeployTarget() != null) {
       joiner.add(getDeployTarget().toUrlQueryString(prefix + "deploy-target" + suffix));
+    }
+
+    // add `kubelet-max-pods` to the URL query string
+    if (getKubeletMaxPods() != null) {
+      joiner.add(String.format("%skubelet-max-pods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKubeletMaxPods()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `addons` to the URL query string

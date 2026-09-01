@@ -20,6 +20,7 @@
 |**kubeletImageGc** | [**KubeletImageGc**](KubeletImageGc.md) |  |  [optional] |
 |**instancePrefix** | **String** | Prefix to apply to instances names (default: pool), lowercase only |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
+|**kubeletMaxPods** | **Long** | Maximum number of pods per node (kubelet setting) |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |

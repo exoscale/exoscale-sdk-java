@@ -36,6 +36,10 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -180,6 +184,14 @@ public class SksNodepoolTest {
     @Test
     public void deployTargetTest() {
         // TODO: test deployTarget
+    }
+
+    /**
+     * Test the property 'kubeletMaxPods'
+     */
+    @Test
+    public void kubeletMaxPodsTest() {
+        // TODO: test kubeletMaxPods
     }
 
     /**
