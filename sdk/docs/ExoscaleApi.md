@@ -192,7 +192,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
 | [**getElasticIp**](ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details |
-| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [BETA] Retrieve organization environmental impact reports |
+| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [DEPRECATED] use get-impact-report endpoint |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
 | [**getImpactEstimate**](ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using products |
@@ -17836,9 +17836,9 @@ No authorization required
 
 > EnvImpactReport getEnvImpact(period)
 
-[BETA] Retrieve organization environmental impact reports
+[DEPRECATED] use get-impact-report endpoint
 
-[BETA] Returns environmental impact reports for an organization
+[DEPRECATED] use get-impact-report endpoint
 
 ### Example
 

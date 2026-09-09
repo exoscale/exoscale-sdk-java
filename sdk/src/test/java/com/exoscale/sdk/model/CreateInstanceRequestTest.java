@@ -178,6 +178,14 @@ public class CreateInstanceRequestTest {
     }
 
     /**
+     * Test the property 'ipForwarding'
+     */
+    @Test
+    public void ipForwardingTest() {
+        // TODO: test ipForwarding
+    }
+
+    /**
      * Test the property 'sshKeys'
      */
     @Test

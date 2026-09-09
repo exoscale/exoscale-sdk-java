@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   CreateLoadBalancerRequest.JSON_PROPERTY_DESCRIPTION,
+  CreateLoadBalancerRequest.JSON_PROPERTY_ADDRESSFAMILY,
   CreateLoadBalancerRequest.JSON_PROPERTY_NAME,
   CreateLoadBalancerRequest.JSON_PROPERTY_LABELS
 })
@@ -42,6 +43,44 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class CreateLoadBalancerRequest {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  /**
+   * Load Balancer address family (default: :inet4)
+   */
+  public enum AddressfamilyEnum {
+    INET4("inet4"),
+    
+    INET6("inet6");
+
+    private String value;
+
+    AddressfamilyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static AddressfamilyEnum fromValue(String value) {
+      for (AddressfamilyEnum b : AddressfamilyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ADDRESSFAMILY = "addressfamily";
+  private AddressfamilyEnum addressfamily;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -74,6 +113,31 @@ public class CreateLoadBalancerRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public CreateLoadBalancerRequest addressfamily(AddressfamilyEnum addressfamily) {
+    this.addressfamily = addressfamily;
+    return this;
+  }
+
+   /**
+   * Load Balancer address family (default: :inet4)
+   * @return addressfamily
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESSFAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AddressfamilyEnum getAddressfamily() {
+    return addressfamily;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ADDRESSFAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAddressfamily(AddressfamilyEnum addressfamily) {
+    this.addressfamily = addressfamily;
   }
 
 
@@ -148,13 +212,14 @@ public class CreateLoadBalancerRequest {
     }
     CreateLoadBalancerRequest createLoadBalancerRequest = (CreateLoadBalancerRequest) o;
     return Objects.equals(this.description, createLoadBalancerRequest.description) &&
+        Objects.equals(this.addressfamily, createLoadBalancerRequest.addressfamily) &&
         Objects.equals(this.name, createLoadBalancerRequest.name) &&
         Objects.equals(this.labels, createLoadBalancerRequest.labels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, labels);
+    return Objects.hash(description, addressfamily, name, labels);
   }
 
   @Override
@@ -162,6 +227,7 @@ public class CreateLoadBalancerRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLoadBalancerRequest {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    addressfamily: ").append(toIndentedString(addressfamily)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("}");
@@ -214,6 +280,11 @@ public class CreateLoadBalancerRequest {
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `addressfamily` to the URL query string
+    if (getAddressfamily() != null) {
+      joiner.add(String.format("%saddressfamily%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddressfamily()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string

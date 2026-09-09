@@ -45,19 +45,27 @@ public class LoadBalancerTest {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
      * Test the property 'description'
      */
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'labels'
+     */
+    @Test
+    public void labelsTest() {
+        // TODO: test labels
+    }
+
+    /**
+     * Test the property 'ip'
+     */
+    @Test
+    public void ipTest() {
+        // TODO: test ip
     }
 
     /**
@@ -77,6 +85,22 @@ public class LoadBalancerTest {
     }
 
     /**
+     * Test the property 'addressfamily'
+     */
+    @Test
+    public void addressfamilyTest() {
+        // TODO: test addressfamily
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test
@@ -85,27 +109,11 @@ public class LoadBalancerTest {
     }
 
     /**
-     * Test the property 'ip'
-     */
-    @Test
-    public void ipTest() {
-        // TODO: test ip
-    }
-
-    /**
      * Test the property 'services'
      */
     @Test
     public void servicesTest() {
         // TODO: test services
-    }
-
-    /**
-     * Test the property 'labels'
-     */
-    @Test
-    public void labelsTest() {
-        // TODO: test labels
     }
 
 }

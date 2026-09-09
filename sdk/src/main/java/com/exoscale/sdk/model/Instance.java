@@ -74,6 +74,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Instance.JSON_PROPERTY_ID,
   Instance.JSON_PROPERTY_SNAPSHOTS,
   Instance.JSON_PROPERTY_DISK_SIZE,
+  Instance.JSON_PROPERTY_IP_FORWARDING,
   Instance.JSON_PROPERTY_DISK_ENCRYPTED,
   Instance.JSON_PROPERTY_SSH_KEYS,
   Instance.JSON_PROPERTY_CREATED_AT,
@@ -149,6 +150,9 @@ public class Instance {
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
+
+  public static final String JSON_PROPERTY_IP_FORWARDING = "ip-forwarding";
+  private Boolean ipForwarding;
 
   public static final String JSON_PROPERTY_DISK_ENCRYPTED = "disk-encrypted";
   private Boolean diskEncrypted;
@@ -778,6 +782,31 @@ public class Instance {
   }
 
 
+  public Instance ipForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
+    return this;
+  }
+
+   /**
+   * VPC ip forwarding
+   * @return ipForwarding
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIpForwarding() {
+    return ipForwarding;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIpForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
+  }
+
+
    /**
    * Indicates if the root volume of the instance is encrypted
    * @return diskEncrypted
@@ -891,6 +920,7 @@ public class Instance {
         Objects.equals(this.id, instance.id) &&
         Objects.equals(this.snapshots, instance.snapshots) &&
         Objects.equals(this.diskSize, instance.diskSize) &&
+        Objects.equals(this.ipForwarding, instance.ipForwarding) &&
         Objects.equals(this.diskEncrypted, instance.diskEncrypted) &&
         Objects.equals(this.sshKeys, instance.sshKeys) &&
         Objects.equals(this.createdAt, instance.createdAt) &&
@@ -899,7 +929,7 @@ public class Instance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, vpc, id, snapshots, diskSize, diskEncrypted, sshKeys, createdAt, publicIp);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, privateNetworks, template, state, securebootEnabled, sshKey, userData, macAddress, manager, tpmEnabled, deployTarget, ipv6Address, vpc, id, snapshots, diskSize, ipForwarding, diskEncrypted, sshKeys, createdAt, publicIp);
   }
 
   @Override
@@ -929,6 +959,7 @@ public class Instance {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
+    sb.append("    ipForwarding: ").append(toIndentedString(ipForwarding)).append("\n");
     sb.append("    diskEncrypted: ").append(toIndentedString(diskEncrypted)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -1122,6 +1153,11 @@ public class Instance {
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ip-forwarding` to the URL query string
+    if (getIpForwarding() != null) {
+      joiner.add(String.format("%sip-forwarding%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpForwarding()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `disk-encrypted` to the URL query string

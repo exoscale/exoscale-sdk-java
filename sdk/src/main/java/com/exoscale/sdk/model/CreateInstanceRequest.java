@@ -60,6 +60,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateInstanceRequest.JSON_PROPERTY_DEPLOY_TARGET,
   CreateInstanceRequest.JSON_PROPERTY_IPV6_ENABLED,
   CreateInstanceRequest.JSON_PROPERTY_DISK_SIZE,
+  CreateInstanceRequest.JSON_PROPERTY_IP_FORWARDING,
   CreateInstanceRequest.JSON_PROPERTY_SSH_KEYS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -111,6 +112,9 @@ public class CreateInstanceRequest {
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
+
+  public static final String JSON_PROPERTY_IP_FORWARDING = "ip-forwarding";
+  private Boolean ipForwarding;
 
   public static final String JSON_PROPERTY_SSH_KEYS = "ssh-keys";
   private Set<SshKeyRef> sshKeys;
@@ -546,6 +550,31 @@ public class CreateInstanceRequest {
   }
 
 
+  public CreateInstanceRequest ipForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
+    return this;
+  }
+
+   /**
+   * VPC ip forwarding
+   * @return ipForwarding
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIpForwarding() {
+    return ipForwarding;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIpForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
+  }
+
+
   public CreateInstanceRequest sshKeys(Set<SshKeyRef> sshKeys) {
     this.sshKeys = sshKeys;
     return this;
@@ -608,12 +637,13 @@ public class CreateInstanceRequest {
         Objects.equals(this.deployTarget, createInstanceRequest.deployTarget) &&
         Objects.equals(this.ipv6Enabled, createInstanceRequest.ipv6Enabled) &&
         Objects.equals(this.diskSize, createInstanceRequest.diskSize) &&
+        Objects.equals(this.ipForwarding, createInstanceRequest.ipForwarding) &&
         Objects.equals(this.sshKeys, createInstanceRequest.sshKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, ipForwarding, sshKeys);
   }
 
   @Override
@@ -636,6 +666,7 @@ public class CreateInstanceRequest {
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
+    sb.append("    ipForwarding: ").append(toIndentedString(ipForwarding)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -780,6 +811,11 @@ public class CreateInstanceRequest {
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ip-forwarding` to the URL query string
+    if (getIpForwarding() != null) {
+      joiner.add(String.format("%sip-forwarding%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpForwarding()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ssh-keys` to the URL query string

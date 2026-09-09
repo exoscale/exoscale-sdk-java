@@ -17261,8 +17261,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Retrieve organization environmental impact reports
-   * [BETA] Returns environmental impact reports for an organization
+   * [DEPRECATED] use get-impact-report endpoint
+   * [DEPRECATED] use get-impact-report endpoint
    * @param period  (required)
    * @return EnvImpactReport
    * @throws ApiException if fails to make API call
@@ -17273,8 +17273,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Retrieve organization environmental impact reports
-   * [BETA] Returns environmental impact reports for an organization
+   * [DEPRECATED] use get-impact-report endpoint
+   * [DEPRECATED] use get-impact-report endpoint
    * @param period  (required)
    * @return ApiResponse&lt;EnvImpactReport&gt;
    * @throws ApiException if fails to make API call

@@ -48,6 +48,14 @@ public class CreateLoadBalancerRequestTest {
     }
 
     /**
+     * Test the property 'addressfamily'
+     */
+    @Test
+    public void addressfamilyTest() {
+        // TODO: test addressfamily
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test

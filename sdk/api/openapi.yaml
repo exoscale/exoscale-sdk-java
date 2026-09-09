@@ -49,6 +49,14 @@ tags:
   x-display-name: AI API Key
   x-weight: 940
   x-icon: exo-license
+- description: ""
+  externalDocs:
+    description: Read more
+    url: https://community.exoscale.com/product/networking/
+  name: networking
+  x-display-name: Networking
+  x-weight: 150
+  x-icon: exo-network
 - description: "Elastic IPs are additional public IPv4/6 addresses that can be attached\
     \ to Compute instances, with optional healthcheck support."
   externalDocs:
@@ -264,7 +272,7 @@ tags:
 - description: "[BETA] Create and manipulate routing rules"
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/
+    url: https://community.exoscale.com/product/networking/vpc
   name: vpc-route
   x-display-name: VPC Routes
   x-weight: 198
@@ -322,7 +330,7 @@ tags:
     \ environments for your Exoscale resources."
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/
+    url: https://community.exoscale.com/product/networking/vpc
   name: vpc
   x-display-name: VPC
   x-weight: 195
@@ -457,7 +465,7 @@ tags:
 - description: "[BETA] Create and manipulate VPCs"
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/
+    url: https://community.exoscale.com/product/networking/vpc
   name: vpc-management
   x-display-name: VPC
   x-weight: 196
@@ -485,7 +493,7 @@ tags:
 - description: "[BETA] Configure VPC subnets and attach instances to them"
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/
+    url: https://community.exoscale.com/product/networking/vpc
   name: vpc-subnet
   x-display-name: VPC Subnets
   x-weight: 197
@@ -5111,7 +5119,7 @@ paths:
       x-accepts: application/json
   /env-impact/{period}:
     get:
-      description: "[BETA] Returns environmental impact reports for an organization"
+      description: "[DEPRECATED] use get-impact-report endpoint"
       operationId: get-env-impact
       parameters:
       - explode: false
@@ -5128,7 +5136,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/env-impact-report'
           description: "200"
-      summary: "[BETA] Retrieve organization environmental impact reports"
+      summary: "[DEPRECATED] use get-impact-report endpoint"
       tags:
       - exoscale
       x-accepts: application/json
@@ -12739,10 +12747,11 @@ components:
       example:
         ip: ip
         name: name
+        addressfamily: inet4
         description: description
         created-at: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         state: creating
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         services:
         - target-port: 0
           healthcheck:
@@ -12877,14 +12886,18 @@ components:
         labels:
           key: labels
       properties:
-        id:
-          description: Load Balancer ID
-          format: uuid
-          readOnly: true
-          type: string
         description:
           description: Load Balancer description
           maxLength: 255
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        ip:
+          description: Load Balancer public IP
+          format: ip
+          readOnly: true
           type: string
         name:
           description: Load Balancer name
@@ -12902,14 +12915,21 @@ components:
           - error
           readOnly: true
           type: string
+        addressfamily:
+          description: Load Balancer address family
+          enum:
+          - inet4
+          - inet6
+          readOnly: true
+          type: string
+        id:
+          description: Load Balancer ID
+          format: uuid
+          readOnly: true
+          type: string
         created-at:
           description: Load Balancer creation date
           format: date-time
-          readOnly: true
-          type: string
-        ip:
-          description: Load Balancer public IP
-          format: ipv4
           readOnly: true
           type: string
         services:
@@ -12917,10 +12937,6 @@ components:
           items:
             $ref: '#/components/schemas/load-balancer-service'
           type: array
-        labels:
-          additionalProperties:
-            type: string
-          type: object
       type: object
     sks-cluster-deprecated-resource:
       example:
@@ -14544,7 +14560,7 @@ components:
       properties:
         public-ip:
           description: Backend server public IP
-          format: ipv4
+          format: ip
           type: string
         status:
           description: Status of the instance's healthcheck
@@ -15820,6 +15836,7 @@ components:
           public-ip: public-ip
           name: name
           disk-size: 28867
+          ip-forwarding: true
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18762,6 +18779,7 @@ components:
         public-ip: public-ip
         name: name
         disk-size: 28867
+        ip-forwarding: true
         anti-affinity-groups:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -18851,6 +18869,9 @@ components:
           maximum: 51200
           minimum: 10
           type: integer
+        ip-forwarding:
+          description: VPC ip forwarding
+          type: boolean
         disk-encrypted:
           description: Indicates if the root volume of the instance is encrypted
           readOnly: true
@@ -21852,6 +21873,7 @@ components:
           public-ip: public-ip
           name: name
           disk-size: 28867
+          ip-forwarding: true
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21940,6 +21962,7 @@ components:
           public-ip: public-ip
           name: name
           disk-size: 28867
+          ip-forwarding: true
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24336,6 +24359,7 @@ components:
             public-ip: public-ip
             name: name
             disk-size: 28867
+            ip-forwarding: true
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24424,6 +24448,7 @@ components:
             public-ip: public-ip
             name: name
             disk-size: 28867
+            ip-forwarding: true
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24516,6 +24541,7 @@ components:
             public-ip: public-ip
             name: name
             disk-size: 28867
+            ip-forwarding: true
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24604,6 +24630,7 @@ components:
             public-ip: public-ip
             name: name
             disk-size: 28867
+            ip-forwarding: true
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -24715,10 +24742,11 @@ components:
         load-balancers:
         - ip: ip
           name: name
+          addressfamily: inet4
           description: description
           created-at: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           state: creating
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           services:
           - target-port: 0
             healthcheck:
@@ -24854,10 +24882,11 @@ components:
             key: labels
         - ip: ip
           name: name
+          addressfamily: inet4
           description: description
           created-at: 2000-01-23T04:56:07.000+00:00
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           state: creating
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           services:
           - target-port: 0
             healthcheck:
@@ -25002,6 +25031,12 @@ components:
         description:
           description: Load Balancer description
           maxLength: 255
+          type: string
+        addressfamily:
+          description: "Load Balancer address family (default: :inet4)"
+          enum:
+          - inet4
+          - inet6
           type: string
         name:
           description: Load Balancer name
@@ -26108,10 +26143,11 @@ components:
       properties:
         sku:
           description: "Product SKU, e.g. compute:ch-gva-2:instance:standard:medium;\
-            \ can also include wildcards, e.g. compute:*:instance:standard:* for all\
-            \ standard instances in all zones"
+            \ can also include wildcards, e.g. compute:\\*:instance:standard:\\* for\
+            \ all standard instances in all zones"
           type: string
         metadata:
+          description: Product-specific configuration details
           type: object
       required:
       - sku
@@ -27431,6 +27467,7 @@ components:
             public-ip: public-ip
             name: name
             disk-size: 28867
+            ip-forwarding: true
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -27529,6 +27566,7 @@ components:
             public-ip: public-ip
             name: name
             disk-size: 28867
+            ip-forwarding: true
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30383,6 +30421,9 @@ components:
           maximum: 51200
           minimum: 10
           type: integer
+        ip-forwarding:
+          description: VPC ip forwarding
+          type: boolean
         ssh-keys:
           description: Instance SSH Keys
           items:

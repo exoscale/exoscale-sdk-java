@@ -39,22 +39,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Load Balancer
  */
 @JsonPropertyOrder({
-  LoadBalancer.JSON_PROPERTY_ID,
   LoadBalancer.JSON_PROPERTY_DESCRIPTION,
+  LoadBalancer.JSON_PROPERTY_LABELS,
+  LoadBalancer.JSON_PROPERTY_IP,
   LoadBalancer.JSON_PROPERTY_NAME,
   LoadBalancer.JSON_PROPERTY_STATE,
+  LoadBalancer.JSON_PROPERTY_ADDRESSFAMILY,
+  LoadBalancer.JSON_PROPERTY_ID,
   LoadBalancer.JSON_PROPERTY_CREATED_AT,
-  LoadBalancer.JSON_PROPERTY_IP,
-  LoadBalancer.JSON_PROPERTY_SERVICES,
-  LoadBalancer.JSON_PROPERTY_LABELS
+  LoadBalancer.JSON_PROPERTY_SERVICES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class LoadBalancer {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_IP = "ip";
+  private String ip;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -105,49 +109,71 @@ public class LoadBalancer {
   public static final String JSON_PROPERTY_STATE = "state";
   private StateEnum state;
 
+  /**
+   * Load Balancer address family
+   */
+  public enum AddressfamilyEnum {
+    INET4("inet4"),
+    
+    INET6("inet6");
+
+    private String value;
+
+    AddressfamilyEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static AddressfamilyEnum fromValue(String value) {
+      for (AddressfamilyEnum b : AddressfamilyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ADDRESSFAMILY = "addressfamily";
+  private AddressfamilyEnum addressfamily;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_IP = "ip";
-  private String ip;
-
   public static final String JSON_PROPERTY_SERVICES = "services";
   private List<LoadBalancerService> services;
-
-  public static final String JSON_PROPERTY_LABELS = "labels";
-  private Map<String, String> labels = new HashMap<>();
 
   public LoadBalancer() { 
   }
 
   @JsonCreator
   public LoadBalancer(
-    @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_IP) String ip, 
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
-    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt, 
-    @JsonProperty(JSON_PROPERTY_IP) String ip
+    @JsonProperty(JSON_PROPERTY_ADDRESSFAMILY) AddressfamilyEnum addressfamily, 
+    @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
-    this.id = id;
-    this.state = state;
-    this.createdAt = createdAt;
     this.ip = ip;
+    this.state = state;
+    this.addressfamily = addressfamily;
+    this.id = id;
+    this.createdAt = createdAt;
   }
-
-   /**
-   * Load Balancer ID
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UUID getId() {
-    return id;
-  }
-
-
-
 
   public LoadBalancer description(String description) {
     this.description = description;
@@ -172,6 +198,54 @@ public class LoadBalancer {
   public void setDescription(String description) {
     this.description = description;
   }
+
+
+  public LoadBalancer labels(Map<String, String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public LoadBalancer putLabelsItem(String key, String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new HashMap<>();
+    }
+    this.labels.put(key, labelsItem);
+    return this;
+  }
+
+   /**
+   * Get labels
+   * @return labels
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getLabels() {
+    return labels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabels(Map<String, String> labels) {
+    this.labels = labels;
+  }
+
+
+   /**
+   * Load Balancer public IP
+   * @return ip
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getIp() {
+    return ip;
+  }
+
+
 
 
   public LoadBalancer name(String name) {
@@ -215,6 +289,36 @@ public class LoadBalancer {
 
 
    /**
+   * Load Balancer address family
+   * @return addressfamily
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESSFAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AddressfamilyEnum getAddressfamily() {
+    return addressfamily;
+  }
+
+
+
+
+   /**
+   * Load Balancer ID
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+
+
+   /**
    * Load Balancer creation date
    * @return createdAt
   **/
@@ -224,21 +328,6 @@ public class LoadBalancer {
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-
-
-
-   /**
-   * Load Balancer public IP
-   * @return ip
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getIp() {
-    return ip;
   }
 
 
@@ -277,39 +366,6 @@ public class LoadBalancer {
   }
 
 
-  public LoadBalancer labels(Map<String, String> labels) {
-    this.labels = labels;
-    return this;
-  }
-
-  public LoadBalancer putLabelsItem(String key, String labelsItem) {
-    if (this.labels == null) {
-      this.labels = new HashMap<>();
-    }
-    this.labels.put(key, labelsItem);
-    return this;
-  }
-
-   /**
-   * Get labels
-   * @return labels
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, String> getLabels() {
-    return labels;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_LABELS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLabels(Map<String, String> labels) {
-    this.labels = labels;
-  }
-
-
   /**
    * Return true if this load-balancer object is equal to o.
    */
@@ -322,33 +378,35 @@ public class LoadBalancer {
       return false;
     }
     LoadBalancer loadBalancer = (LoadBalancer) o;
-    return Objects.equals(this.id, loadBalancer.id) &&
-        Objects.equals(this.description, loadBalancer.description) &&
+    return Objects.equals(this.description, loadBalancer.description) &&
+        Objects.equals(this.labels, loadBalancer.labels) &&
+        Objects.equals(this.ip, loadBalancer.ip) &&
         Objects.equals(this.name, loadBalancer.name) &&
         Objects.equals(this.state, loadBalancer.state) &&
+        Objects.equals(this.addressfamily, loadBalancer.addressfamily) &&
+        Objects.equals(this.id, loadBalancer.id) &&
         Objects.equals(this.createdAt, loadBalancer.createdAt) &&
-        Objects.equals(this.ip, loadBalancer.ip) &&
-        Objects.equals(this.services, loadBalancer.services) &&
-        Objects.equals(this.labels, loadBalancer.labels);
+        Objects.equals(this.services, loadBalancer.services);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, description, name, state, createdAt, ip, services, labels);
+    return Objects.hash(description, labels, ip, name, state, addressfamily, id, createdAt, services);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoadBalancer {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    addressfamily: ").append(toIndentedString(addressfamily)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -396,14 +454,23 @@ public class LoadBalancer {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `labels` to the URL query string
+    if (getLabels() != null) {
+      for (String _key : getLabels().keySet()) {
+        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `ip` to the URL query string
+    if (getIp() != null) {
+      joiner.add(String.format("%sip%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIp()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
@@ -416,14 +483,19 @@ public class LoadBalancer {
       joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `addressfamily` to the URL query string
+    if (getAddressfamily() != null) {
+      joiner.add(String.format("%saddressfamily%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddressfamily()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `created-at` to the URL query string
     if (getCreatedAt() != null) {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `ip` to the URL query string
-    if (getIp() != null) {
-      joiner.add(String.format("%sip%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIp()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `services` to the URL query string
@@ -433,15 +505,6 @@ public class LoadBalancer {
           joiner.add(getServices().get(i).toUrlQueryString(String.format("%sservices%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
-      }
-    }
-
-    // add `labels` to the URL query string
-    if (getLabels() != null) {
-      for (String _key : getLabels().keySet()) {
-        joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

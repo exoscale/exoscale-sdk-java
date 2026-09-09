@@ -23,6 +23,7 @@
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Enabled** | **Boolean** | Enable IPv6. DEPRECATED: use &#x60;public-ip-assignments&#x60;. |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  |
+|**ipForwarding** | **Boolean** | VPC ip forwarding |  [optional] |
 |**sshKeys** | [**Set&lt;SshKeyRef&gt;**](SshKeyRef.md) | Instance SSH Keys |  [optional] |
 
 

@@ -8,14 +8,15 @@ Load Balancer
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Load Balancer ID |  [optional] [readonly] |
 |**description** | **String** | Load Balancer description |  [optional] |
+|**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**ip** | **String** | Load Balancer public IP |  [optional] [readonly] |
 |**name** | **String** | Load Balancer name |  [optional] |
 |**state** | [**StateEnum**](#StateEnum) | Load Balancer state |  [optional] [readonly] |
+|**addressfamily** | [**AddressfamilyEnum**](#AddressfamilyEnum) | Load Balancer address family |  [optional] [readonly] |
+|**id** | **UUID** | Load Balancer ID |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Load Balancer creation date |  [optional] [readonly] |
-|**ip** | **String** | Load Balancer public IP |  [optional] [readonly] |
 |**services** | [**List&lt;LoadBalancerService&gt;**](LoadBalancerService.md) | Load Balancer Services |  [optional] |
-|**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 
 
@@ -29,6 +30,15 @@ Load Balancer
 | RUNNING | &quot;running&quot; |
 | MIGRATING | &quot;migrating&quot; |
 | ERROR | &quot;error&quot; |
+
+
+
+## Enum: AddressfamilyEnum
+
+| Name | Value |
+|---- | -----|
+| INET4 | &quot;inet4&quot; |
+| INET6 | &quot;inet6&quot; |
 
 
 

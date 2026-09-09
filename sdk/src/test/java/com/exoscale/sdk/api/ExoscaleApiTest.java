@@ -3587,9 +3587,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Retrieve organization environmental impact reports
+     * [DEPRECATED] use get-impact-report endpoint
      *
-     * [BETA] Returns environmental impact reports for an organization
+     * [DEPRECATED] use get-impact-report endpoint
      *
      * @throws ApiException
      *          if the Api call fails
