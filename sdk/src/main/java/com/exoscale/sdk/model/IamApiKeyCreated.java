@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,7 +37,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   IamApiKeyCreated.JSON_PROPERTY_NAME,
   IamApiKeyCreated.JSON_PROPERTY_KEY,
   IamApiKeyCreated.JSON_PROPERTY_SECRET,
-  IamApiKeyCreated.JSON_PROPERTY_ROLE_ID
+  IamApiKeyCreated.JSON_PROPERTY_ROLE_ID,
+  IamApiKeyCreated.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class IamApiKeyCreated {
@@ -51,6 +53,9 @@ public class IamApiKeyCreated {
 
   public static final String JSON_PROPERTY_ROLE_ID = "role-id";
   private UUID roleId;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
+  private OffsetDateTime createdAt;
 
   public IamApiKeyCreated() { 
   }
@@ -153,6 +158,31 @@ public class IamApiKeyCreated {
   }
 
 
+  public IamApiKeyCreated createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * IAM API Key creation timestamp
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
   /**
    * Return true if this iam-api-key-created object is equal to o.
    */
@@ -168,12 +198,13 @@ public class IamApiKeyCreated {
     return Objects.equals(this.name, iamApiKeyCreated.name) &&
         Objects.equals(this.key, iamApiKeyCreated.key) &&
         Objects.equals(this.secret, iamApiKeyCreated.secret) &&
-        Objects.equals(this.roleId, iamApiKeyCreated.roleId);
+        Objects.equals(this.roleId, iamApiKeyCreated.roleId) &&
+        Objects.equals(this.createdAt, iamApiKeyCreated.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, key, secret, roleId);
+    return Objects.hash(name, key, secret, roleId, createdAt);
   }
 
   @Override
@@ -184,6 +215,7 @@ public class IamApiKeyCreated {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
     sb.append("    roleId: ").append(toIndentedString(roleId)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -249,6 +281,11 @@ public class IamApiKeyCreated {
     // add `role-id` to the URL query string
     if (getRoleId() != null) {
       joiner.add(String.format("%srole-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRoleId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `created-at` to the URL query string
+    if (getCreatedAt() != null) {
+      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

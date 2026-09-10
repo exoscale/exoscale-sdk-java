@@ -11,6 +11,7 @@ IAM API Key
 |**name** | **String** | IAM API Key name |  [optional] |
 |**key** | **String** | IAM API Key |  [optional] |
 |**roleId** | **UUID** | IAM API Key Role ID |  [optional] |
+|**createdAt** | **OffsetDateTime** | IAM API Key creation timestamp |  [optional] |
 
 
 

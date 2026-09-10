@@ -16045,6 +16045,7 @@ components:
         iam-api-key:
           role-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
           key: key
         elapsed-ms: 0
         iam-role:
@@ -16195,6 +16196,7 @@ components:
       example:
         role-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+        created-at: 2000-01-23T04:56:07.000+00:00
         key: key
       properties:
         name:
@@ -16208,6 +16210,10 @@ components:
         role-id:
           description: IAM API Key Role ID
           format: uuid
+          type: string
+        created-at:
+          description: IAM API Key creation timestamp
+          format: date-time
           type: string
       type: object
     public-ip-assignment:
@@ -17974,6 +17980,7 @@ components:
       example:
         role-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
+        created-at: 2000-01-23T04:56:07.000+00:00
         secret: secret
         key: key
       properties:
@@ -17990,6 +17997,10 @@ components:
         role-id:
           description: IAM API Key Role ID
           format: uuid
+          type: string
+        created-at:
+          description: IAM API Key creation timestamp
+          format: date-time
           type: string
       type: object
     get-deployment-response:
@@ -26923,9 +26934,11 @@ components:
         api-keys:
         - role-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
           key: key
         - role-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           name: name
+          created-at: 2000-01-23T04:56:07.000+00:00
           key: key
       properties:
         api-keys:

@@ -12,6 +12,7 @@ IAM API Key
 |**key** | **String** | IAM API Key |  [optional] |
 |**secret** | **String** | IAM API Key Secret |  [optional] [readonly] |
 |**roleId** | **UUID** | IAM API Key Role ID |  [optional] |
+|**createdAt** | **OffsetDateTime** | IAM API Key creation timestamp |  [optional] |
 
 
 
