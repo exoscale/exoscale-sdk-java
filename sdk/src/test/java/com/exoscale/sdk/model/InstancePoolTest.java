@@ -16,6 +16,7 @@ package com.exoscale.sdk.model;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.ElasticIpRef;
+import com.exoscale.sdk.model.InstancePoolErrorReason;
 import com.exoscale.sdk.model.InstanceRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.Manager;
@@ -203,6 +204,14 @@ public class InstancePoolTest {
     @Test
     public void instancesTest() {
         // TODO: test instances
+    }
+
+    /**
+     * Test the property 'errorReason'
+     */
+    @Test
+    public void errorReasonTest() {
+        // TODO: test errorReason
     }
 
     /**

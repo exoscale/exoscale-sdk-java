@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-10T07:15:56.498236528Z[Etc/UTC]
+- Build date: 2026-09-15T07:17:34.863184308Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-01dcda9</version>
+    <version>0.0.5-SNAPSHOT-666af30</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-01dcda9'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-666af30'
 }
 ```
 
@@ -779,6 +779,7 @@ Class | Method | HTTP request | Description
  - [Instance](sdk/docs/Instance.md)
  - [InstancePassword](sdk/docs/InstancePassword.md)
  - [InstancePool](sdk/docs/InstancePool.md)
+ - [InstancePoolErrorReason](sdk/docs/InstancePoolErrorReason.md)
  - [InstancePoolRef](sdk/docs/InstancePoolRef.md)
  - [InstanceRef](sdk/docs/InstanceRef.md)
  - [InstanceState](sdk/docs/InstanceState.md)

@@ -27,6 +27,7 @@ Instance Pool
 |**userData** | **String** | Instances Cloud-init user-data |  [optional] |
 |**manager** | [**Manager**](Manager.md) |  |  [optional] |
 |**instances** | [**List&lt;InstanceRef&gt;**](InstanceRef.md) | Instances |  [optional] [readonly] |
+|**errorReason** | [**InstancePoolErrorReason**](InstancePoolErrorReason.md) |  |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Enabled** | **Boolean** | Enable IPv6 for instances |  [optional] |
 |**id** | **UUID** | Instance Pool ID |  [optional] [readonly] |
@@ -46,6 +47,7 @@ Instance Pool
 | SUSPENDED | &quot;suspended&quot; |
 | RUNNING | &quot;running&quot; |
 | UPDATING | &quot;updating&quot; |
+| ERROR | &quot;error&quot; |
 
 
 
