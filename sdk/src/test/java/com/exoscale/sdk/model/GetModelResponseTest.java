@@ -21,6 +21,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.UUID;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -56,6 +60,14 @@ public class GetModelResponseTest {
     }
 
     /**
+     * Test the property 'lifecycleStatus'
+     */
+    @Test
+    public void lifecycleStatusTest() {
+        // TODO: test lifecycleStatus
+    }
+
+    /**
      * Test the property 'state'
      */
     @Test
@@ -72,6 +84,14 @@ public class GetModelResponseTest {
     }
 
     /**
+     * Test the property 'deprecationDate'
+     */
+    @Test
+    public void deprecationDateTest() {
+        // TODO: test deprecationDate
+    }
+
+    /**
      * Test the property 'modelSize'
      */
     @Test
@@ -85,6 +105,14 @@ public class GetModelResponseTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'visibility'
+     */
+    @Test
+    public void visibilityTest() {
+        // TODO: test visibility
     }
 
 }

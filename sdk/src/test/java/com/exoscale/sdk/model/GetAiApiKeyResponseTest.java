@@ -72,14 +72,6 @@ public class GetAiApiKeyResponseTest {
     }
 
     /**
-     * Test the property 'orgUuid'
-     */
-    @Test
-    public void orgUuidTest() {
-        // TODO: test orgUuid
-    }
-
-    /**
      * Test the property 'createdAt'
      */
     @Test

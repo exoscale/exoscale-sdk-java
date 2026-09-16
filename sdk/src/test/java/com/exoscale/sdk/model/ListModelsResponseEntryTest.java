@@ -56,6 +56,14 @@ public class ListModelsResponseEntryTest {
     }
 
     /**
+     * Test the property 'lifecycleStatus'
+     */
+    @Test
+    public void lifecycleStatusTest() {
+        // TODO: test lifecycleStatus
+    }
+
+    /**
      * Test the property 'state'
      */
     @Test
@@ -85,6 +93,14 @@ public class ListModelsResponseEntryTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'visibility'
+     */
+    @Test
+    public void visibilityTest() {
+        // TODO: test visibility
     }
 
 }

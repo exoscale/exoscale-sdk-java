@@ -219,7 +219,7 @@ tags:
     \ usage."
   externalDocs:
     description: Read more
-    url: https://www.exoscale.com/sustainability/
+    url: https://community.exoscale.com/platform/environmental-impact/
   name: environmental-impact
   x-display-name: Environmental Impact
   x-weight: 1150
@@ -1197,6 +1197,48 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /ai/api-key/{id}/revoke:
+    post:
+      description: Revoke an AI API key. Key will be deleted after 30 days of retention
+      operationId: revoke-ai-api-key
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: Internal Server Error
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: Not Found
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: OK
+      summary: "[BETA] Revoke AI API Key"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /load-balancer:
     get:
       description: ""
@@ -1658,7 +1700,14 @@ paths:
     get:
       description: List Models
       operationId: list-models
-      parameters: []
+      parameters:
+      - explode: true
+        in: query
+        name: visibility
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2353,14 +2402,7 @@ paths:
     get:
       description: List Deployments
       operationId: list-deployments
-      parameters:
-      - explode: true
-        in: query
-        name: visibility
-        required: false
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -3175,41 +3217,6 @@ paths:
       - exoscale
       x-accepts: application/json
   /ai/api-key/{id}:
-    delete:
-      description: Delete AI API key
-      operationId: delete-ai-api-key
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error-response'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error-response'
-          description: Not Found
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: OK
-      summary: "[BETA] Delete AI API Key"
-      tags:
-      - exoscale
-      x-accepts: application/json
     get:
       description: Get AI API key metadata
       operationId: get-ai-api-key
@@ -11413,7 +11420,6 @@ components:
         updated-at: 2000-01-23T04:56:07.000+00:00
         scope: scope
         name: name
-        org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         value: value
@@ -11438,11 +11444,6 @@ components:
           format: uuid
           readOnly: true
           type: string
-        org-uuid:
-          description: Organization UUID that owns this key
-          format: uuid
-          readOnly: true
-          type: string
         created-at:
           description: Creation timestamp
           format: date-time
@@ -11452,7 +11453,6 @@ components:
       - created-at
       - id
       - name
-      - org-uuid
       - scope
       - updated-at
       - value
@@ -12254,11 +12254,6 @@ components:
           format: uuid
           readOnly: true
           type: string
-        org-uuid:
-          description: Organization UUID that owns this key
-          format: uuid
-          readOnly: true
-          type: string
         created-at:
           description: Creation timestamp
           format: date-time
@@ -12268,7 +12263,6 @@ components:
       - created-at
       - id
       - name
-      - org-uuid
       - scope
       - updated-at
       type: object
@@ -13080,7 +13074,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.28.0
+      default: 0.29.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -13105,6 +13099,7 @@ components:
       - 0.27.0
       - 0.27.1
       - 0.28.0
+      - 0.29.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -15764,9 +15759,6 @@ components:
             description: description
             default-user: default-user
             password-enabled: true
-            zones:
-            - null
-            - null
             version: version
             application-consistent-snapshot-enabled: true
             maintainer: maintainer
@@ -16709,7 +16701,6 @@ components:
           name: default-public-key
           scope: public
           id: 11111111-1111-1111-1111-111111111111
-          org-uuid: 22222222-2222-2222-2222-222222222222
           created-at: 2026-03-25T10:00:00Z
       properties:
         ai-api-keys:
@@ -18021,7 +18012,6 @@ components:
         inference-engine-parameters:
         - inference-engine-parameters
         - inference-engine-parameters
-        visibility: public
         service-level: service-level
         replicas: 0
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -18094,13 +18084,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-        visibility:
-          description: "Deployment visibility: private for your organization's deployments,\
-            \ public for Exoscale Managed Inference deployments."
-          enum:
-          - public
-          - private
-          type: string
         inference-engine-parameters:
           description: Optional extra inference engine server CLI args
           items:
@@ -18113,7 +18096,6 @@ components:
       - model
       - name
       - state
-      - visibility
       type: object
     list-route-entry:
       description: Route
@@ -18659,12 +18641,16 @@ components:
       example:
         models:
         - model-size: 0
+          lifecycle-status: preview
+          visibility: private
           updated-at: 2000-01-23T04:56:07.000+00:00
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
           state: ready
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - model-size: 0
+          lifecycle-status: preview
+          visibility: private
           updated-at: 2000-01-23T04:56:07.000+00:00
           name: name
           created-at: 2000-01-23T04:56:07.000+00:00
@@ -18722,9 +18708,6 @@ components:
           description: description
           default-user: default-user
           password-enabled: true
-          zones:
-          - null
-          - null
           version: version
           application-consistent-snapshot-enabled: true
           maintainer: maintainer
@@ -19132,7 +19115,6 @@ components:
       description: AI deployment
       example:
         gpu-type: gpu-type
-        visibility: public
         service-level: service-level
         replicas: 0
         updated-at: 2000-01-23T04:56:07.000+00:00
@@ -19197,13 +19179,6 @@ components:
           format: date-time
           readOnly: true
           type: string
-        visibility:
-          description: "Deployment visibility: private for your organization's deployments,\
-            \ public for Exoscale Managed Inference deployments."
-          enum:
-          - public
-          - private
-          type: string
         model:
           $ref: '#/components/schemas/model-ref'
       required:
@@ -19211,7 +19186,6 @@ components:
       - model
       - name
       - state
-      - visibility
       type: object
     dbaas-endpoint-elasticsearch-secrets:
       properties:
@@ -20454,9 +20428,6 @@ components:
         description: description
         default-user: default-user
         password-enabled: true
-        zones:
-        - null
-        - null
         version: version
         application-consistent-snapshot-enabled: true
         maintainer: maintainer
@@ -20527,11 +20498,6 @@ components:
           format: uuid
           readOnly: true
           type: string
-        zones:
-          description: Zones availability
-          items:
-            $ref: '#/components/schemas/zone-name'
-          type: array
         url:
           description: Template source URL
           type: string
@@ -21628,7 +21594,6 @@ components:
         updated-at: 2000-01-23T04:56:07.000+00:00
         scope: scope
         name: name
-        org-uuid: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
@@ -21649,11 +21614,6 @@ components:
           format: uuid
           readOnly: true
           type: string
-        org-uuid:
-          description: Organization UUID that owns this key
-          format: uuid
-          readOnly: true
-          type: string
         created-at:
           description: Creation timestamp
           format: date-time
@@ -21663,7 +21623,6 @@ components:
       - created-at
       - id
       - name
-      - org-uuid
       - scope
       - updated-at
       type: object
@@ -21755,7 +21714,6 @@ components:
       example:
         deployments:
         - gpu-type: gpu-type
-          visibility: public
           service-level: service-level
           replicas: 0
           updated-at: 2000-01-23T04:56:07.000+00:00
@@ -21769,7 +21727,6 @@ components:
           state: ready
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - gpu-type: gpu-type
-          visibility: public
           service-level: service-level
           replicas: 0
           updated-at: 2000-01-23T04:56:07.000+00:00
@@ -21823,9 +21780,6 @@ components:
             description: description
             default-user: default-user
             password-enabled: true
-            zones:
-            - null
-            - null
             version: version
             application-consistent-snapshot-enabled: true
             maintainer: maintainer
@@ -21912,9 +21866,6 @@ components:
             description: description
             default-user: default-user
             password-enabled: true
-            zones:
-            - null
-            - null
             version: version
             application-consistent-snapshot-enabled: true
             maintainer: maintainer
@@ -22111,7 +22062,10 @@ components:
     get-model-response:
       description: AI model
       example:
+        deprecation-date: ""
         model-size: 0
+        lifecycle-status: preview
+        visibility: private
         updated-at: 2000-01-23T04:56:07.000+00:00
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -22127,6 +22081,15 @@ components:
           description: Model name
           minLength: 1
           type: string
+        lifecycle-status:
+          description: Model lifecycle state
+          enum:
+          - preview
+          - active
+          - deprecated
+          - eol
+          - null
+          type: string
         state:
           description: Model state
           enum:
@@ -22141,6 +22104,10 @@ components:
           format: uuid
           readOnly: true
           type: string
+        deprecation-date:
+          description: Model deprecation date
+          format: date-time
+          readOnly: true
         model-size:
           description: Model size in bytes
           format: int64
@@ -22150,6 +22117,12 @@ components:
           description: Creation time
           format: date-time
           readOnly: true
+          type: string
+        visibility:
+          description: Model visibility
+          enum:
+          - private
+          - public
           type: string
       required:
       - created-at
@@ -22296,6 +22269,8 @@ components:
       description: AI model
       example:
         model-size: 0
+        lifecycle-status: preview
+        visibility: private
         updated-at: 2000-01-23T04:56:07.000+00:00
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -22310,6 +22285,15 @@ components:
         name:
           description: Model name
           minLength: 1
+          type: string
+        lifecycle-status:
+          description: Model lifecycle state
+          enum:
+          - preview
+          - active
+          - deprecated
+          - eol
+          - null
           type: string
         state:
           description: Model state
@@ -22334,6 +22318,12 @@ components:
           description: Creation time
           format: date-time
           readOnly: true
+          type: string
+        visibility:
+          description: Model visibility
+          enum:
+          - private
+          - public
           type: string
       required:
       - created-at
@@ -24070,11 +24060,6 @@ components:
           format: uuid
           readOnly: true
           type: string
-        org-uuid:
-          description: Organization UUID that owns this key
-          format: uuid
-          readOnly: true
-          type: string
         created-at:
           description: Creation timestamp
           format: date-time
@@ -24084,7 +24069,6 @@ components:
       - created-at
       - id
       - name
-      - org-uuid
       - scope
       - updated-at
       type: object
@@ -24309,9 +24293,6 @@ components:
               description: description
               default-user: default-user
               password-enabled: true
-              zones:
-              - null
-              - null
               version: version
               application-consistent-snapshot-enabled: true
               maintainer: maintainer
@@ -24398,9 +24379,6 @@ components:
               description: description
               default-user: default-user
               password-enabled: true
-              zones:
-              - null
-              - null
               version: version
               application-consistent-snapshot-enabled: true
               maintainer: maintainer
@@ -24491,9 +24469,6 @@ components:
               description: description
               default-user: default-user
               password-enabled: true
-              zones:
-              - null
-              - null
               version: version
               application-consistent-snapshot-enabled: true
               maintainer: maintainer
@@ -24580,9 +24555,6 @@ components:
               description: description
               default-user: default-user
               password-enabled: true
-              zones:
-              - null
-              - null
               version: version
               application-consistent-snapshot-enabled: true
               maintainer: maintainer
@@ -27443,9 +27415,6 @@ components:
               description: description
               default-user: default-user
               password-enabled: true
-              zones:
-              - null
-              - null
               version: version
               application-consistent-snapshot-enabled: true
               maintainer: maintainer
@@ -27542,9 +27511,6 @@ components:
               description: description
               default-user: default-user
               password-enabled: true
-              zones:
-              - null
-              - null
               version: version
               application-consistent-snapshot-enabled: true
               maintainer: maintainer
@@ -29093,9 +29059,6 @@ components:
           description: description
           default-user: default-user
           password-enabled: true
-          zones:
-          - null
-          - null
           version: version
           application-consistent-snapshot-enabled: true
           maintainer: maintainer
@@ -29113,9 +29076,6 @@ components:
           description: description
           default-user: default-user
           password-enabled: true
-          zones:
-          - null
-          - null
           version: version
           application-consistent-snapshot-enabled: true
           maintainer: maintainer
@@ -29969,9 +29929,6 @@ components:
           description: description
           default-user: default-user
           password-enabled: true
-          zones:
-          - null
-          - null
           version: version
           application-consistent-snapshot-enabled: true
           maintainer: maintainer
@@ -30157,9 +30114,6 @@ components:
             description: description
             default-user: default-user
             password-enabled: true
-            zones:
-            - null
-            - null
             version: version
             application-consistent-snapshot-enabled: true
             maintainer: maintainer
@@ -30286,9 +30240,6 @@ components:
             description: description
             default-user: default-user
             password-enabled: true
-            zones:
-            - null
-            - null
             version: version
             application-consistent-snapshot-enabled: true
             maintainer: maintainer

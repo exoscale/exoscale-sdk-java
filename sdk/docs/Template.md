@@ -21,7 +21,6 @@ Instance template
 |**checksum** | **String** | Template MD5 checksum |  [optional] |
 |**bootMode** | [**BootModeEnum**](#BootModeEnum) | Boot mode (default: legacy) |  [optional] |
 |**id** | **UUID** | Template ID |  [optional] [readonly] |
-|**zones** | **List&lt;ZoneName&gt;** | Zones availability |  [optional] |
 |**url** | **String** | Template source URL |  [optional] |
 |**version** | **String** | Template version |  [optional] [readonly] |
 |**createdAt** | **OffsetDateTime** | Template creation date |  [optional] [readonly] |

@@ -38,7 +38,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AiApiKey.JSON_PROPERTY_NAME,
   AiApiKey.JSON_PROPERTY_SCOPE,
   AiApiKey.JSON_PROPERTY_ID,
-  AiApiKey.JSON_PROPERTY_ORG_UUID,
   AiApiKey.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -55,9 +54,6 @@ public class AiApiKey {
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
-  public static final String JSON_PROPERTY_ORG_UUID = "org-uuid";
-  private UUID orgUuid;
-
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
@@ -68,13 +64,11 @@ public class AiApiKey {
   public AiApiKey(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
-    @JsonProperty(JSON_PROPERTY_ORG_UUID) UUID orgUuid, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.updatedAt = updatedAt;
     this.id = id;
-    this.orgUuid = orgUuid;
     this.createdAt = createdAt;
   }
 
@@ -159,21 +153,6 @@ public class AiApiKey {
 
 
    /**
-   * Organization UUID that owns this key
-   * @return orgUuid
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ORG_UUID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getOrgUuid() {
-    return orgUuid;
-  }
-
-
-
-
-   /**
    * Creation timestamp
    * @return createdAt
   **/
@@ -204,13 +183,12 @@ public class AiApiKey {
         Objects.equals(this.name, aiApiKey.name) &&
         Objects.equals(this.scope, aiApiKey.scope) &&
         Objects.equals(this.id, aiApiKey.id) &&
-        Objects.equals(this.orgUuid, aiApiKey.orgUuid) &&
         Objects.equals(this.createdAt, aiApiKey.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, scope, id, orgUuid, createdAt);
+    return Objects.hash(updatedAt, name, scope, id, createdAt);
   }
 
   @Override
@@ -221,7 +199,6 @@ public class AiApiKey {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    orgUuid: ").append(toIndentedString(orgUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -288,11 +265,6 @@ public class AiApiKey {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `org-uuid` to the URL query string
-    if (getOrgUuid() != null) {
-      joiner.add(String.format("%sorg-uuid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrgUuid()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string

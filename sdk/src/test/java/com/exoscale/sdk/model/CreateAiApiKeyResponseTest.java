@@ -80,14 +80,6 @@ public class CreateAiApiKeyResponseTest {
     }
 
     /**
-     * Test the property 'orgUuid'
-     */
-    @Test
-    public void orgUuidTest() {
-        // TODO: test orgUuid
-    }
-
-    /**
      * Test the property 'createdAt'
      */
     @Test

@@ -19,16 +19,13 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.ZoneName;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -50,7 +47,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Template.JSON_PROPERTY_CHECKSUM,
   Template.JSON_PROPERTY_BOOT_MODE,
   Template.JSON_PROPERTY_ID,
-  Template.JSON_PROPERTY_ZONES,
   Template.JSON_PROPERTY_URL,
   Template.JSON_PROPERTY_VERSION,
   Template.JSON_PROPERTY_CREATED_AT,
@@ -131,9 +127,6 @@ public class Template {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
-
-  public static final String JSON_PROPERTY_ZONES = "zones";
-  private List<ZoneName> zones;
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
@@ -491,39 +484,6 @@ public class Template {
 
 
 
-  public Template zones(List<ZoneName> zones) {
-    this.zones = zones;
-    return this;
-  }
-
-  public Template addZonesItem(ZoneName zonesItem) {
-    if (this.zones == null) {
-      this.zones = new ArrayList<>();
-    }
-    this.zones.add(zonesItem);
-    return this;
-  }
-
-   /**
-   * Zones availability
-   * @return zones
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ZONES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<ZoneName> getZones() {
-    return zones;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ZONES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setZones(List<ZoneName> zones) {
-    this.zones = zones;
-  }
-
-
   public Template url(String url) {
     this.url = url;
     return this;
@@ -619,7 +579,6 @@ public class Template {
         Objects.equals(this.checksum, template.checksum) &&
         Objects.equals(this.bootMode, template.bootMode) &&
         Objects.equals(this.id, template.id) &&
-        Objects.equals(this.zones, template.zones) &&
         Objects.equals(this.url, template.url) &&
         Objects.equals(this.version, template.version) &&
         Objects.equals(this.createdAt, template.createdAt) &&
@@ -628,7 +587,7 @@ public class Template {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, maintainer, description, sshKeyEnabled, family, name, defaultUser, size, passwordEnabled, build, checksum, bootMode, id, zones, url, version, createdAt, visibility);
+    return Objects.hash(applicationConsistentSnapshotEnabled, maintainer, description, sshKeyEnabled, family, name, defaultUser, size, passwordEnabled, build, checksum, bootMode, id, url, version, createdAt, visibility);
   }
 
   @Override
@@ -648,7 +607,6 @@ public class Template {
     sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
     sb.append("    bootMode: ").append(toIndentedString(bootMode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -763,17 +721,6 @@ public class Template {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `zones` to the URL query string
-    if (getZones() != null) {
-      for (int i = 0; i < getZones().size(); i++) {
-        if (getZones().get(i) != null) {
-          joiner.add(String.format("%szones%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getZones().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-        }
-      }
     }
 
     // add `url` to the URL query string

@@ -69,7 +69,6 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
 | [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC |
 | [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | Decrypt |
-| [**deleteAiApiKey**](ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | [BETA] Delete AI API Key |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
 | [**deleteBlockStorageSnapshot**](ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable |
@@ -309,6 +308,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**revealDeploymentApiKey**](ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key |
 | [**revealInstancePassword**](ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset. |
 | [**revertInstanceToSnapshot**](ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance |
+| [**revokeAiApiKey**](ExoscaleApi.md#revokeAiApiKey) | **POST** /ai/api-key/{id}/revoke | [BETA] Revoke AI API Key |
 | [**rotateKmsKey**](ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | Rotate Key |
 | [**rotateSksCcmCredentials**](ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials |
 | [**rotateSksCsiCredentials**](ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials |
@@ -6483,102 +6483,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
 | **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
-
-
-## deleteAiApiKey
-
-> Operation deleteAiApiKey(id)
-
-[BETA] Delete AI API Key
-
-Delete AI API key
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.*;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) throws ApiException, InterruptedException{
-        // Initialize the client with credentials
-        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-
-        try {
-            // Invoke the API method
-            Operation result = client.deleteAiApiKey(id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#deleteAiApiKey");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-
-### Return type
-
-[**Operation**](Operation.md)
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
-
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-
-### Return type
-
-ApiResponse<[**Operation**](Operation.md)>
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -22363,7 +22267,7 @@ No authorization required
 
 ## listDeployments
 
-> ListDeploymentsResponse listDeployments(visibility)
+> ListDeploymentsResponse listDeployments()
 
 List Deployments
 
@@ -22382,11 +22286,10 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListDeploymentsResponse result = client.listDeployments(visibility);
+            ListDeploymentsResponse result = client.listDeployments();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listDeployments");
@@ -22401,10 +22304,7 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **visibility** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -22429,10 +22329,7 @@ No authorization required
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **visibility** | **String**|  | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -23436,7 +23333,7 @@ No authorization required
 
 ## listModels
 
-> ListModelsResponse listModels()
+> ListModelsResponse listModels(visibility)
 
 List Models
 
@@ -23455,10 +23352,11 @@ public class Example {
     public static void main(String[] args) throws ApiException, InterruptedException{
         // Initialize the client with credentials
         Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String visibility = "visibility_example"; // String | 
 
         try {
             // Invoke the API method
-            ListModelsResponse result = client.listModels();
+            ListModelsResponse result = client.listModels(visibility);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#listModels");
@@ -23473,7 +23371,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -23497,7 +23398,10 @@ No authorization required
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **visibility** | **String**|  | [optional] |
 
 ### Return type
 
@@ -28516,6 +28420,104 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## revokeAiApiKey
+
+> Operation revokeAiApiKey(id)
+
+[BETA] Revoke AI API Key
+
+Revoke an AI API key. Key will be deleted after 30 days of retention
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            Operation result = client.revokeAiApiKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#revokeAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**Operation**](Operation.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **500** | Internal Server Error |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **500** | Internal Server Error |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
 
 
 ## rotateKmsKey

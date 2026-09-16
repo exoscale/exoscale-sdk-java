@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-15T07:17:34.863184308Z[Etc/UTC]
+- Build date: 2026-09-16T07:17:36.347093336Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-666af30</version>
+    <version>0.0.5-SNAPSHOT-86aecae</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-666af30'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-86aecae'
 }
 ```
 
@@ -147,7 +147,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createUser**](sdk/docs/ExoscaleApi.md#createUser) | **POST** /user | Create a User
 *ExoscaleApi* | [**createVpc**](sdk/docs/ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC
 *ExoscaleApi* | [**decrypt**](sdk/docs/ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | Decrypt
-*ExoscaleApi* | [**deleteAiApiKey**](sdk/docs/ExoscaleApi.md#deleteAiApiKey) | **DELETE** /ai/api-key/{id} | [BETA] Delete AI API Key
 *ExoscaleApi* | [**deleteAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group
 *ExoscaleApi* | [**deleteApiKey**](sdk/docs/ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key
 *ExoscaleApi* | [**deleteBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#deleteBlockStorageSnapshot) | **DELETE** /block-storage-snapshot/{id} | Delete a block storage snapshot, data will be unrecoverable
@@ -387,6 +386,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
+*ExoscaleApi* | [**revokeAiApiKey**](sdk/docs/ExoscaleApi.md#revokeAiApiKey) | **POST** /ai/api-key/{id}/revoke | [BETA] Revoke AI API Key
 *ExoscaleApi* | [**rotateKmsKey**](sdk/docs/ExoscaleApi.md#rotateKmsKey) | **POST** /kms-key/{id}/rotate | Rotate Key
 *ExoscaleApi* | [**rotateSksCcmCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCcmCredentials) | **PUT** /sks-cluster/{id}/rotate-ccm-credentials | Rotate Exoscale CCM credentials
 *ExoscaleApi* | [**rotateSksCsiCredentials**](sdk/docs/ExoscaleApi.md#rotateSksCsiCredentials) | **PUT** /sks-cluster/{id}/rotate-csi-credentials | Rotate Exoscale CSI credentials

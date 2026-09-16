@@ -1466,23 +1466,6 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete AI API Key
-     *
-     * Delete AI API key
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void deleteAiApiKeyTest() throws ApiException {
-        UUID id = null;
-        Operation response = 
-        api.deleteAiApiKey(id);
-        
-        // TODO: test validations
-    }
-    
-    /**
      * Delete an Anti-affinity Group
      *
      * 
@@ -4439,9 +4422,8 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listDeploymentsTest() throws ApiException {
-        String visibility = null;
         ListDeploymentsResponse response = 
-        api.listDeployments(visibility);
+        api.listDeployments();
         
         // TODO: test validations
     }
@@ -4640,8 +4622,9 @@ public class ExoscaleApiTest {
      */
     @Test
     public void listModelsTest() throws ApiException {
+        String visibility = null;
         ListModelsResponse response = 
-        api.listModels();
+        api.listModels(visibility);
         
         // TODO: test validations
     }
@@ -5589,6 +5572,23 @@ public class ExoscaleApiTest {
         RevertInstanceToSnapshotRequest revertInstanceToSnapshotRequest = null;
         Operation response = 
         api.revertInstanceToSnapshot(instanceId, revertInstanceToSnapshotRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Revoke AI API Key
+     *
+     * Revoke an AI API key. Key will be deleted after 30 days of retention
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void revokeAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        Operation response = 
+        api.revokeAiApiKey(id);
         
         // TODO: test validations
     }
