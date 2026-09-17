@@ -547,6 +547,7 @@ docs/UpdateVpcRequest.md
 docs/UpgradeSksClusterRequest.md
 docs/User.md
 docs/Vpc.md
+docs/VpcDhcpOptions.md
 docs/WriteAheadLogWALSettings.md
 docs/Zone.md
 docs/ZoneImpact.md
@@ -1109,6 +1110,7 @@ src/main/java/com/exoscale/sdk/model/UpdateVpcRequest.java
 src/main/java/com/exoscale/sdk/model/UpgradeSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/User.java
 src/main/java/com/exoscale/sdk/model/Vpc.java
+src/main/java/com/exoscale/sdk/model/VpcDhcpOptions.java
 src/main/java/com/exoscale/sdk/model/WriteAheadLogWALSettings.java
 src/main/java/com/exoscale/sdk/model/Zone.java
 src/main/java/com/exoscale/sdk/model/ZoneImpact.java

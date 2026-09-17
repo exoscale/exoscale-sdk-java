@@ -12676,6 +12676,16 @@ components:
         description: description
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        dhcp-options:
+          dns-servers:
+          - dns-servers
+          - dns-servers
+          ntp-servers:
+          - ntp-servers
+          - ntp-servers
+          domain-search:
+          - domain-search
+          - domain-search
         labels:
           key: labels
       properties:
@@ -12703,6 +12713,8 @@ components:
           additionalProperties:
             type: string
           type: object
+        dhcp-options:
+          $ref: '#/components/schemas/vpc-dhcp-options'
       type: object
     json-schema-thanos:
       example:
@@ -15960,6 +15972,16 @@ components:
         description: description
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        dhcp-options:
+          dns-servers:
+          - dns-servers
+          - dns-servers
+          ntp-servers:
+          - ntp-servers
+          - ntp-servers
+          domain-search:
+          - domain-search
+          - domain-search
         labels:
           key: labels
       properties:
@@ -15987,6 +16009,8 @@ components:
           additionalProperties:
             type: string
           type: object
+        dhcp-options:
+          $ref: '#/components/schemas/vpc-dhcp-options'
       type: object
     dbaas-endpoint-rsyslog-secrets:
       properties:
@@ -20384,6 +20408,37 @@ components:
     sks-cluster-labels:
       additionalProperties:
         type: string
+      type: object
+    vpc-dhcp-options:
+      description: VPC DHCP options
+      example:
+        dns-servers:
+        - dns-servers
+        - dns-servers
+        ntp-servers:
+        - ntp-servers
+        - ntp-servers
+        domain-search:
+        - domain-search
+        - domain-search
+      properties:
+        dns-servers:
+          description: DNS Servers
+          items:
+            format: ipv4
+            type: string
+          type: array
+        ntp-servers:
+          description: NTP Servers
+          items:
+            format: ipv4
+            type: string
+          type: array
+        domain-search:
+          description: "Domain search list, limited to 255 octets post RFC3397 compression"
+          items:
+            type: string
+          type: array
       type: object
     instance-type-entry:
       description: Instance type with authorization status
@@ -26750,6 +26805,16 @@ components:
           description: description
           created-at: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          dhcp-options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
+            domain-search:
+            - domain-search
+            - domain-search
           labels:
             key: labels
         - default: true
@@ -26757,6 +26822,16 @@ components:
           description: description
           created-at: 2000-01-23T04:56:07.000+00:00
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          dhcp-options:
+            dns-servers:
+            - dns-servers
+            - dns-servers
+            ntp-servers:
+            - ntp-servers
+            - ntp-servers
+            domain-search:
+            - domain-search
+            - domain-search
           labels:
             key: labels
       properties:
@@ -26780,6 +26855,8 @@ components:
           additionalProperties:
             type: string
           type: object
+        dhcp-options:
+          $ref: '#/components/schemas/vpc-dhcp-options'
       required:
       - name
       type: object
@@ -30702,6 +30779,8 @@ components:
           additionalProperties:
             type: string
           type: object
+        dhcp-options:
+          $ref: '#/components/schemas/vpc-dhcp-options'
       type: object
     list_block_storage_volumes_200_response:
       example:

@@ -10,6 +10,7 @@
 |**name** | **String** | VPC name |  |
 |**description** | **String** | VPC description |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**dhcpOptions** | [**VpcDhcpOptions**](VpcDhcpOptions.md) |  |  [optional] |
 
 
 

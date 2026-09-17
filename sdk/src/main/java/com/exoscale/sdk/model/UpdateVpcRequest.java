@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.VpcDhcpOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,7 +41,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UpdateVpcRequest.JSON_PROPERTY_NAME,
   UpdateVpcRequest.JSON_PROPERTY_DESCRIPTION,
-  UpdateVpcRequest.JSON_PROPERTY_LABELS
+  UpdateVpcRequest.JSON_PROPERTY_LABELS,
+  UpdateVpcRequest.JSON_PROPERTY_DHCP_OPTIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateVpcRequest {
@@ -52,6 +54,9 @@ public class UpdateVpcRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_DHCP_OPTIONS = "dhcp-options";
+  private VpcDhcpOptions dhcpOptions;
 
   public UpdateVpcRequest() { 
   }
@@ -155,6 +160,31 @@ public class UpdateVpcRequest {
   }
 
 
+  public UpdateVpcRequest dhcpOptions(VpcDhcpOptions dhcpOptions) {
+    this.dhcpOptions = dhcpOptions;
+    return this;
+  }
+
+   /**
+   * Get dhcpOptions
+   * @return dhcpOptions
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DHCP_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public VpcDhcpOptions getDhcpOptions() {
+    return dhcpOptions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DHCP_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDhcpOptions(VpcDhcpOptions dhcpOptions) {
+    this.dhcpOptions = dhcpOptions;
+  }
+
+
   /**
    * Return true if this update_vpc_request object is equal to o.
    */
@@ -169,7 +199,8 @@ public class UpdateVpcRequest {
     UpdateVpcRequest updateVpcRequest = (UpdateVpcRequest) o;
     return equalsNullable(this.name, updateVpcRequest.name) &&
         equalsNullable(this.description, updateVpcRequest.description) &&
-        Objects.equals(this.labels, updateVpcRequest.labels);
+        Objects.equals(this.labels, updateVpcRequest.labels) &&
+        Objects.equals(this.dhcpOptions, updateVpcRequest.dhcpOptions);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -178,7 +209,7 @@ public class UpdateVpcRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), labels);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), labels, dhcpOptions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -195,6 +226,7 @@ public class UpdateVpcRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    dhcpOptions: ").append(toIndentedString(dhcpOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -259,6 +291,11 @@ public class UpdateVpcRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `dhcp-options` to the URL query string
+    if (getDhcpOptions() != null) {
+      joiner.add(getDhcpOptions().toUrlQueryString(prefix + "dhcp-options" + suffix));
     }
 
     return joiner.toString();

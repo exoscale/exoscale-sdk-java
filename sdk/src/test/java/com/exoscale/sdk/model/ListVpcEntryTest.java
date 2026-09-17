@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.VpcDhcpOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -87,6 +88,14 @@ public class ListVpcEntryTest {
     @Test
     public void labelsTest() {
         // TODO: test labels
+    }
+
+    /**
+     * Test the property 'dhcpOptions'
+     */
+    @Test
+    public void dhcpOptionsTest() {
+        // TODO: test dhcpOptions
     }
 
 }

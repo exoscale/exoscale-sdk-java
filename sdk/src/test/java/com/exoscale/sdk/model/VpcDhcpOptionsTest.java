@@ -13,63 +13,54 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.VpcDhcpOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateVpcRequest
+ * Model tests for VpcDhcpOptions
  */
-public class CreateVpcRequestTest {
-    private final CreateVpcRequest model = new CreateVpcRequest();
+public class VpcDhcpOptionsTest {
+    private final VpcDhcpOptions model = new VpcDhcpOptions();
 
     /**
-     * Model tests for CreateVpcRequest
+     * Model tests for VpcDhcpOptions
      */
     @Test
-    public void testCreateVpcRequest() {
-        // TODO: test CreateVpcRequest
+    public void testVpcDhcpOptions() {
+        // TODO: test VpcDhcpOptions
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'dnsServers'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void dnsServersTest() {
+        // TODO: test dnsServers
     }
 
     /**
-     * Test the property 'description'
+     * Test the property 'ntpServers'
      */
     @Test
-    public void descriptionTest() {
-        // TODO: test description
+    public void ntpServersTest() {
+        // TODO: test ntpServers
     }
 
     /**
-     * Test the property 'labels'
+     * Test the property 'domainSearch'
      */
     @Test
-    public void labelsTest() {
-        // TODO: test labels
-    }
-
-    /**
-     * Test the property 'dhcpOptions'
-     */
-    @Test
-    public void dhcpOptionsTest() {
-        // TODO: test dhcpOptions
+    public void domainSearchTest() {
+        // TODO: test domainSearch
     }
 
 }

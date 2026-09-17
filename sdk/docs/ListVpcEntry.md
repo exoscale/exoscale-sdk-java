@@ -14,6 +14,7 @@ VPC
 |**createdAt** | **OffsetDateTime** | VPC creation date |  [optional] |
 |**_default** | **Boolean** | Indicates if this is the organization&#39;s default VPC |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**dhcpOptions** | [**VpcDhcpOptions**](VpcDhcpOptions.md) |  |  [optional] |
 
 
 
