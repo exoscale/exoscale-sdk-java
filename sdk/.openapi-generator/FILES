@@ -10,8 +10,8 @@ docs/AddExternalSourceToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequest.md
 docs/AddRuleToSecurityGroupRequestIcmp.md
 docs/AddServiceToLoadBalancerRequest.md
-docs/AiApiKey.md
-docs/AiApiKeyValue.md
+docs/AiApiKeyDeploymentRef.md
+docs/AiApiKeyDeploymentsResponseInner.md
 docs/AntiAffinityGroup.md
 docs/AntiAffinityGroupRef.md
 docs/ApiKeyUsageEntry.md
@@ -315,6 +315,7 @@ docs/IamPolicy.md
 docs/IamRole.md
 docs/IamServicePolicy.md
 docs/IamServicePolicyRule.md
+docs/IamSystemRole.md
 docs/ImpactBreakdown.md
 docs/ImpactErrorResponse.md
 docs/ImpactResourceTreeNode.md
@@ -377,6 +378,7 @@ docs/ListDnsDomainRecords200Response.md
 docs/ListDnsDomains200Response.md
 docs/ListElasticIps200Response.md
 docs/ListIamRoles200Response.md
+docs/ListIamSystemRoles200Response.md
 docs/ListInstancePools200Response.md
 docs/ListInstanceTypes200Response.md
 docs/ListInstances200Response.md
@@ -505,6 +507,8 @@ docs/TemplateRef.md
 docs/ThanosCompactorUserConfig.md
 docs/ThanosQueryFrontendUserConfig.md
 docs/ThanosQueryUserConfig.md
+docs/UpdateAiApiKeyRequest.md
+docs/UpdateAiApiKeyResponse.md
 docs/UpdateBlockStorageSnapshotRequest.md
 docs/UpdateBlockStorageVolumeRequest.md
 docs/UpdateDbaasIntegrationRequest.md
@@ -574,8 +578,8 @@ src/main/java/com/exoscale/sdk/model/AddExternalSourceToSecurityGroupRequest.jav
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/AddRuleToSecurityGroupRequestIcmp.java
 src/main/java/com/exoscale/sdk/model/AddServiceToLoadBalancerRequest.java
-src/main/java/com/exoscale/sdk/model/AiApiKey.java
-src/main/java/com/exoscale/sdk/model/AiApiKeyValue.java
+src/main/java/com/exoscale/sdk/model/AiApiKeyDeploymentRef.java
+src/main/java/com/exoscale/sdk/model/AiApiKeyDeploymentsResponseInner.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroup.java
 src/main/java/com/exoscale/sdk/model/AntiAffinityGroupRef.java
 src/main/java/com/exoscale/sdk/model/ApiKeyUsageEntry.java
@@ -878,6 +882,7 @@ src/main/java/com/exoscale/sdk/model/IamPolicy.java
 src/main/java/com/exoscale/sdk/model/IamRole.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicy.java
 src/main/java/com/exoscale/sdk/model/IamServicePolicyRule.java
+src/main/java/com/exoscale/sdk/model/IamSystemRole.java
 src/main/java/com/exoscale/sdk/model/ImpactBreakdown.java
 src/main/java/com/exoscale/sdk/model/ImpactErrorResponse.java
 src/main/java/com/exoscale/sdk/model/ImpactResourceTreeNode.java
@@ -940,6 +945,7 @@ src/main/java/com/exoscale/sdk/model/ListDnsDomainRecords200Response.java
 src/main/java/com/exoscale/sdk/model/ListDnsDomains200Response.java
 src/main/java/com/exoscale/sdk/model/ListElasticIps200Response.java
 src/main/java/com/exoscale/sdk/model/ListIamRoles200Response.java
+src/main/java/com/exoscale/sdk/model/ListIamSystemRoles200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstancePools200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstanceTypes200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstances200Response.java
@@ -1068,6 +1074,8 @@ src/main/java/com/exoscale/sdk/model/TemplateRef.java
 src/main/java/com/exoscale/sdk/model/ThanosCompactorUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryFrontendUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryUserConfig.java
+src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateDbaasIntegrationRequest.java

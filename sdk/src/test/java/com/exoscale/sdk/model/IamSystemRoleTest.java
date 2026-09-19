@@ -13,18 +13,18 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.AiApiKeyDeploymentsResponseInner;
+import com.exoscale.sdk.model.IamAssumeRolePolicy;
+import com.exoscale.sdk.model.IamPolicy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.junit.Assert;
@@ -32,25 +32,57 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetAiApiKeyResponse
+ * Model tests for IamSystemRole
  */
-public class GetAiApiKeyResponseTest {
-    private final GetAiApiKeyResponse model = new GetAiApiKeyResponse();
+public class IamSystemRoleTest {
+    private final IamSystemRole model = new IamSystemRole();
 
     /**
-     * Model tests for GetAiApiKeyResponse
+     * Model tests for IamSystemRole
      */
     @Test
-    public void testGetAiApiKeyResponse() {
-        // TODO: test GetAiApiKeyResponse
+    public void testIamSystemRole() {
+        // TODO: test IamSystemRole
     }
 
     /**
-     * Test the property 'updatedAt'
+     * Test the property 'description'
      */
     @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'labels'
+     */
+    @Test
+    public void labelsTest() {
+        // TODO: test labels
+    }
+
+    /**
+     * Test the property 'permissions'
+     */
+    @Test
+    public void permissionsTest() {
+        // TODO: test permissions
+    }
+
+    /**
+     * Test the property 'assumeRolePolicy'
+     */
+    @Test
+    public void assumeRolePolicyTest() {
+        // TODO: test assumeRolePolicy
+    }
+
+    /**
+     * Test the property 'editable'
+     */
+    @Test
+    public void editableTest() {
+        // TODO: test editable
     }
 
     /**
@@ -62,19 +94,19 @@ public class GetAiApiKeyResponseTest {
     }
 
     /**
-     * Test the property 'deployments'
+     * Test the property 'maxSessionTtl'
      */
     @Test
-    public void deploymentsTest() {
-        // TODO: test deployments
+    public void maxSessionTtlTest() {
+        // TODO: test maxSessionTtl
     }
 
     /**
-     * Test the property 'models'
+     * Test the property 'policy'
      */
     @Test
-    public void modelsTest() {
-        // TODO: test models
+    public void policyTest() {
+        // TODO: test policy
     }
 
     /**
@@ -83,14 +115,6 @@ public class GetAiApiKeyResponseTest {
     @Test
     public void idTest() {
         // TODO: test id
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
     }
 
 }

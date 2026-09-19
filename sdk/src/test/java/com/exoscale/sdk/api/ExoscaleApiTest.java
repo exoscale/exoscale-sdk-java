@@ -197,6 +197,7 @@ import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
 import com.exoscale.sdk.model.ListIamRoles200Response;
+import com.exoscale.sdk.model.ListIamSystemRoles200Response;
 import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
@@ -263,6 +264,8 @@ import com.exoscale.sdk.model.Subnet;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
+import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
+import com.exoscale.sdk.model.UpdateAiApiKeyResponse;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -4512,6 +4515,22 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * List IAM System Roles
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listIamSystemRolesTest() throws ApiException {
+        ListIamSystemRoles200Response response = 
+        api.listIamSystemRoles();
+        
+        // TODO: test validations
+    }
+    
+    /**
      * List Instance Pools
      *
      * 
@@ -5987,6 +6006,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.stopInstance(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Update AI API Key access
+     *
+     * Update the models and deployments accessible by an AI API key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateAiApiKeyTest() throws ApiException {
+        UUID id = null;
+        UpdateAiApiKeyRequest updateAiApiKeyRequest = null;
+        UpdateAiApiKeyResponse response = 
+        api.updateAiApiKey(id, updateAiApiKeyRequest);
         
         // TODO: test validations
     }

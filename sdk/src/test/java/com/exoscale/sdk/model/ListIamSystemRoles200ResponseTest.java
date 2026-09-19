@@ -13,36 +13,39 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.IamSystemRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AiApiKeyValue
+ * Model tests for ListIamSystemRoles200Response
  */
-public class AiApiKeyValueTest {
-    private final AiApiKeyValue model = new AiApiKeyValue();
+public class ListIamSystemRoles200ResponseTest {
+    private final ListIamSystemRoles200Response model = new ListIamSystemRoles200Response();
 
     /**
-     * Model tests for AiApiKeyValue
+     * Model tests for ListIamSystemRoles200Response
      */
     @Test
-    public void testAiApiKeyValue() {
-        // TODO: test AiApiKeyValue
+    public void testListIamSystemRoles200Response() {
+        // TODO: test ListIamSystemRoles200Response
     }
 
     /**
-     * Test the property 'value'
+     * Test the property 'iamSystemRoles'
      */
     @Test
-    public void valueTest() {
-        // TODO: test value
+    public void iamSystemRolesTest() {
+        // TODO: test iamSystemRoles
     }
 
 }

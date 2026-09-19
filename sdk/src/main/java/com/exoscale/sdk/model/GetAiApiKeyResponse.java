@@ -19,13 +19,19 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.AiApiKeyDeploymentsResponseInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -36,7 +42,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   GetAiApiKeyResponse.JSON_PROPERTY_UPDATED_AT,
   GetAiApiKeyResponse.JSON_PROPERTY_NAME,
-  GetAiApiKeyResponse.JSON_PROPERTY_SCOPE,
+  GetAiApiKeyResponse.JSON_PROPERTY_DEPLOYMENTS,
+  GetAiApiKeyResponse.JSON_PROPERTY_MODELS,
   GetAiApiKeyResponse.JSON_PROPERTY_ID,
   GetAiApiKeyResponse.JSON_PROPERTY_CREATED_AT
 })
@@ -48,8 +55,11 @@ public class GetAiApiKeyResponse {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_SCOPE = "scope";
-  private String scope;
+  public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
+  private List<AiApiKeyDeploymentsResponseInner> deployments = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_MODELS = "models";
+  private Set<String> models = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
@@ -73,7 +83,7 @@ public class GetAiApiKeyResponse {
   }
 
    /**
-   * Last update timestamp
+   * Revocation timestamp. Null when the API key is active.
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
@@ -112,28 +122,70 @@ public class GetAiApiKeyResponse {
   }
 
 
-  public GetAiApiKeyResponse scope(String scope) {
-    this.scope = scope;
+  public GetAiApiKeyResponse deployments(List<AiApiKeyDeploymentsResponseInner> deployments) {
+    this.deployments = deployments;
+    return this;
+  }
+
+  public GetAiApiKeyResponse addDeploymentsItem(AiApiKeyDeploymentsResponseInner deploymentsItem) {
+    if (this.deployments == null) {
+      this.deployments = new ArrayList<>();
+    }
+    this.deployments.add(deploymentsItem);
     return this;
   }
 
    /**
-   * Key scope: &#39;public&#39; for all deployments, or a specific deployment UUID
-   * @return scope
+   * Private deployment access. [\&quot;all\&quot;] means access to all deployments, otherwise deployments are returned as objects.
+   * @return deployments
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getScope() {
-    return scope;
+  public List<AiApiKeyDeploymentsResponseInner> getDeployments() {
+    return deployments;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setScope(String scope) {
-    this.scope = scope;
+  public void setDeployments(List<AiApiKeyDeploymentsResponseInner> deployments) {
+    this.deployments = deployments;
+  }
+
+
+  public GetAiApiKeyResponse models(Set<String> models) {
+    this.models = models;
+    return this;
+  }
+
+  public GetAiApiKeyResponse addModelsItem(String modelsItem) {
+    if (this.models == null) {
+      this.models = new LinkedHashSet<>();
+    }
+    this.models.add(modelsItem);
+    return this;
+  }
+
+   /**
+   * Public model access. An empty array denies access to all public models, [\&quot;all\&quot;] grants access to all public models, otherwise the array is an allowlist of model names.
+   * @return models
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Set<String> getModels() {
+    return models;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setModels(Set<String> models) {
+    this.models = models;
   }
 
 
@@ -181,14 +233,15 @@ public class GetAiApiKeyResponse {
     GetAiApiKeyResponse getAiApiKeyResponse = (GetAiApiKeyResponse) o;
     return Objects.equals(this.updatedAt, getAiApiKeyResponse.updatedAt) &&
         Objects.equals(this.name, getAiApiKeyResponse.name) &&
-        Objects.equals(this.scope, getAiApiKeyResponse.scope) &&
+        Objects.equals(this.deployments, getAiApiKeyResponse.deployments) &&
+        Objects.equals(this.models, getAiApiKeyResponse.models) &&
         Objects.equals(this.id, getAiApiKeyResponse.id) &&
         Objects.equals(this.createdAt, getAiApiKeyResponse.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, scope, id, createdAt);
+    return Objects.hash(updatedAt, name, deployments, models, id, createdAt);
   }
 
   @Override
@@ -197,7 +250,8 @@ public class GetAiApiKeyResponse {
     sb.append("class GetAiApiKeyResponse {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
+    sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
@@ -257,9 +311,25 @@ public class GetAiApiKeyResponse {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `scope` to the URL query string
-    if (getScope() != null) {
-      joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `deployments` to the URL query string
+    if (getDeployments() != null) {
+      for (int i = 0; i < getDeployments().size(); i++) {
+        if (getDeployments().get(i) != null) {
+          joiner.add(getDeployments().get(i).toUrlQueryString(String.format("%sdeployments%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `models` to the URL query string
+    if (getModels() != null) {
+      int i = 0;
+      for (String _item : getModels()) {
+        joiner.add(String.format("%smodels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     // add `id` to the URL query string

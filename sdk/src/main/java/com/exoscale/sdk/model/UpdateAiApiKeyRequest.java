@@ -32,58 +32,29 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Request to create a new AI API key. Missing models or deployments default to an empty array.
+ * Update the models and/or deployments accessible by an AI API key. Omitted properties are left unchanged.
  */
 @JsonPropertyOrder({
-  CreateAiApiKeyRequest.JSON_PROPERTY_NAME,
-  CreateAiApiKeyRequest.JSON_PROPERTY_DEPLOYMENTS,
-  CreateAiApiKeyRequest.JSON_PROPERTY_MODELS
+  UpdateAiApiKeyRequest.JSON_PROPERTY_DEPLOYMENTS,
+  UpdateAiApiKeyRequest.JSON_PROPERTY_MODELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class CreateAiApiKeyRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
+public class UpdateAiApiKeyRequest {
   public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
   private Set<String> deployments;
 
   public static final String JSON_PROPERTY_MODELS = "models";
   private Set<String> models;
 
-  public CreateAiApiKeyRequest() { 
+  public UpdateAiApiKeyRequest() { 
   }
 
-  public CreateAiApiKeyRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Human-readable name for the AI API key
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public CreateAiApiKeyRequest deployments(Set<String> deployments) {
+  public UpdateAiApiKeyRequest deployments(Set<String> deployments) {
     this.deployments = deployments;
     return this;
   }
 
-  public CreateAiApiKeyRequest addDeploymentsItem(String deploymentsItem) {
+  public UpdateAiApiKeyRequest addDeploymentsItem(String deploymentsItem) {
     if (this.deployments == null) {
       this.deployments = new LinkedHashSet<>();
     }
@@ -112,12 +83,12 @@ public class CreateAiApiKeyRequest {
   }
 
 
-  public CreateAiApiKeyRequest models(Set<String> models) {
+  public UpdateAiApiKeyRequest models(Set<String> models) {
     this.models = models;
     return this;
   }
 
-  public CreateAiApiKeyRequest addModelsItem(String modelsItem) {
+  public UpdateAiApiKeyRequest addModelsItem(String modelsItem) {
     if (this.models == null) {
       this.models = new LinkedHashSet<>();
     }
@@ -147,7 +118,7 @@ public class CreateAiApiKeyRequest {
 
 
   /**
-   * Return true if this create-ai-api-key-request object is equal to o.
+   * Return true if this update-ai-api-key-request object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -157,22 +128,20 @@ public class CreateAiApiKeyRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateAiApiKeyRequest createAiApiKeyRequest = (CreateAiApiKeyRequest) o;
-    return Objects.equals(this.name, createAiApiKeyRequest.name) &&
-        Objects.equals(this.deployments, createAiApiKeyRequest.deployments) &&
-        Objects.equals(this.models, createAiApiKeyRequest.models);
+    UpdateAiApiKeyRequest updateAiApiKeyRequest = (UpdateAiApiKeyRequest) o;
+    return Objects.equals(this.deployments, updateAiApiKeyRequest.deployments) &&
+        Objects.equals(this.models, updateAiApiKeyRequest.models);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, deployments, models);
+    return Objects.hash(deployments, models);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateAiApiKeyRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class UpdateAiApiKeyRequest {\n");
     sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
     sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("}");
@@ -221,11 +190,6 @@ public class CreateAiApiKeyRequest {
     }
 
     StringJoiner joiner = new StringJoiner("&");
-
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
 
     // add `deployments` to the URL query string
     if (getDeployments() != null) {

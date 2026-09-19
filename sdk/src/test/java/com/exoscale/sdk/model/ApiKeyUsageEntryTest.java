@@ -42,19 +42,19 @@ public class ApiKeyUsageEntryTest {
     }
 
     /**
+     * Test the property 'productNames'
+     */
+    @Test
+    public void productNamesTest() {
+        // TODO: test productNames
+    }
+
+    /**
      * Test the property 'organizationId'
      */
     @Test
     public void organizationIdTest() {
         // TODO: test organizationId
-    }
-
-    /**
-     * Test the property 'models'
-     */
-    @Test
-    public void modelsTest() {
-        // TODO: test models
     }
 
 }

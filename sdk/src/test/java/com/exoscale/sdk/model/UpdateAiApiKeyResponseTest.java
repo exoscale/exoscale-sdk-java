@@ -13,30 +13,36 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.AiApiKeyDeploymentsResponseInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for AiApiKey
+ * Model tests for UpdateAiApiKeyResponse
  */
-public class AiApiKeyTest {
-    private final AiApiKey model = new AiApiKey();
+public class UpdateAiApiKeyResponseTest {
+    private final UpdateAiApiKeyResponse model = new UpdateAiApiKeyResponse();
 
     /**
-     * Model tests for AiApiKey
+     * Model tests for UpdateAiApiKeyResponse
      */
     @Test
-    public void testAiApiKey() {
-        // TODO: test AiApiKey
+    public void testUpdateAiApiKeyResponse() {
+        // TODO: test UpdateAiApiKeyResponse
     }
 
     /**
@@ -56,11 +62,19 @@ public class AiApiKeyTest {
     }
 
     /**
-     * Test the property 'scope'
+     * Test the property 'deployments'
      */
     @Test
-    public void scopeTest() {
-        // TODO: test scope
+    public void deploymentsTest() {
+        // TODO: test deployments
+    }
+
+    /**
+     * Test the property 'models'
+     */
+    @Test
+    public void modelsTest() {
+        // TODO: test models
     }
 
     /**

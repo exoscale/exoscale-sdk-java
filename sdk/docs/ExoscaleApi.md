@@ -247,6 +247,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listElasticIps**](ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs |
 | [**listEvents**](ExoscaleApi.md#listEvents) | **GET** /event | List Events |
 | [**listIamRoles**](ExoscaleApi.md#listIamRoles) | **GET** /iam-role | List IAM Roles |
+| [**listIamSystemRoles**](ExoscaleApi.md#listIamSystemRoles) | **GET** /iam-system-role | List IAM System Roles |
 | [**listInstancePools**](ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools |
 | [**listInstanceTypes**](ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types |
 | [**listInstances**](ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances |
@@ -332,6 +333,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**stopDbaasPgMigration**](ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration |
 | [**stopDbaasValkeyMigration**](ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration |
 | [**stopInstance**](ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance |
+| [**updateAiApiKey**](ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | [BETA] Update AI API Key access |
 | [**updateBlockStorageSnapshot**](ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot |
 | [**updateBlockStorageVolume**](ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume |
 | [**updateDbaasExternalEndpointDatadog**](ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} |  |
@@ -22794,6 +22796,91 @@ No authorization required
 | **200** | 200 |  -  |
 
 
+## listIamSystemRoles
+
+> ListIamSystemRoles200Response listIamSystemRoles()
+
+List IAM System Roles
+
+
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+
+        try {
+            // Invoke the API method
+            ListIamSystemRoles200Response result = client.listIamSystemRoles();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#listIamSystemRoles");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListIamSystemRoles200Response**](ListIamSystemRoles200Response.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ApiResponse<[**ListIamSystemRoles200Response**](ListIamSystemRoles200Response.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
 ## listInstancePools
 
 > ListInstancePools200Response listInstancePools()
@@ -30645,6 +30732,107 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## updateAiApiKey
+
+> UpdateAiApiKeyResponse updateAiApiKey(id, updateAiApiKeyRequest)
+
+[BETA] Update AI API Key access
+
+Update the models and deployments accessible by an AI API key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateAiApiKeyRequest updateAiApiKeyRequest = new UpdateAiApiKeyRequest(); // UpdateAiApiKeyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            UpdateAiApiKeyResponse result = client.updateAiApiKey(id, updateAiApiKeyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateAiApiKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateAiApiKeyRequest** | [**UpdateAiApiKeyRequest**](UpdateAiApiKeyRequest.md)|  | |
+
+### Return type
+
+[**UpdateAiApiKeyResponse**](UpdateAiApiKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateAiApiKeyRequest** | [**UpdateAiApiKeyRequest**](UpdateAiApiKeyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**UpdateAiApiKeyResponse**](UpdateAiApiKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 
 
 ## updateBlockStorageSnapshot

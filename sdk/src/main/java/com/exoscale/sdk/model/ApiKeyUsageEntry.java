@@ -33,22 +33,55 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Usage breakdown for one API key, grouped by model
+ * Usage breakdown for one API key, grouped by product-name
  */
 @JsonPropertyOrder({
-  ApiKeyUsageEntry.JSON_PROPERTY_ORGANIZATION_ID,
-  ApiKeyUsageEntry.JSON_PROPERTY_MODELS
+  ApiKeyUsageEntry.JSON_PROPERTY_PRODUCT_NAMES,
+  ApiKeyUsageEntry.JSON_PROPERTY_ORGANIZATION_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ApiKeyUsageEntry {
+  public static final String JSON_PROPERTY_PRODUCT_NAMES = "product-names";
+  private Map<String, ModelUsageCounters> productNames = new HashMap<>();
+
   public static final String JSON_PROPERTY_ORGANIZATION_ID = "organization-id";
   private UUID organizationId;
 
-  public static final String JSON_PROPERTY_MODELS = "models";
-  private Map<String, ModelUsageCounters> models = new HashMap<>();
-
   public ApiKeyUsageEntry() { 
   }
+
+  public ApiKeyUsageEntry productNames(Map<String, ModelUsageCounters> productNames) {
+    this.productNames = productNames;
+    return this;
+  }
+
+  public ApiKeyUsageEntry putProductNamesItem(String key, ModelUsageCounters productNamesItem) {
+    if (this.productNames == null) {
+      this.productNames = new HashMap<>();
+    }
+    this.productNames.put(key, productNamesItem);
+    return this;
+  }
+
+   /**
+   * Map of product-name to accumulated counters. Keys are product names.
+   * @return productNames
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAMES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Map<String, ModelUsageCounters> getProductNames() {
+    return productNames;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PRODUCT_NAMES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setProductNames(Map<String, ModelUsageCounters> productNames) {
+    this.productNames = productNames;
+  }
+
 
   public ApiKeyUsageEntry organizationId(UUID organizationId) {
     this.organizationId = organizationId;
@@ -75,39 +108,6 @@ public class ApiKeyUsageEntry {
   }
 
 
-  public ApiKeyUsageEntry models(Map<String, ModelUsageCounters> models) {
-    this.models = models;
-    return this;
-  }
-
-  public ApiKeyUsageEntry putModelsItem(String key, ModelUsageCounters modelsItem) {
-    if (this.models == null) {
-      this.models = new HashMap<>();
-    }
-    this.models.put(key, modelsItem);
-    return this;
-  }
-
-   /**
-   * Map of model-uuid to accumulated counters. Keys are model UUIDs.
-   * @return models
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MODELS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Map<String, ModelUsageCounters> getModels() {
-    return models;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MODELS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setModels(Map<String, ModelUsageCounters> models) {
-    this.models = models;
-  }
-
-
   /**
    * Return true if this api-key-usage-entry object is equal to o.
    */
@@ -120,21 +120,21 @@ public class ApiKeyUsageEntry {
       return false;
     }
     ApiKeyUsageEntry apiKeyUsageEntry = (ApiKeyUsageEntry) o;
-    return Objects.equals(this.organizationId, apiKeyUsageEntry.organizationId) &&
-        Objects.equals(this.models, apiKeyUsageEntry.models);
+    return Objects.equals(this.productNames, apiKeyUsageEntry.productNames) &&
+        Objects.equals(this.organizationId, apiKeyUsageEntry.organizationId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organizationId, models);
+    return Objects.hash(productNames, organizationId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiKeyUsageEntry {\n");
+    sb.append("    productNames: ").append(toIndentedString(productNames)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
-    sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -182,19 +182,19 @@ public class ApiKeyUsageEntry {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `organization-id` to the URL query string
-    if (getOrganizationId() != null) {
-      joiner.add(String.format("%sorganization-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `models` to the URL query string
-    if (getModels() != null) {
-      for (String _key : getModels().keySet()) {
-        if (getModels().get(_key) != null) {
-          joiner.add(getModels().get(_key).toUrlQueryString(String.format("%smodels%s%s", prefix, suffix,
+    // add `product-names` to the URL query string
+    if (getProductNames() != null) {
+      for (String _key : getProductNames().keySet()) {
+        if (getProductNames().get(_key) != null) {
+          joiner.add(getProductNames().get(_key).toUrlQueryString(String.format("%sproduct-names%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix))));
         }
       }
+    }
+
+    // add `organization-id` to the URL query string
+    if (getOrganizationId() != null) {
+      joiner.add(String.format("%sorganization-id%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

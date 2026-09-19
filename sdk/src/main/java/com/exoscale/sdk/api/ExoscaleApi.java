@@ -201,6 +201,7 @@ import com.exoscale.sdk.model.ListDnsDomainRecords200Response;
 import com.exoscale.sdk.model.ListDnsDomains200Response;
 import com.exoscale.sdk.model.ListElasticIps200Response;
 import com.exoscale.sdk.model.ListIamRoles200Response;
+import com.exoscale.sdk.model.ListIamSystemRoles200Response;
 import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
@@ -267,6 +268,8 @@ import com.exoscale.sdk.model.Subnet;
 import com.exoscale.sdk.model.SuccessResponse;
 import com.exoscale.sdk.model.Template;
 import java.util.UUID;
+import com.exoscale.sdk.model.UpdateAiApiKeyRequest;
+import com.exoscale.sdk.model.UpdateAiApiKeyResponse;
 import com.exoscale.sdk.model.UpdateBlockStorageSnapshotRequest;
 import com.exoscale.sdk.model.UpdateBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.UpdateDbaasIntegrationRequest;
@@ -21925,6 +21928,84 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * List IAM System Roles
+   * 
+   * @return ListIamSystemRoles200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListIamSystemRoles200Response listIamSystemRoles() throws ApiException {
+    ApiResponse<ListIamSystemRoles200Response> localVarResponse = listIamSystemRolesWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List IAM System Roles
+   * 
+   * @return ApiResponse&lt;ListIamSystemRoles200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListIamSystemRoles200Response> listIamSystemRolesWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listIamSystemRolesRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listIamSystemRoles", localVarResponse);
+        }
+        return new ApiResponse<ListIamSystemRoles200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListIamSystemRoles200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listIamSystemRolesRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/iam-system-role";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Instance Pools
    * 
    * @return ListInstancePools200Response
@@ -29533,6 +29614,103 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Update AI API Key access
+   * Update the models and deployments accessible by an AI API key.
+   * @param id  (required)
+   * @param updateAiApiKeyRequest  (required)
+   * @return UpdateAiApiKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateAiApiKeyResponse updateAiApiKey(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
+    ApiResponse<UpdateAiApiKeyResponse> localVarResponse = updateAiApiKeyWithHttpInfo(id, updateAiApiKeyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Update AI API Key access
+   * Update the models and deployments accessible by an AI API key.
+   * @param id  (required)
+   * @param updateAiApiKeyRequest  (required)
+   * @return ApiResponse&lt;UpdateAiApiKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<UpdateAiApiKeyResponse> updateAiApiKeyWithHttpInfo(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateAiApiKeyRequestBuilder(id, updateAiApiKeyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateAiApiKey", localVarResponse);
+        }
+        return new ApiResponse<UpdateAiApiKeyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UpdateAiApiKeyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateAiApiKeyRequestBuilder(UUID id, UpdateAiApiKeyRequest updateAiApiKeyRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAiApiKey");
+    }
+    // verify the required parameter 'updateAiApiKeyRequest' is set
+    if (updateAiApiKeyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateAiApiKeyRequest' when calling updateAiApiKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/ai/api-key/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateAiApiKeyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PATCH", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

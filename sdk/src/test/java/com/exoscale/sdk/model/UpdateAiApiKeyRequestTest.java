@@ -13,52 +13,31 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.AiApiKeyDeploymentsResponseInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for ListAiApiKeysResponseEntry
+ * Model tests for UpdateAiApiKeyRequest
  */
-public class ListAiApiKeysResponseEntryTest {
-    private final ListAiApiKeysResponseEntry model = new ListAiApiKeysResponseEntry();
+public class UpdateAiApiKeyRequestTest {
+    private final UpdateAiApiKeyRequest model = new UpdateAiApiKeyRequest();
 
     /**
-     * Model tests for ListAiApiKeysResponseEntry
+     * Model tests for UpdateAiApiKeyRequest
      */
     @Test
-    public void testListAiApiKeysResponseEntry() {
-        // TODO: test ListAiApiKeysResponseEntry
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
-    }
-
-    /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
+    public void testUpdateAiApiKeyRequest() {
+        // TODO: test UpdateAiApiKeyRequest
     }
 
     /**
@@ -75,30 +54,6 @@ public class ListAiApiKeysResponseEntryTest {
     @Test
     public void modelsTest() {
         // TODO: test models
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'revokedAt'
-     */
-    @Test
-    public void revokedAtTest() {
-        // TODO: test revokedAt
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
     }
 
 }

@@ -13,55 +13,38 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.AiApiKeyDeploymentRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.UUID;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateAiApiKeyRequest
+ * Model tests for AiApiKeyDeploymentsResponseInner
  */
-public class CreateAiApiKeyRequestTest {
-    private final CreateAiApiKeyRequest model = new CreateAiApiKeyRequest();
+public class AiApiKeyDeploymentsResponseInnerTest {
+    private final AiApiKeyDeploymentsResponseInner model = new AiApiKeyDeploymentsResponseInner();
 
     /**
-     * Model tests for CreateAiApiKeyRequest
+     * Model tests for AiApiKeyDeploymentsResponseInner
      */
     @Test
-    public void testCreateAiApiKeyRequest() {
-        // TODO: test CreateAiApiKeyRequest
+    public void testAiApiKeyDeploymentsResponseInner() {
+        // TODO: test AiApiKeyDeploymentsResponseInner
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'id'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
-     * Test the property 'deployments'
-     */
-    @Test
-    public void deploymentsTest() {
-        // TODO: test deployments
-    }
-
-    /**
-     * Test the property 'models'
-     */
-    @Test
-    public void modelsTest() {
-        // TODO: test models
+    public void idTest() {
+        // TODO: test id
     }
 
 }

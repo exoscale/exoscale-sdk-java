@@ -19,13 +19,19 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.AiApiKeyDeploymentsResponseInner;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -36,8 +42,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ListAiApiKeysResponseEntry.JSON_PROPERTY_UPDATED_AT,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_NAME,
-  ListAiApiKeysResponseEntry.JSON_PROPERTY_SCOPE,
+  ListAiApiKeysResponseEntry.JSON_PROPERTY_DEPLOYMENTS,
+  ListAiApiKeysResponseEntry.JSON_PROPERTY_MODELS,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_ID,
+  ListAiApiKeysResponseEntry.JSON_PROPERTY_REVOKED_AT,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -48,11 +56,17 @@ public class ListAiApiKeysResponseEntry {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_SCOPE = "scope";
-  private String scope;
+  public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
+  private List<AiApiKeyDeploymentsResponseInner> deployments = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_MODELS = "models";
+  private Set<String> models = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_REVOKED_AT = "revoked-at";
+  private Object revokedAt = null;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
@@ -64,16 +78,18 @@ public class ListAiApiKeysResponseEntry {
   public ListAiApiKeysResponseEntry(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_REVOKED_AT) Object revokedAt, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.updatedAt = updatedAt;
     this.id = id;
+    this.revokedAt = revokedAt;
     this.createdAt = createdAt;
   }
 
    /**
-   * Last update timestamp
+   * Get updatedAt
    * @return updatedAt
   **/
   @javax.annotation.Nonnull
@@ -93,7 +109,7 @@ public class ListAiApiKeysResponseEntry {
   }
 
    /**
-   * Human-readable name for the AI API key
+   * Get name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -112,33 +128,75 @@ public class ListAiApiKeysResponseEntry {
   }
 
 
-  public ListAiApiKeysResponseEntry scope(String scope) {
-    this.scope = scope;
+  public ListAiApiKeysResponseEntry deployments(List<AiApiKeyDeploymentsResponseInner> deployments) {
+    this.deployments = deployments;
+    return this;
+  }
+
+  public ListAiApiKeysResponseEntry addDeploymentsItem(AiApiKeyDeploymentsResponseInner deploymentsItem) {
+    if (this.deployments == null) {
+      this.deployments = new ArrayList<>();
+    }
+    this.deployments.add(deploymentsItem);
     return this;
   }
 
    /**
-   * Key scope: &#39;public&#39; for all deployments, or a specific deployment UUID
-   * @return scope
+   * Private deployment access. [\&quot;all\&quot;] means access to all deployments, otherwise deployments are returned as objects.
+   * @return deployments
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getScope() {
-    return scope;
+  public List<AiApiKeyDeploymentsResponseInner> getDeployments() {
+    return deployments;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setScope(String scope) {
-    this.scope = scope;
+  public void setDeployments(List<AiApiKeyDeploymentsResponseInner> deployments) {
+    this.deployments = deployments;
+  }
+
+
+  public ListAiApiKeysResponseEntry models(Set<String> models) {
+    this.models = models;
+    return this;
+  }
+
+  public ListAiApiKeysResponseEntry addModelsItem(String modelsItem) {
+    if (this.models == null) {
+      this.models = new LinkedHashSet<>();
+    }
+    this.models.add(modelsItem);
+    return this;
+  }
+
+   /**
+   * Public model access. An empty array denies access to all public models, [\&quot;all\&quot;] grants access to all public models, otherwise the array is an allowlist of model names.
+   * @return models
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Set<String> getModels() {
+    return models;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setModels(Set<String> models) {
+    this.models = models;
   }
 
 
    /**
-   * AI API key ID
+   * Get id
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -153,7 +211,22 @@ public class ListAiApiKeysResponseEntry {
 
 
    /**
-   * Creation timestamp
+   * Revocation timestamp. Null when the API key is active.
+   * @return revokedAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REVOKED_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Object getRevokedAt() {
+    return revokedAt;
+  }
+
+
+
+
+   /**
+   * Get createdAt
    * @return createdAt
   **/
   @javax.annotation.Nonnull
@@ -181,14 +254,16 @@ public class ListAiApiKeysResponseEntry {
     ListAiApiKeysResponseEntry listAiApiKeysResponseEntry = (ListAiApiKeysResponseEntry) o;
     return Objects.equals(this.updatedAt, listAiApiKeysResponseEntry.updatedAt) &&
         Objects.equals(this.name, listAiApiKeysResponseEntry.name) &&
-        Objects.equals(this.scope, listAiApiKeysResponseEntry.scope) &&
+        Objects.equals(this.deployments, listAiApiKeysResponseEntry.deployments) &&
+        Objects.equals(this.models, listAiApiKeysResponseEntry.models) &&
         Objects.equals(this.id, listAiApiKeysResponseEntry.id) &&
+        Objects.equals(this.revokedAt, listAiApiKeysResponseEntry.revokedAt) &&
         Objects.equals(this.createdAt, listAiApiKeysResponseEntry.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, scope, id, createdAt);
+    return Objects.hash(updatedAt, name, deployments, models, id, revokedAt, createdAt);
   }
 
   @Override
@@ -197,8 +272,10 @@ public class ListAiApiKeysResponseEntry {
     sb.append("class ListAiApiKeysResponseEntry {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
+    sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    revokedAt: ").append(toIndentedString(revokedAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -257,14 +334,35 @@ public class ListAiApiKeysResponseEntry {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `scope` to the URL query string
-    if (getScope() != null) {
-      joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `deployments` to the URL query string
+    if (getDeployments() != null) {
+      for (int i = 0; i < getDeployments().size(); i++) {
+        if (getDeployments().get(i) != null) {
+          joiner.add(getDeployments().get(i).toUrlQueryString(String.format("%sdeployments%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `models` to the URL query string
+    if (getModels() != null) {
+      int i = 0;
+      for (String _item : getModels()) {
+        joiner.add(String.format("%smodels%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `revoked-at` to the URL query string
+    if (getRevokedAt() != null) {
+      joiner.add(String.format("%srevoked-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRevokedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string

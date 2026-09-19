@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-17T07:18:24.326714346Z[Etc/UTC]
+- Build date: 2026-09-19T07:14:39.629638806Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-e93b487</version>
+    <version>0.0.5-SNAPSHOT-7b1afdf</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-e93b487'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-7b1afdf'
 }
 ```
 
@@ -325,6 +325,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listElasticIps**](sdk/docs/ExoscaleApi.md#listElasticIps) | **GET** /elastic-ip | List Elastic IPs
 *ExoscaleApi* | [**listEvents**](sdk/docs/ExoscaleApi.md#listEvents) | **GET** /event | List Events
 *ExoscaleApi* | [**listIamRoles**](sdk/docs/ExoscaleApi.md#listIamRoles) | **GET** /iam-role | List IAM Roles
+*ExoscaleApi* | [**listIamSystemRoles**](sdk/docs/ExoscaleApi.md#listIamSystemRoles) | **GET** /iam-system-role | List IAM System Roles
 *ExoscaleApi* | [**listInstancePools**](sdk/docs/ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools
 *ExoscaleApi* | [**listInstanceTypes**](sdk/docs/ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types
 *ExoscaleApi* | [**listInstances**](sdk/docs/ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances
@@ -410,6 +411,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**stopDbaasPgMigration**](sdk/docs/ExoscaleApi.md#stopDbaasPgMigration) | **POST** /dbaas-postgres/{name}/migration/stop | Stop a DBaaS PostgreSQL migration
 *ExoscaleApi* | [**stopDbaasValkeyMigration**](sdk/docs/ExoscaleApi.md#stopDbaasValkeyMigration) | **POST** /dbaas-valkey/{name}/migration/stop | Stop a DBaaS Valkey migration
 *ExoscaleApi* | [**stopInstance**](sdk/docs/ExoscaleApi.md#stopInstance) | **PUT** /instance/{id}:stop | Stop a Compute instance
+*ExoscaleApi* | [**updateAiApiKey**](sdk/docs/ExoscaleApi.md#updateAiApiKey) | **PATCH** /ai/api-key/{id} | [BETA] Update AI API Key access
 *ExoscaleApi* | [**updateBlockStorageSnapshot**](sdk/docs/ExoscaleApi.md#updateBlockStorageSnapshot) | **PUT** /block-storage-snapshot/{id} | Update block storage volume snapshot
 *ExoscaleApi* | [**updateBlockStorageVolume**](sdk/docs/ExoscaleApi.md#updateBlockStorageVolume) | **PUT** /block-storage/{id} | Update block storage volume
 *ExoscaleApi* | [**updateDbaasExternalEndpointDatadog**](sdk/docs/ExoscaleApi.md#updateDbaasExternalEndpointDatadog) | **PUT** /dbaas-external-endpoint-datadog/{endpoint-id} | 
@@ -464,8 +466,8 @@ Class | Method | HTTP request | Description
  - [AddRuleToSecurityGroupRequest](sdk/docs/AddRuleToSecurityGroupRequest.md)
  - [AddRuleToSecurityGroupRequestIcmp](sdk/docs/AddRuleToSecurityGroupRequestIcmp.md)
  - [AddServiceToLoadBalancerRequest](sdk/docs/AddServiceToLoadBalancerRequest.md)
- - [AiApiKey](sdk/docs/AiApiKey.md)
- - [AiApiKeyValue](sdk/docs/AiApiKeyValue.md)
+ - [AiApiKeyDeploymentRef](sdk/docs/AiApiKeyDeploymentRef.md)
+ - [AiApiKeyDeploymentsResponseInner](sdk/docs/AiApiKeyDeploymentsResponseInner.md)
  - [AntiAffinityGroup](sdk/docs/AntiAffinityGroup.md)
  - [AntiAffinityGroupRef](sdk/docs/AntiAffinityGroupRef.md)
  - [ApiKeyUsageEntry](sdk/docs/ApiKeyUsageEntry.md)
@@ -768,6 +770,7 @@ Class | Method | HTTP request | Description
  - [IamRole](sdk/docs/IamRole.md)
  - [IamServicePolicy](sdk/docs/IamServicePolicy.md)
  - [IamServicePolicyRule](sdk/docs/IamServicePolicyRule.md)
+ - [IamSystemRole](sdk/docs/IamSystemRole.md)
  - [ImpactBreakdown](sdk/docs/ImpactBreakdown.md)
  - [ImpactErrorResponse](sdk/docs/ImpactErrorResponse.md)
  - [ImpactResourceTreeNode](sdk/docs/ImpactResourceTreeNode.md)
@@ -830,6 +833,7 @@ Class | Method | HTTP request | Description
  - [ListDnsDomains200Response](sdk/docs/ListDnsDomains200Response.md)
  - [ListElasticIps200Response](sdk/docs/ListElasticIps200Response.md)
  - [ListIamRoles200Response](sdk/docs/ListIamRoles200Response.md)
+ - [ListIamSystemRoles200Response](sdk/docs/ListIamSystemRoles200Response.md)
  - [ListInstancePools200Response](sdk/docs/ListInstancePools200Response.md)
  - [ListInstanceTypes200Response](sdk/docs/ListInstanceTypes200Response.md)
  - [ListInstances200Response](sdk/docs/ListInstances200Response.md)
@@ -958,6 +962,8 @@ Class | Method | HTTP request | Description
  - [ThanosCompactorUserConfig](sdk/docs/ThanosCompactorUserConfig.md)
  - [ThanosQueryFrontendUserConfig](sdk/docs/ThanosQueryFrontendUserConfig.md)
  - [ThanosQueryUserConfig](sdk/docs/ThanosQueryUserConfig.md)
+ - [UpdateAiApiKeyRequest](sdk/docs/UpdateAiApiKeyRequest.md)
+ - [UpdateAiApiKeyResponse](sdk/docs/UpdateAiApiKeyResponse.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
  - [UpdateBlockStorageVolumeRequest](sdk/docs/UpdateBlockStorageVolumeRequest.md)
  - [UpdateDbaasIntegrationRequest](sdk/docs/UpdateDbaasIntegrationRequest.md)

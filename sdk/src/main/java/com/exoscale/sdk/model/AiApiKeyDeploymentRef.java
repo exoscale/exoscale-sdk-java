@@ -25,50 +25,51 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * AI API key plaintext value
+ * AiApiKeyDeploymentRef
  */
 @JsonPropertyOrder({
-  AiApiKeyValue.JSON_PROPERTY_VALUE
+  AiApiKeyDeploymentRef.JSON_PROPERTY_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class AiApiKeyValue {
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+public class AiApiKeyDeploymentRef {
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
-  public AiApiKeyValue() { 
+  public AiApiKeyDeploymentRef() { 
   }
 
-  public AiApiKeyValue value(String value) {
-    this.value = value;
+  public AiApiKeyDeploymentRef id(UUID id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Plaintext AI API key value
-   * @return value
+   * Deployment ID
+   * @return id
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getValue() {
-    return value;
+  public UUID getId() {
+    return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
-    this.value = value;
+  public void setId(UUID id) {
+    this.id = id;
   }
 
 
   /**
-   * Return true if this ai-api-key-value object is equal to o.
+   * Return true if this ai-api-key-deployment-ref object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -78,20 +79,20 @@ public class AiApiKeyValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AiApiKeyValue aiApiKeyValue = (AiApiKeyValue) o;
-    return Objects.equals(this.value, aiApiKeyValue.value);
+    AiApiKeyDeploymentRef aiApiKeyDeploymentRef = (AiApiKeyDeploymentRef) o;
+    return Objects.equals(this.id, aiApiKeyDeploymentRef.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+    return Objects.hash(id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AiApiKeyValue {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class AiApiKeyDeploymentRef {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -139,9 +140,9 @@ public class AiApiKeyValue {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `value` to the URL query string
-    if (getValue() != null) {
-      joiner.add(String.format("%svalue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();
