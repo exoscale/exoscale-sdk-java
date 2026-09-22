@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CpuManagerConfig;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
@@ -64,6 +65,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
   CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_MAX_PODS,
   CreateSksNodepoolRequest.JSON_PROPERTY_ADDONS,
+  CreateSksNodepoolRequest.JSON_PROPERTY_CPU_MANAGER_CONFIG,
   CreateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE,
   CreateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES
 })
@@ -181,6 +183,9 @@ public class CreateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_ADDONS = "addons";
   private Set<AddonsEnum> addons;
+
+  public static final String JSON_PROPERTY_CPU_MANAGER_CONFIG = "cpu-manager-config";
+  private CpuManagerConfig cpuManagerConfig;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -629,6 +634,31 @@ public class CreateSksNodepoolRequest {
   }
 
 
+  public CreateSksNodepoolRequest cpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
+    this.cpuManagerConfig = cpuManagerConfig;
+    return this;
+  }
+
+   /**
+   * Get cpuManagerConfig
+   * @return cpuManagerConfig
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CpuManagerConfig getCpuManagerConfig() {
+    return cpuManagerConfig;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
+    this.cpuManagerConfig = cpuManagerConfig;
+  }
+
+
   public CreateSksNodepoolRequest diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
@@ -708,6 +738,7 @@ public class CreateSksNodepoolRequest {
         Objects.equals(this.deployTarget, createSksNodepoolRequest.deployTarget) &&
         equalsNullable(this.kubeletMaxPods, createSksNodepoolRequest.kubeletMaxPods) &&
         Objects.equals(this.addons, createSksNodepoolRequest.addons) &&
+        Objects.equals(this.cpuManagerConfig, createSksNodepoolRequest.cpuManagerConfig) &&
         Objects.equals(this.diskSize, createSksNodepoolRequest.diskSize) &&
         Objects.equals(this.nvidiaMigProfiles, createSksNodepoolRequest.nvidiaMigProfiles);
   }
@@ -718,7 +749,7 @@ public class CreateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, size, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, diskSize, nvidiaMigProfiles);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, size, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, cpuManagerConfig, diskSize, nvidiaMigProfiles);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -747,6 +778,7 @@ public class CreateSksNodepoolRequest {
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    kubeletMaxPods: ").append(toIndentedString(kubeletMaxPods)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
+    sb.append("    cpuManagerConfig: ").append(toIndentedString(cpuManagerConfig)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
     sb.append("}");
@@ -905,6 +937,11 @@ public class CreateSksNodepoolRequest {
             URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
       i++;
+    }
+
+    // add `cpu-manager-config` to the URL query string
+    if (getCpuManagerConfig() != null) {
+      joiner.add(getCpuManagerConfig().toUrlQueryString(prefix + "cpu-manager-config" + suffix));
     }
 
     // add `disk-size` to the URL query string

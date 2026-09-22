@@ -10829,6 +10829,25 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_elasticsearch_input_create_settings'
       type: object
+    reserved-resources:
+      description: Resources reserved for kube or system components.
+      example:
+        memory: memory
+        ephemeral-storage: ephemeral-storage
+        cpu: cpu
+      properties:
+        cpu:
+          description: "CPU reservation, e.g., \"200m\" "
+          type: string
+        memory:
+          description: "Memory reservation, e.g., \"512Mi\" "
+          type: string
+        ephemeral-storage:
+          description: "Ephemeral storage reservation, e.g., \"1Gi\" "
+          type: string
+      required:
+      - cpu
+      type: object
     dbaas-service-clickhouse:
       example:
         components:
@@ -11256,6 +11275,56 @@ components:
       - datadog
       - elasticsearch
       type: string
+    cpu-manager-config:
+      description: CPU manager config
+      example:
+        cpu-manager-policy-options:
+        - distribute-cpus-across-numa
+        - distribute-cpus-across-numa
+        system-reserved:
+          memory: memory
+          ephemeral-storage: ephemeral-storage
+          cpu: cpu
+        cpu-manager-reconcile-period: cpu-manager-reconcile-period
+        cpu-manager-policy: static
+        kube-reserved:
+          memory: memory
+          ephemeral-storage: ephemeral-storage
+          cpu: cpu
+      properties:
+        cpu-manager-policy:
+          description: "CPU management policy used by the kubelet. The \"static\"\
+            \ policy grants exclusive CPUs to Guaranteed pods requesting integer CPU\
+            \ limits. When set to \"static\", a CPU reservation must be provided via\
+            \ kube-reserved or system-reserved"
+          enum:
+          - static
+          - none
+          type: string
+        cpu-manager-policy-options:
+          description: CPU manager policy options used by the kubelet. They refine
+            the behavior of the "static" cpu-manager-policy and are only valid when
+            the policy is "static"
+          items:
+            enum:
+            - distribute-cpus-across-numa
+            - full-pcpus-only
+            - strict-cpu-reservation
+            - align-by-socket
+            - prefer-align-cpus-by-uncorecache
+            - distribute-cpus-across-cores
+            type: string
+          type: array
+          uniqueItems: true
+        kube-reserved:
+          $ref: '#/components/schemas/reserved-resources'
+        system-reserved:
+          $ref: '#/components/schemas/reserved-resources'
+        cpu-manager-reconcile-period:
+          description: "CPU manager reconcile period used by the kubelet, as a duration\
+            \ string (for example \"10s\")."
+          type: string
+      type: object
     get-confederatio-usage-response:
       description: GPU usage for all organizations
       properties:
@@ -19528,6 +19597,20 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           kubelet-max-pods: 39073
+          cpu-manager-config:
+            cpu-manager-policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
+            cpu-manager-reconcile-period: cpu-manager-reconcile-period
+            cpu-manager-policy: static
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -19582,6 +19665,20 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           kubelet-max-pods: 39073
+          cpu-manager-config:
+            cpu-manager-policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
+            cpu-manager-reconcile-period: cpu-manager-reconcile-period
+            cpu-manager-policy: static
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -19636,6 +19733,20 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           kubelet-max-pods: 39073
+          cpu-manager-config:
+            cpu-manager-policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
+            cpu-manager-reconcile-period: cpu-manager-reconcile-period
+            cpu-manager-policy: static
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -19690,6 +19801,20 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           kubelet-max-pods: 39073
+          cpu-manager-config:
+            cpu-manager-policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
+            cpu-manager-reconcile-period: cpu-manager-reconcile-period
+            cpu-manager-policy: static
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -19744,6 +19869,20 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           size: 0
           kubelet-max-pods: 39073
+          cpu-manager-config:
+            cpu-manager-policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
+            cpu-manager-reconcile-period: cpu-manager-reconcile-period
+            cpu-manager-policy: static
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -20447,6 +20586,20 @@ components:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         size: 0
         kubelet-max-pods: 39073
+        cpu-manager-config:
+          cpu-manager-policy-options:
+          - distribute-cpus-across-numa
+          - distribute-cpus-across-numa
+          system-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
+          cpu-manager-reconcile-period: cpu-manager-reconcile-period
+          cpu-manager-policy: static
+          kube-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
         name: name
         kubelet-image-gc:
           high-threshold: 0
@@ -20570,6 +20723,8 @@ components:
           format: uuid
           readOnly: true
           type: string
+        cpu-manager-config:
+          $ref: '#/components/schemas/cpu-manager-config'
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false
@@ -26793,6 +26948,8 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        cpu-manager-config:
+          $ref: '#/components/schemas/cpu-manager-config'
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false
@@ -28299,6 +28456,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28353,6 +28524,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28407,6 +28592,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28461,6 +28660,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28515,6 +28728,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28604,6 +28831,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28658,6 +28899,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28712,6 +28967,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28766,6 +29035,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -28820,6 +29103,20 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             size: 0
             kubelet-max-pods: 39073
+            cpu-manager-config:
+              cpu-manager-policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              system-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
+              cpu-manager-reconcile-period: cpu-manager-reconcile-period
+              cpu-manager-policy: static
+              kube-reserved:
+                memory: memory
+                ephemeral-storage: ephemeral-storage
+                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -29839,6 +30136,8 @@ components:
             type: string
           type: array
           uniqueItems: true
+        cpu-manager-config:
+          $ref: '#/components/schemas/cpu-manager-config'
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false

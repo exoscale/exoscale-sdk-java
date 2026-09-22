@@ -27,6 +27,7 @@ SKS Nodepool
 |**kubeletMaxPods** | **Long** | Maximum number of pods per node. Set to use a value other than the kubelet default. |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
+|**cpuManagerConfig** | [**CpuManagerConfig**](CpuManagerConfig.md) |  |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
 |**version** | **String** | Nodepool version |  [optional] [readonly] |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |

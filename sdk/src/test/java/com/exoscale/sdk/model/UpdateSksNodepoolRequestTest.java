@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CpuManagerConfig;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
@@ -156,6 +157,14 @@ public class UpdateSksNodepoolRequestTest {
     @Test
     public void kubeletMaxPodsTest() {
         // TODO: test kubeletMaxPods
+    }
+
+    /**
+     * Test the property 'cpuManagerConfig'
+     */
+    @Test
+    public void cpuManagerConfigTest() {
+        // TODO: test cpuManagerConfig
     }
 
     /**

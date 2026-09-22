@@ -22,6 +22,7 @@
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**kubeletMaxPods** | **Long** | Maximum number of pods per node (kubelet setting) |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
+|**cpuManagerConfig** | [**CpuManagerConfig**](CpuManagerConfig.md) |  |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 

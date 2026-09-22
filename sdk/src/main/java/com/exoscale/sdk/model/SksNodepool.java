@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CpuManagerConfig;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstancePoolRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
@@ -72,6 +73,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksNodepool.JSON_PROPERTY_KUBELET_MAX_PODS,
   SksNodepool.JSON_PROPERTY_ADDONS,
   SksNodepool.JSON_PROPERTY_ID,
+  SksNodepool.JSON_PROPERTY_CPU_MANAGER_CONFIG,
   SksNodepool.JSON_PROPERTY_DISK_SIZE,
   SksNodepool.JSON_PROPERTY_VERSION,
   SksNodepool.JSON_PROPERTY_NVIDIA_MIG_PROFILES,
@@ -250,6 +252,9 @@ public class SksNodepool {
 
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
+
+  public static final String JSON_PROPERTY_CPU_MANAGER_CONFIG = "cpu-manager-config";
+  private CpuManagerConfig cpuManagerConfig;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -798,6 +803,31 @@ public class SksNodepool {
 
 
 
+  public SksNodepool cpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
+    this.cpuManagerConfig = cpuManagerConfig;
+    return this;
+  }
+
+   /**
+   * Get cpuManagerConfig
+   * @return cpuManagerConfig
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CpuManagerConfig getCpuManagerConfig() {
+    return cpuManagerConfig;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
+    this.cpuManagerConfig = cpuManagerConfig;
+  }
+
+
   public SksNodepool diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
@@ -911,6 +941,7 @@ public class SksNodepool {
         equalsNullable(this.kubeletMaxPods, sksNodepool.kubeletMaxPods) &&
         Objects.equals(this.addons, sksNodepool.addons) &&
         Objects.equals(this.id, sksNodepool.id) &&
+        Objects.equals(this.cpuManagerConfig, sksNodepool.cpuManagerConfig) &&
         Objects.equals(this.diskSize, sksNodepool.diskSize) &&
         Objects.equals(this.version, sksNodepool.version) &&
         Objects.equals(this.nvidiaMigProfiles, sksNodepool.nvidiaMigProfiles) &&
@@ -923,7 +954,7 @@ public class SksNodepool {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, id, diskSize, version, nvidiaMigProfiles, createdAt);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, id, cpuManagerConfig, diskSize, version, nvidiaMigProfiles, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -956,6 +987,7 @@ public class SksNodepool {
     sb.append("    kubeletMaxPods: ").append(toIndentedString(kubeletMaxPods)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    cpuManagerConfig: ").append(toIndentedString(cpuManagerConfig)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
@@ -1136,6 +1168,11 @@ public class SksNodepool {
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cpu-manager-config` to the URL query string
+    if (getCpuManagerConfig() != null) {
+      joiner.add(getCpuManagerConfig().toUrlQueryString(prefix + "cpu-manager-config" + suffix));
     }
 
     // add `disk-size` to the URL query string

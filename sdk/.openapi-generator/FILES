@@ -32,6 +32,7 @@ docs/BlockStorageVolumeRef.md
 docs/ClickHouseServerSettings.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
+docs/CpuManagerConfig.md
 docs/CreateAiApiKeyRequest.md
 docs/CreateAiApiKeyResponse.md
 docs/CreateAntiAffinityGroupRequest.md
@@ -453,6 +454,7 @@ docs/RemoveExternalSourceFromSecurityGroupRequest.md
 docs/ReplicaFailure.md
 docs/ReplicaState.md
 docs/ReplicateKmsKeyRequest.md
+docs/ReservedResources.md
 docs/ResetDbaasMysqlUserPasswordRequest.md
 docs/ResetDbaasValkeyUserPasswordRequest.md
 docs/ResetInstanceRequest.md
@@ -600,6 +602,7 @@ src/main/java/com/exoscale/sdk/model/BlockStorageVolumeRef.java
 src/main/java/com/exoscale/sdk/model/ClickHouseServerSettings.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java
+src/main/java/com/exoscale/sdk/model/CpuManagerConfig.java
 src/main/java/com/exoscale/sdk/model/CreateAiApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/CreateAntiAffinityGroupRequest.java
@@ -1020,6 +1023,7 @@ src/main/java/com/exoscale/sdk/model/RemoveExternalSourceFromSecurityGroupReques
 src/main/java/com/exoscale/sdk/model/ReplicaFailure.java
 src/main/java/com/exoscale/sdk/model/ReplicaState.java
 src/main/java/com/exoscale/sdk/model/ReplicateKmsKeyRequest.java
+src/main/java/com/exoscale/sdk/model/ReservedResources.java
 src/main/java/com/exoscale/sdk/model/ResetDbaasMysqlUserPasswordRequest.java
 src/main/java/com/exoscale/sdk/model/ResetDbaasValkeyUserPasswordRequest.java
 src/main/java/com/exoscale/sdk/model/ResetInstanceRequest.java

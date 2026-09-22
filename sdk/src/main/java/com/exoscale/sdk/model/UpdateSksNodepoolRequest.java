@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CpuManagerConfig;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
@@ -62,6 +63,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
   UpdateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
   UpdateSksNodepoolRequest.JSON_PROPERTY_KUBELET_MAX_PODS,
+  UpdateSksNodepoolRequest.JSON_PROPERTY_CPU_MANAGER_CONFIG,
   UpdateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE,
   UpdateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES
 })
@@ -140,6 +142,9 @@ public class UpdateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_KUBELET_MAX_PODS = "kubelet-max-pods";
   private JsonNullable<Long> kubeletMaxPods = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_CPU_MANAGER_CONFIG = "cpu-manager-config";
+  private CpuManagerConfig cpuManagerConfig;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -528,6 +533,31 @@ public class UpdateSksNodepoolRequest {
   }
 
 
+  public UpdateSksNodepoolRequest cpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
+    this.cpuManagerConfig = cpuManagerConfig;
+    return this;
+  }
+
+   /**
+   * Get cpuManagerConfig
+   * @return cpuManagerConfig
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CpuManagerConfig getCpuManagerConfig() {
+    return cpuManagerConfig;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
+    this.cpuManagerConfig = cpuManagerConfig;
+  }
+
+
   public UpdateSksNodepoolRequest diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
@@ -605,6 +635,7 @@ public class UpdateSksNodepoolRequest {
         Objects.equals(this.instancePrefix, updateSksNodepoolRequest.instancePrefix) &&
         Objects.equals(this.deployTarget, updateSksNodepoolRequest.deployTarget) &&
         equalsNullable(this.kubeletMaxPods, updateSksNodepoolRequest.kubeletMaxPods) &&
+        Objects.equals(this.cpuManagerConfig, updateSksNodepoolRequest.cpuManagerConfig) &&
         Objects.equals(this.diskSize, updateSksNodepoolRequest.diskSize) &&
         Objects.equals(this.nvidiaMigProfiles, updateSksNodepoolRequest.nvidiaMigProfiles);
   }
@@ -615,7 +646,7 @@ public class UpdateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), diskSize, nvidiaMigProfiles);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), cpuManagerConfig, diskSize, nvidiaMigProfiles);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -642,6 +673,7 @@ public class UpdateSksNodepoolRequest {
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    kubeletMaxPods: ").append(toIndentedString(kubeletMaxPods)).append("\n");
+    sb.append("    cpuManagerConfig: ").append(toIndentedString(cpuManagerConfig)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
     sb.append("}");
@@ -784,6 +816,11 @@ public class UpdateSksNodepoolRequest {
     // add `kubelet-max-pods` to the URL query string
     if (getKubeletMaxPods() != null) {
       joiner.add(String.format("%skubelet-max-pods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKubeletMaxPods()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cpu-manager-config` to the URL query string
+    if (getCpuManagerConfig() != null) {
+      joiner.add(getCpuManagerConfig().toUrlQueryString(prefix + "cpu-manager-config" + suffix));
     }
 
     // add `disk-size` to the URL query string
