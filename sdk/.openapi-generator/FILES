@@ -245,6 +245,7 @@ docs/Event.md
 docs/EvictInstancePoolMembersRequest.md
 docs/EvictSksNodepoolMembersRequest.md
 docs/ExoscaleApi.md
+docs/FocusReport.md
 docs/GenerateDataKeyRequest.md
 docs/GenerateDataKeyResponse.md
 docs/GenerateSksClusterKubeconfig200Response.md
@@ -814,6 +815,7 @@ src/main/java/com/exoscale/sdk/model/ErrorResponse.java
 src/main/java/com/exoscale/sdk/model/Event.java
 src/main/java/com/exoscale/sdk/model/EvictInstancePoolMembersRequest.java
 src/main/java/com/exoscale/sdk/model/EvictSksNodepoolMembersRequest.java
+src/main/java/com/exoscale/sdk/model/FocusReport.java
 src/main/java/com/exoscale/sdk/model/GenerateDataKeyRequest.java
 src/main/java/com/exoscale/sdk/model/GenerateDataKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GenerateSksClusterKubeconfig200Response.java

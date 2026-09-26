@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-22T07:17:35.591875795Z[Etc/UTC]
+- Build date: 2026-09-26T07:14:37.184020213Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c3b7c91</version>
+    <version>0.0.5-SNAPSHOT-9df5c26</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c3b7c91'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9df5c26'
 }
 ```
 
@@ -270,6 +270,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDnsDomainZoneFile**](sdk/docs/ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
 *ExoscaleApi* | [**getElasticIp**](sdk/docs/ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
 *ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [DEPRECATED] use get-impact-report endpoint
+*ExoscaleApi* | [**getFocusReport**](sdk/docs/ExoscaleApi.md#getFocusReport) | **GET** /focus-report/{period} | [BETA] Retrieve organization focus report download URL
 *ExoscaleApi* | [**getIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
 *ExoscaleApi* | [**getIamRole**](sdk/docs/ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
 *ExoscaleApi* | [**getImpactEstimate**](sdk/docs/ExoscaleApi.md#getImpactEstimate) | **POST** /environmental-impact/estimate | [BETA] Get an estimate of the impact of using products
@@ -700,6 +701,7 @@ Class | Method | HTTP request | Description
  - [Event](sdk/docs/Event.md)
  - [EvictInstancePoolMembersRequest](sdk/docs/EvictInstancePoolMembersRequest.md)
  - [EvictSksNodepoolMembersRequest](sdk/docs/EvictSksNodepoolMembersRequest.md)
+ - [FocusReport](sdk/docs/FocusReport.md)
  - [GenerateDataKeyRequest](sdk/docs/GenerateDataKeyRequest.md)
  - [GenerateDataKeyResponse](sdk/docs/GenerateDataKeyResponse.md)
  - [GenerateSksClusterKubeconfig200Response](sdk/docs/GenerateSksClusterKubeconfig200Response.md)

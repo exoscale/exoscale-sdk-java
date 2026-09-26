@@ -2777,6 +2777,30 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /focus-report/{period}:
+    get:
+      description: "[BETA] Returns a presigned URL for the organization's focus report\
+        \ for the period"
+      operationId: get-focus-report
+      parameters:
+      - explode: false
+        in: path
+        name: period
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/focus-report'
+          description: "200"
+      summary: "[BETA] Retrieve organization focus report download URL"
+      tags:
+      - exoscale
+      x-accepts: application/json
   /private-network/{id}:update-ip:
     put:
       description: ""
@@ -13237,6 +13261,22 @@ components:
       maxLength: 253
       minLength: 1
       type: string
+    focus-report:
+      description: Focus report download URL
+      example:
+        presigned_url: presigned_url
+        expires_in: 0
+      properties:
+        presigned_url:
+          description: Focus report presigned URL
+          type: string
+        expires_in:
+          description: URL expiration in seconds
+          exclusiveMinimum: true
+          format: int64
+          minimum: 0
+          type: integer
+      type: object
     create-model-request:
       description: AI model
       properties:

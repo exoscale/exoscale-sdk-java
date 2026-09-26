@@ -140,6 +140,7 @@ import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
+import com.exoscale.sdk.model.FocusReport;
 import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
@@ -17236,6 +17237,91 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/env-impact/{period}"
+        .replace("{period}", ApiClient.urlEncode(period.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * [BETA] Retrieve organization focus report download URL
+   * [BETA] Returns a presigned URL for the organization&#39;s focus report for the period
+   * @param period  (required)
+   * @return FocusReport
+   * @throws ApiException if fails to make API call
+   */
+  public FocusReport getFocusReport(String period) throws ApiException {
+    ApiResponse<FocusReport> localVarResponse = getFocusReportWithHttpInfo(period);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * [BETA] Retrieve organization focus report download URL
+   * [BETA] Returns a presigned URL for the organization&#39;s focus report for the period
+   * @param period  (required)
+   * @return ApiResponse&lt;FocusReport&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<FocusReport> getFocusReportWithHttpInfo(String period) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getFocusReportRequestBuilder(period);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getFocusReport", localVarResponse);
+        }
+        return new ApiResponse<FocusReport>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<FocusReport>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getFocusReportRequestBuilder(String period) throws ApiException {
+    // verify the required parameter 'period' is set
+    if (period == null) {
+      throw new ApiException(400, "Missing the required parameter 'period' when calling getFocusReport");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/focus-report/{period}"
         .replace("{period}", ApiClient.urlEncode(period.toString()));
       String requestBody = null;
       String authorizationValue;

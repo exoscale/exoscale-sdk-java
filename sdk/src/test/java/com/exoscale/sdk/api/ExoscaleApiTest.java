@@ -136,6 +136,7 @@ import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
 import com.exoscale.sdk.model.EvictSksNodepoolMembersRequest;
+import com.exoscale.sdk.model.FocusReport;
 import com.exoscale.sdk.model.GenerateDataKeyRequest;
 import com.exoscale.sdk.model.GenerateDataKeyResponse;
 import com.exoscale.sdk.model.GenerateSksClusterKubeconfig200Response;
@@ -3585,6 +3586,23 @@ public class ExoscaleApiTest {
         String period = null;
         EnvImpactReport response = 
         api.getEnvImpact(period);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * [BETA] Retrieve organization focus report download URL
+     *
+     * [BETA] Returns a presigned URL for the organization&#39;s focus report for the period
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFocusReportTest() throws ApiException {
+        String period = null;
+        FocusReport response = 
+        api.getFocusReport(period);
         
         // TODO: test validations
     }
