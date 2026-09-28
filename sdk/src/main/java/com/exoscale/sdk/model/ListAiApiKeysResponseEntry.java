@@ -19,7 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.exoscale.sdk.model.AiApiKeyDeploymentsResponseInner;
+import com.exoscale.sdk.model.AiApiKeyDeploymentRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,10 +27,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,7 +39,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   ListAiApiKeysResponseEntry.JSON_PROPERTY_UPDATED_AT,
+  ListAiApiKeysResponseEntry.JSON_PROPERTY_ALL_MODELS,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_NAME,
+  ListAiApiKeysResponseEntry.JSON_PROPERTY_ALL_DEPLOYMENTS,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_DEPLOYMENTS,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_MODELS,
   ListAiApiKeysResponseEntry.JSON_PROPERTY_ID,
@@ -53,11 +53,17 @@ public class ListAiApiKeysResponseEntry {
   public static final String JSON_PROPERTY_UPDATED_AT = "updated-at";
   private OffsetDateTime updatedAt;
 
+  public static final String JSON_PROPERTY_ALL_MODELS = "all-models";
+  private Boolean allModels;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_ALL_DEPLOYMENTS = "all-deployments";
+  private Boolean allDeployments;
+
   public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
-  private List<AiApiKeyDeploymentsResponseInner> deployments = new ArrayList<>();
+  private Set<AiApiKeyDeploymentRef> deployments = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_MODELS = "models";
   private Set<String> models = new LinkedHashSet<>();
@@ -77,12 +83,16 @@ public class ListAiApiKeysResponseEntry {
   @JsonCreator
   public ListAiApiKeysResponseEntry(
     @JsonProperty(JSON_PROPERTY_UPDATED_AT) OffsetDateTime updatedAt, 
+    @JsonProperty(JSON_PROPERTY_ALL_MODELS) Boolean allModels, 
+    @JsonProperty(JSON_PROPERTY_ALL_DEPLOYMENTS) Boolean allDeployments, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_REVOKED_AT) Object revokedAt, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.updatedAt = updatedAt;
+    this.allModels = allModels;
+    this.allDeployments = allDeployments;
     this.id = id;
     this.revokedAt = revokedAt;
     this.createdAt = createdAt;
@@ -98,6 +108,21 @@ public class ListAiApiKeysResponseEntry {
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
+  }
+
+
+
+
+   /**
+   * True when the key has access to all public models.
+   * @return allModels
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ALL_MODELS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getAllModels() {
+    return allModels;
   }
 
 
@@ -128,35 +153,51 @@ public class ListAiApiKeysResponseEntry {
   }
 
 
-  public ListAiApiKeysResponseEntry deployments(List<AiApiKeyDeploymentsResponseInner> deployments) {
+   /**
+   * True when the key has access to all deployments of the organization.
+   * @return allDeployments
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ALL_DEPLOYMENTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getAllDeployments() {
+    return allDeployments;
+  }
+
+
+
+
+  public ListAiApiKeysResponseEntry deployments(Set<AiApiKeyDeploymentRef> deployments) {
     this.deployments = deployments;
     return this;
   }
 
-  public ListAiApiKeysResponseEntry addDeploymentsItem(AiApiKeyDeploymentsResponseInner deploymentsItem) {
+  public ListAiApiKeysResponseEntry addDeploymentsItem(AiApiKeyDeploymentRef deploymentsItem) {
     if (this.deployments == null) {
-      this.deployments = new ArrayList<>();
+      this.deployments = new LinkedHashSet<>();
     }
     this.deployments.add(deploymentsItem);
     return this;
   }
 
    /**
-   * Private deployment access. [\&quot;all\&quot;] means access to all deployments, otherwise deployments are returned as objects.
+   * Allowlist of deployments. An empty array denies access to all deployments. Grant access to all deployments with all-deployments instead.
    * @return deployments
   **/
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<AiApiKeyDeploymentsResponseInner> getDeployments() {
+  public Set<AiApiKeyDeploymentRef> getDeployments() {
     return deployments;
   }
 
 
+  @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDeployments(List<AiApiKeyDeploymentsResponseInner> deployments) {
+  public void setDeployments(Set<AiApiKeyDeploymentRef> deployments) {
     this.deployments = deployments;
   }
 
@@ -175,7 +216,7 @@ public class ListAiApiKeysResponseEntry {
   }
 
    /**
-   * Public model access. An empty array denies access to all public models, [\&quot;all\&quot;] grants access to all public models, otherwise the array is an allowlist of model names.
+   * Allowlist of public model names. An empty array denies access to all public models. Grant access to all public models with all-models instead.
    * @return models
   **/
   @javax.annotation.Nonnull
@@ -253,7 +294,9 @@ public class ListAiApiKeysResponseEntry {
     }
     ListAiApiKeysResponseEntry listAiApiKeysResponseEntry = (ListAiApiKeysResponseEntry) o;
     return Objects.equals(this.updatedAt, listAiApiKeysResponseEntry.updatedAt) &&
+        Objects.equals(this.allModels, listAiApiKeysResponseEntry.allModels) &&
         Objects.equals(this.name, listAiApiKeysResponseEntry.name) &&
+        Objects.equals(this.allDeployments, listAiApiKeysResponseEntry.allDeployments) &&
         Objects.equals(this.deployments, listAiApiKeysResponseEntry.deployments) &&
         Objects.equals(this.models, listAiApiKeysResponseEntry.models) &&
         Objects.equals(this.id, listAiApiKeysResponseEntry.id) &&
@@ -263,7 +306,7 @@ public class ListAiApiKeysResponseEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(updatedAt, name, deployments, models, id, revokedAt, createdAt);
+    return Objects.hash(updatedAt, allModels, name, allDeployments, deployments, models, id, revokedAt, createdAt);
   }
 
   @Override
@@ -271,7 +314,9 @@ public class ListAiApiKeysResponseEntry {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListAiApiKeysResponseEntry {\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    allModels: ").append(toIndentedString(allModels)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    allDeployments: ").append(toIndentedString(allDeployments)).append("\n");
     sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
     sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -329,19 +374,31 @@ public class ListAiApiKeysResponseEntry {
       joiner.add(String.format("%supdated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `all-models` to the URL query string
+    if (getAllModels() != null) {
+      joiner.add(String.format("%sall-models%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAllModels()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `all-deployments` to the URL query string
+    if (getAllDeployments() != null) {
+      joiner.add(String.format("%sall-deployments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAllDeployments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `deployments` to the URL query string
     if (getDeployments() != null) {
-      for (int i = 0; i < getDeployments().size(); i++) {
-        if (getDeployments().get(i) != null) {
-          joiner.add(getDeployments().get(i).toUrlQueryString(String.format("%sdeployments%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+      int i = 0;
+      for (AiApiKeyDeploymentRef _item : getDeployments()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%sdeployments%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+      i++;
     }
 
     // add `models` to the URL query string

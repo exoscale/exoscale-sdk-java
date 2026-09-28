@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.AiApiKeyDeploymentRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,13 +36,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Update the models and/or deployments accessible by an AI API key. Omitted properties are left unchanged.
  */
 @JsonPropertyOrder({
+  UpdateAiApiKeyRequest.JSON_PROPERTY_ALL_MODELS,
+  UpdateAiApiKeyRequest.JSON_PROPERTY_ALL_DEPLOYMENTS,
   UpdateAiApiKeyRequest.JSON_PROPERTY_DEPLOYMENTS,
   UpdateAiApiKeyRequest.JSON_PROPERTY_MODELS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateAiApiKeyRequest {
+  public static final String JSON_PROPERTY_ALL_MODELS = "all-models";
+  private Boolean allModels;
+
+  public static final String JSON_PROPERTY_ALL_DEPLOYMENTS = "all-deployments";
+  private Boolean allDeployments;
+
   public static final String JSON_PROPERTY_DEPLOYMENTS = "deployments";
-  private Set<String> deployments;
+  private Set<AiApiKeyDeploymentRef> deployments;
 
   public static final String JSON_PROPERTY_MODELS = "models";
   private Set<String> models;
@@ -49,12 +58,62 @@ public class UpdateAiApiKeyRequest {
   public UpdateAiApiKeyRequest() { 
   }
 
-  public UpdateAiApiKeyRequest deployments(Set<String> deployments) {
+  public UpdateAiApiKeyRequest allModels(Boolean allModels) {
+    this.allModels = allModels;
+    return this;
+  }
+
+   /**
+   * Grant or remove access to all public models. Takes precedence over the models array, which is ignored when set.
+   * @return allModels
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALL_MODELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllModels() {
+    return allModels;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALL_MODELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllModels(Boolean allModels) {
+    this.allModels = allModels;
+  }
+
+
+  public UpdateAiApiKeyRequest allDeployments(Boolean allDeployments) {
+    this.allDeployments = allDeployments;
+    return this;
+  }
+
+   /**
+   * Grant or remove access to all deployments of the organization. Takes precedence over the deployments array, which is ignored when set.
+   * @return allDeployments
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALL_DEPLOYMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAllDeployments() {
+    return allDeployments;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ALL_DEPLOYMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllDeployments(Boolean allDeployments) {
+    this.allDeployments = allDeployments;
+  }
+
+
+  public UpdateAiApiKeyRequest deployments(Set<AiApiKeyDeploymentRef> deployments) {
     this.deployments = deployments;
     return this;
   }
 
-  public UpdateAiApiKeyRequest addDeploymentsItem(String deploymentsItem) {
+  public UpdateAiApiKeyRequest addDeploymentsItem(AiApiKeyDeploymentRef deploymentsItem) {
     if (this.deployments == null) {
       this.deployments = new LinkedHashSet<>();
     }
@@ -63,14 +122,14 @@ public class UpdateAiApiKeyRequest {
   }
 
    /**
-   * Deployment IDs accepted as input.
+   * Allowlist of deployments. An empty array denies access to all deployments. Grant access to all deployments with all-deployments instead.
    * @return deployments
   **/
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<String> getDeployments() {
+  public Set<AiApiKeyDeploymentRef> getDeployments() {
     return deployments;
   }
 
@@ -78,7 +137,7 @@ public class UpdateAiApiKeyRequest {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_DEPLOYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDeployments(Set<String> deployments) {
+  public void setDeployments(Set<AiApiKeyDeploymentRef> deployments) {
     this.deployments = deployments;
   }
 
@@ -97,7 +156,7 @@ public class UpdateAiApiKeyRequest {
   }
 
    /**
-   * Public model access. An empty array denies access to all public models, [\&quot;all\&quot;] grants access to all public models, otherwise the array is an allowlist of model names.
+   * Allowlist of public model names. An empty array denies access to all public models. Grant access to all public models with all-models instead.
    * @return models
   **/
   @javax.annotation.Nullable
@@ -129,19 +188,23 @@ public class UpdateAiApiKeyRequest {
       return false;
     }
     UpdateAiApiKeyRequest updateAiApiKeyRequest = (UpdateAiApiKeyRequest) o;
-    return Objects.equals(this.deployments, updateAiApiKeyRequest.deployments) &&
+    return Objects.equals(this.allModels, updateAiApiKeyRequest.allModels) &&
+        Objects.equals(this.allDeployments, updateAiApiKeyRequest.allDeployments) &&
+        Objects.equals(this.deployments, updateAiApiKeyRequest.deployments) &&
         Objects.equals(this.models, updateAiApiKeyRequest.models);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deployments, models);
+    return Objects.hash(allModels, allDeployments, deployments, models);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAiApiKeyRequest {\n");
+    sb.append("    allModels: ").append(toIndentedString(allModels)).append("\n");
+    sb.append("    allDeployments: ").append(toIndentedString(allDeployments)).append("\n");
     sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
     sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("}");
@@ -191,13 +254,24 @@ public class UpdateAiApiKeyRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `all-models` to the URL query string
+    if (getAllModels() != null) {
+      joiner.add(String.format("%sall-models%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAllModels()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `all-deployments` to the URL query string
+    if (getAllDeployments() != null) {
+      joiner.add(String.format("%sall-deployments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAllDeployments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `deployments` to the URL query string
     if (getDeployments() != null) {
       int i = 0;
-      for (String _item : getDeployments()) {
-        joiner.add(String.format("%sdeployments%s%s=%s", prefix, suffix,
-            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      for (AiApiKeyDeploymentRef _item : getDeployments()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%sdeployments%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
       }
       i++;
     }

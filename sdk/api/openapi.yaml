@@ -3276,7 +3276,7 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
-    patch:
+    put:
       description: Update the models and deployments accessible by an AI API key.
       operationId: update-ai-api-key
       parameters:
@@ -11578,8 +11578,10 @@ components:
         - models
         - models
         deployments:
-        - all
-        - all
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        all-models: true
+        all-deployments: true
         revoked-at: ""
         updated-at: 2000-01-23T04:56:07.000+00:00
         name: name
@@ -11591,21 +11593,28 @@ components:
           format: date-time
           readOnly: true
           type: string
+        all-models:
+          description: True when the key has access to all public models.
+          type: boolean
         name:
           type: string
         value:
           description: Plaintext AI API key value
           type: string
+        all-deployments:
+          description: True when the key has access to all deployments of the organization.
+          type: boolean
         deployments:
-          description: "Private deployment access. [\"all\"] means access to all deployments,\
-            \ otherwise deployments are returned as objects."
+          description: Allowlist of deployments. An empty array denies access to all
+            deployments. Grant access to all deployments with all-deployments instead.
           items:
-            $ref: '#/components/schemas/ai_api_key_deployments_response_inner'
+            $ref: '#/components/schemas/ai-api-key-deployment-ref'
           type: array
+          uniqueItems: true
         models:
-          description: "Public model access. An empty array denies access to all public\
-            \ models, [\"all\"] grants access to all public models, otherwise the\
-            \ array is an allowlist of model names."
+          description: Allowlist of public model names. An empty array denies access
+            to all public models. Grant access to all public models with all-models
+            instead.
           items:
             minLength: 1
             type: string
@@ -11624,6 +11633,8 @@ components:
           readOnly: true
           type: string
       required:
+      - all-deployments
+      - all-models
       - created-at
       - deployments
       - id
@@ -12416,18 +12427,27 @@ components:
           format: date-time
           readOnly: true
           type: string
+        all-models:
+          description: True when the key has access to all public models.
+          readOnly: true
+          type: boolean
         name:
           type: string
+        all-deployments:
+          description: True when the key has access to all deployments of the organization.
+          readOnly: true
+          type: boolean
         deployments:
-          description: "Private deployment access. [\"all\"] means access to all deployments,\
-            \ otherwise deployments are returned as objects."
+          description: Allowlist of deployments. An empty array denies access to all
+            deployments. Grant access to all deployments with all-deployments instead.
           items:
-            $ref: '#/components/schemas/ai_api_key_deployments_response_inner'
+            $ref: '#/components/schemas/ai-api-key-deployment-ref'
           type: array
+          uniqueItems: true
         models:
-          description: "Public model access. An empty array denies access to all public\
-            \ models, [\"all\"] grants access to all public models, otherwise the\
-            \ array is an allowlist of model names."
+          description: Allowlist of public model names. An empty array denies access
+            to all public models. Grant access to all public models with all-models
+            instead.
           items:
             minLength: 1
             type: string
@@ -12446,6 +12466,8 @@ components:
           readOnly: true
           type: string
       required:
+      - all-deployments
+      - all-models
       - created-at
       - deployments
       - id
@@ -13291,7 +13313,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.29.0
+      default: 0.30.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -13317,6 +13339,7 @@ components:
       - 0.27.1
       - 0.28.0
       - 0.29.0
+      - 0.30.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -16927,15 +16950,18 @@ components:
       example:
         ai-api-keys:
         - updated-at: 2026-03-25T10:00:00Z
+          all-models: true
           name: default-public-key
+          all-deployments: false
           deployments: []
-          models:
-          - all
+          models: []
           id: 11111111-1111-1111-1111-111111111111
           revoked-at: 2026-03-25T10:00:00Z
           created-at: 2026-03-25T10:00:00Z
         - updated-at: 2026-03-25T10:00:00Z
+          all-models: false
           name: restricted-key
+          all-deployments: false
           deployments:
           - id: 33333333-3333-3333-3333-333333333333
           - id: 44444444-4444-4444-4444-444444444444
@@ -17879,12 +17905,6 @@ components:
       - prometheus-uri
       - type
       type: object
-    ai-api-key-deployments-response:
-      description: "Private deployment access. [\"all\"] means access to all deployments,\
-        \ otherwise deployments are returned as objects."
-      items:
-        $ref: '#/components/schemas/ai_api_key_deployments_response_inner'
-      type: array
     encrypt-request:
       properties:
         encryption-context:
@@ -18637,16 +18657,25 @@ components:
         Omitted properties are left unchanged.
       minProperties: 1
       properties:
+        all-models:
+          description: "Grant or remove access to all public models. Takes precedence\
+            \ over the models array, which is ignored when set."
+          type: boolean
+        all-deployments:
+          description: "Grant or remove access to all deployments of the organization.\
+            \ Takes precedence over the deployments array, which is ignored when set."
+          type: boolean
         deployments:
-          description: Deployment IDs accepted as input.
+          description: Allowlist of deployments. An empty array denies access to all
+            deployments. Grant access to all deployments with all-deployments instead.
           items:
-            type: string
+            $ref: '#/components/schemas/ai-api-key-deployment-ref'
           type: array
           uniqueItems: true
         models:
-          description: "Public model access. An empty array denies access to all public\
-            \ models, [\"all\"] grants access to all public models, otherwise the\
-            \ array is an allowlist of model names."
+          description: Allowlist of public model names. An empty array denies access
+            to all public models. Grant access to all public models with all-models
+            instead.
           items:
             minLength: 1
             type: string
@@ -21513,6 +21542,8 @@ components:
       type: object
     ai-api-key-deployment-ref:
       additionalProperties: false
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
           description: Deployment ID
@@ -21627,25 +21658,35 @@ components:
       - usage
       type: object
     create-ai-api-key-request:
-      description: Request to create a new AI API key. Missing models or deployments
-        default to an empty array.
+      description: Request to create a new AI API key.
       properties:
+        all-models:
+          default: false
+          description: "Grant access to all public models. Takes precedence over the\
+            \ models array, which is ignored when set."
+          type: boolean
         name:
           description: Human-readable name for the AI API key
           maxLength: 50
           minLength: 1
           pattern: "^[A-Za-z0-9](?:[A-Za-z0-9 _'()-]*[A-Za-z0-9])?$"
           type: string
+        all-deployments:
+          default: false
+          description: "Grant access to all deployments of the organization. Takes\
+            \ precedence over the deployments array, which is ignored when set."
+          type: boolean
         deployments:
-          description: Deployment IDs accepted as input.
+          description: Allowlist of deployments. An empty array denies access to all
+            deployments. Grant access to all deployments with all-deployments instead.
           items:
-            type: string
+            $ref: '#/components/schemas/ai-api-key-deployment-ref'
           type: array
           uniqueItems: true
         models:
-          description: "Public model access. An empty array denies access to all public\
-            \ models, [\"all\"] grants access to all public models, otherwise the\
-            \ array is an allowlist of model names."
+          description: Allowlist of public model names. An empty array denies access
+            to all public models. Grant access to all public models with all-models
+            instead.
           items:
             minLength: 1
             type: string
@@ -22089,31 +22130,43 @@ components:
         - models
         - models
         deployments:
-        - all
-        - all
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        all-models: true
+        all-deployments: true
+        revoked-at: ""
         updated-at: 2000-01-23T04:56:07.000+00:00
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         updated-at:
-          description: Revocation timestamp. Null when the API key is active.
+          description: Last update timestamp
           format: date-time
           readOnly: true
           type: string
+        all-models:
+          description: True when the key has access to all public models.
+          readOnly: true
+          type: boolean
         name:
           description: Human-readable name for the AI API key
           type: string
+        all-deployments:
+          description: True when the key has access to all deployments of the organization.
+          readOnly: true
+          type: boolean
         deployments:
-          description: "Private deployment access. [\"all\"] means access to all deployments,\
-            \ otherwise deployments are returned as objects."
+          description: Allowlist of deployments. An empty array denies access to all
+            deployments. Grant access to all deployments with all-deployments instead.
           items:
-            $ref: '#/components/schemas/ai_api_key_deployments_response_inner'
+            $ref: '#/components/schemas/ai-api-key-deployment-ref'
           type: array
+          uniqueItems: true
         models:
-          description: "Public model access. An empty array denies access to all public\
-            \ models, [\"all\"] grants access to all public models, otherwise the\
-            \ array is an allowlist of model names."
+          description: Allowlist of public model names. An empty array denies access
+            to all public models. Grant access to all public models with all-models
+            instead.
           items:
             minLength: 1
             type: string
@@ -22124,12 +22177,18 @@ components:
           format: uuid
           readOnly: true
           type: string
+        revoked-at:
+          description: Revocation timestamp. Null when the API key is active.
+          format: date-time
+          readOnly: true
         created-at:
           description: Creation timestamp
           format: date-time
           readOnly: true
           type: string
       required:
+      - all-deployments
+      - all-models
       - created-at
       - deployments
       - id
@@ -22663,9 +22722,8 @@ components:
           type: string
       type: object
     ai-api-key-models:
-      description: "Public model access. An empty array denies access to all public\
-        \ models, [\"all\"] grants access to all public models, otherwise the array\
-        \ is an allowlist of model names."
+      description: Allowlist of public model names. An empty array denies access to
+        all public models. Grant access to all public models with all-models instead.
       items:
         minLength: 1
         type: string
@@ -24558,8 +24616,10 @@ components:
         - models
         - models
         deployments:
-        - all
-        - all
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        all-models: true
+        all-deployments: true
         updated-at: 2000-01-23T04:56:07.000+00:00
         name: name
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -24568,18 +24628,25 @@ components:
         updated-at:
           format: date-time
           type: string
+        all-models:
+          description: True when the key has access to all public models.
+          type: boolean
         name:
           type: string
+        all-deployments:
+          description: True when the key has access to all deployments of the organization.
+          type: boolean
         deployments:
-          description: "Private deployment access. [\"all\"] means access to all deployments,\
-            \ otherwise deployments are returned as objects."
+          description: Allowlist of deployments. An empty array denies access to all
+            deployments. Grant access to all deployments with all-deployments instead.
           items:
-            $ref: '#/components/schemas/ai_api_key_deployments_response_inner'
+            $ref: '#/components/schemas/ai-api-key-deployment-ref'
           type: array
+          uniqueItems: true
         models:
-          description: "Public model access. An empty array denies access to all public\
-            \ models, [\"all\"] grants access to all public models, otherwise the\
-            \ array is an allowlist of model names."
+          description: Allowlist of public model names. An empty array denies access
+            to all public models. Grant access to all public models with all-models
+            instead.
           items:
             minLength: 1
             type: string
@@ -24592,6 +24659,8 @@ components:
           format: date-time
           type: string
       required:
+      - all-deployments
+      - all-models
       - created-at
       - deployments
       - id
@@ -24751,9 +24820,10 @@ components:
           type: array
       type: object
     ai-api-key-deployments:
-      description: Deployment IDs accepted as input.
+      description: Allowlist of deployments. An empty array denies access to all deployments.
+        Grant access to all deployments with all-deployments instead.
       items:
-        type: string
+        $ref: '#/components/schemas/ai-api-key-deployment-ref'
       type: array
       uniqueItems: true
     update_load_balancer_service_request:
@@ -33004,12 +33074,6 @@ components:
       - type
       - username
       type: object
-    ai_api_key_deployments_response_inner:
-      oneOf:
-      - enum:
-        - all
-        type: string
-      - $ref: '#/components/schemas/ai-api-key-deployment-ref'
     dbaas_task_result_codes_inner:
       example:
         code: code

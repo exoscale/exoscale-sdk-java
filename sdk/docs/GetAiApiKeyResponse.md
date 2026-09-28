@@ -8,11 +8,14 @@ Get AI API key response
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**updatedAt** | **OffsetDateTime** | Revocation timestamp. Null when the API key is active. |  [readonly] |
+|**updatedAt** | **OffsetDateTime** | Last update timestamp |  [readonly] |
+|**allModels** | **Boolean** | True when the key has access to all public models. |  [readonly] |
 |**name** | **String** | Human-readable name for the AI API key |  |
-|**deployments** | [**List&lt;AiApiKeyDeploymentsResponseInner&gt;**](AiApiKeyDeploymentsResponseInner.md) | Private deployment access. [\&quot;all\&quot;] means access to all deployments, otherwise deployments are returned as objects. |  |
-|**models** | **Set&lt;String&gt;** | Public model access. An empty array denies access to all public models, [\&quot;all\&quot;] grants access to all public models, otherwise the array is an allowlist of model names. |  |
+|**allDeployments** | **Boolean** | True when the key has access to all deployments of the organization. |  [readonly] |
+|**deployments** | [**Set&lt;AiApiKeyDeploymentRef&gt;**](AiApiKeyDeploymentRef.md) | Allowlist of deployments. An empty array denies access to all deployments. Grant access to all deployments with all-deployments instead. |  |
+|**models** | **Set&lt;String&gt;** | Allowlist of public model names. An empty array denies access to all public models. Grant access to all public models with all-models instead. |  |
 |**id** | **UUID** | AI API key ID |  [readonly] |
+|**revokedAt** | **Object** | Revocation timestamp. Null when the API key is active. |  [readonly] |
 |**createdAt** | **OffsetDateTime** | Creation timestamp |  [readonly] |
 
 

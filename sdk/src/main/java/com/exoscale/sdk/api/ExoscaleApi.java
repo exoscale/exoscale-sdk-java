@@ -29786,7 +29786,7 @@ public class ExoscaleApi {
       // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
       // Skip signing so those requests are always sent without credentials.
       try{
-      authorizationValue = credentials.generateSignature("PATCH", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
       } catch (Exception e) {
       throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
       }
@@ -29796,7 +29796,7 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Content-Type", "application/json");
     localVarRequestBuilder.header("Accept", "application/json");
 
-      localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofString(requestBody));
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

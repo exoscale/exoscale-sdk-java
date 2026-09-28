@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.AiApiKeyDeploymentRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,11 +42,27 @@ public class CreateAiApiKeyRequestTest {
     }
 
     /**
+     * Test the property 'allModels'
+     */
+    @Test
+    public void allModelsTest() {
+        // TODO: test allModels
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
     public void nameTest() {
         // TODO: test name
+    }
+
+    /**
+     * Test the property 'allDeployments'
+     */
+    @Test
+    public void allDeploymentsTest() {
+        // TODO: test allDeployments
     }
 
     /**
