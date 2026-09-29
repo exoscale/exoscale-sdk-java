@@ -70,6 +70,14 @@ public class SksClusterTest {
     }
 
     /**
+     * Test the property 'karpenterFeatureGates'
+     */
+    @Test
+    public void karpenterFeatureGatesTest() {
+        // TODO: test karpenterFeatureGates
+    }
+
+    /**
      * Test the property 'cni'
      */
     @Test
@@ -203,6 +211,14 @@ public class SksClusterTest {
     @Test
     public void endpointTest() {
         // TODO: test endpoint
+    }
+
+    /**
+     * Test the property 'allowedNetworks'
+     */
+    @Test
+    public void allowedNetworksTest() {
+        // TODO: test allowedNetworks
     }
 
 }

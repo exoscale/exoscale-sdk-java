@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**description** | **String** | Cluster description |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**karpenterFeatureGates** | **Set&lt;String&gt;** | A list of Karpenter controller feature gates to enable for the Karpenter controller binary |  [optional] |
 |**cni** | [**CniEnum**](#CniEnum) | Cluster CNI |  [optional] |
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
 |**networking** | [**Networking**](Networking.md) |  |  [optional] |
@@ -21,6 +22,7 @@
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Cluster addons |  [optional] |
 |**audit** | [**SksAuditCreate**](SksAuditCreate.md) |  |  [optional] |
 |**version** | **String** | Control plane Kubernetes version |  |
+|**allowedNetworks** | **Set&lt;String&gt;** |  |  [optional] |
 
 
 

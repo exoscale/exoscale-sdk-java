@@ -19,11 +19,17 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.ClusterSettings;
+import com.exoscale.sdk.model.JsonSchemaOpensearchRemoteStore;
+import com.exoscale.sdk.model.JsonSchemaOpensearchSearchInsightsTopQueries;
+import com.exoscale.sdk.model.MLCommonsSettings;
 import com.exoscale.sdk.model.OpensearchEmailSenderSettings;
 import com.exoscale.sdk.model.OpensearchISMHistorySettings;
 import com.exoscale.sdk.model.OpensearchSecurityPluginSettings;
 import com.exoscale.sdk.model.SearchBackpressureSettings;
+import com.exoscale.sdk.model.SegmentReplicationBackpressureSettings;
 import com.exoscale.sdk.model.ShardIndexingBackPressureSettings;
+import com.exoscale.sdk.model.WatermarkSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -45,29 +51,38 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_THROTTLED_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_ANALYZE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_SEARCH_INSIGHTS_TOP_QUERIES,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_GET_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_GET_QUEUE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_REMOTE_STORE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_RECOVERY_MAX_CONCURRENT_FILE_CHUNKS,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_QUERIES_CACHE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_SEARCH_BACKPRESSURE,
   JsonSchemaOpensearch.JSON_PROPERTY_SHARD_INDEXING_PRESSURE,
   JsonSchemaOpensearch.JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED,
+  JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_REMOTE_BACKED_STORAGE,
+  JsonSchemaOpensearch.JSON_PROPERTY_CLUSTER,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_MIN_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_RECOVERY_MAX_BYTES_PER_SEC,
   JsonSchemaOpensearch.JSON_PROPERTY_HTTP_MAX_INITIAL_LINE_LENGTH,
   JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_SECURITY_AUDIT,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_WRITE_QUEUE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_SNAPSHOT_API,
+  JsonSchemaOpensearch.JSON_PROPERTY_SEGREP,
   JsonSchemaOpensearch.JSON_PROPERTY_SCRIPT_MAX_COMPILATIONS_RATE,
   JsonSchemaOpensearch.JSON_PROPERTY_SEARCH_MAX_BUCKETS,
   JsonSchemaOpensearch.JSON_PROPERTY_REINDEX_REMOTE_WHITELIST,
   JsonSchemaOpensearch.JSON_PROPERTY_OVERRIDE_MAIN_RESPONSE_VERSION,
   JsonSchemaOpensearch.JSON_PROPERTY_HTTP_MAX_HEADER_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_NODE_SEARCH_CACHE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_EMAIL_SENDER,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_FIELDDATA_CACHE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_ACTION_DESTRUCTIVE_REQUIRES_NAME,
   JsonSchemaOpensearch.JSON_PROPERTY_PLUGINS_ALERTING_FILTER_BY_BACKEND_ROLES,
+  JsonSchemaOpensearch.JSON_PROPERTY_DISK_WATERMARKS,
+  JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_SEARCHABLE_SNAPSHOTS,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_FORCE_MERGE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_AUTH_FAILURE_LISTENERS,
@@ -80,6 +95,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_QUEUE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_LIMIT,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_QUERY_BOOL_MAX_CLAUSE_COUNT,
+  JsonSchemaOpensearch.JSON_PROPERTY_ML_COMMONS,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_THROTTLED_QUEUE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_CLUSTER_MAX_SHARDS_PER_NODE
 })
@@ -91,11 +107,17 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_THREAD_POOL_ANALYZE_SIZE = "thread_pool_analyze_size";
   private Integer threadPoolAnalyzeSize;
 
+  public static final String JSON_PROPERTY_SEARCH_INSIGHTS_TOP_QUERIES = "search.insights.top_queries";
+  private JsonSchemaOpensearchSearchInsightsTopQueries searchInsightsTopQueries;
+
   public static final String JSON_PROPERTY_THREAD_POOL_GET_SIZE = "thread_pool_get_size";
   private Integer threadPoolGetSize;
 
   public static final String JSON_PROPERTY_THREAD_POOL_GET_QUEUE_SIZE = "thread_pool_get_queue_size";
   private Integer threadPoolGetQueueSize;
+
+  public static final String JSON_PROPERTY_REMOTE_STORE = "remote_store";
+  private JsonSchemaOpensearchRemoteStore remoteStore;
 
   public static final String JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE = "indices_memory_max_index_buffer_size";
   private Integer indicesMemoryMaxIndexBufferSize;
@@ -115,6 +137,12 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED = "knn_memory_circuit_breaker_enabled";
   private Boolean knnMemoryCircuitBreakerEnabled;
 
+  public static final String JSON_PROPERTY_ENABLE_REMOTE_BACKED_STORAGE = "enable_remote_backed_storage";
+  private Boolean enableRemoteBackedStorage;
+
+  public static final String JSON_PROPERTY_CLUSTER = "cluster";
+  private ClusterSettings cluster;
+
   public static final String JSON_PROPERTY_THREAD_POOL_SEARCH_SIZE = "thread_pool_search_size";
   private Integer threadPoolSearchSize;
 
@@ -133,6 +161,12 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_THREAD_POOL_WRITE_QUEUE_SIZE = "thread_pool_write_queue_size";
   private Integer threadPoolWriteQueueSize;
 
+  public static final String JSON_PROPERTY_ENABLE_SNAPSHOT_API = "enable_snapshot_api";
+  private Boolean enableSnapshotApi;
+
+  public static final String JSON_PROPERTY_SEGREP = "segrep";
+  private SegmentReplicationBackpressureSettings segrep;
+
   public static final String JSON_PROPERTY_SCRIPT_MAX_COMPILATIONS_RATE = "script_max_compilations_rate";
   private String scriptMaxCompilationsRate;
 
@@ -148,6 +182,9 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_HTTP_MAX_HEADER_SIZE = "http_max_header_size";
   private Integer httpMaxHeaderSize;
 
+  public static final String JSON_PROPERTY_NODE_SEARCH_CACHE_SIZE = "node.search.cache.size";
+  private JsonNullable<String> nodeSearchCacheSize = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_EMAIL_SENDER = "email-sender";
   private OpensearchEmailSenderSettings emailSender;
 
@@ -159,6 +196,12 @@ public class JsonSchemaOpensearch {
 
   public static final String JSON_PROPERTY_PLUGINS_ALERTING_FILTER_BY_BACKEND_ROLES = "plugins_alerting_filter_by_backend_roles";
   private Boolean pluginsAlertingFilterByBackendRoles;
+
+  public static final String JSON_PROPERTY_DISK_WATERMARKS = "disk_watermarks";
+  private WatermarkSettings diskWatermarks;
+
+  public static final String JSON_PROPERTY_ENABLE_SEARCHABLE_SNAPSHOTS = "enable_searchable_snapshots";
+  private Boolean enableSearchableSnapshots;
 
   public static final String JSON_PROPERTY_INDICES_MEMORY_INDEX_BUFFER_SIZE = "indices_memory_index_buffer_size";
   private Integer indicesMemoryIndexBufferSize;
@@ -195,6 +238,9 @@ public class JsonSchemaOpensearch {
 
   public static final String JSON_PROPERTY_INDICES_QUERY_BOOL_MAX_CLAUSE_COUNT = "indices_query_bool_max_clause_count";
   private Integer indicesQueryBoolMaxClauseCount;
+
+  public static final String JSON_PROPERTY_ML_COMMONS = "ml-commons";
+  private MLCommonsSettings mlCommons;
 
   public static final String JSON_PROPERTY_THREAD_POOL_SEARCH_THROTTLED_QUEUE_SIZE = "thread_pool_search_throttled_queue_size";
   private Integer threadPoolSearchThrottledQueueSize;
@@ -259,6 +305,31 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch searchInsightsTopQueries(JsonSchemaOpensearchSearchInsightsTopQueries searchInsightsTopQueries) {
+    this.searchInsightsTopQueries = searchInsightsTopQueries;
+    return this;
+  }
+
+   /**
+   * Get searchInsightsTopQueries
+   * @return searchInsightsTopQueries
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEARCH_INSIGHTS_TOP_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonSchemaOpensearchSearchInsightsTopQueries getSearchInsightsTopQueries() {
+    return searchInsightsTopQueries;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_INSIGHTS_TOP_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchInsightsTopQueries(JsonSchemaOpensearchSearchInsightsTopQueries searchInsightsTopQueries) {
+    this.searchInsightsTopQueries = searchInsightsTopQueries;
+  }
+
+
   public JsonSchemaOpensearch threadPoolGetSize(Integer threadPoolGetSize) {
     this.threadPoolGetSize = threadPoolGetSize;
     return this;
@@ -310,6 +381,31 @@ public class JsonSchemaOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setThreadPoolGetQueueSize(Integer threadPoolGetQueueSize) {
     this.threadPoolGetQueueSize = threadPoolGetQueueSize;
+  }
+
+
+  public JsonSchemaOpensearch remoteStore(JsonSchemaOpensearchRemoteStore remoteStore) {
+    this.remoteStore = remoteStore;
+    return this;
+  }
+
+   /**
+   * Get remoteStore
+   * @return remoteStore
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOTE_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonSchemaOpensearchRemoteStore getRemoteStore() {
+    return remoteStore;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REMOTE_STORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRemoteStore(JsonSchemaOpensearchRemoteStore remoteStore) {
+    this.remoteStore = remoteStore;
   }
 
 
@@ -466,6 +562,56 @@ public class JsonSchemaOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKnnMemoryCircuitBreakerEnabled(Boolean knnMemoryCircuitBreakerEnabled) {
     this.knnMemoryCircuitBreakerEnabled = knnMemoryCircuitBreakerEnabled;
+  }
+
+
+  public JsonSchemaOpensearch enableRemoteBackedStorage(Boolean enableRemoteBackedStorage) {
+    this.enableRemoteBackedStorage = enableRemoteBackedStorage;
+    return this;
+  }
+
+   /**
+   * Get enableRemoteBackedStorage
+   * @return enableRemoteBackedStorage
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_REMOTE_BACKED_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableRemoteBackedStorage() {
+    return enableRemoteBackedStorage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_REMOTE_BACKED_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableRemoteBackedStorage(Boolean enableRemoteBackedStorage) {
+    this.enableRemoteBackedStorage = enableRemoteBackedStorage;
+  }
+
+
+  public JsonSchemaOpensearch cluster(ClusterSettings cluster) {
+    this.cluster = cluster;
+    return this;
+  }
+
+   /**
+   * Get cluster
+   * @return cluster
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLUSTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ClusterSettings getCluster() {
+    return cluster;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLUSTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCluster(ClusterSettings cluster) {
+    this.cluster = cluster;
   }
 
 
@@ -629,6 +775,56 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch enableSnapshotApi(Boolean enableSnapshotApi) {
+    this.enableSnapshotApi = enableSnapshotApi;
+    return this;
+  }
+
+   /**
+   * Enable/Disable snapshot API for custom repositories, this requires security management to be enabled
+   * @return enableSnapshotApi
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_SNAPSHOT_API)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableSnapshotApi() {
+    return enableSnapshotApi;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_SNAPSHOT_API)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableSnapshotApi(Boolean enableSnapshotApi) {
+    this.enableSnapshotApi = enableSnapshotApi;
+  }
+
+
+  public JsonSchemaOpensearch segrep(SegmentReplicationBackpressureSettings segrep) {
+    this.segrep = segrep;
+    return this;
+  }
+
+   /**
+   * Get segrep
+   * @return segrep
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEGREP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SegmentReplicationBackpressureSettings getSegrep() {
+    return segrep;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEGREP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSegrep(SegmentReplicationBackpressureSettings segrep) {
+    this.segrep = segrep;
+  }
+
+
   public JsonSchemaOpensearch scriptMaxCompilationsRate(String scriptMaxCompilationsRate) {
     this.scriptMaxCompilationsRate = scriptMaxCompilationsRate;
     return this;
@@ -786,6 +982,39 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch nodeSearchCacheSize(String nodeSearchCacheSize) {
+    this.nodeSearchCacheSize = JsonNullable.<String>of(nodeSearchCacheSize);
+    return this;
+  }
+
+   /**
+   * Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 5gb. Requires restarting all OpenSearch nodes.
+   * @return nodeSearchCacheSize
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getNodeSearchCacheSize() {
+        return nodeSearchCacheSize.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NODE_SEARCH_CACHE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getNodeSearchCacheSize_JsonNullable() {
+    return nodeSearchCacheSize;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NODE_SEARCH_CACHE_SIZE)
+  public void setNodeSearchCacheSize_JsonNullable(JsonNullable<String> nodeSearchCacheSize) {
+    this.nodeSearchCacheSize = nodeSearchCacheSize;
+  }
+
+  public void setNodeSearchCacheSize(String nodeSearchCacheSize) {
+    this.nodeSearchCacheSize = JsonNullable.<String>of(nodeSearchCacheSize);
+  }
+
+
   public JsonSchemaOpensearch emailSender(OpensearchEmailSenderSettings emailSender) {
     this.emailSender = emailSender;
     return this;
@@ -901,6 +1130,56 @@ public class JsonSchemaOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPluginsAlertingFilterByBackendRoles(Boolean pluginsAlertingFilterByBackendRoles) {
     this.pluginsAlertingFilterByBackendRoles = pluginsAlertingFilterByBackendRoles;
+  }
+
+
+  public JsonSchemaOpensearch diskWatermarks(WatermarkSettings diskWatermarks) {
+    this.diskWatermarks = diskWatermarks;
+    return this;
+  }
+
+   /**
+   * Get diskWatermarks
+   * @return diskWatermarks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISK_WATERMARKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public WatermarkSettings getDiskWatermarks() {
+    return diskWatermarks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DISK_WATERMARKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDiskWatermarks(WatermarkSettings diskWatermarks) {
+    this.diskWatermarks = diskWatermarks;
+  }
+
+
+  public JsonSchemaOpensearch enableSearchableSnapshots(Boolean enableSearchableSnapshots) {
+    this.enableSearchableSnapshots = enableSearchableSnapshots;
+    return this;
+  }
+
+   /**
+   * Get enableSearchableSnapshots
+   * @return enableSearchableSnapshots
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_SEARCHABLE_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEnableSearchableSnapshots() {
+    return enableSearchableSnapshots;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENABLE_SEARCHABLE_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnableSearchableSnapshots(Boolean enableSearchableSnapshots) {
+    this.enableSearchableSnapshots = enableSearchableSnapshots;
   }
 
 
@@ -1222,6 +1501,31 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch mlCommons(MLCommonsSettings mlCommons) {
+    this.mlCommons = mlCommons;
+    return this;
+  }
+
+   /**
+   * Get mlCommons
+   * @return mlCommons
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public MLCommonsSettings getMlCommons() {
+    return mlCommons;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMlCommons(MLCommonsSettings mlCommons) {
+    this.mlCommons = mlCommons;
+  }
+
+
   public JsonSchemaOpensearch threadPoolSearchThrottledQueueSize(Integer threadPoolSearchThrottledQueueSize) {
     this.threadPoolSearchThrottledQueueSize = threadPoolSearchThrottledQueueSize;
     return this;
@@ -1290,29 +1594,38 @@ public class JsonSchemaOpensearch {
     JsonSchemaOpensearch jsonSchemaOpensearch = (JsonSchemaOpensearch) o;
     return Objects.equals(this.threadPoolSearchThrottledSize, jsonSchemaOpensearch.threadPoolSearchThrottledSize) &&
         Objects.equals(this.threadPoolAnalyzeSize, jsonSchemaOpensearch.threadPoolAnalyzeSize) &&
+        Objects.equals(this.searchInsightsTopQueries, jsonSchemaOpensearch.searchInsightsTopQueries) &&
         Objects.equals(this.threadPoolGetSize, jsonSchemaOpensearch.threadPoolGetSize) &&
         Objects.equals(this.threadPoolGetQueueSize, jsonSchemaOpensearch.threadPoolGetQueueSize) &&
+        Objects.equals(this.remoteStore, jsonSchemaOpensearch.remoteStore) &&
         Objects.equals(this.indicesMemoryMaxIndexBufferSize, jsonSchemaOpensearch.indicesMemoryMaxIndexBufferSize) &&
         Objects.equals(this.indicesRecoveryMaxConcurrentFileChunks, jsonSchemaOpensearch.indicesRecoveryMaxConcurrentFileChunks) &&
         Objects.equals(this.indicesQueriesCacheSize, jsonSchemaOpensearch.indicesQueriesCacheSize) &&
         Objects.equals(this.searchBackpressure, jsonSchemaOpensearch.searchBackpressure) &&
         Objects.equals(this.shardIndexingPressure, jsonSchemaOpensearch.shardIndexingPressure) &&
         Objects.equals(this.knnMemoryCircuitBreakerEnabled, jsonSchemaOpensearch.knnMemoryCircuitBreakerEnabled) &&
+        Objects.equals(this.enableRemoteBackedStorage, jsonSchemaOpensearch.enableRemoteBackedStorage) &&
+        Objects.equals(this.cluster, jsonSchemaOpensearch.cluster) &&
         Objects.equals(this.threadPoolSearchSize, jsonSchemaOpensearch.threadPoolSearchSize) &&
         Objects.equals(this.indicesMemoryMinIndexBufferSize, jsonSchemaOpensearch.indicesMemoryMinIndexBufferSize) &&
         Objects.equals(this.indicesRecoveryMaxBytesPerSec, jsonSchemaOpensearch.indicesRecoveryMaxBytesPerSec) &&
         Objects.equals(this.httpMaxInitialLineLength, jsonSchemaOpensearch.httpMaxInitialLineLength) &&
         Objects.equals(this.enableSecurityAudit, jsonSchemaOpensearch.enableSecurityAudit) &&
         Objects.equals(this.threadPoolWriteQueueSize, jsonSchemaOpensearch.threadPoolWriteQueueSize) &&
+        Objects.equals(this.enableSnapshotApi, jsonSchemaOpensearch.enableSnapshotApi) &&
+        Objects.equals(this.segrep, jsonSchemaOpensearch.segrep) &&
         Objects.equals(this.scriptMaxCompilationsRate, jsonSchemaOpensearch.scriptMaxCompilationsRate) &&
         equalsNullable(this.searchMaxBuckets, jsonSchemaOpensearch.searchMaxBuckets) &&
         equalsNullable(this.reindexRemoteWhitelist, jsonSchemaOpensearch.reindexRemoteWhitelist) &&
         Objects.equals(this.overrideMainResponseVersion, jsonSchemaOpensearch.overrideMainResponseVersion) &&
         Objects.equals(this.httpMaxHeaderSize, jsonSchemaOpensearch.httpMaxHeaderSize) &&
+        equalsNullable(this.nodeSearchCacheSize, jsonSchemaOpensearch.nodeSearchCacheSize) &&
         Objects.equals(this.emailSender, jsonSchemaOpensearch.emailSender) &&
         equalsNullable(this.indicesFielddataCacheSize, jsonSchemaOpensearch.indicesFielddataCacheSize) &&
         equalsNullable(this.actionDestructiveRequiresName, jsonSchemaOpensearch.actionDestructiveRequiresName) &&
         Objects.equals(this.pluginsAlertingFilterByBackendRoles, jsonSchemaOpensearch.pluginsAlertingFilterByBackendRoles) &&
+        Objects.equals(this.diskWatermarks, jsonSchemaOpensearch.diskWatermarks) &&
+        Objects.equals(this.enableSearchableSnapshots, jsonSchemaOpensearch.enableSearchableSnapshots) &&
         Objects.equals(this.indicesMemoryIndexBufferSize, jsonSchemaOpensearch.indicesMemoryIndexBufferSize) &&
         Objects.equals(this.threadPoolForceMergeSize, jsonSchemaOpensearch.threadPoolForceMergeSize) &&
         Objects.equals(this.authFailureListeners, jsonSchemaOpensearch.authFailureListeners) &&
@@ -1325,6 +1638,7 @@ public class JsonSchemaOpensearch {
         Objects.equals(this.threadPoolSearchQueueSize, jsonSchemaOpensearch.threadPoolSearchQueueSize) &&
         Objects.equals(this.knnMemoryCircuitBreakerLimit, jsonSchemaOpensearch.knnMemoryCircuitBreakerLimit) &&
         Objects.equals(this.indicesQueryBoolMaxClauseCount, jsonSchemaOpensearch.indicesQueryBoolMaxClauseCount) &&
+        Objects.equals(this.mlCommons, jsonSchemaOpensearch.mlCommons) &&
         Objects.equals(this.threadPoolSearchThrottledQueueSize, jsonSchemaOpensearch.threadPoolSearchThrottledQueueSize) &&
         Objects.equals(this.clusterMaxShardsPerNode, jsonSchemaOpensearch.clusterMaxShardsPerNode);
   }
@@ -1335,7 +1649,7 @@ public class JsonSchemaOpensearch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(threadPoolSearchThrottledSize, threadPoolAnalyzeSize, threadPoolGetSize, threadPoolGetQueueSize, indicesMemoryMaxIndexBufferSize, indicesRecoveryMaxConcurrentFileChunks, indicesQueriesCacheSize, searchBackpressure, shardIndexingPressure, knnMemoryCircuitBreakerEnabled, threadPoolSearchSize, indicesMemoryMinIndexBufferSize, indicesRecoveryMaxBytesPerSec, httpMaxInitialLineLength, enableSecurityAudit, threadPoolWriteQueueSize, scriptMaxCompilationsRate, hashCodeNullable(searchMaxBuckets), hashCodeNullable(reindexRemoteWhitelist), overrideMainResponseVersion, httpMaxHeaderSize, emailSender, hashCodeNullable(indicesFielddataCacheSize), hashCodeNullable(actionDestructiveRequiresName), pluginsAlertingFilterByBackendRoles, indicesMemoryIndexBufferSize, threadPoolForceMergeSize, authFailureListeners, ismHistory, clusterRoutingAllocationNodeConcurrentRecoveries, threadPoolAnalyzeQueueSize, actionAutoCreateIndexEnabled, httpMaxContentLength, threadPoolWriteSize, threadPoolSearchQueueSize, knnMemoryCircuitBreakerLimit, indicesQueryBoolMaxClauseCount, threadPoolSearchThrottledQueueSize, clusterMaxShardsPerNode);
+    return Objects.hash(threadPoolSearchThrottledSize, threadPoolAnalyzeSize, searchInsightsTopQueries, threadPoolGetSize, threadPoolGetQueueSize, remoteStore, indicesMemoryMaxIndexBufferSize, indicesRecoveryMaxConcurrentFileChunks, indicesQueriesCacheSize, searchBackpressure, shardIndexingPressure, knnMemoryCircuitBreakerEnabled, enableRemoteBackedStorage, cluster, threadPoolSearchSize, indicesMemoryMinIndexBufferSize, indicesRecoveryMaxBytesPerSec, httpMaxInitialLineLength, enableSecurityAudit, threadPoolWriteQueueSize, enableSnapshotApi, segrep, scriptMaxCompilationsRate, hashCodeNullable(searchMaxBuckets), hashCodeNullable(reindexRemoteWhitelist), overrideMainResponseVersion, httpMaxHeaderSize, hashCodeNullable(nodeSearchCacheSize), emailSender, hashCodeNullable(indicesFielddataCacheSize), hashCodeNullable(actionDestructiveRequiresName), pluginsAlertingFilterByBackendRoles, diskWatermarks, enableSearchableSnapshots, indicesMemoryIndexBufferSize, threadPoolForceMergeSize, authFailureListeners, ismHistory, clusterRoutingAllocationNodeConcurrentRecoveries, threadPoolAnalyzeQueueSize, actionAutoCreateIndexEnabled, httpMaxContentLength, threadPoolWriteSize, threadPoolSearchQueueSize, knnMemoryCircuitBreakerLimit, indicesQueryBoolMaxClauseCount, mlCommons, threadPoolSearchThrottledQueueSize, clusterMaxShardsPerNode);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1351,29 +1665,38 @@ public class JsonSchemaOpensearch {
     sb.append("class JsonSchemaOpensearch {\n");
     sb.append("    threadPoolSearchThrottledSize: ").append(toIndentedString(threadPoolSearchThrottledSize)).append("\n");
     sb.append("    threadPoolAnalyzeSize: ").append(toIndentedString(threadPoolAnalyzeSize)).append("\n");
+    sb.append("    searchInsightsTopQueries: ").append(toIndentedString(searchInsightsTopQueries)).append("\n");
     sb.append("    threadPoolGetSize: ").append(toIndentedString(threadPoolGetSize)).append("\n");
     sb.append("    threadPoolGetQueueSize: ").append(toIndentedString(threadPoolGetQueueSize)).append("\n");
+    sb.append("    remoteStore: ").append(toIndentedString(remoteStore)).append("\n");
     sb.append("    indicesMemoryMaxIndexBufferSize: ").append(toIndentedString(indicesMemoryMaxIndexBufferSize)).append("\n");
     sb.append("    indicesRecoveryMaxConcurrentFileChunks: ").append(toIndentedString(indicesRecoveryMaxConcurrentFileChunks)).append("\n");
     sb.append("    indicesQueriesCacheSize: ").append(toIndentedString(indicesQueriesCacheSize)).append("\n");
     sb.append("    searchBackpressure: ").append(toIndentedString(searchBackpressure)).append("\n");
     sb.append("    shardIndexingPressure: ").append(toIndentedString(shardIndexingPressure)).append("\n");
     sb.append("    knnMemoryCircuitBreakerEnabled: ").append(toIndentedString(knnMemoryCircuitBreakerEnabled)).append("\n");
+    sb.append("    enableRemoteBackedStorage: ").append(toIndentedString(enableRemoteBackedStorage)).append("\n");
+    sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    threadPoolSearchSize: ").append(toIndentedString(threadPoolSearchSize)).append("\n");
     sb.append("    indicesMemoryMinIndexBufferSize: ").append(toIndentedString(indicesMemoryMinIndexBufferSize)).append("\n");
     sb.append("    indicesRecoveryMaxBytesPerSec: ").append(toIndentedString(indicesRecoveryMaxBytesPerSec)).append("\n");
     sb.append("    httpMaxInitialLineLength: ").append(toIndentedString(httpMaxInitialLineLength)).append("\n");
     sb.append("    enableSecurityAudit: ").append(toIndentedString(enableSecurityAudit)).append("\n");
     sb.append("    threadPoolWriteQueueSize: ").append(toIndentedString(threadPoolWriteQueueSize)).append("\n");
+    sb.append("    enableSnapshotApi: ").append(toIndentedString(enableSnapshotApi)).append("\n");
+    sb.append("    segrep: ").append(toIndentedString(segrep)).append("\n");
     sb.append("    scriptMaxCompilationsRate: ").append(toIndentedString(scriptMaxCompilationsRate)).append("\n");
     sb.append("    searchMaxBuckets: ").append(toIndentedString(searchMaxBuckets)).append("\n");
     sb.append("    reindexRemoteWhitelist: ").append(toIndentedString(reindexRemoteWhitelist)).append("\n");
     sb.append("    overrideMainResponseVersion: ").append(toIndentedString(overrideMainResponseVersion)).append("\n");
     sb.append("    httpMaxHeaderSize: ").append(toIndentedString(httpMaxHeaderSize)).append("\n");
+    sb.append("    nodeSearchCacheSize: ").append(toIndentedString(nodeSearchCacheSize)).append("\n");
     sb.append("    emailSender: ").append(toIndentedString(emailSender)).append("\n");
     sb.append("    indicesFielddataCacheSize: ").append(toIndentedString(indicesFielddataCacheSize)).append("\n");
     sb.append("    actionDestructiveRequiresName: ").append(toIndentedString(actionDestructiveRequiresName)).append("\n");
     sb.append("    pluginsAlertingFilterByBackendRoles: ").append(toIndentedString(pluginsAlertingFilterByBackendRoles)).append("\n");
+    sb.append("    diskWatermarks: ").append(toIndentedString(diskWatermarks)).append("\n");
+    sb.append("    enableSearchableSnapshots: ").append(toIndentedString(enableSearchableSnapshots)).append("\n");
     sb.append("    indicesMemoryIndexBufferSize: ").append(toIndentedString(indicesMemoryIndexBufferSize)).append("\n");
     sb.append("    threadPoolForceMergeSize: ").append(toIndentedString(threadPoolForceMergeSize)).append("\n");
     sb.append("    authFailureListeners: ").append(toIndentedString(authFailureListeners)).append("\n");
@@ -1386,6 +1709,7 @@ public class JsonSchemaOpensearch {
     sb.append("    threadPoolSearchQueueSize: ").append(toIndentedString(threadPoolSearchQueueSize)).append("\n");
     sb.append("    knnMemoryCircuitBreakerLimit: ").append(toIndentedString(knnMemoryCircuitBreakerLimit)).append("\n");
     sb.append("    indicesQueryBoolMaxClauseCount: ").append(toIndentedString(indicesQueryBoolMaxClauseCount)).append("\n");
+    sb.append("    mlCommons: ").append(toIndentedString(mlCommons)).append("\n");
     sb.append("    threadPoolSearchThrottledQueueSize: ").append(toIndentedString(threadPoolSearchThrottledQueueSize)).append("\n");
     sb.append("    clusterMaxShardsPerNode: ").append(toIndentedString(clusterMaxShardsPerNode)).append("\n");
     sb.append("}");
@@ -1445,6 +1769,11 @@ public class JsonSchemaOpensearch {
       joiner.add(String.format("%sthread_pool_analyze_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolAnalyzeSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `search.insights.top_queries` to the URL query string
+    if (getSearchInsightsTopQueries() != null) {
+      joiner.add(getSearchInsightsTopQueries().toUrlQueryString(prefix + "search.insights.top_queries" + suffix));
+    }
+
     // add `thread_pool_get_size` to the URL query string
     if (getThreadPoolGetSize() != null) {
       joiner.add(String.format("%sthread_pool_get_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolGetSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1453,6 +1782,11 @@ public class JsonSchemaOpensearch {
     // add `thread_pool_get_queue_size` to the URL query string
     if (getThreadPoolGetQueueSize() != null) {
       joiner.add(String.format("%sthread_pool_get_queue_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolGetQueueSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `remote_store` to the URL query string
+    if (getRemoteStore() != null) {
+      joiner.add(getRemoteStore().toUrlQueryString(prefix + "remote_store" + suffix));
     }
 
     // add `indices_memory_max_index_buffer_size` to the URL query string
@@ -1485,6 +1819,16 @@ public class JsonSchemaOpensearch {
       joiner.add(String.format("%sknn_memory_circuit_breaker_enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKnnMemoryCircuitBreakerEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `enable_remote_backed_storage` to the URL query string
+    if (getEnableRemoteBackedStorage() != null) {
+      joiner.add(String.format("%senable_remote_backed_storage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableRemoteBackedStorage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cluster` to the URL query string
+    if (getCluster() != null) {
+      joiner.add(getCluster().toUrlQueryString(prefix + "cluster" + suffix));
+    }
+
     // add `thread_pool_search_size` to the URL query string
     if (getThreadPoolSearchSize() != null) {
       joiner.add(String.format("%sthread_pool_search_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolSearchSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1513,6 +1857,16 @@ public class JsonSchemaOpensearch {
     // add `thread_pool_write_queue_size` to the URL query string
     if (getThreadPoolWriteQueueSize() != null) {
       joiner.add(String.format("%sthread_pool_write_queue_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThreadPoolWriteQueueSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `enable_snapshot_api` to the URL query string
+    if (getEnableSnapshotApi() != null) {
+      joiner.add(String.format("%senable_snapshot_api%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableSnapshotApi()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `segrep` to the URL query string
+    if (getSegrep() != null) {
+      joiner.add(getSegrep().toUrlQueryString(prefix + "segrep" + suffix));
     }
 
     // add `script_max_compilations_rate` to the URL query string
@@ -1544,6 +1898,11 @@ public class JsonSchemaOpensearch {
       joiner.add(String.format("%shttp_max_header_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHttpMaxHeaderSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `node.search.cache.size` to the URL query string
+    if (getNodeSearchCacheSize() != null) {
+      joiner.add(String.format("%snode.search.cache.size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeSearchCacheSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `email-sender` to the URL query string
     if (getEmailSender() != null) {
       joiner.add(getEmailSender().toUrlQueryString(prefix + "email-sender" + suffix));
@@ -1562,6 +1921,16 @@ public class JsonSchemaOpensearch {
     // add `plugins_alerting_filter_by_backend_roles` to the URL query string
     if (getPluginsAlertingFilterByBackendRoles() != null) {
       joiner.add(String.format("%splugins_alerting_filter_by_backend_roles%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPluginsAlertingFilterByBackendRoles()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `disk_watermarks` to the URL query string
+    if (getDiskWatermarks() != null) {
+      joiner.add(getDiskWatermarks().toUrlQueryString(prefix + "disk_watermarks" + suffix));
+    }
+
+    // add `enable_searchable_snapshots` to the URL query string
+    if (getEnableSearchableSnapshots() != null) {
+      joiner.add(String.format("%senable_searchable_snapshots%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableSearchableSnapshots()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `indices_memory_index_buffer_size` to the URL query string
@@ -1622,6 +1991,11 @@ public class JsonSchemaOpensearch {
     // add `indices_query_bool_max_clause_count` to the URL query string
     if (getIndicesQueryBoolMaxClauseCount() != null) {
       joiner.add(String.format("%sindices_query_bool_max_clause_count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndicesQueryBoolMaxClauseCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ml-commons` to the URL query string
+    if (getMlCommons() != null) {
+      joiner.add(getMlCommons().toUrlQueryString(prefix + "ml-commons" + suffix));
     }
 
     // add `thread_pool_search_throttled_queue_size` to the URL query string

@@ -50,6 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   SksCluster.JSON_PROPERTY_DESCRIPTION,
   SksCluster.JSON_PROPERTY_LABELS,
+  SksCluster.JSON_PROPERTY_KARPENTER_FEATURE_GATES,
   SksCluster.JSON_PROPERTY_CNI,
   SksCluster.JSON_PROPERTY_AUTO_UPGRADE,
   SksCluster.JSON_PROPERTY_OIDC,
@@ -66,7 +67,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksCluster.JSON_PROPERTY_AUDIT,
   SksCluster.JSON_PROPERTY_VERSION,
   SksCluster.JSON_PROPERTY_CREATED_AT,
-  SksCluster.JSON_PROPERTY_ENDPOINT
+  SksCluster.JSON_PROPERTY_ENDPOINT,
+  SksCluster.JSON_PROPERTY_ALLOWED_NETWORKS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class SksCluster {
@@ -75,6 +77,9 @@ public class SksCluster {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_KARPENTER_FEATURE_GATES = "karpenter-feature-gates";
+  private List<String> karpenterFeatureGates;
 
   /**
    * Cluster CNI
@@ -289,6 +294,9 @@ public class SksCluster {
   public static final String JSON_PROPERTY_ENDPOINT = "endpoint";
   private String endpoint;
 
+  public static final String JSON_PROPERTY_ALLOWED_NETWORKS = "allowed-networks";
+  private Set<String> allowedNetworks;
+
   public SksCluster() { 
   }
 
@@ -365,6 +373,39 @@ public class SksCluster {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
+  }
+
+
+  public SksCluster karpenterFeatureGates(List<String> karpenterFeatureGates) {
+    this.karpenterFeatureGates = karpenterFeatureGates;
+    return this;
+  }
+
+  public SksCluster addKarpenterFeatureGatesItem(String karpenterFeatureGatesItem) {
+    if (this.karpenterFeatureGates == null) {
+      this.karpenterFeatureGates = new ArrayList<>();
+    }
+    this.karpenterFeatureGates.add(karpenterFeatureGatesItem);
+    return this;
+  }
+
+   /**
+   * A list of Karpenter controller feature gates to enable for the Karpenter controller binary
+   * @return karpenterFeatureGates
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KARPENTER_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getKarpenterFeatureGates() {
+    return karpenterFeatureGates;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KARPENTER_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKarpenterFeatureGates(List<String> karpenterFeatureGates) {
+    this.karpenterFeatureGates = karpenterFeatureGates;
   }
 
 
@@ -764,6 +805,40 @@ public class SksCluster {
 
 
 
+  public SksCluster allowedNetworks(Set<String> allowedNetworks) {
+    this.allowedNetworks = allowedNetworks;
+    return this;
+  }
+
+  public SksCluster addAllowedNetworksItem(String allowedNetworksItem) {
+    if (this.allowedNetworks == null) {
+      this.allowedNetworks = new LinkedHashSet<>();
+    }
+    this.allowedNetworks.add(allowedNetworksItem);
+    return this;
+  }
+
+   /**
+   * Get allowedNetworks
+   * @return allowedNetworks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOWED_NETWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getAllowedNetworks() {
+    return allowedNetworks;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_ALLOWED_NETWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedNetworks(Set<String> allowedNetworks) {
+    this.allowedNetworks = allowedNetworks;
+  }
+
+
   /**
    * Return true if this sks-cluster object is equal to o.
    */
@@ -778,6 +853,7 @@ public class SksCluster {
     SksCluster sksCluster = (SksCluster) o;
     return Objects.equals(this.description, sksCluster.description) &&
         Objects.equals(this.labels, sksCluster.labels) &&
+        Objects.equals(this.karpenterFeatureGates, sksCluster.karpenterFeatureGates) &&
         Objects.equals(this.cni, sksCluster.cni) &&
         Objects.equals(this.autoUpgrade, sksCluster.autoUpgrade) &&
         Objects.equals(this.oidc, sksCluster.oidc) &&
@@ -794,7 +870,8 @@ public class SksCluster {
         Objects.equals(this.audit, sksCluster.audit) &&
         Objects.equals(this.version, sksCluster.version) &&
         Objects.equals(this.createdAt, sksCluster.createdAt) &&
-        Objects.equals(this.endpoint, sksCluster.endpoint);
+        Objects.equals(this.endpoint, sksCluster.endpoint) &&
+        Objects.equals(this.allowedNetworks, sksCluster.allowedNetworks);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -803,7 +880,7 @@ public class SksCluster {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, labels, cni, autoUpgrade, oidc, name, enableOperatorsCa, hashCodeNullable(defaultSecurityGroupId), state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint);
+    return Objects.hash(description, labels, karpenterFeatureGates, cni, autoUpgrade, oidc, name, enableOperatorsCa, hashCodeNullable(defaultSecurityGroupId), state, enableKubeProxy, nodepools, level, featureGates, addons, id, audit, version, createdAt, endpoint, allowedNetworks);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -819,6 +896,7 @@ public class SksCluster {
     sb.append("class SksCluster {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    karpenterFeatureGates: ").append(toIndentedString(karpenterFeatureGates)).append("\n");
     sb.append("    cni: ").append(toIndentedString(cni)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
@@ -836,6 +914,7 @@ public class SksCluster {
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    allowedNetworks: ").append(toIndentedString(allowedNetworks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -894,6 +973,15 @@ public class SksCluster {
         joiner.add(String.format("%slabels%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+    }
+
+    // add `karpenter-feature-gates` to the URL query string
+    if (getKarpenterFeatureGates() != null) {
+      for (int i = 0; i < getKarpenterFeatureGates().size(); i++) {
+        joiner.add(String.format("%skarpenter-feature-gates%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getKarpenterFeatureGates().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -997,6 +1085,17 @@ public class SksCluster {
     // add `endpoint` to the URL query string
     if (getEndpoint() != null) {
       joiner.add(String.format("%sendpoint%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEndpoint()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `allowed-networks` to the URL query string
+    if (getAllowedNetworks() != null) {
+      int i = 0;
+      for (String _item : getAllowedNetworks()) {
+        joiner.add(String.format("%sallowed-networks%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     return joiner.toString();

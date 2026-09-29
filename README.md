@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-28T07:33:19.555989502Z[Etc/UTC]
+- Build date: 2026-09-29T07:22:33.001807134Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-28ed814</version>
+    <version>0.0.5-SNAPSHOT-72b2943</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-28ed814'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-72b2943'
 }
 ```
 
@@ -486,6 +486,10 @@ Class | Method | HTTP request | Description
  - [BlockStorageVolume](sdk/docs/BlockStorageVolume.md)
  - [BlockStorageVolumeRef](sdk/docs/BlockStorageVolumeRef.md)
  - [ClickHouseServerSettings](sdk/docs/ClickHouseServerSettings.md)
+ - [ClusterSettings](sdk/docs/ClusterSettings.md)
+ - [ClusterSettingsClusterRemoteStore](sdk/docs/ClusterSettingsClusterRemoteStore.md)
+ - [ClusterSettingsClusterSearchRequestSlowlog](sdk/docs/ClusterSettingsClusterSearchRequestSlowlog.md)
+ - [ClusterSettingsClusterSearchRequestSlowlogThreshold](sdk/docs/ClusterSettingsClusterSearchRequestSlowlogThreshold.md)
  - [ConfigureLogCleanerForTopicCompaction](sdk/docs/ConfigureLogCleanerForTopicCompaction.md)
  - [CopyTemplateRequest](sdk/docs/CopyTemplateRequest.md)
  - [CpuManagerConfig](sdk/docs/CpuManagerConfig.md)
@@ -801,6 +805,8 @@ Class | Method | HTTP request | Description
  - [JsonSchemaKafkaRest](sdk/docs/JsonSchemaKafkaRest.md)
  - [JsonSchemaMysql](sdk/docs/JsonSchemaMysql.md)
  - [JsonSchemaOpensearch](sdk/docs/JsonSchemaOpensearch.md)
+ - [JsonSchemaOpensearchRemoteStore](sdk/docs/JsonSchemaOpensearchRemoteStore.md)
+ - [JsonSchemaOpensearchSearchInsightsTopQueries](sdk/docs/JsonSchemaOpensearchSearchInsightsTopQueries.md)
  - [JsonSchemaPg](sdk/docs/JsonSchemaPg.md)
  - [JsonSchemaPgaudit](sdk/docs/JsonSchemaPgaudit.md)
  - [JsonSchemaPgbouncer](sdk/docs/JsonSchemaPgbouncer.md)
@@ -870,6 +876,7 @@ Class | Method | HTTP request | Description
  - [LoadBalancerServerStatus](sdk/docs/LoadBalancerServerStatus.md)
  - [LoadBalancerService](sdk/docs/LoadBalancerService.md)
  - [LoadBalancerServiceHealthcheck](sdk/docs/LoadBalancerServiceHealthcheck.md)
+ - [MLCommonsSettings](sdk/docs/MLCommonsSettings.md)
  - [Manager](sdk/docs/Manager.md)
  - [ModelRef](sdk/docs/ModelRef.md)
  - [ModelUsageCounters](sdk/docs/ModelUsageCounters.md)
@@ -938,6 +945,7 @@ Class | Method | HTTP request | Description
  - [SecurityGroupResource](sdk/docs/SecurityGroupResource.md)
  - [SecurityGroupRule](sdk/docs/SecurityGroupRule.md)
  - [SecurityGroupRuleIcmp](sdk/docs/SecurityGroupRuleIcmp.md)
+ - [SegmentReplicationBackpressureSettings](sdk/docs/SegmentReplicationBackpressureSettings.md)
  - [SetOrgConsumptionQuotaRequest](sdk/docs/SetOrgConsumptionQuotaRequest.md)
  - [ShardIndexingBackPressureSettings](sdk/docs/ShardIndexingBackPressureSettings.md)
  - [SksAudit](sdk/docs/SksAudit.md)
@@ -965,6 +973,9 @@ Class | Method | HTTP request | Description
  - [ThanosCompactorUserConfig](sdk/docs/ThanosCompactorUserConfig.md)
  - [ThanosQueryFrontendUserConfig](sdk/docs/ThanosQueryFrontendUserConfig.md)
  - [ThanosQueryUserConfig](sdk/docs/ThanosQueryUserConfig.md)
+ - [TopNQueriesMonitoringByCPU](sdk/docs/TopNQueriesMonitoringByCPU.md)
+ - [TopNQueriesMonitoringByLatency](sdk/docs/TopNQueriesMonitoringByLatency.md)
+ - [TopNQueriesMonitoringByMemory](sdk/docs/TopNQueriesMonitoringByMemory.md)
  - [UpdateAiApiKeyRequest](sdk/docs/UpdateAiApiKeyRequest.md)
  - [UpdateAiApiKeyResponse](sdk/docs/UpdateAiApiKeyResponse.md)
  - [UpdateBlockStorageSnapshotRequest](sdk/docs/UpdateBlockStorageSnapshotRequest.md)
@@ -1010,6 +1021,7 @@ Class | Method | HTTP request | Description
  - [User](sdk/docs/User.md)
  - [Vpc](sdk/docs/Vpc.md)
  - [VpcDhcpOptions](sdk/docs/VpcDhcpOptions.md)
+ - [WatermarkSettings](sdk/docs/WatermarkSettings.md)
  - [WriteAheadLogWALSettings](sdk/docs/WriteAheadLogWALSettings.md)
  - [Zone](sdk/docs/Zone.md)
  - [ZoneImpact](sdk/docs/ZoneImpact.md)

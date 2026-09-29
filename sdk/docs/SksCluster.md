@@ -10,6 +10,7 @@ SKS Cluster
 |------------ | ------------- | ------------- | -------------|
 |**description** | **String** | Cluster description |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**karpenterFeatureGates** | **List&lt;String&gt;** | A list of Karpenter controller feature gates to enable for the Karpenter controller binary |  [optional] |
 |**cni** | [**CniEnum**](#CniEnum) | Cluster CNI |  [optional] |
 |**autoUpgrade** | **Boolean** | Enable auto upgrade of the control plane to the latest patch version available |  [optional] |
 |**oidc** | [**SksOidc**](SksOidc.md) |  |  [optional] |
@@ -27,6 +28,7 @@ SKS Cluster
 |**version** | **String** | Control plane Kubernetes version |  [optional] |
 |**createdAt** | **OffsetDateTime** | Cluster creation date |  [optional] [readonly] |
 |**endpoint** | **String** | Cluster endpoint |  [optional] [readonly] |
+|**allowedNetworks** | **Set&lt;String&gt;** |  |  [optional] |
 
 
 

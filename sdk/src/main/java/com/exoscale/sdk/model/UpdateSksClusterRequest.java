@@ -45,13 +45,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UpdateSksClusterRequest.JSON_PROPERTY_DESCRIPTION,
   UpdateSksClusterRequest.JSON_PROPERTY_LABELS,
+  UpdateSksClusterRequest.JSON_PROPERTY_KARPENTER_FEATURE_GATES,
   UpdateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
   UpdateSksClusterRequest.JSON_PROPERTY_OIDC,
   UpdateSksClusterRequest.JSON_PROPERTY_NAME,
   UpdateSksClusterRequest.JSON_PROPERTY_ENABLE_OPERATORS_CA,
   UpdateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
   UpdateSksClusterRequest.JSON_PROPERTY_ADDONS,
-  UpdateSksClusterRequest.JSON_PROPERTY_AUDIT
+  UpdateSksClusterRequest.JSON_PROPERTY_AUDIT,
+  UpdateSksClusterRequest.JSON_PROPERTY_ALLOWED_NETWORKS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateSksClusterRequest {
@@ -60,6 +62,9 @@ public class UpdateSksClusterRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_KARPENTER_FEATURE_GATES = "karpenter-feature-gates";
+  private JsonNullable<Set<String>> karpenterFeatureGates = JsonNullable.<Set<String>>undefined();
 
   public static final String JSON_PROPERTY_AUTO_UPGRADE = "auto-upgrade";
   private Boolean autoUpgrade;
@@ -120,6 +125,9 @@ public class UpdateSksClusterRequest {
 
   public static final String JSON_PROPERTY_AUDIT = "audit";
   private SksAuditUpdate audit;
+
+  public static final String JSON_PROPERTY_ALLOWED_NETWORKS = "allowed-networks";
+  private Set<String> allowedNetworks;
 
   public UpdateSksClusterRequest() { 
   }
@@ -187,6 +195,51 @@ public class UpdateSksClusterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
+  }
+
+
+  public UpdateSksClusterRequest karpenterFeatureGates(Set<String> karpenterFeatureGates) {
+    this.karpenterFeatureGates = JsonNullable.<Set<String>>of(karpenterFeatureGates);
+    return this;
+  }
+
+  public UpdateSksClusterRequest addKarpenterFeatureGatesItem(String karpenterFeatureGatesItem) {
+    if (this.karpenterFeatureGates == null || !this.karpenterFeatureGates.isPresent()) {
+      this.karpenterFeatureGates = JsonNullable.<Set<String>>of(new LinkedHashSet<>());
+    }
+    try {
+      this.karpenterFeatureGates.get().add(karpenterFeatureGatesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+   /**
+   * A list of Karpenter controller feature gates to enable for the Karpenter controller binary
+   * @return karpenterFeatureGates
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Set<String> getKarpenterFeatureGates() {
+        return karpenterFeatureGates.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_KARPENTER_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Set<String>> getKarpenterFeatureGates_JsonNullable() {
+    return karpenterFeatureGates;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_KARPENTER_FEATURE_GATES)
+  public void setKarpenterFeatureGates_JsonNullable(JsonNullable<Set<String>> karpenterFeatureGates) {
+    this.karpenterFeatureGates = karpenterFeatureGates;
+  }
+
+  public void setKarpenterFeatureGates(Set<String> karpenterFeatureGates) {
+    this.karpenterFeatureGates = JsonNullable.<Set<String>>of(karpenterFeatureGates);
   }
 
 
@@ -394,6 +447,40 @@ public class UpdateSksClusterRequest {
   }
 
 
+  public UpdateSksClusterRequest allowedNetworks(Set<String> allowedNetworks) {
+    this.allowedNetworks = allowedNetworks;
+    return this;
+  }
+
+  public UpdateSksClusterRequest addAllowedNetworksItem(String allowedNetworksItem) {
+    if (this.allowedNetworks == null) {
+      this.allowedNetworks = new LinkedHashSet<>();
+    }
+    this.allowedNetworks.add(allowedNetworksItem);
+    return this;
+  }
+
+   /**
+   * Get allowedNetworks
+   * @return allowedNetworks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOWED_NETWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getAllowedNetworks() {
+    return allowedNetworks;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_ALLOWED_NETWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedNetworks(Set<String> allowedNetworks) {
+    this.allowedNetworks = allowedNetworks;
+  }
+
+
   /**
    * Return true if this update_sks_cluster_request object is equal to o.
    */
@@ -408,13 +495,15 @@ public class UpdateSksClusterRequest {
     UpdateSksClusterRequest updateSksClusterRequest = (UpdateSksClusterRequest) o;
     return equalsNullable(this.description, updateSksClusterRequest.description) &&
         Objects.equals(this.labels, updateSksClusterRequest.labels) &&
+        equalsNullable(this.karpenterFeatureGates, updateSksClusterRequest.karpenterFeatureGates) &&
         Objects.equals(this.autoUpgrade, updateSksClusterRequest.autoUpgrade) &&
         Objects.equals(this.oidc, updateSksClusterRequest.oidc) &&
         Objects.equals(this.name, updateSksClusterRequest.name) &&
         Objects.equals(this.enableOperatorsCa, updateSksClusterRequest.enableOperatorsCa) &&
         equalsNullable(this.featureGates, updateSksClusterRequest.featureGates) &&
         Objects.equals(this.addons, updateSksClusterRequest.addons) &&
-        Objects.equals(this.audit, updateSksClusterRequest.audit);
+        Objects.equals(this.audit, updateSksClusterRequest.audit) &&
+        Objects.equals(this.allowedNetworks, updateSksClusterRequest.allowedNetworks);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -423,7 +512,7 @@ public class UpdateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), labels, autoUpgrade, oidc, name, enableOperatorsCa, hashCodeNullable(featureGates), addons, audit);
+    return Objects.hash(hashCodeNullable(description), labels, hashCodeNullable(karpenterFeatureGates), autoUpgrade, oidc, name, enableOperatorsCa, hashCodeNullable(featureGates), addons, audit, allowedNetworks);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -439,6 +528,7 @@ public class UpdateSksClusterRequest {
     sb.append("class UpdateSksClusterRequest {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    karpenterFeatureGates: ").append(toIndentedString(karpenterFeatureGates)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    oidc: ").append(toIndentedString(oidc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -446,6 +536,7 @@ public class UpdateSksClusterRequest {
     sb.append("    featureGates: ").append(toIndentedString(featureGates)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    audit: ").append(toIndentedString(audit)).append("\n");
+    sb.append("    allowedNetworks: ").append(toIndentedString(allowedNetworks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -507,6 +598,17 @@ public class UpdateSksClusterRequest {
       }
     }
 
+    // add `karpenter-feature-gates` to the URL query string
+    if (getKarpenterFeatureGates() != null) {
+      int i = 0;
+      for (String _item : getKarpenterFeatureGates()) {
+        joiner.add(String.format("%skarpenter-feature-gates%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
+    }
+
     // add `auto-upgrade` to the URL query string
     if (getAutoUpgrade() != null) {
       joiner.add(String.format("%sauto-upgrade%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutoUpgrade()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -552,6 +654,17 @@ public class UpdateSksClusterRequest {
     // add `audit` to the URL query string
     if (getAudit() != null) {
       joiner.add(getAudit().toUrlQueryString(prefix + "audit" + suffix));
+    }
+
+    // add `allowed-networks` to the URL query string
+    if (getAllowedNetworks() != null) {
+      int i = 0;
+      for (String _item : getAllowedNetworks()) {
+        joiner.add(String.format("%sallowed-networks%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     return joiner.toString();

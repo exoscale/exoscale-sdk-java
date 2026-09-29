@@ -9,29 +9,38 @@
 |------------ | ------------- | ------------- | -------------|
 |**threadPoolSearchThrottledSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolAnalyzeSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
+|**searchInsightsTopQueries** | [**JsonSchemaOpensearchSearchInsightsTopQueries**](JsonSchemaOpensearchSearchInsightsTopQueries.md) |  |  [optional] |
 |**threadPoolGetSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolGetQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
+|**remoteStore** | [**JsonSchemaOpensearchRemoteStore**](JsonSchemaOpensearchRemoteStore.md) |  |  [optional] |
 |**indicesMemoryMaxIndexBufferSize** | **Integer** | Absolute value. Default is unbound. Doesn&#39;t work without indices.memory.index_buffer_size. Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size maximum hard limit. |  [optional] |
 |**indicesRecoveryMaxConcurrentFileChunks** | **Integer** | Number of file chunks sent in parallel for each recovery. Defaults to 2. |  [optional] |
 |**indicesQueriesCacheSize** | **Integer** | Percentage value. Default is 10%. Maximum amount of heap used for query cache. This is an expert setting. Too low value will decrease query performance and increase performance for other operations; too high value will cause issues with other OpenSearch functionality. |  [optional] |
 |**searchBackpressure** | [**SearchBackpressureSettings**](SearchBackpressureSettings.md) |  |  [optional] |
 |**shardIndexingPressure** | [**ShardIndexingBackPressureSettings**](ShardIndexingBackPressureSettings.md) |  |  [optional] |
 |**knnMemoryCircuitBreakerEnabled** | **Boolean** | Enable or disable KNN memory circuit breaker. Defaults to true. |  [optional] |
+|**enableRemoteBackedStorage** | **Boolean** |  |  [optional] |
+|**cluster** | [**ClusterSettings**](ClusterSettings.md) |  |  [optional] |
 |**threadPoolSearchSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**indicesMemoryMinIndexBufferSize** | **Integer** | Absolute value. Default is 48mb. Doesn&#39;t work without indices.memory.index_buffer_size. Minimum amount of heap used for query cache, an absolute indices.memory.index_buffer_size minimal hard limit. |  [optional] |
 |**indicesRecoveryMaxBytesPerSec** | **Integer** | Limits total inbound and outbound recovery traffic for each node. Applies to both peer recoveries as well as snapshot recoveries (i.e., restores from a snapshot). Defaults to 40mb |  [optional] |
 |**httpMaxInitialLineLength** | **Integer** | The max length of an HTTP URL, in bytes |  [optional] |
 |**enableSecurityAudit** | **Boolean** |  |  [optional] |
 |**threadPoolWriteQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
+|**enableSnapshotApi** | **Boolean** | Enable/Disable snapshot API for custom repositories, this requires security management to be enabled |  [optional] |
+|**segrep** | [**SegmentReplicationBackpressureSettings**](SegmentReplicationBackpressureSettings.md) |  |  [optional] |
 |**scriptMaxCompilationsRate** | **String** | Script compilation circuit breaker limits the number of inline script compilations within a period of time. Default is use-context |  [optional] |
 |**searchMaxBuckets** | **Integer** | Maximum number of aggregation buckets allowed in a single response. OpenSearch default value is used when this is not defined. |  [optional] |
 |**reindexRemoteWhitelist** | **List&lt;String&gt;** | Whitelisted addresses for reindexing. Changing this value will cause all OpenSearch instances to restart. |  [optional] |
 |**overrideMainResponseVersion** | **Boolean** | Compatibility mode sets OpenSearch to report its version as 7.10 so clients continue to work. Default is false |  [optional] |
 |**httpMaxHeaderSize** | **Integer** | The max size of allowed headers, in bytes |  [optional] |
+|**nodeSearchCacheSize** | **String** | Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 5gb. Requires restarting all OpenSearch nodes. |  [optional] |
 |**emailSender** | [**OpensearchEmailSenderSettings**](OpensearchEmailSenderSettings.md) |  |  [optional] |
 |**indicesFielddataCacheSize** | **Integer** | Relative amount. Maximum amount of heap memory used for field data cache. This is an expert setting; decreasing the value too much will increase overhead of loading field data; too much memory used for field data cache will decrease amount of heap available for other operations. |  [optional] |
 |**actionDestructiveRequiresName** | **Boolean** |  |  [optional] |
 |**pluginsAlertingFilterByBackendRoles** | **Boolean** | Enable or disable filtering of alerting by backend roles. Requires Security plugin. Defaults to false |  [optional] |
+|**diskWatermarks** | [**WatermarkSettings**](WatermarkSettings.md) |  |  [optional] |
+|**enableSearchableSnapshots** | **Boolean** |  |  [optional] |
 |**indicesMemoryIndexBufferSize** | **Integer** | Percentage value. Default is 10%. Total amount of heap used for indexing buffer, before writing segments to disk. This is an expert setting. Too low value will slow down indexing; too high value will increase indexing performance but causes performance issues for query performance. |  [optional] |
 |**threadPoolForceMergeSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**authFailureListeners** | [**OpensearchSecurityPluginSettings**](OpensearchSecurityPluginSettings.md) |  |  [optional] |
@@ -44,6 +53,7 @@
 |**threadPoolSearchQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
 |**knnMemoryCircuitBreakerLimit** | **Integer** | Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size. |  [optional] |
 |**indicesQueryBoolMaxClauseCount** | **Integer** | Maximum number of clauses Lucene BooleanQuery can have. The default value (1024) is relatively high, and increasing it may cause performance issues. Investigate other approaches first before increasing this value. |  [optional] |
+|**mlCommons** | [**MLCommonsSettings**](MLCommonsSettings.md) |  |  [optional] |
 |**threadPoolSearchThrottledQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
 |**clusterMaxShardsPerNode** | **Integer** | Controls the number of shards allowed in the cluster per data node |  [optional] |
 

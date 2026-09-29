@@ -13,11 +13,17 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.ClusterSettings;
+import com.exoscale.sdk.model.JsonSchemaOpensearchRemoteStore;
+import com.exoscale.sdk.model.JsonSchemaOpensearchSearchInsightsTopQueries;
+import com.exoscale.sdk.model.MLCommonsSettings;
 import com.exoscale.sdk.model.OpensearchEmailSenderSettings;
 import com.exoscale.sdk.model.OpensearchISMHistorySettings;
 import com.exoscale.sdk.model.OpensearchSecurityPluginSettings;
 import com.exoscale.sdk.model.SearchBackpressureSettings;
+import com.exoscale.sdk.model.SegmentReplicationBackpressureSettings;
 import com.exoscale.sdk.model.ShardIndexingBackPressureSettings;
+import com.exoscale.sdk.model.WatermarkSettings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -65,6 +71,14 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'searchInsightsTopQueries'
+     */
+    @Test
+    public void searchInsightsTopQueriesTest() {
+        // TODO: test searchInsightsTopQueries
+    }
+
+    /**
      * Test the property 'threadPoolGetSize'
      */
     @Test
@@ -78,6 +92,14 @@ public class JsonSchemaOpensearchTest {
     @Test
     public void threadPoolGetQueueSizeTest() {
         // TODO: test threadPoolGetQueueSize
+    }
+
+    /**
+     * Test the property 'remoteStore'
+     */
+    @Test
+    public void remoteStoreTest() {
+        // TODO: test remoteStore
     }
 
     /**
@@ -129,6 +151,22 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'enableRemoteBackedStorage'
+     */
+    @Test
+    public void enableRemoteBackedStorageTest() {
+        // TODO: test enableRemoteBackedStorage
+    }
+
+    /**
+     * Test the property 'cluster'
+     */
+    @Test
+    public void clusterTest() {
+        // TODO: test cluster
+    }
+
+    /**
      * Test the property 'threadPoolSearchSize'
      */
     @Test
@@ -177,6 +215,22 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'enableSnapshotApi'
+     */
+    @Test
+    public void enableSnapshotApiTest() {
+        // TODO: test enableSnapshotApi
+    }
+
+    /**
+     * Test the property 'segrep'
+     */
+    @Test
+    public void segrepTest() {
+        // TODO: test segrep
+    }
+
+    /**
      * Test the property 'scriptMaxCompilationsRate'
      */
     @Test
@@ -217,6 +271,14 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'nodeSearchCacheSize'
+     */
+    @Test
+    public void nodeSearchCacheSizeTest() {
+        // TODO: test nodeSearchCacheSize
+    }
+
+    /**
      * Test the property 'emailSender'
      */
     @Test
@@ -246,6 +308,22 @@ public class JsonSchemaOpensearchTest {
     @Test
     public void pluginsAlertingFilterByBackendRolesTest() {
         // TODO: test pluginsAlertingFilterByBackendRoles
+    }
+
+    /**
+     * Test the property 'diskWatermarks'
+     */
+    @Test
+    public void diskWatermarksTest() {
+        // TODO: test diskWatermarks
+    }
+
+    /**
+     * Test the property 'enableSearchableSnapshots'
+     */
+    @Test
+    public void enableSearchableSnapshotsTest() {
+        // TODO: test enableSearchableSnapshots
     }
 
     /**
@@ -342,6 +420,14 @@ public class JsonSchemaOpensearchTest {
     @Test
     public void indicesQueryBoolMaxClauseCountTest() {
         // TODO: test indicesQueryBoolMaxClauseCount
+    }
+
+    /**
+     * Test the property 'mlCommons'
+     */
+    @Test
+    public void mlCommonsTest() {
+        // TODO: test mlCommons
     }
 
     /**

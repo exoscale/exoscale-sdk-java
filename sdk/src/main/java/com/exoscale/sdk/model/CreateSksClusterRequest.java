@@ -46,6 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   CreateSksClusterRequest.JSON_PROPERTY_DESCRIPTION,
   CreateSksClusterRequest.JSON_PROPERTY_LABELS,
+  CreateSksClusterRequest.JSON_PROPERTY_KARPENTER_FEATURE_GATES,
   CreateSksClusterRequest.JSON_PROPERTY_CNI,
   CreateSksClusterRequest.JSON_PROPERTY_AUTO_UPGRADE,
   CreateSksClusterRequest.JSON_PROPERTY_NETWORKING,
@@ -57,7 +58,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksClusterRequest.JSON_PROPERTY_FEATURE_GATES,
   CreateSksClusterRequest.JSON_PROPERTY_ADDONS,
   CreateSksClusterRequest.JSON_PROPERTY_AUDIT,
-  CreateSksClusterRequest.JSON_PROPERTY_VERSION
+  CreateSksClusterRequest.JSON_PROPERTY_VERSION,
+  CreateSksClusterRequest.JSON_PROPERTY_ALLOWED_NETWORKS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateSksClusterRequest {
@@ -66,6 +68,9 @@ public class CreateSksClusterRequest {
 
   public static final String JSON_PROPERTY_LABELS = "labels";
   private Map<String, String> labels = new HashMap<>();
+
+  public static final String JSON_PROPERTY_KARPENTER_FEATURE_GATES = "karpenter-feature-gates";
+  private Set<String> karpenterFeatureGates;
 
   /**
    * Cluster CNI
@@ -212,6 +217,9 @@ public class CreateSksClusterRequest {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
+  public static final String JSON_PROPERTY_ALLOWED_NETWORKS = "allowed-networks";
+  private Set<String> allowedNetworks;
+
   public CreateSksClusterRequest() { 
   }
 
@@ -278,6 +286,40 @@ public class CreateSksClusterRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
+  }
+
+
+  public CreateSksClusterRequest karpenterFeatureGates(Set<String> karpenterFeatureGates) {
+    this.karpenterFeatureGates = karpenterFeatureGates;
+    return this;
+  }
+
+  public CreateSksClusterRequest addKarpenterFeatureGatesItem(String karpenterFeatureGatesItem) {
+    if (this.karpenterFeatureGates == null) {
+      this.karpenterFeatureGates = new LinkedHashSet<>();
+    }
+    this.karpenterFeatureGates.add(karpenterFeatureGatesItem);
+    return this;
+  }
+
+   /**
+   * A list of Karpenter controller feature gates to enable for the Karpenter controller binary
+   * @return karpenterFeatureGates
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KARPENTER_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getKarpenterFeatureGates() {
+    return karpenterFeatureGates;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_KARPENTER_FEATURE_GATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKarpenterFeatureGates(Set<String> karpenterFeatureGates) {
+    this.karpenterFeatureGates = karpenterFeatureGates;
   }
 
 
@@ -607,6 +649,40 @@ public class CreateSksClusterRequest {
   }
 
 
+  public CreateSksClusterRequest allowedNetworks(Set<String> allowedNetworks) {
+    this.allowedNetworks = allowedNetworks;
+    return this;
+  }
+
+  public CreateSksClusterRequest addAllowedNetworksItem(String allowedNetworksItem) {
+    if (this.allowedNetworks == null) {
+      this.allowedNetworks = new LinkedHashSet<>();
+    }
+    this.allowedNetworks.add(allowedNetworksItem);
+    return this;
+  }
+
+   /**
+   * Get allowedNetworks
+   * @return allowedNetworks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOWED_NETWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getAllowedNetworks() {
+    return allowedNetworks;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_ALLOWED_NETWORKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAllowedNetworks(Set<String> allowedNetworks) {
+    this.allowedNetworks = allowedNetworks;
+  }
+
+
   /**
    * Return true if this create_sks_cluster_request object is equal to o.
    */
@@ -621,6 +697,7 @@ public class CreateSksClusterRequest {
     CreateSksClusterRequest createSksClusterRequest = (CreateSksClusterRequest) o;
     return equalsNullable(this.description, createSksClusterRequest.description) &&
         Objects.equals(this.labels, createSksClusterRequest.labels) &&
+        Objects.equals(this.karpenterFeatureGates, createSksClusterRequest.karpenterFeatureGates) &&
         Objects.equals(this.cni, createSksClusterRequest.cni) &&
         Objects.equals(this.autoUpgrade, createSksClusterRequest.autoUpgrade) &&
         Objects.equals(this.networking, createSksClusterRequest.networking) &&
@@ -632,7 +709,8 @@ public class CreateSksClusterRequest {
         Objects.equals(this.featureGates, createSksClusterRequest.featureGates) &&
         Objects.equals(this.addons, createSksClusterRequest.addons) &&
         Objects.equals(this.audit, createSksClusterRequest.audit) &&
-        Objects.equals(this.version, createSksClusterRequest.version);
+        Objects.equals(this.version, createSksClusterRequest.version) &&
+        Objects.equals(this.allowedNetworks, createSksClusterRequest.allowedNetworks);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -641,7 +719,7 @@ public class CreateSksClusterRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(description), labels, cni, autoUpgrade, networking, oidc, name, hashCodeNullable(createDefaultSecurityGroup), enableKubeProxy, level, featureGates, addons, audit, version);
+    return Objects.hash(hashCodeNullable(description), labels, karpenterFeatureGates, cni, autoUpgrade, networking, oidc, name, hashCodeNullable(createDefaultSecurityGroup), enableKubeProxy, level, featureGates, addons, audit, version, allowedNetworks);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -657,6 +735,7 @@ public class CreateSksClusterRequest {
     sb.append("class CreateSksClusterRequest {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    karpenterFeatureGates: ").append(toIndentedString(karpenterFeatureGates)).append("\n");
     sb.append("    cni: ").append(toIndentedString(cni)).append("\n");
     sb.append("    autoUpgrade: ").append(toIndentedString(autoUpgrade)).append("\n");
     sb.append("    networking: ").append(toIndentedString(networking)).append("\n");
@@ -669,6 +748,7 @@ public class CreateSksClusterRequest {
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    audit: ").append(toIndentedString(audit)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    allowedNetworks: ").append(toIndentedString(allowedNetworks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -728,6 +808,17 @@ public class CreateSksClusterRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
             getLabels().get(_key), URLEncoder.encode(String.valueOf(getLabels().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `karpenter-feature-gates` to the URL query string
+    if (getKarpenterFeatureGates() != null) {
+      int i = 0;
+      for (String _item : getKarpenterFeatureGates()) {
+        joiner.add(String.format("%skarpenter-feature-gates%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     // add `cni` to the URL query string
@@ -800,6 +891,17 @@ public class CreateSksClusterRequest {
     // add `version` to the URL query string
     if (getVersion() != null) {
       joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `allowed-networks` to the URL query string
+    if (getAllowedNetworks() != null) {
+      int i = 0;
+      for (String _item : getAllowedNetworks()) {
+        joiner.add(String.format("%sallowed-networks%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(_item), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
+      i++;
     }
 
     return joiner.toString();

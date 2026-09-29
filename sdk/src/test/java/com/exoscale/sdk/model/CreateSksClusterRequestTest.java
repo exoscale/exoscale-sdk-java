@@ -66,6 +66,14 @@ public class CreateSksClusterRequestTest {
     }
 
     /**
+     * Test the property 'karpenterFeatureGates'
+     */
+    @Test
+    public void karpenterFeatureGatesTest() {
+        // TODO: test karpenterFeatureGates
+    }
+
+    /**
      * Test the property 'cni'
      */
     @Test
@@ -159,6 +167,14 @@ public class CreateSksClusterRequestTest {
     @Test
     public void versionTest() {
         // TODO: test version
+    }
+
+    /**
+     * Test the property 'allowedNetworks'
+     */
+    @Test
+    public void allowedNetworksTest() {
+        // TODO: test allowedNetworks
     }
 
 }

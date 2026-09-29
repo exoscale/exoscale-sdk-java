@@ -29,6 +29,10 @@ docs/BlockStorageSnapshotRef.md
 docs/BlockStorageVolume.md
 docs/BlockStorageVolumeRef.md
 docs/ClickHouseServerSettings.md
+docs/ClusterSettings.md
+docs/ClusterSettingsClusterRemoteStore.md
+docs/ClusterSettingsClusterSearchRequestSlowlog.md
+docs/ClusterSettingsClusterSearchRequestSlowlogThreshold.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
 docs/CpuManagerConfig.md
@@ -345,6 +349,8 @@ docs/JsonSchemaKafkaConnect.md
 docs/JsonSchemaKafkaRest.md
 docs/JsonSchemaMysql.md
 docs/JsonSchemaOpensearch.md
+docs/JsonSchemaOpensearchRemoteStore.md
+docs/JsonSchemaOpensearchSearchInsightsTopQueries.md
 docs/JsonSchemaPg.md
 docs/JsonSchemaPgaudit.md
 docs/JsonSchemaPgbouncer.md
@@ -414,6 +420,7 @@ docs/LoadBalancer.md
 docs/LoadBalancerServerStatus.md
 docs/LoadBalancerService.md
 docs/LoadBalancerServiceHealthcheck.md
+docs/MLCommonsSettings.md
 docs/Manager.md
 docs/ModelRef.md
 docs/ModelUsageCounters.md
@@ -482,6 +489,7 @@ docs/SecurityGroupRef.md
 docs/SecurityGroupResource.md
 docs/SecurityGroupRule.md
 docs/SecurityGroupRuleIcmp.md
+docs/SegmentReplicationBackpressureSettings.md
 docs/SetOrgConsumptionQuotaRequest.md
 docs/ShardIndexingBackPressureSettings.md
 docs/SksAudit.md
@@ -509,6 +517,9 @@ docs/TemplateRef.md
 docs/ThanosCompactorUserConfig.md
 docs/ThanosQueryFrontendUserConfig.md
 docs/ThanosQueryUserConfig.md
+docs/TopNQueriesMonitoringByCPU.md
+docs/TopNQueriesMonitoringByLatency.md
+docs/TopNQueriesMonitoringByMemory.md
 docs/UpdateAiApiKeyRequest.md
 docs/UpdateAiApiKeyResponse.md
 docs/UpdateBlockStorageSnapshotRequest.md
@@ -554,6 +565,7 @@ docs/UpgradeSksClusterRequest.md
 docs/User.md
 docs/Vpc.md
 docs/VpcDhcpOptions.md
+docs/WatermarkSettings.md
 docs/WriteAheadLogWALSettings.md
 docs/Zone.md
 docs/ZoneImpact.md
@@ -599,6 +611,10 @@ src/main/java/com/exoscale/sdk/model/BlockStorageSnapshotRef.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolume.java
 src/main/java/com/exoscale/sdk/model/BlockStorageVolumeRef.java
 src/main/java/com/exoscale/sdk/model/ClickHouseServerSettings.java
+src/main/java/com/exoscale/sdk/model/ClusterSettings.java
+src/main/java/com/exoscale/sdk/model/ClusterSettingsClusterRemoteStore.java
+src/main/java/com/exoscale/sdk/model/ClusterSettingsClusterSearchRequestSlowlog.java
+src/main/java/com/exoscale/sdk/model/ClusterSettingsClusterSearchRequestSlowlogThreshold.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/CpuManagerConfig.java
@@ -914,6 +930,8 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaKafkaConnect.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaKafkaRest.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaMysql.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaOpensearch.java
+src/main/java/com/exoscale/sdk/model/JsonSchemaOpensearchRemoteStore.java
+src/main/java/com/exoscale/sdk/model/JsonSchemaOpensearchSearchInsightsTopQueries.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPg.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPgaudit.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaPgbouncer.java
@@ -983,6 +1001,7 @@ src/main/java/com/exoscale/sdk/model/LoadBalancer.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServerStatus.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerService.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServiceHealthcheck.java
+src/main/java/com/exoscale/sdk/model/MLCommonsSettings.java
 src/main/java/com/exoscale/sdk/model/Manager.java
 src/main/java/com/exoscale/sdk/model/ModelRef.java
 src/main/java/com/exoscale/sdk/model/ModelUsageCounters.java
@@ -1051,6 +1070,7 @@ src/main/java/com/exoscale/sdk/model/SecurityGroupRef.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupResource.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRule.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRuleIcmp.java
+src/main/java/com/exoscale/sdk/model/SegmentReplicationBackpressureSettings.java
 src/main/java/com/exoscale/sdk/model/SetOrgConsumptionQuotaRequest.java
 src/main/java/com/exoscale/sdk/model/ShardIndexingBackPressureSettings.java
 src/main/java/com/exoscale/sdk/model/SksAudit.java
@@ -1078,6 +1098,9 @@ src/main/java/com/exoscale/sdk/model/TemplateRef.java
 src/main/java/com/exoscale/sdk/model/ThanosCompactorUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryFrontendUserConfig.java
 src/main/java/com/exoscale/sdk/model/ThanosQueryUserConfig.java
+src/main/java/com/exoscale/sdk/model/TopNQueriesMonitoringByCPU.java
+src/main/java/com/exoscale/sdk/model/TopNQueriesMonitoringByLatency.java
+src/main/java/com/exoscale/sdk/model/TopNQueriesMonitoringByMemory.java
 src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/UpdateBlockStorageSnapshotRequest.java
@@ -1123,6 +1146,7 @@ src/main/java/com/exoscale/sdk/model/UpgradeSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/User.java
 src/main/java/com/exoscale/sdk/model/Vpc.java
 src/main/java/com/exoscale/sdk/model/VpcDhcpOptions.java
+src/main/java/com/exoscale/sdk/model/WatermarkSettings.java
 src/main/java/com/exoscale/sdk/model/WriteAheadLogWALSettings.java
 src/main/java/com/exoscale/sdk/model/Zone.java
 src/main/java/com/exoscale/sdk/model/ZoneImpact.java
