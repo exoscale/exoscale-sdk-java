@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CreateInstanceRequestVpc;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.PublicIpAssignment;
@@ -167,6 +168,14 @@ public class CreateInstanceRequestTest {
     @Test
     public void ipv6EnabledTest() {
         // TODO: test ipv6Enabled
+    }
+
+    /**
+     * Test the property 'vpc'
+     */
+    @Test
+    public void vpcTest() {
+        // TODO: test vpc
     }
 
     /**

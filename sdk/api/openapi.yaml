@@ -31433,6 +31433,36 @@ components:
             $ref: '#/components/schemas/list_instances_200_response_instances_inner'
           type: array
       type: object
+    create_instance_request_vpc_subnets_inner:
+      description: VPC Subnet attachment
+      properties:
+        id:
+          description: Subnet ID
+          format: uuid
+          type: string
+        ipv4:
+          description: Instance IPv4. Random one if unset
+          format: ipv4
+          type: string
+      required:
+      - id
+      type: object
+    create_instance_request_vpc:
+      description: Attach the Instance to VPC Subnets
+      properties:
+        id:
+          description: VPC ID
+          format: uuid
+          type: string
+        subnets:
+          description: VPC Subnets to attach the Instance to
+          items:
+            $ref: '#/components/schemas/create_instance_request_vpc_subnets_inner'
+          type: array
+      required:
+      - id
+      - subnets
+      type: object
     create_instance_request:
       properties:
         application-consistent-snapshot-enabled:
@@ -31486,6 +31516,8 @@ components:
         ipv6-enabled:
           description: "Enable IPv6. DEPRECATED: use `public-ip-assignments`."
           type: boolean
+        vpc:
+          $ref: '#/components/schemas/create_instance_request_vpc'
         disk-size:
           description: Instance disk size in GiB
           exclusiveMaximum: false

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-29T07:22:33.001807134Z[Etc/UTC]
+- Build date: 2026-09-30T07:23:07.177407785Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-72b2943</version>
+    <version>0.0.5-SNAPSHOT-26a9eac</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-72b2943'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-26a9eac'
 }
 ```
 
@@ -526,6 +526,8 @@ Class | Method | HTTP request | Description
  - [CreateIamRoleRequest](sdk/docs/CreateIamRoleRequest.md)
  - [CreateInstancePoolRequest](sdk/docs/CreateInstancePoolRequest.md)
  - [CreateInstanceRequest](sdk/docs/CreateInstanceRequest.md)
+ - [CreateInstanceRequestVpc](sdk/docs/CreateInstanceRequestVpc.md)
+ - [CreateInstanceRequestVpcSubnetsInner](sdk/docs/CreateInstanceRequestVpcSubnetsInner.md)
  - [CreateKmsKeyRequest](sdk/docs/CreateKmsKeyRequest.md)
  - [CreateKmsKeyResponse](sdk/docs/CreateKmsKeyResponse.md)
  - [CreateLoadBalancerRequest](sdk/docs/CreateLoadBalancerRequest.md)

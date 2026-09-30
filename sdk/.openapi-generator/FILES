@@ -69,6 +69,8 @@ docs/CreateElasticIpRequest.md
 docs/CreateIamRoleRequest.md
 docs/CreateInstancePoolRequest.md
 docs/CreateInstanceRequest.md
+docs/CreateInstanceRequestVpc.md
+docs/CreateInstanceRequestVpcSubnetsInner.md
 docs/CreateKmsKeyRequest.md
 docs/CreateKmsKeyResponse.md
 docs/CreateLoadBalancerRequest.md
@@ -651,6 +653,8 @@ src/main/java/com/exoscale/sdk/model/CreateElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/CreateIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequest.java
+src/main/java/com/exoscale/sdk/model/CreateInstanceRequestVpc.java
+src/main/java/com/exoscale/sdk/model/CreateInstanceRequestVpcSubnetsInner.java
 src/main/java/com/exoscale/sdk/model/CreateKmsKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateKmsKeyResponse.java
 src/main/java/com/exoscale/sdk/model/CreateLoadBalancerRequest.java

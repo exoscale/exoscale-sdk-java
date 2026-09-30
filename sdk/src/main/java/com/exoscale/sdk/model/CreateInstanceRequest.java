@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CreateInstanceRequestVpc;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.PublicIpAssignment;
@@ -59,6 +60,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateInstanceRequest.JSON_PROPERTY_TPM_ENABLED,
   CreateInstanceRequest.JSON_PROPERTY_DEPLOY_TARGET,
   CreateInstanceRequest.JSON_PROPERTY_IPV6_ENABLED,
+  CreateInstanceRequest.JSON_PROPERTY_VPC,
   CreateInstanceRequest.JSON_PROPERTY_DISK_SIZE,
   CreateInstanceRequest.JSON_PROPERTY_IP_FORWARDING,
   CreateInstanceRequest.JSON_PROPERTY_SSH_KEYS
@@ -109,6 +111,9 @@ public class CreateInstanceRequest {
 
   public static final String JSON_PROPERTY_IPV6_ENABLED = "ipv6-enabled";
   private Boolean ipv6Enabled;
+
+  public static final String JSON_PROPERTY_VPC = "vpc";
+  private CreateInstanceRequestVpc vpc;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
@@ -523,6 +528,31 @@ public class CreateInstanceRequest {
   }
 
 
+  public CreateInstanceRequest vpc(CreateInstanceRequestVpc vpc) {
+    this.vpc = vpc;
+    return this;
+  }
+
+   /**
+   * Get vpc
+   * @return vpc
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CreateInstanceRequestVpc getVpc() {
+    return vpc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVpc(CreateInstanceRequestVpc vpc) {
+    this.vpc = vpc;
+  }
+
+
   public CreateInstanceRequest diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
@@ -636,6 +666,7 @@ public class CreateInstanceRequest {
         Objects.equals(this.tpmEnabled, createInstanceRequest.tpmEnabled) &&
         Objects.equals(this.deployTarget, createInstanceRequest.deployTarget) &&
         Objects.equals(this.ipv6Enabled, createInstanceRequest.ipv6Enabled) &&
+        Objects.equals(this.vpc, createInstanceRequest.vpc) &&
         Objects.equals(this.diskSize, createInstanceRequest.diskSize) &&
         Objects.equals(this.ipForwarding, createInstanceRequest.ipForwarding) &&
         Objects.equals(this.sshKeys, createInstanceRequest.sshKeys);
@@ -643,7 +674,7 @@ public class CreateInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, diskSize, ipForwarding, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, publicIpAssignment, labels, autoStart, securityGroups, name, instanceType, template, securebootEnabled, sshKey, userData, tpmEnabled, deployTarget, ipv6Enabled, vpc, diskSize, ipForwarding, sshKeys);
   }
 
   @Override
@@ -665,6 +696,7 @@ public class CreateInstanceRequest {
     sb.append("    tpmEnabled: ").append(toIndentedString(tpmEnabled)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
+    sb.append("    vpc: ").append(toIndentedString(vpc)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    ipForwarding: ").append(toIndentedString(ipForwarding)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
@@ -806,6 +838,11 @@ public class CreateInstanceRequest {
     // add `ipv6-enabled` to the URL query string
     if (getIpv6Enabled() != null) {
       joiner.add(String.format("%sipv6-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv6Enabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `vpc` to the URL query string
+    if (getVpc() != null) {
+      joiner.add(getVpc().toUrlQueryString(prefix + "vpc" + suffix));
     }
 
     // add `disk-size` to the URL query string
