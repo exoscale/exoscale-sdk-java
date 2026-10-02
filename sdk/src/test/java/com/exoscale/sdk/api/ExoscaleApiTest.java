@@ -59,6 +59,7 @@ import com.exoscale.sdk.model.CreateElasticIpRequest;
 import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
+import com.exoscale.sdk.model.CreateKeyStoreRequest;
 import com.exoscale.sdk.model.CreateKmsKeyRequest;
 import com.exoscale.sdk.model.CreateKmsKeyResponse;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
@@ -164,6 +165,7 @@ import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetImpactEstimate200Response;
 import com.exoscale.sdk.model.GetImpactEstimateRequest;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
+import com.exoscale.sdk.model.GetKeyStoreResponse;
 import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
@@ -202,6 +204,8 @@ import com.exoscale.sdk.model.ListIamSystemRoles200Response;
 import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
+import com.exoscale.sdk.model.ListKeyStoresResponse;
+import com.exoscale.sdk.model.ListKeyStoresResponseEntry;
 import com.exoscale.sdk.model.ListKmsKeyRotationsResponse;
 import com.exoscale.sdk.model.ListKmsKeysResponse;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
@@ -287,6 +291,7 @@ import com.exoscale.sdk.model.UpdateElasticIpRequest;
 import com.exoscale.sdk.model.UpdateIamRoleRequest;
 import com.exoscale.sdk.model.UpdateInstancePoolRequest;
 import com.exoscale.sdk.model.UpdateInstanceRequest;
+import com.exoscale.sdk.model.UpdateKeyStoreRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerServiceRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkInstanceIpRequest;
@@ -530,6 +535,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         SuccessResponse response = 
         api.cancelKmsKeyDeletion(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Connect Key Store
+     *
+     * Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void connectKeyStoreTest() throws ApiException {
+        UUID id = null;
+        SuccessResponse response = 
+        api.connectKeyStore(id);
         
         // TODO: test validations
     }
@@ -1239,6 +1261,23 @@ public class ExoscaleApiTest {
         CreateInstancePoolRequest createInstancePoolRequest = null;
         Operation response = 
         api.createInstancePool(createInstancePoolRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Create Key Store
+     *
+     * Create an External Key Store after validating the configured customer-managed XKS proxy.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createKeyStoreTest() throws ApiException {
+        CreateKeyStoreRequest createKeyStoreRequest = null;
+        ListKeyStoresResponseEntry response = 
+        api.createKeyStore(createKeyStoreRequest);
         
         // TODO: test validations
     }
@@ -2129,6 +2168,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Delete Key Store
+     *
+     * Deletes an External Key Store when no KMS keys reference it.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteKeyStoreTest() throws ApiException {
+        UUID id = null;
+        SuccessResponse response = 
+        api.deleteKeyStore(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Delete a Load Balancer
      *
      * 
@@ -2561,6 +2617,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         DisableKmsKeyRotationResponse response = 
         api.disableKmsKeyRotation(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Disconnect Key Store
+     *
+     * Disconnects an External Key Store and suspends periodic proxy health checks.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void disconnectKeyStoreTest() throws ApiException {
+        UUID id = null;
+        SuccessResponse response = 
+        api.disconnectKeyStore(id);
         
         // TODO: test validations
     }
@@ -3744,6 +3817,23 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Get Key Store
+     *
+     * Fetch an External Key Store including its latest XKS health observation when available.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getKeyStoreTest() throws ApiException {
+        UUID id = null;
+        GetKeyStoreResponse response = 
+        api.getKeyStore(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Get KMS Key
      *
      * Retrieve KMS Key details.
@@ -4596,6 +4686,22 @@ public class ExoscaleApiTest {
         String labels = null;
         ListInstances200Response response = 
         api.listInstances(managerId, managerType, ipAddress, labels);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * List Key Stores
+     *
+     * Lists all key stores configured for an organization.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listKeyStoresTest() throws ApiException {
+        ListKeyStoresResponse response = 
+        api.listKeyStores();
         
         // TODO: test validations
     }
@@ -6567,6 +6673,24 @@ public class ExoscaleApiTest {
         UpdateInstancePoolRequest updateInstancePoolRequest = null;
         Operation response = 
         api.updateInstancePool(id, updateInstancePoolRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update Key Store
+     *
+     * Updates an External Key Store with a new description, endpoint, or credentials.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateKeyStoreTest() throws ApiException {
+        UUID id = null;
+        UpdateKeyStoreRequest updateKeyStoreRequest = null;
+        GetKeyStoreResponse response = 
+        api.updateKeyStore(id, updateKeyStoreRequest);
         
         // TODO: test validations
     }

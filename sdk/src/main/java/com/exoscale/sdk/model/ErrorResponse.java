@@ -32,75 +32,50 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * RFC 9457 Problem Details error response
  */
 @JsonPropertyOrder({
-  ErrorResponse.JSON_PROPERTY_TYPE,
-  ErrorResponse.JSON_PROPERTY_TITLE,
+  ErrorResponse.JSON_PROPERTY_DETAIL,
   ErrorResponse.JSON_PROPERTY_STATUS,
-  ErrorResponse.JSON_PROPERTY_DETAIL
+  ErrorResponse.JSON_PROPERTY_TITLE,
+  ErrorResponse.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ErrorResponse {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
-
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+  public static final String JSON_PROPERTY_DETAIL = "detail";
+  private String detail;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
 
-  public static final String JSON_PROPERTY_DETAIL = "detail";
-  private String detail;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
   public ErrorResponse() { 
   }
 
-  public ErrorResponse type(String type) {
-    this.type = type;
+  public ErrorResponse detail(String detail) {
+    this.detail = detail;
     return this;
   }
 
    /**
-   * An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered.
-   * @return type
+   * A highly contextual, readable explanation breaking down explicitly what triggered this error scenario.
+   * @return detail
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
-    return type;
+  public String getDetail() {
+    return detail;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public ErrorResponse title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * A brief summary defining the class of failure, optimal for quick user interface groupings.
-   * @return title
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getTitle() {
-    return title;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
-    this.title = title;
+  public void setDetail(String detail) {
+    this.detail = detail;
   }
 
 
@@ -131,28 +106,53 @@ public class ErrorResponse {
   }
 
 
-  public ErrorResponse detail(String detail) {
-    this.detail = detail;
+  public ErrorResponse title(String title) {
+    this.title = title;
     return this;
   }
 
    /**
-   * A highly contextual, readable explanation breaking down explicitly what triggered this error scenario.
-   * @return detail
+   * A brief summary defining the class of failure, optimal for quick user interface groupings.
+   * @return title
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getDetail() {
-    return detail;
+  public String getTitle() {
+    return title;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
+  public ErrorResponse type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered.
+   * @return type
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getType() {
+    return type;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -168,25 +168,25 @@ public class ErrorResponse {
       return false;
     }
     ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.type, errorResponse.type) &&
-        Objects.equals(this.title, errorResponse.title) &&
+    return Objects.equals(this.detail, errorResponse.detail) &&
         Objects.equals(this.status, errorResponse.status) &&
-        Objects.equals(this.detail, errorResponse.detail);
+        Objects.equals(this.title, errorResponse.title) &&
+        Objects.equals(this.type, errorResponse.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, title, status, detail);
+    return Objects.hash(detail, status, title, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorResponse {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -234,14 +234,9 @@ public class ErrorResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `title` to the URL query string
-    if (getTitle() != null) {
-      joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `detail` to the URL query string
+    if (getDetail() != null) {
+      joiner.add(String.format("%sdetail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
@@ -249,9 +244,14 @@ public class ErrorResponse {
       joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `detail` to the URL query string
-    if (getDetail() != null) {
-      joiner.add(String.format("%sdetail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `title` to the URL query string
+    if (getTitle() != null) {
+      joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

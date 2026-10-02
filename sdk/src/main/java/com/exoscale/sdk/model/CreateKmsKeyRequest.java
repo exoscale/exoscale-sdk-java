@@ -32,18 +32,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateKmsKeyRequest
  */
 @JsonPropertyOrder({
-  CreateKmsKeyRequest.JSON_PROPERTY_NAME,
   CreateKmsKeyRequest.JSON_PROPERTY_DESCRIPTION,
-  CreateKmsKeyRequest.JSON_PROPERTY_USAGE,
-  CreateKmsKeyRequest.JSON_PROPERTY_MULTI_ZONE
+  CreateKmsKeyRequest.JSON_PROPERTY_MULTI_ZONE,
+  CreateKmsKeyRequest.JSON_PROPERTY_NAME,
+  CreateKmsKeyRequest.JSON_PROPERTY_USAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateKmsKeyRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_MULTI_ZONE = "multi-zone";
+  private Boolean multiZone = false;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   /**
    * Gets or Sets usage
@@ -81,36 +84,8 @@ public class CreateKmsKeyRequest {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private UsageEnum usage = UsageEnum.ENCRYPT_DECRYPT;
 
-  public static final String JSON_PROPERTY_MULTI_ZONE = "multi-zone";
-  private Boolean multiZone = false;
-
   public CreateKmsKeyRequest() { 
   }
-
-  public CreateKmsKeyRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * A human-readable display name uniquely identifying the KMS key within the tenant space.
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   public CreateKmsKeyRequest description(String description) {
     this.description = description;
@@ -134,31 +109,6 @@ public class CreateKmsKeyRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public CreateKmsKeyRequest usage(UsageEnum usage) {
-    this.usage = usage;
-    return this;
-  }
-
-   /**
-   * Get usage
-   * @return usage
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UsageEnum getUsage() {
-    return usage;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUsage(UsageEnum usage) {
-    this.usage = usage;
   }
 
 
@@ -187,6 +137,56 @@ public class CreateKmsKeyRequest {
   }
 
 
+  public CreateKmsKeyRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * A human-readable display name uniquely identifying the KMS key within the tenant space.
+   * @return name
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public CreateKmsKeyRequest usage(UsageEnum usage) {
+    this.usage = usage;
+    return this;
+  }
+
+   /**
+   * Get usage
+   * @return usage
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UsageEnum getUsage() {
+    return usage;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUsage(UsageEnum usage) {
+    this.usage = usage;
+  }
+
+
   /**
    * Return true if this create-kms-key-request object is equal to o.
    */
@@ -199,25 +199,25 @@ public class CreateKmsKeyRequest {
       return false;
     }
     CreateKmsKeyRequest createKmsKeyRequest = (CreateKmsKeyRequest) o;
-    return Objects.equals(this.name, createKmsKeyRequest.name) &&
-        Objects.equals(this.description, createKmsKeyRequest.description) &&
-        Objects.equals(this.usage, createKmsKeyRequest.usage) &&
-        Objects.equals(this.multiZone, createKmsKeyRequest.multiZone);
+    return Objects.equals(this.description, createKmsKeyRequest.description) &&
+        Objects.equals(this.multiZone, createKmsKeyRequest.multiZone) &&
+        Objects.equals(this.name, createKmsKeyRequest.name) &&
+        Objects.equals(this.usage, createKmsKeyRequest.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, usage, multiZone);
+    return Objects.hash(description, multiZone, name, usage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKmsKeyRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -265,24 +265,24 @@ public class CreateKmsKeyRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `usage` to the URL query string
-    if (getUsage() != null) {
-      joiner.add(String.format("%susage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `multi-zone` to the URL query string
     if (getMultiZone() != null) {
       joiner.add(String.format("%smulti-zone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMultiZone()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `usage` to the URL query string
+    if (getUsage() != null) {
+      joiner.add(String.format("%susage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -33,52 +33,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * KeyRotationConfig
  */
 @JsonPropertyOrder({
-  KeyRotationConfig.JSON_PROPERTY_MANUAL_COUNT,
   KeyRotationConfig.JSON_PROPERTY_AUTOMATIC,
-  KeyRotationConfig.JSON_PROPERTY_ROTATION_PERIOD,
-  KeyRotationConfig.JSON_PROPERTY_NEXT_AT
+  KeyRotationConfig.JSON_PROPERTY_MANUAL_COUNT,
+  KeyRotationConfig.JSON_PROPERTY_NEXT_AT,
+  KeyRotationConfig.JSON_PROPERTY_ROTATION_PERIOD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class KeyRotationConfig {
-  public static final String JSON_PROPERTY_MANUAL_COUNT = "manual-count";
-  private Integer manualCount;
-
   public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
   private Boolean automatic;
 
-  public static final String JSON_PROPERTY_ROTATION_PERIOD = "rotation-period";
-  private Integer rotationPeriod;
+  public static final String JSON_PROPERTY_MANUAL_COUNT = "manual-count";
+  private Integer manualCount;
 
   public static final String JSON_PROPERTY_NEXT_AT = "next-at";
   private OffsetDateTime nextAt;
 
+  public static final String JSON_PROPERTY_ROTATION_PERIOD = "rotation-period";
+  private Integer rotationPeriod;
+
   public KeyRotationConfig() { 
   }
-
-  public KeyRotationConfig manualCount(Integer manualCount) {
-    this.manualCount = manualCount;
-    return this;
-  }
-
-   /**
-   * Total running tally of manual key rotation tasks executed by users over this key resource&#39;s lifecycle.
-   * @return manualCount
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MANUAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getManualCount() {
-    return manualCount;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MANUAL_COUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setManualCount(Integer manualCount) {
-    this.manualCount = manualCount;
-  }
-
 
   public KeyRotationConfig automatic(Boolean automatic) {
     this.automatic = automatic;
@@ -105,28 +80,28 @@ public class KeyRotationConfig {
   }
 
 
-  public KeyRotationConfig rotationPeriod(Integer rotationPeriod) {
-    this.rotationPeriod = rotationPeriod;
+  public KeyRotationConfig manualCount(Integer manualCount) {
+    this.manualCount = manualCount;
     return this;
   }
 
    /**
-   * The set frequency period (measured in days) for triggers monitoring auto-rotation loops.
-   * @return rotationPeriod
+   * Total running tally of manual key rotation tasks executed by users over this key resource&#39;s lifecycle.
+   * @return manualCount
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ROTATION_PERIOD)
+  @JsonProperty(JSON_PROPERTY_MANUAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getRotationPeriod() {
-    return rotationPeriod;
+  public Integer getManualCount() {
+    return manualCount;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ROTATION_PERIOD)
+  @JsonProperty(JSON_PROPERTY_MANUAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRotationPeriod(Integer rotationPeriod) {
-    this.rotationPeriod = rotationPeriod;
+  public void setManualCount(Integer manualCount) {
+    this.manualCount = manualCount;
   }
 
 
@@ -155,6 +130,31 @@ public class KeyRotationConfig {
   }
 
 
+  public KeyRotationConfig rotationPeriod(Integer rotationPeriod) {
+    this.rotationPeriod = rotationPeriod;
+    return this;
+  }
+
+   /**
+   * The set frequency period (measured in days) for triggers monitoring auto-rotation loops.
+   * @return rotationPeriod
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ROTATION_PERIOD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getRotationPeriod() {
+    return rotationPeriod;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ROTATION_PERIOD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setRotationPeriod(Integer rotationPeriod) {
+    this.rotationPeriod = rotationPeriod;
+  }
+
+
   /**
    * Return true if this key-rotation-config object is equal to o.
    */
@@ -167,25 +167,25 @@ public class KeyRotationConfig {
       return false;
     }
     KeyRotationConfig keyRotationConfig = (KeyRotationConfig) o;
-    return Objects.equals(this.manualCount, keyRotationConfig.manualCount) &&
-        Objects.equals(this.automatic, keyRotationConfig.automatic) &&
-        Objects.equals(this.rotationPeriod, keyRotationConfig.rotationPeriod) &&
-        Objects.equals(this.nextAt, keyRotationConfig.nextAt);
+    return Objects.equals(this.automatic, keyRotationConfig.automatic) &&
+        Objects.equals(this.manualCount, keyRotationConfig.manualCount) &&
+        Objects.equals(this.nextAt, keyRotationConfig.nextAt) &&
+        Objects.equals(this.rotationPeriod, keyRotationConfig.rotationPeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(manualCount, automatic, rotationPeriod, nextAt);
+    return Objects.hash(automatic, manualCount, nextAt, rotationPeriod);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyRotationConfig {\n");
-    sb.append("    manualCount: ").append(toIndentedString(manualCount)).append("\n");
     sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
-    sb.append("    rotationPeriod: ").append(toIndentedString(rotationPeriod)).append("\n");
+    sb.append("    manualCount: ").append(toIndentedString(manualCount)).append("\n");
     sb.append("    nextAt: ").append(toIndentedString(nextAt)).append("\n");
+    sb.append("    rotationPeriod: ").append(toIndentedString(rotationPeriod)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,24 +233,24 @@ public class KeyRotationConfig {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `manual-count` to the URL query string
-    if (getManualCount() != null) {
-      joiner.add(String.format("%smanual-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getManualCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `automatic` to the URL query string
     if (getAutomatic() != null) {
       joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `rotation-period` to the URL query string
-    if (getRotationPeriod() != null) {
-      joiner.add(String.format("%srotation-period%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRotationPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `manual-count` to the URL query string
+    if (getManualCount() != null) {
+      joiner.add(String.format("%smanual-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getManualCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `next-at` to the URL query string
     if (getNextAt() != null) {
       joiner.add(String.format("%snext-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `rotation-period` to the URL query string
+    if (getRotationPeriod() != null) {
+      joiner.add(String.format("%srotation-period%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRotationPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -63,6 +63,7 @@ import com.exoscale.sdk.model.CreateElasticIpRequest;
 import com.exoscale.sdk.model.CreateIamRoleRequest;
 import com.exoscale.sdk.model.CreateInstancePoolRequest;
 import com.exoscale.sdk.model.CreateInstanceRequest;
+import com.exoscale.sdk.model.CreateKeyStoreRequest;
 import com.exoscale.sdk.model.CreateKmsKeyRequest;
 import com.exoscale.sdk.model.CreateKmsKeyResponse;
 import com.exoscale.sdk.model.CreateLoadBalancerRequest;
@@ -168,6 +169,7 @@ import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
 import com.exoscale.sdk.model.GetImpactEstimate200Response;
 import com.exoscale.sdk.model.GetImpactEstimateRequest;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
+import com.exoscale.sdk.model.GetKeyStoreResponse;
 import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
@@ -206,6 +208,8 @@ import com.exoscale.sdk.model.ListIamSystemRoles200Response;
 import com.exoscale.sdk.model.ListInstancePools200Response;
 import com.exoscale.sdk.model.ListInstanceTypes200Response;
 import com.exoscale.sdk.model.ListInstances200Response;
+import com.exoscale.sdk.model.ListKeyStoresResponse;
+import com.exoscale.sdk.model.ListKeyStoresResponseEntry;
 import com.exoscale.sdk.model.ListKmsKeyRotationsResponse;
 import com.exoscale.sdk.model.ListKmsKeysResponse;
 import com.exoscale.sdk.model.ListLoadBalancers200Response;
@@ -291,6 +295,7 @@ import com.exoscale.sdk.model.UpdateElasticIpRequest;
 import com.exoscale.sdk.model.UpdateIamRoleRequest;
 import com.exoscale.sdk.model.UpdateInstancePoolRequest;
 import com.exoscale.sdk.model.UpdateInstanceRequest;
+import com.exoscale.sdk.model.UpdateKeyStoreRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerServiceRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkInstanceIpRequest;
@@ -1488,6 +1493,91 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/kms-key/{id}/cancel-deletion"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Connect Key Store
+   * Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+   * @param id  (required)
+   * @return SuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SuccessResponse connectKeyStore(UUID id) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = connectKeyStoreWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Connect Key Store
+   * Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+   * @param id  (required)
+   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SuccessResponse> connectKeyStoreWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = connectKeyStoreRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("connectKeyStore", localVarResponse);
+        }
+        return new ApiResponse<SuccessResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder connectKeyStoreRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling connectKeyStore");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store/{id}/connect"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -5290,6 +5380,96 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createInstancePoolRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Create Key Store
+   * Create an External Key Store after validating the configured customer-managed XKS proxy.
+   * @param createKeyStoreRequest  (required)
+   * @return ListKeyStoresResponseEntry
+   * @throws ApiException if fails to make API call
+   */
+  public ListKeyStoresResponseEntry createKeyStore(CreateKeyStoreRequest createKeyStoreRequest) throws ApiException {
+    ApiResponse<ListKeyStoresResponseEntry> localVarResponse = createKeyStoreWithHttpInfo(createKeyStoreRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create Key Store
+   * Create an External Key Store after validating the configured customer-managed XKS proxy.
+   * @param createKeyStoreRequest  (required)
+   * @return ApiResponse&lt;ListKeyStoresResponseEntry&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListKeyStoresResponseEntry> createKeyStoreWithHttpInfo(CreateKeyStoreRequest createKeyStoreRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createKeyStoreRequestBuilder(createKeyStoreRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createKeyStore", localVarResponse);
+        }
+        return new ApiResponse<ListKeyStoresResponseEntry>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListKeyStoresResponseEntry>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createKeyStoreRequestBuilder(CreateKeyStoreRequest createKeyStoreRequest) throws ApiException {
+    // verify the required parameter 'createKeyStoreRequest' is set
+    if (createKeyStoreRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createKeyStoreRequest' when calling createKeyStore");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store";
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createKeyStoreRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }
@@ -9840,6 +10020,91 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Delete Key Store
+   * Deletes an External Key Store when no KMS keys reference it.
+   * @param id  (required)
+   * @return SuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SuccessResponse deleteKeyStore(UUID id) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = deleteKeyStoreWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Delete Key Store
+   * Deletes an External Key Store when no KMS keys reference it.
+   * @param id  (required)
+   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SuccessResponse> deleteKeyStoreWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = deleteKeyStoreRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("deleteKeyStore", localVarResponse);
+        }
+        return new ApiResponse<SuccessResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder deleteKeyStoreRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteKeyStore");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("DELETE", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Delete a Load Balancer
    * 
    * @param id  (required)
@@ -12055,6 +12320,91 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/kms-key/{id}/disable-key-rotation"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Disconnect Key Store
+   * Disconnects an External Key Store and suspends periodic proxy health checks.
+   * @param id  (required)
+   * @return SuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SuccessResponse disconnectKeyStore(UUID id) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = disconnectKeyStoreWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Disconnect Key Store
+   * Disconnects an External Key Store and suspends periodic proxy health checks.
+   * @param id  (required)
+   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SuccessResponse> disconnectKeyStoreWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = disconnectKeyStoreRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("disconnectKeyStore", localVarResponse);
+        }
+        return new ApiResponse<SuccessResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder disconnectKeyStoreRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling disconnectKeyStore");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store/{id}/disconnect"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -18052,6 +18402,91 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Get Key Store
+   * Fetch an External Key Store including its latest XKS health observation when available.
+   * @param id  (required)
+   * @return GetKeyStoreResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetKeyStoreResponse getKeyStore(UUID id) throws ApiException {
+    ApiResponse<GetKeyStoreResponse> localVarResponse = getKeyStoreWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Key Store
+   * Fetch an External Key Store including its latest XKS health observation when available.
+   * @param id  (required)
+   * @return ApiResponse&lt;GetKeyStoreResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetKeyStoreResponse> getKeyStoreWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getKeyStoreRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getKeyStore", localVarResponse);
+        }
+        return new ApiResponse<GetKeyStoreResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetKeyStoreResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getKeyStoreRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getKeyStore");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Get KMS Key
    * Retrieve KMS Key details.
    * @param id  (required)
@@ -22342,6 +22777,84 @@ public class ExoscaleApi {
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * List Key Stores
+   * Lists all key stores configured for an organization.
+   * @return ListKeyStoresResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListKeyStoresResponse listKeyStores() throws ApiException {
+    ApiResponse<ListKeyStoresResponse> localVarResponse = listKeyStoresWithHttpInfo();
+    return localVarResponse.getData();
+  }
+
+  /**
+   * List Key Stores
+   * Lists all key stores configured for an organization.
+   * @return ApiResponse&lt;ListKeyStoresResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListKeyStoresResponse> listKeyStoresWithHttpInfo() throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listKeyStoresRequestBuilder();
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listKeyStores", localVarResponse);
+        }
+        return new ApiResponse<ListKeyStoresResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListKeyStoresResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listKeyStoresRequestBuilder() throws ApiException {
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store";
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/json");
 
@@ -32631,6 +33144,103 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update Key Store
+   * Updates an External Key Store with a new description, endpoint, or credentials.
+   * @param id  (required)
+   * @param updateKeyStoreRequest  (required)
+   * @return GetKeyStoreResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetKeyStoreResponse updateKeyStore(UUID id, UpdateKeyStoreRequest updateKeyStoreRequest) throws ApiException {
+    ApiResponse<GetKeyStoreResponse> localVarResponse = updateKeyStoreWithHttpInfo(id, updateKeyStoreRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update Key Store
+   * Updates an External Key Store with a new description, endpoint, or credentials.
+   * @param id  (required)
+   * @param updateKeyStoreRequest  (required)
+   * @return ApiResponse&lt;GetKeyStoreResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetKeyStoreResponse> updateKeyStoreWithHttpInfo(UUID id, UpdateKeyStoreRequest updateKeyStoreRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateKeyStoreRequestBuilder(id, updateKeyStoreRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateKeyStore", localVarResponse);
+        }
+        return new ApiResponse<GetKeyStoreResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetKeyStoreResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateKeyStoreRequestBuilder(UUID id, UpdateKeyStoreRequest updateKeyStoreRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateKeyStore");
+    }
+    // verify the required parameter 'updateKeyStoreRequest' is set
+    if (updateKeyStoreRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateKeyStoreRequest' when calling updateKeyStore");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/key-store/{id}/update"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateKeyStoreRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

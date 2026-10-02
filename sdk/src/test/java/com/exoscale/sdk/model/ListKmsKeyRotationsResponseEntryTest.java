@@ -39,11 +39,11 @@ public class ListKmsKeyRotationsResponseEntryTest {
     }
 
     /**
-     * Test the property 'version'
+     * Test the property 'automatic'
      */
     @Test
-    public void versionTest() {
-        // TODO: test version
+    public void automaticTest() {
+        // TODO: test automatic
     }
 
     /**
@@ -55,11 +55,11 @@ public class ListKmsKeyRotationsResponseEntryTest {
     }
 
     /**
-     * Test the property 'automatic'
+     * Test the property 'version'
      */
     @Test
-    public void automaticTest() {
-        // TODO: test automatic
+    public void versionTest() {
+        // TODO: test version
     }
 
 }

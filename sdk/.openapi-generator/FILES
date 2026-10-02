@@ -71,6 +71,7 @@ docs/CreateInstancePoolRequest.md
 docs/CreateInstanceRequest.md
 docs/CreateInstanceRequestVpc.md
 docs/CreateInstanceRequestVpcSubnetsInner.md
+docs/CreateKeyStoreRequest.md
 docs/CreateKmsKeyRequest.md
 docs/CreateKmsKeyResponse.md
 docs/CreateLoadBalancerRequest.md
@@ -303,9 +304,9 @@ docs/GetDnsDomainZoneFile200Response.md
 docs/GetImpactEstimate200Response.md
 docs/GetImpactEstimateRequest.md
 docs/GetInferenceEngineHelpResponse.md
+docs/GetKeyStoreResponse.md
 docs/GetKmsKeyResponse.md
 docs/GetModelResponse.md
-docs/GetOrganizationUsageResponse.md
 docs/GetSksClusterAuthorityCert200Response.md
 docs/GetSosPresignedUrl200Response.md
 docs/GetUsageReport200Response.md
@@ -363,6 +364,11 @@ docs/JsonSchemaTimescaledb.md
 docs/JsonSchemaValkey.md
 docs/KeyMaterial.md
 docs/KeyRotationConfig.md
+docs/KeyStoreHealth.md
+docs/KeyStoreProxy.md
+docs/KeyStoreProxyAuth.md
+docs/KeyStoreProxyAuthResponse.md
+docs/KeyStoreProxyResponse.md
 docs/KubeletImageGc.md
 docs/ListAiApiKeysResponse.md
 docs/ListAiApiKeysResponseEntry.md
@@ -393,6 +399,8 @@ docs/ListInstanceTypes200Response.md
 docs/ListInstances200Response.md
 docs/ListInstances200ResponseInstancesInner.md
 docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md
+docs/ListKeyStoresResponse.md
+docs/ListKeyStoresResponseEntry.md
 docs/ListKmsKeyRotationsResponse.md
 docs/ListKmsKeyRotationsResponseEntry.md
 docs/ListKmsKeysResponse.md
@@ -551,6 +559,8 @@ docs/UpdateElasticIpRequest.md
 docs/UpdateIamRoleRequest.md
 docs/UpdateInstancePoolRequest.md
 docs/UpdateInstanceRequest.md
+docs/UpdateKeyStoreProxy.md
+docs/UpdateKeyStoreRequest.md
 docs/UpdateLoadBalancerRequest.md
 docs/UpdateLoadBalancerServiceRequest.md
 docs/UpdatePrivateNetworkInstanceIpRequest.md
@@ -655,6 +665,7 @@ src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequestVpc.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequestVpcSubnetsInner.java
+src/main/java/com/exoscale/sdk/model/CreateKeyStoreRequest.java
 src/main/java/com/exoscale/sdk/model/CreateKmsKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateKmsKeyResponse.java
 src/main/java/com/exoscale/sdk/model/CreateLoadBalancerRequest.java
@@ -886,9 +897,9 @@ src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
 src/main/java/com/exoscale/sdk/model/GetImpactEstimate200Response.java
 src/main/java/com/exoscale/sdk/model/GetImpactEstimateRequest.java
 src/main/java/com/exoscale/sdk/model/GetInferenceEngineHelpResponse.java
+src/main/java/com/exoscale/sdk/model/GetKeyStoreResponse.java
 src/main/java/com/exoscale/sdk/model/GetKmsKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GetModelResponse.java
-src/main/java/com/exoscale/sdk/model/GetOrganizationUsageResponse.java
 src/main/java/com/exoscale/sdk/model/GetSksClusterAuthorityCert200Response.java
 src/main/java/com/exoscale/sdk/model/GetSosPresignedUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetUsageReport200Response.java
@@ -946,6 +957,11 @@ src/main/java/com/exoscale/sdk/model/JsonSchemaTimescaledb.java
 src/main/java/com/exoscale/sdk/model/JsonSchemaValkey.java
 src/main/java/com/exoscale/sdk/model/KeyMaterial.java
 src/main/java/com/exoscale/sdk/model/KeyRotationConfig.java
+src/main/java/com/exoscale/sdk/model/KeyStoreHealth.java
+src/main/java/com/exoscale/sdk/model/KeyStoreProxy.java
+src/main/java/com/exoscale/sdk/model/KeyStoreProxyAuth.java
+src/main/java/com/exoscale/sdk/model/KeyStoreProxyAuthResponse.java
+src/main/java/com/exoscale/sdk/model/KeyStoreProxyResponse.java
 src/main/java/com/exoscale/sdk/model/KubeletImageGc.java
 src/main/java/com/exoscale/sdk/model/ListAiApiKeysResponse.java
 src/main/java/com/exoscale/sdk/model/ListAiApiKeysResponseEntry.java
@@ -976,6 +992,8 @@ src/main/java/com/exoscale/sdk/model/ListInstanceTypes200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstances200Response.java
 src/main/java/com/exoscale/sdk/model/ListInstances200ResponseInstancesInner.java
 src/main/java/com/exoscale/sdk/model/ListInstances200ResponseInstancesInnerPrivateNetworksInner.java
+src/main/java/com/exoscale/sdk/model/ListKeyStoresResponse.java
+src/main/java/com/exoscale/sdk/model/ListKeyStoresResponseEntry.java
 src/main/java/com/exoscale/sdk/model/ListKmsKeyRotationsResponse.java
 src/main/java/com/exoscale/sdk/model/ListKmsKeyRotationsResponseEntry.java
 src/main/java/com/exoscale/sdk/model/ListKmsKeysResponse.java
@@ -1134,6 +1152,8 @@ src/main/java/com/exoscale/sdk/model/UpdateElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateInstancePoolRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateInstanceRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateKeyStoreProxy.java
+src/main/java/com/exoscale/sdk/model/UpdateKeyStoreRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateLoadBalancerRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateLoadBalancerServiceRequest.java
 src/main/java/com/exoscale/sdk/model/UpdatePrivateNetworkInstanceIpRequest.java

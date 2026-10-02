@@ -38,19 +38,11 @@ public class ErrorResponseTest {
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'detail'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'title'
-     */
-    @Test
-    public void titleTest() {
-        // TODO: test title
+    public void detailTest() {
+        // TODO: test detail
     }
 
     /**
@@ -62,11 +54,19 @@ public class ErrorResponseTest {
     }
 
     /**
-     * Test the property 'detail'
+     * Test the property 'title'
      */
     @Test
-    public void detailTest() {
-        // TODO: test detail
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
 }

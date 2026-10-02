@@ -38,14 +38,6 @@ public class CreateKmsKeyRequestTest {
     }
 
     /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
      * Test the property 'description'
      */
     @Test
@@ -54,19 +46,27 @@ public class CreateKmsKeyRequestTest {
     }
 
     /**
-     * Test the property 'usage'
-     */
-    @Test
-    public void usageTest() {
-        // TODO: test usage
-    }
-
-    /**
      * Test the property 'multiZone'
      */
     @Test
     public void multiZoneTest() {
         // TODO: test multiZone
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'usage'
+     */
+    @Test
+    public void usageTest() {
+        // TODO: test usage
     }
 
 }

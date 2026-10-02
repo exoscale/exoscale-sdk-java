@@ -29,45 +29,75 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * GPU usage for an organization
+ * KeyStoreProxyAuth
  */
 @JsonPropertyOrder({
-  GetOrganizationUsageResponse.JSON_PROPERTY_GPU
+  KeyStoreProxyAuth.JSON_PROPERTY_KEY,
+  KeyStoreProxyAuth.JSON_PROPERTY_SECRET
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
-public class GetOrganizationUsageResponse {
-  public static final String JSON_PROPERTY_GPU = "gpu";
-  private Long gpu;
+public class KeyStoreProxyAuth {
+  public static final String JSON_PROPERTY_KEY = "key";
+  private String key;
 
-  public GetOrganizationUsageResponse() { 
+  public static final String JSON_PROPERTY_SECRET = "secret";
+  private String secret;
+
+  public KeyStoreProxyAuth() { 
   }
 
-  @JsonCreator
-  public GetOrganizationUsageResponse(
-    @JsonProperty(JSON_PROPERTY_GPU) Long gpu
-  ) {
-  this();
-    this.gpu = gpu;
+  public KeyStoreProxyAuth key(String key) {
+    this.key = key;
+    return this;
   }
 
    /**
-   * Total GPU count
-   * minimum: 0
-   * @return gpu
+   * Access key used to sign requests sent to the XKS proxy.
+   * @return key
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GPU)
+  @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Long getGpu() {
-    return gpu;
+  public String getKey() {
+    return key;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+
+  public KeyStoreProxyAuth secret(String secret) {
+    this.secret = secret;
+    return this;
+  }
+
+   /**
+   * Secret key used to sign requests sent to the XKS proxy. This value is never returned by the API.
+   * @return secret
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SECRET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getSecret() {
+    return secret;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SECRET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSecret(String secret) {
+    this.secret = secret;
+  }
 
 
   /**
-   * Return true if this get-organization-usage-response object is equal to o.
+   * Return true if this key-store-proxy-auth object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -77,20 +107,22 @@ public class GetOrganizationUsageResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetOrganizationUsageResponse getOrganizationUsageResponse = (GetOrganizationUsageResponse) o;
-    return Objects.equals(this.gpu, getOrganizationUsageResponse.gpu);
+    KeyStoreProxyAuth keyStoreProxyAuth = (KeyStoreProxyAuth) o;
+    return Objects.equals(this.key, keyStoreProxyAuth.key) &&
+        Objects.equals(this.secret, keyStoreProxyAuth.secret);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpu);
+    return Objects.hash(key, secret);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetOrganizationUsageResponse {\n");
-    sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
+    sb.append("class KeyStoreProxyAuth {\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,9 +170,14 @@ public class GetOrganizationUsageResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `gpu` to the URL query string
-    if (getGpu() != null) {
-      joiner.add(String.format("%sgpu%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `key` to the URL query string
+    if (getKey() != null) {
+      joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `secret` to the URL query string
+    if (getSecret() != null) {
+      joiner.add(String.format("%ssecret%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecret()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -43,19 +43,19 @@ public class ReEncryptRequestDestinationTest {
     }
 
     /**
-     * Test the property 'key'
-     */
-    @Test
-    public void keyTest() {
-        // TODO: test key
-    }
-
-    /**
      * Test the property 'encryptionContext'
      */
     @Test
     public void encryptionContextTest() {
         // TODO: test encryptionContext
+    }
+
+    /**
+     * Test the property 'key'
+     */
+    @Test
+    public void keyTest() {
+        // TODO: test key
     }
 
 }

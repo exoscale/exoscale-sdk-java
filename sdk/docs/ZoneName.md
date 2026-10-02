@@ -19,6 +19,8 @@
 
 * `AT_VIE_2` (value: `"at-vie-2"`)
 
+* `ES_MAD_1` (value: `"es-mad-1"`)
+
 * `HR_ZAG_1` (value: `"hr-zag-1"`)
 
 

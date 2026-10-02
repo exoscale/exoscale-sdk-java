@@ -29,13 +29,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Organization GPU usage
+ * Organization usage
  */
 @JsonPropertyOrder({
   OrganizationUsage.JSON_PROPERTY_GPU3,
   OrganizationUsage.JSON_PROPERTY_GPUA30,
   OrganizationUsage.JSON_PROPERTY_GPU3080TI,
-  OrganizationUsage.JSON_PROPERTY_GPU,
+  OrganizationUsage.JSON_PROPERTY_AI_API_KEY,
   OrganizationUsage.JSON_PROPERTY_GPUA5000,
   OrganizationUsage.JSON_PROPERTY_GPURTX6000PRO
 })
@@ -50,8 +50,8 @@ public class OrganizationUsage {
   public static final String JSON_PROPERTY_GPU3080TI = "gpu3080ti";
   private Long gpu3080ti;
 
-  public static final String JSON_PROPERTY_GPU = "gpu";
-  private Long gpu;
+  public static final String JSON_PROPERTY_AI_API_KEY = "ai-api-key";
+  private Long aiApiKey;
 
   public static final String JSON_PROPERTY_GPUA5000 = "gpua5000";
   private Long gpua5000;
@@ -140,29 +140,29 @@ public class OrganizationUsage {
   }
 
 
-  public OrganizationUsage gpu(Long gpu) {
-    this.gpu = gpu;
+  public OrganizationUsage aiApiKey(Long aiApiKey) {
+    this.aiApiKey = aiApiKey;
     return this;
   }
 
    /**
-   * Total GPU count (sum of all GPU types)
+   * Count of active AI API keys
    * minimum: 0
-   * @return gpu
+   * @return aiApiKey
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GPU)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AI_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getGpu() {
-    return gpu;
+  public Long getAiApiKey() {
+    return aiApiKey;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GPU)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGpu(Long gpu) {
-    this.gpu = gpu;
+  @JsonProperty(JSON_PROPERTY_AI_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAiApiKey(Long aiApiKey) {
+    this.aiApiKey = aiApiKey;
   }
 
 
@@ -233,14 +233,14 @@ public class OrganizationUsage {
     return Objects.equals(this.gpu3, organizationUsage.gpu3) &&
         Objects.equals(this.gpua30, organizationUsage.gpua30) &&
         Objects.equals(this.gpu3080ti, organizationUsage.gpu3080ti) &&
-        Objects.equals(this.gpu, organizationUsage.gpu) &&
+        Objects.equals(this.aiApiKey, organizationUsage.aiApiKey) &&
         Objects.equals(this.gpua5000, organizationUsage.gpua5000) &&
         Objects.equals(this.gpurtx6000pro, organizationUsage.gpurtx6000pro);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gpu3, gpua30, gpu3080ti, gpu, gpua5000, gpurtx6000pro);
+    return Objects.hash(gpu3, gpua30, gpu3080ti, aiApiKey, gpua5000, gpurtx6000pro);
   }
 
   @Override
@@ -250,7 +250,7 @@ public class OrganizationUsage {
     sb.append("    gpu3: ").append(toIndentedString(gpu3)).append("\n");
     sb.append("    gpua30: ").append(toIndentedString(gpua30)).append("\n");
     sb.append("    gpu3080ti: ").append(toIndentedString(gpu3080ti)).append("\n");
-    sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
+    sb.append("    aiApiKey: ").append(toIndentedString(aiApiKey)).append("\n");
     sb.append("    gpua5000: ").append(toIndentedString(gpua5000)).append("\n");
     sb.append("    gpurtx6000pro: ").append(toIndentedString(gpurtx6000pro)).append("\n");
     sb.append("}");
@@ -315,9 +315,9 @@ public class OrganizationUsage {
       joiner.add(String.format("%sgpu3080ti%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu3080ti()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `gpu` to the URL query string
-    if (getGpu() != null) {
-      joiner.add(String.format("%sgpu%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGpu()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `ai-api-key` to the URL query string
+    if (getAiApiKey() != null) {
+      joiner.add(String.format("%sai-api-key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAiApiKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `gpua5000` to the URL query string

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-09-30T07:23:07.177407785Z[Etc/UTC]
+- Build date: 2026-10-02T07:21:15.198387494Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-26a9eac</version>
+    <version>0.0.5-SNAPSHOT-f2331ef</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-26a9eac'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-f2331ef'
 }
 ```
 
@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**attachInstanceToSecurityGroup**](sdk/docs/ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group
 *ExoscaleApi* | [**attachInstanceToSubnet**](sdk/docs/ExoscaleApi.md#attachInstanceToSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/attach | [BETA] Attach a Compute instance to a Subnet
 *ExoscaleApi* | [**cancelKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | Cancel KMS Key Deletion
+*ExoscaleApi* | [**connectKeyStore**](sdk/docs/ExoscaleApi.md#connectKeyStore) | **POST** /key-store/{id}/connect | Connect Key Store
 *ExoscaleApi* | [**copyTemplate**](sdk/docs/ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another
 *ExoscaleApi* | [**createAiApiKey**](sdk/docs/ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | [BETA] Create AI API Key
 *ExoscaleApi* | [**createAntiAffinityGroup**](sdk/docs/ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group
@@ -134,6 +135,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createIamRole**](sdk/docs/ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role
 *ExoscaleApi* | [**createInstance**](sdk/docs/ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance
 *ExoscaleApi* | [**createInstancePool**](sdk/docs/ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool
+*ExoscaleApi* | [**createKeyStore**](sdk/docs/ExoscaleApi.md#createKeyStore) | **POST** /key-store | Create Key Store
 *ExoscaleApi* | [**createKmsKey**](sdk/docs/ExoscaleApi.md#createKmsKey) | **POST** /kms-key | Create KMS Key
 *ExoscaleApi* | [**createLoadBalancer**](sdk/docs/ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer
 *ExoscaleApi* | [**createModel**](sdk/docs/ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model
@@ -185,6 +187,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteIamRole**](sdk/docs/ExoscaleApi.md#deleteIamRole) | **DELETE** /iam-role/{id} | Delete IAM Role
 *ExoscaleApi* | [**deleteInstance**](sdk/docs/ExoscaleApi.md#deleteInstance) | **DELETE** /instance/{id} | Delete a Compute instance
 *ExoscaleApi* | [**deleteInstancePool**](sdk/docs/ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool
+*ExoscaleApi* | [**deleteKeyStore**](sdk/docs/ExoscaleApi.md#deleteKeyStore) | **DELETE** /key-store/{id} | Delete Key Store
 *ExoscaleApi* | [**deleteLoadBalancer**](sdk/docs/ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer
 *ExoscaleApi* | [**deleteLoadBalancerService**](sdk/docs/ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service
 *ExoscaleApi* | [**deleteModel**](sdk/docs/ExoscaleApi.md#deleteModel) | **DELETE** /ai/model/{id} | Delete Model
@@ -210,6 +213,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**detachInstanceFromSubnet**](sdk/docs/ExoscaleApi.md#detachInstanceFromSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/detach | [BETA] Detach a Compute instance from a Subnet
 *ExoscaleApi* | [**disableKmsKey**](sdk/docs/ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | Disable KMS Key
 *ExoscaleApi* | [**disableKmsKeyRotation**](sdk/docs/ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | Disable Key Rotation
+*ExoscaleApi* | [**disconnectKeyStore**](sdk/docs/ExoscaleApi.md#disconnectKeyStore) | **POST** /key-store/{id}/disconnect | Disconnect Key Store
 *ExoscaleApi* | [**enableDbaasMysqlWrites**](sdk/docs/ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage
 *ExoscaleApi* | [**enableKmsKey**](sdk/docs/ExoscaleApi.md#enableKmsKey) | **POST** /kms-key/{id}/enable | Enable KMS Key
 *ExoscaleApi* | [**enableKmsKeyRotation**](sdk/docs/ExoscaleApi.md#enableKmsKeyRotation) | **POST** /kms-key/{id}/enable-key-rotation | Enable Key Rotation
@@ -279,6 +283,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getInstance**](sdk/docs/ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details
 *ExoscaleApi* | [**getInstancePool**](sdk/docs/ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details
 *ExoscaleApi* | [**getInstanceType**](sdk/docs/ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details
+*ExoscaleApi* | [**getKeyStore**](sdk/docs/ExoscaleApi.md#getKeyStore) | **GET** /key-store/{id} | Get Key Store
 *ExoscaleApi* | [**getKmsKey**](sdk/docs/ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | Get KMS Key
 *ExoscaleApi* | [**getLiveBalance**](sdk/docs/ExoscaleApi.md#getLiveBalance) | **GET** /live-balance | [BETA] Retrieve the live-balance
 *ExoscaleApi* | [**getLoadBalancer**](sdk/docs/ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details
@@ -330,6 +335,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listInstancePools**](sdk/docs/ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools
 *ExoscaleApi* | [**listInstanceTypes**](sdk/docs/ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types
 *ExoscaleApi* | [**listInstances**](sdk/docs/ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances
+*ExoscaleApi* | [**listKeyStores**](sdk/docs/ExoscaleApi.md#listKeyStores) | **GET** /key-store | List Key Stores
 *ExoscaleApi* | [**listKmsKeyRotations**](sdk/docs/ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | List KMS Key Rotations
 *ExoscaleApi* | [**listKmsKeys**](sdk/docs/ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | List KMS Keys
 *ExoscaleApi* | [**listLoadBalancers**](sdk/docs/ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers
@@ -442,6 +448,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateIamRolePolicy**](sdk/docs/ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy
 *ExoscaleApi* | [**updateInstance**](sdk/docs/ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance
 *ExoscaleApi* | [**updateInstancePool**](sdk/docs/ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool
+*ExoscaleApi* | [**updateKeyStore**](sdk/docs/ExoscaleApi.md#updateKeyStore) | **POST** /key-store/{id}/update | Update Key Store
 *ExoscaleApi* | [**updateLoadBalancer**](sdk/docs/ExoscaleApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer
 *ExoscaleApi* | [**updateLoadBalancerService**](sdk/docs/ExoscaleApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service
 *ExoscaleApi* | [**updatePrivateNetwork**](sdk/docs/ExoscaleApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network
@@ -528,6 +535,7 @@ Class | Method | HTTP request | Description
  - [CreateInstanceRequest](sdk/docs/CreateInstanceRequest.md)
  - [CreateInstanceRequestVpc](sdk/docs/CreateInstanceRequestVpc.md)
  - [CreateInstanceRequestVpcSubnetsInner](sdk/docs/CreateInstanceRequestVpcSubnetsInner.md)
+ - [CreateKeyStoreRequest](sdk/docs/CreateKeyStoreRequest.md)
  - [CreateKmsKeyRequest](sdk/docs/CreateKmsKeyRequest.md)
  - [CreateKmsKeyResponse](sdk/docs/CreateKmsKeyResponse.md)
  - [CreateLoadBalancerRequest](sdk/docs/CreateLoadBalancerRequest.md)
@@ -759,9 +767,9 @@ Class | Method | HTTP request | Description
  - [GetImpactEstimate200Response](sdk/docs/GetImpactEstimate200Response.md)
  - [GetImpactEstimateRequest](sdk/docs/GetImpactEstimateRequest.md)
  - [GetInferenceEngineHelpResponse](sdk/docs/GetInferenceEngineHelpResponse.md)
+ - [GetKeyStoreResponse](sdk/docs/GetKeyStoreResponse.md)
  - [GetKmsKeyResponse](sdk/docs/GetKmsKeyResponse.md)
  - [GetModelResponse](sdk/docs/GetModelResponse.md)
- - [GetOrganizationUsageResponse](sdk/docs/GetOrganizationUsageResponse.md)
  - [GetSksClusterAuthorityCert200Response](sdk/docs/GetSksClusterAuthorityCert200Response.md)
  - [GetSosPresignedUrl200Response](sdk/docs/GetSosPresignedUrl200Response.md)
  - [GetUsageReport200Response](sdk/docs/GetUsageReport200Response.md)
@@ -819,6 +827,11 @@ Class | Method | HTTP request | Description
  - [JsonSchemaValkey](sdk/docs/JsonSchemaValkey.md)
  - [KeyMaterial](sdk/docs/KeyMaterial.md)
  - [KeyRotationConfig](sdk/docs/KeyRotationConfig.md)
+ - [KeyStoreHealth](sdk/docs/KeyStoreHealth.md)
+ - [KeyStoreProxy](sdk/docs/KeyStoreProxy.md)
+ - [KeyStoreProxyAuth](sdk/docs/KeyStoreProxyAuth.md)
+ - [KeyStoreProxyAuthResponse](sdk/docs/KeyStoreProxyAuthResponse.md)
+ - [KeyStoreProxyResponse](sdk/docs/KeyStoreProxyResponse.md)
  - [KubeletImageGc](sdk/docs/KubeletImageGc.md)
  - [ListAiApiKeysResponse](sdk/docs/ListAiApiKeysResponse.md)
  - [ListAiApiKeysResponseEntry](sdk/docs/ListAiApiKeysResponseEntry.md)
@@ -849,6 +862,8 @@ Class | Method | HTTP request | Description
  - [ListInstances200Response](sdk/docs/ListInstances200Response.md)
  - [ListInstances200ResponseInstancesInner](sdk/docs/ListInstances200ResponseInstancesInner.md)
  - [ListInstances200ResponseInstancesInnerPrivateNetworksInner](sdk/docs/ListInstances200ResponseInstancesInnerPrivateNetworksInner.md)
+ - [ListKeyStoresResponse](sdk/docs/ListKeyStoresResponse.md)
+ - [ListKeyStoresResponseEntry](sdk/docs/ListKeyStoresResponseEntry.md)
  - [ListKmsKeyRotationsResponse](sdk/docs/ListKmsKeyRotationsResponse.md)
  - [ListKmsKeyRotationsResponseEntry](sdk/docs/ListKmsKeyRotationsResponseEntry.md)
  - [ListKmsKeysResponse](sdk/docs/ListKmsKeysResponse.md)
@@ -1007,6 +1022,8 @@ Class | Method | HTTP request | Description
  - [UpdateIamRoleRequest](sdk/docs/UpdateIamRoleRequest.md)
  - [UpdateInstancePoolRequest](sdk/docs/UpdateInstancePoolRequest.md)
  - [UpdateInstanceRequest](sdk/docs/UpdateInstanceRequest.md)
+ - [UpdateKeyStoreProxy](sdk/docs/UpdateKeyStoreProxy.md)
+ - [UpdateKeyStoreRequest](sdk/docs/UpdateKeyStoreRequest.md)
  - [UpdateLoadBalancerRequest](sdk/docs/UpdateLoadBalancerRequest.md)
  - [UpdateLoadBalancerServiceRequest](sdk/docs/UpdateLoadBalancerServiceRequest.md)
  - [UpdatePrivateNetworkInstanceIpRequest](sdk/docs/UpdatePrivateNetworkInstanceIpRequest.md)

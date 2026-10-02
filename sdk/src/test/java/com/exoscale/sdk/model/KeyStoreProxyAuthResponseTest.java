@@ -24,25 +24,25 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for GetOrganizationUsageResponse
+ * Model tests for KeyStoreProxyAuthResponse
  */
-public class GetOrganizationUsageResponseTest {
-    private final GetOrganizationUsageResponse model = new GetOrganizationUsageResponse();
+public class KeyStoreProxyAuthResponseTest {
+    private final KeyStoreProxyAuthResponse model = new KeyStoreProxyAuthResponse();
 
     /**
-     * Model tests for GetOrganizationUsageResponse
+     * Model tests for KeyStoreProxyAuthResponse
      */
     @Test
-    public void testGetOrganizationUsageResponse() {
-        // TODO: test GetOrganizationUsageResponse
+    public void testKeyStoreProxyAuthResponse() {
+        // TODO: test KeyStoreProxyAuthResponse
     }
 
     /**
-     * Test the property 'gpu'
+     * Test the property 'key'
      */
     @Test
-    public void gpuTest() {
-        // TODO: test gpu
+    public void keyTest() {
+        // TODO: test key
     }
 
 }

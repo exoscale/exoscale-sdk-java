@@ -33,48 +33,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ReplicaState
  */
 @JsonPropertyOrder({
-  ReplicaState.JSON_PROPERTY_ZONE,
   ReplicaState.JSON_PROPERTY_LAST_APPLIED_WATERMARK,
-  ReplicaState.JSON_PROPERTY_LAST_FAILURE
+  ReplicaState.JSON_PROPERTY_LAST_FAILURE,
+  ReplicaState.JSON_PROPERTY_ZONE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ReplicaState {
-  public static final String JSON_PROPERTY_ZONE = "zone";
-  private String zone;
-
   public static final String JSON_PROPERTY_LAST_APPLIED_WATERMARK = "last-applied-watermark";
   private Integer lastAppliedWatermark;
 
   public static final String JSON_PROPERTY_LAST_FAILURE = "last-failure";
   private ReplicaFailure lastFailure;
 
+  public static final String JSON_PROPERTY_ZONE = "zone";
+  private String zone;
+
   public ReplicaState() { 
   }
-
-  public ReplicaState zone(String zone) {
-    this.zone = zone;
-    return this;
-  }
-
-   /**
-   * The destination target zone tracking this specific replica instance.
-   * @return zone
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ZONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getZone() {
-    return zone;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ZONE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setZone(String zone) {
-    this.zone = zone;
-  }
-
 
   public ReplicaState lastAppliedWatermark(Integer lastAppliedWatermark) {
     this.lastAppliedWatermark = lastAppliedWatermark;
@@ -126,6 +101,31 @@ public class ReplicaState {
   }
 
 
+  public ReplicaState zone(String zone) {
+    this.zone = zone;
+    return this;
+  }
+
+   /**
+   * The destination target zone tracking this specific replica instance.
+   * @return zone
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ZONE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getZone() {
+    return zone;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ZONE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setZone(String zone) {
+    this.zone = zone;
+  }
+
+
   /**
    * Return true if this replica-state object is equal to o.
    */
@@ -138,23 +138,23 @@ public class ReplicaState {
       return false;
     }
     ReplicaState replicaState = (ReplicaState) o;
-    return Objects.equals(this.zone, replicaState.zone) &&
-        Objects.equals(this.lastAppliedWatermark, replicaState.lastAppliedWatermark) &&
-        Objects.equals(this.lastFailure, replicaState.lastFailure);
+    return Objects.equals(this.lastAppliedWatermark, replicaState.lastAppliedWatermark) &&
+        Objects.equals(this.lastFailure, replicaState.lastFailure) &&
+        Objects.equals(this.zone, replicaState.zone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(zone, lastAppliedWatermark, lastFailure);
+    return Objects.hash(lastAppliedWatermark, lastFailure, zone);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReplicaState {\n");
-    sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("    lastAppliedWatermark: ").append(toIndentedString(lastAppliedWatermark)).append("\n");
     sb.append("    lastFailure: ").append(toIndentedString(lastFailure)).append("\n");
+    sb.append("    zone: ").append(toIndentedString(zone)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -202,11 +202,6 @@ public class ReplicaState {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `zone` to the URL query string
-    if (getZone() != null) {
-      joiner.add(String.format("%szone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getZone()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `last-applied-watermark` to the URL query string
     if (getLastAppliedWatermark() != null) {
       joiner.add(String.format("%slast-applied-watermark%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLastAppliedWatermark()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -215,6 +210,11 @@ public class ReplicaState {
     // add `last-failure` to the URL query string
     if (getLastFailure() != null) {
       joiner.add(getLastFailure().toUrlQueryString(prefix + "last-failure" + suffix));
+    }
+
+    // add `zone` to the URL query string
+    if (getZone() != null) {
+      joiner.add(String.format("%szone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getZone()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -26,6 +26,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -44,10 +48,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateLoadBalancerServiceRequest {
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   /**
    * Network traffic protocol
@@ -80,12 +84,12 @@ public class UpdateLoadBalancerServiceRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_PROTOCOL = "protocol";
-  private ProtocolEnum protocol;
+  private JsonNullable<ProtocolEnum> protocol = JsonNullable.<ProtocolEnum>undefined();
 
   /**
    * Load balancing strategy
@@ -120,18 +124,18 @@ public class UpdateLoadBalancerServiceRequest {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return null;
     }
   }
 
   public static final String JSON_PROPERTY_STRATEGY = "strategy";
-  private StrategyEnum strategy;
+  private JsonNullable<StrategyEnum> strategy = JsonNullable.<StrategyEnum>undefined();
 
   public static final String JSON_PROPERTY_PORT = "port";
-  private Long port;
+  private JsonNullable<Long> port = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_TARGET_PORT = "target-port";
-  private Long targetPort;
+  private JsonNullable<Long> targetPort = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HEALTHCHECK = "healthcheck";
   private LoadBalancerServiceHealthcheck healthcheck;
@@ -140,7 +144,7 @@ public class UpdateLoadBalancerServiceRequest {
   }
 
   public UpdateLoadBalancerServiceRequest name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -149,23 +153,31 @@ public class UpdateLoadBalancerServiceRequest {
    * @return name
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getName() {
-    return name;
+        return name.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
 
   public UpdateLoadBalancerServiceRequest description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -174,23 +186,31 @@ public class UpdateLoadBalancerServiceRequest {
    * @return description
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getDescription() {
-    return description;
+        return description.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+
+  public JsonNullable<String> getDescription_JsonNullable() {
+    return description;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
 
   public UpdateLoadBalancerServiceRequest protocol(ProtocolEnum protocol) {
-    this.protocol = protocol;
+    this.protocol = JsonNullable.<ProtocolEnum>of(protocol);
     return this;
   }
 
@@ -199,23 +219,31 @@ public class UpdateLoadBalancerServiceRequest {
    * @return protocol
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROTOCOL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public ProtocolEnum getProtocol() {
-    return protocol;
+        return protocol.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PROTOCOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProtocol(ProtocolEnum protocol) {
+
+  public JsonNullable<ProtocolEnum> getProtocol_JsonNullable() {
+    return protocol;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PROTOCOL)
+  public void setProtocol_JsonNullable(JsonNullable<ProtocolEnum> protocol) {
     this.protocol = protocol;
+  }
+
+  public void setProtocol(ProtocolEnum protocol) {
+    this.protocol = JsonNullable.<ProtocolEnum>of(protocol);
   }
 
 
   public UpdateLoadBalancerServiceRequest strategy(StrategyEnum strategy) {
-    this.strategy = strategy;
+    this.strategy = JsonNullable.<StrategyEnum>of(strategy);
     return this;
   }
 
@@ -224,23 +252,31 @@ public class UpdateLoadBalancerServiceRequest {
    * @return strategy
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STRATEGY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public StrategyEnum getStrategy() {
-    return strategy;
+        return strategy.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStrategy(StrategyEnum strategy) {
+
+  public JsonNullable<StrategyEnum> getStrategy_JsonNullable() {
+    return strategy;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  public void setStrategy_JsonNullable(JsonNullable<StrategyEnum> strategy) {
     this.strategy = strategy;
+  }
+
+  public void setStrategy(StrategyEnum strategy) {
+    this.strategy = JsonNullable.<StrategyEnum>of(strategy);
   }
 
 
   public UpdateLoadBalancerServiceRequest port(Long port) {
-    this.port = port;
+    this.port = JsonNullable.<Long>of(port);
     return this;
   }
 
@@ -251,23 +287,31 @@ public class UpdateLoadBalancerServiceRequest {
    * @return port
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getPort() {
-    return port;
+        return port.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPort(Long port) {
+
+  public JsonNullable<Long> getPort_JsonNullable() {
+    return port;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PORT)
+  public void setPort_JsonNullable(JsonNullable<Long> port) {
     this.port = port;
+  }
+
+  public void setPort(Long port) {
+    this.port = JsonNullable.<Long>of(port);
   }
 
 
   public UpdateLoadBalancerServiceRequest targetPort(Long targetPort) {
-    this.targetPort = targetPort;
+    this.targetPort = JsonNullable.<Long>of(targetPort);
     return this;
   }
 
@@ -278,18 +322,26 @@ public class UpdateLoadBalancerServiceRequest {
    * @return targetPort
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET_PORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public Long getTargetPort() {
-    return targetPort;
+        return targetPort.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_TARGET_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetPort(Long targetPort) {
+
+  public JsonNullable<Long> getTargetPort_JsonNullable() {
+    return targetPort;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_TARGET_PORT)
+  public void setTargetPort_JsonNullable(JsonNullable<Long> targetPort) {
     this.targetPort = targetPort;
+  }
+
+  public void setTargetPort(Long targetPort) {
+    this.targetPort = JsonNullable.<Long>of(targetPort);
   }
 
 
@@ -330,18 +382,29 @@ public class UpdateLoadBalancerServiceRequest {
       return false;
     }
     UpdateLoadBalancerServiceRequest updateLoadBalancerServiceRequest = (UpdateLoadBalancerServiceRequest) o;
-    return Objects.equals(this.name, updateLoadBalancerServiceRequest.name) &&
-        Objects.equals(this.description, updateLoadBalancerServiceRequest.description) &&
-        Objects.equals(this.protocol, updateLoadBalancerServiceRequest.protocol) &&
-        Objects.equals(this.strategy, updateLoadBalancerServiceRequest.strategy) &&
-        Objects.equals(this.port, updateLoadBalancerServiceRequest.port) &&
-        Objects.equals(this.targetPort, updateLoadBalancerServiceRequest.targetPort) &&
+    return equalsNullable(this.name, updateLoadBalancerServiceRequest.name) &&
+        equalsNullable(this.description, updateLoadBalancerServiceRequest.description) &&
+        equalsNullable(this.protocol, updateLoadBalancerServiceRequest.protocol) &&
+        equalsNullable(this.strategy, updateLoadBalancerServiceRequest.strategy) &&
+        equalsNullable(this.port, updateLoadBalancerServiceRequest.port) &&
+        equalsNullable(this.targetPort, updateLoadBalancerServiceRequest.targetPort) &&
         Objects.equals(this.healthcheck, updateLoadBalancerServiceRequest.healthcheck);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, protocol, strategy, port, targetPort, healthcheck);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(protocol), hashCodeNullable(strategy), hashCodeNullable(port), hashCodeNullable(targetPort), healthcheck);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

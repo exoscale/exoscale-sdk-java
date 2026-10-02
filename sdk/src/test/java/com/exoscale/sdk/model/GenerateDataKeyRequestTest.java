@@ -42,14 +42,6 @@ public class GenerateDataKeyRequestTest {
     }
 
     /**
-     * Test the property 'keySpec'
-     */
-    @Test
-    public void keySpecTest() {
-        // TODO: test keySpec
-    }
-
-    /**
      * Test the property 'bytesCount'
      */
     @Test
@@ -63,6 +55,14 @@ public class GenerateDataKeyRequestTest {
     @Test
     public void encryptionContextTest() {
         // TODO: test encryptionContext
+    }
+
+    /**
+     * Test the property 'keySpec'
+     */
+    @Test
+    public void keySpecTest() {
+        // TODO: test keySpec
     }
 
 }

@@ -44,6 +44,8 @@ public enum ZoneName {
   
   AT_VIE_2("at-vie-2"),
   
+  ES_MAD_1("es-mad-1"),
+  
   HR_ZAG_1("hr-zag-1");
 
   private String value;

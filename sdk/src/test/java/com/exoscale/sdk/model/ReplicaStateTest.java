@@ -39,14 +39,6 @@ public class ReplicaStateTest {
     }
 
     /**
-     * Test the property 'zone'
-     */
-    @Test
-    public void zoneTest() {
-        // TODO: test zone
-    }
-
-    /**
      * Test the property 'lastAppliedWatermark'
      */
     @Test
@@ -60,6 +52,14 @@ public class ReplicaStateTest {
     @Test
     public void lastFailureTest() {
         // TODO: test lastFailure
+    }
+
+    /**
+     * Test the property 'zone'
+     */
+    @Test
+    public void zoneTest() {
+        // TODO: test zone
     }
 
 }

@@ -34,44 +34,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ReEncryptRequest
  */
 @JsonPropertyOrder({
-  ReEncryptRequest.JSON_PROPERTY_SOURCE,
-  ReEncryptRequest.JSON_PROPERTY_DESTINATION
+  ReEncryptRequest.JSON_PROPERTY_DESTINATION,
+  ReEncryptRequest.JSON_PROPERTY_SOURCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ReEncryptRequest {
-  public static final String JSON_PROPERTY_SOURCE = "source";
-  private ReEncryptRequestSource source;
-
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private ReEncryptRequestDestination destination;
 
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private ReEncryptRequestSource source;
+
   public ReEncryptRequest() { 
   }
-
-  public ReEncryptRequest source(ReEncryptRequestSource source) {
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * Get source
-   * @return source
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public ReEncryptRequestSource getSource() {
-    return source;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSource(ReEncryptRequestSource source) {
-    this.source = source;
-  }
-
 
   public ReEncryptRequest destination(ReEncryptRequestDestination destination) {
     this.destination = destination;
@@ -98,6 +73,31 @@ public class ReEncryptRequest {
   }
 
 
+  public ReEncryptRequest source(ReEncryptRequestSource source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Get source
+   * @return source
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public ReEncryptRequestSource getSource() {
+    return source;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSource(ReEncryptRequestSource source) {
+    this.source = source;
+  }
+
+
   /**
    * Return true if this re-encrypt-request object is equal to o.
    */
@@ -110,21 +110,21 @@ public class ReEncryptRequest {
       return false;
     }
     ReEncryptRequest reEncryptRequest = (ReEncryptRequest) o;
-    return Objects.equals(this.source, reEncryptRequest.source) &&
-        Objects.equals(this.destination, reEncryptRequest.destination);
+    return Objects.equals(this.destination, reEncryptRequest.destination) &&
+        Objects.equals(this.source, reEncryptRequest.source);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, destination);
+    return Objects.hash(destination, source);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReEncryptRequest {\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -172,14 +172,14 @@ public class ReEncryptRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `source` to the URL query string
-    if (getSource() != null) {
-      joiner.add(getSource().toUrlQueryString(prefix + "source" + suffix));
-    }
-
     // add `destination` to the URL query string
     if (getDestination() != null) {
       joiner.add(getDestination().toUrlQueryString(prefix + "destination" + suffix));
+    }
+
+    // add `source` to the URL query string
+    if (getSource() != null) {
+      joiner.add(getSource().toUrlQueryString(prefix + "source" + suffix));
     }
 
     return joiner.toString();

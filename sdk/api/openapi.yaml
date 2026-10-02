@@ -23,6 +23,7 @@ servers:
       - at-vie-2
       - bg-sof-1
       - hr-zag-1
+      - es-mad-1
 tags:
 - description: IAM roles lets you define logical sets of policies to grant to users
     and API keys.
@@ -41,6 +42,10 @@ tags:
   x-display-name: DBaaS Mysql
   x-weight: 420
   x-icon: exo-db-mysql
+- description: "[BETA] Operations for KMS External Key Store management."
+  name: key-store
+  x-display-name: External Key Store
+  x-weight: 1135
 - description: API keys for accessing inference deployments.
   externalDocs:
     description: Read more
@@ -945,6 +950,42 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /key-store/{id}/disconnect:
+    post:
+      description: Disconnects an External Key Store and suspends periodic proxy health
+        checks.
+      operationId: disconnect-key-store
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success-response'
+          description: Disconnected the External Key Store
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            ### Errors
+
+            Not Found: The request was rejected because no key store with the given id exists in the organization.
+
+            Bad Request: The request was rejected because of an invalid path parameter.
+      summary: Disconnect Key Store
+      tags:
+      - exoscale
+      x-accepts: application/json
   /usage-report:
     get:
       description: Returns aggregated usage reports for an organization
@@ -1086,8 +1127,6 @@ paths:
                 $ref: '#/components/schemas/error-response'
           description: |
             ### Errors
-
-            Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin "exoscale-kms".
 
             Key Not Found: The request was rejected because the specified KMS Key could not be found.
 
@@ -3069,6 +3108,51 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /key-store/{id}/update:
+    post:
+      description: "Updates an External Key Store with a new description, endpoint,\
+        \ or credentials."
+      operationId: update-key-store
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update-key-store-request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get-key-store-response'
+          description: Updated the External Key Store
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            ### Errors
+
+            Not Found: The request was rejected because no key store with the given id exists in the organization.
+
+            Bad Request: The request was rejected because of an invalid path parameter.
+
+            Conflict: The request was rejected because the key store was concurrently modified. Retry with the latest state.
+      summary: Update Key Store
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-postgres/{service-name}/user:
     post:
       operationId: create-dbaas-postgres-user
@@ -3790,8 +3874,6 @@ paths:
           description: |
             ### Errors
 
-            Invalid Origin: The request was rejected because automatic key rotation can only be enabled on a KMS key with origin "exoscale-kms".
-
             Key Not Found: The request was rejected because the specified KMS Key could not be found.
 
             Not on Default: The request was rejected because the operation is not allowed on the default key.
@@ -4356,6 +4438,67 @@ paths:
       summary: List Instance Types
       tags:
       - exoscale
+      x-accepts: application/json
+  /key-store:
+    get:
+      description: Lists all key stores configured for an organization.
+      operationId: list-key-stores
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-key-stores-response'
+          description: A list of all key stores configured for the organization
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            ### Errors
+
+            Bad Request: The request was rejected because of an invalid path parameter.
+      summary: List Key Stores
+      tags:
+      - exoscale
+      x-accepts: application/json
+    post:
+      description: Create an External Key Store after validating the configured customer-managed
+        XKS proxy.
+      operationId: create-key-store
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-key-store-request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-key-stores-response-entry'
+          description: Created new External Key Store
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            ### Errors
+
+            Name Conflict: The request was rejected because a key store with the same name already exists in the organization.
+
+            Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.
+
+            Bad Request: The request was rejected because of an invalid request body, path parameter, proxy endpoint, or proxy credentials.
+      summary: Create Key Store
+      tags:
+      - exoscale
+      x-content-type: application/json
       x-accepts: application/json
   /load-balancer/{id}/{field}:
     delete:
@@ -5089,6 +5232,44 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /key-store/{id}/connect:
+    post:
+      description: "Connects an External Key Store after validating the configured\
+        \ customer-managed XKS proxy, and resumes periodic proxy health checks."
+      operationId: connect-key-store
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success-response'
+          description: Connected the External Key Store
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            ### Errors
+
+            Not Found: The request was rejected because no key store with the given id exists in the organization.
+
+            Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.
+
+            Bad Request: The request was rejected because of an invalid path parameter.
+      summary: Connect Key Store
+      tags:
+      - exoscale
+      x-accepts: application/json
   /dbaas-settings-thanos:
     get:
       description: Get DBaaS Thanos settings
@@ -5526,6 +5707,73 @@ paths:
                 $ref: '#/components/schemas/list_snapshots_200_response'
           description: "200"
       summary: List Snapshots
+      tags:
+      - exoscale
+      x-accepts: application/json
+  /key-store/{id}:
+    delete:
+      description: Deletes an External Key Store when no KMS keys reference it.
+      operationId: delete-key-store
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success-response'
+          description: Deleted the External Key Store
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            ### Errors
+
+            Not Found: The request was rejected because no key store with the given id exists in the organization.
+
+            Key Store Is Referenced: The request was rejected because one or more KMS keys reference the key store.
+
+            Bad Request: The request was rejected because of an invalid path parameter.
+      summary: Delete Key Store
+      tags:
+      - exoscale
+      x-accepts: application/json
+    get:
+      description: Fetch an External Key Store including its latest XKS health observation
+        when available.
+      operationId: get-key-store
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get-key-store-response'
+          description: External Key Store
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: Bad Request or not found.
+      summary: Get Key Store
       tags:
       - exoscale
       x-accepts: application/json
@@ -11397,6 +11645,36 @@ components:
       maximum: 10000
       minimum: 1
       type: integer
+    key-store-health:
+      example:
+        error-detail: error-detail
+        metadata-json: metadata-json
+        status-reason: status-reason
+        checked-at: 2000-01-23T04:56:07.000+00:00
+        status: healthy
+      properties:
+        checked-at:
+          description: Timestamp of the latest completed health check.
+          format: date-time
+          type: string
+        error-detail:
+          description: Normalized error detail for unhealthy observations.
+          type: string
+        metadata-json:
+          description: Base64-encoded raw successful AWS GetHealthStatus JSON metadata.
+          format: byte
+          type: string
+        status:
+          description: Latest normalized XKS proxy health status.
+          enum:
+          - healthy
+          - unhealthy
+          - unknown
+          type: string
+        status-reason:
+          description: Normalized reason for the latest status.
+          type: string
+      type: object
     json-schema-clickhouse:
       example:
         tiered_storage_move_factor: 0.2
@@ -11499,10 +11777,6 @@ components:
       type: object
     generate-data-key-request:
       properties:
-        key-spec:
-          enum:
-          - AES-256
-          type: string
         bytes-count:
           maximum: 1024
           minimum: 1
@@ -11512,6 +11786,10 @@ components:
             parameters securely to operational scope.
           format: byte
           nullable: true
+          type: string
+        key-spec:
+          enum:
+          - AES-256
           type: string
       type: object
     recompute-bundle-response:
@@ -13776,6 +14054,20 @@ components:
         b300.269gb:
           $ref: '#/components/schemas/nvidia-mig-profile-b300.269gb'
       type: object
+    key-store-proxy-response:
+      example:
+        endpoint: endpoint
+        auth:
+          key: key
+      properties:
+        auth:
+          $ref: '#/components/schemas/key-store-proxy-auth-response'
+        endpoint:
+          description: Public URL used to route communication to the customer-managed
+            XKS proxy.
+          format: uri-reference
+          type: string
+      type: object
     dbaas-external-integration:
       description: Integrations with other services
       example:
@@ -15184,6 +15476,32 @@ components:
       - plan
       - prometheus-uri
       - type
+      type: object
+    create-key-store-request:
+      properties:
+        description:
+          description: An optional detailed description providing additional context
+            about the key store's intended use case.
+          maxLength: 1024
+          type: string
+        name:
+          description: A human-readable display name uniquely identifying the key
+            store within the organization.
+          maxLength: 256
+          minLength: 1
+          type: string
+        proxy:
+          $ref: '#/components/schemas/key-store-proxy'
+        type:
+          default: external-key-store
+          description: The key store type. Only external key stores are supported
+            for this API version.
+          enum:
+          - external-key-store
+          type: string
+      required:
+      - name
+      - proxy
       type: object
     dbaas-service-kafka:
       example:
@@ -16694,14 +17012,14 @@ components:
         ciphertext: ciphertext
         plaintext: plaintext
       properties:
-        plaintext:
-          description: The Base64-encoded raw symmetric data key payload. Expose only
-            securely during active application setups.
-          format: byte
-          type: string
         ciphertext:
           description: "The identical symmetric data key, returned safely wrapped/encrypted\
             \ using the designated root parent KMS key."
+          format: byte
+          type: string
+        plaintext:
+          description: The Base64-encoded raw symmetric data key payload. Expose only
+            securely during active application setups.
           format: byte
           type: string
       required:
@@ -17075,26 +17393,26 @@ components:
       description: RFC 9457 Problem Details error response
       example:
         detail: detail
-        type: type
         title: title
-        status: 173
+        type: type
+        status: 139
       properties:
-        type:
-          description: An absolute or relative URI reference pointing to human-readable
-            documentation concerning the specific problem type encountered.
-          format: uri-reference
-          type: string
-        title:
-          description: "A brief summary defining the class of failure, optimal for\
-            \ quick user interface groupings."
+        detail:
+          description: "A highly contextual, readable explanation breaking down explicitly\
+            \ what triggered this error scenario."
           type: string
         status:
           maximum: 599
           minimum: 100
           type: integer
-        detail:
-          description: "A highly contextual, readable explanation breaking down explicitly\
-            \ what triggered this error scenario."
+        title:
+          description: "A brief summary defining the class of failure, optimal for\
+            \ quick user interface groupings."
+          type: string
+        type:
+          description: An absolute or relative URI reference pointing to human-readable
+            documentation concerning the specific problem type encountered.
+          format: uri-reference
           type: string
       required:
       - detail
@@ -17428,23 +17746,23 @@ components:
         next-at: 2000-01-23T04:56:07.000+00:00
         manual-count: 0
       properties:
-        manual-count:
-          description: Total running tally of manual key rotation tasks executed by
-            users over this key resource's lifecycle.
-          type: integer
         automatic:
           description: "When set to true, dictates that the system automatically rotates\
             \ material periodically."
           type: boolean
-        rotation-period:
-          description: The set frequency period (measured in days) for triggers monitoring
-            auto-rotation loops.
+        manual-count:
+          description: Total running tally of manual key rotation tasks executed by
+            users over this key resource's lifecycle.
           type: integer
         next-at:
           description: Scheduled deadline calculation pinpointing the next automated
             rotational iteration target date.
           format: date-time
           type: string
+        rotation-period:
+          description: The set frequency period (measured in days) for triggers monitoring
+            auto-rotation loops.
+          type: integer
       required:
       - automatic
       - manual-count
@@ -18539,16 +18857,16 @@ components:
           failed-at: 2000-01-23T04:56:07.000+00:00
         last-applied-watermark: 6
       properties:
-        zone:
-          description: The destination target zone tracking this specific replica
-            instance.
-          type: string
         last-applied-watermark:
           description: The latest logical sequence number or state watermark successfully
             synced to this regional replica.
           type: integer
         last-failure:
           $ref: '#/components/schemas/replica-failure'
+        zone:
+          description: The destination target zone tracking this specific replica
+            instance.
+          type: string
       required:
       - last-applied-watermark
       - zone
@@ -18618,6 +18936,32 @@ components:
             $ref: '#/components/schemas/dbaas_migration_status_details_inner'
           type: array
       type: object
+    get-key-store-response:
+      allOf:
+      - $ref: '#/components/schemas/list-key-stores-response-entry'
+      - properties:
+          health:
+            $ref: '#/components/schemas/key-store-health'
+        type: object
+      example:
+        proxy:
+          endpoint: endpoint
+          auth:
+            key: key
+        status-since: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        health:
+          error-detail: error-detail
+          metadata-json: metadata-json
+          status-reason: status-reason
+          checked-at: 2000-01-23T04:56:07.000+00:00
+          status: healthy
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: external-key-store
+        status: connected
+      type: object
     re-encrypt-response:
       example:
         ciphertext: ciphertext
@@ -18632,15 +18976,15 @@ components:
       type: object
     decrypt-request:
       properties:
+        ciphertext:
+          description: The Base64-encoded ciphertext payload to be decrypted.
+          format: byte
+          type: string
         encryption-context:
           description: The exact Base64-encoded Additional Authenticated Data (AAD)
             used during encryption to verify data integrity.
           format: byte
           nullable: true
-          type: string
-        ciphertext:
-          description: The Base64-encoded ciphertext payload to be decrypted.
-          format: byte
           type: string
       required:
       - ciphertext
@@ -19314,23 +19658,23 @@ components:
       type: string
     create-kms-key-request:
       properties:
-        name:
-          description: A human-readable display name uniquely identifying the KMS
-            key within the tenant space.
-          type: string
         description:
           description: An optional detailed description providing additional context
             about the key's intended use case.
+          type: string
+        multi-zone:
+          default: false
+          description: True if this is a multi-zone key.
+          type: boolean
+        name:
+          description: A human-readable display name uniquely identifying the KMS
+            key within the tenant space.
           type: string
         usage:
           default: encrypt-decrypt
           enum:
           - encrypt-decrypt
           type: string
-        multi-zone:
-          default: false
-          description: True if this is a multi-zone key.
-          type: boolean
       required:
       - name
       type: object
@@ -20377,7 +20721,7 @@ components:
           type: array
       type: object
     organization-usage:
-      description: Organization GPU usage
+      description: Organization usage
       properties:
         gpu3:
           description: GPU3 count
@@ -20394,8 +20738,8 @@ components:
           format: int64
           minimum: 0
           type: integer
-        gpu:
-          description: Total GPU count (sum of all GPU types)
+        ai-api-key:
+          description: Count of active AI API keys
           format: int64
           minimum: 0
           type: integer
@@ -20409,8 +20753,6 @@ components:
           format: int64
           minimum: 0
           type: integer
-      required:
-      - gpu
       type: object
     block-storage-volume-ref:
       description: Target block storage volume
@@ -21437,6 +21779,54 @@ components:
       - readwrite
       - write
       type: string
+    list-key-stores-response-entry:
+      example:
+        proxy:
+          endpoint: endpoint
+          auth:
+            key: key
+        status-since: 2000-01-23T04:56:07.000+00:00
+        name: name
+        description: description
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: external-key-store
+        status: connected
+      properties:
+        created-at:
+          description: The creation timestamp.
+          format: date-time
+          type: string
+        description:
+          description: An optional detailed description providing additional context
+            about the key store's intended use case.
+          type: string
+        id:
+          description: The globally unique identifier assigned to the key store.
+          format: uuid
+          type: string
+        name:
+          description: The display name assigned to the key store.
+          type: string
+        proxy:
+          $ref: '#/components/schemas/key-store-proxy-response'
+        status:
+          description: The current connection status of the key store.
+          enum:
+          - connected
+          - disconnected
+          type: string
+        status-since:
+          description: The timestamp indicating when the current key store status
+            last transitioned.
+          format: date-time
+          type: string
+        type:
+          description: The key store type.
+          enum:
+          - external-key-store
+          type: string
+      type: object
     security-group:
       description: Security Group
       example:
@@ -21739,6 +22129,7 @@ components:
       - de-fra-1
       - bg-sof-1
       - at-vie-2
+      - es-mad-1
       - hr-zag-1
       type: string
     dbaas-endpoint-datadog-settings:
@@ -22269,6 +22660,17 @@ components:
       - revoked-at
       - updated-at
       type: object
+    update-key-store-proxy:
+      description: New customer-managed XKS proxy settings.
+      properties:
+        auth:
+          $ref: '#/components/schemas/key-store-proxy-auth'
+        endpoint:
+          description: New public URL used to route communication to the customer-managed
+            XKS proxy.
+          format: uri-reference
+          type: string
+      type: object
     manager:
       description: Resource manager
       example:
@@ -22352,6 +22754,16 @@ components:
           format: uuid
           type: string
       type: object
+    update-key-store-request:
+      properties:
+        description:
+          description: A new detailed description providing additional context about
+            the key store's intended use case.
+          maxLength: 1024
+          type: string
+        proxy:
+          $ref: '#/components/schemas/update-key-store-proxy'
+      type: object
     list-deployments-response:
       description: AI deployment list
       example:
@@ -22403,19 +22815,19 @@ components:
         created-at: 2000-01-23T04:56:07.000+00:00
         version: 5
       properties:
-        version:
-          description: The incremental index tracing internal key rotation cycles
-            for the key material.
-          type: integer
+        automatic:
+          description: Flag stating whether an automation run handled this historic
+            mutation or if manual actor keys initiated it.
+          type: boolean
         created-at:
           description: The UTC date-time indicating when this particular generation
             of physical cryptographic material was seeded.
           format: date-time
           type: string
-        automatic:
-          description: Flag stating whether an automation run handled this historic
-            mutation or if manual actor keys initiated it.
-          type: boolean
+        version:
+          description: The incremental index tracing internal key rotation cycles
+            for the key material.
+          type: integer
       required:
       - automatic
       - created-at
@@ -22808,6 +23220,27 @@ components:
         type: string
       type: array
       uniqueItems: true
+    key-store-proxy-auth:
+      properties:
+        key:
+          description: Access key used to sign requests sent to the XKS proxy.
+          type: string
+        secret:
+          description: Secret key used to sign requests sent to the XKS proxy. This
+            value is never returned by the API.
+          type: string
+      required:
+      - key
+      - secret
+      type: object
+    key-store-proxy-auth-response:
+      example:
+        key: key
+      properties:
+        key:
+          description: Access key used to sign requests sent to the XKS proxy.
+          type: string
+      type: object
     dbaas-clickhouse-acl-config:
       example:
         users:
@@ -22871,19 +23304,19 @@ components:
         automatic: true
         version: 0
       properties:
-        version:
-          description: The absolute increment index referencing this specific historical
-            structural material setup.
-          type: integer
+        automatic:
+          description: Flag stating whether an automation run handled this historic
+            mutation or if manual actor keys initiated it.
+          type: boolean
         rotated-at:
           description: The UTC timestamp tracking precisely when this historical adjustment
             pass finished processing.
           format: date-time
           type: string
-        automatic:
-          description: Flag stating whether an automation run handled this historic
-            mutation or if manual actor keys initiated it.
-          type: boolean
+        version:
+          description: The absolute increment index referencing this specific historical
+            structural material setup.
+          type: integer
       required:
       - automatic
       - rotated-at
@@ -22987,18 +23420,6 @@ components:
         settings:
           $ref: '#/components/schemas/dbaas_endpoint_opensearch_input_create_settings'
       type: object
-    get-organization-usage-response:
-      description: GPU usage for an organization
-      properties:
-        gpu:
-          description: Total GPU count
-          format: int64
-          minimum: 0
-          readOnly: true
-          type: integer
-      required:
-      - gpu
-      type: object
     nvidia-mig-profile-a30.24gb:
       enum:
       - 1g.6gb
@@ -23013,6 +23434,38 @@ components:
       - 2G12Gb
       - 2G12GbMe
       - 4G24Gb
+    list-key-stores-response:
+      example:
+        key-stores:
+        - proxy:
+            endpoint: endpoint
+            auth:
+              key: key
+          status-since: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: external-key-store
+          status: connected
+        - proxy:
+            endpoint: endpoint
+            auth:
+              key: key
+          status-since: 2000-01-23T04:56:07.000+00:00
+          name: name
+          description: description
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: external-key-store
+          status: connected
+      properties:
+        key-stores:
+          description: The key stores configured for the organization.
+          items:
+            $ref: '#/components/schemas/list-key-stores-response-entry'
+          type: array
+      type: object
     get-kms-key-response:
       example:
         replicas:
@@ -24692,10 +25145,10 @@ components:
       type: object
     re-encrypt-request:
       properties:
-        source:
-          $ref: '#/components/schemas/re_encrypt_request_source'
         destination:
           $ref: '#/components/schemas/re_encrypt_request_destination'
+        source:
+          $ref: '#/components/schemas/re_encrypt_request_source'
       required:
       - destination
       - source
@@ -24832,6 +25285,19 @@ components:
       - models
       - name
       - updated-at
+      type: object
+    key-store-proxy:
+      properties:
+        auth:
+          $ref: '#/components/schemas/key-store-proxy-auth'
+        endpoint:
+          description: Public URL used to route communication to the customer-managed
+            XKS proxy.
+          format: uri-reference
+          type: string
+      required:
+      - auth
+      - endpoint
       type: object
     dbaas-user-thanos-secrets:
       description: Thanos User secrets
@@ -24996,16 +25462,19 @@ components:
         name:
           description: Load Balancer Service name
           maxLength: 255
+          nullable: true
           type: string
         description:
           description: Load Balancer Service description
           maxLength: 255
+          nullable: true
           type: string
         protocol:
           description: Network traffic protocol
           enum:
           - tcp
           - udp
+          nullable: true
           type: string
         strategy:
           description: Load balancing strategy
@@ -25013,6 +25482,7 @@ components:
           - round-robin
           - maglev-hash
           - source-hash
+          nullable: true
           type: string
         port:
           description: Port exposed on the Load Balancer's public IP
@@ -25021,6 +25491,7 @@ components:
           format: int64
           maximum: 65535
           minimum: 1
+          nullable: true
           type: integer
         target-port:
           description: Port on which the network traffic will be forwarded to on the
@@ -25030,6 +25501,7 @@ components:
           format: int64
           maximum: 65535
           minimum: 1
+          nullable: true
           type: integer
         healthcheck:
           $ref: '#/components/schemas/load-balancer-service-healthcheck'
@@ -30012,10 +30484,12 @@ components:
           description: Load Balancer name
           maxLength: 255
           minLength: 1
+          nullable: true
           type: string
         description:
           description: Load Balancer description
           maxLength: 255
+          nullable: true
           type: string
         labels:
           additionalProperties:
@@ -34922,11 +35396,28 @@ components:
           type: boolean
       title: ML Commons settings
       type: object
+    re_encrypt_request_destination:
+      properties:
+        encryption-context:
+          description: Optional new Base64-encoded encryption context to apply under
+            the target destination envelope.
+          format: byte
+          nullable: true
+          type: string
+        key:
+          description: The ID of the target key chosen to encapsulate the newly shifted
+            data translation.
+          format: uuid
+          type: string
+      required:
+      - key
+      type: object
     re_encrypt_request_source:
       properties:
-        key:
-          description: The ID of the source key currently protecting the data payload.
-          format: uuid
+        ciphertext:
+          description: The Base64-encoded encrypted payload package ready to undergo
+            source-side key decryption.
+          format: byte
           type: string
         encryption-context:
           description: Optional Base64-encoded encryption context originally appended
@@ -34934,29 +35425,12 @@ components:
           format: byte
           nullable: true
           type: string
-        ciphertext:
-          description: The Base64-encoded encrypted payload package ready to undergo
-            source-side key decryption.
-          format: byte
+        key:
+          description: The ID of the source key currently protecting the data payload.
+          format: uuid
           type: string
       required:
       - ciphertext
-      - key
-      type: object
-    re_encrypt_request_destination:
-      properties:
-        key:
-          description: The ID of the target key chosen to encapsulate the newly shifted
-            data translation.
-          format: uuid
-          type: string
-        encryption-context:
-          description: Optional new Base64-encoded encryption context to apply under
-            the target destination envelope.
-          format: byte
-          nullable: true
-          type: string
-      required:
       - key
       type: object
 x-topics:

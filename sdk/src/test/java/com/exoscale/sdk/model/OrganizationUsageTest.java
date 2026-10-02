@@ -62,11 +62,11 @@ public class OrganizationUsageTest {
     }
 
     /**
-     * Test the property 'gpu'
+     * Test the property 'aiApiKey'
      */
     @Test
-    public void gpuTest() {
-        // TODO: test gpu
+    public void aiApiKeyTest() {
+        // TODO: test aiApiKey
     }
 
     /**
