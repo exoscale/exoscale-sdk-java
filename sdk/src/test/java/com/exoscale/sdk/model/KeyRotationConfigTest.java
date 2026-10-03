@@ -39,14 +39,6 @@ public class KeyRotationConfigTest {
     }
 
     /**
-     * Test the property 'automatic'
-     */
-    @Test
-    public void automaticTest() {
-        // TODO: test automatic
-    }
-
-    /**
      * Test the property 'manualCount'
      */
     @Test
@@ -55,11 +47,11 @@ public class KeyRotationConfigTest {
     }
 
     /**
-     * Test the property 'nextAt'
+     * Test the property 'automatic'
      */
     @Test
-    public void nextAtTest() {
-        // TODO: test nextAt
+    public void automaticTest() {
+        // TODO: test automatic
     }
 
     /**
@@ -68,6 +60,14 @@ public class KeyRotationConfigTest {
     @Test
     public void rotationPeriodTest() {
         // TODO: test rotationPeriod
+    }
+
+    /**
+     * Test the property 'nextAt'
+     */
+    @Test
+    public void nextAtTest() {
+        // TODO: test nextAt
     }
 
 }

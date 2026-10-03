@@ -41,22 +41,6 @@ public class ListKeyStoresResponseEntryTest {
     }
 
     /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
-
-    /**
      * Test the property 'id'
      */
     @Test
@@ -73,11 +57,19 @@ public class ListKeyStoresResponseEntryTest {
     }
 
     /**
-     * Test the property 'proxy'
+     * Test the property 'description'
      */
     @Test
-    public void proxyTest() {
-        // TODO: test proxy
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
@@ -89,19 +81,27 @@ public class ListKeyStoresResponseEntryTest {
     }
 
     /**
+     * Test the property 'proxy'
+     */
+    @Test
+    public void proxyTest() {
+        // TODO: test proxy
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
+    }
+
+    /**
      * Test the property 'statusSince'
      */
     @Test
     public void statusSinceTest() {
         // TODO: test statusSince
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
     }
 
 }

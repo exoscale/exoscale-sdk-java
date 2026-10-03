@@ -35,31 +35,61 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ListKeyStoresResponseEntry
  */
 @JsonPropertyOrder({
-  ListKeyStoresResponseEntry.JSON_PROPERTY_CREATED_AT,
-  ListKeyStoresResponseEntry.JSON_PROPERTY_DESCRIPTION,
   ListKeyStoresResponseEntry.JSON_PROPERTY_ID,
   ListKeyStoresResponseEntry.JSON_PROPERTY_NAME,
-  ListKeyStoresResponseEntry.JSON_PROPERTY_PROXY,
+  ListKeyStoresResponseEntry.JSON_PROPERTY_DESCRIPTION,
+  ListKeyStoresResponseEntry.JSON_PROPERTY_TYPE,
   ListKeyStoresResponseEntry.JSON_PROPERTY_STATUS,
-  ListKeyStoresResponseEntry.JSON_PROPERTY_STATUS_SINCE,
-  ListKeyStoresResponseEntry.JSON_PROPERTY_TYPE
+  ListKeyStoresResponseEntry.JSON_PROPERTY_PROXY,
+  ListKeyStoresResponseEntry.JSON_PROPERTY_CREATED_AT,
+  ListKeyStoresResponseEntry.JSON_PROPERTY_STATUS_SINCE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListKeyStoresResponseEntry {
-  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_PROXY = "proxy";
-  private KeyStoreProxyResponse proxy;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
+  /**
+   * The key store type.
+   */
+  public enum TypeEnum {
+    EXTERNAL_KEY_STORE("external-key-store");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
 
   /**
    * The current connection status of the key store.
@@ -99,97 +129,17 @@ public class ListKeyStoresResponseEntry {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
+  public static final String JSON_PROPERTY_PROXY = "proxy";
+  private KeyStoreProxyResponse proxy;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
+  private OffsetDateTime createdAt;
+
   public static final String JSON_PROPERTY_STATUS_SINCE = "status-since";
   private OffsetDateTime statusSince;
 
-  /**
-   * The key store type.
-   */
-  public enum TypeEnum {
-    EXTERNAL_KEY_STORE("external-key-store");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
-
   public ListKeyStoresResponseEntry() { 
   }
-
-  public ListKeyStoresResponseEntry createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * The creation timestamp.
-   * @return createdAt
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public ListKeyStoresResponseEntry description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * An optional detailed description providing additional context about the key store&#39;s intended use case.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
 
   public ListKeyStoresResponseEntry id(UUID id) {
     this.id = id;
@@ -241,78 +191,28 @@ public class ListKeyStoresResponseEntry {
   }
 
 
-  public ListKeyStoresResponseEntry proxy(KeyStoreProxyResponse proxy) {
-    this.proxy = proxy;
+  public ListKeyStoresResponseEntry description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get proxy
-   * @return proxy
+   * An optional detailed description providing additional context about the key store&#39;s intended use case.
+   * @return description
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public KeyStoreProxyResponse getProxy() {
-    return proxy;
+  public String getDescription() {
+    return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProxy(KeyStoreProxyResponse proxy) {
-    this.proxy = proxy;
-  }
-
-
-  public ListKeyStoresResponseEntry status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * The current connection status of the key store.
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
-
-  public ListKeyStoresResponseEntry statusSince(OffsetDateTime statusSince) {
-    this.statusSince = statusSince;
-    return this;
-  }
-
-   /**
-   * The timestamp indicating when the current key store status last transitioned.
-   * @return statusSince
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getStatusSince() {
-    return statusSince;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatusSince(OffsetDateTime statusSince) {
-    this.statusSince = statusSince;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -341,6 +241,106 @@ public class ListKeyStoresResponseEntry {
   }
 
 
+  public ListKeyStoresResponseEntry status(StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * The current connection status of the key store.
+   * @return status
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatus(StatusEnum status) {
+    this.status = status;
+  }
+
+
+  public ListKeyStoresResponseEntry proxy(KeyStoreProxyResponse proxy) {
+    this.proxy = proxy;
+    return this;
+  }
+
+   /**
+   * Get proxy
+   * @return proxy
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public KeyStoreProxyResponse getProxy() {
+    return proxy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProxy(KeyStoreProxyResponse proxy) {
+    this.proxy = proxy;
+  }
+
+
+  public ListKeyStoresResponseEntry createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The creation timestamp.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public ListKeyStoresResponseEntry statusSince(OffsetDateTime statusSince) {
+    this.statusSince = statusSince;
+    return this;
+  }
+
+   /**
+   * The timestamp indicating when the current key store status last transitioned.
+   * @return statusSince
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getStatusSince() {
+    return statusSince;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATUS_SINCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStatusSince(OffsetDateTime statusSince) {
+    this.statusSince = statusSince;
+  }
+
+
   /**
    * Return true if this list-key-stores-response-entry object is equal to o.
    */
@@ -353,33 +353,33 @@ public class ListKeyStoresResponseEntry {
       return false;
     }
     ListKeyStoresResponseEntry listKeyStoresResponseEntry = (ListKeyStoresResponseEntry) o;
-    return Objects.equals(this.createdAt, listKeyStoresResponseEntry.createdAt) &&
-        Objects.equals(this.description, listKeyStoresResponseEntry.description) &&
-        Objects.equals(this.id, listKeyStoresResponseEntry.id) &&
+    return Objects.equals(this.id, listKeyStoresResponseEntry.id) &&
         Objects.equals(this.name, listKeyStoresResponseEntry.name) &&
-        Objects.equals(this.proxy, listKeyStoresResponseEntry.proxy) &&
+        Objects.equals(this.description, listKeyStoresResponseEntry.description) &&
+        Objects.equals(this.type, listKeyStoresResponseEntry.type) &&
         Objects.equals(this.status, listKeyStoresResponseEntry.status) &&
-        Objects.equals(this.statusSince, listKeyStoresResponseEntry.statusSince) &&
-        Objects.equals(this.type, listKeyStoresResponseEntry.type);
+        Objects.equals(this.proxy, listKeyStoresResponseEntry.proxy) &&
+        Objects.equals(this.createdAt, listKeyStoresResponseEntry.createdAt) &&
+        Objects.equals(this.statusSince, listKeyStoresResponseEntry.statusSince);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, description, id, name, proxy, status, statusSince, type);
+    return Objects.hash(id, name, description, type, status, proxy, createdAt, statusSince);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListKeyStoresResponseEntry {\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    statusSince: ").append(toIndentedString(statusSince)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    statusSince: ").append(toIndentedString(statusSince)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -427,16 +427,6 @@ public class ListKeyStoresResponseEntry {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `created-at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -447,9 +437,14 @@ public class ListKeyStoresResponseEntry {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `proxy` to the URL query string
-    if (getProxy() != null) {
-      joiner.add(getProxy().toUrlQueryString(prefix + "proxy" + suffix));
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
@@ -457,14 +452,19 @@ public class ListKeyStoresResponseEntry {
       joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `proxy` to the URL query string
+    if (getProxy() != null) {
+      joiner.add(getProxy().toUrlQueryString(prefix + "proxy" + suffix));
+    }
+
+    // add `created-at` to the URL query string
+    if (getCreatedAt() != null) {
+      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `status-since` to the URL query string
     if (getStatusSince() != null) {
       joiner.add(String.format("%sstatus-since%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -39,30 +39,6 @@ public class KeyStoreHealthTest {
     }
 
     /**
-     * Test the property 'checkedAt'
-     */
-    @Test
-    public void checkedAtTest() {
-        // TODO: test checkedAt
-    }
-
-    /**
-     * Test the property 'errorDetail'
-     */
-    @Test
-    public void errorDetailTest() {
-        // TODO: test errorDetail
-    }
-
-    /**
-     * Test the property 'metadataJson'
-     */
-    @Test
-    public void metadataJsonTest() {
-        // TODO: test metadataJson
-    }
-
-    /**
      * Test the property 'status'
      */
     @Test
@@ -76,6 +52,30 @@ public class KeyStoreHealthTest {
     @Test
     public void statusReasonTest() {
         // TODO: test statusReason
+    }
+
+    /**
+     * Test the property 'checkedAt'
+     */
+    @Test
+    public void checkedAtTest() {
+        // TODO: test checkedAt
+    }
+
+    /**
+     * Test the property 'metadataJson'
+     */
+    @Test
+    public void metadataJsonTest() {
+        // TODO: test metadataJson
+    }
+
+    /**
+     * Test the property 'errorDetail'
+     */
+    @Test
+    public void errorDetailTest() {
+        // TODO: test errorDetail
     }
 
 }

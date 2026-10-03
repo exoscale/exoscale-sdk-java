@@ -37,19 +37,44 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ReEncryptRequestDestination
  */
 @JsonPropertyOrder({
-  ReEncryptRequestDestination.JSON_PROPERTY_ENCRYPTION_CONTEXT,
-  ReEncryptRequestDestination.JSON_PROPERTY_KEY
+  ReEncryptRequestDestination.JSON_PROPERTY_KEY,
+  ReEncryptRequestDestination.JSON_PROPERTY_ENCRYPTION_CONTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ReEncryptRequestDestination {
-  public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
-  private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
-
   public static final String JSON_PROPERTY_KEY = "key";
   private UUID key;
 
+  public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
+  private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
+
   public ReEncryptRequestDestination() { 
   }
+
+  public ReEncryptRequestDestination key(UUID key) {
+    this.key = key;
+    return this;
+  }
+
+   /**
+   * The ID of the target key chosen to encapsulate the newly shifted data translation.
+   * @return key
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UUID getKey() {
+    return key;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setKey(UUID key) {
+    this.key = key;
+  }
+
 
   public ReEncryptRequestDestination encryptionContext(byte[] encryptionContext) {
     this.encryptionContext = JsonNullable.<byte[]>of(encryptionContext);
@@ -84,31 +109,6 @@ public class ReEncryptRequestDestination {
   }
 
 
-  public ReEncryptRequestDestination key(UUID key) {
-    this.key = key;
-    return this;
-  }
-
-   /**
-   * The ID of the target key chosen to encapsulate the newly shifted data translation.
-   * @return key
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UUID getKey() {
-    return key;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setKey(UUID key) {
-    this.key = key;
-  }
-
-
   /**
    * Return true if this re_encrypt_request_destination object is equal to o.
    */
@@ -121,8 +121,8 @@ public class ReEncryptRequestDestination {
       return false;
     }
     ReEncryptRequestDestination reEncryptRequestDestination = (ReEncryptRequestDestination) o;
-    return equalsNullable(this.encryptionContext, reEncryptRequestDestination.encryptionContext) &&
-        Objects.equals(this.key, reEncryptRequestDestination.key);
+    return Objects.equals(this.key, reEncryptRequestDestination.key) &&
+        equalsNullable(this.encryptionContext, reEncryptRequestDestination.encryptionContext);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -131,7 +131,7 @@ public class ReEncryptRequestDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(encryptionContext), key);
+    return Objects.hash(key, hashCodeNullable(encryptionContext));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -145,8 +145,8 @@ public class ReEncryptRequestDestination {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReEncryptRequestDestination {\n");
-    sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -194,14 +194,14 @@ public class ReEncryptRequestDestination {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `encryption-context` to the URL query string
-    if (getEncryptionContext() != null) {
-      joiner.add(String.format("%sencryption-context%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `key` to the URL query string
     if (getKey() != null) {
       joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `encryption-context` to the URL query string
+    if (getEncryptionContext() != null) {
+      joiner.add(String.format("%sencryption-context%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -42,19 +42,19 @@ public class DecryptRequestTest {
     }
 
     /**
-     * Test the property 'ciphertext'
-     */
-    @Test
-    public void ciphertextTest() {
-        // TODO: test ciphertext
-    }
-
-    /**
      * Test the property 'encryptionContext'
      */
     @Test
     public void encryptionContextTest() {
         // TODO: test encryptionContext
+    }
+
+    /**
+     * Test the property 'ciphertext'
+     */
+    @Test
+    public void ciphertextTest() {
+        // TODO: test ciphertext
     }
 
 }

@@ -23,6 +23,7 @@ import com.exoscale.sdk.model.KeyMaterial;
 import com.exoscale.sdk.model.KeyRotationConfig;
 import com.exoscale.sdk.model.ReplicaState;
 import com.exoscale.sdk.model.RevisionStamp;
+import com.exoscale.sdk.model.XksKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -41,12 +42,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   GetKmsKeyResponse.JSON_PROPERTY_DESCRIPTION,
+  GetKmsKeyResponse.JSON_PROPERTY_XKS,
   GetKmsKeyResponse.JSON_PROPERTY_ROTATION,
   GetKmsKeyResponse.JSON_PROPERTY_REVISION,
   GetKmsKeyResponse.JSON_PROPERTY_DELETE_AT,
   GetKmsKeyResponse.JSON_PROPERTY_NAME,
   GetKmsKeyResponse.JSON_PROPERTY_MULTI_ZONE,
   GetKmsKeyResponse.JSON_PROPERTY_SOURCE,
+  GetKmsKeyResponse.JSON_PROPERTY_KEY_SPEC,
   GetKmsKeyResponse.JSON_PROPERTY_USAGE,
   GetKmsKeyResponse.JSON_PROPERTY_REPLICAS_STATUS,
   GetKmsKeyResponse.JSON_PROPERTY_STATUS,
@@ -61,6 +64,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class GetKmsKeyResponse {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_XKS = "xks";
+  private XksKey xks;
 
   public static final String JSON_PROPERTY_ROTATION = "rotation";
   private KeyRotationConfig rotation;
@@ -78,10 +84,12 @@ public class GetKmsKeyResponse {
   private Boolean multiZone;
 
   /**
-   * Gets or Sets source
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
    */
   public enum SourceEnum {
-    EXOSCALE_KMS("exoscale-kms");
+    EXOSCALE_KMS("exoscale-kms"),
+    
+    EXTERNAL_KEY_STORE("external-key-store");
 
     private String value;
 
@@ -112,6 +120,9 @@ public class GetKmsKeyResponse {
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private SourceEnum source;
+
+  public static final String JSON_PROPERTY_KEY_SPEC = "key-spec";
+  private String keySpec;
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private String usage;
@@ -202,6 +213,31 @@ public class GetKmsKeyResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public GetKmsKeyResponse xks(XksKey xks) {
+    this.xks = xks;
+    return this;
+  }
+
+   /**
+   * Get xks
+   * @return xks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_XKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public XksKey getXks() {
+    return xks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_XKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setXks(XksKey xks) {
+    this.xks = xks;
   }
 
 
@@ -336,7 +372,7 @@ public class GetKmsKeyResponse {
   }
 
    /**
-   * Get source
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
    * @return source
   **/
   @javax.annotation.Nonnull
@@ -352,6 +388,31 @@ public class GetKmsKeyResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSource(SourceEnum source) {
     this.source = source;
+  }
+
+
+  public GetKmsKeyResponse keySpec(String keySpec) {
+    this.keySpec = keySpec;
+    return this;
+  }
+
+   /**
+   * The cryptographic key specification used to generate the key, defining its algorithm and, for asymmetric keys, its curve or modulus size.
+   * @return keySpec
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getKeySpec() {
+    return keySpec;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setKeySpec(String keySpec) {
+    this.keySpec = keySpec;
   }
 
 
@@ -609,12 +670,14 @@ public class GetKmsKeyResponse {
     }
     GetKmsKeyResponse getKmsKeyResponse = (GetKmsKeyResponse) o;
     return Objects.equals(this.description, getKmsKeyResponse.description) &&
+        Objects.equals(this.xks, getKmsKeyResponse.xks) &&
         Objects.equals(this.rotation, getKmsKeyResponse.rotation) &&
         Objects.equals(this.revision, getKmsKeyResponse.revision) &&
         Objects.equals(this.deleteAt, getKmsKeyResponse.deleteAt) &&
         Objects.equals(this.name, getKmsKeyResponse.name) &&
         Objects.equals(this.multiZone, getKmsKeyResponse.multiZone) &&
         Objects.equals(this.source, getKmsKeyResponse.source) &&
+        Objects.equals(this.keySpec, getKmsKeyResponse.keySpec) &&
         Objects.equals(this.usage, getKmsKeyResponse.usage) &&
         Objects.equals(this.replicasStatus, getKmsKeyResponse.replicasStatus) &&
         Objects.equals(this.status, getKmsKeyResponse.status) &&
@@ -628,7 +691,7 @@ public class GetKmsKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, rotation, revision, deleteAt, name, multiZone, source, usage, replicasStatus, status, statusSince, id, replicas, material, originZone, createdAt);
+    return Objects.hash(description, xks, rotation, revision, deleteAt, name, multiZone, source, keySpec, usage, replicasStatus, status, statusSince, id, replicas, material, originZone, createdAt);
   }
 
   @Override
@@ -636,12 +699,14 @@ public class GetKmsKeyResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetKmsKeyResponse {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    xks: ").append(toIndentedString(xks)).append("\n");
     sb.append("    rotation: ").append(toIndentedString(rotation)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    deleteAt: ").append(toIndentedString(deleteAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    keySpec: ").append(toIndentedString(keySpec)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    replicasStatus: ").append(toIndentedString(replicasStatus)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -703,6 +768,11 @@ public class GetKmsKeyResponse {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `xks` to the URL query string
+    if (getXks() != null) {
+      joiner.add(getXks().toUrlQueryString(prefix + "xks" + suffix));
+    }
+
     // add `rotation` to the URL query string
     if (getRotation() != null) {
       joiner.add(getRotation().toUrlQueryString(prefix + "rotation" + suffix));
@@ -731,6 +801,11 @@ public class GetKmsKeyResponse {
     // add `source` to the URL query string
     if (getSource() != null) {
       joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `key-spec` to the URL query string
+    if (getKeySpec() != null) {
+      joiner.add(String.format("%skey-spec%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKeySpec()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `usage` to the URL query string

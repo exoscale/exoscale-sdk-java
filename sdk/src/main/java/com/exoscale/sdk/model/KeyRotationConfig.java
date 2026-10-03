@@ -33,52 +33,27 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * KeyRotationConfig
  */
 @JsonPropertyOrder({
-  KeyRotationConfig.JSON_PROPERTY_AUTOMATIC,
   KeyRotationConfig.JSON_PROPERTY_MANUAL_COUNT,
-  KeyRotationConfig.JSON_PROPERTY_NEXT_AT,
-  KeyRotationConfig.JSON_PROPERTY_ROTATION_PERIOD
+  KeyRotationConfig.JSON_PROPERTY_AUTOMATIC,
+  KeyRotationConfig.JSON_PROPERTY_ROTATION_PERIOD,
+  KeyRotationConfig.JSON_PROPERTY_NEXT_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class KeyRotationConfig {
-  public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
-  private Boolean automatic;
-
   public static final String JSON_PROPERTY_MANUAL_COUNT = "manual-count";
   private Integer manualCount;
 
-  public static final String JSON_PROPERTY_NEXT_AT = "next-at";
-  private OffsetDateTime nextAt;
+  public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
+  private Boolean automatic;
 
   public static final String JSON_PROPERTY_ROTATION_PERIOD = "rotation-period";
   private Integer rotationPeriod;
 
+  public static final String JSON_PROPERTY_NEXT_AT = "next-at";
+  private OffsetDateTime nextAt;
+
   public KeyRotationConfig() { 
   }
-
-  public KeyRotationConfig automatic(Boolean automatic) {
-    this.automatic = automatic;
-    return this;
-  }
-
-   /**
-   * When set to true, dictates that the system automatically rotates material periodically.
-   * @return automatic
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getAutomatic() {
-    return automatic;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatic(Boolean automatic) {
-    this.automatic = automatic;
-  }
-
 
   public KeyRotationConfig manualCount(Integer manualCount) {
     this.manualCount = manualCount;
@@ -105,28 +80,28 @@ public class KeyRotationConfig {
   }
 
 
-  public KeyRotationConfig nextAt(OffsetDateTime nextAt) {
-    this.nextAt = nextAt;
+  public KeyRotationConfig automatic(Boolean automatic) {
+    this.automatic = automatic;
     return this;
   }
 
    /**
-   * Scheduled deadline calculation pinpointing the next automated rotational iteration target date.
-   * @return nextAt
+   * When set to true, dictates that the system automatically rotates material periodically.
+   * @return automatic
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NEXT_AT)
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public OffsetDateTime getNextAt() {
-    return nextAt;
+  public Boolean getAutomatic() {
+    return automatic;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NEXT_AT)
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNextAt(OffsetDateTime nextAt) {
-    this.nextAt = nextAt;
+  public void setAutomatic(Boolean automatic) {
+    this.automatic = automatic;
   }
 
 
@@ -155,6 +130,31 @@ public class KeyRotationConfig {
   }
 
 
+  public KeyRotationConfig nextAt(OffsetDateTime nextAt) {
+    this.nextAt = nextAt;
+    return this;
+  }
+
+   /**
+   * Scheduled deadline calculation pinpointing the next automated rotational iteration target date.
+   * @return nextAt
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_NEXT_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public OffsetDateTime getNextAt() {
+    return nextAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NEXT_AT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setNextAt(OffsetDateTime nextAt) {
+    this.nextAt = nextAt;
+  }
+
+
   /**
    * Return true if this key-rotation-config object is equal to o.
    */
@@ -167,25 +167,25 @@ public class KeyRotationConfig {
       return false;
     }
     KeyRotationConfig keyRotationConfig = (KeyRotationConfig) o;
-    return Objects.equals(this.automatic, keyRotationConfig.automatic) &&
-        Objects.equals(this.manualCount, keyRotationConfig.manualCount) &&
-        Objects.equals(this.nextAt, keyRotationConfig.nextAt) &&
-        Objects.equals(this.rotationPeriod, keyRotationConfig.rotationPeriod);
+    return Objects.equals(this.manualCount, keyRotationConfig.manualCount) &&
+        Objects.equals(this.automatic, keyRotationConfig.automatic) &&
+        Objects.equals(this.rotationPeriod, keyRotationConfig.rotationPeriod) &&
+        Objects.equals(this.nextAt, keyRotationConfig.nextAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(automatic, manualCount, nextAt, rotationPeriod);
+    return Objects.hash(manualCount, automatic, rotationPeriod, nextAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyRotationConfig {\n");
-    sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
     sb.append("    manualCount: ").append(toIndentedString(manualCount)).append("\n");
-    sb.append("    nextAt: ").append(toIndentedString(nextAt)).append("\n");
+    sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
     sb.append("    rotationPeriod: ").append(toIndentedString(rotationPeriod)).append("\n");
+    sb.append("    nextAt: ").append(toIndentedString(nextAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -233,24 +233,24 @@ public class KeyRotationConfig {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `automatic` to the URL query string
-    if (getAutomatic() != null) {
-      joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `manual-count` to the URL query string
     if (getManualCount() != null) {
       joiner.add(String.format("%smanual-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getManualCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `next-at` to the URL query string
-    if (getNextAt() != null) {
-      joiner.add(String.format("%snext-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `automatic` to the URL query string
+    if (getAutomatic() != null) {
+      joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `rotation-period` to the URL query string
     if (getRotationPeriod() != null) {
       joiner.add(String.format("%srotation-period%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRotationPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `next-at` to the URL query string
+    if (getNextAt() != null) {
+      joiner.add(String.format("%snext-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

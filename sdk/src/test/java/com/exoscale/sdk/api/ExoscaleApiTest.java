@@ -168,6 +168,7 @@ import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
 import com.exoscale.sdk.model.GetKeyStoreResponse;
 import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
+import com.exoscale.sdk.model.GetPublicKeyResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -258,6 +259,8 @@ import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
+import com.exoscale.sdk.model.SignRequest;
+import com.exoscale.sdk.model.SignResponse;
 import com.exoscale.sdk.model.SksCluster;
 import com.exoscale.sdk.model.SksClusterDeprecatedResource;
 import com.exoscale.sdk.model.SksKubeconfigRequest;
@@ -304,6 +307,8 @@ import com.exoscale.sdk.model.UpdateTemplateRequest;
 import com.exoscale.sdk.model.UpdateUserRoleRequest;
 import com.exoscale.sdk.model.UpdateVpcRequest;
 import com.exoscale.sdk.model.UpgradeSksClusterRequest;
+import com.exoscale.sdk.model.VerifyRequest;
+import com.exoscale.sdk.model.VerifyResponse;
 import com.exoscale.sdk.model.Vpc;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -540,9 +545,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Connect Key Store
+     * [BETA] Connect Key Store
      *
-     * Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+     * Connects an External Key Store once its customer-managed XKS proxy passes a health check, then resumes periodic proxy health checks and lets keys backed by this store be used for cryptographic operations.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1266,7 +1271,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Create Key Store
+     * [BETA] Create Key Store
      *
      * Create an External Key Store after validating the configured customer-managed XKS proxy.
      *
@@ -2168,7 +2173,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Delete Key Store
+     * [BETA] Delete Key Store
      *
      * Deletes an External Key Store when no KMS keys reference it.
      *
@@ -2622,9 +2627,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Disconnect Key Store
+     * [BETA] Disconnect Key Store
      *
-     * Disconnects an External Key Store and suspends periodic proxy health checks.
+     * Disconnects an External Key Store and suspends periodic proxy health checks; keys backed by this store remain intact but cannot be used for cryptographic operations until it is reconnected.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3817,7 +3822,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Get Key Store
+     * [BETA] Get Key Store
      *
      * Fetch an External Key Store including its latest XKS health observation when available.
      *
@@ -3964,6 +3969,23 @@ public class ExoscaleApiTest {
         UUID id = null;
         PrivateNetwork response = 
         api.getPrivateNetwork(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Get Public Key
+     *
+     * Retrieve the public key material of an asymmetric KMS key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getPublicKeyTest() throws ApiException {
+        UUID id = null;
+        GetPublicKeyResponse response = 
+        api.getPublicKey(id);
         
         // TODO: test validations
     }
@@ -4691,7 +4713,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * List Key Stores
+     * [BETA] List Key Stores
      *
      * Lists all key stores configured for an organization.
      *
@@ -5913,6 +5935,24 @@ public class ExoscaleApiTest {
     }
     
     /**
+     * Sign
+     *
+     * Signs a message or digest using a KMS key with usage &#x60;sign-verify&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void signTest() throws ApiException {
+        UUID id = null;
+        SignRequest signRequest = null;
+        SignResponse response = 
+        api.sign(id, signRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
      * Initiate ClickHouse maintenance update
      *
      * 
@@ -6678,7 +6718,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * Update Key Store
+     * [BETA] Update Key Store
      *
      * Updates an External Key Store with a new description, endpoint, or credentials.
      *
@@ -6945,6 +6985,24 @@ public class ExoscaleApiTest {
         UUID id = null;
         Operation response = 
         api.upgradeSksClusterServiceLevel(id);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Verify
+     *
+     * Verifies a signature against the public key of a KMS key with usage &#x60;sign-verify&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void verifyTest() throws ApiException {
+        UUID id = null;
+        VerifyRequest verifyRequest = null;
+        VerifyResponse response = 
+        api.verify(id, verifyRequest);
         
         // TODO: test validations
     }

@@ -307,6 +307,7 @@ docs/GetInferenceEngineHelpResponse.md
 docs/GetKeyStoreResponse.md
 docs/GetKmsKeyResponse.md
 docs/GetModelResponse.md
+docs/GetPublicKeyResponse.md
 docs/GetSksClusterAuthorityCert200Response.md
 docs/GetSosPresignedUrl200Response.md
 docs/GetUsageReport200Response.md
@@ -502,6 +503,8 @@ docs/SecurityGroupRuleIcmp.md
 docs/SegmentReplicationBackpressureSettings.md
 docs/SetOrgConsumptionQuotaRequest.md
 docs/ShardIndexingBackPressureSettings.md
+docs/SignRequest.md
+docs/SignResponse.md
 docs/SksAudit.md
 docs/SksAuditCreate.md
 docs/SksAuditUpdate.md
@@ -575,10 +578,14 @@ docs/UpdateUserRoleRequest.md
 docs/UpdateVpcRequest.md
 docs/UpgradeSksClusterRequest.md
 docs/User.md
+docs/VerifyRequest.md
+docs/VerifyResponse.md
 docs/Vpc.md
 docs/VpcDhcpOptions.md
 docs/WatermarkSettings.md
 docs/WriteAheadLogWALSettings.md
+docs/XksKey.md
+docs/XksProxyErrorDetail.md
 docs/Zone.md
 docs/ZoneImpact.md
 docs/ZoneName.md
@@ -900,6 +907,7 @@ src/main/java/com/exoscale/sdk/model/GetInferenceEngineHelpResponse.java
 src/main/java/com/exoscale/sdk/model/GetKeyStoreResponse.java
 src/main/java/com/exoscale/sdk/model/GetKmsKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GetModelResponse.java
+src/main/java/com/exoscale/sdk/model/GetPublicKeyResponse.java
 src/main/java/com/exoscale/sdk/model/GetSksClusterAuthorityCert200Response.java
 src/main/java/com/exoscale/sdk/model/GetSosPresignedUrl200Response.java
 src/main/java/com/exoscale/sdk/model/GetUsageReport200Response.java
@@ -1095,6 +1103,8 @@ src/main/java/com/exoscale/sdk/model/SecurityGroupRuleIcmp.java
 src/main/java/com/exoscale/sdk/model/SegmentReplicationBackpressureSettings.java
 src/main/java/com/exoscale/sdk/model/SetOrgConsumptionQuotaRequest.java
 src/main/java/com/exoscale/sdk/model/ShardIndexingBackPressureSettings.java
+src/main/java/com/exoscale/sdk/model/SignRequest.java
+src/main/java/com/exoscale/sdk/model/SignResponse.java
 src/main/java/com/exoscale/sdk/model/SksAudit.java
 src/main/java/com/exoscale/sdk/model/SksAuditCreate.java
 src/main/java/com/exoscale/sdk/model/SksAuditUpdate.java
@@ -1168,10 +1178,14 @@ src/main/java/com/exoscale/sdk/model/UpdateUserRoleRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateVpcRequest.java
 src/main/java/com/exoscale/sdk/model/UpgradeSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/User.java
+src/main/java/com/exoscale/sdk/model/VerifyRequest.java
+src/main/java/com/exoscale/sdk/model/VerifyResponse.java
 src/main/java/com/exoscale/sdk/model/Vpc.java
 src/main/java/com/exoscale/sdk/model/VpcDhcpOptions.java
 src/main/java/com/exoscale/sdk/model/WatermarkSettings.java
 src/main/java/com/exoscale/sdk/model/WriteAheadLogWALSettings.java
+src/main/java/com/exoscale/sdk/model/XksKey.java
+src/main/java/com/exoscale/sdk/model/XksProxyErrorDetail.java
 src/main/java/com/exoscale/sdk/model/Zone.java
 src/main/java/com/exoscale/sdk/model/ZoneImpact.java
 src/main/java/com/exoscale/sdk/model/ZoneName.java

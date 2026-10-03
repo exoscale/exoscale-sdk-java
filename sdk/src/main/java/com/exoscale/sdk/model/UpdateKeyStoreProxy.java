@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.net.URI;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -33,19 +34,44 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * New customer-managed XKS proxy settings.
  */
 @JsonPropertyOrder({
-  UpdateKeyStoreProxy.JSON_PROPERTY_AUTH,
-  UpdateKeyStoreProxy.JSON_PROPERTY_ENDPOINT
+  UpdateKeyStoreProxy.JSON_PROPERTY_ENDPOINT,
+  UpdateKeyStoreProxy.JSON_PROPERTY_AUTH
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateKeyStoreProxy {
+  public static final String JSON_PROPERTY_ENDPOINT = "endpoint";
+  private URI endpoint;
+
   public static final String JSON_PROPERTY_AUTH = "auth";
   private KeyStoreProxyAuth auth;
 
-  public static final String JSON_PROPERTY_ENDPOINT = "endpoint";
-  private String endpoint;
-
   public UpdateKeyStoreProxy() { 
   }
+
+  public UpdateKeyStoreProxy endpoint(URI endpoint) {
+    this.endpoint = endpoint;
+    return this;
+  }
+
+   /**
+   * New public URL used to route communication to the customer-managed XKS proxy.
+   * @return endpoint
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENDPOINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public URI getEndpoint() {
+    return endpoint;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENDPOINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEndpoint(URI endpoint) {
+    this.endpoint = endpoint;
+  }
+
 
   public UpdateKeyStoreProxy auth(KeyStoreProxyAuth auth) {
     this.auth = auth;
@@ -72,31 +98,6 @@ public class UpdateKeyStoreProxy {
   }
 
 
-  public UpdateKeyStoreProxy endpoint(String endpoint) {
-    this.endpoint = endpoint;
-    return this;
-  }
-
-   /**
-   * New public URL used to route communication to the customer-managed XKS proxy.
-   * @return endpoint
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENDPOINT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getEndpoint() {
-    return endpoint;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ENDPOINT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndpoint(String endpoint) {
-    this.endpoint = endpoint;
-  }
-
-
   /**
    * Return true if this update-key-store-proxy object is equal to o.
    */
@@ -109,21 +110,21 @@ public class UpdateKeyStoreProxy {
       return false;
     }
     UpdateKeyStoreProxy updateKeyStoreProxy = (UpdateKeyStoreProxy) o;
-    return Objects.equals(this.auth, updateKeyStoreProxy.auth) &&
-        Objects.equals(this.endpoint, updateKeyStoreProxy.endpoint);
+    return Objects.equals(this.endpoint, updateKeyStoreProxy.endpoint) &&
+        Objects.equals(this.auth, updateKeyStoreProxy.auth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, endpoint);
+    return Objects.hash(endpoint, auth);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateKeyStoreProxy {\n");
-    sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+    sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -171,14 +172,14 @@ public class UpdateKeyStoreProxy {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `auth` to the URL query string
-    if (getAuth() != null) {
-      joiner.add(getAuth().toUrlQueryString(prefix + "auth" + suffix));
-    }
-
     // add `endpoint` to the URL query string
     if (getEndpoint() != null) {
       joiner.add(String.format("%sendpoint%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEndpoint()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `auth` to the URL query string
+    if (getAuth() != null) {
+      joiner.add(getAuth().toUrlQueryString(prefix + "auth" + suffix));
     }
 
     return joiner.toString();

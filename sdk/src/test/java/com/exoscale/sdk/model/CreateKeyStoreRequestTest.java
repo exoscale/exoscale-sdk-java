@@ -39,14 +39,6 @@ public class CreateKeyStoreRequestTest {
     }
 
     /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
-
-    /**
      * Test the property 'name'
      */
     @Test
@@ -55,11 +47,11 @@ public class CreateKeyStoreRequestTest {
     }
 
     /**
-     * Test the property 'proxy'
+     * Test the property 'description'
      */
     @Test
-    public void proxyTest() {
-        // TODO: test proxy
+    public void descriptionTest() {
+        // TODO: test description
     }
 
     /**
@@ -68,6 +60,14 @@ public class CreateKeyStoreRequestTest {
     @Test
     public void typeTest() {
         // TODO: test type
+    }
+
+    /**
+     * Test the property 'proxy'
+     */
+    @Test
+    public void proxyTest() {
+        // TODO: test proxy
     }
 
 }

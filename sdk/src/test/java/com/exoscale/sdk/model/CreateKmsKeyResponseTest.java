@@ -13,7 +13,9 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.KeyRotationConfig;
 import com.exoscale.sdk.model.RevisionStamp;
+import com.exoscale.sdk.model.XksKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -49,6 +51,22 @@ public class CreateKmsKeyResponseTest {
     }
 
     /**
+     * Test the property 'xks'
+     */
+    @Test
+    public void xksTest() {
+        // TODO: test xks
+    }
+
+    /**
+     * Test the property 'rotation'
+     */
+    @Test
+    public void rotationTest() {
+        // TODO: test rotation
+    }
+
+    /**
      * Test the property 'revision'
      */
     @Test
@@ -78,6 +96,14 @@ public class CreateKmsKeyResponseTest {
     @Test
     public void sourceTest() {
         // TODO: test source
+    }
+
+    /**
+     * Test the property 'keySpec'
+     */
+    @Test
+    public void keySpecTest() {
+        // TODO: test keySpec
     }
 
     /**

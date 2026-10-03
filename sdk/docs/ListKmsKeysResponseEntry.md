@@ -8,12 +8,14 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**description** | **String** | An optional detailed description providing additional context about the key&#39;s intended use case. |  [optional] |
+|**xks** | [**XksKey**](XksKey.md) |  |  [optional] |
 |**rotation** | [**KeyRotationConfig**](KeyRotationConfig.md) |  |  |
 |**revision** | [**RevisionStamp**](RevisionStamp.md) |  |  |
 |**deleteAt** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** | The display name of the KMS key. |  |
 |**multiZone** | **Boolean** | True if this is a multi-zone key. |  |
-|**source** | [**SourceEnum**](#SourceEnum) |  |  |
+|**source** | [**SourceEnum**](#SourceEnum) | Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store. |  |
+|**keySpec** | **String** | The cryptographic key specification used to generate the key, defining its algorithm and, for asymmetric keys, its curve or modulus size. |  |
 |**usage** | **String** | The cryptographic operation constraints allowed on this key. |  |
 |**status** | [**StatusEnum**](#StatusEnum) |  |  |
 |**statusSince** | **OffsetDateTime** | The precise time when the key entered its current configuration phase. |  |
@@ -30,6 +32,7 @@
 | Name | Value |
 |---- | -----|
 | EXOSCALE_KMS | &quot;exoscale-kms&quot; |
+| EXTERNAL_KEY_STORE | &quot;external-key-store&quot; |
 
 
 

@@ -33,21 +33,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateKeyStoreRequest
  */
 @JsonPropertyOrder({
-  CreateKeyStoreRequest.JSON_PROPERTY_DESCRIPTION,
   CreateKeyStoreRequest.JSON_PROPERTY_NAME,
-  CreateKeyStoreRequest.JSON_PROPERTY_PROXY,
-  CreateKeyStoreRequest.JSON_PROPERTY_TYPE
+  CreateKeyStoreRequest.JSON_PROPERTY_DESCRIPTION,
+  CreateKeyStoreRequest.JSON_PROPERTY_TYPE,
+  CreateKeyStoreRequest.JSON_PROPERTY_PROXY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateKeyStoreRequest {
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_PROXY = "proxy";
-  private KeyStoreProxy proxy;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   /**
    * The key store type. Only external key stores are supported for this API version.
@@ -85,33 +82,11 @@ public class CreateKeyStoreRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type = TypeEnum.EXTERNAL_KEY_STORE;
 
+  public static final String JSON_PROPERTY_PROXY = "proxy";
+  private KeyStoreProxy proxy;
+
   public CreateKeyStoreRequest() { 
   }
-
-  public CreateKeyStoreRequest description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * An optional detailed description providing additional context about the key store&#39;s intended use case.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
 
   public CreateKeyStoreRequest name(String name) {
     this.name = name;
@@ -138,28 +113,28 @@ public class CreateKeyStoreRequest {
   }
 
 
-  public CreateKeyStoreRequest proxy(KeyStoreProxy proxy) {
-    this.proxy = proxy;
+  public CreateKeyStoreRequest description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * Get proxy
-   * @return proxy
+   * An optional detailed description providing additional context about the key store&#39;s intended use case.
+   * @return description
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PROXY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public KeyStoreProxy getProxy() {
-    return proxy;
+  public String getDescription() {
+    return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROXY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProxy(KeyStoreProxy proxy) {
-    this.proxy = proxy;
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -188,6 +163,31 @@ public class CreateKeyStoreRequest {
   }
 
 
+  public CreateKeyStoreRequest proxy(KeyStoreProxy proxy) {
+    this.proxy = proxy;
+    return this;
+  }
+
+   /**
+   * Get proxy
+   * @return proxy
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public KeyStoreProxy getProxy() {
+    return proxy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setProxy(KeyStoreProxy proxy) {
+    this.proxy = proxy;
+  }
+
+
   /**
    * Return true if this create-key-store-request object is equal to o.
    */
@@ -200,25 +200,25 @@ public class CreateKeyStoreRequest {
       return false;
     }
     CreateKeyStoreRequest createKeyStoreRequest = (CreateKeyStoreRequest) o;
-    return Objects.equals(this.description, createKeyStoreRequest.description) &&
-        Objects.equals(this.name, createKeyStoreRequest.name) &&
-        Objects.equals(this.proxy, createKeyStoreRequest.proxy) &&
-        Objects.equals(this.type, createKeyStoreRequest.type);
+    return Objects.equals(this.name, createKeyStoreRequest.name) &&
+        Objects.equals(this.description, createKeyStoreRequest.description) &&
+        Objects.equals(this.type, createKeyStoreRequest.type) &&
+        Objects.equals(this.proxy, createKeyStoreRequest.proxy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, proxy, type);
+    return Objects.hash(name, description, type, proxy);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKeyStoreRequest {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -266,24 +266,24 @@ public class CreateKeyStoreRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `name` to the URL query string
     if (getName() != null) {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `proxy` to the URL query string
-    if (getProxy() != null) {
-      joiner.add(getProxy().toUrlQueryString(prefix + "proxy" + suffix));
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `type` to the URL query string
     if (getType() != null) {
       joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `proxy` to the URL query string
+    if (getProxy() != null) {
+      joiner.add(getProxy().toUrlQueryString(prefix + "proxy" + suffix));
     }
 
     return joiner.toString();

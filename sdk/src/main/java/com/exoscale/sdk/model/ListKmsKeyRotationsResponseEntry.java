@@ -33,46 +33,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ListKmsKeyRotationsResponseEntry
  */
 @JsonPropertyOrder({
-  ListKmsKeyRotationsResponseEntry.JSON_PROPERTY_AUTOMATIC,
+  ListKmsKeyRotationsResponseEntry.JSON_PROPERTY_VERSION,
   ListKmsKeyRotationsResponseEntry.JSON_PROPERTY_ROTATED_AT,
-  ListKmsKeyRotationsResponseEntry.JSON_PROPERTY_VERSION
+  ListKmsKeyRotationsResponseEntry.JSON_PROPERTY_AUTOMATIC
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ListKmsKeyRotationsResponseEntry {
-  public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
-  private Boolean automatic;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
   public static final String JSON_PROPERTY_ROTATED_AT = "rotated-at";
   private OffsetDateTime rotatedAt;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private Integer version;
+  public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
+  private Boolean automatic;
 
   public ListKmsKeyRotationsResponseEntry() { 
   }
 
-  public ListKmsKeyRotationsResponseEntry automatic(Boolean automatic) {
-    this.automatic = automatic;
+  public ListKmsKeyRotationsResponseEntry version(Integer version) {
+    this.version = version;
     return this;
   }
 
    /**
-   * Flag stating whether an automation run handled this historic mutation or if manual actor keys initiated it.
-   * @return automatic
+   * The absolute increment index referencing this specific historical structural material setup.
+   * @return version
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
+  @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getAutomatic() {
-    return automatic;
+  public Integer getVersion() {
+    return version;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
+  @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatic(Boolean automatic) {
-    this.automatic = automatic;
+  public void setVersion(Integer version) {
+    this.version = version;
   }
 
 
@@ -101,28 +101,28 @@ public class ListKmsKeyRotationsResponseEntry {
   }
 
 
-  public ListKmsKeyRotationsResponseEntry version(Integer version) {
-    this.version = version;
+  public ListKmsKeyRotationsResponseEntry automatic(Boolean automatic) {
+    this.automatic = automatic;
     return this;
   }
 
    /**
-   * The absolute increment index referencing this specific historical structural material setup.
-   * @return version
+   * Flag stating whether an automation run handled this historic mutation or if manual actor keys initiated it.
+   * @return automatic
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getVersion() {
-    return version;
+  public Boolean getAutomatic() {
+    return automatic;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
-    this.version = version;
+  public void setAutomatic(Boolean automatic) {
+    this.automatic = automatic;
   }
 
 
@@ -138,23 +138,23 @@ public class ListKmsKeyRotationsResponseEntry {
       return false;
     }
     ListKmsKeyRotationsResponseEntry listKmsKeyRotationsResponseEntry = (ListKmsKeyRotationsResponseEntry) o;
-    return Objects.equals(this.automatic, listKmsKeyRotationsResponseEntry.automatic) &&
+    return Objects.equals(this.version, listKmsKeyRotationsResponseEntry.version) &&
         Objects.equals(this.rotatedAt, listKmsKeyRotationsResponseEntry.rotatedAt) &&
-        Objects.equals(this.version, listKmsKeyRotationsResponseEntry.version);
+        Objects.equals(this.automatic, listKmsKeyRotationsResponseEntry.automatic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(automatic, rotatedAt, version);
+    return Objects.hash(version, rotatedAt, automatic);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListKmsKeyRotationsResponseEntry {\n");
-    sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
-    sb.append("    rotatedAt: ").append(toIndentedString(rotatedAt)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    rotatedAt: ").append(toIndentedString(rotatedAt)).append("\n");
+    sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -202,9 +202,9 @@ public class ListKmsKeyRotationsResponseEntry {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `automatic` to the URL query string
-    if (getAutomatic() != null) {
-      joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `rotated-at` to the URL query string
@@ -212,9 +212,9 @@ public class ListKmsKeyRotationsResponseEntry {
       joiner.add(String.format("%srotated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRotatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `version` to the URL query string
-    if (getVersion() != null) {
-      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `automatic` to the URL query string
+    if (getAutomatic() != null) {
+      joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

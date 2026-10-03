@@ -33,23 +33,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * KeyStoreHealth
  */
 @JsonPropertyOrder({
-  KeyStoreHealth.JSON_PROPERTY_CHECKED_AT,
-  KeyStoreHealth.JSON_PROPERTY_ERROR_DETAIL,
-  KeyStoreHealth.JSON_PROPERTY_METADATA_JSON,
   KeyStoreHealth.JSON_PROPERTY_STATUS,
-  KeyStoreHealth.JSON_PROPERTY_STATUS_REASON
+  KeyStoreHealth.JSON_PROPERTY_STATUS_REASON,
+  KeyStoreHealth.JSON_PROPERTY_CHECKED_AT,
+  KeyStoreHealth.JSON_PROPERTY_METADATA_JSON,
+  KeyStoreHealth.JSON_PROPERTY_ERROR_DETAIL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class KeyStoreHealth {
-  public static final String JSON_PROPERTY_CHECKED_AT = "checked-at";
-  private OffsetDateTime checkedAt;
-
-  public static final String JSON_PROPERTY_ERROR_DETAIL = "error-detail";
-  private String errorDetail;
-
-  public static final String JSON_PROPERTY_METADATA_JSON = "metadata-json";
-  private byte[] metadataJson;
-
   /**
    * Latest normalized XKS proxy health status.
    */
@@ -93,83 +84,17 @@ public class KeyStoreHealth {
   public static final String JSON_PROPERTY_STATUS_REASON = "status-reason";
   private String statusReason;
 
+  public static final String JSON_PROPERTY_CHECKED_AT = "checked-at";
+  private OffsetDateTime checkedAt;
+
+  public static final String JSON_PROPERTY_METADATA_JSON = "metadata-json";
+  private byte[] metadataJson;
+
+  public static final String JSON_PROPERTY_ERROR_DETAIL = "error-detail";
+  private String errorDetail;
+
   public KeyStoreHealth() { 
   }
-
-  public KeyStoreHealth checkedAt(OffsetDateTime checkedAt) {
-    this.checkedAt = checkedAt;
-    return this;
-  }
-
-   /**
-   * Timestamp of the latest completed health check.
-   * @return checkedAt
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHECKED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public OffsetDateTime getCheckedAt() {
-    return checkedAt;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CHECKED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCheckedAt(OffsetDateTime checkedAt) {
-    this.checkedAt = checkedAt;
-  }
-
-
-  public KeyStoreHealth errorDetail(String errorDetail) {
-    this.errorDetail = errorDetail;
-    return this;
-  }
-
-   /**
-   * Normalized error detail for unhealthy observations.
-   * @return errorDetail
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ERROR_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getErrorDetail() {
-    return errorDetail;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERROR_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setErrorDetail(String errorDetail) {
-    this.errorDetail = errorDetail;
-  }
-
-
-  public KeyStoreHealth metadataJson(byte[] metadataJson) {
-    this.metadataJson = metadataJson;
-    return this;
-  }
-
-   /**
-   * Base64-encoded raw successful AWS GetHealthStatus JSON metadata.
-   * @return metadataJson
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA_JSON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public byte[] getMetadataJson() {
-    return metadataJson;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_METADATA_JSON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetadataJson(byte[] metadataJson) {
-    this.metadataJson = metadataJson;
-  }
-
 
   public KeyStoreHealth status(StatusEnum status) {
     this.status = status;
@@ -221,6 +146,81 @@ public class KeyStoreHealth {
   }
 
 
+  public KeyStoreHealth checkedAt(OffsetDateTime checkedAt) {
+    this.checkedAt = checkedAt;
+    return this;
+  }
+
+   /**
+   * Timestamp of the latest completed health check.
+   * @return checkedAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECKED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCheckedAt() {
+    return checkedAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CHECKED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCheckedAt(OffsetDateTime checkedAt) {
+    this.checkedAt = checkedAt;
+  }
+
+
+  public KeyStoreHealth metadataJson(byte[] metadataJson) {
+    this.metadataJson = metadataJson;
+    return this;
+  }
+
+   /**
+   * Base64-encoded raw successful AWS GetHealthStatus JSON metadata.
+   * @return metadataJson
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA_JSON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public byte[] getMetadataJson() {
+    return metadataJson;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_METADATA_JSON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetadataJson(byte[] metadataJson) {
+    this.metadataJson = metadataJson;
+  }
+
+
+  public KeyStoreHealth errorDetail(String errorDetail) {
+    this.errorDetail = errorDetail;
+    return this;
+  }
+
+   /**
+   * Normalized error detail for unhealthy observations.
+   * @return errorDetail
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getErrorDetail() {
+    return errorDetail;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ERROR_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setErrorDetail(String errorDetail) {
+    this.errorDetail = errorDetail;
+  }
+
+
   /**
    * Return true if this key-store-health object is equal to o.
    */
@@ -233,27 +233,27 @@ public class KeyStoreHealth {
       return false;
     }
     KeyStoreHealth keyStoreHealth = (KeyStoreHealth) o;
-    return Objects.equals(this.checkedAt, keyStoreHealth.checkedAt) &&
-        Objects.equals(this.errorDetail, keyStoreHealth.errorDetail) &&
+    return Objects.equals(this.status, keyStoreHealth.status) &&
+        Objects.equals(this.statusReason, keyStoreHealth.statusReason) &&
+        Objects.equals(this.checkedAt, keyStoreHealth.checkedAt) &&
         Arrays.equals(this.metadataJson, keyStoreHealth.metadataJson) &&
-        Objects.equals(this.status, keyStoreHealth.status) &&
-        Objects.equals(this.statusReason, keyStoreHealth.statusReason);
+        Objects.equals(this.errorDetail, keyStoreHealth.errorDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(checkedAt, errorDetail, Arrays.hashCode(metadataJson), status, statusReason);
+    return Objects.hash(status, statusReason, checkedAt, Arrays.hashCode(metadataJson), errorDetail);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyStoreHealth {\n");
-    sb.append("    checkedAt: ").append(toIndentedString(checkedAt)).append("\n");
-    sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
-    sb.append("    metadataJson: ").append(toIndentedString(metadataJson)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    checkedAt: ").append(toIndentedString(checkedAt)).append("\n");
+    sb.append("    metadataJson: ").append(toIndentedString(metadataJson)).append("\n");
+    sb.append("    errorDetail: ").append(toIndentedString(errorDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -301,21 +301,6 @@ public class KeyStoreHealth {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `checked-at` to the URL query string
-    if (getCheckedAt() != null) {
-      joiner.add(String.format("%schecked-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCheckedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `error-detail` to the URL query string
-    if (getErrorDetail() != null) {
-      joiner.add(String.format("%serror-detail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getErrorDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `metadata-json` to the URL query string
-    if (getMetadataJson() != null) {
-      joiner.add(String.format("%smetadata-json%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMetadataJson()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `status` to the URL query string
     if (getStatus() != null) {
       joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -324,6 +309,21 @@ public class KeyStoreHealth {
     // add `status-reason` to the URL query string
     if (getStatusReason() != null) {
       joiner.add(String.format("%sstatus-reason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `checked-at` to the URL query string
+    if (getCheckedAt() != null) {
+      joiner.add(String.format("%schecked-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCheckedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `metadata-json` to the URL query string
+    if (getMetadataJson() != null) {
+      joiner.add(String.format("%smetadata-json%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMetadataJson()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `error-detail` to the URL query string
+    if (getErrorDetail() != null) {
+      joiner.add(String.format("%serror-detail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getErrorDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

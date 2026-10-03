@@ -8,8 +8,8 @@ New customer-managed XKS proxy settings.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**endpoint** | **URI** | New public URL used to route communication to the customer-managed XKS proxy. |  [optional] |
 |**auth** | [**KeyStoreProxyAuth**](KeyStoreProxyAuth.md) |  |  [optional] |
-|**endpoint** | **String** | New public URL used to route communication to the customer-managed XKS proxy. |  [optional] |
 
 
 

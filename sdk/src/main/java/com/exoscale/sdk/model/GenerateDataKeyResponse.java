@@ -32,44 +32,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * GenerateDataKeyResponse
  */
 @JsonPropertyOrder({
-  GenerateDataKeyResponse.JSON_PROPERTY_CIPHERTEXT,
-  GenerateDataKeyResponse.JSON_PROPERTY_PLAINTEXT
+  GenerateDataKeyResponse.JSON_PROPERTY_PLAINTEXT,
+  GenerateDataKeyResponse.JSON_PROPERTY_CIPHERTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GenerateDataKeyResponse {
-  public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
-  private byte[] ciphertext;
-
   public static final String JSON_PROPERTY_PLAINTEXT = "plaintext";
   private byte[] plaintext;
 
+  public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
+  private byte[] ciphertext;
+
   public GenerateDataKeyResponse() { 
   }
-
-  public GenerateDataKeyResponse ciphertext(byte[] ciphertext) {
-    this.ciphertext = ciphertext;
-    return this;
-  }
-
-   /**
-   * The identical symmetric data key, returned safely wrapped/encrypted using the designated root parent KMS key.
-   * @return ciphertext
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public byte[] getCiphertext() {
-    return ciphertext;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCiphertext(byte[] ciphertext) {
-    this.ciphertext = ciphertext;
-  }
-
 
   public GenerateDataKeyResponse plaintext(byte[] plaintext) {
     this.plaintext = plaintext;
@@ -96,6 +71,31 @@ public class GenerateDataKeyResponse {
   }
 
 
+  public GenerateDataKeyResponse ciphertext(byte[] ciphertext) {
+    this.ciphertext = ciphertext;
+    return this;
+  }
+
+   /**
+   * The identical symmetric data key, returned safely wrapped/encrypted using the designated root parent KMS key.
+   * @return ciphertext
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public byte[] getCiphertext() {
+    return ciphertext;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCiphertext(byte[] ciphertext) {
+    this.ciphertext = ciphertext;
+  }
+
+
   /**
    * Return true if this generate-data-key-response object is equal to o.
    */
@@ -108,21 +108,21 @@ public class GenerateDataKeyResponse {
       return false;
     }
     GenerateDataKeyResponse generateDataKeyResponse = (GenerateDataKeyResponse) o;
-    return Arrays.equals(this.ciphertext, generateDataKeyResponse.ciphertext) &&
-        Arrays.equals(this.plaintext, generateDataKeyResponse.plaintext);
+    return Arrays.equals(this.plaintext, generateDataKeyResponse.plaintext) &&
+        Arrays.equals(this.ciphertext, generateDataKeyResponse.ciphertext);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(ciphertext), Arrays.hashCode(plaintext));
+    return Objects.hash(Arrays.hashCode(plaintext), Arrays.hashCode(ciphertext));
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenerateDataKeyResponse {\n");
-    sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
+    sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +170,14 @@ public class GenerateDataKeyResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `ciphertext` to the URL query string
-    if (getCiphertext() != null) {
-      joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `plaintext` to the URL query string
     if (getPlaintext() != null) {
       joiner.add(String.format("%splaintext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlaintext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ciphertext` to the URL query string
+    if (getCiphertext() != null) {
+      joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

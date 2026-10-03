@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.XksKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,11 +39,35 @@ public class CreateKmsKeyRequestTest {
     }
 
     /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
      * Test the property 'description'
      */
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'usage'
+     */
+    @Test
+    public void usageTest() {
+        // TODO: test usage
+    }
+
+    /**
+     * Test the property 'keySpec'
+     */
+    @Test
+    public void keySpecTest() {
+        // TODO: test keySpec
     }
 
     /**
@@ -54,19 +79,19 @@ public class CreateKmsKeyRequestTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'source'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void sourceTest() {
+        // TODO: test source
     }
 
     /**
-     * Test the property 'usage'
+     * Test the property 'xks'
      */
     @Test
-    public void usageTest() {
-        // TODO: test usage
+    public void xksTest() {
+        // TODO: test xks
     }
 
 }

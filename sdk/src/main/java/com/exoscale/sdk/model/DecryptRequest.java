@@ -36,44 +36,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DecryptRequest
  */
 @JsonPropertyOrder({
-  DecryptRequest.JSON_PROPERTY_CIPHERTEXT,
-  DecryptRequest.JSON_PROPERTY_ENCRYPTION_CONTEXT
+  DecryptRequest.JSON_PROPERTY_ENCRYPTION_CONTEXT,
+  DecryptRequest.JSON_PROPERTY_CIPHERTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DecryptRequest {
-  public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
-  private byte[] ciphertext;
-
   public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
   private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
 
+  public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
+  private byte[] ciphertext;
+
   public DecryptRequest() { 
   }
-
-  public DecryptRequest ciphertext(byte[] ciphertext) {
-    this.ciphertext = ciphertext;
-    return this;
-  }
-
-   /**
-   * The Base64-encoded ciphertext payload to be decrypted.
-   * @return ciphertext
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public byte[] getCiphertext() {
-    return ciphertext;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCiphertext(byte[] ciphertext) {
-    this.ciphertext = ciphertext;
-  }
-
 
   public DecryptRequest encryptionContext(byte[] encryptionContext) {
     this.encryptionContext = JsonNullable.<byte[]>of(encryptionContext);
@@ -108,6 +83,31 @@ public class DecryptRequest {
   }
 
 
+  public DecryptRequest ciphertext(byte[] ciphertext) {
+    this.ciphertext = ciphertext;
+    return this;
+  }
+
+   /**
+   * The Base64-encoded ciphertext payload to be decrypted.
+   * @return ciphertext
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public byte[] getCiphertext() {
+    return ciphertext;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCiphertext(byte[] ciphertext) {
+    this.ciphertext = ciphertext;
+  }
+
+
   /**
    * Return true if this decrypt-request object is equal to o.
    */
@@ -120,8 +120,8 @@ public class DecryptRequest {
       return false;
     }
     DecryptRequest decryptRequest = (DecryptRequest) o;
-    return Arrays.equals(this.ciphertext, decryptRequest.ciphertext) &&
-        equalsNullable(this.encryptionContext, decryptRequest.encryptionContext);
+    return equalsNullable(this.encryptionContext, decryptRequest.encryptionContext) &&
+        Arrays.equals(this.ciphertext, decryptRequest.ciphertext);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -130,7 +130,7 @@ public class DecryptRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(ciphertext), hashCodeNullable(encryptionContext));
+    return Objects.hash(hashCodeNullable(encryptionContext), Arrays.hashCode(ciphertext));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -144,8 +144,8 @@ public class DecryptRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecryptRequest {\n");
-    sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
+    sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -193,14 +193,14 @@ public class DecryptRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `ciphertext` to the URL query string
-    if (getCiphertext() != null) {
-      joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `encryption-context` to the URL query string
     if (getEncryptionContext() != null) {
       joiner.add(String.format("%sencryption-context%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ciphertext` to the URL query string
+    if (getCiphertext() != null) {
+      joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

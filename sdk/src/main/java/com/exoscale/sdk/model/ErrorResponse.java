@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.XksProxyErrorDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,50 +33,79 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * RFC 9457 Problem Details error response
  */
 @JsonPropertyOrder({
-  ErrorResponse.JSON_PROPERTY_DETAIL,
-  ErrorResponse.JSON_PROPERTY_STATUS,
+  ErrorResponse.JSON_PROPERTY_TYPE,
   ErrorResponse.JSON_PROPERTY_TITLE,
-  ErrorResponse.JSON_PROPERTY_TYPE
+  ErrorResponse.JSON_PROPERTY_STATUS,
+  ErrorResponse.JSON_PROPERTY_DETAIL,
+  ErrorResponse.JSON_PROPERTY_XKS_PROXY_ERROR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ErrorResponse {
-  public static final String JSON_PROPERTY_DETAIL = "detail";
-  private String detail;
-
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private Integer status;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private Integer status;
+
+  public static final String JSON_PROPERTY_DETAIL = "detail";
+  private String detail;
+
+  public static final String JSON_PROPERTY_XKS_PROXY_ERROR = "xks-proxy-error";
+  private XksProxyErrorDetail xksProxyError;
 
   public ErrorResponse() { 
   }
 
-  public ErrorResponse detail(String detail) {
-    this.detail = detail;
+  public ErrorResponse type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * A highly contextual, readable explanation breaking down explicitly what triggered this error scenario.
-   * @return detail
+   * An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered.
+   * @return type
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getDetail() {
-    return detail;
+  public String getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
+  public ErrorResponse title(String title) {
+    this.title = title;
+    return this;
+  }
+
+   /**
+   * A brief summary defining the class of failure, optimal for quick user interface groupings.
+   * @return title
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getTitle() {
+    return title;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -106,53 +136,53 @@ public class ErrorResponse {
   }
 
 
-  public ErrorResponse title(String title) {
-    this.title = title;
+  public ErrorResponse detail(String detail) {
+    this.detail = detail;
     return this;
   }
 
    /**
-   * A brief summary defining the class of failure, optimal for quick user interface groupings.
-   * @return title
+   * A highly contextual, readable explanation breaking down explicitly what triggered this error scenario.
+   * @return detail
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getTitle() {
-    return title;
+  public String getDetail() {
+    return detail;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
-    this.title = title;
+  public void setDetail(String detail) {
+    this.detail = detail;
   }
 
 
-  public ErrorResponse type(String type) {
-    this.type = type;
+  public ErrorResponse xksProxyError(XksProxyErrorDetail xksProxyError) {
+    this.xksProxyError = xksProxyError;
     return this;
   }
 
    /**
-   * An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered.
-   * @return type
+   * Get xksProxyError
+   * @return xksProxyError
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_XKS_PROXY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getType() {
-    return type;
+  public XksProxyErrorDetail getXksProxyError() {
+    return xksProxyError;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
-    this.type = type;
+  @JsonProperty(JSON_PROPERTY_XKS_PROXY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setXksProxyError(XksProxyErrorDetail xksProxyError) {
+    this.xksProxyError = xksProxyError;
   }
 
 
@@ -168,25 +198,27 @@ public class ErrorResponse {
       return false;
     }
     ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.detail, errorResponse.detail) &&
-        Objects.equals(this.status, errorResponse.status) &&
+    return Objects.equals(this.type, errorResponse.type) &&
         Objects.equals(this.title, errorResponse.title) &&
-        Objects.equals(this.type, errorResponse.type);
+        Objects.equals(this.status, errorResponse.status) &&
+        Objects.equals(this.detail, errorResponse.detail) &&
+        Objects.equals(this.xksProxyError, errorResponse.xksProxyError);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, status, title, type);
+    return Objects.hash(type, title, status, detail, xksProxyError);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorResponse {\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    xksProxyError: ").append(toIndentedString(xksProxyError)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -234,14 +266,9 @@ public class ErrorResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `detail` to the URL query string
-    if (getDetail() != null) {
-      joiner.add(String.format("%sdetail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `status` to the URL query string
-    if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `type` to the URL query string
+    if (getType() != null) {
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `title` to the URL query string
@@ -249,9 +276,19 @@ public class ErrorResponse {
       joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `detail` to the URL query string
+    if (getDetail() != null) {
+      joiner.add(String.format("%sdetail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDetail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `xks-proxy-error` to the URL query string
+    if (getXksProxyError() != null) {
+      joiner.add(getXksProxyError().toUrlQueryString(prefix + "xks-proxy-error" + suffix));
     }
 
     return joiner.toString();

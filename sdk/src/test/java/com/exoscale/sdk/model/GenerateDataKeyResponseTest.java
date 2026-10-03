@@ -38,19 +38,19 @@ public class GenerateDataKeyResponseTest {
     }
 
     /**
-     * Test the property 'ciphertext'
-     */
-    @Test
-    public void ciphertextTest() {
-        // TODO: test ciphertext
-    }
-
-    /**
      * Test the property 'plaintext'
      */
     @Test
     public void plaintextTest() {
         // TODO: test plaintext
+    }
+
+    /**
+     * Test the property 'ciphertext'
+     */
+    @Test
+    public void ciphertextTest() {
+        // TODO: test ciphertext
     }
 
 }

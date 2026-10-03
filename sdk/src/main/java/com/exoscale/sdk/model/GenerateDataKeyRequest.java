@@ -36,18 +36,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * GenerateDataKeyRequest
  */
 @JsonPropertyOrder({
+  GenerateDataKeyRequest.JSON_PROPERTY_KEY_SPEC,
   GenerateDataKeyRequest.JSON_PROPERTY_BYTES_COUNT,
-  GenerateDataKeyRequest.JSON_PROPERTY_ENCRYPTION_CONTEXT,
-  GenerateDataKeyRequest.JSON_PROPERTY_KEY_SPEC
+  GenerateDataKeyRequest.JSON_PROPERTY_ENCRYPTION_CONTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GenerateDataKeyRequest {
-  public static final String JSON_PROPERTY_BYTES_COUNT = "bytes-count";
-  private Integer bytesCount;
-
-  public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
-  private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
-
   /**
    * Gets or Sets keySpec
    */
@@ -84,8 +78,39 @@ public class GenerateDataKeyRequest {
   public static final String JSON_PROPERTY_KEY_SPEC = "key-spec";
   private KeySpecEnum keySpec;
 
+  public static final String JSON_PROPERTY_BYTES_COUNT = "bytes-count";
+  private Integer bytesCount;
+
+  public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
+  private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
+
   public GenerateDataKeyRequest() { 
   }
+
+  public GenerateDataKeyRequest keySpec(KeySpecEnum keySpec) {
+    this.keySpec = keySpec;
+    return this;
+  }
+
+   /**
+   * Get keySpec
+   * @return keySpec
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public KeySpecEnum getKeySpec() {
+    return keySpec;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKeySpec(KeySpecEnum keySpec) {
+    this.keySpec = keySpec;
+  }
+
 
   public GenerateDataKeyRequest bytesCount(Integer bytesCount) {
     this.bytesCount = bytesCount;
@@ -147,31 +172,6 @@ public class GenerateDataKeyRequest {
   }
 
 
-  public GenerateDataKeyRequest keySpec(KeySpecEnum keySpec) {
-    this.keySpec = keySpec;
-    return this;
-  }
-
-   /**
-   * Get keySpec
-   * @return keySpec
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public KeySpecEnum getKeySpec() {
-    return keySpec;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKeySpec(KeySpecEnum keySpec) {
-    this.keySpec = keySpec;
-  }
-
-
   /**
    * Return true if this generate-data-key-request object is equal to o.
    */
@@ -184,9 +184,9 @@ public class GenerateDataKeyRequest {
       return false;
     }
     GenerateDataKeyRequest generateDataKeyRequest = (GenerateDataKeyRequest) o;
-    return Objects.equals(this.bytesCount, generateDataKeyRequest.bytesCount) &&
-        equalsNullable(this.encryptionContext, generateDataKeyRequest.encryptionContext) &&
-        Objects.equals(this.keySpec, generateDataKeyRequest.keySpec);
+    return Objects.equals(this.keySpec, generateDataKeyRequest.keySpec) &&
+        Objects.equals(this.bytesCount, generateDataKeyRequest.bytesCount) &&
+        equalsNullable(this.encryptionContext, generateDataKeyRequest.encryptionContext);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -195,7 +195,7 @@ public class GenerateDataKeyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bytesCount, hashCodeNullable(encryptionContext), keySpec);
+    return Objects.hash(keySpec, bytesCount, hashCodeNullable(encryptionContext));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -209,9 +209,9 @@ public class GenerateDataKeyRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenerateDataKeyRequest {\n");
+    sb.append("    keySpec: ").append(toIndentedString(keySpec)).append("\n");
     sb.append("    bytesCount: ").append(toIndentedString(bytesCount)).append("\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
-    sb.append("    keySpec: ").append(toIndentedString(keySpec)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -259,6 +259,11 @@ public class GenerateDataKeyRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `key-spec` to the URL query string
+    if (getKeySpec() != null) {
+      joiner.add(String.format("%skey-spec%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKeySpec()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `bytes-count` to the URL query string
     if (getBytesCount() != null) {
       joiner.add(String.format("%sbytes-count%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBytesCount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -267,11 +272,6 @@ public class GenerateDataKeyRequest {
     // add `encryption-context` to the URL query string
     if (getEncryptionContext() != null) {
       joiner.add(String.format("%sencryption-context%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `key-spec` to the URL query string
-    if (getKeySpec() != null) {
-      joiner.add(String.format("%skey-spec%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKeySpec()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

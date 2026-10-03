@@ -37,46 +37,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ReEncryptRequestSource
  */
 @JsonPropertyOrder({
-  ReEncryptRequestSource.JSON_PROPERTY_CIPHERTEXT,
+  ReEncryptRequestSource.JSON_PROPERTY_KEY,
   ReEncryptRequestSource.JSON_PROPERTY_ENCRYPTION_CONTEXT,
-  ReEncryptRequestSource.JSON_PROPERTY_KEY
+  ReEncryptRequestSource.JSON_PROPERTY_CIPHERTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ReEncryptRequestSource {
-  public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
-  private byte[] ciphertext;
+  public static final String JSON_PROPERTY_KEY = "key";
+  private UUID key;
 
   public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
   private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
 
-  public static final String JSON_PROPERTY_KEY = "key";
-  private UUID key;
+  public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
+  private byte[] ciphertext;
 
   public ReEncryptRequestSource() { 
   }
 
-  public ReEncryptRequestSource ciphertext(byte[] ciphertext) {
-    this.ciphertext = ciphertext;
+  public ReEncryptRequestSource key(UUID key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * The Base64-encoded encrypted payload package ready to undergo source-side key decryption.
-   * @return ciphertext
+   * The ID of the source key currently protecting the data payload.
+   * @return key
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
+  @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public byte[] getCiphertext() {
-    return ciphertext;
+  public UUID getKey() {
+    return key;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
+  @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCiphertext(byte[] ciphertext) {
-    this.ciphertext = ciphertext;
+  public void setKey(UUID key) {
+    this.key = key;
   }
 
 
@@ -113,28 +113,28 @@ public class ReEncryptRequestSource {
   }
 
 
-  public ReEncryptRequestSource key(UUID key) {
-    this.key = key;
+  public ReEncryptRequestSource ciphertext(byte[] ciphertext) {
+    this.ciphertext = ciphertext;
     return this;
   }
 
    /**
-   * The ID of the source key currently protecting the data payload.
-   * @return key
+   * The Base64-encoded encrypted payload package ready to undergo source-side key decryption.
+   * @return ciphertext
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public UUID getKey() {
-    return key;
+  public byte[] getCiphertext() {
+    return ciphertext;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KEY)
+  @JsonProperty(JSON_PROPERTY_CIPHERTEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setKey(UUID key) {
-    this.key = key;
+  public void setCiphertext(byte[] ciphertext) {
+    this.ciphertext = ciphertext;
   }
 
 
@@ -150,9 +150,9 @@ public class ReEncryptRequestSource {
       return false;
     }
     ReEncryptRequestSource reEncryptRequestSource = (ReEncryptRequestSource) o;
-    return Arrays.equals(this.ciphertext, reEncryptRequestSource.ciphertext) &&
+    return Objects.equals(this.key, reEncryptRequestSource.key) &&
         equalsNullable(this.encryptionContext, reEncryptRequestSource.encryptionContext) &&
-        Objects.equals(this.key, reEncryptRequestSource.key);
+        Arrays.equals(this.ciphertext, reEncryptRequestSource.ciphertext);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -161,7 +161,7 @@ public class ReEncryptRequestSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(ciphertext), hashCodeNullable(encryptionContext), key);
+    return Objects.hash(key, hashCodeNullable(encryptionContext), Arrays.hashCode(ciphertext));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -175,9 +175,9 @@ public class ReEncryptRequestSource {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReEncryptRequestSource {\n");
-    sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
-    sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
+    sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -225,9 +225,9 @@ public class ReEncryptRequestSource {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `ciphertext` to the URL query string
-    if (getCiphertext() != null) {
-      joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `key` to the URL query string
+    if (getKey() != null) {
+      joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `encryption-context` to the URL query string
@@ -235,9 +235,9 @@ public class ReEncryptRequestSource {
       joiner.add(String.format("%sencryption-context%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `key` to the URL query string
-    if (getKey() != null) {
-      joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `ciphertext` to the URL query string
+    if (getCiphertext() != null) {
+      joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

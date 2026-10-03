@@ -19,7 +19,9 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.KeyRotationConfig;
 import com.exoscale.sdk.model.RevisionStamp;
+import com.exoscale.sdk.model.XksKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,10 +38,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   CreateKmsKeyResponse.JSON_PROPERTY_DESCRIPTION,
+  CreateKmsKeyResponse.JSON_PROPERTY_XKS,
+  CreateKmsKeyResponse.JSON_PROPERTY_ROTATION,
   CreateKmsKeyResponse.JSON_PROPERTY_REVISION,
   CreateKmsKeyResponse.JSON_PROPERTY_NAME,
   CreateKmsKeyResponse.JSON_PROPERTY_MULTI_ZONE,
   CreateKmsKeyResponse.JSON_PROPERTY_SOURCE,
+  CreateKmsKeyResponse.JSON_PROPERTY_KEY_SPEC,
   CreateKmsKeyResponse.JSON_PROPERTY_USAGE,
   CreateKmsKeyResponse.JSON_PROPERTY_STATUS,
   CreateKmsKeyResponse.JSON_PROPERTY_STATUS_SINCE,
@@ -52,6 +57,12 @@ public class CreateKmsKeyResponse {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_XKS = "xks";
+  private XksKey xks;
+
+  public static final String JSON_PROPERTY_ROTATION = "rotation";
+  private KeyRotationConfig rotation;
+
   public static final String JSON_PROPERTY_REVISION = "revision";
   private RevisionStamp revision;
 
@@ -62,10 +73,12 @@ public class CreateKmsKeyResponse {
   private Boolean multiZone;
 
   /**
-   * Gets or Sets source
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
    */
   public enum SourceEnum {
-    EXOSCALE_KMS("exoscale-kms");
+    EXOSCALE_KMS("exoscale-kms"),
+    
+    EXTERNAL_KEY_STORE("external-key-store");
 
     private String value;
 
@@ -96,6 +109,9 @@ public class CreateKmsKeyResponse {
 
   public static final String JSON_PROPERTY_SOURCE = "source";
   private SourceEnum source;
+
+  public static final String JSON_PROPERTY_KEY_SPEC = "key-spec";
+  private String keySpec;
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private String usage;
@@ -180,6 +196,56 @@ public class CreateKmsKeyResponse {
   }
 
 
+  public CreateKmsKeyResponse xks(XksKey xks) {
+    this.xks = xks;
+    return this;
+  }
+
+   /**
+   * Get xks
+   * @return xks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_XKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public XksKey getXks() {
+    return xks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_XKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setXks(XksKey xks) {
+    this.xks = xks;
+  }
+
+
+  public CreateKmsKeyResponse rotation(KeyRotationConfig rotation) {
+    this.rotation = rotation;
+    return this;
+  }
+
+   /**
+   * Get rotation
+   * @return rotation
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROTATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public KeyRotationConfig getRotation() {
+    return rotation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ROTATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRotation(KeyRotationConfig rotation) {
+    this.rotation = rotation;
+  }
+
+
   public CreateKmsKeyResponse revision(RevisionStamp revision) {
     this.revision = revision;
     return this;
@@ -261,7 +327,7 @@ public class CreateKmsKeyResponse {
   }
 
    /**
-   * Get source
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
    * @return source
   **/
   @javax.annotation.Nonnull
@@ -277,6 +343,31 @@ public class CreateKmsKeyResponse {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSource(SourceEnum source) {
     this.source = source;
+  }
+
+
+  public CreateKmsKeyResponse keySpec(String keySpec) {
+    this.keySpec = keySpec;
+    return this;
+  }
+
+   /**
+   * The cryptographic key specification used to generate the key, defining its algorithm and, for asymmetric keys, its curve or modulus size.
+   * @return keySpec
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public String getKeySpec() {
+    return keySpec;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setKeySpec(String keySpec) {
+    this.keySpec = keySpec;
   }
 
 
@@ -443,10 +534,13 @@ public class CreateKmsKeyResponse {
     }
     CreateKmsKeyResponse createKmsKeyResponse = (CreateKmsKeyResponse) o;
     return Objects.equals(this.description, createKmsKeyResponse.description) &&
+        Objects.equals(this.xks, createKmsKeyResponse.xks) &&
+        Objects.equals(this.rotation, createKmsKeyResponse.rotation) &&
         Objects.equals(this.revision, createKmsKeyResponse.revision) &&
         Objects.equals(this.name, createKmsKeyResponse.name) &&
         Objects.equals(this.multiZone, createKmsKeyResponse.multiZone) &&
         Objects.equals(this.source, createKmsKeyResponse.source) &&
+        Objects.equals(this.keySpec, createKmsKeyResponse.keySpec) &&
         Objects.equals(this.usage, createKmsKeyResponse.usage) &&
         Objects.equals(this.status, createKmsKeyResponse.status) &&
         Objects.equals(this.statusSince, createKmsKeyResponse.statusSince) &&
@@ -457,7 +551,7 @@ public class CreateKmsKeyResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, revision, name, multiZone, source, usage, status, statusSince, id, originZone, createdAt);
+    return Objects.hash(description, xks, rotation, revision, name, multiZone, source, keySpec, usage, status, statusSince, id, originZone, createdAt);
   }
 
   @Override
@@ -465,10 +559,13 @@ public class CreateKmsKeyResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKmsKeyResponse {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    xks: ").append(toIndentedString(xks)).append("\n");
+    sb.append("    rotation: ").append(toIndentedString(rotation)).append("\n");
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    keySpec: ").append(toIndentedString(keySpec)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusSince: ").append(toIndentedString(statusSince)).append("\n");
@@ -527,6 +624,16 @@ public class CreateKmsKeyResponse {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `xks` to the URL query string
+    if (getXks() != null) {
+      joiner.add(getXks().toUrlQueryString(prefix + "xks" + suffix));
+    }
+
+    // add `rotation` to the URL query string
+    if (getRotation() != null) {
+      joiner.add(getRotation().toUrlQueryString(prefix + "rotation" + suffix));
+    }
+
     // add `revision` to the URL query string
     if (getRevision() != null) {
       joiner.add(getRevision().toUrlQueryString(prefix + "revision" + suffix));
@@ -545,6 +652,11 @@ public class CreateKmsKeyResponse {
     // add `source` to the URL query string
     if (getSource() != null) {
       joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `key-spec` to the URL query string
+    if (getKeySpec() != null) {
+      joiner.add(String.format("%skey-spec%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKeySpec()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `usage` to the URL query string

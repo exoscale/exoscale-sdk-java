@@ -40,19 +40,19 @@ public class ReEncryptRequestTest {
     }
 
     /**
-     * Test the property 'destination'
-     */
-    @Test
-    public void destinationTest() {
-        // TODO: test destination
-    }
-
-    /**
      * Test the property 'source'
      */
     @Test
     public void sourceTest() {
         // TODO: test source
+    }
+
+    /**
+     * Test the property 'destination'
+     */
+    @Test
+    public void destinationTest() {
+        // TODO: test destination
     }
 
 }

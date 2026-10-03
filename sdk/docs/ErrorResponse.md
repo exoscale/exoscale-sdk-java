@@ -8,10 +8,11 @@ RFC 9457 Problem Details error response
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**detail** | **String** | A highly contextual, readable explanation breaking down explicitly what triggered this error scenario. |  |
-|**status** | **Integer** |  |  |
-|**title** | **String** | A brief summary defining the class of failure, optimal for quick user interface groupings. |  |
 |**type** | **String** | An absolute or relative URI reference pointing to human-readable documentation concerning the specific problem type encountered. |  |
+|**title** | **String** | A brief summary defining the class of failure, optimal for quick user interface groupings. |  |
+|**status** | **Integer** |  |  |
+|**detail** | **String** | A highly contextual, readable explanation breaking down explicitly what triggered this error scenario. |  |
+|**xksProxyError** | [**XksProxyErrorDetail**](XksProxyErrorDetail.md) |  |  [optional] |
 
 
 

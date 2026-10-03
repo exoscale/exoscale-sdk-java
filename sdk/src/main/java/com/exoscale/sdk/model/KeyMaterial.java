@@ -33,46 +33,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * KeyMaterial
  */
 @JsonPropertyOrder({
-  KeyMaterial.JSON_PROPERTY_AUTOMATIC,
+  KeyMaterial.JSON_PROPERTY_VERSION,
   KeyMaterial.JSON_PROPERTY_CREATED_AT,
-  KeyMaterial.JSON_PROPERTY_VERSION
+  KeyMaterial.JSON_PROPERTY_AUTOMATIC
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class KeyMaterial {
-  public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
-  private Boolean automatic;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created-at";
   private OffsetDateTime createdAt;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private Integer version;
+  public static final String JSON_PROPERTY_AUTOMATIC = "automatic";
+  private Boolean automatic;
 
   public KeyMaterial() { 
   }
 
-  public KeyMaterial automatic(Boolean automatic) {
-    this.automatic = automatic;
+  public KeyMaterial version(Integer version) {
+    this.version = version;
     return this;
   }
 
    /**
-   * Flag stating whether an automation run handled this historic mutation or if manual actor keys initiated it.
-   * @return automatic
+   * The incremental index tracing internal key rotation cycles for the key material.
+   * @return version
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
+  @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Boolean getAutomatic() {
-    return automatic;
+  public Integer getVersion() {
+    return version;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
+  @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAutomatic(Boolean automatic) {
-    this.automatic = automatic;
+  public void setVersion(Integer version) {
+    this.version = version;
   }
 
 
@@ -101,28 +101,28 @@ public class KeyMaterial {
   }
 
 
-  public KeyMaterial version(Integer version) {
-    this.version = version;
+  public KeyMaterial automatic(Boolean automatic) {
+    this.automatic = automatic;
     return this;
   }
 
    /**
-   * The incremental index tracing internal key rotation cycles for the key material.
-   * @return version
+   * Flag stating whether an automation run handled this historic mutation or if manual actor keys initiated it.
+   * @return automatic
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Integer getVersion() {
-    return version;
+  public Boolean getAutomatic() {
+    return automatic;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
-    this.version = version;
+  public void setAutomatic(Boolean automatic) {
+    this.automatic = automatic;
   }
 
 
@@ -138,23 +138,23 @@ public class KeyMaterial {
       return false;
     }
     KeyMaterial keyMaterial = (KeyMaterial) o;
-    return Objects.equals(this.automatic, keyMaterial.automatic) &&
+    return Objects.equals(this.version, keyMaterial.version) &&
         Objects.equals(this.createdAt, keyMaterial.createdAt) &&
-        Objects.equals(this.version, keyMaterial.version);
+        Objects.equals(this.automatic, keyMaterial.automatic);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(automatic, createdAt, version);
+    return Objects.hash(version, createdAt, automatic);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KeyMaterial {\n");
-    sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    automatic: ").append(toIndentedString(automatic)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -202,9 +202,9 @@ public class KeyMaterial {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `automatic` to the URL query string
-    if (getAutomatic() != null) {
-      joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `created-at` to the URL query string
@@ -212,9 +212,9 @@ public class KeyMaterial {
       joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `version` to the URL query string
-    if (getVersion() != null) {
-      joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `automatic` to the URL query string
+    if (getAutomatic() != null) {
+      joiner.add(String.format("%sautomatic%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomatic()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

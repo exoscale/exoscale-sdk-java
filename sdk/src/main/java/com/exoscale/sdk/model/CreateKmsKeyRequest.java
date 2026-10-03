@@ -19,6 +19,7 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.exoscale.sdk.model.XksKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -32,27 +33,29 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateKmsKeyRequest
  */
 @JsonPropertyOrder({
-  CreateKmsKeyRequest.JSON_PROPERTY_DESCRIPTION,
-  CreateKmsKeyRequest.JSON_PROPERTY_MULTI_ZONE,
   CreateKmsKeyRequest.JSON_PROPERTY_NAME,
-  CreateKmsKeyRequest.JSON_PROPERTY_USAGE
+  CreateKmsKeyRequest.JSON_PROPERTY_DESCRIPTION,
+  CreateKmsKeyRequest.JSON_PROPERTY_USAGE,
+  CreateKmsKeyRequest.JSON_PROPERTY_KEY_SPEC,
+  CreateKmsKeyRequest.JSON_PROPERTY_MULTI_ZONE,
+  CreateKmsKeyRequest.JSON_PROPERTY_SOURCE,
+  CreateKmsKeyRequest.JSON_PROPERTY_XKS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateKmsKeyRequest {
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
-  public static final String JSON_PROPERTY_MULTI_ZONE = "multi-zone";
-  private Boolean multiZone = false;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   /**
    * Gets or Sets usage
    */
   public enum UsageEnum {
-    ENCRYPT_DECRYPT("encrypt-decrypt");
+    ENCRYPT_DECRYPT("encrypt-decrypt"),
+    
+    SIGN_VERIFY("sign-verify");
 
     private String value;
 
@@ -84,58 +87,100 @@ public class CreateKmsKeyRequest {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private UsageEnum usage = UsageEnum.ENCRYPT_DECRYPT;
 
+  /**
+   * The cryptographic key specification defining the key&#39;s algorithm and, for asymmetric keys, its curve or modulus size.
+   */
+  public enum KeySpecEnum {
+    AES_256("AES_256"),
+    
+    ECC_NIST_P256("ECC_NIST_P256"),
+    
+    ECC_NIST_P384("ECC_NIST_P384"),
+    
+    ECC_NIST_P521("ECC_NIST_P521"),
+    
+    ECC_EDWARDS25519("ECC_EDWARDS25519"),
+    
+    RSA_3072("RSA_3072"),
+    
+    RSA_4096("RSA_4096");
+
+    private String value;
+
+    KeySpecEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static KeySpecEnum fromValue(String value) {
+      for (KeySpecEnum b : KeySpecEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_KEY_SPEC = "key-spec";
+  private KeySpecEnum keySpec = KeySpecEnum.AES_256;
+
+  public static final String JSON_PROPERTY_MULTI_ZONE = "multi-zone";
+  private Boolean multiZone = false;
+
+  /**
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
+   */
+  public enum SourceEnum {
+    EXOSCALE_KMS("exoscale-kms"),
+    
+    EXTERNAL_KEY_STORE("external-key-store");
+
+    private String value;
+
+    SourceEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SourceEnum fromValue(String value) {
+      for (SourceEnum b : SourceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private SourceEnum source = SourceEnum.EXOSCALE_KMS;
+
+  public static final String JSON_PROPERTY_XKS = "xks";
+  private XksKey xks;
+
   public CreateKmsKeyRequest() { 
   }
-
-  public CreateKmsKeyRequest description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * An optional detailed description providing additional context about the key&#39;s intended use case.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public CreateKmsKeyRequest multiZone(Boolean multiZone) {
-    this.multiZone = multiZone;
-    return this;
-  }
-
-   /**
-   * True if this is a multi-zone key.
-   * @return multiZone
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MULTI_ZONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getMultiZone() {
-    return multiZone;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_MULTI_ZONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMultiZone(Boolean multiZone) {
-    this.multiZone = multiZone;
-  }
-
 
   public CreateKmsKeyRequest name(String name) {
     this.name = name;
@@ -159,6 +204,31 @@ public class CreateKmsKeyRequest {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public CreateKmsKeyRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * An optional detailed description providing additional context about the key&#39;s intended use case.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -187,6 +257,106 @@ public class CreateKmsKeyRequest {
   }
 
 
+  public CreateKmsKeyRequest keySpec(KeySpecEnum keySpec) {
+    this.keySpec = keySpec;
+    return this;
+  }
+
+   /**
+   * The cryptographic key specification defining the key&#39;s algorithm and, for asymmetric keys, its curve or modulus size.
+   * @return keySpec
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public KeySpecEnum getKeySpec() {
+    return keySpec;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KEY_SPEC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKeySpec(KeySpecEnum keySpec) {
+    this.keySpec = keySpec;
+  }
+
+
+  public CreateKmsKeyRequest multiZone(Boolean multiZone) {
+    this.multiZone = multiZone;
+    return this;
+  }
+
+   /**
+   * True if this is a multi-zone key.
+   * @return multiZone
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MULTI_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMultiZone() {
+    return multiZone;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MULTI_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMultiZone(Boolean multiZone) {
+    this.multiZone = multiZone;
+  }
+
+
+  public CreateKmsKeyRequest source(SourceEnum source) {
+    this.source = source;
+    return this;
+  }
+
+   /**
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
+   * @return source
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SourceEnum getSource() {
+    return source;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSource(SourceEnum source) {
+    this.source = source;
+  }
+
+
+  public CreateKmsKeyRequest xks(XksKey xks) {
+    this.xks = xks;
+    return this;
+  }
+
+   /**
+   * Get xks
+   * @return xks
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_XKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public XksKey getXks() {
+    return xks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_XKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setXks(XksKey xks) {
+    this.xks = xks;
+  }
+
+
   /**
    * Return true if this create-kms-key-request object is equal to o.
    */
@@ -199,25 +369,31 @@ public class CreateKmsKeyRequest {
       return false;
     }
     CreateKmsKeyRequest createKmsKeyRequest = (CreateKmsKeyRequest) o;
-    return Objects.equals(this.description, createKmsKeyRequest.description) &&
+    return Objects.equals(this.name, createKmsKeyRequest.name) &&
+        Objects.equals(this.description, createKmsKeyRequest.description) &&
+        Objects.equals(this.usage, createKmsKeyRequest.usage) &&
+        Objects.equals(this.keySpec, createKmsKeyRequest.keySpec) &&
         Objects.equals(this.multiZone, createKmsKeyRequest.multiZone) &&
-        Objects.equals(this.name, createKmsKeyRequest.name) &&
-        Objects.equals(this.usage, createKmsKeyRequest.usage);
+        Objects.equals(this.source, createKmsKeyRequest.source) &&
+        Objects.equals(this.xks, createKmsKeyRequest.xks);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, multiZone, name, usage);
+    return Objects.hash(name, description, usage, keySpec, multiZone, source, xks);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateKmsKeyRequest {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("    keySpec: ").append(toIndentedString(keySpec)).append("\n");
+    sb.append("    multiZone: ").append(toIndentedString(multiZone)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    xks: ").append(toIndentedString(xks)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -265,9 +441,24 @@ public class CreateKmsKeyRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `usage` to the URL query string
+    if (getUsage() != null) {
+      joiner.add(String.format("%susage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `key-spec` to the URL query string
+    if (getKeySpec() != null) {
+      joiner.add(String.format("%skey-spec%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKeySpec()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `multi-zone` to the URL query string
@@ -275,14 +466,14 @@ public class CreateKmsKeyRequest {
       joiner.add(String.format("%smulti-zone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMultiZone()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `source` to the URL query string
+    if (getSource() != null) {
+      joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `usage` to the URL query string
-    if (getUsage() != null) {
-      joiner.add(String.format("%susage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUsage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `xks` to the URL query string
+    if (getXks() != null) {
+      joiner.add(getXks().toUrlQueryString(prefix + "xks" + suffix));
     }
 
     return joiner.toString();

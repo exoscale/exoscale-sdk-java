@@ -13,6 +13,7 @@
 
 package com.exoscale.sdk.model;
 
+import com.exoscale.sdk.model.XksProxyErrorDetail;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,19 +39,11 @@ public class ErrorResponseTest {
     }
 
     /**
-     * Test the property 'detail'
+     * Test the property 'type'
      */
     @Test
-    public void detailTest() {
-        // TODO: test detail
-    }
-
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
@@ -62,11 +55,27 @@ public class ErrorResponseTest {
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'status'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'detail'
+     */
+    @Test
+    public void detailTest() {
+        // TODO: test detail
+    }
+
+    /**
+     * Test the property 'xksProxyError'
+     */
+    @Test
+    public void xksProxyErrorTest() {
+        // TODO: test xksProxyError
     }
 
 }

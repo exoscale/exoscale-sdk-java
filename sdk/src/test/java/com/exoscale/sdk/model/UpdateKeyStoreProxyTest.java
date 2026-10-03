@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.net.URI;
 import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -39,19 +40,19 @@ public class UpdateKeyStoreProxyTest {
     }
 
     /**
-     * Test the property 'auth'
-     */
-    @Test
-    public void authTest() {
-        // TODO: test auth
-    }
-
-    /**
      * Test the property 'endpoint'
      */
     @Test
     public void endpointTest() {
         // TODO: test endpoint
+    }
+
+    /**
+     * Test the property 'auth'
+     */
+    @Test
+    public void authTest() {
+        // TODO: test auth
     }
 
 }

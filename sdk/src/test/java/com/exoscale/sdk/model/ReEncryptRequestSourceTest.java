@@ -43,11 +43,11 @@ public class ReEncryptRequestSourceTest {
     }
 
     /**
-     * Test the property 'ciphertext'
+     * Test the property 'key'
      */
     @Test
-    public void ciphertextTest() {
-        // TODO: test ciphertext
+    public void keyTest() {
+        // TODO: test key
     }
 
     /**
@@ -59,11 +59,11 @@ public class ReEncryptRequestSourceTest {
     }
 
     /**
-     * Test the property 'key'
+     * Test the property 'ciphertext'
      */
     @Test
-    public void keyTest() {
-        // TODO: test key
+    public void ciphertextTest() {
+        // TODO: test ciphertext
     }
 
 }

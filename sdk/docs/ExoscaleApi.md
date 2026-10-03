@@ -16,7 +16,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
 | [**attachInstanceToSubnet**](ExoscaleApi.md#attachInstanceToSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/attach | [BETA] Attach a Compute instance to a Subnet |
 | [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | Cancel KMS Key Deletion |
-| [**connectKeyStore**](ExoscaleApi.md#connectKeyStore) | **POST** /key-store/{id}/connect | Connect Key Store |
+| [**connectKeyStore**](ExoscaleApi.md#connectKeyStore) | **POST** /key-store/{id}/connect | [BETA] Connect Key Store |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
 | [**createAiApiKey**](ExoscaleApi.md#createAiApiKey) | **POST** /ai/api-key | [BETA] Create AI API Key |
 | [**createAntiAffinityGroup**](ExoscaleApi.md#createAntiAffinityGroup) | **POST** /anti-affinity-group | Create an Anti-affinity Group |
@@ -57,7 +57,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createIamRole**](ExoscaleApi.md#createIamRole) | **POST** /iam-role | Create IAM Role |
 | [**createInstance**](ExoscaleApi.md#createInstance) | **POST** /instance | Create a Compute instance |
 | [**createInstancePool**](ExoscaleApi.md#createInstancePool) | **POST** /instance-pool | Create an Instance Pool |
-| [**createKeyStore**](ExoscaleApi.md#createKeyStore) | **POST** /key-store | Create Key Store |
+| [**createKeyStore**](ExoscaleApi.md#createKeyStore) | **POST** /key-store | [BETA] Create Key Store |
 | [**createKmsKey**](ExoscaleApi.md#createKmsKey) | **POST** /kms-key | Create KMS Key |
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
 | [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model |
@@ -109,7 +109,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deleteIamRole**](ExoscaleApi.md#deleteIamRole) | **DELETE** /iam-role/{id} | Delete IAM Role |
 | [**deleteInstance**](ExoscaleApi.md#deleteInstance) | **DELETE** /instance/{id} | Delete a Compute instance |
 | [**deleteInstancePool**](ExoscaleApi.md#deleteInstancePool) | **DELETE** /instance-pool/{id} | Delete an Instance Pool |
-| [**deleteKeyStore**](ExoscaleApi.md#deleteKeyStore) | **DELETE** /key-store/{id} | Delete Key Store |
+| [**deleteKeyStore**](ExoscaleApi.md#deleteKeyStore) | **DELETE** /key-store/{id} | [BETA] Delete Key Store |
 | [**deleteLoadBalancer**](ExoscaleApi.md#deleteLoadBalancer) | **DELETE** /load-balancer/{id} | Delete a Load Balancer |
 | [**deleteLoadBalancerService**](ExoscaleApi.md#deleteLoadBalancerService) | **DELETE** /load-balancer/{id}/service/{service-id} | Delete a Load Balancer Service |
 | [**deleteModel**](ExoscaleApi.md#deleteModel) | **DELETE** /ai/model/{id} | Delete Model |
@@ -135,7 +135,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**detachInstanceFromSubnet**](ExoscaleApi.md#detachInstanceFromSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/detach | [BETA] Detach a Compute instance from a Subnet |
 | [**disableKmsKey**](ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | Disable KMS Key |
 | [**disableKmsKeyRotation**](ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | Disable Key Rotation |
-| [**disconnectKeyStore**](ExoscaleApi.md#disconnectKeyStore) | **POST** /key-store/{id}/disconnect | Disconnect Key Store |
+| [**disconnectKeyStore**](ExoscaleApi.md#disconnectKeyStore) | **POST** /key-store/{id}/disconnect | [BETA] Disconnect Key Store |
 | [**enableDbaasMysqlWrites**](ExoscaleApi.md#enableDbaasMysqlWrites) | **PUT** /dbaas-mysql/{name}/enable/writes | Temporarily enable writes for MySQL services in read-only mode due to filled up storage |
 | [**enableKmsKey**](ExoscaleApi.md#enableKmsKey) | **POST** /kms-key/{id}/enable | Enable KMS Key |
 | [**enableKmsKeyRotation**](ExoscaleApi.md#enableKmsKeyRotation) | **POST** /kms-key/{id}/enable-key-rotation | Enable Key Rotation |
@@ -205,7 +205,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getInstance**](ExoscaleApi.md#getInstance) | **GET** /instance/{id} | Retrieve Compute instance details |
 | [**getInstancePool**](ExoscaleApi.md#getInstancePool) | **GET** /instance-pool/{id} | Retrieve Instance Pool details |
 | [**getInstanceType**](ExoscaleApi.md#getInstanceType) | **GET** /instance-type/{id} | Retrieve Instance Type details |
-| [**getKeyStore**](ExoscaleApi.md#getKeyStore) | **GET** /key-store/{id} | Get Key Store |
+| [**getKeyStore**](ExoscaleApi.md#getKeyStore) | **GET** /key-store/{id} | [BETA] Get Key Store |
 | [**getKmsKey**](ExoscaleApi.md#getKmsKey) | **GET** /kms-key/{id} | Get KMS Key |
 | [**getLiveBalance**](ExoscaleApi.md#getLiveBalance) | **GET** /live-balance | [BETA] Retrieve the live-balance |
 | [**getLoadBalancer**](ExoscaleApi.md#getLoadBalancer) | **GET** /load-balancer/{id} | Retrieve Load Balancer details |
@@ -214,6 +214,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getOperation**](ExoscaleApi.md#getOperation) | **GET** /operation/{id} | Retrieve Operation details |
 | [**getOrganization**](ExoscaleApi.md#getOrganization) | **GET** /organization | Retrieve an organization |
 | [**getPrivateNetwork**](ExoscaleApi.md#getPrivateNetwork) | **GET** /private-network/{id} | Retrieve Private Network details |
+| [**getPublicKey**](ExoscaleApi.md#getPublicKey) | **GET** /kms-key/{id}/get-public-key | Get Public Key |
 | [**getQuota**](ExoscaleApi.md#getQuota) | **GET** /quota/{entity} | Retrieve Resource Quota |
 | [**getReverseDnsElasticIp**](ExoscaleApi.md#getReverseDnsElasticIp) | **GET** /reverse-dns/elastic-ip/{id} | Query the PTR DNS records for an elastic IP |
 | [**getReverseDnsInstance**](ExoscaleApi.md#getReverseDnsInstance) | **GET** /reverse-dns/instance/{id} | Query the PTR DNS records for an instance |
@@ -257,7 +258,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listInstancePools**](ExoscaleApi.md#listInstancePools) | **GET** /instance-pool | List Instance Pools |
 | [**listInstanceTypes**](ExoscaleApi.md#listInstanceTypes) | **GET** /instance-type | List Compute instance Types |
 | [**listInstances**](ExoscaleApi.md#listInstances) | **GET** /instance | List Compute instances |
-| [**listKeyStores**](ExoscaleApi.md#listKeyStores) | **GET** /key-store | List Key Stores |
+| [**listKeyStores**](ExoscaleApi.md#listKeyStores) | **GET** /key-store | [BETA] List Key Stores |
 | [**listKmsKeyRotations**](ExoscaleApi.md#listKmsKeyRotations) | **GET** /kms-key/{id}/list-key-rotations | List KMS Key Rotations |
 | [**listKmsKeys**](ExoscaleApi.md#listKmsKeys) | **GET** /kms-key | List KMS Keys |
 | [**listLoadBalancers**](ExoscaleApi.md#listLoadBalancers) | **GET** /load-balancer | List Load Balancers |
@@ -327,6 +328,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
 | [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion |
+| [**sign**](ExoscaleApi.md#sign) | **POST** /kms-key/{id}/sign | Sign |
 | [**startDbaasClickhouseMaintenance**](ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | Initiate ClickHouse maintenance update |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
 | [**startDbaasKafkaMaintenance**](ExoscaleApi.md#startDbaasKafkaMaintenance) | **PUT** /dbaas-kafka/{name}/maintenance/start | Initiate Kafka maintenance update |
@@ -370,7 +372,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateIamRolePolicy**](ExoscaleApi.md#updateIamRolePolicy) | **PUT** /iam-role/{id}:policy | Update IAM Role Policy |
 | [**updateInstance**](ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance |
 | [**updateInstancePool**](ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool |
-| [**updateKeyStore**](ExoscaleApi.md#updateKeyStore) | **POST** /key-store/{id}/update | Update Key Store |
+| [**updateKeyStore**](ExoscaleApi.md#updateKeyStore) | **POST** /key-store/{id}/update | [BETA] Update Key Store |
 | [**updateLoadBalancer**](ExoscaleApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer |
 | [**updateLoadBalancerService**](ExoscaleApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service |
 | [**updatePrivateNetwork**](ExoscaleApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network |
@@ -385,6 +387,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateVpc**](ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | [BETA] Update a VPC |
 | [**upgradeSksCluster**](ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster |
 | [**upgradeSksClusterServiceLevel**](ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro |
+| [**verify**](ExoscaleApi.md#verify) | **POST** /kms-key/{id}/verify | Verify |
 
 
 
@@ -1496,7 +1499,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion cancelled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
 
 
 ### Parameters
@@ -1524,16 +1527,16 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion cancelled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Not Pending Deletion: The request was rejected because the key is not pending deletion.  |  -  |
 
 
 ## connectKeyStore
 
 > SuccessResponse connectKeyStore(id)
 
-Connect Key Store
+[BETA] Connect Key Store
 
-Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+Connects an External Key Store once its customer-managed XKS proxy passes a health check, then resumes periodic proxy health checks and lets keys backed by this store be used for cryptographic operations.
 
 ### Example
 
@@ -1590,7 +1593,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Connected the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ### Parameters
@@ -1618,7 +1621,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Connected the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ## copyTemplate
@@ -5378,7 +5381,7 @@ No authorization required
 
 > ListKeyStoresResponseEntry createKeyStore(createKeyStoreRequest)
 
-Create Key Store
+[BETA] Create Key Store
 
 Create an External Key Store after validating the configured customer-managed XKS proxy.
 
@@ -5437,7 +5440,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created new External Key Store |  -  |
-| **400** | ### Errors  Name Conflict: The request was rejected because a key store with the same name already exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid request body, path parameter, proxy endpoint, or proxy credentials.  |  -  |
+| **400** | Errors  Name Conflict: The request was rejected because a key store with the same name already exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid request body, path parameter, proxy endpoint, or proxy credentials.  |  -  |
 
 
 ### Parameters
@@ -5465,7 +5468,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created new External Key Store |  -  |
-| **400** | ### Errors  Name Conflict: The request was rejected because a key store with the same name already exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid request body, path parameter, proxy endpoint, or proxy credentials.  |  -  |
+| **400** | Errors  Name Conflict: The request was rejected because a key store with the same name already exists in the organization.  Key Store Proxy Unhealthy: The request was rejected because the customer-managed XKS proxy failed its health check.  Bad Request: The request was rejected because of an invalid request body, path parameter, proxy endpoint, or proxy credentials.  |  -  |
 
 
 ## createKmsKey
@@ -5531,7 +5534,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created new KMS key |  -  |
-| **400** | ### Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -5559,7 +5562,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created new KMS key |  -  |
-| **400** | ### Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## createLoadBalancer
@@ -6651,7 +6654,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ### Parameters
@@ -6680,7 +6683,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -10188,7 +10191,7 @@ No authorization required
 
 > SuccessResponse deleteKeyStore(id)
 
-Delete Key Store
+[BETA] Delete Key Store
 
 Deletes an External Key Store when no KMS keys reference it.
 
@@ -10247,7 +10250,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Deleted the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Is Referenced: The request was rejected because one or more KMS keys reference the key store.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Is Referenced: The request was rejected because one or more KMS keys reference the key store.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ### Parameters
@@ -10275,7 +10278,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Deleted the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Is Referenced: The request was rejected because one or more KMS keys reference the key store.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Key Store Is Referenced: The request was rejected because one or more KMS keys reference the key store.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ## deleteLoadBalancer
@@ -12494,7 +12497,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key disabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  |  -  |
 
 
 ### Parameters
@@ -12522,7 +12525,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key disabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  |  -  |
 
 
 ## disableKmsKeyRotation
@@ -12588,7 +12591,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key rotation disabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
 
 
 ### Parameters
@@ -12616,16 +12619,16 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key rotation disabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  |  -  |
 
 
 ## disconnectKeyStore
 
 > SuccessResponse disconnectKeyStore(id)
 
-Disconnect Key Store
+[BETA] Disconnect Key Store
 
-Disconnects an External Key Store and suspends periodic proxy health checks.
+Disconnects an External Key Store and suspends periodic proxy health checks; keys backed by this store remain intact but cannot be used for cryptographic operations until it is reconnected.
 
 ### Example
 
@@ -12682,7 +12685,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Disconnected the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ### Parameters
@@ -12710,7 +12713,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Disconnected the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ## enableDbaasMysqlWrites
@@ -12866,7 +12869,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key enabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  |  -  |
 
 
 ### Parameters
@@ -12894,7 +12897,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key enabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  |  -  |
 
 
 ## enableKmsKeyRotation
@@ -12962,7 +12965,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Periodic key rotation enabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -12991,7 +12994,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Periodic key rotation enabled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Conflict: The request was rejected because the automatic rotation is already enabled for this KMS Key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## enableTpm
@@ -13151,7 +13154,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ### Parameters
@@ -13180,7 +13183,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ## evictInstancePoolMembers
@@ -13533,7 +13536,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Data Encryption Key in the clear and in its base64 encoded encrypted format. |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ### Parameters
@@ -13562,7 +13565,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Data Encryption Key in the clear and in its base64 encoded encrypted format. |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
 
 
 ## generateSksClusterKubeconfig
@@ -19050,7 +19053,7 @@ No authorization required
 
 > GetKeyStoreResponse getKeyStore(id)
 
-Get Key Store
+[BETA] Get Key Store
 
 Fetch an External Key Store including its latest XKS health observation when available.
 
@@ -19109,7 +19112,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | External Key Store |  -  |
-| **400** | Bad Request or not found. |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ### Parameters
@@ -19137,7 +19140,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | External Key Store |  -  |
-| **400** | Bad Request or not found. |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ## getKmsKey
@@ -19203,7 +19206,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | KMS Key Details |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ### Parameters
@@ -19231,7 +19234,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | KMS Key Details |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ## getLiveBalance
@@ -19869,6 +19872,100 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## getPublicKey
+
+> GetPublicKeyResponse getPublicKey(id)
+
+Get Public Key
+
+Retrieve the public key material of an asymmetric KMS key.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+
+        try {
+            // Invoke the API method
+            GetPublicKeyResponse result = client.getPublicKey(id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#getPublicKey");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+[**GetPublicKeyResponse**](GetPublicKeyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Public Key Details |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS Key is disabled (or pending deletion).  Invalid Usage: The request was rejected because the specified KMS Key does not have public key material (its key-spec is symmetric).  |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+
+### Return type
+
+ApiResponse<[**GetPublicKeyResponse**](GetPublicKeyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Public Key Details |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS Key is disabled (or pending deletion).  Invalid Usage: The request was rejected because the specified KMS Key does not have public key material (its key-spec is symmetric).  |  -  |
 
 
 ## getQuota
@@ -23726,7 +23823,7 @@ No authorization required
 
 > ListKeyStoresResponse listKeyStores()
 
-List Key Stores
+[BETA] List Key Stores
 
 Lists all key stores configured for an organization.
 
@@ -23781,7 +23878,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of all key stores configured for the organization |  -  |
-| **400** | ### Errors  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ### Parameters
@@ -23806,7 +23903,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of all key stores configured for the organization |  -  |
-| **400** | ### Errors  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
+| **400** | Errors  Bad Request: The request was rejected because of an invalid path parameter.  |  -  |
 
 
 ## listKmsKeyRotations
@@ -23872,7 +23969,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The list of all historical rotations for the requested KMS key. |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ### Parameters
@@ -23900,7 +23997,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The list of all historical rotations for the requested KMS key. |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  |  -  |
 
 
 ## listKmsKeys
@@ -23962,7 +24059,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of all KMS keys in the target zone |  -  |
-| **400** | ### Errors  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -23987,7 +24084,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | A list of all KMS keys in the target zone |  -  |
-| **400** | ### Errors  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## listLoadBalancers
@@ -25740,7 +25837,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -25769,7 +25866,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## rebootInstance
@@ -26300,7 +26397,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key replication target registered |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not Multizone: The request was rejected because the KMS key is not a multi-zone key.  Conflict: The request was rejected because the key is already replicated in the target zone.  Invalid Argument: The request was rejected because the target zone is invalid.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not Multizone: The request was rejected because the KMS key is not a multi-zone key.  Conflict: The request was rejected because the key is already replicated in the target zone.  Invalid Argument: The request was rejected because the target zone is invalid.  |  -  |
 
 
 ### Parameters
@@ -26329,7 +26426,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key replication target registered |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not Multizone: The request was rejected because the KMS key is not a multi-zone key.  Conflict: The request was rejected because the key is already replicated in the target zone.  Invalid Argument: The request was rejected because the target zone is invalid.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not Multizone: The request was rejected because the KMS key is not a multi-zone key.  Conflict: The request was rejected because the key is already replicated in the target zone.  Invalid Argument: The request was rejected because the target zone is invalid.  |  -  |
 
 
 ## resetDbaasClickhouseUserPassword
@@ -29327,7 +29424,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key rotated |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on a Replica: The request was rejected because the operation is not allowed on a replica.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Manual Rotation Limit: The request was rejected because you reached your limit of 10 manual rotations per key for this KMS key.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on a Replica: The request was rejected because the operation is not allowed on a replica.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Manual Rotation Limit: The request was rejected because you reached your limit of 10 manual rotations per key for this KMS key.  |  -  |
 
 
 ### Parameters
@@ -29355,7 +29452,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key rotated |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on a Replica: The request was rejected because the operation is not allowed on a replica.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Manual Rotation Limit: The request was rejected because you reached your limit of 10 manual rotations per key for this KMS key.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on a Replica: The request was rejected because the operation is not allowed on a replica.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Manual Rotation Limit: The request was rejected because you reached your limit of 10 manual rotations per key for this KMS key.  |  -  |
 
 
 ## rotateSksCcmCredentials
@@ -30182,7 +30279,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion scheduled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -30211,7 +30308,104 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Key deletion scheduled |  -  |
-| **400** | ### Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+
+
+## sign
+
+> SignResponse sign(id, signRequest)
+
+Sign
+
+Signs a message or digest using a KMS key with usage &#x60;sign-verify&#x60;.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        SignRequest signRequest = new SignRequest(); // SignRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            SignResponse result = client.sign(id, signRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#sign");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **signRequest** | [**SignRequest**](SignRequest.md)|  | |
+
+### Return type
+
+[**SignResponse**](SignResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The message was successfully signed |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS Key is disabled (or pending deletion).  Invalid Usage: The request was rejected because the operation is only allowed on keys with usage \&quot;sign-verify\&quot;.  Invalid Argument: The request was rejected because &#x60;message-type&#x60;, &#x60;message&#x60;, or &#x60;signing-algorithm&#x60; is invalid.  |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **signRequest** | [**SignRequest**](SignRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**SignResponse**](SignResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The message was successfully signed |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS Key is disabled (or pending deletion).  Invalid Usage: The request was rejected because the operation is only allowed on keys with usage \&quot;sign-verify\&quot;.  Invalid Argument: The request was rejected because &#x60;message-type&#x60;, &#x60;message&#x60;, or &#x60;signing-algorithm&#x60; is invalid.  |  -  |
 
 
 ## startDbaasClickhouseMaintenance
@@ -34258,7 +34452,7 @@ No authorization required
 
 > GetKeyStoreResponse updateKeyStore(id, updateKeyStoreRequest)
 
-Update Key Store
+[BETA] Update Key Store
 
 Updates an External Key Store with a new description, endpoint, or credentials.
 
@@ -34319,7 +34513,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  Conflict: The request was rejected because the key store was concurrently modified. Retry with the latest state.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  Conflict: The request was rejected because the key store was concurrently modified. Retry with the latest state.  |  -  |
 
 
 ### Parameters
@@ -34348,7 +34542,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated the External Key Store |  -  |
-| **400** | ### Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  Conflict: The request was rejected because the key store was concurrently modified. Retry with the latest state.  |  -  |
+| **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  Conflict: The request was rejected because the key store was concurrently modified. Retry with the latest state.  |  -  |
 
 
 ## updateLoadBalancer
@@ -35683,4 +35877,101 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | 200 |  -  |
+
+
+## verify
+
+> VerifyResponse verify(id, verifyRequest)
+
+Verify
+
+Verifies a signature against the public key of a KMS key with usage &#x60;sign-verify&#x60;.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        VerifyRequest verifyRequest = new VerifyRequest(); // VerifyRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            VerifyResponse result = client.verify(id, verifyRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#verify");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **verifyRequest** | [**VerifyRequest**](VerifyRequest.md)|  | |
+
+### Return type
+
+[**VerifyResponse**](VerifyResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The signature is valid. |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS Key is disabled (or pending deletion).  Invalid Usage: The request was rejected because the operation is only allowed on keys with usage \&quot;sign-verify\&quot;.  Invalid Argument: The request was rejected because &#x60;message-type&#x60;, &#x60;message&#x60;, or &#x60;signing-algorithm&#x60; is invalid.  Invalid Signature: The request was rejected because &#x60;signature&#x60; is not a valid signature for &#x60;message&#x60; under this key.  |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **verifyRequest** | [**VerifyRequest**](VerifyRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**VerifyResponse**](VerifyResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The signature is valid. |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS Key is disabled (or pending deletion).  Invalid Usage: The request was rejected because the operation is only allowed on keys with usage \&quot;sign-verify\&quot;.  Invalid Argument: The request was rejected because &#x60;message-type&#x60;, &#x60;message&#x60;, or &#x60;signing-algorithm&#x60; is invalid.  Invalid Signature: The request was rejected because &#x60;signature&#x60; is not a valid signature for &#x60;message&#x60; under this key.  |  -  |
 

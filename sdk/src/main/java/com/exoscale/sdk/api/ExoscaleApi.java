@@ -172,6 +172,7 @@ import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
 import com.exoscale.sdk.model.GetKeyStoreResponse;
 import com.exoscale.sdk.model.GetKmsKeyResponse;
 import com.exoscale.sdk.model.GetModelResponse;
+import com.exoscale.sdk.model.GetPublicKeyResponse;
 import com.exoscale.sdk.model.GetSksClusterAuthorityCert200Response;
 import com.exoscale.sdk.model.GetSosPresignedUrl200Response;
 import com.exoscale.sdk.model.GetUsageReport200Response;
@@ -262,6 +263,8 @@ import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
+import com.exoscale.sdk.model.SignRequest;
+import com.exoscale.sdk.model.SignResponse;
 import com.exoscale.sdk.model.SksCluster;
 import com.exoscale.sdk.model.SksClusterDeprecatedResource;
 import com.exoscale.sdk.model.SksKubeconfigRequest;
@@ -308,6 +311,8 @@ import com.exoscale.sdk.model.UpdateTemplateRequest;
 import com.exoscale.sdk.model.UpdateUserRoleRequest;
 import com.exoscale.sdk.model.UpdateVpcRequest;
 import com.exoscale.sdk.model.UpgradeSksClusterRequest;
+import com.exoscale.sdk.model.VerifyRequest;
+import com.exoscale.sdk.model.VerifyResponse;
 import com.exoscale.sdk.model.Vpc;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -1521,8 +1526,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Connect Key Store
-   * Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+   * [BETA] Connect Key Store
+   * Connects an External Key Store once its customer-managed XKS proxy passes a health check, then resumes periodic proxy health checks and lets keys backed by this store be used for cryptographic operations.
    * @param id  (required)
    * @return SuccessResponse
    * @throws ApiException if fails to make API call
@@ -1533,8 +1538,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Connect Key Store
-   * Connects an External Key Store after validating the configured customer-managed XKS proxy, and resumes periodic proxy health checks.
+   * [BETA] Connect Key Store
+   * Connects an External Key Store once its customer-managed XKS proxy passes a health check, then resumes periodic proxy health checks and lets keys backed by this store be used for cryptographic operations.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
@@ -5409,7 +5414,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Create Key Store
+   * [BETA] Create Key Store
    * Create an External Key Store after validating the configured customer-managed XKS proxy.
    * @param createKeyStoreRequest  (required)
    * @return ListKeyStoresResponseEntry
@@ -5421,7 +5426,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Create Key Store
+   * [BETA] Create Key Store
    * Create an External Key Store after validating the configured customer-managed XKS proxy.
    * @param createKeyStoreRequest  (required)
    * @return ApiResponse&lt;ListKeyStoresResponseEntry&gt;
@@ -10020,7 +10025,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Delete Key Store
+   * [BETA] Delete Key Store
    * Deletes an External Key Store when no KMS keys reference it.
    * @param id  (required)
    * @return SuccessResponse
@@ -10032,7 +10037,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Delete Key Store
+   * [BETA] Delete Key Store
    * Deletes an External Key Store when no KMS keys reference it.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
@@ -12348,8 +12353,8 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Disconnect Key Store
-   * Disconnects an External Key Store and suspends periodic proxy health checks.
+   * [BETA] Disconnect Key Store
+   * Disconnects an External Key Store and suspends periodic proxy health checks; keys backed by this store remain intact but cannot be used for cryptographic operations until it is reconnected.
    * @param id  (required)
    * @return SuccessResponse
    * @throws ApiException if fails to make API call
@@ -12360,8 +12365,8 @@ public class ExoscaleApi {
   }
 
   /**
-   * Disconnect Key Store
-   * Disconnects an External Key Store and suspends periodic proxy health checks.
+   * [BETA] Disconnect Key Store
+   * Disconnects an External Key Store and suspends periodic proxy health checks; keys backed by this store remain intact but cannot be used for cryptographic operations until it is reconnected.
    * @param id  (required)
    * @return ApiResponse&lt;SuccessResponse&gt;
    * @throws ApiException if fails to make API call
@@ -18402,7 +18407,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Get Key Store
+   * [BETA] Get Key Store
    * Fetch an External Key Store including its latest XKS health observation when available.
    * @param id  (required)
    * @return GetKeyStoreResponse
@@ -18414,7 +18419,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Get Key Store
+   * [BETA] Get Key Store
    * Fetch an External Key Store including its latest XKS health observation when available.
    * @param id  (required)
    * @return ApiResponse&lt;GetKeyStoreResponse&gt;
@@ -19132,6 +19137,91 @@ public class ExoscaleApi {
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/private-network/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Get Public Key
+   * Retrieve the public key material of an asymmetric KMS key.
+   * @param id  (required)
+   * @return GetPublicKeyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetPublicKeyResponse getPublicKey(UUID id) throws ApiException {
+    ApiResponse<GetPublicKeyResponse> localVarResponse = getPublicKeyWithHttpInfo(id);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Public Key
+   * Retrieve the public key material of an asymmetric KMS key.
+   * @param id  (required)
+   * @return ApiResponse&lt;GetPublicKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<GetPublicKeyResponse> getPublicKeyWithHttpInfo(UUID id) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getPublicKeyRequestBuilder(id);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getPublicKey", localVarResponse);
+        }
+        return new ApiResponse<GetPublicKeyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<GetPublicKeyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getPublicKeyRequestBuilder(UUID id) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPublicKey");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/get-public-key"
         .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
@@ -22790,7 +22880,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * List Key Stores
+   * [BETA] List Key Stores
    * Lists all key stores configured for an organization.
    * @return ListKeyStoresResponse
    * @throws ApiException if fails to make API call
@@ -22801,7 +22891,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * List Key Stores
+   * [BETA] List Key Stores
    * Lists all key stores configured for an organization.
    * @return ApiResponse&lt;ListKeyStoresResponse&gt;
    * @throws ApiException if fails to make API call
@@ -29105,6 +29195,103 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * Sign
+   * Signs a message or digest using a KMS key with usage &#x60;sign-verify&#x60;.
+   * @param id  (required)
+   * @param signRequest  (required)
+   * @return SignResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SignResponse sign(UUID id, SignRequest signRequest) throws ApiException {
+    ApiResponse<SignResponse> localVarResponse = signWithHttpInfo(id, signRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Sign
+   * Signs a message or digest using a KMS key with usage &#x60;sign-verify&#x60;.
+   * @param id  (required)
+   * @param signRequest  (required)
+   * @return ApiResponse&lt;SignResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SignResponse> signWithHttpInfo(UUID id, SignRequest signRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = signRequestBuilder(id, signRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("sign", localVarResponse);
+        }
+        return new ApiResponse<SignResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SignResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder signRequestBuilder(UUID id, SignRequest signRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling sign");
+    }
+    // verify the required parameter 'signRequest' is set
+    if (signRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'signRequest' when calling sign");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/sign"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(signRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * Initiate ClickHouse maintenance update
    * 
    * @param name  (required)
@@ -33153,7 +33340,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Update Key Store
+   * [BETA] Update Key Store
    * Updates an External Key Store with a new description, endpoint, or credentials.
    * @param id  (required)
    * @param updateKeyStoreRequest  (required)
@@ -33166,7 +33353,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Update Key Store
+   * [BETA] Update Key Store
    * Updates an External Key Store with a new description, endpoint, or credentials.
    * @param id  (required)
    * @param updateKeyStoreRequest  (required)
@@ -34608,6 +34795,103 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
     localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Verify
+   * Verifies a signature against the public key of a KMS key with usage &#x60;sign-verify&#x60;.
+   * @param id  (required)
+   * @param verifyRequest  (required)
+   * @return VerifyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public VerifyResponse verify(UUID id, VerifyRequest verifyRequest) throws ApiException {
+    ApiResponse<VerifyResponse> localVarResponse = verifyWithHttpInfo(id, verifyRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Verify
+   * Verifies a signature against the public key of a KMS key with usage &#x60;sign-verify&#x60;.
+   * @param id  (required)
+   * @param verifyRequest  (required)
+   * @return ApiResponse&lt;VerifyResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<VerifyResponse> verifyWithHttpInfo(UUID id, VerifyRequest verifyRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = verifyRequestBuilder(id, verifyRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("verify", localVarResponse);
+        }
+        return new ApiResponse<VerifyResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<VerifyResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder verifyRequestBuilder(UUID id, VerifyRequest verifyRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling verify");
+    }
+    // verify the required parameter 'verifyRequest' is set
+    if (verifyRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'verifyRequest' when calling verify");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/verify"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(verifyRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

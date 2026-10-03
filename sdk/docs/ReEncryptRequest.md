@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**destination** | [**ReEncryptRequestDestination**](ReEncryptRequestDestination.md) |  |  |
 |**source** | [**ReEncryptRequestSource**](ReEncryptRequestSource.md) |  |  |
+|**destination** | [**ReEncryptRequestDestination**](ReEncryptRequestDestination.md) |  |  |
 
 
 
