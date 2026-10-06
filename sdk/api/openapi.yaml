@@ -5464,7 +5464,8 @@ paths:
       x-accepts: application/json
   /env-impact/{period}:
     get:
-      description: "[DEPRECATED] use get-impact-report endpoint"
+      description: "[REMOVED] This endpoint is no longer available: it always returns\
+        \ 410 Gone with a message. Use get-impact-report endpoint instead."
       operationId: get-env-impact
       parameters:
       - explode: false
@@ -5475,13 +5476,13 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
+        "410":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/env-impact-report'
-          description: "200"
-      summary: "[DEPRECATED] use get-impact-report endpoint"
+                $ref: '#/components/schemas/get_env_impact_410_response'
+          description: "410"
+      summary: "[REMOVED] use get-impact-report endpoint"
       tags:
       - exoscale
       x-accepts: application/json
@@ -11208,17 +11209,6 @@ components:
       - state
       type: object
     env-impact-indicator:
-      example:
-        amount: 6.027456183070403
-        unit: unit
-        details:
-        - amount: 1.4658129805029452
-          unit: unit
-          value: value
-        - amount: 1.4658129805029452
-          unit: unit
-          value: value
-        value: value
       properties:
         value:
           description: Value
@@ -16068,10 +16058,6 @@ components:
           type: string
       type: object
     env-impact-detail:
-      example:
-        amount: 1.4658129805029452
-        unit: unit
-        value: value
       properties:
         value:
           description: Value
@@ -16345,36 +16331,6 @@ components:
       - failed-at
       type: object
     env-product:
-      example:
-        metadata:
-        - amount: 0.8008281904610115
-          unit: unit
-          value: value
-        - amount: 0.8008281904610115
-          unit: unit
-          value: value
-        impacts:
-        - amount: 6.027456183070403
-          unit: unit
-          details:
-          - amount: 1.4658129805029452
-            unit: unit
-            value: value
-          - amount: 1.4658129805029452
-            unit: unit
-            value: value
-          value: value
-        - amount: 6.027456183070403
-          unit: unit
-          details:
-          - amount: 1.4658129805029452
-            unit: unit
-            value: value
-          - amount: 1.4658129805029452
-            unit: unit
-            value: value
-          value: value
-        value: value
       properties:
         value:
           description: Value
@@ -18643,73 +18599,6 @@ components:
           type: string
       type: object
     env-impact-report:
-      example:
-        metadata:
-        - amount: 0.8008281904610115
-          unit: unit
-          value: value
-        - amount: 0.8008281904610115
-          unit: unit
-          value: value
-        products:
-        - metadata:
-          - amount: 0.8008281904610115
-            unit: unit
-            value: value
-          - amount: 0.8008281904610115
-            unit: unit
-            value: value
-          impacts:
-          - amount: 6.027456183070403
-            unit: unit
-            details:
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            value: value
-          - amount: 6.027456183070403
-            unit: unit
-            details:
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            value: value
-          value: value
-        - metadata:
-          - amount: 0.8008281904610115
-            unit: unit
-            value: value
-          - amount: 0.8008281904610115
-            unit: unit
-            value: value
-          impacts:
-          - amount: 6.027456183070403
-            unit: unit
-            details:
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            value: value
-          - amount: 6.027456183070403
-            unit: unit
-            details:
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            - amount: 1.4658129805029452
-              unit: unit
-              value: value
-            value: value
-          value: value
       properties:
         metadata:
           description: Metadata
@@ -25366,10 +25255,6 @@ components:
       title: OpenSearch settings
       type: object
     env-metadata-entry:
-      example:
-        amount: 0.8008281904610115
-        unit: unit
-        value: value
       properties:
         value:
           description: Value
@@ -29042,6 +28927,15 @@ components:
           items:
             $ref: '#/components/schemas/dbaas-integration-type'
           type: array
+      type: object
+    get_env_impact_410_response:
+      description: Endpoint removed
+      example:
+        message: message
+      properties:
+        message:
+          description: Explains that the endpoint was removed
+          type: string
       type: object
     update_dbaas_postgres_allow_replication_request:
       properties:

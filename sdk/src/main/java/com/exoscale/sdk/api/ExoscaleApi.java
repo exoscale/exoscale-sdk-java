@@ -136,7 +136,6 @@ import com.exoscale.sdk.model.EnableKmsKeyRotationRequest;
 import com.exoscale.sdk.model.EnableKmsKeyRotationResponse;
 import com.exoscale.sdk.model.EncryptRequest;
 import com.exoscale.sdk.model.EncryptResponse;
-import com.exoscale.sdk.model.EnvImpactReport;
 import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
@@ -166,6 +165,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentLogsResponse;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetEnvImpact410Response;
 import com.exoscale.sdk.model.GetImpactEstimate200Response;
 import com.exoscale.sdk.model.GetImpactEstimateRequest;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
@@ -17535,25 +17535,23 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [DEPRECATED] use get-impact-report endpoint
-   * [DEPRECATED] use get-impact-report endpoint
+   * [REMOVED] use get-impact-report endpoint
+   * [REMOVED] This endpoint is no longer available: it always returns 410 Gone with a message. Use get-impact-report endpoint instead.
    * @param period  (required)
-   * @return EnvImpactReport
    * @throws ApiException if fails to make API call
    */
-  public EnvImpactReport getEnvImpact(String period) throws ApiException {
-    ApiResponse<EnvImpactReport> localVarResponse = getEnvImpactWithHttpInfo(period);
-    return localVarResponse.getData();
+  public void getEnvImpact(String period) throws ApiException {
+    getEnvImpactWithHttpInfo(period);
   }
 
   /**
-   * [DEPRECATED] use get-impact-report endpoint
-   * [DEPRECATED] use get-impact-report endpoint
+   * [REMOVED] use get-impact-report endpoint
+   * [REMOVED] This endpoint is no longer available: it always returns 410 Gone with a message. Use get-impact-report endpoint instead.
    * @param period  (required)
-   * @return ApiResponse&lt;EnvImpactReport&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    */
-  private ApiResponse<EnvImpactReport> getEnvImpactWithHttpInfo(String period) throws ApiException {
+  private ApiResponse<Void> getEnvImpactWithHttpInfo(String period) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getEnvImpactRequestBuilder(period);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -17566,12 +17564,17 @@ public class ExoscaleApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getEnvImpact", localVarResponse);
         }
-        return new ApiResponse<EnvImpactReport>(
+        return new ApiResponse<Void>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<EnvImpactReport>() {}) // closes the InputStream
+          null
         );
       } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
       }
     } catch (IOException e) {
       throw new ApiException(e);

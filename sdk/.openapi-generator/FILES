@@ -301,6 +301,7 @@ docs/GetDeploymentLogsEntry.md
 docs/GetDeploymentLogsResponse.md
 docs/GetDeploymentResponse.md
 docs/GetDnsDomainZoneFile200Response.md
+docs/GetEnvImpact410Response.md
 docs/GetImpactEstimate200Response.md
 docs/GetImpactEstimateRequest.md
 docs/GetInferenceEngineHelpResponse.md
@@ -901,6 +902,7 @@ src/main/java/com/exoscale/sdk/model/GetDeploymentLogsEntry.java
 src/main/java/com/exoscale/sdk/model/GetDeploymentLogsResponse.java
 src/main/java/com/exoscale/sdk/model/GetDeploymentResponse.java
 src/main/java/com/exoscale/sdk/model/GetDnsDomainZoneFile200Response.java
+src/main/java/com/exoscale/sdk/model/GetEnvImpact410Response.java
 src/main/java/com/exoscale/sdk/model/GetImpactEstimate200Response.java
 src/main/java/com/exoscale/sdk/model/GetImpactEstimateRequest.java
 src/main/java/com/exoscale/sdk/model/GetInferenceEngineHelpResponse.java

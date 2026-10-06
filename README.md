@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-10-03T07:20:50.993723079Z[Etc/UTC]
+- Build date: 2026-10-06T07:21:52.292164587Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-febbda1</version>
+    <version>0.0.5-SNAPSHOT-eda083e</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-febbda1'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-eda083e'
 }
 ```
 
@@ -273,7 +273,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**getDnsDomainRecord**](sdk/docs/ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details
 *ExoscaleApi* | [**getDnsDomainZoneFile**](sdk/docs/ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file
 *ExoscaleApi* | [**getElasticIp**](sdk/docs/ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details
-*ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [DEPRECATED] use get-impact-report endpoint
+*ExoscaleApi* | [**getEnvImpact**](sdk/docs/ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [REMOVED] use get-impact-report endpoint
 *ExoscaleApi* | [**getFocusReport**](sdk/docs/ExoscaleApi.md#getFocusReport) | **GET** /focus-report/{period} | [BETA] Retrieve organization focus report download URL
 *ExoscaleApi* | [**getIamOrganizationPolicy**](sdk/docs/ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy
 *ExoscaleApi* | [**getIamRole**](sdk/docs/ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role
@@ -767,6 +767,7 @@ Class | Method | HTTP request | Description
  - [GetDeploymentLogsResponse](sdk/docs/GetDeploymentLogsResponse.md)
  - [GetDeploymentResponse](sdk/docs/GetDeploymentResponse.md)
  - [GetDnsDomainZoneFile200Response](sdk/docs/GetDnsDomainZoneFile200Response.md)
+ - [GetEnvImpact410Response](sdk/docs/GetEnvImpact410Response.md)
  - [GetImpactEstimate200Response](sdk/docs/GetImpactEstimate200Response.md)
  - [GetImpactEstimateRequest](sdk/docs/GetImpactEstimateRequest.md)
  - [GetInferenceEngineHelpResponse](sdk/docs/GetInferenceEngineHelpResponse.md)

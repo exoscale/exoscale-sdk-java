@@ -195,7 +195,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getDnsDomainRecord**](ExoscaleApi.md#getDnsDomainRecord) | **GET** /dns-domain/{domain-id}/record/{record-id} | Retrieve DNS domain record details |
 | [**getDnsDomainZoneFile**](ExoscaleApi.md#getDnsDomainZoneFile) | **GET** /dns-domain/{id}/zone | Retrieve DNS domain zone file |
 | [**getElasticIp**](ExoscaleApi.md#getElasticIp) | **GET** /elastic-ip/{id} | Retrieve Elastic IP details |
-| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [DEPRECATED] use get-impact-report endpoint |
+| [**getEnvImpact**](ExoscaleApi.md#getEnvImpact) | **GET** /env-impact/{period} | [REMOVED] use get-impact-report endpoint |
 | [**getFocusReport**](ExoscaleApi.md#getFocusReport) | **GET** /focus-report/{period} | [BETA] Retrieve organization focus report download URL |
 | [**getIamOrganizationPolicy**](ExoscaleApi.md#getIamOrganizationPolicy) | **GET** /iam-organization-policy | Retrieve IAM Organization Policy |
 | [**getIamRole**](ExoscaleApi.md#getIamRole) | **GET** /iam-role/{id} | Retrieve IAM Role |
@@ -18127,11 +18127,11 @@ No authorization required
 
 ## getEnvImpact
 
-> EnvImpactReport getEnvImpact(period)
+> void getEnvImpact(period)
 
-[DEPRECATED] use get-impact-report endpoint
+[REMOVED] use get-impact-report endpoint
 
-[DEPRECATED] use get-impact-report endpoint
+[REMOVED] This endpoint is no longer available: it always returns 410 Gone with a message. Use get-impact-report endpoint instead.
 
 ### Example
 
@@ -18150,8 +18150,7 @@ public class Example {
 
         try {
             // Invoke the API method
-            EnvImpactReport result = client.getEnvImpact(period);
-            System.out.println(result);
+            client.getEnvImpact(period);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExoscaleApi#getEnvImpact");
             System.err.println("Status code: " + e.getCode());
@@ -18172,8 +18171,8 @@ public class Example {
 
 ### Return type
 
-[**EnvImpactReport**](EnvImpactReport.md)
 
+null (empty response body)
 
 ### Authorization
 
@@ -18187,7 +18186,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **410** | 410 |  -  |
 
 
 ### Parameters
@@ -18199,8 +18198,8 @@ No authorization required
 
 ### Return type
 
-ApiResponse<[**EnvImpactReport**](EnvImpactReport.md)>
 
+ApiResponse<Void>
 
 ### Authorization
 
@@ -18214,7 +18213,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | 200 |  -  |
+| **410** | 410 |  -  |
 
 
 ## getFocusReport

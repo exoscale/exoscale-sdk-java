@@ -132,7 +132,6 @@ import com.exoscale.sdk.model.EnableKmsKeyRotationRequest;
 import com.exoscale.sdk.model.EnableKmsKeyRotationResponse;
 import com.exoscale.sdk.model.EncryptRequest;
 import com.exoscale.sdk.model.EncryptResponse;
-import com.exoscale.sdk.model.EnvImpactReport;
 import com.exoscale.sdk.model.ErrorResponse;
 import com.exoscale.sdk.model.Event;
 import com.exoscale.sdk.model.EvictInstancePoolMembersRequest;
@@ -162,6 +161,7 @@ import com.exoscale.sdk.model.GetDbaasSettingsValkey200Response;
 import com.exoscale.sdk.model.GetDeploymentLogsResponse;
 import com.exoscale.sdk.model.GetDeploymentResponse;
 import com.exoscale.sdk.model.GetDnsDomainZoneFile200Response;
+import com.exoscale.sdk.model.GetEnvImpact410Response;
 import com.exoscale.sdk.model.GetImpactEstimate200Response;
 import com.exoscale.sdk.model.GetImpactEstimateRequest;
 import com.exoscale.sdk.model.GetInferenceEngineHelpResponse;
@@ -3652,9 +3652,9 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [DEPRECATED] use get-impact-report endpoint
+     * [REMOVED] use get-impact-report endpoint
      *
-     * [DEPRECATED] use get-impact-report endpoint
+     * [REMOVED] This endpoint is no longer available: it always returns 410 Gone with a message. Use get-impact-report endpoint instead.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3662,7 +3662,7 @@ public class ExoscaleApiTest {
     @Test
     public void getEnvImpactTest() throws ApiException {
         String period = null;
-        EnvImpactReport response = 
+        
         api.getEnvImpact(period);
         
         // TODO: test validations
