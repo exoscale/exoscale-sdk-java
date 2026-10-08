@@ -36,26 +36,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * GetKeyStoreResponse
  */
 @JsonPropertyOrder({
-  GetKeyStoreResponse.JSON_PROPERTY_ID,
-  GetKeyStoreResponse.JSON_PROPERTY_NAME,
   GetKeyStoreResponse.JSON_PROPERTY_DESCRIPTION,
+  GetKeyStoreResponse.JSON_PROPERTY_NAME,
   GetKeyStoreResponse.JSON_PROPERTY_TYPE,
-  GetKeyStoreResponse.JSON_PROPERTY_STATUS,
   GetKeyStoreResponse.JSON_PROPERTY_PROXY,
-  GetKeyStoreResponse.JSON_PROPERTY_CREATED_AT,
+  GetKeyStoreResponse.JSON_PROPERTY_STATUS,
   GetKeyStoreResponse.JSON_PROPERTY_STATUS_SINCE,
-  GetKeyStoreResponse.JSON_PROPERTY_HEALTH
+  GetKeyStoreResponse.JSON_PROPERTY_ID,
+  GetKeyStoreResponse.JSON_PROPERTY_HEALTH,
+  GetKeyStoreResponse.JSON_PROPERTY_CREATED_AT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetKeyStoreResponse {
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
 
   /**
    * The key store type.
@@ -92,6 +89,9 @@ public class GetKeyStoreResponse {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
+
+  public static final String JSON_PROPERTY_PROXY = "proxy";
+  private KeyStoreProxyResponse proxy;
 
   /**
    * The current connection status of the key store.
@@ -131,43 +131,43 @@ public class GetKeyStoreResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private StatusEnum status;
 
-  public static final String JSON_PROPERTY_PROXY = "proxy";
-  private KeyStoreProxyResponse proxy;
-
-  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
-  private OffsetDateTime createdAt;
-
   public static final String JSON_PROPERTY_STATUS_SINCE = "status-since";
   private OffsetDateTime statusSince;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private UUID id;
 
   public static final String JSON_PROPERTY_HEALTH = "health";
   private KeyStoreHealth health;
 
+  public static final String JSON_PROPERTY_CREATED_AT = "created-at";
+  private OffsetDateTime createdAt;
+
   public GetKeyStoreResponse() { 
   }
 
-  public GetKeyStoreResponse id(UUID id) {
-    this.id = id;
+  public GetKeyStoreResponse description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
-   * The globally unique identifier assigned to the key store.
-   * @return id
+   * An optional detailed description providing additional context about the key store&#39;s intended use case.
+   * @return description
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UUID getId() {
-    return id;
+  public String getDescription() {
+    return description;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(UUID id) {
-    this.id = id;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
 
@@ -196,31 +196,6 @@ public class GetKeyStoreResponse {
   }
 
 
-  public GetKeyStoreResponse description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * An optional detailed description providing additional context about the key store&#39;s intended use case.
-   * @return description
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
   public GetKeyStoreResponse type(TypeEnum type) {
     this.type = type;
     return this;
@@ -243,31 +218,6 @@ public class GetKeyStoreResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-
-  public GetKeyStoreResponse status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * The current connection status of the key store.
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(StatusEnum status) {
-    this.status = status;
   }
 
 
@@ -296,28 +246,28 @@ public class GetKeyStoreResponse {
   }
 
 
-  public GetKeyStoreResponse createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
+  public GetKeyStoreResponse status(StatusEnum status) {
+    this.status = status;
     return this;
   }
 
    /**
-   * The creation timestamp.
-   * @return createdAt
+   * The current connection status of the key store.
+   * @return status
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
+  public StatusEnum getStatus() {
+    return status;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
+  public void setStatus(StatusEnum status) {
+    this.status = status;
   }
 
 
@@ -346,6 +296,31 @@ public class GetKeyStoreResponse {
   }
 
 
+  public GetKeyStoreResponse id(UUID id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The globally unique identifier assigned to the key store.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public UUID getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(UUID id) {
+    this.id = id;
+  }
+
+
   public GetKeyStoreResponse health(KeyStoreHealth health) {
     this.health = health;
     return this;
@@ -371,6 +346,31 @@ public class GetKeyStoreResponse {
   }
 
 
+  public GetKeyStoreResponse createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * The creation timestamp.
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
   /**
    * Return true if this get-key-store-response object is equal to o.
    */
@@ -383,35 +383,35 @@ public class GetKeyStoreResponse {
       return false;
     }
     GetKeyStoreResponse getKeyStoreResponse = (GetKeyStoreResponse) o;
-    return Objects.equals(this.id, getKeyStoreResponse.id) &&
+    return Objects.equals(this.description, getKeyStoreResponse.description) &&
         Objects.equals(this.name, getKeyStoreResponse.name) &&
-        Objects.equals(this.description, getKeyStoreResponse.description) &&
         Objects.equals(this.type, getKeyStoreResponse.type) &&
-        Objects.equals(this.status, getKeyStoreResponse.status) &&
         Objects.equals(this.proxy, getKeyStoreResponse.proxy) &&
-        Objects.equals(this.createdAt, getKeyStoreResponse.createdAt) &&
+        Objects.equals(this.status, getKeyStoreResponse.status) &&
         Objects.equals(this.statusSince, getKeyStoreResponse.statusSince) &&
-        Objects.equals(this.health, getKeyStoreResponse.health);
+        Objects.equals(this.id, getKeyStoreResponse.id) &&
+        Objects.equals(this.health, getKeyStoreResponse.health) &&
+        Objects.equals(this.createdAt, getKeyStoreResponse.createdAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, type, status, proxy, createdAt, statusSince, health);
+    return Objects.hash(description, name, type, proxy, status, statusSince, id, health, createdAt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetKeyStoreResponse {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusSince: ").append(toIndentedString(statusSince)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    health: ").append(toIndentedString(health)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -459,9 +459,9 @@ public class GetKeyStoreResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
@@ -469,19 +469,9 @@ public class GetKeyStoreResponse {
       joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `type` to the URL query string
     if (getType() != null) {
       joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `status` to the URL query string
-    if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `proxy` to the URL query string
@@ -489,9 +479,9 @@ public class GetKeyStoreResponse {
       joiner.add(getProxy().toUrlQueryString(prefix + "proxy" + suffix));
     }
 
-    // add `created-at` to the URL query string
-    if (getCreatedAt() != null) {
-      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status-since` to the URL query string
@@ -499,9 +489,19 @@ public class GetKeyStoreResponse {
       joiner.add(String.format("%sstatus-since%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatusSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `health` to the URL query string
     if (getHealth() != null) {
       joiner.add(getHealth().toUrlQueryString(prefix + "health" + suffix));
+    }
+
+    // add `created-at` to the URL query string
+    if (getCreatedAt() != null) {
+      joiner.add(String.format("%screated-at%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -35,6 +35,7 @@
 | ECDSA_SHA_512 | &quot;ECDSA_SHA_512&quot; |
 | EDDSA_ED25519 | &quot;EDDSA_ED25519&quot; |
 | ED25519_PH_SHA_512 | &quot;ED25519_PH_SHA_512&quot; |
+| ML_DSA_SHAKE_256 | &quot;ML_DSA_SHAKE_256&quot; |
 
 
 

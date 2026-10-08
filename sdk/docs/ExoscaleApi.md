@@ -6654,7 +6654,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
 
 
 ### Parameters
@@ -6683,7 +6683,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -13154,7 +13154,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
 
 
 ### Parameters
@@ -13183,7 +13183,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
 
 
 ## evictInstancePoolMembers
@@ -25777,7 +25777,7 @@ No authorization required
 
 Re-encrypt
 
-Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family.
 
 ### Example
 
@@ -25836,7 +25836,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -25865,7 +25865,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## rebootInstance

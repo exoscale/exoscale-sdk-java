@@ -5080,7 +5080,7 @@ public class ExoscaleApiTest {
     /**
      * Re-encrypt
      *
-     * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+     * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family.
      *
      * @throws ApiException
      *          if the Api call fails

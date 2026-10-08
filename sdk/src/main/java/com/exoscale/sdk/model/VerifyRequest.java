@@ -101,7 +101,9 @@ public class VerifyRequest {
     
     EDDSA_ED25519("EDDSA_ED25519"),
     
-    ED25519_PH_SHA_512("ED25519_PH_SHA_512");
+    ED25519_PH_SHA_512("ED25519_PH_SHA_512"),
+    
+    ML_DSA_SHAKE_256("ML_DSA_SHAKE_256");
 
     private String value;
 

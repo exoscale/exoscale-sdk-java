@@ -45,4 +45,20 @@ public class ReEncryptResponseTest {
         // TODO: test ciphertext
     }
 
+    /**
+     * Test the property 'sourceEncryptionAlgorithm'
+     */
+    @Test
+    public void sourceEncryptionAlgorithmTest() {
+        // TODO: test sourceEncryptionAlgorithm
+    }
+
+    /**
+     * Test the property 'destinationEncryptionAlgorithm'
+     */
+    @Test
+    public void destinationEncryptionAlgorithmTest() {
+        // TODO: test destinationEncryptionAlgorithm
+    }
+
 }

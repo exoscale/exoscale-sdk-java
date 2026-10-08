@@ -32,12 +32,90 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ReEncryptResponse
  */
 @JsonPropertyOrder({
-  ReEncryptResponse.JSON_PROPERTY_CIPHERTEXT
+  ReEncryptResponse.JSON_PROPERTY_CIPHERTEXT,
+  ReEncryptResponse.JSON_PROPERTY_SOURCE_ENCRYPTION_ALGORITHM,
+  ReEncryptResponse.JSON_PROPERTY_DESTINATION_ENCRYPTION_ALGORITHM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ReEncryptResponse {
   public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
   private byte[] ciphertext;
+
+  /**
+   * The encryption algorithm that was used to decrypt the source ciphertext.
+   */
+  public enum SourceEncryptionAlgorithmEnum {
+    AES_256("AES_256"),
+    
+    RSAES_OAEP_SHA_256("RSAES_OAEP_SHA_256");
+
+    private String value;
+
+    SourceEncryptionAlgorithmEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static SourceEncryptionAlgorithmEnum fromValue(String value) {
+      for (SourceEncryptionAlgorithmEnum b : SourceEncryptionAlgorithmEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_SOURCE_ENCRYPTION_ALGORITHM = "source-encryption-algorithm";
+  private SourceEncryptionAlgorithmEnum sourceEncryptionAlgorithm;
+
+  /**
+   * The encryption algorithm that was used to encrypt the destination ciphertext.
+   */
+  public enum DestinationEncryptionAlgorithmEnum {
+    AES_256("AES_256"),
+    
+    RSAES_OAEP_SHA_256("RSAES_OAEP_SHA_256");
+
+    private String value;
+
+    DestinationEncryptionAlgorithmEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static DestinationEncryptionAlgorithmEnum fromValue(String value) {
+      for (DestinationEncryptionAlgorithmEnum b : DestinationEncryptionAlgorithmEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_DESTINATION_ENCRYPTION_ALGORITHM = "destination-encryption-algorithm";
+  private DestinationEncryptionAlgorithmEnum destinationEncryptionAlgorithm;
 
   public ReEncryptResponse() { 
   }
@@ -67,6 +145,56 @@ public class ReEncryptResponse {
   }
 
 
+  public ReEncryptResponse sourceEncryptionAlgorithm(SourceEncryptionAlgorithmEnum sourceEncryptionAlgorithm) {
+    this.sourceEncryptionAlgorithm = sourceEncryptionAlgorithm;
+    return this;
+  }
+
+   /**
+   * The encryption algorithm that was used to decrypt the source ciphertext.
+   * @return sourceEncryptionAlgorithm
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SOURCE_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public SourceEncryptionAlgorithmEnum getSourceEncryptionAlgorithm() {
+    return sourceEncryptionAlgorithm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSourceEncryptionAlgorithm(SourceEncryptionAlgorithmEnum sourceEncryptionAlgorithm) {
+    this.sourceEncryptionAlgorithm = sourceEncryptionAlgorithm;
+  }
+
+
+  public ReEncryptResponse destinationEncryptionAlgorithm(DestinationEncryptionAlgorithmEnum destinationEncryptionAlgorithm) {
+    this.destinationEncryptionAlgorithm = destinationEncryptionAlgorithm;
+    return this;
+  }
+
+   /**
+   * The encryption algorithm that was used to encrypt the destination ciphertext.
+   * @return destinationEncryptionAlgorithm
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_DESTINATION_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public DestinationEncryptionAlgorithmEnum getDestinationEncryptionAlgorithm() {
+    return destinationEncryptionAlgorithm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESTINATION_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setDestinationEncryptionAlgorithm(DestinationEncryptionAlgorithmEnum destinationEncryptionAlgorithm) {
+    this.destinationEncryptionAlgorithm = destinationEncryptionAlgorithm;
+  }
+
+
   /**
    * Return true if this re-encrypt-response object is equal to o.
    */
@@ -79,12 +207,14 @@ public class ReEncryptResponse {
       return false;
     }
     ReEncryptResponse reEncryptResponse = (ReEncryptResponse) o;
-    return Arrays.equals(this.ciphertext, reEncryptResponse.ciphertext);
+    return Arrays.equals(this.ciphertext, reEncryptResponse.ciphertext) &&
+        Objects.equals(this.sourceEncryptionAlgorithm, reEncryptResponse.sourceEncryptionAlgorithm) &&
+        Objects.equals(this.destinationEncryptionAlgorithm, reEncryptResponse.destinationEncryptionAlgorithm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(ciphertext));
+    return Objects.hash(Arrays.hashCode(ciphertext), sourceEncryptionAlgorithm, destinationEncryptionAlgorithm);
   }
 
   @Override
@@ -92,6 +222,8 @@ public class ReEncryptResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReEncryptResponse {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
+    sb.append("    sourceEncryptionAlgorithm: ").append(toIndentedString(sourceEncryptionAlgorithm)).append("\n");
+    sb.append("    destinationEncryptionAlgorithm: ").append(toIndentedString(destinationEncryptionAlgorithm)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -142,6 +274,16 @@ public class ReEncryptResponse {
     // add `ciphertext` to the URL query string
     if (getCiphertext() != null) {
       joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `source-encryption-algorithm` to the URL query string
+    if (getSourceEncryptionAlgorithm() != null) {
+      joiner.add(String.format("%ssource-encryption-algorithm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceEncryptionAlgorithm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `destination-encryption-algorithm` to the URL query string
+    if (getDestinationEncryptionAlgorithm() != null) {
+      joiner.add(String.format("%sdestination-encryption-algorithm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDestinationEncryptionAlgorithm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

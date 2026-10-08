@@ -45,4 +45,12 @@ public class EncryptResponseTest {
         // TODO: test ciphertext
     }
 
+    /**
+     * Test the property 'encryptionAlgorithm'
+     */
+    @Test
+    public void encryptionAlgorithmTest() {
+        // TODO: test encryptionAlgorithm
+    }
+
 }

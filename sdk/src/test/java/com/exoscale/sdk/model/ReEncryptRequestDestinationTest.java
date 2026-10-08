@@ -58,4 +58,12 @@ public class ReEncryptRequestDestinationTest {
         // TODO: test encryptionContext
     }
 
+    /**
+     * Test the property 'encryptionAlgorithm'
+     */
+    @Test
+    public void encryptionAlgorithmTest() {
+        // TODO: test encryptionAlgorithm
+    }
+
 }

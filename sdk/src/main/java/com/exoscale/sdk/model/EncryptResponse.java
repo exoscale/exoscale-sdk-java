@@ -32,12 +32,51 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * EncryptResponse
  */
 @JsonPropertyOrder({
-  EncryptResponse.JSON_PROPERTY_CIPHERTEXT
+  EncryptResponse.JSON_PROPERTY_CIPHERTEXT,
+  EncryptResponse.JSON_PROPERTY_ENCRYPTION_ALGORITHM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class EncryptResponse {
   public static final String JSON_PROPERTY_CIPHERTEXT = "ciphertext";
   private byte[] ciphertext;
+
+  /**
+   * The encryption algorithm that was used to encrypt this plaintext.
+   */
+  public enum EncryptionAlgorithmEnum {
+    AES_256("AES_256"),
+    
+    RSAES_OAEP_SHA_256("RSAES_OAEP_SHA_256");
+
+    private String value;
+
+    EncryptionAlgorithmEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static EncryptionAlgorithmEnum fromValue(String value) {
+      for (EncryptionAlgorithmEnum b : EncryptionAlgorithmEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ENCRYPTION_ALGORITHM = "encryption-algorithm";
+  private EncryptionAlgorithmEnum encryptionAlgorithm;
 
   public EncryptResponse() { 
   }
@@ -67,6 +106,31 @@ public class EncryptResponse {
   }
 
 
+  public EncryptResponse encryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
+    this.encryptionAlgorithm = encryptionAlgorithm;
+    return this;
+  }
+
+   /**
+   * The encryption algorithm that was used to encrypt this plaintext.
+   * @return encryptionAlgorithm
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public EncryptionAlgorithmEnum getEncryptionAlgorithm() {
+    return encryptionAlgorithm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setEncryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
+    this.encryptionAlgorithm = encryptionAlgorithm;
+  }
+
+
   /**
    * Return true if this encrypt-response object is equal to o.
    */
@@ -79,12 +143,13 @@ public class EncryptResponse {
       return false;
     }
     EncryptResponse encryptResponse = (EncryptResponse) o;
-    return Arrays.equals(this.ciphertext, encryptResponse.ciphertext);
+    return Arrays.equals(this.ciphertext, encryptResponse.ciphertext) &&
+        Objects.equals(this.encryptionAlgorithm, encryptResponse.encryptionAlgorithm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(ciphertext));
+    return Objects.hash(Arrays.hashCode(ciphertext), encryptionAlgorithm);
   }
 
   @Override
@@ -92,6 +157,7 @@ public class EncryptResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptResponse {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
+    sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -142,6 +208,11 @@ public class EncryptResponse {
     // add `ciphertext` to the URL query string
     if (getCiphertext() != null) {
       joiner.add(String.format("%sciphertext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCiphertext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `encryption-algorithm` to the URL query string
+    if (getEncryptionAlgorithm() != null) {
+      joiner.add(String.format("%sencryption-algorithm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionAlgorithm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

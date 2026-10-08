@@ -32,12 +32,51 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DecryptResponse
  */
 @JsonPropertyOrder({
-  DecryptResponse.JSON_PROPERTY_PLAINTEXT
+  DecryptResponse.JSON_PROPERTY_PLAINTEXT,
+  DecryptResponse.JSON_PROPERTY_ENCRYPTION_ALGORITHM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DecryptResponse {
   public static final String JSON_PROPERTY_PLAINTEXT = "plaintext";
   private byte[] plaintext;
+
+  /**
+   * The encryption algorithm that was used to decrypt this ciphertext.
+   */
+  public enum EncryptionAlgorithmEnum {
+    AES_256("AES_256"),
+    
+    RSAES_OAEP_SHA_256("RSAES_OAEP_SHA_256");
+
+    private String value;
+
+    EncryptionAlgorithmEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static EncryptionAlgorithmEnum fromValue(String value) {
+      for (EncryptionAlgorithmEnum b : EncryptionAlgorithmEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ENCRYPTION_ALGORITHM = "encryption-algorithm";
+  private EncryptionAlgorithmEnum encryptionAlgorithm;
 
   public DecryptResponse() { 
   }
@@ -67,6 +106,31 @@ public class DecryptResponse {
   }
 
 
+  public DecryptResponse encryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
+    this.encryptionAlgorithm = encryptionAlgorithm;
+    return this;
+  }
+
+   /**
+   * The encryption algorithm that was used to decrypt this ciphertext.
+   * @return encryptionAlgorithm
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public EncryptionAlgorithmEnum getEncryptionAlgorithm() {
+    return encryptionAlgorithm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setEncryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
+    this.encryptionAlgorithm = encryptionAlgorithm;
+  }
+
+
   /**
    * Return true if this decrypt-response object is equal to o.
    */
@@ -79,12 +143,13 @@ public class DecryptResponse {
       return false;
     }
     DecryptResponse decryptResponse = (DecryptResponse) o;
-    return Arrays.equals(this.plaintext, decryptResponse.plaintext);
+    return Arrays.equals(this.plaintext, decryptResponse.plaintext) &&
+        Objects.equals(this.encryptionAlgorithm, decryptResponse.encryptionAlgorithm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(plaintext));
+    return Objects.hash(Arrays.hashCode(plaintext), encryptionAlgorithm);
   }
 
   @Override
@@ -92,6 +157,7 @@ public class DecryptResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecryptResponse {\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
+    sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -142,6 +208,11 @@ public class DecryptResponse {
     // add `plaintext` to the URL query string
     if (getPlaintext() != null) {
       joiner.add(String.format("%splaintext%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlaintext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `encryption-algorithm` to the URL query string
+    if (getEncryptionAlgorithm() != null) {
+      joiner.add(String.format("%sencryption-algorithm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionAlgorithm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

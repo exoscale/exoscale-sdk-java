@@ -76,7 +76,9 @@ public enum InferenceEngineVersion {
   
   _29_0("0.29.0"),
   
-  _30_0("0.30.0");
+  _30_0("0.30.0"),
+  
+  _31_0("0.31.0");
 
   private String value;
 

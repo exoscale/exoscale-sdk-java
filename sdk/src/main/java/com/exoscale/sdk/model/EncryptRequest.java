@@ -37,12 +37,51 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   EncryptRequest.JSON_PROPERTY_ENCRYPTION_CONTEXT,
+  EncryptRequest.JSON_PROPERTY_ENCRYPTION_ALGORITHM,
   EncryptRequest.JSON_PROPERTY_PLAINTEXT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class EncryptRequest {
   public static final String JSON_PROPERTY_ENCRYPTION_CONTEXT = "encryption-context";
   private JsonNullable<byte[]> encryptionContext = JsonNullable.<byte[]>undefined();
+
+  /**
+   * The encryption algorithm this key must use. Validated against the key&#39;s actual cryptographic profile. Required for asymmetric keys. Symmetric keys use AES_256 when it is omitted.
+   */
+  public enum EncryptionAlgorithmEnum {
+    AES_256("AES_256"),
+    
+    RSAES_OAEP_SHA_256("RSAES_OAEP_SHA_256");
+
+    private String value;
+
+    EncryptionAlgorithmEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static EncryptionAlgorithmEnum fromValue(String value) {
+      for (EncryptionAlgorithmEnum b : EncryptionAlgorithmEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_ENCRYPTION_ALGORITHM = "encryption-algorithm";
+  private EncryptionAlgorithmEnum encryptionAlgorithm;
 
   public static final String JSON_PROPERTY_PLAINTEXT = "plaintext";
   private byte[] plaintext;
@@ -80,6 +119,31 @@ public class EncryptRequest {
 
   public void setEncryptionContext(byte[] encryptionContext) {
     this.encryptionContext = JsonNullable.<byte[]>of(encryptionContext);
+  }
+
+
+  public EncryptRequest encryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
+    this.encryptionAlgorithm = encryptionAlgorithm;
+    return this;
+  }
+
+   /**
+   * The encryption algorithm this key must use. Validated against the key&#39;s actual cryptographic profile. Required for asymmetric keys. Symmetric keys use AES_256 when it is omitted.
+   * @return encryptionAlgorithm
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EncryptionAlgorithmEnum getEncryptionAlgorithm() {
+    return encryptionAlgorithm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION_ALGORITHM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEncryptionAlgorithm(EncryptionAlgorithmEnum encryptionAlgorithm) {
+    this.encryptionAlgorithm = encryptionAlgorithm;
   }
 
 
@@ -121,6 +185,7 @@ public class EncryptRequest {
     }
     EncryptRequest encryptRequest = (EncryptRequest) o;
     return equalsNullable(this.encryptionContext, encryptRequest.encryptionContext) &&
+        Objects.equals(this.encryptionAlgorithm, encryptRequest.encryptionAlgorithm) &&
         Arrays.equals(this.plaintext, encryptRequest.plaintext);
   }
 
@@ -130,7 +195,7 @@ public class EncryptRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(encryptionContext), Arrays.hashCode(plaintext));
+    return Objects.hash(hashCodeNullable(encryptionContext), encryptionAlgorithm, Arrays.hashCode(plaintext));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -145,6 +210,7 @@ public class EncryptRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class EncryptRequest {\n");
     sb.append("    encryptionContext: ").append(toIndentedString(encryptionContext)).append("\n");
+    sb.append("    encryptionAlgorithm: ").append(toIndentedString(encryptionAlgorithm)).append("\n");
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -196,6 +262,11 @@ public class EncryptRequest {
     // add `encryption-context` to the URL query string
     if (getEncryptionContext() != null) {
       joiner.add(String.format("%sencryption-context%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionContext()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `encryption-algorithm` to the URL query string
+    if (getEncryptionAlgorithm() != null) {
+      joiner.add(String.format("%sencryption-algorithm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEncryptionAlgorithm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `plaintext` to the URL query string

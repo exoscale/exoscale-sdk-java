@@ -59,6 +59,14 @@ public class ReEncryptRequestSourceTest {
     }
 
     /**
+     * Test the property 'encryptionAlgorithm'
+     */
+    @Test
+    public void encryptionAlgorithmTest() {
+        // TODO: test encryptionAlgorithm
+    }
+
+    /**
      * Test the property 'ciphertext'
      */
     @Test

@@ -37,6 +37,8 @@
 | ECC_EDWARDS25519 | &quot;ECC_EDWARDS25519&quot; |
 | RSA_3072 | &quot;RSA_3072&quot; |
 | RSA_4096 | &quot;RSA_4096&quot; |
+| ML_DSA_65 | &quot;ML_DSA_65&quot; |
+| ML_DSA_87 | &quot;ML_DSA_87&quot; |
 
 
 

@@ -103,7 +103,11 @@ public class CreateKmsKeyRequest {
     
     RSA_3072("RSA_3072"),
     
-    RSA_4096("RSA_4096");
+    RSA_4096("RSA_4096"),
+    
+    ML_DSA_65("ML_DSA_65"),
+    
+    ML_DSA_87("ML_DSA_87");
 
     private String value;
 

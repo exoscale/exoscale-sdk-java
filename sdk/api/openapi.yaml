@@ -6112,7 +6112,9 @@ paths:
 
             Key is Disabled: The request was rejected because the specified KMS key is disabled.
 
-            Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage "encrypt-decrypt".
+            Invalid Usage: The request was rejected because the operation is not allowed for this key's usage.
+
+            Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key's cryptographic profile.
       summary: Decrypt
       tags:
       - exoscale
@@ -7467,7 +7469,9 @@ paths:
 
             Key is Disabled: The request was rejected because the specified KMS key is disabled.
 
-            Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage "encrypt-decrypt".
+            Invalid Usage: The request was rejected because the operation is not allowed for this key's usage.
+
+            Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key's cryptographic profile.
       summary: Encrypt
       tags:
       - exoscale
@@ -9793,7 +9797,8 @@ paths:
     post:
       description: Decrypts an existing ciphertext using its original key material
         and re-encrypts the underlying plaintext using a specified KMS key or the
-        latest key material of the same KMS Key.
+        latest key material of the same KMS Key. Source and destination keys must
+        belong to the same key family.
       operationId: re-encrypt
       parameters:
       - explode: false
@@ -9830,6 +9835,12 @@ paths:
             Key is Disabled: The request was rejected because the specified KMS key is disabled.
 
             Not on Default: The request was rejected because the operation is not allowed on the default key.
+
+            Invalid Usage: The request was rejected because the operation is not allowed for this key's usage.
+
+            Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key's cryptographic profile.
+
+            Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.
 
             Bad Request: The request was rejected because of an invalid request body or path parameter.
       summary: Re-encrypt
@@ -11497,13 +11508,21 @@ components:
     encrypt-response:
       example:
         ciphertext: ciphertext
+        encryption-algorithm: AES_256
       properties:
         ciphertext:
           description: The resulting Base64-encoded ciphertext after encryption.
           format: byte
           type: string
+        encryption-algorithm:
+          description: The encryption algorithm that was used to encrypt this plaintext.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
+          type: string
       required:
       - ciphertext
+      - encryption-algorithm
       type: object
     private-network-ref:
       description: Private network reference
@@ -11705,6 +11724,7 @@ components:
           - ECDSA_SHA_512
           - EDDSA_ED25519
           - ED25519_PH_SHA_512
+          - ML_DSA_SHAKE_256
           type: string
       required:
       - message
@@ -13763,7 +13783,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.30.0
+      default: 0.31.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -13790,6 +13810,7 @@ components:
       - 0.28.0
       - 0.29.0
       - 0.30.0
+      - 0.31.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -16245,6 +16266,7 @@ components:
           - ECDSA_SHA_512
           - EDDSA_ED25519
           - ED25519_PH_SHA_512
+          - ML_DSA_SHAKE_256
           type: string
       required:
       - message
@@ -18465,6 +18487,14 @@ components:
           format: byte
           nullable: true
           type: string
+        encryption-algorithm:
+          description: The encryption algorithm this key must use. Validated against
+            the key's actual cryptographic profile. Required for asymmetric keys.
+            Symmetric keys use AES_256 when it is omitted.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
+          type: string
         plaintext:
           description: The Base64-encoded plaintext data you wish to encrypt.
           format: byte
@@ -19104,12 +19134,6 @@ components:
           type: array
       type: object
     get-key-store-response:
-      allOf:
-      - $ref: '#/components/schemas/list-key-stores-response-entry'
-      - properties:
-          health:
-            $ref: '#/components/schemas/key-store-health'
-        type: object
       example:
         proxy:
           endpoint: https://openapi-generator.tech
@@ -19128,18 +19152,72 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         type: external-key-store
         status: connected
+      properties:
+        description:
+          description: An optional detailed description providing additional context
+            about the key store's intended use case.
+          type: string
+        name:
+          description: The display name assigned to the key store.
+          type: string
+        type:
+          description: The key store type.
+          enum:
+          - external-key-store
+          type: string
+        proxy:
+          $ref: '#/components/schemas/key-store-proxy-response'
+        status:
+          description: The current connection status of the key store.
+          enum:
+          - connected
+          - disconnected
+          type: string
+        status-since:
+          description: The timestamp indicating when the current key store status
+            last transitioned.
+          format: date-time
+          type: string
+        id:
+          description: The globally unique identifier assigned to the key store.
+          format: uuid
+          type: string
+        health:
+          $ref: '#/components/schemas/key-store-health'
+        created-at:
+          description: The creation timestamp.
+          format: date-time
+          type: string
       type: object
     re-encrypt-response:
       example:
         ciphertext: ciphertext
+        destination-encryption-algorithm: AES_256
+        source-encryption-algorithm: AES_256
       properties:
         ciphertext:
           description: The new Base64-encoded ciphertext block safely wrapped by the
             chosen destination key parameters.
           format: byte
           type: string
+        source-encryption-algorithm:
+          description: The encryption algorithm that was used to decrypt the source
+            ciphertext.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
+          type: string
+        destination-encryption-algorithm:
+          description: The encryption algorithm that was used to encrypt the destination
+            ciphertext.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
+          type: string
       required:
       - ciphertext
+      - destination-encryption-algorithm
+      - source-encryption-algorithm
       type: object
     decrypt-request:
       properties:
@@ -19148,6 +19226,14 @@ components:
             used during encryption to verify data integrity.
           format: byte
           nullable: true
+          type: string
+        encryption-algorithm:
+          description: The encryption algorithm this key must use. Validated against
+            the key's actual cryptographic profile. Required for asymmetric keys.
+            Symmetric keys use AES_256 when it is omitted.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
           type: string
         ciphertext:
           description: The Base64-encoded ciphertext payload to be decrypted.
@@ -19485,13 +19571,21 @@ components:
       type: object
     decrypt-response:
       example:
+        encryption-algorithm: AES_256
         plaintext: plaintext
       properties:
         plaintext:
           description: The recovered Base64-encoded original plaintext payload.
           format: byte
           type: string
+        encryption-algorithm:
+          description: The encryption algorithm that was used to decrypt this ciphertext.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
+          type: string
       required:
+      - encryption-algorithm
       - plaintext
       type: object
     schedule-kms-key-deletion-request:
@@ -19851,6 +19945,8 @@ components:
           - ECC_EDWARDS25519
           - RSA_3072
           - RSA_4096
+          - ML_DSA_65
+          - ML_DSA_87
           type: string
         multi-zone:
           default: false
@@ -35710,6 +35806,14 @@ components:
           format: byte
           nullable: true
           type: string
+        encryption-algorithm:
+          description: The encryption algorithm the source key must use. Validated
+            against the key's actual cryptographic profile. Required for asymmetric
+            keys. Symmetric keys use AES_256 when it is omitted.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
+          type: string
         ciphertext:
           description: The Base64-encoded encrypted payload package ready to undergo
             source-side key decryption.
@@ -35731,6 +35835,14 @@ components:
             the target destination envelope.
           format: byte
           nullable: true
+          type: string
+        encryption-algorithm:
+          description: The encryption algorithm the destination key must use. Validated
+            against the key's actual cryptographic profile. Required for asymmetric
+            keys. Symmetric keys use AES_256 when it is omitted.
+          enum:
+          - AES_256
+          - RSAES_OAEP_SHA_256
           type: string
       required:
       - key

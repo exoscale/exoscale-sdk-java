@@ -50,6 +50,14 @@ public class DecryptRequestTest {
     }
 
     /**
+     * Test the property 'encryptionAlgorithm'
+     */
+    @Test
+    public void encryptionAlgorithmTest() {
+        // TODO: test encryptionAlgorithm
+    }
+
+    /**
      * Test the property 'ciphertext'
      */
     @Test

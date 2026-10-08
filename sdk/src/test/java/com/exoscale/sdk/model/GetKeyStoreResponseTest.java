@@ -42,11 +42,11 @@ public class GetKeyStoreResponseTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'description'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void descriptionTest() {
+        // TODO: test description
     }
 
     /**
@@ -58,27 +58,11 @@ public class GetKeyStoreResponseTest {
     }
 
     /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
-
-    /**
      * Test the property 'type'
      */
     @Test
     public void typeTest() {
         // TODO: test type
-    }
-
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
     }
 
     /**
@@ -90,11 +74,11 @@ public class GetKeyStoreResponseTest {
     }
 
     /**
-     * Test the property 'createdAt'
+     * Test the property 'status'
      */
     @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
+    public void statusTest() {
+        // TODO: test status
     }
 
     /**
@@ -106,11 +90,27 @@ public class GetKeyStoreResponseTest {
     }
 
     /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
      * Test the property 'health'
      */
     @Test
     public void healthTest() {
         // TODO: test health
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
 }

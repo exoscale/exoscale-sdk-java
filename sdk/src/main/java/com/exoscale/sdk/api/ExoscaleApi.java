@@ -24727,7 +24727,7 @@ public class ExoscaleApi {
   }
   /**
    * Re-encrypt
-   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family.
    * @param id  (required)
    * @param reEncryptRequest  (required)
    * @return ReEncryptResponse
@@ -24740,7 +24740,7 @@ public class ExoscaleApi {
 
   /**
    * Re-encrypt
-   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key.
+   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family.
    * @param id  (required)
    * @param reEncryptRequest  (required)
    * @return ApiResponse&lt;ReEncryptResponse&gt;
