@@ -6,7 +6,7 @@ info:
     url: https://portal.exoscale.com/tickets
   description: "Infrastructure automation API, allowing programmatic access to all\
     \ Exoscale products and services."
-  termsOfService: https://exoscale.com/terms
+  termsOfService: https://www.exoscale.com/terms/
   title: Exoscale API
   version: 2.0.0
 servers:
@@ -29,7 +29,7 @@ tags:
     and API keys.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/product/iam/operation/role-mgmt/
+    url: https://community.exoscale.com/product/security/iam/how-to/role-mgmt/
   name: role
   x-display-name: Role
   x-weight: 820
@@ -54,7 +54,8 @@ tags:
   x-display-name: AI API Key
   x-weight: 940
   x-icon: exo-license
-- description: ""
+- description: "Networking services for Exoscale resources, including Virtual Private\
+    \ Cloud (VPC)."
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/product/networking/
@@ -83,7 +84,7 @@ tags:
 - description: Clusters are managed Kubernetes control planes.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/sks/
+    url: https://community.exoscale.com/product/compute/containers/
   name: cluster
   x-display-name: Cluster
   x-weight: 310
@@ -159,7 +160,7 @@ tags:
     a compute instance in seconds and scale as your infrastructure grows.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/
+    url: https://community.exoscale.com/product/compute/
   name: compute
   x-display-name: Compute
   x-weight: 100
@@ -207,7 +208,7 @@ tags:
                        instances managed by an Instance Pool.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/network-load-balancer/
+    url: https://community.exoscale.com/product/networking/nlb/
   name: network-load-balancer
   x-display-name: Network Load Balancer
   x-weight: 180
@@ -232,7 +233,7 @@ tags:
 - description: Operations for KMS Key lifecycle management.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/security/kms/overview
+    url: https://community.exoscale.com/product/security/kms/overview/
   name: kms-key
   x-display-name: KMS Key
   x-weight: 1130
@@ -240,7 +241,7 @@ tags:
 - description: SSH Keypairs
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/ssh-keypairs/
+    url: https://community.exoscale.com/product/compute/instances/how-to/ssh-keypairs/
   name: ssh-key
   x-display-name: SSH Key
   x-weight: 160
@@ -251,7 +252,7 @@ tags:
                        instances automatically.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/instance-pools/
+    url: https://community.exoscale.com/product/compute/instances/how-to/instance-pools/
   name: instance-pool
   x-display-name: Instance Pool
   x-weight: 120
@@ -287,7 +288,7 @@ tags:
                        for your Compute instance.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/snapshots/
+    url: https://community.exoscale.com/product/compute/instances/how-to/snapshot/
   name: snapshot
   x-display-name: Snapshot
   x-weight: 130
@@ -297,7 +298,7 @@ tags:
                        network traffic to and from your Compute instances.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/compute/security-groups/
+    url: https://community.exoscale.com/product/networking/security-group/
   name: security-group
   x-display-name: Security Group
   x-weight: 150
@@ -318,7 +319,7 @@ tags:
                        attached volumes for your Compute instances.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/block-storage/
+    url: https://community.exoscale.com/product/storage/block-storage/
   name: block-storage
   x-display-name: Block Storage
   x-weight: 600
@@ -385,7 +386,7 @@ tags:
 - description: A suite of cryptographic primitives offered by the Exoscale KMS.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/security/kms/overview
+    url: https://community.exoscale.com/product/security/kms/overview/
   name: crypto
   x-display-name: Cryptographic Operations
   x-weight: 1140
@@ -394,7 +395,7 @@ tags:
     \ as worker nodes in your Kubernetes cluster."
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/sks/
+    url: https://community.exoscale.com/product/compute/containers/
   name: nodepool
   x-display-name: Nodepool
   x-weight: 320
@@ -412,7 +413,7 @@ tags:
     \ for accessing the Exoscale API."
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/product/iam/
+    url: https://community.exoscale.com/product/security/iam/
   name: iam
   x-display-name: IAM
   x-weight: 800
@@ -438,7 +439,7 @@ tags:
     \ lets you create, control and manage the lifecycle of cryptographic keys."
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/security/kms/
+    url: https://community.exoscale.com/product/security/kms/
   name: kms
   x-display-name: KMS
   x-weight: 1120
@@ -462,7 +463,7 @@ tags:
 - description: IAM users map to humans empowered with access to Exoscale resources.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/product/iam/operation/users-keys/
+    url: https://community.exoscale.com/product/security/iam/how-to/users-keys/
   name: user
   x-display-name: User
   x-weight: 830
@@ -479,7 +480,7 @@ tags:
     worker nodes.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/sks/
+    url: https://community.exoscale.com/product/compute/containers/
   name: nodepool-template
   x-display-name: Nodepool Template
   x-weight: 330
@@ -487,10 +488,10 @@ tags:
 - description: |-
     SKS is Exoscale's scalable Kubernetes service which provides
                        managed Kubernetes control planes with integrated support for
-                       Exoscale instance pools ands network load balancers.
+                       Exoscale instance pools and network load balancers.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/documentation/sks/
+    url: https://community.exoscale.com/product/compute/containers/
   name: sks
   x-display-name: SKS
   x-weight: 300
@@ -516,7 +517,7 @@ tags:
     services.
   externalDocs:
     description: Read more
-    url: https://community.exoscale.com/product/iam/how-to/key-mgmt/
+    url: https://community.exoscale.com/product/security/iam/how-to/key-mgmt/
   name: api-key
   x-display-name: API Key
   x-weight: 810
@@ -1015,7 +1016,7 @@ paths:
       description: |-
         Retrieve Mutation Events for a given date range. Defaults to retrieving Events for the past 24 hours.
                  Both a `from` and `to` arguments can be specified to filter Events over a specific period.
-                 Events will be the the most descriptive possible but not all fields are mandatory
+                 Events will be the most descriptive possible but not all fields are mandatory
       operationId: list-events
       parameters:
       - explode: true
@@ -32908,7 +32909,7 @@ components:
           type: string
       type: object
     subnet_instances_inner:
-      description: Subnet attachements
+      description: Subnet attachments
       example:
         ipv4: ipv4
         name: name
@@ -35889,13 +35890,13 @@ x-topics:
 
     The two blank lines above are due to the absence of query parameters and signed headers.
 
-    The request signature consists of the base64-encoded [HMAC](https://en.wikipedia.org/wiki/HMAC) hash of the UTF-8 encoded *message* and the Exoscale API secret using the SHA265 function:
+    The request signature consists of the base64-encoded [HMAC](https://en.wikipedia.org/wiki/HMAC) hash of the UTF-8 encoded *message* and the Exoscale API secret using the SHA256 function:
 
     ```
     signature = BASE64_ENCODE(HMAC_SHA256(Exoscale API secret, message))
     ```
 
-    Finally, the computed signature must be added to the API request in a `Authorization` header such as:
+    Finally, the computed signature must be added to the API request in an `Authorization` header such as:
 
     ```
     Authorization: EXO2-HMAC-SHA256 credential=<Exoscale API key>,expires=<expiration date UNIX timestamp>,signature=<signature>

@@ -2,7 +2,7 @@
 
 # SubnetInstancesInner
 
-Subnet attachements
+Subnet attachments
 
 ## Properties
 

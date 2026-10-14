@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Subnet attachements
+ * Subnet attachments
  */
 @JsonPropertyOrder({
   SubnetInstancesInner.JSON_PROPERTY_ID,

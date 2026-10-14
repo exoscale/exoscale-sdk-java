@@ -22366,7 +22366,7 @@ public class ExoscaleApi {
   }
   /**
    * List Events
-   * Retrieve Mutation Events for a given date range. Defaults to retrieving Events for the past 24 hours.          Both a &#x60;from&#x60; and &#x60;to&#x60; arguments can be specified to filter Events over a specific period.          Events will be the the most descriptive possible but not all fields are mandatory
+   * Retrieve Mutation Events for a given date range. Defaults to retrieving Events for the past 24 hours.          Both a &#x60;from&#x60; and &#x60;to&#x60; arguments can be specified to filter Events over a specific period.          Events will be the most descriptive possible but not all fields are mandatory
    * @param from  (optional)
    * @param to  (optional)
    * @return List&lt;Event&gt;
@@ -22379,7 +22379,7 @@ public class ExoscaleApi {
 
   /**
    * List Events
-   * Retrieve Mutation Events for a given date range. Defaults to retrieving Events for the past 24 hours.          Both a &#x60;from&#x60; and &#x60;to&#x60; arguments can be specified to filter Events over a specific period.          Events will be the the most descriptive possible but not all fields are mandatory
+   * Retrieve Mutation Events for a given date range. Defaults to retrieving Events for the past 24 hours.          Both a &#x60;from&#x60; and &#x60;to&#x60; arguments can be specified to filter Events over a specific period.          Events will be the most descriptive possible but not all fields are mandatory
    * @param from  (optional)
    * @param to  (optional)
    * @return ApiResponse&lt;List&lt;Event&gt;&gt;
