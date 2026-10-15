@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-10-14T07:19:31.206287520Z[Etc/UTC]
+- Build date: 2026-10-15T07:19:28.557114958Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-d0c454f</version>
+    <version>0.0.5-SNAPSHOT-bc4ef84</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d0c454f'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-bc4ef84'
 }
 ```
 
@@ -175,7 +175,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**deleteDbaasServiceGrafana**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceGrafana) | **DELETE** /dbaas-grafana/{name} | Delete a Grafana service
 *ExoscaleApi* | [**deleteDbaasServiceKafka**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceKafka) | **DELETE** /dbaas-kafka/{name} | Delete a Kafka service
 *ExoscaleApi* | [**deleteDbaasServiceMysql**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceMysql) | **DELETE** /dbaas-mysql/{name} | Delete a MySQL service
-*ExoscaleApi* | [**deleteDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete a OpenSearch service
+*ExoscaleApi* | [**deleteDbaasServiceOpensearch**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceOpensearch) | **DELETE** /dbaas-opensearch/{name} | Delete an OpenSearch service
 *ExoscaleApi* | [**deleteDbaasServicePg**](sdk/docs/ExoscaleApi.md#deleteDbaasServicePg) | **DELETE** /dbaas-postgres/{name} | Delete a Postgres service
 *ExoscaleApi* | [**deleteDbaasServiceThanos**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceThanos) | **DELETE** /dbaas-thanos/{name} | Delete a Thanos service
 *ExoscaleApi* | [**deleteDbaasServiceValkey**](sdk/docs/ExoscaleApi.md#deleteDbaasServiceValkey) | **DELETE** /dbaas-valkey/{name} | Delete a Valkey service

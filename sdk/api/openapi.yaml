@@ -7879,7 +7879,7 @@ paths:
       - exoscale
       x-accepts: application/json
     put:
-      description: "[BETA] Update a existing DBaaS integration"
+      description: "[BETA] Update an existing DBaaS integration"
       operationId: update-dbaas-integration
       parameters:
       - explode: false
@@ -9799,7 +9799,8 @@ paths:
       description: Decrypts an existing ciphertext using its original key material
         and re-encrypts the underlying plaintext using a specified KMS key or the
         latest key material of the same KMS Key. Source and destination keys must
-        belong to the same key family.
+        belong to the same key family. IAM policies are evaluated for both the source
+        and the destination key.
       operationId: re-encrypt
       parameters:
       - explode: false
@@ -9918,7 +9919,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: Delete a OpenSearch service
+      summary: Delete an OpenSearch service
       tags:
       - exoscale
       x-accepts: application/json
@@ -11468,13 +11469,13 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -15624,13 +15625,13 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -16008,13 +16009,13 @@ components:
         kafka-settings:
           $ref: '#/components/schemas/json-schema-kafka'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -18413,13 +18414,13 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -19491,13 +19492,13 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -22019,13 +22020,13 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -22869,13 +22870,13 @@ components:
         index-template:
           $ref: '#/components/schemas/dbaas_service_opensearch_index_template'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -24259,13 +24260,13 @@ components:
             $ref: '#/components/schemas/dbaas-service-notification'
           type: array
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
@@ -24527,13 +24528,13 @@ components:
         maintenance:
           $ref: '#/components/schemas/dbaas-service-maintenance'
         disk-size:
-          description: TODO UNIT disk space for data storage
+          description: "Disk space for data storage, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0
           type: integer
         node-memory:
-          description: TODO UNIT of memory for each node
+          description: "Memory of each node, in bytes"
           exclusiveMinimum: false
           format: int64
           minimum: 0

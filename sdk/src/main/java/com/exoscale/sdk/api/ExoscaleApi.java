@@ -8991,7 +8991,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * Delete a OpenSearch service
+   * Delete an OpenSearch service
    * 
    * @param name  (required)
    * @return Operation
@@ -9003,7 +9003,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * Delete a OpenSearch service
+   * Delete an OpenSearch service
    * 
    * @param name  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -24727,7 +24727,7 @@ public class ExoscaleApi {
   }
   /**
    * Re-encrypt
-   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family.
+   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family. IAM policies are evaluated for both the source and the destination key.
    * @param id  (required)
    * @param reEncryptRequest  (required)
    * @return ReEncryptResponse
@@ -24740,7 +24740,7 @@ public class ExoscaleApi {
 
   /**
    * Re-encrypt
-   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family.
+   * Decrypts an existing ciphertext using its original key material and re-encrypts the underlying plaintext using a specified KMS key or the latest key material of the same KMS Key. Source and destination keys must belong to the same key family. IAM policies are evaluated for both the source and the destination key.
    * @param id  (required)
    * @param reEncryptRequest  (required)
    * @return ApiResponse&lt;ReEncryptResponse&gt;
@@ -31286,7 +31286,7 @@ public class ExoscaleApi {
   }
   /**
    * 
-   * [BETA] Update a existing DBaaS integration
+   * [BETA] Update an existing DBaaS integration
    * @param id  (required)
    * @param updateDbaasIntegrationRequest  (required)
    * @return Operation
@@ -31299,7 +31299,7 @@ public class ExoscaleApi {
 
   /**
    * 
-   * [BETA] Update a existing DBaaS integration
+   * [BETA] Update an existing DBaaS integration
    * @param id  (required)
    * @param updateDbaasIntegrationRequest  (required)
    * @return ApiResponse&lt;Operation&gt;

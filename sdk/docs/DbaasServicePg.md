@@ -32,8 +32,8 @@
 |**synchronousReplication** | **EnumPgSynchronousReplication** |  |  [optional] |
 |**pglookoutSettings** | [**JsonSchemaPglookout**](JsonSchemaPglookout.md) |  |  [optional] |
 |**maintenance** | [**DbaasServiceMaintenance**](DbaasServiceMaintenance.md) |  |  [optional] |
-|**diskSize** | **Long** | TODO UNIT disk space for data storage |  [optional] |
-|**nodeMemory** | **Long** | TODO UNIT of memory for each node |  [optional] |
+|**diskSize** | **Long** | Disk space for data storage, in bytes |  [optional] |
+|**nodeMemory** | **Long** | Memory of each node, in bytes |  [optional] |
 |**uri** | **String** | URI for connecting to the service (may be absent) |  [optional] |
 |**uriParams** | **Object** | service_uri parameterized into key-value pairs |  [optional] |
 |**version** | **String** | PostgreSQL version |  [optional] |

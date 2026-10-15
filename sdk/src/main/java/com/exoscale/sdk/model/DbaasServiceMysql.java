@@ -733,7 +733,7 @@ public class DbaasServiceMysql {
   }
 
    /**
-   * TODO UNIT disk space for data storage
+   * Disk space for data storage, in bytes
    * minimum: 0
    * @return diskSize
   **/
@@ -759,7 +759,7 @@ public class DbaasServiceMysql {
   }
 
    /**
-   * TODO UNIT of memory for each node
+   * Memory of each node, in bytes
    * minimum: 0
    * @return nodeMemory
   **/
