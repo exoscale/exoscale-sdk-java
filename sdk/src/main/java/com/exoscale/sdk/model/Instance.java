@@ -788,7 +788,7 @@ public class Instance {
   }
 
    /**
-   * VPC ip forwarding
+   * Indicates if the instance can act as a router in a VPC network
    * @return ipForwarding
   **/
   @javax.annotation.Nullable

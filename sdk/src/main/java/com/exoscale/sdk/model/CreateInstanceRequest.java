@@ -586,7 +586,7 @@ public class CreateInstanceRequest {
   }
 
    /**
-   * VPC ip forwarding
+   * Whether the instance can act as a router in a VPC network
    * @return ipForwarding
   **/
   @javax.annotation.Nullable

@@ -19868,7 +19868,7 @@ components:
           minimum: 10
           type: integer
         ip-forwarding:
-          description: VPC ip forwarding
+          description: Indicates if the instance can act as a router in a VPC network
           type: boolean
         disk-encrypted:
           description: Indicates if the root volume of the instance is encrypted
@@ -32401,7 +32401,7 @@ components:
           minimum: 10
           type: integer
         ip-forwarding:
-          description: VPC ip forwarding
+          description: Whether the instance can act as a router in a VPC network
           type: boolean
         ssh-keys:
           description: Instance SSH Keys

@@ -24,7 +24,7 @@
 |**ipv6Enabled** | **Boolean** | Enable IPv6. DEPRECATED: use &#x60;public-ip-assignments&#x60;. |  [optional] |
 |**vpc** | [**CreateInstanceRequestVpc**](CreateInstanceRequestVpc.md) |  |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  |
-|**ipForwarding** | **Boolean** | VPC ip forwarding |  [optional] |
+|**ipForwarding** | **Boolean** | Whether the instance can act as a router in a VPC network |  [optional] |
 |**sshKeys** | [**Set&lt;SshKeyRef&gt;**](SshKeyRef.md) | Instance SSH Keys |  [optional] |
 
 
