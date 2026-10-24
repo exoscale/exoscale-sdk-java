@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-10-21T07:20:34.029481594Z[Etc/UTC]
+- Build date: 2026-10-24T07:13:50.609423705Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-14c9ee6</version>
+    <version>0.0.5-SNAPSHOT-d9d1dc9</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-14c9ee6'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-d9d1dc9'
 }
 ```
 
@@ -392,7 +392,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**revealDbaasPostgresUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasPostgresUserPassword) | **GET** /dbaas-postgres/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Postgres user
 *ExoscaleApi* | [**revealDbaasThanosUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasThanosUserPassword) | **GET** /dbaas-thanos/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Thanos user
 *ExoscaleApi* | [**revealDbaasValkeyUserPassword**](sdk/docs/ExoscaleApi.md#revealDbaasValkeyUserPassword) | **GET** /dbaas-valkey/{service-name}/user/{username}/password/reveal | Reveal the secrets of a DBaaS Valkey user
-*ExoscaleApi* | [**revealDeploymentApiKey**](sdk/docs/ExoscaleApi.md#revealDeploymentApiKey) | **GET** /ai/deployment/{id}/api-key | Reveal Deployment API Key
 *ExoscaleApi* | [**revealInstancePassword**](sdk/docs/ExoscaleApi.md#revealInstancePassword) | **GET** /instance/{id}:password | Reveal the password used during instance creation or the latest password reset.
 *ExoscaleApi* | [**revertInstanceToSnapshot**](sdk/docs/ExoscaleApi.md#revertInstanceToSnapshot) | **POST** /instance/{instance-id}:revert-snapshot | Revert a snapshot for an instance
 *ExoscaleApi* | [**revokeAiApiKey**](sdk/docs/ExoscaleApi.md#revokeAiApiKey) | **POST** /ai/api-key/{id}/revoke | [BETA] Revoke AI API Key
@@ -946,7 +945,6 @@ Class | Method | HTTP request | Description
  - [ResizeBlockStorageVolumeRequest](sdk/docs/ResizeBlockStorageVolumeRequest.md)
  - [ResizeInstanceDiskRequest](sdk/docs/ResizeInstanceDiskRequest.md)
  - [Resource](sdk/docs/Resource.md)
- - [RevealDeploymentApiKeyResponse](sdk/docs/RevealDeploymentApiKeyResponse.md)
  - [ReverseDnsRecord](sdk/docs/ReverseDnsRecord.md)
  - [RevertInstanceToSnapshotRequest](sdk/docs/RevertInstanceToSnapshotRequest.md)
  - [RevisionStamp](sdk/docs/RevisionStamp.md)

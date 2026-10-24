@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ThanosCompactorUserConfig {
-  public static final String JSON_PROPERTY_RETENTION_DAYS = "retention.days";
+  public static final String JSON_PROPERTY_RETENTION_DAYS = "retention-days";
   private Integer retentionDays;
 
   public ThanosCompactorUserConfig() { 
@@ -140,9 +140,9 @@ public class ThanosCompactorUserConfig {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `retention.days` to the URL query string
+    // add `retention-days` to the URL query string
     if (getRetentionDays() != null) {
-      joiner.add(String.format("%sretention.days%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRetentionDays()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sretention-days%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRetentionDays()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

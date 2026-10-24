@@ -34,6 +34,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   ModelUsageCounters.JSON_PROPERTY_OUTPUT_UOM,
   ModelUsageCounters.JSON_PROPERTY_INPUT_UOM,
+  ModelUsageCounters.JSON_PROPERTY_CACHE_WRITE_INPUT_UOM,
+  ModelUsageCounters.JSON_PROPERTY_CACHE_READ_INPUT_UOM,
   ModelUsageCounters.JSON_PROPERTY_CALL_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -43,6 +45,12 @@ public class ModelUsageCounters {
 
   public static final String JSON_PROPERTY_INPUT_UOM = "input-uom";
   private Integer inputUom;
+
+  public static final String JSON_PROPERTY_CACHE_WRITE_INPUT_UOM = "cache-write-input-uom";
+  private Integer cacheWriteInputUom;
+
+  public static final String JSON_PROPERTY_CACHE_READ_INPUT_UOM = "cache-read-input-uom";
+  private Integer cacheReadInputUom;
 
   public static final String JSON_PROPERTY_CALL_COUNT = "call-count";
   private Integer callCount;
@@ -82,7 +90,7 @@ public class ModelUsageCounters {
   }
 
    /**
-   * Total prompt/input Unit Of Measurement (UOM) across all calls in this flush window (e.g., tokens for LLMs, minutes for TTS, pages for OCR)
+   * Uncached prompt/input Unit Of Measurement (UOM) across all calls in this flush window (total prompt minus cache-read)
    * minimum: 0
    * @return inputUom
   **/
@@ -99,6 +107,58 @@ public class ModelUsageCounters {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setInputUom(Integer inputUom) {
     this.inputUom = inputUom;
+  }
+
+
+  public ModelUsageCounters cacheWriteInputUom(Integer cacheWriteInputUom) {
+    this.cacheWriteInputUom = cacheWriteInputUom;
+    return this;
+  }
+
+   /**
+   * Subset of input-uom written to prefix cache across all calls in this flush window; optional, defaults to 0
+   * minimum: 0
+   * @return cacheWriteInputUom
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CACHE_WRITE_INPUT_UOM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getCacheWriteInputUom() {
+    return cacheWriteInputUom;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CACHE_WRITE_INPUT_UOM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCacheWriteInputUom(Integer cacheWriteInputUom) {
+    this.cacheWriteInputUom = cacheWriteInputUom;
+  }
+
+
+  public ModelUsageCounters cacheReadInputUom(Integer cacheReadInputUom) {
+    this.cacheReadInputUom = cacheReadInputUom;
+    return this;
+  }
+
+   /**
+   * Prompt/input UOM served from prefix cache across all calls in this flush window (excluded from input-uom); optional, defaults to 0
+   * minimum: 0
+   * @return cacheReadInputUom
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CACHE_READ_INPUT_UOM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getCacheReadInputUom() {
+    return cacheReadInputUom;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CACHE_READ_INPUT_UOM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCacheReadInputUom(Integer cacheReadInputUom) {
+    this.cacheReadInputUom = cacheReadInputUom;
   }
 
 
@@ -142,12 +202,14 @@ public class ModelUsageCounters {
     ModelUsageCounters modelUsageCounters = (ModelUsageCounters) o;
     return Objects.equals(this.outputUom, modelUsageCounters.outputUom) &&
         Objects.equals(this.inputUom, modelUsageCounters.inputUom) &&
+        Objects.equals(this.cacheWriteInputUom, modelUsageCounters.cacheWriteInputUom) &&
+        Objects.equals(this.cacheReadInputUom, modelUsageCounters.cacheReadInputUom) &&
         Objects.equals(this.callCount, modelUsageCounters.callCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(outputUom, inputUom, callCount);
+    return Objects.hash(outputUom, inputUom, cacheWriteInputUom, cacheReadInputUom, callCount);
   }
 
   @Override
@@ -156,6 +218,8 @@ public class ModelUsageCounters {
     sb.append("class ModelUsageCounters {\n");
     sb.append("    outputUom: ").append(toIndentedString(outputUom)).append("\n");
     sb.append("    inputUom: ").append(toIndentedString(inputUom)).append("\n");
+    sb.append("    cacheWriteInputUom: ").append(toIndentedString(cacheWriteInputUom)).append("\n");
+    sb.append("    cacheReadInputUom: ").append(toIndentedString(cacheReadInputUom)).append("\n");
     sb.append("    callCount: ").append(toIndentedString(callCount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -212,6 +276,16 @@ public class ModelUsageCounters {
     // add `input-uom` to the URL query string
     if (getInputUom() != null) {
       joiner.add(String.format("%sinput-uom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInputUom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cache-write-input-uom` to the URL query string
+    if (getCacheWriteInputUom() != null) {
+      joiner.add(String.format("%scache-write-input-uom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCacheWriteInputUom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `cache-read-input-uom` to the URL query string
+    if (getCacheReadInputUom() != null) {
+      joiner.add(String.format("%scache-read-input-uom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCacheReadInputUom()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `call-count` to the URL query string

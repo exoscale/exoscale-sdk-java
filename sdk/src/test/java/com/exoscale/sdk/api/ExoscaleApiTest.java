@@ -247,7 +247,6 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
-import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
@@ -3566,7 +3565,7 @@ public class ExoscaleApiTest {
     /**
      * Get Deployment Logs
      *
-     * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
+     * Return logs for the vLLM deployment (dedicated inference: deploy/&lt;release-name&gt;--deployment-vllm; llm-d: deploy/&lt;release-name&gt;-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
      *
      * @throws ApiException
      *          if the Api call fails
@@ -5685,23 +5684,6 @@ public class ExoscaleApiTest {
         String username = null;
         DbaasUserValkeySecrets response = 
         api.revealDbaasValkeyUserPassword(serviceName, username);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Reveal Deployment API Key
-     *
-     * Get Deployment API Key
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void revealDeploymentApiKeyTest() throws ApiException {
-        UUID id = null;
-        RevealDeploymentApiKeyResponse response = 
-        api.revealDeploymentApiKey(id);
         
         // TODO: test validations
     }

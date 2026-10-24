@@ -38,51 +38,51 @@ public class ThanosQueryUserConfigTest {
     }
 
     /**
-     * Test the property 'queryDefaultEvaluationInterval'
+     * Test the property 'defaultEvaluationInterval'
      */
     @Test
-    public void queryDefaultEvaluationIntervalTest() {
-        // TODO: test queryDefaultEvaluationInterval
+    public void defaultEvaluationIntervalTest() {
+        // TODO: test defaultEvaluationInterval
     }
 
     /**
-     * Test the property 'queryLookbackDelta'
+     * Test the property 'lookbackDelta'
      */
     @Test
-    public void queryLookbackDeltaTest() {
-        // TODO: test queryLookbackDelta
+    public void lookbackDeltaTest() {
+        // TODO: test lookbackDelta
     }
 
     /**
-     * Test the property 'queryMetadataDefaultTimeRange'
+     * Test the property 'metadataDefaultTimeRange'
      */
     @Test
-    public void queryMetadataDefaultTimeRangeTest() {
-        // TODO: test queryMetadataDefaultTimeRange
+    public void metadataDefaultTimeRangeTest() {
+        // TODO: test metadataDefaultTimeRange
     }
 
     /**
-     * Test the property 'queryTimeout'
+     * Test the property 'timeout'
      */
     @Test
-    public void queryTimeoutTest() {
-        // TODO: test queryTimeout
+    public void timeoutTest() {
+        // TODO: test timeout
     }
 
     /**
-     * Test the property 'storeLimitsRequestSamples'
+     * Test the property 'requestSamplesLimits'
      */
     @Test
-    public void storeLimitsRequestSamplesTest() {
-        // TODO: test storeLimitsRequestSamples
+    public void requestSamplesLimitsTest() {
+        // TODO: test requestSamplesLimits
     }
 
     /**
-     * Test the property 'storeLimitsRequestSeries'
+     * Test the property 'requestSeriesLimits'
      */
     @Test
-    public void storeLimitsRequestSeriesTest() {
-        // TODO: test storeLimitsRequestSeries
+    public void requestSeriesLimitsTest() {
+        // TODO: test requestSeriesLimits
     }
 
 }

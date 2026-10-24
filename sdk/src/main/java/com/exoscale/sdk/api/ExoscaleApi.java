@@ -251,7 +251,6 @@ import com.exoscale.sdk.model.ResetDbaasValkeyUserPasswordRequest;
 import com.exoscale.sdk.model.ResetInstanceRequest;
 import com.exoscale.sdk.model.ResizeBlockStorageVolumeRequest;
 import com.exoscale.sdk.model.ResizeInstanceDiskRequest;
-import com.exoscale.sdk.model.RevealDeploymentApiKeyResponse;
 import com.exoscale.sdk.model.ReverseDnsRecord;
 import com.exoscale.sdk.model.RevertInstanceToSnapshotRequest;
 import com.exoscale.sdk.model.RotateKmsKeyResponse;
@@ -17083,7 +17082,7 @@ public class ExoscaleApi {
   }
   /**
    * Get Deployment Logs
-   * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
+   * Return logs for the vLLM deployment (dedicated inference: deploy/&lt;release-name&gt;--deployment-vllm; llm-d: deploy/&lt;release-name&gt;-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param id  (required)
    * @param stream  (optional)
    * @param tail  (optional)
@@ -17097,7 +17096,7 @@ public class ExoscaleApi {
 
   /**
    * Get Deployment Logs
-   * Return logs for the vLLM deployment (deploy/&lt;release-name&gt;--deployment-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
+   * Return logs for the vLLM deployment (dedicated inference: deploy/&lt;release-name&gt;--deployment-vllm; llm-d: deploy/&lt;release-name&gt;-vllm). Optional ?stream&#x3D;true to request streaming (may not be supported).
    * @param id  (required)
    * @param stream  (optional)
    * @param tail  (optional)
@@ -27902,91 +27901,6 @@ public class ExoscaleApi {
     String localVarPath = "/dbaas-valkey/{service-name}/user/{username}/password/reveal"
         .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()))
         .replace("{username}", ApiClient.urlEncode(username.toString()));
-      String requestBody = null;
-      String authorizationValue;
-
-
-      // Operations tagged x-skip-auth return public data but the server enforces IAM
-      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
-      // Skip signing so those requests are always sent without credentials.
-      try{
-      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Accept", "application/json");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-  /**
-   * Reveal Deployment API Key
-   * Get Deployment API Key
-   * @param id  (required)
-   * @return RevealDeploymentApiKeyResponse
-   * @throws ApiException if fails to make API call
-   */
-  public RevealDeploymentApiKeyResponse revealDeploymentApiKey(UUID id) throws ApiException {
-    ApiResponse<RevealDeploymentApiKeyResponse> localVarResponse = revealDeploymentApiKeyWithHttpInfo(id);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Reveal Deployment API Key
-   * Get Deployment API Key
-   * @param id  (required)
-   * @return ApiResponse&lt;RevealDeploymentApiKeyResponse&gt;
-   * @throws ApiException if fails to make API call
-   */
-  private ApiResponse<RevealDeploymentApiKeyResponse> revealDeploymentApiKeyWithHttpInfo(UUID id) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = revealDeploymentApiKeyRequestBuilder(id);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("revealDeploymentApiKey", localVarResponse);
-        }
-        return new ApiResponse<RevealDeploymentApiKeyResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<RevealDeploymentApiKeyResponse>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder revealDeploymentApiKeyRequestBuilder(UUID id) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling revealDeploymentApiKey");
-    }
-
-    Credentials credentials = apiClient.getCredentials();
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/ai/deployment/{id}/api-key"
-        .replace("{id}", ApiClient.urlEncode(id.toString()));
       String requestBody = null;
       String authorizationValue;
 

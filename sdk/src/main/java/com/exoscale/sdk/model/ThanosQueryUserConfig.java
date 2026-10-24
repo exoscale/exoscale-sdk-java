@@ -32,138 +32,138 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * Configuration options for Thanos Query.
  */
 @JsonPropertyOrder({
-  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL,
-  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_LOOKBACK_DELTA,
-  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_METADATA_DEFAULT_TIME_RANGE,
-  ThanosQueryUserConfig.JSON_PROPERTY_QUERY_TIMEOUT,
-  ThanosQueryUserConfig.JSON_PROPERTY_STORE_LIMITS_REQUEST_SAMPLES,
-  ThanosQueryUserConfig.JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES
+  ThanosQueryUserConfig.JSON_PROPERTY_DEFAULT_EVALUATION_INTERVAL,
+  ThanosQueryUserConfig.JSON_PROPERTY_LOOKBACK_DELTA,
+  ThanosQueryUserConfig.JSON_PROPERTY_METADATA_DEFAULT_TIME_RANGE,
+  ThanosQueryUserConfig.JSON_PROPERTY_TIMEOUT,
+  ThanosQueryUserConfig.JSON_PROPERTY_REQUEST_SAMPLES_LIMITS,
+  ThanosQueryUserConfig.JSON_PROPERTY_REQUEST_SERIES_LIMITS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ThanosQueryUserConfig {
-  public static final String JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL = "query.default-evaluation-interval";
-  private String queryDefaultEvaluationInterval = "1m";
+  public static final String JSON_PROPERTY_DEFAULT_EVALUATION_INTERVAL = "default-evaluation-interval";
+  private String defaultEvaluationInterval = "1m";
 
-  public static final String JSON_PROPERTY_QUERY_LOOKBACK_DELTA = "query.lookback-delta";
-  private String queryLookbackDelta = "5m";
+  public static final String JSON_PROPERTY_LOOKBACK_DELTA = "lookback-delta";
+  private String lookbackDelta = "5m";
 
-  public static final String JSON_PROPERTY_QUERY_METADATA_DEFAULT_TIME_RANGE = "query.metadata.default-time-range";
-  private String queryMetadataDefaultTimeRange = "0s";
+  public static final String JSON_PROPERTY_METADATA_DEFAULT_TIME_RANGE = "metadata-default-time-range";
+  private String metadataDefaultTimeRange = "0s";
 
-  public static final String JSON_PROPERTY_QUERY_TIMEOUT = "query.timeout";
-  private String queryTimeout = "2m";
+  public static final String JSON_PROPERTY_TIMEOUT = "timeout";
+  private String timeout = "2m";
 
-  public static final String JSON_PROPERTY_STORE_LIMITS_REQUEST_SAMPLES = "store.limits.request-samples";
-  private Integer storeLimitsRequestSamples = 0;
+  public static final String JSON_PROPERTY_REQUEST_SAMPLES_LIMITS = "request-samples-limits";
+  private Integer requestSamplesLimits = 0;
 
-  public static final String JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES = "store.limits.request-series";
-  private Integer storeLimitsRequestSeries = 0;
+  public static final String JSON_PROPERTY_REQUEST_SERIES_LIMITS = "request-series-limits";
+  private Integer requestSeriesLimits = 0;
 
   public ThanosQueryUserConfig() { 
   }
 
-  public ThanosQueryUserConfig queryDefaultEvaluationInterval(String queryDefaultEvaluationInterval) {
-    this.queryDefaultEvaluationInterval = queryDefaultEvaluationInterval;
+  public ThanosQueryUserConfig defaultEvaluationInterval(String defaultEvaluationInterval) {
+    this.defaultEvaluationInterval = defaultEvaluationInterval;
     return this;
   }
 
    /**
    * Set the default evaluation interval for subqueries.
-   * @return queryDefaultEvaluationInterval
+   * @return defaultEvaluationInterval
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL)
+  @JsonProperty(JSON_PROPERTY_DEFAULT_EVALUATION_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getQueryDefaultEvaluationInterval() {
-    return queryDefaultEvaluationInterval;
+  public String getDefaultEvaluationInterval() {
+    return defaultEvaluationInterval;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUERY_DEFAULT_EVALUATION_INTERVAL)
+  @JsonProperty(JSON_PROPERTY_DEFAULT_EVALUATION_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryDefaultEvaluationInterval(String queryDefaultEvaluationInterval) {
-    this.queryDefaultEvaluationInterval = queryDefaultEvaluationInterval;
+  public void setDefaultEvaluationInterval(String defaultEvaluationInterval) {
+    this.defaultEvaluationInterval = defaultEvaluationInterval;
   }
 
 
-  public ThanosQueryUserConfig queryLookbackDelta(String queryLookbackDelta) {
-    this.queryLookbackDelta = queryLookbackDelta;
+  public ThanosQueryUserConfig lookbackDelta(String lookbackDelta) {
+    this.lookbackDelta = lookbackDelta;
     return this;
   }
 
    /**
    * The maximum lookback duration for retrieving metrics during expression evaluations in PromQL. PromQL always evaluates the query for a certain timestamp, and it looks back for the given amount of time to get the latest sample. If it exceeds the maximum lookback delta, it assumes the series is stale and returns none (a gap). The lookback delta should be set to at least 2 times the slowest scrape interval. If unset, it will use the promql default of 5m.
-   * @return queryLookbackDelta
+   * @return lookbackDelta
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_LOOKBACK_DELTA)
+  @JsonProperty(JSON_PROPERTY_LOOKBACK_DELTA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getQueryLookbackDelta() {
-    return queryLookbackDelta;
+  public String getLookbackDelta() {
+    return lookbackDelta;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUERY_LOOKBACK_DELTA)
+  @JsonProperty(JSON_PROPERTY_LOOKBACK_DELTA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryLookbackDelta(String queryLookbackDelta) {
-    this.queryLookbackDelta = queryLookbackDelta;
+  public void setLookbackDelta(String lookbackDelta) {
+    this.lookbackDelta = lookbackDelta;
   }
 
 
-  public ThanosQueryUserConfig queryMetadataDefaultTimeRange(String queryMetadataDefaultTimeRange) {
-    this.queryMetadataDefaultTimeRange = queryMetadataDefaultTimeRange;
+  public ThanosQueryUserConfig metadataDefaultTimeRange(String metadataDefaultTimeRange) {
+    this.metadataDefaultTimeRange = metadataDefaultTimeRange;
     return this;
   }
 
    /**
    * The default metadata time range duration for retrieving labels through Labels and Series API when the range parameters are not specified. The zero value means the range covers the time since the beginning.
-   * @return queryMetadataDefaultTimeRange
+   * @return metadataDefaultTimeRange
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_METADATA_DEFAULT_TIME_RANGE)
+  @JsonProperty(JSON_PROPERTY_METADATA_DEFAULT_TIME_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getQueryMetadataDefaultTimeRange() {
-    return queryMetadataDefaultTimeRange;
+  public String getMetadataDefaultTimeRange() {
+    return metadataDefaultTimeRange;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUERY_METADATA_DEFAULT_TIME_RANGE)
+  @JsonProperty(JSON_PROPERTY_METADATA_DEFAULT_TIME_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryMetadataDefaultTimeRange(String queryMetadataDefaultTimeRange) {
-    this.queryMetadataDefaultTimeRange = queryMetadataDefaultTimeRange;
+  public void setMetadataDefaultTimeRange(String metadataDefaultTimeRange) {
+    this.metadataDefaultTimeRange = metadataDefaultTimeRange;
   }
 
 
-  public ThanosQueryUserConfig queryTimeout(String queryTimeout) {
-    this.queryTimeout = queryTimeout;
+  public ThanosQueryUserConfig timeout(String timeout) {
+    this.timeout = timeout;
     return this;
   }
 
    /**
    * Maximum time to process a query by the query node.
-   * @return queryTimeout
+   * @return timeout
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_TIMEOUT)
+  @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getQueryTimeout() {
-    return queryTimeout;
+  public String getTimeout() {
+    return timeout;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_QUERY_TIMEOUT)
+  @JsonProperty(JSON_PROPERTY_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryTimeout(String queryTimeout) {
-    this.queryTimeout = queryTimeout;
+  public void setTimeout(String timeout) {
+    this.timeout = timeout;
   }
 
 
-  public ThanosQueryUserConfig storeLimitsRequestSamples(Integer storeLimitsRequestSamples) {
-    this.storeLimitsRequestSamples = storeLimitsRequestSamples;
+  public ThanosQueryUserConfig requestSamplesLimits(Integer requestSamplesLimits) {
+    this.requestSamplesLimits = requestSamplesLimits;
     return this;
   }
 
@@ -171,26 +171,26 @@ public class ThanosQueryUserConfig {
    * The maximum samples allowed for a single Series request. The Series call fails if this limit is exceeded. Set to 0 for no limit. NOTE: For efficiency, the limit is internally implemented as &#39;chunks limit&#39; considering each chunk contains a maximum of 120 samples. The default value is 100 * store.limits.request-series.
    * minimum: 0
    * maximum: 100000000
-   * @return storeLimitsRequestSamples
+   * @return requestSamplesLimits
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORE_LIMITS_REQUEST_SAMPLES)
+  @JsonProperty(JSON_PROPERTY_REQUEST_SAMPLES_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getStoreLimitsRequestSamples() {
-    return storeLimitsRequestSamples;
+  public Integer getRequestSamplesLimits() {
+    return requestSamplesLimits;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORE_LIMITS_REQUEST_SAMPLES)
+  @JsonProperty(JSON_PROPERTY_REQUEST_SAMPLES_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStoreLimitsRequestSamples(Integer storeLimitsRequestSamples) {
-    this.storeLimitsRequestSamples = storeLimitsRequestSamples;
+  public void setRequestSamplesLimits(Integer requestSamplesLimits) {
+    this.requestSamplesLimits = requestSamplesLimits;
   }
 
 
-  public ThanosQueryUserConfig storeLimitsRequestSeries(Integer storeLimitsRequestSeries) {
-    this.storeLimitsRequestSeries = storeLimitsRequestSeries;
+  public ThanosQueryUserConfig requestSeriesLimits(Integer requestSeriesLimits) {
+    this.requestSeriesLimits = requestSeriesLimits;
     return this;
   }
 
@@ -198,21 +198,21 @@ public class ThanosQueryUserConfig {
    * The maximum series allowed for a single Series request. The Series call fails if this limit is exceeded. Set to 0 for no limit. The default value is 1000 * cpu_count.
    * minimum: 0
    * maximum: 100000000
-   * @return storeLimitsRequestSeries
+   * @return requestSeriesLimits
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES)
+  @JsonProperty(JSON_PROPERTY_REQUEST_SERIES_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getStoreLimitsRequestSeries() {
-    return storeLimitsRequestSeries;
+  public Integer getRequestSeriesLimits() {
+    return requestSeriesLimits;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STORE_LIMITS_REQUEST_SERIES)
+  @JsonProperty(JSON_PROPERTY_REQUEST_SERIES_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStoreLimitsRequestSeries(Integer storeLimitsRequestSeries) {
-    this.storeLimitsRequestSeries = storeLimitsRequestSeries;
+  public void setRequestSeriesLimits(Integer requestSeriesLimits) {
+    this.requestSeriesLimits = requestSeriesLimits;
   }
 
 
@@ -228,29 +228,29 @@ public class ThanosQueryUserConfig {
       return false;
     }
     ThanosQueryUserConfig thanosQueryUserConfig = (ThanosQueryUserConfig) o;
-    return Objects.equals(this.queryDefaultEvaluationInterval, thanosQueryUserConfig.queryDefaultEvaluationInterval) &&
-        Objects.equals(this.queryLookbackDelta, thanosQueryUserConfig.queryLookbackDelta) &&
-        Objects.equals(this.queryMetadataDefaultTimeRange, thanosQueryUserConfig.queryMetadataDefaultTimeRange) &&
-        Objects.equals(this.queryTimeout, thanosQueryUserConfig.queryTimeout) &&
-        Objects.equals(this.storeLimitsRequestSamples, thanosQueryUserConfig.storeLimitsRequestSamples) &&
-        Objects.equals(this.storeLimitsRequestSeries, thanosQueryUserConfig.storeLimitsRequestSeries);
+    return Objects.equals(this.defaultEvaluationInterval, thanosQueryUserConfig.defaultEvaluationInterval) &&
+        Objects.equals(this.lookbackDelta, thanosQueryUserConfig.lookbackDelta) &&
+        Objects.equals(this.metadataDefaultTimeRange, thanosQueryUserConfig.metadataDefaultTimeRange) &&
+        Objects.equals(this.timeout, thanosQueryUserConfig.timeout) &&
+        Objects.equals(this.requestSamplesLimits, thanosQueryUserConfig.requestSamplesLimits) &&
+        Objects.equals(this.requestSeriesLimits, thanosQueryUserConfig.requestSeriesLimits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(queryDefaultEvaluationInterval, queryLookbackDelta, queryMetadataDefaultTimeRange, queryTimeout, storeLimitsRequestSamples, storeLimitsRequestSeries);
+    return Objects.hash(defaultEvaluationInterval, lookbackDelta, metadataDefaultTimeRange, timeout, requestSamplesLimits, requestSeriesLimits);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThanosQueryUserConfig {\n");
-    sb.append("    queryDefaultEvaluationInterval: ").append(toIndentedString(queryDefaultEvaluationInterval)).append("\n");
-    sb.append("    queryLookbackDelta: ").append(toIndentedString(queryLookbackDelta)).append("\n");
-    sb.append("    queryMetadataDefaultTimeRange: ").append(toIndentedString(queryMetadataDefaultTimeRange)).append("\n");
-    sb.append("    queryTimeout: ").append(toIndentedString(queryTimeout)).append("\n");
-    sb.append("    storeLimitsRequestSamples: ").append(toIndentedString(storeLimitsRequestSamples)).append("\n");
-    sb.append("    storeLimitsRequestSeries: ").append(toIndentedString(storeLimitsRequestSeries)).append("\n");
+    sb.append("    defaultEvaluationInterval: ").append(toIndentedString(defaultEvaluationInterval)).append("\n");
+    sb.append("    lookbackDelta: ").append(toIndentedString(lookbackDelta)).append("\n");
+    sb.append("    metadataDefaultTimeRange: ").append(toIndentedString(metadataDefaultTimeRange)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    requestSamplesLimits: ").append(toIndentedString(requestSamplesLimits)).append("\n");
+    sb.append("    requestSeriesLimits: ").append(toIndentedString(requestSeriesLimits)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -298,34 +298,34 @@ public class ThanosQueryUserConfig {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `query.default-evaluation-interval` to the URL query string
-    if (getQueryDefaultEvaluationInterval() != null) {
-      joiner.add(String.format("%squery.default-evaluation-interval%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQueryDefaultEvaluationInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `default-evaluation-interval` to the URL query string
+    if (getDefaultEvaluationInterval() != null) {
+      joiner.add(String.format("%sdefault-evaluation-interval%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultEvaluationInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `query.lookback-delta` to the URL query string
-    if (getQueryLookbackDelta() != null) {
-      joiner.add(String.format("%squery.lookback-delta%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQueryLookbackDelta()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `lookback-delta` to the URL query string
+    if (getLookbackDelta() != null) {
+      joiner.add(String.format("%slookback-delta%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLookbackDelta()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `query.metadata.default-time-range` to the URL query string
-    if (getQueryMetadataDefaultTimeRange() != null) {
-      joiner.add(String.format("%squery.metadata.default-time-range%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQueryMetadataDefaultTimeRange()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `metadata-default-time-range` to the URL query string
+    if (getMetadataDefaultTimeRange() != null) {
+      joiner.add(String.format("%smetadata-default-time-range%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMetadataDefaultTimeRange()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `query.timeout` to the URL query string
-    if (getQueryTimeout() != null) {
-      joiner.add(String.format("%squery.timeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQueryTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `timeout` to the URL query string
+    if (getTimeout() != null) {
+      joiner.add(String.format("%stimeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `store.limits.request-samples` to the URL query string
-    if (getStoreLimitsRequestSamples() != null) {
-      joiner.add(String.format("%sstore.limits.request-samples%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStoreLimitsRequestSamples()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `request-samples-limits` to the URL query string
+    if (getRequestSamplesLimits() != null) {
+      joiner.add(String.format("%srequest-samples-limits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequestSamplesLimits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `store.limits.request-series` to the URL query string
-    if (getStoreLimitsRequestSeries() != null) {
-      joiner.add(String.format("%sstore.limits.request-series%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStoreLimitsRequestSeries()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `request-series-limits` to the URL query string
+    if (getRequestSeriesLimits() != null) {
+      joiner.add(String.format("%srequest-series-limits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequestSeriesLimits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

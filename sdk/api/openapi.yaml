@@ -10434,36 +10434,6 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
-  /ai/deployment/{id}/api-key:
-    get:
-      description: Get Deployment API Key
-      operationId: reveal-deployment-api-key
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      responses:
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error-response'
-          description: Not Found
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/reveal-deployment-api-key-response'
-          description: OK
-      summary: Reveal Deployment API Key
-      tags:
-      - exoscale
-      x-accepts: application/json
   /anti-affinity-group/{id}:
     delete:
       description: ""
@@ -10784,8 +10754,9 @@ paths:
       x-accepts: application/json
   /ai/deployment/{id}/logs:
     get:
-      description: Return logs for the vLLM deployment (deploy/<release-name>--deployment-vllm).
-        Optional ?stream=true to request streaming (may not be supported).
+      description: "Return logs for the vLLM deployment (dedicated inference: deploy/<release-name>--deployment-vllm;\
+        \ llm-d: deploy/<release-name>-vllm). Optional ?stream=true to request streaming\
+        \ (may not be supported)."
       operationId: get-deployment-logs
       parameters:
       - explode: false
@@ -13401,14 +13372,14 @@ components:
     json-schema-thanos:
       example:
         compactor:
-          retention.days: 0
+          retention-days: 0
         query:
-          query.default-evaluation-interval: 1m
-          query.metadata.default-time-range: 0s
-          query.lookback-delta: 5m
-          query.timeout: 2m
-          store.limits.request-samples: 23021358
-          store.limits.request-series: 70614012
+          lookback-delta: 5m
+          default-evaluation-interval: 1m
+          metadata-default-time-range: 0s
+          request-series-limits: 70614012
+          timeout: 2m
+          request-samples-limits: 23021358
         query-frontend:
           query-range.align-range-with-step: true
       properties:
@@ -13785,7 +13756,7 @@ components:
       - name
       type: object
     inference-engine-version:
-      default: 0.31.0
+      default: 0.32.0
       description: Inference engine version
       enum:
       - 0.12.0
@@ -13813,6 +13784,7 @@ components:
       - 0.29.0
       - 0.30.0
       - 0.31.0
+      - 0.32.0
       type: string
     dbaas-user-opensearch-secrets:
       description: Opensearch User secrets
@@ -13845,17 +13817,6 @@ components:
         resource-name:
           description: Resource name
           type: string
-      type: object
-    reveal-deployment-api-key-response:
-      description: AI deployment inference endpoint authentication key
-      example:
-        api-key: api-key
-      properties:
-        api-key:
-          description: Inference endpoint authentication key
-          type: string
-      required:
-      - api-key
       type: object
     replicate-kms-key-request:
       properties:
@@ -19339,14 +19300,14 @@ components:
             completed: true
         thanos-settings:
           compactor:
-            retention.days: 0
+            retention-days: 0
           query:
-            query.default-evaluation-interval: 1m
-            query.metadata.default-time-range: 0s
-            query.lookback-delta: 5m
-            query.timeout: 2m
-            store.limits.request-samples: 23021358
-            store.limits.request-series: 70614012
+            lookback-delta: 5m
+            default-evaluation-interval: 1m
+            metadata-default-time-range: 0s
+            request-series-limits: 70614012
+            timeout: 2m
+            request-samples-limits: 23021358
           query-frontend:
             query-range.align-range-with-step: true
         created-at: 2000-01-23T04:56:07.000+00:00
@@ -23935,9 +23896,19 @@ components:
           minimum: 0
           type: integer
         input-uom:
-          description: "Total prompt/input Unit Of Measurement (UOM) across all calls\
-            \ in this flush window (e.g., tokens for LLMs, minutes for TTS, pages\
-            \ for OCR)"
+          description: Uncached prompt/input Unit Of Measurement (UOM) across all
+            calls in this flush window (total prompt minus cache-read)
+          minimum: 0
+          type: integer
+        cache-write-input-uom:
+          description: "Subset of input-uom written to prefix cache across all calls\
+            \ in this flush window; optional, defaults to 0"
+          minimum: 0
+          type: integer
+        cache-read-input-uom:
+          description: "Prompt/input UOM served from prefix cache across all calls\
+            \ in this flush window (excluded from input-uom); optional, defaults to\
+            \ 0"
           minimum: 0
           type: integer
         call-count:
@@ -25556,7 +25527,9 @@ components:
         product-name:
           description: Billing identifier for this deployment. Used by the Router
             for usage counters and Kafka events.
+          maxLength: 256
           minLength: 1
+          pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
           type: string
         replicas:
           description: Number of replicas (>=1)
@@ -33505,9 +33478,9 @@ components:
     ThanosCompactorUserConfig:
       description: Configuration options for Thanos Compactor.
       example:
-        retention.days: 0
+        retention-days: 0
       properties:
-        retention.days:
+        retention-days:
           description: "Retention time for data in days for each resolution (5m, 1h,\
             \ raw)"
           minimum: 0
@@ -33518,20 +33491,20 @@ components:
     ThanosQueryUserConfig:
       description: Configuration options for Thanos Query.
       example:
-        query.default-evaluation-interval: 1m
-        query.metadata.default-time-range: 0s
-        query.lookback-delta: 5m
-        query.timeout: 2m
-        store.limits.request-samples: 23021358
-        store.limits.request-series: 70614012
+        lookback-delta: 5m
+        default-evaluation-interval: 1m
+        metadata-default-time-range: 0s
+        request-series-limits: 70614012
+        timeout: 2m
+        request-samples-limits: 23021358
       properties:
-        query.default-evaluation-interval:
+        default-evaluation-interval:
           default: 1m
           description: Set the default evaluation interval for subqueries.
           maxLength: 20
           title: Set the default evaluation interval for subqueries.
           type: string
-        query.lookback-delta:
+        lookback-delta:
           default: 5m
           description: "The maximum lookback duration for retrieving metrics during\
             \ expression evaluations in PromQL. PromQL always evaluates the query\
@@ -33544,7 +33517,7 @@ components:
           title: Maximum lookback duration for retrieving metrics during expression
             evaluations in PromQL
           type: string
-        query.metadata.default-time-range:
+        metadata-default-time-range:
           default: 0s
           description: The default metadata time range duration for retrieving labels
             through Labels and Series API when the range parameters are not specified.
@@ -33552,13 +33525,13 @@ components:
           maxLength: 20
           title: Default metadata time range duration for retrieving labels
           type: string
-        query.timeout:
+        timeout:
           default: 2m
           description: Maximum time to process a query by the query node.
           maxLength: 20
           title: Maximum time to process a query by the query node.
           type: string
-        store.limits.request-samples:
+        request-samples-limits:
           default: 0
           description: "The maximum samples allowed for a single Series request. The\
             \ Series call fails if this limit is exceeded. Set to 0 for no limit.\
@@ -33569,7 +33542,7 @@ components:
           minimum: 0
           title: Store.Limits.Request-Samples
           type: integer
-        store.limits.request-series:
+        request-series-limits:
           default: 0
           description: The maximum series allowed for a single Series request. The
             Series call fails if this limit is exceeded. Set to 0 for no limit. The

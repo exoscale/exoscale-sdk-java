@@ -54,6 +54,22 @@ public class ModelUsageCountersTest {
     }
 
     /**
+     * Test the property 'cacheWriteInputUom'
+     */
+    @Test
+    public void cacheWriteInputUomTest() {
+        // TODO: test cacheWriteInputUom
+    }
+
+    /**
+     * Test the property 'cacheReadInputUom'
+     */
+    @Test
+    public void cacheReadInputUomTest() {
+        // TODO: test cacheReadInputUom
+    }
+
+    /**
      * Test the property 'callCount'
      */
     @Test

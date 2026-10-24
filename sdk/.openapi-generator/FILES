@@ -480,7 +480,6 @@ docs/ResetInstanceRequest.md
 docs/ResizeBlockStorageVolumeRequest.md
 docs/ResizeInstanceDiskRequest.md
 docs/Resource.md
-docs/RevealDeploymentApiKeyResponse.md
 docs/ReverseDnsRecord.md
 docs/RevertInstanceToSnapshotRequest.md
 docs/RevisionStamp.md
@@ -1081,7 +1080,6 @@ src/main/java/com/exoscale/sdk/model/ResetInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeBlockStorageVolumeRequest.java
 src/main/java/com/exoscale/sdk/model/ResizeInstanceDiskRequest.java
 src/main/java/com/exoscale/sdk/model/Resource.java
-src/main/java/com/exoscale/sdk/model/RevealDeploymentApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/ReverseDnsRecord.java
 src/main/java/com/exoscale/sdk/model/RevertInstanceToSnapshotRequest.java
 src/main/java/com/exoscale/sdk/model/RevisionStamp.java
