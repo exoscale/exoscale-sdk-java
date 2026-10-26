@@ -1336,7 +1336,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Attach a Compute instance to a Subnet
+   * Attach a Compute instance to a Subnet
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -1350,7 +1350,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Attach a Compute instance to a Subnet
+   * Attach a Compute instance to a Subnet
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -5863,7 +5863,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create a route
+   * Create a route
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -5877,7 +5877,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create a route
+   * Create a route
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -6329,7 +6329,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create a Subnet
+   * Create a Subnet
    * 
    * @param vpcId  (required)
    * @param createSubnetRequest  (required)
@@ -6342,7 +6342,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create a Subnet
+   * Create a Subnet
    * 
    * @param vpcId  (required)
    * @param createSubnetRequest  (required)
@@ -6516,7 +6516,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Create a VPC
+   * Create a VPC
    * 
    * @param createVpcRequest  (required)
    * @return Operation
@@ -6528,7 +6528,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Create a VPC
+   * Create a VPC
    * 
    * @param createVpcRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -10626,7 +10626,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete a route
+   * Delete a route
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -10638,7 +10638,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete a route
+   * Delete a route
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -11252,7 +11252,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete a Subnet
+   * Delete a Subnet
    * 
    * @param vpcId  (required)
    * @param id  (required)
@@ -11263,7 +11263,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete a Subnet
+   * Delete a Subnet
    * 
    * @param vpcId  (required)
    * @param id  (required)
@@ -11517,7 +11517,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Delete a VPC
+   * Delete a VPC
    * 
    * @param id  (required)
    * @throws ApiException if fails to make API call
@@ -11527,7 +11527,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Delete a VPC
+   * Delete a VPC
    * 
    * @param id  (required)
    * @return ApiResponse&lt;Void&gt;
@@ -12078,7 +12078,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Detach a Compute instance from a Subnet
+   * Detach a Compute instance from a Subnet
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -12092,7 +12092,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Detach a Compute instance from a Subnet
+   * Detach a Compute instance from a Subnet
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -20218,7 +20218,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Retrieve Subnet details
+   * Retrieve Subnet details
    * 
    * @param vpcId  (required)
    * @param id  (required)
@@ -20231,7 +20231,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Retrieve Subnet details
+   * Retrieve Subnet details
    * 
    * @param vpcId  (required)
    * @param id  (required)
@@ -20568,7 +20568,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Retrieve VPC details
+   * Retrieve VPC details
    * 
    * @param id  (required)
    * @return Vpc
@@ -20580,7 +20580,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Retrieve VPC details
+   * Retrieve VPC details
    * 
    * @param id  (required)
    * @return ApiResponse&lt;Vpc&gt;
@@ -23452,7 +23452,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List Subnet routes
+   * List Subnet routes
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -23465,7 +23465,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List Subnet routes
+   * List Subnet routes
    * 
    * @param vpcId  (required)
    * @param subnetId  (required)
@@ -24131,7 +24131,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List Subnets
+   * List Subnets
    * 
    * @param vpcId  (required)
    * @return ListSubnets200Response
@@ -24143,7 +24143,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List Subnets
+   * List Subnets
    * 
    * @param vpcId  (required)
    * @return ApiResponse&lt;ListSubnets200Response&gt;
@@ -24393,7 +24393,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List VPC routes
+   * List VPC routes
    * 
    * @param vpcId  (required)
    * @return ListVpcRoutes200Response
@@ -24405,7 +24405,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List VPC routes
+   * List VPC routes
    * 
    * @param vpcId  (required)
    * @return ApiResponse&lt;ListVpcRoutes200Response&gt;
@@ -24478,7 +24478,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] List VPCs
+   * List VPCs
    * 
    * @return ListVpcs200Response
    * @throws ApiException if fails to make API call
@@ -24489,7 +24489,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] List VPCs
+   * List VPCs
    * 
    * @return ApiResponse&lt;ListVpcs200Response&gt;
    * @throws ApiException if fails to make API call
@@ -34144,7 +34144,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Update a Subnet
+   * Update a Subnet
    * 
    * @param vpcId  (required)
    * @param id  (required)
@@ -34158,7 +34158,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Update a Subnet
+   * Update a Subnet
    * 
    * @param vpcId  (required)
    * @param id  (required)
@@ -34442,7 +34442,7 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
-   * [BETA] Update a VPC
+   * Update a VPC
    * 
    * @param id  (required)
    * @param updateVpcRequest  (required)
@@ -34455,7 +34455,7 @@ public class ExoscaleApi {
   }
 
   /**
-   * [BETA] Update a VPC
+   * Update a VPC
    * 
    * @param id  (required)
    * @param updateVpcRequest  (required)

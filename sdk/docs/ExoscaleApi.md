@@ -14,7 +14,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**attachInstanceToElasticIp**](ExoscaleApi.md#attachInstanceToElasticIp) | **PUT** /elastic-ip/{id}:attach | Attach a Compute instance to an Elastic IP |
 | [**attachInstanceToPrivateNetwork**](ExoscaleApi.md#attachInstanceToPrivateNetwork) | **PUT** /private-network/{id}:attach | Attach a Compute instance to a Private Network |
 | [**attachInstanceToSecurityGroup**](ExoscaleApi.md#attachInstanceToSecurityGroup) | **PUT** /security-group/{id}:attach | Attach a Compute instance to a Security Group |
-| [**attachInstanceToSubnet**](ExoscaleApi.md#attachInstanceToSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/attach | [BETA] Attach a Compute instance to a Subnet |
+| [**attachInstanceToSubnet**](ExoscaleApi.md#attachInstanceToSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/attach | Attach a Compute instance to a Subnet |
 | [**cancelKmsKeyDeletion**](ExoscaleApi.md#cancelKmsKeyDeletion) | **POST** /kms-key/{id}/cancel-deletion | Cancel KMS Key Deletion |
 | [**connectKeyStore**](ExoscaleApi.md#connectKeyStore) | **POST** /key-store/{id}/connect | [BETA] Connect Key Store |
 | [**copyTemplate**](ExoscaleApi.md#copyTemplate) | **POST** /template/{id} | Copy a Template from a zone to another |
@@ -62,14 +62,14 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createLoadBalancer**](ExoscaleApi.md#createLoadBalancer) | **POST** /load-balancer | Create a Load Balancer |
 | [**createModel**](ExoscaleApi.md#createModel) | **POST** /ai/model | Create Model |
 | [**createPrivateNetwork**](ExoscaleApi.md#createPrivateNetwork) | **POST** /private-network | Create a Private Network |
-| [**createRoute**](ExoscaleApi.md#createRoute) | **POST** /vpc/{vpc-id}/subnet/{subnet-id}/route | [BETA] Create a route |
+| [**createRoute**](ExoscaleApi.md#createRoute) | **POST** /vpc/{vpc-id}/subnet/{subnet-id}/route | Create a route |
 | [**createSecurityGroup**](ExoscaleApi.md#createSecurityGroup) | **POST** /security-group | Create a Security Group |
 | [**createSksCluster**](ExoscaleApi.md#createSksCluster) | **POST** /sks-cluster | Create an SKS cluster |
 | [**createSksNodepool**](ExoscaleApi.md#createSksNodepool) | **POST** /sks-cluster/{id}/nodepool | Create a new SKS Nodepool |
 | [**createSnapshot**](ExoscaleApi.md#createSnapshot) | **POST** /instance/{id}:create-snapshot | Create a Snapshot of a Compute instance |
-| [**createSubnet**](ExoscaleApi.md#createSubnet) | **POST** /vpc/{vpc-id}/subnet | [BETA] Create a Subnet |
+| [**createSubnet**](ExoscaleApi.md#createSubnet) | **POST** /vpc/{vpc-id}/subnet | Create a Subnet |
 | [**createUser**](ExoscaleApi.md#createUser) | **POST** /user | Create a User |
-| [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | [BETA] Create a VPC |
+| [**createVpc**](ExoscaleApi.md#createVpc) | **POST** /vpc | Create a VPC |
 | [**decrypt**](ExoscaleApi.md#decrypt) | **POST** /kms-key/{id}/decrypt | Decrypt |
 | [**deleteAntiAffinityGroup**](ExoscaleApi.md#deleteAntiAffinityGroup) | **DELETE** /anti-affinity-group/{id} | Delete an Anti-affinity Group |
 | [**deleteApiKey**](ExoscaleApi.md#deleteApiKey) | **DELETE** /api-key/{id} | Delete an API key |
@@ -116,23 +116,23 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**deletePrivateNetwork**](ExoscaleApi.md#deletePrivateNetwork) | **DELETE** /private-network/{id} | Delete a Private Network |
 | [**deleteReverseDnsElasticIp**](ExoscaleApi.md#deleteReverseDnsElasticIp) | **DELETE** /reverse-dns/elastic-ip/{id} | Delete the PTR DNS record for an elastic IP |
 | [**deleteReverseDnsInstance**](ExoscaleApi.md#deleteReverseDnsInstance) | **DELETE** /reverse-dns/instance/{id} | Delete the PTR DNS record for an instance |
-| [**deleteRoute**](ExoscaleApi.md#deleteRoute) | **DELETE** /vpc/{vpc-id}/subnet/{subnet-id}/route/{id} | [BETA] Delete a route |
+| [**deleteRoute**](ExoscaleApi.md#deleteRoute) | **DELETE** /vpc/{vpc-id}/subnet/{subnet-id}/route/{id} | Delete a route |
 | [**deleteRuleFromSecurityGroup**](ExoscaleApi.md#deleteRuleFromSecurityGroup) | **DELETE** /security-group/{id}/rules/{rule-id} | Delete a Security Group rule |
 | [**deleteSecurityGroup**](ExoscaleApi.md#deleteSecurityGroup) | **DELETE** /security-group/{id} | Delete a Security Group |
 | [**deleteSksCluster**](ExoscaleApi.md#deleteSksCluster) | **DELETE** /sks-cluster/{id} | Delete an SKS cluster |
 | [**deleteSksNodepool**](ExoscaleApi.md#deleteSksNodepool) | **DELETE** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Delete an SKS Nodepool |
 | [**deleteSnapshot**](ExoscaleApi.md#deleteSnapshot) | **DELETE** /snapshot/{id} | Delete a Snapshot |
 | [**deleteSshKey**](ExoscaleApi.md#deleteSshKey) | **DELETE** /ssh-key/{name} | Delete a SSH key |
-| [**deleteSubnet**](ExoscaleApi.md#deleteSubnet) | **DELETE** /vpc/{vpc-id}/subnet/{id} | [BETA] Delete a Subnet |
+| [**deleteSubnet**](ExoscaleApi.md#deleteSubnet) | **DELETE** /vpc/{vpc-id}/subnet/{id} | Delete a Subnet |
 | [**deleteTemplate**](ExoscaleApi.md#deleteTemplate) | **DELETE** /template/{id} | Delete a Template |
 | [**deleteUser**](ExoscaleApi.md#deleteUser) | **DELETE** /user/{id} | Delete User |
-| [**deleteVpc**](ExoscaleApi.md#deleteVpc) | **DELETE** /vpc/{id} | [BETA] Delete a VPC |
+| [**deleteVpc**](ExoscaleApi.md#deleteVpc) | **DELETE** /vpc/{id} | Delete a VPC |
 | [**detachBlockStorageVolume**](ExoscaleApi.md#detachBlockStorageVolume) | **PUT** /block-storage/{id}:detach | Detach block storage volume |
 | [**detachDbaasServiceFromEndpoint**](ExoscaleApi.md#detachDbaasServiceFromEndpoint) | **PUT** /dbaas-external-endpoint/{source-service-name}/detach |  |
 | [**detachInstanceFromElasticIp**](ExoscaleApi.md#detachInstanceFromElasticIp) | **PUT** /elastic-ip/{id}:detach | Detach a Compute instance from an Elastic IP |
 | [**detachInstanceFromPrivateNetwork**](ExoscaleApi.md#detachInstanceFromPrivateNetwork) | **PUT** /private-network/{id}:detach | Detach a Compute instance from a Private Network |
 | [**detachInstanceFromSecurityGroup**](ExoscaleApi.md#detachInstanceFromSecurityGroup) | **PUT** /security-group/{id}:detach | Detach a Compute instance from a Security Group |
-| [**detachInstanceFromSubnet**](ExoscaleApi.md#detachInstanceFromSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/detach | [BETA] Detach a Compute instance from a Subnet |
+| [**detachInstanceFromSubnet**](ExoscaleApi.md#detachInstanceFromSubnet) | **PUT** /vpc/{vpc-id}/subnet/{subnet-id}/detach | Detach a Compute instance from a Subnet |
 | [**disableKmsKey**](ExoscaleApi.md#disableKmsKey) | **POST** /kms-key/{id}/disable | Disable KMS Key |
 | [**disableKmsKeyRotation**](ExoscaleApi.md#disableKmsKeyRotation) | **POST** /kms-key/{id}/disable-key-rotation | Disable Key Rotation |
 | [**disconnectKeyStore**](ExoscaleApi.md#disconnectKeyStore) | **POST** /key-store/{id}/disconnect | [BETA] Disconnect Key Store |
@@ -226,11 +226,11 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**getSnapshot**](ExoscaleApi.md#getSnapshot) | **GET** /snapshot/{id} | Retrieve Snapshot details |
 | [**getSosPresignedUrl**](ExoscaleApi.md#getSosPresignedUrl) | **GET** /sos/{bucket}/presigned-url | Retrieve Presigned Download URL for SOS object |
 | [**getSshKey**](ExoscaleApi.md#getSshKey) | **GET** /ssh-key/{name} | Retrieve SSH key details |
-| [**getSubnet**](ExoscaleApi.md#getSubnet) | **GET** /vpc/{vpc-id}/subnet/{id} | [BETA] Retrieve Subnet details |
+| [**getSubnet**](ExoscaleApi.md#getSubnet) | **GET** /vpc/{vpc-id}/subnet/{id} | Retrieve Subnet details |
 | [**getTemplate**](ExoscaleApi.md#getTemplate) | **GET** /template/{id} | Retrieve Template details |
 | [**getUsageReport**](ExoscaleApi.md#getUsageReport) | **GET** /usage-report | Retrieve organization usage reports |
 | [**getUserOrgConsumptionQuota**](ExoscaleApi.md#getUserOrgConsumptionQuota) | **GET** /ai/quota | [BETA] Get Organization Consumption Quota |
-| [**getVpc**](ExoscaleApi.md#getVpc) | **GET** /vpc/{id} | [BETA] Retrieve VPC details |
+| [**getVpc**](ExoscaleApi.md#getVpc) | **GET** /vpc/{id} | Retrieve VPC details |
 | [**listAiApiKeys**](ExoscaleApi.md#listAiApiKeys) | **GET** /ai/api-key | [BETA] List AI API Keys |
 | [**listAiInstanceTypes**](ExoscaleApi.md#listAiInstanceTypes) | **GET** /ai/instance-type | List Instance Types |
 | [**listAntiAffinityGroups**](ExoscaleApi.md#listAntiAffinityGroups) | **GET** /anti-affinity-group | List Anti-affinity Groups |
@@ -265,7 +265,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listModels**](ExoscaleApi.md#listModels) | **GET** /ai/model | List Models |
 | [**listPrivateNetworks**](ExoscaleApi.md#listPrivateNetworks) | **GET** /private-network | List Private Networks |
 | [**listQuotas**](ExoscaleApi.md#listQuotas) | **GET** /quota | List Organization Quotas |
-| [**listRoutes**](ExoscaleApi.md#listRoutes) | **GET** /vpc/{vpc-id}/subnet/{subnet-id}/route | [BETA] List Subnet routes |
+| [**listRoutes**](ExoscaleApi.md#listRoutes) | **GET** /vpc/{vpc-id}/subnet/{subnet-id}/route | List Subnet routes |
 | [**listSecurityGroups**](ExoscaleApi.md#listSecurityGroups) | **GET** /security-group | List Security Groups. |
 | [**listSksClusterDeprecatedResources**](ExoscaleApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases |
 | [**listSksClusterVersions**](ExoscaleApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters |
@@ -273,11 +273,11 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**listSnapshots**](ExoscaleApi.md#listSnapshots) | **GET** /snapshot | List Snapshots |
 | [**listSosBucketsUsage**](ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage |
 | [**listSshKeys**](ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys |
-| [**listSubnets**](ExoscaleApi.md#listSubnets) | **GET** /vpc/{vpc-id}/subnet | [BETA] List Subnets |
+| [**listSubnets**](ExoscaleApi.md#listSubnets) | **GET** /vpc/{vpc-id}/subnet | List Subnets |
 | [**listTemplates**](ExoscaleApi.md#listTemplates) | **GET** /template | List Templates |
 | [**listUsers**](ExoscaleApi.md#listUsers) | **GET** /user | List Users |
-| [**listVpcRoutes**](ExoscaleApi.md#listVpcRoutes) | **GET** /vpc/{vpc-id}/route | [BETA] List VPC routes |
-| [**listVpcs**](ExoscaleApi.md#listVpcs) | **GET** /vpc | [BETA] List VPCs |
+| [**listVpcRoutes**](ExoscaleApi.md#listVpcRoutes) | **GET** /vpc/{vpc-id}/route | List VPC routes |
+| [**listVpcs**](ExoscaleApi.md#listVpcs) | **GET** /vpc | List VPCs |
 | [**listZones**](ExoscaleApi.md#listZones) | **GET** /zone | List Zones |
 | [**promoteSnapshotToTemplate**](ExoscaleApi.md#promoteSnapshotToTemplate) | **POST** /snapshot/{id}:promote | Promote a Snapshot to a Template |
 | [**reEncrypt**](ExoscaleApi.md#reEncrypt) | **POST** /kms-key/{id}/re-encrypt | Re-encrypt |
@@ -380,10 +380,10 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateReverseDnsInstance**](ExoscaleApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance |
 | [**updateSksCluster**](ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster |
 | [**updateSksNodepool**](ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool |
-| [**updateSubnet**](ExoscaleApi.md#updateSubnet) | **PUT** /vpc/{vpc-id}/subnet/{id} | [BETA] Update a Subnet |
+| [**updateSubnet**](ExoscaleApi.md#updateSubnet) | **PUT** /vpc/{vpc-id}/subnet/{id} | Update a Subnet |
 | [**updateTemplate**](ExoscaleApi.md#updateTemplate) | **PUT** /template/{id} | Update template attributes |
 | [**updateUserRole**](ExoscaleApi.md#updateUserRole) | **PUT** /user/{id} | Update a User&#39;s IAM role |
-| [**updateVpc**](ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | [BETA] Update a VPC |
+| [**updateVpc**](ExoscaleApi.md#updateVpc) | **PUT** /vpc/{id} | Update a VPC |
 | [**upgradeSksCluster**](ExoscaleApi.md#upgradeSksCluster) | **PUT** /sks-cluster/{id}/upgrade | Upgrade an SKS cluster |
 | [**upgradeSksClusterServiceLevel**](ExoscaleApi.md#upgradeSksClusterServiceLevel) | **PUT** /sks-cluster/{id}/upgrade-service-level | Upgrade a SKS cluster to pro |
 | [**verify**](ExoscaleApi.md#verify) | **POST** /kms-key/{id}/verify | Verify |
@@ -1341,7 +1341,7 @@ No authorization required
 
 > Operation attachInstanceToSubnet(vpcId, subnetId, attachInstanceToSubnetRequest)
 
-[BETA] Attach a Compute instance to a Subnet
+Attach a Compute instance to a Subnet
 
 
 
@@ -5846,7 +5846,7 @@ No authorization required
 
 > Route createRoute(vpcId, subnetId, createRouteRequest)
 
-[BETA] Create a route
+Create a route
 
 
 
@@ -6315,7 +6315,7 @@ No authorization required
 
 > Operation createSubnet(vpcId, createSubnetRequest)
 
-[BETA] Create a Subnet
+Create a Subnet
 
 
 
@@ -6500,7 +6500,7 @@ No authorization required
 
 > Operation createVpc(createVpcRequest)
 
-[BETA] Create a VPC
+Create a VPC
 
 
 
@@ -10845,7 +10845,7 @@ No authorization required
 
 > void deleteRoute(vpcId, subnetId, id)
 
-[BETA] Delete a route
+Delete a route
 
 
 
@@ -11500,7 +11500,7 @@ No authorization required
 
 > void deleteSubnet(vpcId, id)
 
-[BETA] Delete a Subnet
+Delete a Subnet
 
 
 
@@ -11776,7 +11776,7 @@ No authorization required
 
 > void deleteVpc(id)
 
-[BETA] Delete a VPC
+Delete a VPC
 
 
 
@@ -12339,7 +12339,7 @@ No authorization required
 
 > Operation detachInstanceFromSubnet(vpcId, subnetId, attachBlockStorageVolumeToInstanceRequest)
 
-[BETA] Detach a Compute instance from a Subnet
+Detach a Compute instance from a Subnet
 
 
 
@@ -20991,7 +20991,7 @@ No authorization required
 
 > Subnet getSubnet(vpcId, id)
 
-[BETA] Retrieve Subnet details
+Retrieve Subnet details
 
 
 
@@ -21357,7 +21357,7 @@ No authorization required
 
 > Vpc getVpc(id)
 
-[BETA] Retrieve VPC details
+Retrieve VPC details
 
 
 
@@ -24436,7 +24436,7 @@ No authorization required
 
 > ListVpcRoutes200Response listRoutes(vpcId, subnetId)
 
-[BETA] List Subnet routes
+List Subnet routes
 
 
 
@@ -25147,7 +25147,7 @@ No authorization required
 
 > ListSubnets200Response listSubnets(vpcId)
 
-[BETA] List Subnets
+List Subnets
 
 
 
@@ -25417,7 +25417,7 @@ No authorization required
 
 > ListVpcRoutes200Response listVpcRoutes(vpcId)
 
-[BETA] List VPC routes
+List VPC routes
 
 
 
@@ -25509,7 +25509,7 @@ No authorization required
 
 > ListVpcs200Response listVpcs()
 
-[BETA] List VPCs
+List VPCs
 
 
 
@@ -35219,7 +35219,7 @@ No authorization required
 
 > Subnet updateSubnet(vpcId, id, updateSubnetRequest)
 
-[BETA] Update a Subnet
+Update a Subnet
 
 
 
@@ -35505,7 +35505,7 @@ No authorization required
 
 > Vpc updateVpc(id, updateVpcRequest)
 
-[BETA] Update a VPC
+Update a VPC
 
 
 

@@ -275,7 +275,7 @@ tags:
   x-display-name: Object Storage
   x-weight: 500
   x-icon: exo-object-storage
-- description: "[BETA] Create and manipulate routing rules"
+- description: Create and manipulate routing rules
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/product/networking/vpc
@@ -332,8 +332,8 @@ tags:
   x-display-name: Deploy Target
   x-weight: 230
   x-icon: exo-gpu
-- description: "[BETA] Virtual Private Cloud (VPC) provides isolated virtual network\
-    \ environments for your Exoscale resources."
+- description: Virtual Private Cloud (VPC) provides isolated virtual network environments
+    for your Exoscale resources.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/product/networking/vpc
@@ -468,7 +468,7 @@ tags:
   x-display-name: User
   x-weight: 830
   x-icon: exo-iam
-- description: "[BETA] Create and manipulate VPCs"
+- description: Create and manipulate VPCs
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/product/networking/vpc
@@ -496,7 +496,7 @@ tags:
   x-display-name: SKS
   x-weight: 300
   x-icon: exo-sks
-- description: "[BETA] Configure VPC subnets and attach instances to them"
+- description: Configure VPC subnets and attach instances to them
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/product/networking/vpc
@@ -1600,7 +1600,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Attach a Compute instance to a Subnet"
+      summary: Attach a Compute instance to a Subnet
       tags:
       - exoscale
       x-content-type: application/json
@@ -2894,7 +2894,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list_vpc_routes_200_response'
           description: "200"
-      summary: "[BETA] List VPC routes"
+      summary: List VPC routes
       tags:
       - exoscale
       x-accepts: application/json
@@ -3460,7 +3460,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list_vpcs_200_response'
           description: "200"
-      summary: "[BETA] List VPCs"
+      summary: List VPCs
       tags:
       - exoscale
       x-accepts: application/json
@@ -3481,7 +3481,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Create a VPC"
+      summary: Create a VPC
       tags:
       - exoscale
       x-content-type: application/json
@@ -3924,7 +3924,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list_vpc_routes_200_response'
           description: "200"
-      summary: "[BETA] List Subnet routes"
+      summary: List Subnet routes
       tags:
       - exoscale
       x-accepts: application/json
@@ -3961,7 +3961,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/route'
           description: "200"
-      summary: "[BETA] Create a route"
+      summary: Create a route
       tags:
       - exoscale
       x-content-type: application/json
@@ -4079,7 +4079,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/list_subnets_200_response'
           description: "200"
-      summary: "[BETA] List Subnets"
+      summary: List Subnets
       tags:
       - exoscale
       x-accepts: application/json
@@ -4108,7 +4108,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Create a Subnet"
+      summary: Create a Subnet
       tags:
       - exoscale
       x-content-type: application/json
@@ -7428,7 +7428,7 @@ paths:
       responses:
         "204":
           description: "204"
-      summary: "[BETA] Delete a route"
+      summary: Delete a route
       tags:
       - exoscale
       x-accepts: application/json
@@ -8472,7 +8472,7 @@ paths:
       responses:
         "204":
           description: "204"
-      summary: "[BETA] Delete a Subnet"
+      summary: Delete a Subnet
       tags:
       - exoscale
       x-accepts: application/json
@@ -8503,7 +8503,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/subnet'
           description: "200"
-      summary: "[BETA] Retrieve Subnet details"
+      summary: Retrieve Subnet details
       tags:
       - exoscale
       x-accepts: application/json
@@ -8540,7 +8540,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/subnet'
           description: "200"
-      summary: "[BETA] Update a Subnet"
+      summary: Update a Subnet
       tags:
       - exoscale
       x-content-type: application/json
@@ -9077,7 +9077,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/operation'
           description: "200"
-      summary: "[BETA] Detach a Compute instance from a Subnet"
+      summary: Detach a Compute instance from a Subnet
       tags:
       - exoscale
       x-content-type: application/json
@@ -10940,7 +10940,7 @@ paths:
       responses:
         "204":
           description: "204"
-      summary: "[BETA] Delete a VPC"
+      summary: Delete a VPC
       tags:
       - exoscale
       x-accepts: application/json
@@ -10963,7 +10963,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/vpc'
           description: "200"
-      summary: "[BETA] Retrieve VPC details"
+      summary: Retrieve VPC details
       tags:
       - exoscale
       x-accepts: application/json
@@ -10992,7 +10992,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/vpc'
           description: "200"
-      summary: "[BETA] Update a VPC"
+      summary: Update a VPC
       tags:
       - exoscale
       x-content-type: application/json

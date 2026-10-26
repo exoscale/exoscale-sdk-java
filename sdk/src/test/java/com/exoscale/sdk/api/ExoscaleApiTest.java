@@ -508,7 +508,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Attach a Compute instance to a Subnet
+     * Attach a Compute instance to a Subnet
      *
      * 
      *
@@ -1355,7 +1355,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create a route
+     * Create a route
      *
      * 
      *
@@ -1443,7 +1443,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create a Subnet
+     * Create a Subnet
      *
      * 
      *
@@ -1478,7 +1478,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Create a VPC
+     * Create a VPC
      *
      * 
      *
@@ -2292,7 +2292,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete a route
+     * Delete a route
      *
      * 
      *
@@ -2415,7 +2415,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete a Subnet
+     * Delete a Subnet
      *
      * 
      *
@@ -2467,7 +2467,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Delete a VPC
+     * Delete a VPC
      *
      * 
      *
@@ -2573,7 +2573,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Detach a Compute instance from a Subnet
+     * Detach a Compute instance from a Subnet
      *
      * 
      *
@@ -4180,7 +4180,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Retrieve Subnet details
+     * Retrieve Subnet details
      *
      * 
      *
@@ -4248,7 +4248,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Retrieve VPC details
+     * Retrieve VPC details
      *
      * 
      *
@@ -4826,7 +4826,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List Subnet routes
+     * List Subnet routes
      *
      * 
      *
@@ -4959,7 +4959,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List Subnets
+     * List Subnets
      *
      * 
      *
@@ -5010,7 +5010,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List VPC routes
+     * List VPC routes
      *
      * 
      *
@@ -5027,7 +5027,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] List VPCs
+     * List VPCs
      *
      * 
      *
@@ -6864,7 +6864,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Update a Subnet
+     * Update a Subnet
      *
      * 
      *
@@ -6919,7 +6919,7 @@ public class ExoscaleApiTest {
     }
     
     /**
-     * [BETA] Update a VPC
+     * Update a VPC
      *
      * 
      *
