@@ -36,7 +36,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   SksKubeconfigRequest.JSON_PROPERTY_TTL,
   SksKubeconfigRequest.JSON_PROPERTY_USER,
-  SksKubeconfigRequest.JSON_PROPERTY_GROUPS
+  SksKubeconfigRequest.JSON_PROPERTY_GROUPS,
+  SksKubeconfigRequest.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class SksKubeconfigRequest {
@@ -48,6 +49,9 @@ public class SksKubeconfigRequest {
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
   private List<String> groups = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
   public SksKubeconfigRequest() { 
   }
@@ -136,6 +140,31 @@ public class SksKubeconfigRequest {
   }
 
 
+  public SksKubeconfigRequest name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Cluster and context name in the generated Kubeconfig (default: cluster ID)
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
   /**
    * Return true if this sks-kubeconfig-request object is equal to o.
    */
@@ -150,12 +179,13 @@ public class SksKubeconfigRequest {
     SksKubeconfigRequest sksKubeconfigRequest = (SksKubeconfigRequest) o;
     return Objects.equals(this.ttl, sksKubeconfigRequest.ttl) &&
         Objects.equals(this.user, sksKubeconfigRequest.user) &&
-        Objects.equals(this.groups, sksKubeconfigRequest.groups);
+        Objects.equals(this.groups, sksKubeconfigRequest.groups) &&
+        Objects.equals(this.name, sksKubeconfigRequest.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ttl, user, groups);
+    return Objects.hash(ttl, user, groups, name);
   }
 
   @Override
@@ -165,6 +195,7 @@ public class SksKubeconfigRequest {
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -229,6 +260,11 @@ public class SksKubeconfigRequest {
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
             URLEncoder.encode(String.valueOf(getGroups().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

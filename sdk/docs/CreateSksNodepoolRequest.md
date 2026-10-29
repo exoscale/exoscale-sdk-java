@@ -12,6 +12,7 @@
 |**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Configures public IP assignment of the Instances with:  * IPv4 (&#x60;inet4&#x60;) addressing only (default); * both IPv4 and IPv6 (&#x60;dual&#x60;) addressing. |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**taints** | [**Map&lt;String, SksNodepoolTaint&gt;**](SksNodepoolTaint.md) |  |  [optional] |
+|**nvidiaDraDriver** | **Boolean** | Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater. |  [optional] |
 |**securityGroups** | [**Set&lt;SecurityGroupRef&gt;**](SecurityGroupRef.md) | Nodepool Security Groups |  [optional] |
 |**name** | **String** | Nodepool name, lowercase only |  |
 |**instanceType** | [**InstanceTypeRef**](InstanceTypeRef.md) |  |  |

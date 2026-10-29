@@ -5447,6 +5447,48 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template:
+    put:
+      description: "Sets the template of the Nodepool instances, among the available\
+        \ templates of its Kubernetes version and variant (see `list-sks-nodepool-templates`).\
+        \ Without template (`null`), the Nodepool follows the latest template of its\
+        \ Kubernetes version."
+      operationId: set-sks-nodepool-template
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: sks-nodepool-id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/set_sks_nodepool_template_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Set the template of an SKS Nodepool
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-integration-types:
     get:
       description: "[BETA] Get DBaaS integration types"
@@ -10752,6 +10794,41 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /sks-template/{kube-version}:
+    get:
+      description: "List the available templates for a given kube version (major.minor\
+        \ or major.minor.patch), of the given variant (standard | nvidia) when provided,\
+        \ latest first"
+      operationId: list-sks-nodepool-templates
+      parameters:
+      - explode: false
+        in: path
+        name: kube-version
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: variant
+        required: false
+        schema:
+          enum:
+          - standard
+          - nvidia
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_sks_nodepool_templates_200_response'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-accepts: application/json
   /ai/deployment/{id}/logs:
     get:
       description: "Return logs for the vLLM deployment (dedicated inference: deploy/<release-name>--deployment-vllm;\
@@ -11569,6 +11646,33 @@ components:
           title: topic_name
           type: string
       title: Schema Registry configuration
+      type: object
+    sks-nodepool-template:
+      description: SKS Nodepool template
+      example:
+        name: name
+        variant: variant
+        created-at: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: Template ID
+          format: uuid
+          readOnly: true
+          type: string
+        name:
+          description: Template name
+          readOnly: true
+          type: string
+        created-at:
+          description: Template registration date
+          format: date-time
+          readOnly: true
+          type: string
+        variant:
+          description: "Template variant: standard | nvidia"
+          readOnly: true
+          type: string
       type: object
     dbaas-endpoint-opensearch:
       properties:
@@ -14686,6 +14790,12 @@ components:
           items:
             type: string
           type: array
+        name:
+          description: "Cluster and context name in the generated Kubeconfig (default:\
+            \ cluster ID)"
+          maxLength: 255
+          minLength: 1
+          type: string
       required:
       - groups
       - user
@@ -20224,14 +20334,11 @@ components:
         nodepools:
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          public-ip-assignment: inet4
           instance-pool:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           addons:
           - storage-lvm
           - storage-lvm
-          deploy-target:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20239,27 +20346,34 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          instance-type:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          taints:
-            key:
-              effect: NoExecute
-              value: value
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
             b300.269gb: null
-          version: version
-          labels:
-            key: labels
           private-networks:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 0
           kubelet-max-pods: 39073
+          nvidia-dra-driver: true
+          created-at: 2000-01-23T04:56:07.000+00:00
+          state: renewing-token
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip-assignment: inet4
+          deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          instance-type:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          taints:
+            key:
+              effect: NoExecute
+              value: value
+          version: version
+          labels:
+            key: labels
+          size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
             - distribute-cpus-across-numa
@@ -20280,9 +20394,6 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
-          created-at: 2000-01-23T04:56:07.000+00:00
-          state: renewing-token
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20292,14 +20403,11 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          public-ip-assignment: inet4
           instance-pool:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           addons:
           - storage-lvm
           - storage-lvm
-          deploy-target:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20307,27 +20415,34 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          instance-type:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          taints:
-            key:
-              effect: NoExecute
-              value: value
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
             b300.269gb: null
-          version: version
-          labels:
-            key: labels
           private-networks:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 0
           kubelet-max-pods: 39073
+          nvidia-dra-driver: true
+          created-at: 2000-01-23T04:56:07.000+00:00
+          state: renewing-token
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip-assignment: inet4
+          deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          instance-type:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          taints:
+            key:
+              effect: NoExecute
+              value: value
+          version: version
+          labels:
+            key: labels
+          size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
             - distribute-cpus-across-numa
@@ -20348,9 +20463,6 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
-          created-at: 2000-01-23T04:56:07.000+00:00
-          state: renewing-token
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20360,14 +20472,11 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          public-ip-assignment: inet4
           instance-pool:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           addons:
           - storage-lvm
           - storage-lvm
-          deploy-target:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20375,27 +20484,34 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          instance-type:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          taints:
-            key:
-              effect: NoExecute
-              value: value
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
             b300.269gb: null
-          version: version
-          labels:
-            key: labels
           private-networks:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 0
           kubelet-max-pods: 39073
+          nvidia-dra-driver: true
+          created-at: 2000-01-23T04:56:07.000+00:00
+          state: renewing-token
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip-assignment: inet4
+          deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          instance-type:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          taints:
+            key:
+              effect: NoExecute
+              value: value
+          version: version
+          labels:
+            key: labels
+          size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
             - distribute-cpus-across-numa
@@ -20416,9 +20532,6 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
-          created-at: 2000-01-23T04:56:07.000+00:00
-          state: renewing-token
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20428,14 +20541,11 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          public-ip-assignment: inet4
           instance-pool:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           addons:
           - storage-lvm
           - storage-lvm
-          deploy-target:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20443,27 +20553,34 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          instance-type:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          taints:
-            key:
-              effect: NoExecute
-              value: value
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
             b300.269gb: null
-          version: version
-          labels:
-            key: labels
           private-networks:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 0
           kubelet-max-pods: 39073
+          nvidia-dra-driver: true
+          created-at: 2000-01-23T04:56:07.000+00:00
+          state: renewing-token
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip-assignment: inet4
+          deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          instance-type:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          taints:
+            key:
+              effect: NoExecute
+              value: value
+          version: version
+          labels:
+            key: labels
+          size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
             - distribute-cpus-across-numa
@@ -20484,9 +20601,6 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
-          created-at: 2000-01-23T04:56:07.000+00:00
-          state: renewing-token
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20496,14 +20610,11 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          public-ip-assignment: inet4
           instance-pool:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           addons:
           - storage-lvm
           - storage-lvm
-          deploy-target:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           description: description
           security-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -20511,27 +20622,34 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          instance-type:
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          taints:
-            key:
-              effect: NoExecute
-              value: value
           nvidia-mig-profiles:
             rtxpro6000.96gb: null
             a30.24gb: null
             b300.269gb: null
-          version: version
-          labels:
-            key: labels
           private-networks:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          size: 0
           kubelet-max-pods: 39073
+          nvidia-dra-driver: true
+          created-at: 2000-01-23T04:56:07.000+00:00
+          state: renewing-token
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          public-ip-assignment: inet4
+          deploy-target:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          instance-type:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          taints:
+            key:
+              effect: NoExecute
+              value: value
+          version: version
+          labels:
+            key: labels
+          size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
             - distribute-cpus-across-numa
@@ -20552,9 +20670,6 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
-          created-at: 2000-01-23T04:56:07.000+00:00
-          state: renewing-token
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21248,14 +21363,11 @@ components:
       example:
         template:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        public-ip-assignment: inet4
         instance-pool:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         addons:
         - storage-lvm
         - storage-lvm
-        deploy-target:
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         description: description
         security-groups:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21263,27 +21375,34 @@ components:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        instance-type:
-          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        taints:
-          key:
-            effect: NoExecute
-            value: value
         nvidia-mig-profiles:
           rtxpro6000.96gb: null
           a30.24gb: null
           b300.269gb: null
-        version: version
-        labels:
-          key: labels
         private-networks:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        size: 0
         kubelet-max-pods: 39073
+        nvidia-dra-driver: true
+        created-at: 2000-01-23T04:56:07.000+00:00
+        state: renewing-token
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        public-ip-assignment: inet4
+        deploy-target:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        instance-type:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        taints:
+          key:
+            effect: NoExecute
+            value: value
+        version: version
+        labels:
+          key: labels
+        size: 0
         cpu-manager-config:
           cpu-manager-policy-options:
           - distribute-cpus-across-numa
@@ -21304,9 +21423,6 @@ components:
           low-threshold: 0
           min-age: min-age
         disk-size: 28872
-        created-at: 2000-01-23T04:56:07.000+00:00
-        state: renewing-token
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         instance-prefix: instance-prefix
         anti-affinity-groups:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21344,6 +21460,10 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/sks-nodepool-taint'
           type: object
+        nvidia-dra-driver:
+          description: Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA
+            device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
+          type: boolean
         security-groups:
           description: Nodepool Security Groups
           items:
@@ -28019,6 +28139,10 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/sks-nodepool-taint'
           type: object
+        nvidia-dra-driver:
+          description: Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA
+            device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
+          type: boolean
         security-groups:
           description: Nodepool Security Groups
           items:
@@ -28962,6 +29086,11 @@ components:
         settings:
           $ref: '#/components/schemas/get_dbaas_settings_clickhouse_200_response_settings'
       type: object
+    set_sks_nodepool_template_request:
+      properties:
+        template:
+          $ref: '#/components/schemas/template-ref'
+      type: object
     list_dbaas_integration_types_200_response:
       example:
         dbaas-integration-types:
@@ -29540,14 +29669,11 @@ components:
           nodepools:
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29555,27 +29681,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -29596,9 +29729,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29608,14 +29738,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29623,27 +29750,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -29664,9 +29798,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29676,14 +29807,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29691,27 +29819,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -29732,9 +29867,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29744,14 +29876,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29759,27 +29888,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -29800,9 +29936,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29812,14 +29945,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29827,27 +29957,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -29868,9 +30005,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29924,14 +30058,11 @@ components:
           nodepools:
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29939,27 +30070,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -29980,9 +30118,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -29992,14 +30127,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30007,27 +30139,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -30048,9 +30187,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30060,14 +30196,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30075,27 +30208,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -30116,9 +30256,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30128,14 +30265,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30143,27 +30277,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -30184,9 +30325,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30196,14 +30334,11 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            public-ip-assignment: inet4
             instance-pool:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             addons:
             - storage-lvm
             - storage-lvm
-            deploy-target:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             description: description
             security-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30211,27 +30346,34 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            instance-type:
-              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            taints:
-              key:
-                effect: NoExecute
-                value: value
             nvidia-mig-profiles:
               rtxpro6000.96gb: null
               a30.24gb: null
               b300.269gb: null
-            version: version
-            labels:
-              key: labels
             private-networks:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-            size: 0
             kubelet-max-pods: 39073
+            nvidia-dra-driver: true
+            created-at: 2000-01-23T04:56:07.000+00:00
+            state: renewing-token
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            public-ip-assignment: inet4
+            deploy-target:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            instance-type:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            taints:
+              key:
+                effect: NoExecute
+                value: value
+            version: version
+            labels:
+              key: labels
+            size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
               - distribute-cpus-across-numa
@@ -30252,9 +30394,6 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
-            created-at: 2000-01-23T04:56:07.000+00:00
-            state: renewing-token
-            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31251,6 +31390,10 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/sks-nodepool-taint'
           type: object
+        nvidia-dra-driver:
+          description: Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA
+            device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
+          type: boolean
         security-groups:
           description: Nodepool Security Groups
           items:
@@ -32621,6 +32764,23 @@ components:
           $ref: '#/components/schemas/iam-role'
       required:
       - email
+      type: object
+    list_sks_nodepool_templates_200_response:
+      example:
+        sks-nodepool-templates:
+        - name: name
+          variant: variant
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - name: name
+          variant: variant
+          created-at: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        sks-nodepool-templates:
+          items:
+            $ref: '#/components/schemas/sks-nodepool-template'
+          type: array
       type: object
     upgrade_sks_cluster_request:
       properties:

@@ -220,6 +220,7 @@ import com.exoscale.sdk.model.ListQuotas200Response;
 import com.exoscale.sdk.model.ListSecurityGroups200Response;
 import com.exoscale.sdk.model.ListSksClusterVersions200Response;
 import com.exoscale.sdk.model.ListSksClusters200Response;
+import com.exoscale.sdk.model.ListSksNodepoolTemplates200Response;
 import com.exoscale.sdk.model.ListSnapshots200Response;
 import com.exoscale.sdk.model.ListSosBucketsUsage200Response;
 import com.exoscale.sdk.model.ListSshKeys200Response;
@@ -262,6 +263,7 @@ import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
+import com.exoscale.sdk.model.SetSksNodepoolTemplateRequest;
 import com.exoscale.sdk.model.SignRequest;
 import com.exoscale.sdk.model.SignResponse;
 import com.exoscale.sdk.model.SksCluster;
@@ -23897,6 +23899,108 @@ public class ExoscaleApi {
     return localVarRequestBuilder;
   }
   /**
+   * 
+   * List the available templates for a given kube version (major.minor or major.minor.patch), of the given variant (standard | nvidia) when provided, latest first
+   * @param kubeVersion  (required)
+   * @param variant  (optional)
+   * @return ListSksNodepoolTemplates200Response
+   * @throws ApiException if fails to make API call
+   */
+  public ListSksNodepoolTemplates200Response listSksNodepoolTemplates(String kubeVersion, String variant) throws ApiException {
+    ApiResponse<ListSksNodepoolTemplates200Response> localVarResponse = listSksNodepoolTemplatesWithHttpInfo(kubeVersion, variant);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * List the available templates for a given kube version (major.minor or major.minor.patch), of the given variant (standard | nvidia) when provided, latest first
+   * @param kubeVersion  (required)
+   * @param variant  (optional)
+   * @return ApiResponse&lt;ListSksNodepoolTemplates200Response&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<ListSksNodepoolTemplates200Response> listSksNodepoolTemplatesWithHttpInfo(String kubeVersion, String variant) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = listSksNodepoolTemplatesRequestBuilder(kubeVersion, variant);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("listSksNodepoolTemplates", localVarResponse);
+        }
+        return new ApiResponse<ListSksNodepoolTemplates200Response>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<ListSksNodepoolTemplates200Response>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder listSksNodepoolTemplatesRequestBuilder(String kubeVersion, String variant) throws ApiException {
+    // verify the required parameter 'kubeVersion' is set
+    if (kubeVersion == null) {
+      throw new ApiException(400, "Missing the required parameter 'kubeVersion' when calling listSksNodepoolTemplates");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sks-template/{kube-version}"
+        .replace("{kube-version}", ApiClient.urlEncode(kubeVersion.toString()));
+      String requestBody = null;
+      String authorizationValue;
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("GET", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "variant";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("variant", variant));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
    * List Snapshots
    * 
    * @return ListSnapshots200Response
@@ -29103,6 +29207,110 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Set the template of an SKS Nodepool
+   * Sets the template of the Nodepool instances, among the available templates of its Kubernetes version and variant (see &#x60;list-sks-nodepool-templates&#x60;). Without template (&#x60;null&#x60;), the Nodepool follows the latest template of its Kubernetes version.
+   * @param id  (required)
+   * @param sksNodepoolId  (required)
+   * @param setSksNodepoolTemplateRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation setSksNodepoolTemplate(UUID id, UUID sksNodepoolId, SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = setSksNodepoolTemplateWithHttpInfo(id, sksNodepoolId, setSksNodepoolTemplateRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Set the template of an SKS Nodepool
+   * Sets the template of the Nodepool instances, among the available templates of its Kubernetes version and variant (see &#x60;list-sks-nodepool-templates&#x60;). Without template (&#x60;null&#x60;), the Nodepool follows the latest template of its Kubernetes version.
+   * @param id  (required)
+   * @param sksNodepoolId  (required)
+   * @param setSksNodepoolTemplateRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> setSksNodepoolTemplateWithHttpInfo(UUID id, UUID sksNodepoolId, SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = setSksNodepoolTemplateRequestBuilder(id, sksNodepoolId, setSksNodepoolTemplateRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("setSksNodepoolTemplate", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder setSksNodepoolTemplateRequestBuilder(UUID id, UUID sksNodepoolId, SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling setSksNodepoolTemplate");
+    }
+    // verify the required parameter 'sksNodepoolId' is set
+    if (sksNodepoolId == null) {
+      throw new ApiException(400, "Missing the required parameter 'sksNodepoolId' when calling setSksNodepoolTemplate");
+    }
+    // verify the required parameter 'setSksNodepoolTemplateRequest' is set
+    if (setSksNodepoolTemplateRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'setSksNodepoolTemplateRequest' when calling setSksNodepoolTemplate");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template"
+        .replace("{id}", ApiClient.urlEncode(id.toString()))
+        .replace("{sks-nodepool-id}", ApiClient.urlEncode(sksNodepoolId.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(setSksNodepoolTemplateRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

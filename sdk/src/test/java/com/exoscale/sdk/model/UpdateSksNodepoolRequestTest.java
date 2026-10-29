@@ -96,6 +96,14 @@ public class UpdateSksNodepoolRequestTest {
     }
 
     /**
+     * Test the property 'nvidiaDraDriver'
+     */
+    @Test
+    public void nvidiaDraDriverTest() {
+        // TODO: test nvidiaDraDriver
+    }
+
+    /**
      * Test the property 'securityGroups'
      */
     @Test

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-10-26T18:16:03.895294770Z[Etc/UTC]
+- Build date: 2026-10-29T07:12:08.441083734Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-0f024c3</version>
+    <version>0.0.5-SNAPSHOT-9421869</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-0f024c3'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-9421869'
 }
 ```
 
@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**listSksClusterDeprecatedResources**](sdk/docs/ExoscaleApi.md#listSksClusterDeprecatedResources) | **GET** /sks-cluster-deprecated-resources/{id} | Resources that are scheduled to be removed in future kubernetes releases
 *ExoscaleApi* | [**listSksClusterVersions**](sdk/docs/ExoscaleApi.md#listSksClusterVersions) | **GET** /sks-cluster-version | List available versions for SKS clusters
 *ExoscaleApi* | [**listSksClusters**](sdk/docs/ExoscaleApi.md#listSksClusters) | **GET** /sks-cluster | List SKS clusters
+*ExoscaleApi* | [**listSksNodepoolTemplates**](sdk/docs/ExoscaleApi.md#listSksNodepoolTemplates) | **GET** /sks-template/{kube-version} | 
 *ExoscaleApi* | [**listSnapshots**](sdk/docs/ExoscaleApi.md#listSnapshots) | **GET** /snapshot | List Snapshots
 *ExoscaleApi* | [**listSosBucketsUsage**](sdk/docs/ExoscaleApi.md#listSosBucketsUsage) | **GET** /sos-buckets-usage | List SOS Buckets Usage
 *ExoscaleApi* | [**listSshKeys**](sdk/docs/ExoscaleApi.md#listSshKeys) | **GET** /ssh-key | List SSH keys
@@ -405,6 +406,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**scaleInstancePool**](sdk/docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
 *ExoscaleApi* | [**scaleSksNodepool**](sdk/docs/ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
 *ExoscaleApi* | [**scheduleKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion
+*ExoscaleApi* | [**setSksNodepoolTemplate**](sdk/docs/ExoscaleApi.md#setSksNodepoolTemplate) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template | Set the template of an SKS Nodepool
 *ExoscaleApi* | [**sign**](sdk/docs/ExoscaleApi.md#sign) | **POST** /kms-key/{id}/sign | Sign
 *ExoscaleApi* | [**startDbaasClickhouseMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | Initiate ClickHouse maintenance update
 *ExoscaleApi* | [**startDbaasGrafanaMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
@@ -881,6 +883,7 @@ Class | Method | HTTP request | Description
  - [ListSecurityGroups200Response](sdk/docs/ListSecurityGroups200Response.md)
  - [ListSksClusterVersions200Response](sdk/docs/ListSksClusterVersions200Response.md)
  - [ListSksClusters200Response](sdk/docs/ListSksClusters200Response.md)
+ - [ListSksNodepoolTemplates200Response](sdk/docs/ListSksNodepoolTemplates200Response.md)
  - [ListSnapshots200Response](sdk/docs/ListSnapshots200Response.md)
  - [ListSosBucketsUsage200Response](sdk/docs/ListSosBucketsUsage200Response.md)
  - [ListSshKeys200Response](sdk/docs/ListSshKeys200Response.md)
@@ -967,6 +970,7 @@ Class | Method | HTTP request | Description
  - [SecurityGroupRuleIcmp](sdk/docs/SecurityGroupRuleIcmp.md)
  - [SegmentReplicationBackpressureSettings](sdk/docs/SegmentReplicationBackpressureSettings.md)
  - [SetOrgConsumptionQuotaRequest](sdk/docs/SetOrgConsumptionQuotaRequest.md)
+ - [SetSksNodepoolTemplateRequest](sdk/docs/SetSksNodepoolTemplateRequest.md)
  - [ShardIndexingBackPressureSettings](sdk/docs/ShardIndexingBackPressureSettings.md)
  - [SignRequest](sdk/docs/SignRequest.md)
  - [SignResponse](sdk/docs/SignResponse.md)
@@ -979,6 +983,7 @@ Class | Method | HTTP request | Description
  - [SksKubeconfigRequest](sdk/docs/SksKubeconfigRequest.md)
  - [SksNodepool](sdk/docs/SksNodepool.md)
  - [SksNodepoolTaint](sdk/docs/SksNodepoolTaint.md)
+ - [SksNodepoolTemplate](sdk/docs/SksNodepoolTemplate.md)
  - [SksOidc](sdk/docs/SksOidc.md)
  - [Snapshot](sdk/docs/Snapshot.md)
  - [SnapshotExport](sdk/docs/SnapshotExport.md)

@@ -59,6 +59,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksNodepool.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
   SksNodepool.JSON_PROPERTY_LABELS,
   SksNodepool.JSON_PROPERTY_TAINTS,
+  SksNodepool.JSON_PROPERTY_NVIDIA_DRA_DRIVER,
   SksNodepool.JSON_PROPERTY_SECURITY_GROUPS,
   SksNodepool.JSON_PROPERTY_NAME,
   SksNodepool.JSON_PROPERTY_INSTANCE_TYPE,
@@ -130,6 +131,9 @@ public class SksNodepool {
 
   public static final String JSON_PROPERTY_TAINTS = "taints";
   private Map<String, SksNodepoolTaint> taints = new HashMap<>();
+
+  public static final String JSON_PROPERTY_NVIDIA_DRA_DRIVER = "nvidia-dra-driver";
+  private Boolean nvidiaDraDriver;
 
   public static final String JSON_PROPERTY_SECURITY_GROUPS = "security-groups";
   private Set<SecurityGroupRef> securityGroups;
@@ -432,6 +436,31 @@ public class SksNodepool {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaints(Map<String, SksNodepoolTaint> taints) {
     this.taints = taints;
+  }
+
+
+  public SksNodepool nvidiaDraDriver(Boolean nvidiaDraDriver) {
+    this.nvidiaDraDriver = nvidiaDraDriver;
+    return this;
+  }
+
+   /**
+   * Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
+   * @return nvidiaDraDriver
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NVIDIA_DRA_DRIVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getNvidiaDraDriver() {
+    return nvidiaDraDriver;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NVIDIA_DRA_DRIVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNvidiaDraDriver(Boolean nvidiaDraDriver) {
+    this.nvidiaDraDriver = nvidiaDraDriver;
   }
 
 
@@ -927,6 +956,7 @@ public class SksNodepool {
         Objects.equals(this.publicIpAssignment, sksNodepool.publicIpAssignment) &&
         Objects.equals(this.labels, sksNodepool.labels) &&
         Objects.equals(this.taints, sksNodepool.taints) &&
+        Objects.equals(this.nvidiaDraDriver, sksNodepool.nvidiaDraDriver) &&
         Objects.equals(this.securityGroups, sksNodepool.securityGroups) &&
         Objects.equals(this.name, sksNodepool.name) &&
         Objects.equals(this.instanceType, sksNodepool.instanceType) &&
@@ -954,7 +984,7 @@ public class SksNodepool {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, id, cpuManagerConfig, diskSize, version, nvidiaMigProfiles, createdAt);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, id, cpuManagerConfig, diskSize, version, nvidiaMigProfiles, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -973,6 +1003,7 @@ public class SksNodepool {
     sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
+    sb.append("    nvidiaDraDriver: ").append(toIndentedString(nvidiaDraDriver)).append("\n");
     sb.append("    securityGroups: ").append(toIndentedString(securityGroups)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
@@ -1078,6 +1109,11 @@ public class SksNodepool {
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix))));
         }
       }
+    }
+
+    // add `nvidia-dra-driver` to the URL query string
+    if (getNvidiaDraDriver() != null) {
+      joiner.add(String.format("%snvidia-dra-driver%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNvidiaDraDriver()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `security-groups` to the URL query string

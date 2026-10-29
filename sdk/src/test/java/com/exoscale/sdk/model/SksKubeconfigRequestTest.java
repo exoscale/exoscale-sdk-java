@@ -63,4 +63,12 @@ public class SksKubeconfigRequestTest {
         // TODO: test groups
     }
 
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
 }

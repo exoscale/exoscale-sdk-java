@@ -416,6 +416,7 @@ docs/ListRouteEntry.md
 docs/ListSecurityGroups200Response.md
 docs/ListSksClusterVersions200Response.md
 docs/ListSksClusters200Response.md
+docs/ListSksNodepoolTemplates200Response.md
 docs/ListSnapshots200Response.md
 docs/ListSosBucketsUsage200Response.md
 docs/ListSshKeys200Response.md
@@ -502,6 +503,7 @@ docs/SecurityGroupRule.md
 docs/SecurityGroupRuleIcmp.md
 docs/SegmentReplicationBackpressureSettings.md
 docs/SetOrgConsumptionQuotaRequest.md
+docs/SetSksNodepoolTemplateRequest.md
 docs/ShardIndexingBackPressureSettings.md
 docs/SignRequest.md
 docs/SignResponse.md
@@ -514,6 +516,7 @@ docs/SksClusterRef.md
 docs/SksKubeconfigRequest.md
 docs/SksNodepool.md
 docs/SksNodepoolTaint.md
+docs/SksNodepoolTemplate.md
 docs/SksOidc.md
 docs/Snapshot.md
 docs/SnapshotExport.md
@@ -1016,6 +1019,7 @@ src/main/java/com/exoscale/sdk/model/ListRouteEntry.java
 src/main/java/com/exoscale/sdk/model/ListSecurityGroups200Response.java
 src/main/java/com/exoscale/sdk/model/ListSksClusterVersions200Response.java
 src/main/java/com/exoscale/sdk/model/ListSksClusters200Response.java
+src/main/java/com/exoscale/sdk/model/ListSksNodepoolTemplates200Response.java
 src/main/java/com/exoscale/sdk/model/ListSnapshots200Response.java
 src/main/java/com/exoscale/sdk/model/ListSosBucketsUsage200Response.java
 src/main/java/com/exoscale/sdk/model/ListSshKeys200Response.java
@@ -1102,6 +1106,7 @@ src/main/java/com/exoscale/sdk/model/SecurityGroupRule.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRuleIcmp.java
 src/main/java/com/exoscale/sdk/model/SegmentReplicationBackpressureSettings.java
 src/main/java/com/exoscale/sdk/model/SetOrgConsumptionQuotaRequest.java
+src/main/java/com/exoscale/sdk/model/SetSksNodepoolTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/ShardIndexingBackPressureSettings.java
 src/main/java/com/exoscale/sdk/model/SignRequest.java
 src/main/java/com/exoscale/sdk/model/SignResponse.java
@@ -1114,6 +1119,7 @@ src/main/java/com/exoscale/sdk/model/SksClusterRef.java
 src/main/java/com/exoscale/sdk/model/SksKubeconfigRequest.java
 src/main/java/com/exoscale/sdk/model/SksNodepool.java
 src/main/java/com/exoscale/sdk/model/SksNodepoolTaint.java
+src/main/java/com/exoscale/sdk/model/SksNodepoolTemplate.java
 src/main/java/com/exoscale/sdk/model/SksOidc.java
 src/main/java/com/exoscale/sdk/model/Snapshot.java
 src/main/java/com/exoscale/sdk/model/SnapshotExport.java
