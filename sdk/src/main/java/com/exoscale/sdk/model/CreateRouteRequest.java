@@ -56,7 +56,7 @@ public class CreateRouteRequest {
   }
 
    /**
-   * Route description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -81,7 +81,7 @@ public class CreateRouteRequest {
   }
 
    /**
-   * Route destination CIDR
+   * The CIDR used to match on which packets the routing rule should be applied
    * @return destination
   **/
   @javax.annotation.Nonnull
@@ -106,7 +106,7 @@ public class CreateRouteRequest {
   }
 
    /**
-   * Route target
+   * Where the packets should be sent to. More details on the format can be found here https://community.exoscale.com/product/networking/vpc/how-to/using-routing-rules/
    * @return target
   **/
   @javax.annotation.Nonnull

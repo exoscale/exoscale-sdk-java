@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * XksProxyErrorDetail
+ * [BETA] Error reported by the customer-managed XKS proxy of an external key store.
  */
 @JsonPropertyOrder({
   XksProxyErrorDetail.JSON_PROPERTY_ERROR_NAME,
@@ -52,7 +52,7 @@ public class XksProxyErrorDetail {
   }
 
    /**
-   * XKS proxy &#x60;errorName&#x60; from a valid proxy error envelope.
+   * [BETA] XKS proxy &#x60;errorName&#x60; from a valid proxy error envelope.
    * @return errorName
   **/
   @javax.annotation.Nonnull
@@ -77,7 +77,7 @@ public class XksProxyErrorDetail {
   }
 
    /**
-   * Optional bounded XKS proxy &#x60;errorMessage&#x60;.
+   * [BETA] Optional bounded XKS proxy &#x60;errorMessage&#x60;.
    * @return errorMessage
   **/
   @javax.annotation.Nullable

@@ -66,7 +66,7 @@ public class VpcDhcpOptions {
   }
 
    /**
-   * DNS Servers
+   * Get dnsServers
    * @return dnsServers
   **/
   @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class VpcDhcpOptions {
   }
 
    /**
-   * NTP Servers
+   * Get ntpServers
    * @return ntpServers
   **/
   @javax.annotation.Nullable

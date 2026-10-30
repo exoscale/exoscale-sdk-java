@@ -6158,6 +6158,14 @@ paths:
             Invalid Usage: The request was rejected because the operation is not allowed for this key's usage.
 
             Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key's cryptographic profile.
+
+            Invalid Ciphertext: The request was rejected because the ciphertext is malformed, was not produced by the specified KMS Key, or could not be authenticated (for example, because of a mismatched encryption context).
+
+            [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.
+
+            [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.
+
+            [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.
       summary: Decrypt
       tags:
       - exoscale
@@ -7515,6 +7523,12 @@ paths:
             Invalid Usage: The request was rejected because the operation is not allowed for this key's usage.
 
             Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key's cryptographic profile.
+
+            [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.
+
+            [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.
+
+            [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.
       summary: Encrypt
       tags:
       - exoscale
@@ -8769,6 +8783,14 @@ paths:
 
             Name Conflict: The request was rejected because a key with the same name already exists in the target zone.
 
+            [BETA] Key Store Not Found: The request was rejected because the specified external key store could not be found.
+
+            [BETA] Key Store Disconnected: The request was rejected because the specified external key store is disconnected.
+
+            [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed, or because the external key is not enabled or does not support encrypt and decrypt.
+
+            [BETA] Key Store State Changed: The request was rejected because the external key store was modified concurrently while the key was being created. The request can be retried.
+
             Bad Request: The request was rejected because of an invalid request body or path parameter.
       summary: Create KMS Key
       tags:
@@ -9886,6 +9908,14 @@ paths:
 
             Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.
 
+            Invalid Ciphertext: The request was rejected because the source ciphertext is malformed, was not produced by the source KMS Key, or could not be authenticated (for example, because of a mismatched encryption context).
+
+            [BETA] Key Store Not Found: The request was rejected because the external key store of the source or destination KMS Key could not be found.
+
+            [BETA] Key Store Disconnected: The request was rejected because the external key store of the source or destination KMS Key is disconnected.
+
+            [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.
+
             Bad Request: The request was rejected because of an invalid request body or path parameter.
       summary: Re-encrypt
       tags:
@@ -10996,6 +11026,12 @@ paths:
             Key is Disabled: The request was rejected because the specified KMS key is disabled.
 
             Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage "encrypt-decrypt".
+
+            [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.
+
+            [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.
+
+            [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.
       summary: Generate Data Encryption Key
       tags:
       - exoscale
@@ -11757,10 +11793,12 @@ components:
       - expunging
       - starting
       - destroying
+      - resetting
       - running
       - stopping
       - stopped
       - migrating
+      - rebooting
       - error
       - destroyed
       type: string
@@ -11796,6 +11834,9 @@ components:
           - RSASSA_PSS_SHA_256
           - RSASSA_PSS_SHA_384
           - RSASSA_PSS_SHA_512
+          - RSASSA_PKCS1_V1_5_SHA_256
+          - RSASSA_PKCS1_V1_5_SHA_384
+          - RSASSA_PKCS1_V1_5_SHA_512
           - ECDSA_SHA_256
           - ECDSA_SHA_384
           - ECDSA_SHA_512
@@ -11937,7 +11978,8 @@ components:
           format: date-time
           type: string
         metadata-json:
-          description: Base64-encoded raw successful AWS GetHealthStatus JSON metadata.
+          description: Base64-encoded documented fields of the successful AWS GetHealthStatus
+            JSON metadata.
           format: byte
           type: string
         error-detail:
@@ -12295,7 +12337,6 @@ components:
           key: labels
       properties:
         description:
-          description: Subnet description
           maxLength: 4096
           type: string
         labels:
@@ -12303,7 +12344,6 @@ components:
             type: string
           type: object
         name:
-          description: Subnet name
           maxLength: 255
           minLength: 1
           type: string
@@ -12311,13 +12351,13 @@ components:
           description: Subnet ipv4 CIDR
           type: string
         addressfamily:
-          description: Subnet address family
+          description: Whether the subnet support IPv4 and/or IPv6
           enum:
           - inet4
           - dual
           type: string
         address-space:
-          description: Subnet address space
+          description: Whether the subnet is private or public
           enum:
           - private
           type: string
@@ -12327,11 +12367,9 @@ components:
             $ref: '#/components/schemas/subnet_instances_inner'
           type: array
         id:
-          description: Subnet ID
           format: uuid
           type: string
         created-at:
-          description: Subnet creation date
           format: date-time
           type: string
       type: object
@@ -13357,30 +13395,26 @@ components:
           key: labels
       properties:
         id:
-          description: Subnet ID
           format: uuid
           type: string
         name:
-          description: Subnet name
           maxLength: 255
           minLength: 1
           type: string
         description:
-          description: Subnet description
           maxLength: 4096
           type: string
         created-at:
-          description: Subnet creation date
           format: date-time
           type: string
         addressfamily:
-          description: Subnet address family
+          description: Whether the subnet supports IPv4 and/or IPv6
           enum:
           - inet4
           - dual
           type: string
         address-space:
-          description: Subnet address space
+          description: Whether the subnet is private or public
           enum:
           - private
           type: string
@@ -13447,20 +13481,16 @@ components:
           key: labels
       properties:
         id:
-          description: VPC ID
           format: uuid
           type: string
         name:
-          description: VPC name
           maxLength: 255
           minLength: 1
           type: string
         description:
-          description: VPC description
           maxLength: 4096
           type: string
         created-at:
-          description: VPC creation date
           format: date-time
           type: string
         default:
@@ -16131,24 +16161,22 @@ components:
         target: target
       properties:
         id:
-          description: Route ID
           format: uuid
           type: string
         kind:
-          description: Route kind
           enum:
           - Subnet
           - Vpc
           type: string
         description:
-          description: Route description
           maxLength: 4096
           type: string
         destination:
-          description: Route destination CIDR
+          description: The CIDR used to match on which packets the routing rule should
+            be applied
           type: string
         target:
-          description: Route target
+          description: Where the packets should be sent to
           type: string
       type: object
     env-impact-detail:
@@ -16334,6 +16362,9 @@ components:
           - RSASSA_PSS_SHA_256
           - RSASSA_PSS_SHA_384
           - RSASSA_PSS_SHA_512
+          - RSASSA_PKCS1_V1_5_SHA_256
+          - RSASSA_PKCS1_V1_5_SHA_384
+          - RSASSA_PKCS1_V1_5_SHA_512
           - ECDSA_SHA_256
           - ECDSA_SHA_384
           - ECDSA_SHA_512
@@ -16799,20 +16830,16 @@ components:
           key: labels
       properties:
         id:
-          description: VPC ID
           format: uuid
           type: string
         name:
-          description: VPC name
           maxLength: 255
           minLength: 1
           type: string
         description:
-          description: VPC description
           maxLength: 4096
           type: string
         created-at:
-          description: VPC creation date
           format: date-time
           type: string
         default:
@@ -17294,15 +17321,17 @@ components:
       - plaintext
       type: object
     xks-proxy-error-detail:
+      description: "[BETA] Error reported by the customer-managed XKS proxy of an\
+        \ external key store."
       example:
         error-name: error-name
         error-message: error-message
       properties:
         error-name:
-          description: XKS proxy `errorName` from a valid proxy error envelope.
+          description: "[BETA] XKS proxy `errorName` from a valid proxy error envelope."
           type: string
         error-message:
-          description: Optional bounded XKS proxy `errorMessage`.
+          description: "[BETA] Optional bounded XKS proxy `errorMessage`."
           type: string
       required:
       - error-name
@@ -17712,20 +17741,21 @@ components:
       - sasl
       type: string
     xks-key:
+      description: "[BETA] External key store reference of a KMS Key with source `external-key-store`."
       example:
         xks-id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         external-key-id: external-key-id
       properties:
         external-key-id:
-          description: "The identifier of the key as known to the external key store,\
-            \ used to reference the key material outside of Exoscale."
+          description: "[BETA] The identifier of the key as known to the external\
+            \ key store, used to reference the key material outside of Exoscale."
           maxLength: 128
           minLength: 1
           pattern: "^[a-zA-Z0-9_.-]+$"
           type: string
         xks-id:
-          description: The Exoscale-generated id of the external key store resource
-            that this key is associated with.
+          description: "[BETA] The Exoscale-generated id of the external key store\
+            \ resource that this key is associated with."
           format: uuid
           type: string
       required:
@@ -19049,24 +19079,22 @@ components:
         target: target
       properties:
         id:
-          description: Route ID
           format: uuid
           type: string
         kind:
-          description: Route kind
           enum:
           - Subnet
           - Vpc
           type: string
         description:
-          description: Route description
           maxLength: 4096
           type: string
         destination:
-          description: Route destination CIDR
+          description: The CIDR used to match on which packets the routing rule should
+            be applied
           type: string
         target:
-          description: Route target
+          description: Where the packets should be sent to
           type: string
       type: object
     iam-policy:
@@ -20028,7 +20056,7 @@ components:
         source:
           default: exoscale-kms
           description: "Indicates the source of the key material, either generated\
-            \ and held within Exoscale KMS, or backed by an external key store."
+            \ and held within Exoscale KMS, or backed by an external key store ([BETA])."
           enum:
           - exoscale-kms
           - external-key-store
@@ -21300,7 +21328,7 @@ components:
           type: boolean
         source:
           description: "Indicates the source of the key material, either generated\
-            \ and held within Exoscale KMS, or backed by an external key store."
+            \ and held within Exoscale KMS, or backed by an external key store ([BETA])."
           enum:
           - exoscale-kms
           - external-key-store
@@ -21619,13 +21647,11 @@ components:
         - domain-search
       properties:
         dns-servers:
-          description: DNS Servers
           items:
             format: ipv4
             type: string
           type: array
         ntp-servers:
-          description: NTP Servers
           items:
             format: ipv4
             type: string
@@ -23072,7 +23098,7 @@ components:
       properties:
         endpoint:
           description: New public URL used to route communication to the customer-managed
-            XKS proxy.
+            XKS proxy. Its host must resolve to a public IP address.
           format: uri
           type: string
         auth:
@@ -23940,7 +23966,7 @@ components:
           type: boolean
         source:
           description: "Indicates the source of the key material, either generated\
-            \ and held within Exoscale KMS, or backed by an external key store."
+            \ and held within Exoscale KMS, or backed by an external key store ([BETA])."
           enum:
           - exoscale-kms
           - external-key-store
@@ -24083,7 +24109,7 @@ components:
           type: boolean
         source:
           description: "Indicates the source of the key material, either generated\
-            \ and held within Exoscale KMS, or backed by an external key store."
+            \ and held within Exoscale KMS, or backed by an external key store ([BETA])."
           enum:
           - exoscale-kms
           - external-key-store
@@ -25766,7 +25792,7 @@ components:
       properties:
         endpoint:
           description: Public URL used to route communication to the customer-managed
-            XKS proxy.
+            XKS proxy. Its host must resolve to a public IP address.
           format: uri
           type: string
         auth:
@@ -27196,7 +27222,7 @@ components:
         instance:
           $ref: '#/components/schemas/instance-ref'
         ipv4:
-          description: Instance IPv4
+          description: An optional IPv4 address assign to the instance
           format: ipv4
           type: string
       required:
@@ -28518,12 +28544,12 @@ components:
     create_vpc_request:
       properties:
         name:
-          description: VPC name
+          description: "VPC name, up to 255 characters. Must be unique within its\
+            \ zone"
           maxLength: 255
           minLength: 1
           type: string
         description:
-          description: VPC description
           maxLength: 4096
           type: string
         labels:
@@ -28555,14 +28581,15 @@ components:
     create_route_request:
       properties:
         description:
-          description: Route description
           maxLength: 4096
           type: string
         destination:
-          description: Route destination CIDR
+          description: The CIDR used to match on which packets the routing rule should
+            be applied
           type: string
         target:
-          description: Route target
+          description: Where the packets should be sent to. More details on the format
+            can be found here https://community.exoscale.com/product/networking/vpc/how-to/using-routing-rules/
           type: string
       required:
       - destination
@@ -28598,12 +28625,12 @@ components:
     create_subnet_request:
       properties:
         name:
-          description: Subnet name
+          description: "Subnet name, up to 255 characters. Must be unique between\
+            \ the subnet of the parent VPC"
           maxLength: 255
           minLength: 1
           type: string
         description:
-          description: Subnet description
           maxLength: 4096
           type: string
         labels:
@@ -28611,17 +28638,18 @@ components:
             type: string
           type: object
         addressfamily:
-          description: Subnet address family
+          description: Whether the subnet supports IPv4 and/or IPv6
           enum:
           - inet4
           type: string
         address-space:
-          description: Subnet address space
+          description: Whether the subnet is private or public
           enum:
           - private
           type: string
         ipv4-block:
-          description: Subnet ipv4 CIDR
+          description: Subnet ipv4 CIDR. Must not overlap with other CIDRs of this
+            VPC
           type: string
       required:
       - address-space
@@ -30891,13 +30919,11 @@ components:
     update_subnet_request:
       properties:
         name:
-          description: Subnet name
           maxLength: 255
           minLength: 1
           nullable: true
           type: string
         description:
-          description: Subnet description
           maxLength: 4096
           nullable: true
           type: string
@@ -32793,13 +32819,11 @@ components:
     update_vpc_request:
       properties:
         name:
-          description: VPC name
           maxLength: 255
           minLength: 1
           nullable: true
           type: string
         description:
-          description: VPC description
           maxLength: 4096
           nullable: true
           type: string
@@ -33050,14 +33074,12 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
       properties:
         id:
-          description: Instance uuid
           format: uuid
           type: string
         name:
-          description: Instance name
           type: string
         ipv4:
-          description: Instance Ipv4 address
+          description: The ipv4 associated with the instance in this subnet
           format: ipv4
           type: string
       type: object

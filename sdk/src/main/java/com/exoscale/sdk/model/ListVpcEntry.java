@@ -77,7 +77,7 @@ public class ListVpcEntry {
   }
 
    /**
-   * VPC ID
+   * Get id
    * @return id
   **/
   @javax.annotation.Nullable
@@ -102,7 +102,7 @@ public class ListVpcEntry {
   }
 
    /**
-   * VPC name
+   * Get name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class ListVpcEntry {
   }
 
    /**
-   * VPC description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -152,7 +152,7 @@ public class ListVpcEntry {
   }
 
    /**
-   * VPC creation date
+   * Get createdAt
    * @return createdAt
   **/
   @javax.annotation.Nullable

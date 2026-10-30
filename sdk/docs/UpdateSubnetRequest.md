@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | Subnet name |  [optional] |
-|**description** | **String** | Subnet description |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 

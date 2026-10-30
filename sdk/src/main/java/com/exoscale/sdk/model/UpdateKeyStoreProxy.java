@@ -54,7 +54,7 @@ public class UpdateKeyStoreProxy {
   }
 
    /**
-   * New public URL used to route communication to the customer-managed XKS proxy.
+   * New public URL used to route communication to the customer-managed XKS proxy. Its host must resolve to a public IP address.
    * @return endpoint
   **/
   @javax.annotation.Nullable

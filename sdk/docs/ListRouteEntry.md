@@ -8,11 +8,11 @@ Route
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Route ID |  [optional] |
-|**kind** | [**KindEnum**](#KindEnum) | Route kind |  [optional] |
-|**description** | **String** | Route description |  [optional] |
-|**destination** | **String** | Route destination CIDR |  [optional] |
-|**target** | **String** | Route target |  [optional] |
+|**id** | **UUID** |  |  [optional] |
+|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**destination** | **String** | The CIDR used to match on which packets the routing rule should be applied |  [optional] |
+|**target** | **String** | Where the packets should be sent to |  [optional] |
 
 
 

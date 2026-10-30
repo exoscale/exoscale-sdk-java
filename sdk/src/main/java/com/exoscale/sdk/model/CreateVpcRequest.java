@@ -63,7 +63,7 @@ public class CreateVpcRequest {
   }
 
    /**
-   * VPC name
+   * VPC name, up to 255 characters. Must be unique within its zone
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class CreateVpcRequest {
   }
 
    /**
-   * VPC description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable

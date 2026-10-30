@@ -60,7 +60,7 @@ public class ListSubnetEntry {
   private OffsetDateTime createdAt;
 
   /**
-   * Subnet address family
+   * Whether the subnet supports IPv4 and/or IPv6
    */
   public enum AddressfamilyEnum {
     INET4("inet4"),
@@ -98,7 +98,7 @@ public class ListSubnetEntry {
   private AddressfamilyEnum addressfamily;
 
   /**
-   * Subnet address space
+   * Whether the subnet is private or public
    */
   public enum AddressSpaceEnum {
     PRIVATE("private");
@@ -148,7 +148,7 @@ public class ListSubnetEntry {
   }
 
    /**
-   * Subnet ID
+   * Get id
    * @return id
   **/
   @javax.annotation.Nullable
@@ -173,7 +173,7 @@ public class ListSubnetEntry {
   }
 
    /**
-   * Subnet name
+   * Get name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -198,7 +198,7 @@ public class ListSubnetEntry {
   }
 
    /**
-   * Subnet description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -223,7 +223,7 @@ public class ListSubnetEntry {
   }
 
    /**
-   * Subnet creation date
+   * Get createdAt
    * @return createdAt
   **/
   @javax.annotation.Nullable
@@ -248,7 +248,7 @@ public class ListSubnetEntry {
   }
 
    /**
-   * Subnet address family
+   * Whether the subnet supports IPv4 and/or IPv6
    * @return addressfamily
   **/
   @javax.annotation.Nullable
@@ -273,7 +273,7 @@ public class ListSubnetEntry {
   }
 
    /**
-   * Subnet address space
+   * Whether the subnet is private or public
    * @return addressSpace
   **/
   @javax.annotation.Nullable

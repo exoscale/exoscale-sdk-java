@@ -45,7 +45,7 @@ public class ListRouteEntry {
   private UUID id;
 
   /**
-   * Route kind
+   * Gets or Sets kind
    */
   public enum KindEnum {
     SUBNET("Subnet"),
@@ -100,7 +100,7 @@ public class ListRouteEntry {
   }
 
    /**
-   * Route ID
+   * Get id
    * @return id
   **/
   @javax.annotation.Nullable
@@ -125,7 +125,7 @@ public class ListRouteEntry {
   }
 
    /**
-   * Route kind
+   * Get kind
    * @return kind
   **/
   @javax.annotation.Nullable
@@ -150,7 +150,7 @@ public class ListRouteEntry {
   }
 
    /**
-   * Route description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -175,7 +175,7 @@ public class ListRouteEntry {
   }
 
    /**
-   * Route destination CIDR
+   * The CIDR used to match on which packets the routing rule should be applied
    * @return destination
   **/
   @javax.annotation.Nullable
@@ -200,7 +200,7 @@ public class ListRouteEntry {
   }
 
    /**
-   * Route target
+   * Where the packets should be sent to
    * @return target
   **/
   @javax.annotation.Nullable

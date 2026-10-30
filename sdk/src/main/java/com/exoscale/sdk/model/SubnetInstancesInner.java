@@ -57,7 +57,7 @@ public class SubnetInstancesInner {
   }
 
    /**
-   * Instance uuid
+   * Get id
    * @return id
   **/
   @javax.annotation.Nullable
@@ -82,7 +82,7 @@ public class SubnetInstancesInner {
   }
 
    /**
-   * Instance name
+   * Get name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class SubnetInstancesInner {
   }
 
    /**
-   * Instance Ipv4 address
+   * The ipv4 associated with the instance in this subnet
    * @return ipv4
   **/
   @javax.annotation.Nullable

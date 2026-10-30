@@ -82,7 +82,7 @@ public class ListKmsKeysResponseEntry {
   private Boolean multiZone;
 
   /**
-   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store ([BETA]).
    */
   public enum SourceEnum {
     EXOSCALE_KMS("exoscale-kms"),
@@ -367,7 +367,7 @@ public class ListKmsKeysResponseEntry {
   }
 
    /**
-   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store ([BETA]).
    * @return source
   **/
   @javax.annotation.Nonnull

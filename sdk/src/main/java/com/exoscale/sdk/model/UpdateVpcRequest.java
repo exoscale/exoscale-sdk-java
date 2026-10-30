@@ -67,7 +67,7 @@ public class UpdateVpcRequest {
   }
 
    /**
-   * VPC name
+   * Get name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -100,7 +100,7 @@ public class UpdateVpcRequest {
   }
 
    /**
-   * VPC description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable

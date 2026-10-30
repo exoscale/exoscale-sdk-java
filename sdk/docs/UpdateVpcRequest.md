@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | VPC name |  [optional] |
-|**description** | **String** | VPC description |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**dhcpOptions** | [**VpcDhcpOptions**](VpcDhcpOptions.md) |  |  [optional] |
 

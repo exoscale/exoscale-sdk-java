@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**instance** | [**InstanceRef**](InstanceRef.md) |  |  |
-|**ipv4** | **String** | Instance IPv4 |  [optional] |
+|**ipv4** | **String** | An optional IPv4 address assign to the instance |  [optional] |
 
 
 

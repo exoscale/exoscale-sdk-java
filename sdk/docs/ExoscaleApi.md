@@ -5535,7 +5535,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created new KMS key |  -  |
-| **400** | Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  [BETA] Key Store Not Found: The request was rejected because the specified external key store could not be found.  [BETA] Key Store Disconnected: The request was rejected because the specified external key store is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed, or because the external key is not enabled or does not support encrypt and decrypt.  [BETA] Key Store State Changed: The request was rejected because the external key store was modified concurrently while the key was being created. The request can be retried.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -5563,7 +5563,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created new KMS key |  -  |
-| **400** | Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Name Conflict: The request was rejected because a key with the same name already exists in the target zone.  [BETA] Key Store Not Found: The request was rejected because the specified external key store could not be found.  [BETA] Key Store Disconnected: The request was rejected because the specified external key store is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed, or because the external key is not enabled or does not support encrypt and decrypt.  [BETA] Key Store State Changed: The request was rejected because the external key store was modified concurrently while the key was being created. The request can be retried.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## createLoadBalancer
@@ -6655,7 +6655,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Invalid Ciphertext: The request was rejected because the ciphertext is malformed, was not produced by the specified KMS Key, or could not be authenticated (for example, because of a mismatched encryption context).  [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  |  -  |
 
 
 ### Parameters
@@ -6684,7 +6684,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded plaintext. |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Invalid Ciphertext: The request was rejected because the ciphertext is malformed, was not produced by the specified KMS Key, or could not be authenticated (for example, because of a mismatched encryption context).  [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  |  -  |
 
 
 ## deleteAntiAffinityGroup
@@ -13155,7 +13155,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  |  -  |
 
 
 ### Parameters
@@ -13184,7 +13184,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  |  -  |
 
 
 ## evictInstancePoolMembers
@@ -13537,7 +13537,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Data Encryption Key in the clear and in its base64 encoded encrypted format. |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  |  -  |
 
 
 ### Parameters
@@ -13566,7 +13566,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Data Encryption Key in the clear and in its base64 encoded encrypted format. |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Invalid Usage: The request was rejected because the operation is only allowed on symmetric keys with usage \&quot;encrypt-decrypt\&quot;.  [BETA] Key Store Not Found: The request was rejected because the external key store of the specified KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the specified KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  |  -  |
 
 
 ## generateSksClusterKubeconfig
@@ -25932,7 +25932,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.  Invalid Ciphertext: The request was rejected because the source ciphertext is malformed, was not produced by the source KMS Key, or could not be authenticated (for example, because of a mismatched encryption context).  [BETA] Key Store Not Found: The request was rejected because the external key store of the source or destination KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the source or destination KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ### Parameters
@@ -25961,7 +25961,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Base64 encoded ciphertext |  -  |
-| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Disabled: The request was rejected because the specified KMS key is disabled.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Invalid Usage: The request was rejected because the operation is not allowed for this key&#39;s usage.  Invalid Algorithm: The request was rejected because the specified encryption algorithm does not match the key&#39;s cryptographic profile.  Key Family Mismatch: The request was rejected because the source and destination keys do not belong to the same key family.  Invalid Ciphertext: The request was rejected because the source ciphertext is malformed, was not produced by the source KMS Key, or could not be authenticated (for example, because of a mismatched encryption context).  [BETA] Key Store Not Found: The request was rejected because the external key store of the source or destination KMS Key could not be found.  [BETA] Key Store Disconnected: The request was rejected because the external key store of the source or destination KMS Key is disconnected.  [BETA] Key Store Proxy Request Failed: The request was rejected because the request to the external key store proxy failed.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## rebootInstance

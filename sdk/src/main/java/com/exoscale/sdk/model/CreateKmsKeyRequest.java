@@ -143,7 +143,7 @@ public class CreateKmsKeyRequest {
   private Boolean multiZone = false;
 
   /**
-   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store ([BETA]).
    */
   public enum SourceEnum {
     EXOSCALE_KMS("exoscale-kms"),
@@ -317,7 +317,7 @@ public class CreateKmsKeyRequest {
   }
 
    /**
-   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store.
+   * Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store ([BETA]).
    * @return source
   **/
   @javax.annotation.Nullable

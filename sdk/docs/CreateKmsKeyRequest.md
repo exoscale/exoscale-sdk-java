@@ -12,7 +12,7 @@
 |**usage** | [**UsageEnum**](#UsageEnum) |  |  [optional] |
 |**keySpec** | [**KeySpecEnum**](#KeySpecEnum) | The cryptographic key specification defining the key&#39;s algorithm and, for asymmetric keys, its curve or modulus size. |  [optional] |
 |**multiZone** | **Boolean** | True if this is a multi-zone key. |  [optional] |
-|**source** | [**SourceEnum**](#SourceEnum) | Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store. |  [optional] |
+|**source** | [**SourceEnum**](#SourceEnum) | Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store ([BETA]). |  [optional] |
 |**xks** | [**XksKey**](XksKey.md) |  |  [optional] |
 
 

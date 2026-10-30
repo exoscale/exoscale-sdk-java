@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * XksKey
+ * [BETA] External key store reference of a KMS Key with source &#x60;external-key-store&#x60;.
  */
 @JsonPropertyOrder({
   XksKey.JSON_PROPERTY_EXTERNAL_KEY_ID,
@@ -53,7 +53,7 @@ public class XksKey {
   }
 
    /**
-   * The identifier of the key as known to the external key store, used to reference the key material outside of Exoscale.
+   * [BETA] The identifier of the key as known to the external key store, used to reference the key material outside of Exoscale.
    * @return externalKeyId
   **/
   @javax.annotation.Nonnull
@@ -78,7 +78,7 @@ public class XksKey {
   }
 
    /**
-   * The Exoscale-generated id of the external key store resource that this key is associated with.
+   * [BETA] The Exoscale-generated id of the external key store resource that this key is associated with.
    * @return xksId
   **/
   @javax.annotation.Nonnull

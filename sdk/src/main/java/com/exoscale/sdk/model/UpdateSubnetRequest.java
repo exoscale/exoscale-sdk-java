@@ -62,7 +62,7 @@ public class UpdateSubnetRequest {
   }
 
    /**
-   * Subnet name
+   * Get name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -95,7 +95,7 @@ public class UpdateSubnetRequest {
   }
 
    /**
-   * Subnet description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable

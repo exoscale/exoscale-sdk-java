@@ -8,15 +8,15 @@ Subnet
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **String** | Subnet description |  [optional] |
+|**description** | **String** |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**name** | **String** | Subnet name |  [optional] |
+|**name** | **String** |  |  [optional] |
 |**ipv4Block** | **String** | Subnet ipv4 CIDR |  [optional] |
-|**addressfamily** | [**AddressfamilyEnum**](#AddressfamilyEnum) | Subnet address family |  [optional] |
-|**addressSpace** | [**AddressSpaceEnum**](#AddressSpaceEnum) | Subnet address space |  [optional] |
+|**addressfamily** | [**AddressfamilyEnum**](#AddressfamilyEnum) | Whether the subnet support IPv4 and/or IPv6 |  [optional] |
+|**addressSpace** | [**AddressSpaceEnum**](#AddressSpaceEnum) | Whether the subnet is private or public |  [optional] |
 |**instances** | [**List&lt;SubnetInstancesInner&gt;**](SubnetInstancesInner.md) | Instances attached to the subnet |  [optional] |
-|**id** | **UUID** | Subnet ID |  [optional] |
-|**createdAt** | **OffsetDateTime** | Subnet creation date |  [optional] |
+|**id** | **UUID** |  |  [optional] |
+|**createdAt** | **OffsetDateTime** |  |  [optional] |
 
 
 

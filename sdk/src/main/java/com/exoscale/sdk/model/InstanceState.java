@@ -36,6 +36,8 @@ public enum InstanceState {
   
   DESTROYING("destroying"),
   
+  RESETTING("resetting"),
+  
   RUNNING("running"),
   
   STOPPING("stopping"),
@@ -43,6 +45,8 @@ public enum InstanceState {
   STOPPED("stopped"),
   
   MIGRATING("migrating"),
+  
+  REBOOTING("rebooting"),
   
   ERROR("error"),
   

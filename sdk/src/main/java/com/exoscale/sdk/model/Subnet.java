@@ -64,7 +64,7 @@ public class Subnet {
   private String ipv4Block;
 
   /**
-   * Subnet address family
+   * Whether the subnet support IPv4 and/or IPv6
    */
   public enum AddressfamilyEnum {
     INET4("inet4"),
@@ -102,7 +102,7 @@ public class Subnet {
   private AddressfamilyEnum addressfamily;
 
   /**
-   * Subnet address space
+   * Whether the subnet is private or public
    */
   public enum AddressSpaceEnum {
     PRIVATE("private");
@@ -155,7 +155,7 @@ public class Subnet {
   }
 
    /**
-   * Subnet description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -213,7 +213,7 @@ public class Subnet {
   }
 
    /**
-   * Subnet name
+   * Get name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -263,7 +263,7 @@ public class Subnet {
   }
 
    /**
-   * Subnet address family
+   * Whether the subnet support IPv4 and/or IPv6
    * @return addressfamily
   **/
   @javax.annotation.Nullable
@@ -288,7 +288,7 @@ public class Subnet {
   }
 
    /**
-   * Subnet address space
+   * Whether the subnet is private or public
    * @return addressSpace
   **/
   @javax.annotation.Nullable
@@ -346,7 +346,7 @@ public class Subnet {
   }
 
    /**
-   * Subnet ID
+   * Get id
    * @return id
   **/
   @javax.annotation.Nullable
@@ -371,7 +371,7 @@ public class Subnet {
   }
 
    /**
-   * Subnet creation date
+   * Get createdAt
    * @return createdAt
   **/
   @javax.annotation.Nullable

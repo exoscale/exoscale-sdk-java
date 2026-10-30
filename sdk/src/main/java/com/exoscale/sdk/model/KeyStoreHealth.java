@@ -177,7 +177,7 @@ public class KeyStoreHealth {
   }
 
    /**
-   * Base64-encoded raw successful AWS GetHealthStatus JSON metadata.
+   * Base64-encoded documented fields of the successful AWS GetHealthStatus JSON metadata.
    * @return metadataJson
   **/
   @javax.annotation.Nullable

@@ -53,7 +53,7 @@ public class CreateSubnetRequest {
   private Map<String, String> labels = new HashMap<>();
 
   /**
-   * Subnet address family
+   * Whether the subnet supports IPv4 and/or IPv6
    */
   public enum AddressfamilyEnum {
     INET4("inet4");
@@ -89,7 +89,7 @@ public class CreateSubnetRequest {
   private AddressfamilyEnum addressfamily;
 
   /**
-   * Subnet address space
+   * Whether the subnet is private or public
    */
   public enum AddressSpaceEnum {
     PRIVATE("private");
@@ -136,7 +136,7 @@ public class CreateSubnetRequest {
   }
 
    /**
-   * Subnet name
+   * Subnet name, up to 255 characters. Must be unique between the subnet of the parent VPC
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -161,7 +161,7 @@ public class CreateSubnetRequest {
   }
 
    /**
-   * Subnet description
+   * Get description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -219,7 +219,7 @@ public class CreateSubnetRequest {
   }
 
    /**
-   * Subnet address family
+   * Whether the subnet supports IPv4 and/or IPv6
    * @return addressfamily
   **/
   @javax.annotation.Nonnull
@@ -244,7 +244,7 @@ public class CreateSubnetRequest {
   }
 
    /**
-   * Subnet address space
+   * Whether the subnet is private or public
    * @return addressSpace
   **/
   @javax.annotation.Nonnull
@@ -269,7 +269,7 @@ public class CreateSubnetRequest {
   }
 
    /**
-   * Subnet ipv4 CIDR
+   * Subnet ipv4 CIDR. Must not overlap with other CIDRs of this VPC
    * @return ipv4Block
   **/
   @javax.annotation.Nullable

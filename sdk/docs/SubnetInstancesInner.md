@@ -8,9 +8,9 @@ Subnet attachments
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **UUID** | Instance uuid |  [optional] |
-|**name** | **String** | Instance name |  [optional] |
-|**ipv4** | **String** | Instance Ipv4 address |  [optional] |
+|**id** | **UUID** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**ipv4** | **String** | The ipv4 associated with the instance in this subnet |  [optional] |
 
 
 

@@ -78,7 +78,7 @@ public class AttachInstanceToSubnetRequest {
   }
 
    /**
-   * Instance IPv4
+   * An optional IPv4 address assign to the instance
    * @return ipv4
   **/
   @javax.annotation.Nullable

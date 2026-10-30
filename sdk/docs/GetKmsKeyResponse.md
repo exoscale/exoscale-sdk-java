@@ -14,7 +14,7 @@
 |**deleteAt** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** | The display name of the KMS key. |  |
 |**multiZone** | **Boolean** | True if this is a multi-zone key. |  |
-|**source** | [**SourceEnum**](#SourceEnum) | Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store. |  |
+|**source** | [**SourceEnum**](#SourceEnum) | Indicates the source of the key material, either generated and held within Exoscale KMS, or backed by an external key store ([BETA]). |  |
 |**keySpec** | **String** | The cryptographic key specification used to generate the key, defining its algorithm and, for asymmetric keys, its curve or modulus size. |  |
 |**usage** | **String** | The cryptographic operation constraints allowed on this key. |  |
 |**replicasStatus** | [**List&lt;ReplicaState&gt;**](ReplicaState.md) | Detailed synchronization metrics for each regional replica mirror. |  [optional] |
