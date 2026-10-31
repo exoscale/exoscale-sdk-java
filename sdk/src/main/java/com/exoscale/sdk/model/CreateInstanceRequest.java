@@ -509,7 +509,7 @@ public class CreateInstanceRequest {
   }
 
    /**
-   * Enable IPv6. DEPRECATED: use &#x60;public-ip-assignments&#x60;.
+   * Enable IPv6. DEPRECATED: use &#x60;public-ip-assignment&#x60;.
    * @return ipv6Enabled
   **/
   @javax.annotation.Nullable

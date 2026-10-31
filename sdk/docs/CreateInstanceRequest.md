@@ -21,7 +21,7 @@
 |**userData** | **String** | Instance Cloud-init user-data (base64 encoded) |  [optional] |
 |**tpmEnabled** | **Boolean** | Enable Trusted Platform Module (TPM) |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
-|**ipv6Enabled** | **Boolean** | Enable IPv6. DEPRECATED: use &#x60;public-ip-assignments&#x60;. |  [optional] |
+|**ipv6Enabled** | **Boolean** | Enable IPv6. DEPRECATED: use &#x60;public-ip-assignment&#x60;. |  [optional] |
 |**vpc** | [**CreateInstanceRequestVpc**](CreateInstanceRequestVpc.md) |  |  [optional] |
 |**diskSize** | **Long** | Instance disk size in GiB |  |
 |**ipForwarding** | **Boolean** | Whether the instance can act as a router in a VPC network |  [optional] |

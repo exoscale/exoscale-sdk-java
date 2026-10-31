@@ -32530,7 +32530,7 @@ components:
         deploy-target:
           $ref: '#/components/schemas/deploy-target-ref'
         ipv6-enabled:
-          description: "Enable IPv6. DEPRECATED: use `public-ip-assignments`."
+          description: "Enable IPv6. DEPRECATED: use `public-ip-assignment`."
           type: boolean
         vpc:
           $ref: '#/components/schemas/create_instance_request_vpc'
