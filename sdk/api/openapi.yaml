@@ -274,7 +274,7 @@ tags:
   name: sos
   x-display-name: Object Storage
   x-weight: 500
-  x-icon: exo-object-storage
+  x-icon: exo-sos
 - description: Create and manipulate routing rules
   externalDocs:
     description: Read more
