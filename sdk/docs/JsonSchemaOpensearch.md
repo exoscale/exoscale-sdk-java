@@ -13,6 +13,8 @@
 |**threadPoolGetSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolGetQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
 |**remoteStore** | [**JsonSchemaOpensearchRemoteStore**](JsonSchemaOpensearchRemoteStore.md) |  |  [optional] |
+|**knnCacheItemExpiryEnabled** | **Boolean** | Enable or disable removing KNN graphs from the cache when they are idle. Disabled by default. |  [optional] |
+|**searchCancelAfterTimeInterval** | **String** | Hard limit for search requests. When it is reached, the search task is cancelled and the request fails. OpenSearch default value is used when this is not defined. |  [optional] |
 |**indicesMemoryMaxIndexBufferSize** | **Integer** | Absolute value. Default is unbound. Doesn&#39;t work without indices.memory.index_buffer_size. Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size maximum hard limit. |  [optional] |
 |**indicesRecoveryMaxConcurrentFileChunks** | **Integer** | Number of file chunks sent in parallel for each recovery. Defaults to 2. |  [optional] |
 |**indicesQueriesCacheSize** | **Integer** | Percentage value. Default is 10%. Maximum amount of heap used for query cache. This is an expert setting. Too low value will decrease query performance and increase performance for other operations; too high value will cause issues with other OpenSearch functionality. |  [optional] |
@@ -20,6 +22,7 @@
 |**shardIndexingPressure** | [**ShardIndexingBackPressureSettings**](ShardIndexingBackPressureSettings.md) |  |  [optional] |
 |**knnMemoryCircuitBreakerEnabled** | **Boolean** | Enable or disable KNN memory circuit breaker. Defaults to true. |  [optional] |
 |**enableRemoteBackedStorage** | **Boolean** |  |  [optional] |
+|**searchDefaultSearchTimeout** | **String** | Soft timeout for search requests that don&#39;t set their own timeout. When it is reached, the search returns partial results with &#x60;timed_out: true&#x60;, and the search task keeps running unless it is cancelled. OpenSearch default value is used when this is not defined. |  [optional] |
 |**cluster** | [**ClusterSettings**](ClusterSettings.md) |  |  [optional] |
 |**threadPoolSearchSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**indicesMemoryMinIndexBufferSize** | **Integer** | Absolute value. Default is 48mb. Doesn&#39;t work without indices.memory.index_buffer_size. Minimum amount of heap used for query cache, an absolute indices.memory.index_buffer_size minimal hard limit. |  [optional] |
@@ -35,12 +38,14 @@
 |**overrideMainResponseVersion** | **Boolean** | Compatibility mode sets OpenSearch to report its version as 7.10 so clients continue to work. Default is false |  [optional] |
 |**httpMaxHeaderSize** | **Integer** | The max size of allowed headers, in bytes |  [optional] |
 |**nodeSearchCacheSize** | **String** | Defines a limit of how much total remote data can be referenced as a ratio of the size of the disk reserved for the file cache. This is designed to be a safeguard to prevent oversubscribing a cluster. Defaults to 5gb. Requires restarting all OpenSearch nodes. |  [optional] |
+|**knnCacheItemExpiryMinutes** | **Integer** | If enabled, the amount of time in minutes a KNN graph can be idle in the cache before being evicted. |  [optional] |
 |**emailSender** | [**OpensearchEmailSenderSettings**](OpensearchEmailSenderSettings.md) |  |  [optional] |
 |**indicesFielddataCacheSize** | **Integer** | Relative amount. Maximum amount of heap memory used for field data cache. This is an expert setting; decreasing the value too much will increase overhead of loading field data; too much memory used for field data cache will decrease amount of heap available for other operations. |  [optional] |
 |**actionDestructiveRequiresName** | **Boolean** |  |  [optional] |
 |**pluginsAlertingFilterByBackendRoles** | **Boolean** | Enable or disable filtering of alerting by backend roles. Requires Security plugin. Defaults to false |  [optional] |
 |**diskWatermarks** | [**WatermarkSettings**](WatermarkSettings.md) |  |  [optional] |
 |**enableSearchableSnapshots** | **Boolean** |  |  [optional] |
+|**knnCircuitBreakerUnsetPercentage** | **BigDecimal** | The native memory usage, as a percentage below the KNN memory circuit breaker limit, at which a tripped circuit breaker resets. Defaults to 5%. |  [optional] |
 |**indicesMemoryIndexBufferSize** | **Integer** | Percentage value. Default is 10%. Total amount of heap used for indexing buffer, before writing segments to disk. This is an expert setting. Too low value will slow down indexing; too high value will increase indexing performance but causes performance issues for query performance. |  [optional] |
 |**threadPoolForceMergeSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**authFailureListeners** | [**OpensearchSecurityPluginSettings**](OpensearchSecurityPluginSettings.md) |  |  [optional] |
@@ -51,7 +56,7 @@
 |**httpMaxContentLength** | **Integer** | Maximum content length for HTTP requests to the OpenSearch HTTP API, in bytes. |  [optional] |
 |**threadPoolWriteSize** | **Integer** | Size for the thread pool. See documentation for exact details. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value. |  [optional] |
 |**threadPoolSearchQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |
-|**knnMemoryCircuitBreakerLimit** | **Integer** | Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size. |  [optional] |
+|**knnMemoryCircuitBreakerLimit** | **Integer** | Maximum amount of memory in percentage that can be used for the KNN index. Defaults to 50% of the JVM heap size. 0 is used to set it to null which can be used to invalidate caches. |  [optional] |
 |**indicesQueryBoolMaxClauseCount** | **Integer** | Maximum number of clauses Lucene BooleanQuery can have. The default value (1024) is relatively high, and increasing it may cause performance issues. Investigate other approaches first before increasing this value. |  [optional] |
 |**mlCommons** | [**MLCommonsSettings**](MLCommonsSettings.md) |  |  [optional] |
 |**threadPoolSearchThrottledQueueSize** | **Integer** | Size for the thread pool queue. See documentation for exact details. |  [optional] |

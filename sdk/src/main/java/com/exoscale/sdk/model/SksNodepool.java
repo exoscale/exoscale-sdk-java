@@ -75,6 +75,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   SksNodepool.JSON_PROPERTY_ADDONS,
   SksNodepool.JSON_PROPERTY_ID,
   SksNodepool.JSON_PROPERTY_CPU_MANAGER_CONFIG,
+  SksNodepool.JSON_PROPERTY_TEMPLATE_SELECTION,
   SksNodepool.JSON_PROPERTY_DISK_SIZE,
   SksNodepool.JSON_PROPERTY_VERSION,
   SksNodepool.JSON_PROPERTY_NVIDIA_MIG_PROFILES,
@@ -260,6 +261,44 @@ public class SksNodepool {
   public static final String JSON_PROPERTY_CPU_MANAGER_CONFIG = "cpu-manager-config";
   private CpuManagerConfig cpuManagerConfig;
 
+  /**
+   * Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set with &#x60;set-sks-nodepool-template&#x60;.
+   */
+  public enum TemplateSelectionEnum {
+    PINNED("pinned"),
+    
+    AUTO("auto");
+
+    private String value;
+
+    TemplateSelectionEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TemplateSelectionEnum fromValue(String value) {
+      for (TemplateSelectionEnum b : TemplateSelectionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_TEMPLATE_SELECTION = "template-selection";
+  private TemplateSelectionEnum templateSelection;
+
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
 
@@ -279,12 +318,14 @@ public class SksNodepool {
   public SksNodepool(
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
+    @JsonProperty(JSON_PROPERTY_TEMPLATE_SELECTION) TemplateSelectionEnum templateSelection, 
     @JsonProperty(JSON_PROPERTY_VERSION) String version, 
     @JsonProperty(JSON_PROPERTY_CREATED_AT) OffsetDateTime createdAt
   ) {
   this();
     this.state = state;
     this.id = id;
+    this.templateSelection = templateSelection;
     this.version = version;
     this.createdAt = createdAt;
   }
@@ -857,6 +898,21 @@ public class SksNodepool {
   }
 
 
+   /**
+   * Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set with &#x60;set-sks-nodepool-template&#x60;.
+   * @return templateSelection
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_SELECTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TemplateSelectionEnum getTemplateSelection() {
+    return templateSelection;
+  }
+
+
+
+
   public SksNodepool diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
@@ -972,6 +1028,7 @@ public class SksNodepool {
         Objects.equals(this.addons, sksNodepool.addons) &&
         Objects.equals(this.id, sksNodepool.id) &&
         Objects.equals(this.cpuManagerConfig, sksNodepool.cpuManagerConfig) &&
+        Objects.equals(this.templateSelection, sksNodepool.templateSelection) &&
         Objects.equals(this.diskSize, sksNodepool.diskSize) &&
         Objects.equals(this.version, sksNodepool.version) &&
         Objects.equals(this.nvidiaMigProfiles, sksNodepool.nvidiaMigProfiles) &&
@@ -984,7 +1041,7 @@ public class SksNodepool {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, id, cpuManagerConfig, diskSize, version, nvidiaMigProfiles, createdAt);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, state, size, kubeletImageGc, instancePool, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, id, cpuManagerConfig, templateSelection, diskSize, version, nvidiaMigProfiles, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1019,6 +1076,7 @@ public class SksNodepool {
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    cpuManagerConfig: ").append(toIndentedString(cpuManagerConfig)).append("\n");
+    sb.append("    templateSelection: ").append(toIndentedString(templateSelection)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
@@ -1209,6 +1267,11 @@ public class SksNodepool {
     // add `cpu-manager-config` to the URL query string
     if (getCpuManagerConfig() != null) {
       joiner.add(getCpuManagerConfig().toUrlQueryString(prefix + "cpu-manager-config" + suffix));
+    }
+
+    // add `template-selection` to the URL query string
+    if (getTemplateSelection() != null) {
+      joiner.add(String.format("%stemplate-selection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTemplateSelection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `disk-size` to the URL query string

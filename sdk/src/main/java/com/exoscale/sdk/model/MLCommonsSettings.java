@@ -24,7 +24,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -32,14 +34,31 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * MLCommonsSettings
  */
 @JsonPropertyOrder({
+  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_CONNECTOR_ACCESS_CONTROL_ENABLED,
+  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_MAX_MODEL_ON_NODE,
   MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_MODEL_ACCESS_CONTROL_ENABLED,
+  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_DEPLOY_ENABLE,
+  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_REDEPLOY_ENABLE,
   MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_NATIVE_MEMORY_THRESHOLD,
-  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_ONLY_RUN_ON_ML_NODE
+  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_ONLY_RUN_ON_ML_NODE,
+  MLCommonsSettings.JSON_PROPERTY_ML_COMMONS_TRUSTED_CONNECTOR_ENDPOINTS_REGEX
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class MLCommonsSettings {
+  public static final String JSON_PROPERTY_ML_COMMONS_CONNECTOR_ACCESS_CONTROL_ENABLED = "ml_commons_connector_access_control_enabled";
+  private Boolean mlCommonsConnectorAccessControlEnabled;
+
+  public static final String JSON_PROPERTY_ML_COMMONS_MAX_MODEL_ON_NODE = "ml_commons_max_model_on_node";
+  private Integer mlCommonsMaxModelOnNode;
+
   public static final String JSON_PROPERTY_ML_COMMONS_MODEL_ACCESS_CONTROL_ENABLED = "ml_commons_model_access_control_enabled";
   private Boolean mlCommonsModelAccessControlEnabled;
+
+  public static final String JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_DEPLOY_ENABLE = "ml_commons_model_auto_deploy_enable";
+  private Boolean mlCommonsModelAutoDeployEnable;
+
+  public static final String JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_REDEPLOY_ENABLE = "ml_commons_model_auto_redeploy_enable";
+  private Boolean mlCommonsModelAutoRedeployEnable;
 
   public static final String JSON_PROPERTY_ML_COMMONS_NATIVE_MEMORY_THRESHOLD = "ml_commons_native_memory_threshold";
   private Integer mlCommonsNativeMemoryThreshold;
@@ -47,8 +66,62 @@ public class MLCommonsSettings {
   public static final String JSON_PROPERTY_ML_COMMONS_ONLY_RUN_ON_ML_NODE = "ml_commons_only_run_on_ml_node";
   private Boolean mlCommonsOnlyRunOnMlNode;
 
+  public static final String JSON_PROPERTY_ML_COMMONS_TRUSTED_CONNECTOR_ENDPOINTS_REGEX = "ml_commons_trusted_connector_endpoints_regex";
+  private List<String> mlCommonsTrustedConnectorEndpointsRegex;
+
   public MLCommonsSettings() { 
   }
+
+  public MLCommonsSettings mlCommonsConnectorAccessControlEnabled(Boolean mlCommonsConnectorAccessControlEnabled) {
+    this.mlCommonsConnectorAccessControlEnabled = mlCommonsConnectorAccessControlEnabled;
+    return this;
+  }
+
+   /**
+   * When set to true, the setting allows admins to control access and permissions to the connector API using backend_roles. Defaults to false.
+   * @return mlCommonsConnectorAccessControlEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_CONNECTOR_ACCESS_CONTROL_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMlCommonsConnectorAccessControlEnabled() {
+    return mlCommonsConnectorAccessControlEnabled;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_CONNECTOR_ACCESS_CONTROL_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMlCommonsConnectorAccessControlEnabled(Boolean mlCommonsConnectorAccessControlEnabled) {
+    this.mlCommonsConnectorAccessControlEnabled = mlCommonsConnectorAccessControlEnabled;
+  }
+
+
+  public MLCommonsSettings mlCommonsMaxModelOnNode(Integer mlCommonsMaxModelOnNode) {
+    this.mlCommonsMaxModelOnNode = mlCommonsMaxModelOnNode;
+    return this;
+  }
+
+   /**
+   * Maximum number of ML models that can be deployed on a single ML node. Defaults to 10.
+   * minimum: 1
+   * @return mlCommonsMaxModelOnNode
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_MAX_MODEL_ON_NODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMlCommonsMaxModelOnNode() {
+    return mlCommonsMaxModelOnNode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_MAX_MODEL_ON_NODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMlCommonsMaxModelOnNode(Integer mlCommonsMaxModelOnNode) {
+    this.mlCommonsMaxModelOnNode = mlCommonsMaxModelOnNode;
+  }
+
 
   public MLCommonsSettings mlCommonsModelAccessControlEnabled(Boolean mlCommonsModelAccessControlEnabled) {
     this.mlCommonsModelAccessControlEnabled = mlCommonsModelAccessControlEnabled;
@@ -72,6 +145,56 @@ public class MLCommonsSettings {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMlCommonsModelAccessControlEnabled(Boolean mlCommonsModelAccessControlEnabled) {
     this.mlCommonsModelAccessControlEnabled = mlCommonsModelAccessControlEnabled;
+  }
+
+
+  public MLCommonsSettings mlCommonsModelAutoDeployEnable(Boolean mlCommonsModelAutoDeployEnable) {
+    this.mlCommonsModelAutoDeployEnable = mlCommonsModelAutoDeployEnable;
+    return this;
+  }
+
+   /**
+   * For externally hosted models only: automatically deploy a model on its first predict request instead of requiring an explicit deploy call first. Defaults to true.
+   * @return mlCommonsModelAutoDeployEnable
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_DEPLOY_ENABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMlCommonsModelAutoDeployEnable() {
+    return mlCommonsModelAutoDeployEnable;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_DEPLOY_ENABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMlCommonsModelAutoDeployEnable(Boolean mlCommonsModelAutoDeployEnable) {
+    this.mlCommonsModelAutoDeployEnable = mlCommonsModelAutoDeployEnable;
+  }
+
+
+  public MLCommonsSettings mlCommonsModelAutoRedeployEnable(Boolean mlCommonsModelAutoRedeployEnable) {
+    this.mlCommonsModelAutoRedeployEnable = mlCommonsModelAutoRedeployEnable;
+    return this;
+  }
+
+   /**
+   * Automatically redeploy deployed or partially deployed models after ML nodes rejoin the cluster, e.g. after a node replacement. Defaults to true.
+   * @return mlCommonsModelAutoRedeployEnable
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_REDEPLOY_ENABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getMlCommonsModelAutoRedeployEnable() {
+    return mlCommonsModelAutoRedeployEnable;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_MODEL_AUTO_REDEPLOY_ENABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMlCommonsModelAutoRedeployEnable(Boolean mlCommonsModelAutoRedeployEnable) {
+    this.mlCommonsModelAutoRedeployEnable = mlCommonsModelAutoRedeployEnable;
   }
 
 
@@ -127,6 +250,39 @@ public class MLCommonsSettings {
   }
 
 
+  public MLCommonsSettings mlCommonsTrustedConnectorEndpointsRegex(List<String> mlCommonsTrustedConnectorEndpointsRegex) {
+    this.mlCommonsTrustedConnectorEndpointsRegex = mlCommonsTrustedConnectorEndpointsRegex;
+    return this;
+  }
+
+  public MLCommonsSettings addMlCommonsTrustedConnectorEndpointsRegexItem(String mlCommonsTrustedConnectorEndpointsRegexItem) {
+    if (this.mlCommonsTrustedConnectorEndpointsRegex == null) {
+      this.mlCommonsTrustedConnectorEndpointsRegex = new ArrayList<>();
+    }
+    this.mlCommonsTrustedConnectorEndpointsRegex.add(mlCommonsTrustedConnectorEndpointsRegexItem);
+    return this;
+  }
+
+   /**
+   * Adds the trusted endpoints to the cluster settings. Supports Java regex expressions.
+   * @return mlCommonsTrustedConnectorEndpointsRegex
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_TRUSTED_CONNECTOR_ENDPOINTS_REGEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getMlCommonsTrustedConnectorEndpointsRegex() {
+    return mlCommonsTrustedConnectorEndpointsRegex;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ML_COMMONS_TRUSTED_CONNECTOR_ENDPOINTS_REGEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMlCommonsTrustedConnectorEndpointsRegex(List<String> mlCommonsTrustedConnectorEndpointsRegex) {
+    this.mlCommonsTrustedConnectorEndpointsRegex = mlCommonsTrustedConnectorEndpointsRegex;
+  }
+
+
   /**
    * Return true if this ML_Commons_settings object is equal to o.
    */
@@ -139,23 +295,33 @@ public class MLCommonsSettings {
       return false;
     }
     MLCommonsSettings mlCommonsSettings = (MLCommonsSettings) o;
-    return Objects.equals(this.mlCommonsModelAccessControlEnabled, mlCommonsSettings.mlCommonsModelAccessControlEnabled) &&
+    return Objects.equals(this.mlCommonsConnectorAccessControlEnabled, mlCommonsSettings.mlCommonsConnectorAccessControlEnabled) &&
+        Objects.equals(this.mlCommonsMaxModelOnNode, mlCommonsSettings.mlCommonsMaxModelOnNode) &&
+        Objects.equals(this.mlCommonsModelAccessControlEnabled, mlCommonsSettings.mlCommonsModelAccessControlEnabled) &&
+        Objects.equals(this.mlCommonsModelAutoDeployEnable, mlCommonsSettings.mlCommonsModelAutoDeployEnable) &&
+        Objects.equals(this.mlCommonsModelAutoRedeployEnable, mlCommonsSettings.mlCommonsModelAutoRedeployEnable) &&
         Objects.equals(this.mlCommonsNativeMemoryThreshold, mlCommonsSettings.mlCommonsNativeMemoryThreshold) &&
-        Objects.equals(this.mlCommonsOnlyRunOnMlNode, mlCommonsSettings.mlCommonsOnlyRunOnMlNode);
+        Objects.equals(this.mlCommonsOnlyRunOnMlNode, mlCommonsSettings.mlCommonsOnlyRunOnMlNode) &&
+        Objects.equals(this.mlCommonsTrustedConnectorEndpointsRegex, mlCommonsSettings.mlCommonsTrustedConnectorEndpointsRegex);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mlCommonsModelAccessControlEnabled, mlCommonsNativeMemoryThreshold, mlCommonsOnlyRunOnMlNode);
+    return Objects.hash(mlCommonsConnectorAccessControlEnabled, mlCommonsMaxModelOnNode, mlCommonsModelAccessControlEnabled, mlCommonsModelAutoDeployEnable, mlCommonsModelAutoRedeployEnable, mlCommonsNativeMemoryThreshold, mlCommonsOnlyRunOnMlNode, mlCommonsTrustedConnectorEndpointsRegex);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MLCommonsSettings {\n");
+    sb.append("    mlCommonsConnectorAccessControlEnabled: ").append(toIndentedString(mlCommonsConnectorAccessControlEnabled)).append("\n");
+    sb.append("    mlCommonsMaxModelOnNode: ").append(toIndentedString(mlCommonsMaxModelOnNode)).append("\n");
     sb.append("    mlCommonsModelAccessControlEnabled: ").append(toIndentedString(mlCommonsModelAccessControlEnabled)).append("\n");
+    sb.append("    mlCommonsModelAutoDeployEnable: ").append(toIndentedString(mlCommonsModelAutoDeployEnable)).append("\n");
+    sb.append("    mlCommonsModelAutoRedeployEnable: ").append(toIndentedString(mlCommonsModelAutoRedeployEnable)).append("\n");
     sb.append("    mlCommonsNativeMemoryThreshold: ").append(toIndentedString(mlCommonsNativeMemoryThreshold)).append("\n");
     sb.append("    mlCommonsOnlyRunOnMlNode: ").append(toIndentedString(mlCommonsOnlyRunOnMlNode)).append("\n");
+    sb.append("    mlCommonsTrustedConnectorEndpointsRegex: ").append(toIndentedString(mlCommonsTrustedConnectorEndpointsRegex)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -203,9 +369,29 @@ public class MLCommonsSettings {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `ml_commons_connector_access_control_enabled` to the URL query string
+    if (getMlCommonsConnectorAccessControlEnabled() != null) {
+      joiner.add(String.format("%sml_commons_connector_access_control_enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMlCommonsConnectorAccessControlEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ml_commons_max_model_on_node` to the URL query string
+    if (getMlCommonsMaxModelOnNode() != null) {
+      joiner.add(String.format("%sml_commons_max_model_on_node%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMlCommonsMaxModelOnNode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `ml_commons_model_access_control_enabled` to the URL query string
     if (getMlCommonsModelAccessControlEnabled() != null) {
       joiner.add(String.format("%sml_commons_model_access_control_enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMlCommonsModelAccessControlEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ml_commons_model_auto_deploy_enable` to the URL query string
+    if (getMlCommonsModelAutoDeployEnable() != null) {
+      joiner.add(String.format("%sml_commons_model_auto_deploy_enable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMlCommonsModelAutoDeployEnable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ml_commons_model_auto_redeploy_enable` to the URL query string
+    if (getMlCommonsModelAutoRedeployEnable() != null) {
+      joiner.add(String.format("%sml_commons_model_auto_redeploy_enable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMlCommonsModelAutoRedeployEnable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ml_commons_native_memory_threshold` to the URL query string
@@ -216,6 +402,15 @@ public class MLCommonsSettings {
     // add `ml_commons_only_run_on_ml_node` to the URL query string
     if (getMlCommonsOnlyRunOnMlNode() != null) {
       joiner.add(String.format("%sml_commons_only_run_on_ml_node%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMlCommonsOnlyRunOnMlNode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ml_commons_trusted_connector_endpoints_regex` to the URL query string
+    if (getMlCommonsTrustedConnectorEndpointsRegex() != null) {
+      for (int i = 0; i < getMlCommonsTrustedConnectorEndpointsRegex().size(); i++) {
+        joiner.add(String.format("%sml_commons_trusted_connector_endpoints_regex%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+            URLEncoder.encode(String.valueOf(getMlCommonsTrustedConnectorEndpointsRegex().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     return joiner.toString();

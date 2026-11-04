@@ -66,7 +66,7 @@ public class CreateDbaasServiceOpensearchRequest {
   private Boolean keepIndexRefreshInterval;
 
   public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
-  private List<String> ipFilter;
+  private JsonNullable<List<String>> ipFilter = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
   private Boolean terminationProtection;
@@ -161,15 +161,19 @@ public class CreateDbaasServiceOpensearchRequest {
 
 
   public CreateDbaasServiceOpensearchRequest ipFilter(List<String> ipFilter) {
-    this.ipFilter = ipFilter;
+    this.ipFilter = JsonNullable.<List<String>>of(ipFilter);
     return this;
   }
 
   public CreateDbaasServiceOpensearchRequest addIpFilterItem(String ipFilterItem) {
-    if (this.ipFilter == null) {
-      this.ipFilter = new ArrayList<>();
+    if (this.ipFilter == null || !this.ipFilter.isPresent()) {
+      this.ipFilter = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.ipFilter.add(ipFilterItem);
+    try {
+      this.ipFilter.get().add(ipFilterItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -178,18 +182,26 @@ public class CreateDbaasServiceOpensearchRequest {
    * @return ipFilter
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public List<String> getIpFilter() {
-    return ipFilter;
+        return ipFilter.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IP_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpFilter(List<String> ipFilter) {
+
+  public JsonNullable<List<String>> getIpFilter_JsonNullable() {
+    return ipFilter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  public void setIpFilter_JsonNullable(JsonNullable<List<String>> ipFilter) {
     this.ipFilter = ipFilter;
+  }
+
+  public void setIpFilter(List<String> ipFilter) {
+    this.ipFilter = JsonNullable.<List<String>>of(ipFilter);
   }
 
 
@@ -465,7 +477,7 @@ public class CreateDbaasServiceOpensearchRequest {
     CreateDbaasServiceOpensearchRequest createDbaasServiceOpensearchRequest = (CreateDbaasServiceOpensearchRequest) o;
     return equalsNullable(this.maxIndexCount, createDbaasServiceOpensearchRequest.maxIndexCount) &&
         Objects.equals(this.keepIndexRefreshInterval, createDbaasServiceOpensearchRequest.keepIndexRefreshInterval) &&
-        Objects.equals(this.ipFilter, createDbaasServiceOpensearchRequest.ipFilter) &&
+        equalsNullable(this.ipFilter, createDbaasServiceOpensearchRequest.ipFilter) &&
         Objects.equals(this.terminationProtection, createDbaasServiceOpensearchRequest.terminationProtection) &&
         Objects.equals(this.forkFromService, createDbaasServiceOpensearchRequest.forkFromService) &&
         Objects.equals(this.indexPatterns, createDbaasServiceOpensearchRequest.indexPatterns) &&
@@ -484,7 +496,7 @@ public class CreateDbaasServiceOpensearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(maxIndexCount), keepIndexRefreshInterval, ipFilter, terminationProtection, forkFromService, indexPatterns, maintenance, indexTemplate, opensearchSettings, version, recoveryBackupName, plan, opensearchDashboards);
+    return Objects.hash(hashCodeNullable(maxIndexCount), keepIndexRefreshInterval, hashCodeNullable(ipFilter), terminationProtection, forkFromService, indexPatterns, maintenance, indexTemplate, opensearchSettings, version, recoveryBackupName, plan, opensearchDashboards);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

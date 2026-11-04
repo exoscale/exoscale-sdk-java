@@ -29,6 +29,7 @@ SKS Nodepool
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
 |**cpuManagerConfig** | [**CpuManagerConfig**](CpuManagerConfig.md) |  |  [optional] |
+|**templateSelection** | [**TemplateSelectionEnum**](#TemplateSelectionEnum) | Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set with &#x60;set-sks-nodepool-template&#x60;. |  [optional] [readonly] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
 |**version** | **String** | Nodepool version |  [optional] [readonly] |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
@@ -65,6 +66,15 @@ SKS Nodepool
 | Name | Value |
 |---- | -----|
 | STORAGE_LVM | &quot;storage-lvm&quot; |
+
+
+
+## Enum: TemplateSelectionEnum
+
+| Name | Value |
+|---- | -----|
+| PINNED | &quot;pinned&quot; |
+| AUTO | &quot;auto&quot; |
 
 
 

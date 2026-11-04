@@ -228,6 +228,14 @@ public class SksNodepoolTest {
     }
 
     /**
+     * Test the property 'templateSelection'
+     */
+    @Test
+    public void templateSelectionTest() {
+        // TODO: test templateSelection
+    }
+
+    /**
      * Test the property 'diskSize'
      */
     @Test

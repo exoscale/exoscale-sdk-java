@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -38,11 +40,43 @@ public class MLCommonsSettingsTest {
     }
 
     /**
+     * Test the property 'mlCommonsConnectorAccessControlEnabled'
+     */
+    @Test
+    public void mlCommonsConnectorAccessControlEnabledTest() {
+        // TODO: test mlCommonsConnectorAccessControlEnabled
+    }
+
+    /**
+     * Test the property 'mlCommonsMaxModelOnNode'
+     */
+    @Test
+    public void mlCommonsMaxModelOnNodeTest() {
+        // TODO: test mlCommonsMaxModelOnNode
+    }
+
+    /**
      * Test the property 'mlCommonsModelAccessControlEnabled'
      */
     @Test
     public void mlCommonsModelAccessControlEnabledTest() {
         // TODO: test mlCommonsModelAccessControlEnabled
+    }
+
+    /**
+     * Test the property 'mlCommonsModelAutoDeployEnable'
+     */
+    @Test
+    public void mlCommonsModelAutoDeployEnableTest() {
+        // TODO: test mlCommonsModelAutoDeployEnable
+    }
+
+    /**
+     * Test the property 'mlCommonsModelAutoRedeployEnable'
+     */
+    @Test
+    public void mlCommonsModelAutoRedeployEnableTest() {
+        // TODO: test mlCommonsModelAutoRedeployEnable
     }
 
     /**
@@ -59,6 +93,14 @@ public class MLCommonsSettingsTest {
     @Test
     public void mlCommonsOnlyRunOnMlNodeTest() {
         // TODO: test mlCommonsOnlyRunOnMlNode
+    }
+
+    /**
+     * Test the property 'mlCommonsTrustedConnectorEndpointsRegex'
+     */
+    @Test
+    public void mlCommonsTrustedConnectorEndpointsRegexTest() {
+        // TODO: test mlCommonsTrustedConnectorEndpointsRegex
     }
 
 }

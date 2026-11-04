@@ -15187,11 +15187,9 @@ components:
       type: string
     dbaas-pg-target-versions:
       enum:
-      - "14"
       - "17"
       - "15"
       - "18"
-      - "13"
       - "16"
       type: string
     instance-type:
@@ -20401,6 +20399,7 @@ components:
           version: version
           labels:
             key: labels
+          template-selection: pinned
           size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
@@ -20470,6 +20469,7 @@ components:
           version: version
           labels:
             key: labels
+          template-selection: pinned
           size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
@@ -20539,6 +20539,7 @@ components:
           version: version
           labels:
             key: labels
+          template-selection: pinned
           size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
@@ -20608,6 +20609,7 @@ components:
           version: version
           labels:
             key: labels
+          template-selection: pinned
           size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
@@ -20677,6 +20679,7 @@ components:
           version: version
           labels:
             key: labels
+          template-selection: pinned
           size: 0
           cpu-manager-config:
             cpu-manager-policy-options:
@@ -21430,6 +21433,7 @@ components:
         version: version
         labels:
           key: labels
+        template-selection: pinned
         size: 0
         cpu-manager-config:
           cpu-manager-policy-options:
@@ -21571,6 +21575,17 @@ components:
           type: string
         cpu-manager-config:
           $ref: '#/components/schemas/cpu-manager-config'
+        template-selection:
+          description: |-
+            Nodepool template selection:
+
+            * `auto`: the latest template of the Nodepool Kubernetes version and variant;
+            * `pinned`: the template set with `set-sks-nodepool-template`.
+          enum:
+          - pinned
+          - auto
+          readOnly: true
+          type: string
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false
@@ -22619,7 +22634,9 @@ components:
                 debug: debug
                 info: info
             cluster.routing.allocation.balance.prefer_primary: false
+          knn_cache_item_expiry_minutes: 180
           thread_pool_search_throttled_size: 26
+          search_default_search_timeout: 30s
           thread_pool_write_size: 93
           ism-history:
             ism_history_enabled: true
@@ -22641,9 +22658,11 @@ components:
           thread_pool_search_queue_size: 1827
           enable_security_audit: true
           thread_pool_get_size: 19
+          knn_circuit_breaker_unset_percentage: 5
           enable_remote_backed_storage: true
           knn_memory_circuit_breaker_limit: 50
           indices_recovery_max_concurrent_file_chunks: 2
+          search_cancel_after_time_interval: 5m
           thread_pool_search_size: 39
           node.search.cache.size: 5gb
           disk_watermarks:
@@ -22658,6 +22677,7 @@ components:
           cluster_max_shards_per_node: 1000
           thread_pool_get_queue_size: 1372
           indices_memory_max_index_buffer_size: 1528
+          knn_cache_item_expiry_enabled: true
           segrep:
             pressure.checkpoint.limit: 4
             pressure.time.limit: 5m
@@ -22678,9 +22698,19 @@ components:
             segment.pressure.consecutive_failures.limit: 5
           thread_pool_write_queue_size: 658
           ml-commons:
+            ml_commons_model_auto_redeploy_enable: true
             ml_commons_model_access_control_enabled: false
             ml_commons_only_run_on_ml_node: false
+            ml_commons_trusted_connector_endpoints_regex:
+            - ^https://api\.example\.com/.*$
+            - ^https://api\.example\.com/.*$
+            - ^https://api\.example\.com/.*$
+            - ^https://api\.example\.com/.*$
+            - ^https://api\.example\.com/.*$
+            ml_commons_connector_access_control_enabled: false
             ml_commons_native_memory_threshold: 90
+            ml_commons_max_model_on_node: 10
+            ml_commons_model_auto_deploy_enable: true
           auth_failure_listeners:
             internal_authentication_backend_limiting:
               block_expiry_seconds: 600
@@ -25024,7 +25054,9 @@ components:
               debug: debug
               info: info
           cluster.routing.allocation.balance.prefer_primary: false
+        knn_cache_item_expiry_minutes: 180
         thread_pool_search_throttled_size: 26
+        search_default_search_timeout: 30s
         thread_pool_write_size: 93
         ism-history:
           ism_history_enabled: true
@@ -25046,9 +25078,11 @@ components:
         thread_pool_search_queue_size: 1827
         enable_security_audit: true
         thread_pool_get_size: 19
+        knn_circuit_breaker_unset_percentage: 5
         enable_remote_backed_storage: true
         knn_memory_circuit_breaker_limit: 50
         indices_recovery_max_concurrent_file_chunks: 2
+        search_cancel_after_time_interval: 5m
         thread_pool_search_size: 39
         node.search.cache.size: 5gb
         disk_watermarks:
@@ -25063,6 +25097,7 @@ components:
         cluster_max_shards_per_node: 1000
         thread_pool_get_queue_size: 1372
         indices_memory_max_index_buffer_size: 1528
+        knn_cache_item_expiry_enabled: true
         segrep:
           pressure.checkpoint.limit: 4
           pressure.time.limit: 5m
@@ -25083,9 +25118,19 @@ components:
           segment.pressure.consecutive_failures.limit: 5
         thread_pool_write_queue_size: 658
         ml-commons:
+          ml_commons_model_auto_redeploy_enable: true
           ml_commons_model_access_control_enabled: false
           ml_commons_only_run_on_ml_node: false
+          ml_commons_trusted_connector_endpoints_regex:
+          - ^https://api\.example\.com/.*$
+          - ^https://api\.example\.com/.*$
+          - ^https://api\.example\.com/.*$
+          - ^https://api\.example\.com/.*$
+          - ^https://api\.example\.com/.*$
+          ml_commons_connector_access_control_enabled: false
           ml_commons_native_memory_threshold: 90
+          ml_commons_max_model_on_node: 10
+          ml_commons_model_auto_deploy_enable: true
         auth_failure_listeners:
           internal_authentication_backend_limiting:
             block_expiry_seconds: 600
@@ -25197,6 +25242,22 @@ components:
           type: integer
         remote_store:
           $ref: '#/components/schemas/json_schema_opensearch_remote_store'
+        knn_cache_item_expiry_enabled:
+          description: Enable or disable removing KNN graphs from the cache when they
+            are idle. Disabled by default.
+          example: true
+          nullable: true
+          title: knn.cache.item.expiry.enabled
+          type: boolean
+        search_cancel_after_time_interval:
+          description: "Hard limit for search requests. When it is reached, the search\
+            \ task is cancelled and the request fails. OpenSearch default value is\
+            \ used when this is not defined."
+          example: 5m
+          nullable: true
+          pattern: "^\\d+\\s*(?:[dhms]|ms|micros|nanos)$"
+          title: search.cancel_after_time_interval
+          type: string
         indices_memory_max_index_buffer_size:
           description: "Absolute value. Default is unbound. Doesn't work without indices.memory.index_buffer_size.\
             \ Maximum amount of heap used for query cache, an absolute indices.memory.index_buffer_size\
@@ -25234,6 +25295,16 @@ components:
           example: true
           title: Enable remote-backed storage
           type: boolean
+        search_default_search_timeout:
+          description: "Soft timeout for search requests that don't set their own\
+            \ timeout. When it is reached, the search returns partial results with\
+            \ `timed_out: true`, and the search task keeps running unless it is cancelled.\
+            \ OpenSearch default value is used when this is not defined."
+          example: 30s
+          nullable: true
+          pattern: "^\\d+\\s*(?:[dhms]|ms|micros|nanos)$"
+          title: search.default_search_timeout
+          type: string
         cluster:
           $ref: '#/components/schemas/Cluster_settings'
         thread_pool_search_size:
@@ -25340,6 +25411,15 @@ components:
           pattern: \d+(?:b|kb|mb|gb|tb)
           title: The limit of how much total remote data can be referenced
           type: string
+        knn_cache_item_expiry_minutes:
+          description: "If enabled, the amount of time in minutes a KNN graph can\
+            \ be idle in the cache before being evicted."
+          example: 180
+          maximum: 10080
+          minimum: 1
+          nullable: true
+          title: knn.cache.item.expiry.minutes
+          type: integer
         email-sender:
           $ref: '#/components/schemas/Opensearch_Email_Sender_Settings'
         indices_fielddata_cache_size:
@@ -25369,6 +25449,16 @@ components:
           example: true
           title: Enable searchable snapshots
           type: boolean
+        knn_circuit_breaker_unset_percentage:
+          description: "The native memory usage, as a percentage below the KNN memory\
+            \ circuit breaker limit, at which a tripped circuit breaker resets. Defaults\
+            \ to 5%."
+          example: 5
+          maximum: 100
+          minimum: 0
+          nullable: true
+          title: knn.circuit_breaker.unset.percentage
+          type: number
         indices_memory_index_buffer_size:
           description: "Percentage value. Default is 10%. Total amount of heap used\
             \ for indexing buffer, before writing segments to disk. This is an expert\
@@ -25434,11 +25524,12 @@ components:
           title: search thread pool queue size
           type: integer
         knn_memory_circuit_breaker_limit:
-          description: Maximum amount of memory that can be used for KNN index. Defaults
-            to 50% of the JVM heap size.
+          description: Maximum amount of memory in percentage that can be used for
+            the KNN index. Defaults to 50% of the JVM heap size. 0 is used to set
+            it to null which can be used to invalidate caches.
           example: 50
           maximum: 100
-          minimum: 3
+          minimum: 0
           title: knn.memory.circuit_breaker.limit
           type: integer
         indices_query_bool_max_clause_count:
@@ -25708,7 +25799,6 @@ components:
       type: string
     enum-pg-variant:
       enum:
-      - timescale
       - aiven
       type: string
     sks-audit-create:
@@ -27042,6 +27132,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -27106,6 +27197,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -27358,6 +27450,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         clickhouse-settings:
           $ref: '#/components/schemas/json-schema-clickhouse'
@@ -27382,6 +27475,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         clickhouse-settings:
           $ref: '#/components/schemas/json-schema-clickhouse'
@@ -28025,6 +28119,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         schema-registry-settings:
           $ref: '#/components/schemas/json-schema-schema-registry'
@@ -28068,6 +28163,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         schema-registry-settings:
           $ref: '#/components/schemas/json-schema-schema-registry'
@@ -29736,6 +29832,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -29805,6 +29902,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -29874,6 +29972,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -29943,6 +30042,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30012,6 +30112,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30125,6 +30226,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30194,6 +30296,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30263,6 +30366,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30332,6 +30436,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30401,6 +30506,7 @@ components:
             version: version
             labels:
               key: labels
+            template-selection: pinned
             size: 0
             cpu-manager-config:
               cpu-manager-policy-options:
@@ -30847,6 +30953,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         migration:
           $ref: '#/components/schemas/update_dbaas_service_mysql_request_migration'
@@ -30865,6 +30972,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -30983,6 +31091,7 @@ components:
           description: Allowed CIDR address blocks for incoming connections
           items:
             type: string
+          nullable: true
           type: array
         thanos-settings:
           $ref: '#/components/schemas/json-schema-thanos'
@@ -31003,6 +31112,7 @@ components:
           description: Allowed CIDR address blocks for incoming connections
           items:
             type: string
+          nullable: true
           type: array
         thanos-settings:
           $ref: '#/components/schemas/json-schema-thanos'
@@ -31350,6 +31460,7 @@ components:
           description: Allowed CIDR address blocks for incoming connections
           items:
             type: string
+          nullable: true
           type: array
       type: object
     create_dbaas_service_grafana_request:
@@ -31374,6 +31485,7 @@ components:
           description: Allowed CIDR address blocks for incoming connections
           items:
             type: string
+          nullable: true
           type: array
       required:
       - plan
@@ -31601,6 +31713,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -31653,6 +31766,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -31805,6 +31919,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -31870,6 +31985,7 @@ components:
           description: "Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'"
           items:
             type: string
+          nullable: true
           type: array
         termination-protection:
           description: Service is protected against termination and powering off
@@ -35922,16 +36038,54 @@ components:
     ML_Commons_settings:
       additionalProperties: false
       example:
+        ml_commons_model_auto_redeploy_enable: true
         ml_commons_model_access_control_enabled: false
         ml_commons_only_run_on_ml_node: false
+        ml_commons_trusted_connector_endpoints_regex:
+        - ^https://api\.example\.com/.*$
+        - ^https://api\.example\.com/.*$
+        - ^https://api\.example\.com/.*$
+        - ^https://api\.example\.com/.*$
+        - ^https://api\.example\.com/.*$
+        ml_commons_connector_access_control_enabled: false
         ml_commons_native_memory_threshold: 90
+        ml_commons_max_model_on_node: 10
+        ml_commons_model_auto_deploy_enable: true
       properties:
+        ml_commons_connector_access_control_enabled:
+          description: "When set to true, the setting allows admins to control access\
+            \ and permissions to the connector API using backend_roles. Defaults to\
+            \ false."
+          example: false
+          title: plugins.ml_commons.connector_access_control_enabled
+          type: boolean
+        ml_commons_max_model_on_node:
+          description: Maximum number of ML models that can be deployed on a single
+            ML node. Defaults to 10.
+          example: 10
+          minimum: 1
+          title: plugins.ml_commons.max_model_on_node
+          type: integer
         ml_commons_model_access_control_enabled:
           description: "Enable or disable model access control for ML Commons. When\
             \ enabled, access to ML models is controlled by security permissions.\
             \ Defaults to false."
           example: false
           title: plugins.ml_commons.model_access_control.enabled
+          type: boolean
+        ml_commons_model_auto_deploy_enable:
+          description: "For externally hosted models only: automatically deploy a\
+            \ model on its first predict request instead of requiring an explicit\
+            \ deploy call first. Defaults to true."
+          example: true
+          title: plugins.ml_commons.model_auto_deploy.enable
+          type: boolean
+        ml_commons_model_auto_redeploy_enable:
+          description: "Automatically redeploy deployed or partially deployed models\
+            \ after ML nodes rejoin the cluster, e.g. after a node replacement. Defaults\
+            \ to true."
+          example: true
+          title: plugins.ml_commons.model_auto_redeploy.enable
           type: boolean
         ml_commons_native_memory_threshold:
           description: Native memory threshold percentage for ML Commons. Controls
@@ -35949,6 +36103,17 @@ components:
           example: false
           title: plugins.ml_commons.only_run_on_ml_node
           type: boolean
+        ml_commons_trusted_connector_endpoints_regex:
+          description: Adds the trusted endpoints to the cluster settings. Supports
+            Java regex expressions.
+          items:
+            example: ^https://api\.example\.com/.*$
+            maxLength: 261
+            title: An URL endpoint pattern.
+            type: string
+          maxItems: 50
+          title: plugins.ml_commons.trusted_connector_endpoints_regex
+          type: array
       title: ML Commons settings
       type: object
     re_encrypt_request_source:

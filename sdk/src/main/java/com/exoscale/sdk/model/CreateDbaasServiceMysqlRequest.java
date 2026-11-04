@@ -32,6 +32,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -63,7 +67,7 @@ public class CreateDbaasServiceMysqlRequest {
   private List<CreateDbaasServiceMysqlRequestIntegrationsInner> integrations;
 
   public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
-  private List<String> ipFilter;
+  private JsonNullable<List<String>> ipFilter = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TERMINATION_PROTECTION = "termination-protection";
   private Boolean terminationProtection;
@@ -160,15 +164,19 @@ public class CreateDbaasServiceMysqlRequest {
 
 
   public CreateDbaasServiceMysqlRequest ipFilter(List<String> ipFilter) {
-    this.ipFilter = ipFilter;
+    this.ipFilter = JsonNullable.<List<String>>of(ipFilter);
     return this;
   }
 
   public CreateDbaasServiceMysqlRequest addIpFilterItem(String ipFilterItem) {
-    if (this.ipFilter == null) {
-      this.ipFilter = new ArrayList<>();
+    if (this.ipFilter == null || !this.ipFilter.isPresent()) {
+      this.ipFilter = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.ipFilter.add(ipFilterItem);
+    try {
+      this.ipFilter.get().add(ipFilterItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -177,18 +185,26 @@ public class CreateDbaasServiceMysqlRequest {
    * @return ipFilter
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public List<String> getIpFilter() {
-    return ipFilter;
+        return ipFilter.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IP_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpFilter(List<String> ipFilter) {
+
+  public JsonNullable<List<String>> getIpFilter_JsonNullable() {
+    return ipFilter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  public void setIpFilter_JsonNullable(JsonNullable<List<String>> ipFilter) {
     this.ipFilter = ipFilter;
+  }
+
+  public void setIpFilter(List<String> ipFilter) {
+    this.ipFilter = JsonNullable.<List<String>>of(ipFilter);
   }
 
 
@@ -483,7 +499,7 @@ public class CreateDbaasServiceMysqlRequest {
     CreateDbaasServiceMysqlRequest createDbaasServiceMysqlRequest = (CreateDbaasServiceMysqlRequest) o;
     return Objects.equals(this.backupSchedule, createDbaasServiceMysqlRequest.backupSchedule) &&
         Objects.equals(this.integrations, createDbaasServiceMysqlRequest.integrations) &&
-        Objects.equals(this.ipFilter, createDbaasServiceMysqlRequest.ipFilter) &&
+        equalsNullable(this.ipFilter, createDbaasServiceMysqlRequest.ipFilter) &&
         Objects.equals(this.terminationProtection, createDbaasServiceMysqlRequest.terminationProtection) &&
         Objects.equals(this.forkFromService, createDbaasServiceMysqlRequest.forkFromService) &&
         Objects.equals(this.recoveryBackupTime, createDbaasServiceMysqlRequest.recoveryBackupTime) &&
@@ -497,9 +513,20 @@ public class CreateDbaasServiceMysqlRequest {
         Objects.equals(this.binlogRetentionPeriod, createDbaasServiceMysqlRequest.binlogRetentionPeriod);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(backupSchedule, integrations, ipFilter, terminationProtection, forkFromService, recoveryBackupTime, mysqlSettings, maintenance, adminUsername, version, plan, adminPassword, migration, binlogRetentionPeriod);
+    return Objects.hash(backupSchedule, integrations, hashCodeNullable(ipFilter), terminationProtection, forkFromService, recoveryBackupTime, mysqlSettings, maintenance, adminUsername, version, plan, adminPassword, migration, binlogRetentionPeriod);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

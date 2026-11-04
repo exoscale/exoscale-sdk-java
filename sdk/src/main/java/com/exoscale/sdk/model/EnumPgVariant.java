@@ -30,8 +30,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum EnumPgVariant {
   
-  TIMESCALE("timescale"),
-  
   AIVEN("aiven");
 
   private String value;

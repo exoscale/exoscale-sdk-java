@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -103,6 +104,22 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'knnCacheItemExpiryEnabled'
+     */
+    @Test
+    public void knnCacheItemExpiryEnabledTest() {
+        // TODO: test knnCacheItemExpiryEnabled
+    }
+
+    /**
+     * Test the property 'searchCancelAfterTimeInterval'
+     */
+    @Test
+    public void searchCancelAfterTimeIntervalTest() {
+        // TODO: test searchCancelAfterTimeInterval
+    }
+
+    /**
      * Test the property 'indicesMemoryMaxIndexBufferSize'
      */
     @Test
@@ -156,6 +173,14 @@ public class JsonSchemaOpensearchTest {
     @Test
     public void enableRemoteBackedStorageTest() {
         // TODO: test enableRemoteBackedStorage
+    }
+
+    /**
+     * Test the property 'searchDefaultSearchTimeout'
+     */
+    @Test
+    public void searchDefaultSearchTimeoutTest() {
+        // TODO: test searchDefaultSearchTimeout
     }
 
     /**
@@ -279,6 +304,14 @@ public class JsonSchemaOpensearchTest {
     }
 
     /**
+     * Test the property 'knnCacheItemExpiryMinutes'
+     */
+    @Test
+    public void knnCacheItemExpiryMinutesTest() {
+        // TODO: test knnCacheItemExpiryMinutes
+    }
+
+    /**
      * Test the property 'emailSender'
      */
     @Test
@@ -324,6 +357,14 @@ public class JsonSchemaOpensearchTest {
     @Test
     public void enableSearchableSnapshotsTest() {
         // TODO: test enableSearchableSnapshots
+    }
+
+    /**
+     * Test the property 'knnCircuitBreakerUnsetPercentage'
+     */
+    @Test
+    public void knnCircuitBreakerUnsetPercentageTest() {
+        // TODO: test knnCircuitBreakerUnsetPercentage
     }
 
     /**

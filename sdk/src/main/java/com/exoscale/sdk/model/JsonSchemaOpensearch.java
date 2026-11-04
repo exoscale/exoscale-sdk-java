@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,6 +56,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_GET_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_GET_QUEUE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_REMOTE_STORE,
+  JsonSchemaOpensearch.JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_ENABLED,
+  JsonSchemaOpensearch.JSON_PROPERTY_SEARCH_CANCEL_AFTER_TIME_INTERVAL,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_RECOVERY_MAX_CONCURRENT_FILE_CHUNKS,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_QUERIES_CACHE_SIZE,
@@ -62,6 +65,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_SHARD_INDEXING_PRESSURE,
   JsonSchemaOpensearch.JSON_PROPERTY_KNN_MEMORY_CIRCUIT_BREAKER_ENABLED,
   JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_REMOTE_BACKED_STORAGE,
+  JsonSchemaOpensearch.JSON_PROPERTY_SEARCH_DEFAULT_SEARCH_TIMEOUT,
   JsonSchemaOpensearch.JSON_PROPERTY_CLUSTER,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_SEARCH_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_MIN_INDEX_BUFFER_SIZE,
@@ -77,12 +81,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   JsonSchemaOpensearch.JSON_PROPERTY_OVERRIDE_MAIN_RESPONSE_VERSION,
   JsonSchemaOpensearch.JSON_PROPERTY_HTTP_MAX_HEADER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_NODE_SEARCH_CACHE_SIZE,
+  JsonSchemaOpensearch.JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_MINUTES,
   JsonSchemaOpensearch.JSON_PROPERTY_EMAIL_SENDER,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_FIELDDATA_CACHE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_ACTION_DESTRUCTIVE_REQUIRES_NAME,
   JsonSchemaOpensearch.JSON_PROPERTY_PLUGINS_ALERTING_FILTER_BY_BACKEND_ROLES,
   JsonSchemaOpensearch.JSON_PROPERTY_DISK_WATERMARKS,
   JsonSchemaOpensearch.JSON_PROPERTY_ENABLE_SEARCHABLE_SNAPSHOTS,
+  JsonSchemaOpensearch.JSON_PROPERTY_KNN_CIRCUIT_BREAKER_UNSET_PERCENTAGE,
   JsonSchemaOpensearch.JSON_PROPERTY_INDICES_MEMORY_INDEX_BUFFER_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_THREAD_POOL_FORCE_MERGE_SIZE,
   JsonSchemaOpensearch.JSON_PROPERTY_AUTH_FAILURE_LISTENERS,
@@ -119,6 +125,12 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_REMOTE_STORE = "remote_store";
   private JsonSchemaOpensearchRemoteStore remoteStore;
 
+  public static final String JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_ENABLED = "knn_cache_item_expiry_enabled";
+  private JsonNullable<Boolean> knnCacheItemExpiryEnabled = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_SEARCH_CANCEL_AFTER_TIME_INTERVAL = "search_cancel_after_time_interval";
+  private JsonNullable<String> searchCancelAfterTimeInterval = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_INDICES_MEMORY_MAX_INDEX_BUFFER_SIZE = "indices_memory_max_index_buffer_size";
   private Integer indicesMemoryMaxIndexBufferSize;
 
@@ -139,6 +151,9 @@ public class JsonSchemaOpensearch {
 
   public static final String JSON_PROPERTY_ENABLE_REMOTE_BACKED_STORAGE = "enable_remote_backed_storage";
   private Boolean enableRemoteBackedStorage;
+
+  public static final String JSON_PROPERTY_SEARCH_DEFAULT_SEARCH_TIMEOUT = "search_default_search_timeout";
+  private JsonNullable<String> searchDefaultSearchTimeout = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CLUSTER = "cluster";
   private ClusterSettings cluster;
@@ -185,6 +200,9 @@ public class JsonSchemaOpensearch {
   public static final String JSON_PROPERTY_NODE_SEARCH_CACHE_SIZE = "node.search.cache.size";
   private JsonNullable<String> nodeSearchCacheSize = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_MINUTES = "knn_cache_item_expiry_minutes";
+  private JsonNullable<Integer> knnCacheItemExpiryMinutes = JsonNullable.<Integer>undefined();
+
   public static final String JSON_PROPERTY_EMAIL_SENDER = "email-sender";
   private OpensearchEmailSenderSettings emailSender;
 
@@ -202,6 +220,9 @@ public class JsonSchemaOpensearch {
 
   public static final String JSON_PROPERTY_ENABLE_SEARCHABLE_SNAPSHOTS = "enable_searchable_snapshots";
   private Boolean enableSearchableSnapshots;
+
+  public static final String JSON_PROPERTY_KNN_CIRCUIT_BREAKER_UNSET_PERCENTAGE = "knn_circuit_breaker_unset_percentage";
+  private JsonNullable<BigDecimal> knnCircuitBreakerUnsetPercentage = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_INDICES_MEMORY_INDEX_BUFFER_SIZE = "indices_memory_index_buffer_size";
   private Integer indicesMemoryIndexBufferSize;
@@ -409,6 +430,72 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch knnCacheItemExpiryEnabled(Boolean knnCacheItemExpiryEnabled) {
+    this.knnCacheItemExpiryEnabled = JsonNullable.<Boolean>of(knnCacheItemExpiryEnabled);
+    return this;
+  }
+
+   /**
+   * Enable or disable removing KNN graphs from the cache when they are idle. Disabled by default.
+   * @return knnCacheItemExpiryEnabled
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Boolean getKnnCacheItemExpiryEnabled() {
+        return knnCacheItemExpiryEnabled.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Boolean> getKnnCacheItemExpiryEnabled_JsonNullable() {
+    return knnCacheItemExpiryEnabled;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_ENABLED)
+  public void setKnnCacheItemExpiryEnabled_JsonNullable(JsonNullable<Boolean> knnCacheItemExpiryEnabled) {
+    this.knnCacheItemExpiryEnabled = knnCacheItemExpiryEnabled;
+  }
+
+  public void setKnnCacheItemExpiryEnabled(Boolean knnCacheItemExpiryEnabled) {
+    this.knnCacheItemExpiryEnabled = JsonNullable.<Boolean>of(knnCacheItemExpiryEnabled);
+  }
+
+
+  public JsonSchemaOpensearch searchCancelAfterTimeInterval(String searchCancelAfterTimeInterval) {
+    this.searchCancelAfterTimeInterval = JsonNullable.<String>of(searchCancelAfterTimeInterval);
+    return this;
+  }
+
+   /**
+   * Hard limit for search requests. When it is reached, the search task is cancelled and the request fails. OpenSearch default value is used when this is not defined.
+   * @return searchCancelAfterTimeInterval
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getSearchCancelAfterTimeInterval() {
+        return searchCancelAfterTimeInterval.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_CANCEL_AFTER_TIME_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSearchCancelAfterTimeInterval_JsonNullable() {
+    return searchCancelAfterTimeInterval;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEARCH_CANCEL_AFTER_TIME_INTERVAL)
+  public void setSearchCancelAfterTimeInterval_JsonNullable(JsonNullable<String> searchCancelAfterTimeInterval) {
+    this.searchCancelAfterTimeInterval = searchCancelAfterTimeInterval;
+  }
+
+  public void setSearchCancelAfterTimeInterval(String searchCancelAfterTimeInterval) {
+    this.searchCancelAfterTimeInterval = JsonNullable.<String>of(searchCancelAfterTimeInterval);
+  }
+
+
   public JsonSchemaOpensearch indicesMemoryMaxIndexBufferSize(Integer indicesMemoryMaxIndexBufferSize) {
     this.indicesMemoryMaxIndexBufferSize = indicesMemoryMaxIndexBufferSize;
     return this;
@@ -587,6 +674,39 @@ public class JsonSchemaOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableRemoteBackedStorage(Boolean enableRemoteBackedStorage) {
     this.enableRemoteBackedStorage = enableRemoteBackedStorage;
+  }
+
+
+  public JsonSchemaOpensearch searchDefaultSearchTimeout(String searchDefaultSearchTimeout) {
+    this.searchDefaultSearchTimeout = JsonNullable.<String>of(searchDefaultSearchTimeout);
+    return this;
+  }
+
+   /**
+   * Soft timeout for search requests that don&#39;t set their own timeout. When it is reached, the search returns partial results with &#x60;timed_out: true&#x60;, and the search task keeps running unless it is cancelled. OpenSearch default value is used when this is not defined.
+   * @return searchDefaultSearchTimeout
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getSearchDefaultSearchTimeout() {
+        return searchDefaultSearchTimeout.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_DEFAULT_SEARCH_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getSearchDefaultSearchTimeout_JsonNullable() {
+    return searchDefaultSearchTimeout;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SEARCH_DEFAULT_SEARCH_TIMEOUT)
+  public void setSearchDefaultSearchTimeout_JsonNullable(JsonNullable<String> searchDefaultSearchTimeout) {
+    this.searchDefaultSearchTimeout = searchDefaultSearchTimeout;
+  }
+
+  public void setSearchDefaultSearchTimeout(String searchDefaultSearchTimeout) {
+    this.searchDefaultSearchTimeout = JsonNullable.<String>of(searchDefaultSearchTimeout);
   }
 
 
@@ -1015,6 +1135,41 @@ public class JsonSchemaOpensearch {
   }
 
 
+  public JsonSchemaOpensearch knnCacheItemExpiryMinutes(Integer knnCacheItemExpiryMinutes) {
+    this.knnCacheItemExpiryMinutes = JsonNullable.<Integer>of(knnCacheItemExpiryMinutes);
+    return this;
+  }
+
+   /**
+   * If enabled, the amount of time in minutes a KNN graph can be idle in the cache before being evicted.
+   * minimum: 1
+   * maximum: 10080
+   * @return knnCacheItemExpiryMinutes
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Integer getKnnCacheItemExpiryMinutes() {
+        return knnCacheItemExpiryMinutes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_MINUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getKnnCacheItemExpiryMinutes_JsonNullable() {
+    return knnCacheItemExpiryMinutes;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_KNN_CACHE_ITEM_EXPIRY_MINUTES)
+  public void setKnnCacheItemExpiryMinutes_JsonNullable(JsonNullable<Integer> knnCacheItemExpiryMinutes) {
+    this.knnCacheItemExpiryMinutes = knnCacheItemExpiryMinutes;
+  }
+
+  public void setKnnCacheItemExpiryMinutes(Integer knnCacheItemExpiryMinutes) {
+    this.knnCacheItemExpiryMinutes = JsonNullable.<Integer>of(knnCacheItemExpiryMinutes);
+  }
+
+
   public JsonSchemaOpensearch emailSender(OpensearchEmailSenderSettings emailSender) {
     this.emailSender = emailSender;
     return this;
@@ -1180,6 +1335,41 @@ public class JsonSchemaOpensearch {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEnableSearchableSnapshots(Boolean enableSearchableSnapshots) {
     this.enableSearchableSnapshots = enableSearchableSnapshots;
+  }
+
+
+  public JsonSchemaOpensearch knnCircuitBreakerUnsetPercentage(BigDecimal knnCircuitBreakerUnsetPercentage) {
+    this.knnCircuitBreakerUnsetPercentage = JsonNullable.<BigDecimal>of(knnCircuitBreakerUnsetPercentage);
+    return this;
+  }
+
+   /**
+   * The native memory usage, as a percentage below the KNN memory circuit breaker limit, at which a tripped circuit breaker resets. Defaults to 5%.
+   * minimum: 0
+   * maximum: 100
+   * @return knnCircuitBreakerUnsetPercentage
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public BigDecimal getKnnCircuitBreakerUnsetPercentage() {
+        return knnCircuitBreakerUnsetPercentage.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_KNN_CIRCUIT_BREAKER_UNSET_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<BigDecimal> getKnnCircuitBreakerUnsetPercentage_JsonNullable() {
+    return knnCircuitBreakerUnsetPercentage;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_KNN_CIRCUIT_BREAKER_UNSET_PERCENTAGE)
+  public void setKnnCircuitBreakerUnsetPercentage_JsonNullable(JsonNullable<BigDecimal> knnCircuitBreakerUnsetPercentage) {
+    this.knnCircuitBreakerUnsetPercentage = knnCircuitBreakerUnsetPercentage;
+  }
+
+  public void setKnnCircuitBreakerUnsetPercentage(BigDecimal knnCircuitBreakerUnsetPercentage) {
+    this.knnCircuitBreakerUnsetPercentage = JsonNullable.<BigDecimal>of(knnCircuitBreakerUnsetPercentage);
   }
 
 
@@ -1453,8 +1643,8 @@ public class JsonSchemaOpensearch {
   }
 
    /**
-   * Maximum amount of memory that can be used for KNN index. Defaults to 50% of the JVM heap size.
-   * minimum: 3
+   * Maximum amount of memory in percentage that can be used for the KNN index. Defaults to 50% of the JVM heap size. 0 is used to set it to null which can be used to invalidate caches.
+   * minimum: 0
    * maximum: 100
    * @return knnMemoryCircuitBreakerLimit
   **/
@@ -1598,6 +1788,8 @@ public class JsonSchemaOpensearch {
         Objects.equals(this.threadPoolGetSize, jsonSchemaOpensearch.threadPoolGetSize) &&
         Objects.equals(this.threadPoolGetQueueSize, jsonSchemaOpensearch.threadPoolGetQueueSize) &&
         Objects.equals(this.remoteStore, jsonSchemaOpensearch.remoteStore) &&
+        equalsNullable(this.knnCacheItemExpiryEnabled, jsonSchemaOpensearch.knnCacheItemExpiryEnabled) &&
+        equalsNullable(this.searchCancelAfterTimeInterval, jsonSchemaOpensearch.searchCancelAfterTimeInterval) &&
         Objects.equals(this.indicesMemoryMaxIndexBufferSize, jsonSchemaOpensearch.indicesMemoryMaxIndexBufferSize) &&
         Objects.equals(this.indicesRecoveryMaxConcurrentFileChunks, jsonSchemaOpensearch.indicesRecoveryMaxConcurrentFileChunks) &&
         Objects.equals(this.indicesQueriesCacheSize, jsonSchemaOpensearch.indicesQueriesCacheSize) &&
@@ -1605,6 +1797,7 @@ public class JsonSchemaOpensearch {
         Objects.equals(this.shardIndexingPressure, jsonSchemaOpensearch.shardIndexingPressure) &&
         Objects.equals(this.knnMemoryCircuitBreakerEnabled, jsonSchemaOpensearch.knnMemoryCircuitBreakerEnabled) &&
         Objects.equals(this.enableRemoteBackedStorage, jsonSchemaOpensearch.enableRemoteBackedStorage) &&
+        equalsNullable(this.searchDefaultSearchTimeout, jsonSchemaOpensearch.searchDefaultSearchTimeout) &&
         Objects.equals(this.cluster, jsonSchemaOpensearch.cluster) &&
         Objects.equals(this.threadPoolSearchSize, jsonSchemaOpensearch.threadPoolSearchSize) &&
         Objects.equals(this.indicesMemoryMinIndexBufferSize, jsonSchemaOpensearch.indicesMemoryMinIndexBufferSize) &&
@@ -1620,12 +1813,14 @@ public class JsonSchemaOpensearch {
         Objects.equals(this.overrideMainResponseVersion, jsonSchemaOpensearch.overrideMainResponseVersion) &&
         Objects.equals(this.httpMaxHeaderSize, jsonSchemaOpensearch.httpMaxHeaderSize) &&
         equalsNullable(this.nodeSearchCacheSize, jsonSchemaOpensearch.nodeSearchCacheSize) &&
+        equalsNullable(this.knnCacheItemExpiryMinutes, jsonSchemaOpensearch.knnCacheItemExpiryMinutes) &&
         Objects.equals(this.emailSender, jsonSchemaOpensearch.emailSender) &&
         equalsNullable(this.indicesFielddataCacheSize, jsonSchemaOpensearch.indicesFielddataCacheSize) &&
         equalsNullable(this.actionDestructiveRequiresName, jsonSchemaOpensearch.actionDestructiveRequiresName) &&
         Objects.equals(this.pluginsAlertingFilterByBackendRoles, jsonSchemaOpensearch.pluginsAlertingFilterByBackendRoles) &&
         Objects.equals(this.diskWatermarks, jsonSchemaOpensearch.diskWatermarks) &&
         Objects.equals(this.enableSearchableSnapshots, jsonSchemaOpensearch.enableSearchableSnapshots) &&
+        equalsNullable(this.knnCircuitBreakerUnsetPercentage, jsonSchemaOpensearch.knnCircuitBreakerUnsetPercentage) &&
         Objects.equals(this.indicesMemoryIndexBufferSize, jsonSchemaOpensearch.indicesMemoryIndexBufferSize) &&
         Objects.equals(this.threadPoolForceMergeSize, jsonSchemaOpensearch.threadPoolForceMergeSize) &&
         Objects.equals(this.authFailureListeners, jsonSchemaOpensearch.authFailureListeners) &&
@@ -1649,7 +1844,7 @@ public class JsonSchemaOpensearch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(threadPoolSearchThrottledSize, threadPoolAnalyzeSize, searchInsightsTopQueries, threadPoolGetSize, threadPoolGetQueueSize, remoteStore, indicesMemoryMaxIndexBufferSize, indicesRecoveryMaxConcurrentFileChunks, indicesQueriesCacheSize, searchBackpressure, shardIndexingPressure, knnMemoryCircuitBreakerEnabled, enableRemoteBackedStorage, cluster, threadPoolSearchSize, indicesMemoryMinIndexBufferSize, indicesRecoveryMaxBytesPerSec, httpMaxInitialLineLength, enableSecurityAudit, threadPoolWriteQueueSize, enableSnapshotApi, segrep, scriptMaxCompilationsRate, hashCodeNullable(searchMaxBuckets), hashCodeNullable(reindexRemoteWhitelist), overrideMainResponseVersion, httpMaxHeaderSize, hashCodeNullable(nodeSearchCacheSize), emailSender, hashCodeNullable(indicesFielddataCacheSize), hashCodeNullable(actionDestructiveRequiresName), pluginsAlertingFilterByBackendRoles, diskWatermarks, enableSearchableSnapshots, indicesMemoryIndexBufferSize, threadPoolForceMergeSize, authFailureListeners, ismHistory, clusterRoutingAllocationNodeConcurrentRecoveries, threadPoolAnalyzeQueueSize, actionAutoCreateIndexEnabled, httpMaxContentLength, threadPoolWriteSize, threadPoolSearchQueueSize, knnMemoryCircuitBreakerLimit, indicesQueryBoolMaxClauseCount, mlCommons, threadPoolSearchThrottledQueueSize, clusterMaxShardsPerNode);
+    return Objects.hash(threadPoolSearchThrottledSize, threadPoolAnalyzeSize, searchInsightsTopQueries, threadPoolGetSize, threadPoolGetQueueSize, remoteStore, hashCodeNullable(knnCacheItemExpiryEnabled), hashCodeNullable(searchCancelAfterTimeInterval), indicesMemoryMaxIndexBufferSize, indicesRecoveryMaxConcurrentFileChunks, indicesQueriesCacheSize, searchBackpressure, shardIndexingPressure, knnMemoryCircuitBreakerEnabled, enableRemoteBackedStorage, hashCodeNullable(searchDefaultSearchTimeout), cluster, threadPoolSearchSize, indicesMemoryMinIndexBufferSize, indicesRecoveryMaxBytesPerSec, httpMaxInitialLineLength, enableSecurityAudit, threadPoolWriteQueueSize, enableSnapshotApi, segrep, scriptMaxCompilationsRate, hashCodeNullable(searchMaxBuckets), hashCodeNullable(reindexRemoteWhitelist), overrideMainResponseVersion, httpMaxHeaderSize, hashCodeNullable(nodeSearchCacheSize), hashCodeNullable(knnCacheItemExpiryMinutes), emailSender, hashCodeNullable(indicesFielddataCacheSize), hashCodeNullable(actionDestructiveRequiresName), pluginsAlertingFilterByBackendRoles, diskWatermarks, enableSearchableSnapshots, hashCodeNullable(knnCircuitBreakerUnsetPercentage), indicesMemoryIndexBufferSize, threadPoolForceMergeSize, authFailureListeners, ismHistory, clusterRoutingAllocationNodeConcurrentRecoveries, threadPoolAnalyzeQueueSize, actionAutoCreateIndexEnabled, httpMaxContentLength, threadPoolWriteSize, threadPoolSearchQueueSize, knnMemoryCircuitBreakerLimit, indicesQueryBoolMaxClauseCount, mlCommons, threadPoolSearchThrottledQueueSize, clusterMaxShardsPerNode);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1669,6 +1864,8 @@ public class JsonSchemaOpensearch {
     sb.append("    threadPoolGetSize: ").append(toIndentedString(threadPoolGetSize)).append("\n");
     sb.append("    threadPoolGetQueueSize: ").append(toIndentedString(threadPoolGetQueueSize)).append("\n");
     sb.append("    remoteStore: ").append(toIndentedString(remoteStore)).append("\n");
+    sb.append("    knnCacheItemExpiryEnabled: ").append(toIndentedString(knnCacheItemExpiryEnabled)).append("\n");
+    sb.append("    searchCancelAfterTimeInterval: ").append(toIndentedString(searchCancelAfterTimeInterval)).append("\n");
     sb.append("    indicesMemoryMaxIndexBufferSize: ").append(toIndentedString(indicesMemoryMaxIndexBufferSize)).append("\n");
     sb.append("    indicesRecoveryMaxConcurrentFileChunks: ").append(toIndentedString(indicesRecoveryMaxConcurrentFileChunks)).append("\n");
     sb.append("    indicesQueriesCacheSize: ").append(toIndentedString(indicesQueriesCacheSize)).append("\n");
@@ -1676,6 +1873,7 @@ public class JsonSchemaOpensearch {
     sb.append("    shardIndexingPressure: ").append(toIndentedString(shardIndexingPressure)).append("\n");
     sb.append("    knnMemoryCircuitBreakerEnabled: ").append(toIndentedString(knnMemoryCircuitBreakerEnabled)).append("\n");
     sb.append("    enableRemoteBackedStorage: ").append(toIndentedString(enableRemoteBackedStorage)).append("\n");
+    sb.append("    searchDefaultSearchTimeout: ").append(toIndentedString(searchDefaultSearchTimeout)).append("\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    threadPoolSearchSize: ").append(toIndentedString(threadPoolSearchSize)).append("\n");
     sb.append("    indicesMemoryMinIndexBufferSize: ").append(toIndentedString(indicesMemoryMinIndexBufferSize)).append("\n");
@@ -1691,12 +1889,14 @@ public class JsonSchemaOpensearch {
     sb.append("    overrideMainResponseVersion: ").append(toIndentedString(overrideMainResponseVersion)).append("\n");
     sb.append("    httpMaxHeaderSize: ").append(toIndentedString(httpMaxHeaderSize)).append("\n");
     sb.append("    nodeSearchCacheSize: ").append(toIndentedString(nodeSearchCacheSize)).append("\n");
+    sb.append("    knnCacheItemExpiryMinutes: ").append(toIndentedString(knnCacheItemExpiryMinutes)).append("\n");
     sb.append("    emailSender: ").append(toIndentedString(emailSender)).append("\n");
     sb.append("    indicesFielddataCacheSize: ").append(toIndentedString(indicesFielddataCacheSize)).append("\n");
     sb.append("    actionDestructiveRequiresName: ").append(toIndentedString(actionDestructiveRequiresName)).append("\n");
     sb.append("    pluginsAlertingFilterByBackendRoles: ").append(toIndentedString(pluginsAlertingFilterByBackendRoles)).append("\n");
     sb.append("    diskWatermarks: ").append(toIndentedString(diskWatermarks)).append("\n");
     sb.append("    enableSearchableSnapshots: ").append(toIndentedString(enableSearchableSnapshots)).append("\n");
+    sb.append("    knnCircuitBreakerUnsetPercentage: ").append(toIndentedString(knnCircuitBreakerUnsetPercentage)).append("\n");
     sb.append("    indicesMemoryIndexBufferSize: ").append(toIndentedString(indicesMemoryIndexBufferSize)).append("\n");
     sb.append("    threadPoolForceMergeSize: ").append(toIndentedString(threadPoolForceMergeSize)).append("\n");
     sb.append("    authFailureListeners: ").append(toIndentedString(authFailureListeners)).append("\n");
@@ -1789,6 +1989,16 @@ public class JsonSchemaOpensearch {
       joiner.add(getRemoteStore().toUrlQueryString(prefix + "remote_store" + suffix));
     }
 
+    // add `knn_cache_item_expiry_enabled` to the URL query string
+    if (getKnnCacheItemExpiryEnabled() != null) {
+      joiner.add(String.format("%sknn_cache_item_expiry_enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKnnCacheItemExpiryEnabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `search_cancel_after_time_interval` to the URL query string
+    if (getSearchCancelAfterTimeInterval() != null) {
+      joiner.add(String.format("%ssearch_cancel_after_time_interval%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSearchCancelAfterTimeInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `indices_memory_max_index_buffer_size` to the URL query string
     if (getIndicesMemoryMaxIndexBufferSize() != null) {
       joiner.add(String.format("%sindices_memory_max_index_buffer_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndicesMemoryMaxIndexBufferSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1822,6 +2032,11 @@ public class JsonSchemaOpensearch {
     // add `enable_remote_backed_storage` to the URL query string
     if (getEnableRemoteBackedStorage() != null) {
       joiner.add(String.format("%senable_remote_backed_storage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableRemoteBackedStorage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `search_default_search_timeout` to the URL query string
+    if (getSearchDefaultSearchTimeout() != null) {
+      joiner.add(String.format("%ssearch_default_search_timeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSearchDefaultSearchTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cluster` to the URL query string
@@ -1903,6 +2118,11 @@ public class JsonSchemaOpensearch {
       joiner.add(String.format("%snode.search.cache.size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNodeSearchCacheSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `knn_cache_item_expiry_minutes` to the URL query string
+    if (getKnnCacheItemExpiryMinutes() != null) {
+      joiner.add(String.format("%sknn_cache_item_expiry_minutes%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKnnCacheItemExpiryMinutes()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `email-sender` to the URL query string
     if (getEmailSender() != null) {
       joiner.add(getEmailSender().toUrlQueryString(prefix + "email-sender" + suffix));
@@ -1931,6 +2151,11 @@ public class JsonSchemaOpensearch {
     // add `enable_searchable_snapshots` to the URL query string
     if (getEnableSearchableSnapshots() != null) {
       joiner.add(String.format("%senable_searchable_snapshots%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnableSearchableSnapshots()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `knn_circuit_breaker_unset_percentage` to the URL query string
+    if (getKnnCircuitBreakerUnsetPercentage() != null) {
+      joiner.add(String.format("%sknn_circuit_breaker_unset_percentage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKnnCircuitBreakerUnsetPercentage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `indices_memory_index_buffer_size` to the URL query string

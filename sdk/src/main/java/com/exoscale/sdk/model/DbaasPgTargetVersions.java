@@ -30,15 +30,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum DbaasPgTargetVersions {
   
-  _14("14"),
-  
   _17("17"),
   
   _15("15"),
   
   _18("18"),
-  
-  _13("13"),
   
   _16("16");
 

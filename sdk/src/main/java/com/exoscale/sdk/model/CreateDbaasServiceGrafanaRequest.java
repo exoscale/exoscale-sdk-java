@@ -29,6 +29,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -61,7 +65,7 @@ public class CreateDbaasServiceGrafanaRequest {
   private JsonSchemaGrafana grafanaSettings;
 
   public static final String JSON_PROPERTY_IP_FILTER = "ip-filter";
-  private List<String> ipFilter;
+  private JsonNullable<List<String>> ipFilter = JsonNullable.<List<String>>undefined();
 
   public CreateDbaasServiceGrafanaRequest() { 
   }
@@ -192,15 +196,19 @@ public class CreateDbaasServiceGrafanaRequest {
 
 
   public CreateDbaasServiceGrafanaRequest ipFilter(List<String> ipFilter) {
-    this.ipFilter = ipFilter;
+    this.ipFilter = JsonNullable.<List<String>>of(ipFilter);
     return this;
   }
 
   public CreateDbaasServiceGrafanaRequest addIpFilterItem(String ipFilterItem) {
-    if (this.ipFilter == null) {
-      this.ipFilter = new ArrayList<>();
+    if (this.ipFilter == null || !this.ipFilter.isPresent()) {
+      this.ipFilter = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.ipFilter.add(ipFilterItem);
+    try {
+      this.ipFilter.get().add(ipFilterItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -209,18 +217,26 @@ public class CreateDbaasServiceGrafanaRequest {
    * @return ipFilter
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IP_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public List<String> getIpFilter() {
-    return ipFilter;
+        return ipFilter.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_IP_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIpFilter(List<String> ipFilter) {
+
+  public JsonNullable<List<String>> getIpFilter_JsonNullable() {
+    return ipFilter;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_IP_FILTER)
+  public void setIpFilter_JsonNullable(JsonNullable<List<String>> ipFilter) {
     this.ipFilter = ipFilter;
+  }
+
+  public void setIpFilter(List<String> ipFilter) {
+    this.ipFilter = JsonNullable.<List<String>>of(ipFilter);
   }
 
 
@@ -241,12 +257,23 @@ public class CreateDbaasServiceGrafanaRequest {
         Objects.equals(this.terminationProtection, createDbaasServiceGrafanaRequest.terminationProtection) &&
         Objects.equals(this.forkFromService, createDbaasServiceGrafanaRequest.forkFromService) &&
         Objects.equals(this.grafanaSettings, createDbaasServiceGrafanaRequest.grafanaSettings) &&
-        Objects.equals(this.ipFilter, createDbaasServiceGrafanaRequest.ipFilter);
+        equalsNullable(this.ipFilter, createDbaasServiceGrafanaRequest.ipFilter);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maintenance, plan, terminationProtection, forkFromService, grafanaSettings, ipFilter);
+    return Objects.hash(maintenance, plan, terminationProtection, forkFromService, grafanaSettings, hashCodeNullable(ipFilter));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
