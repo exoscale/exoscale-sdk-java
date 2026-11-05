@@ -328,7 +328,6 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**scaleInstancePool**](ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool |
 | [**scaleSksNodepool**](ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool |
 | [**scheduleKmsKeyDeletion**](ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion |
-| [**setSksNodepoolTemplate**](ExoscaleApi.md#setSksNodepoolTemplate) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template | Set the template of an SKS Nodepool |
 | [**sign**](ExoscaleApi.md#sign) | **POST** /kms-key/{id}/sign | Sign |
 | [**startDbaasClickhouseMaintenance**](ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | Initiate ClickHouse maintenance update |
 | [**startDbaasGrafanaMaintenance**](ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update |
@@ -30310,104 +30309,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Key deletion scheduled |  -  |
 | **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
-
-
-## setSksNodepoolTemplate
-
-> Operation setSksNodepoolTemplate(id, sksNodepoolId, setSksNodepoolTemplateRequest)
-
-Set the template of an SKS Nodepool
-
-Sets the template of the Nodepool instances, among the available templates of its Kubernetes version and variant (see &#x60;list-sks-nodepool-templates&#x60;). Without template (&#x60;null&#x60;), the Nodepool follows the latest template of its Kubernetes version.
-
-### Example
-
-```java
-// Import classes:
-import com.exoscale.sdk.client.ApiException;
-import com.exoscale.sdk.client.*;
-import com.exoscale.sdk.client.models.*;
-import com.exoscale.sdk.api.ExoscaleApi;
-
-public class Example {
-    public static void main(String[] args) throws ApiException, InterruptedException{
-        // Initialize the client with credentials
-        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
-        UUID id = UUID.randomUUID(); // UUID | 
-        UUID sksNodepoolId = UUID.randomUUID(); // UUID | 
-        SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest = new SetSksNodepoolTemplateRequest(); // SetSksNodepoolTemplateRequest |  please add at least all the required fields
-
-        try {
-            // Invoke the API method
-            Operation result = client.setSksNodepoolTemplate(id, sksNodepoolId, setSksNodepoolTemplateRequest);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ExoscaleApi#setSksNodepoolTemplate");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **sksNodepoolId** | **UUID**|  | |
-| **setSksNodepoolTemplateRequest** | [**SetSksNodepoolTemplateRequest**](SetSksNodepoolTemplateRequest.md)|  | |
-
-### Return type
-
-[**Operation**](Operation.md)
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | 200 |  -  |
-
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **id** | **UUID**|  | |
-| **sksNodepoolId** | **UUID**|  | |
-| **setSksNodepoolTemplateRequest** | [**SetSksNodepoolTemplateRequest**](SetSksNodepoolTemplateRequest.md)|  | |
-
-### Return type
-
-ApiResponse<[**Operation**](Operation.md)>
-
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | 200 |  -  |
 
 
 ## sign

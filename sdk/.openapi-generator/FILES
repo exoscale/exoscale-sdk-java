@@ -503,7 +503,6 @@ docs/SecurityGroupRule.md
 docs/SecurityGroupRuleIcmp.md
 docs/SegmentReplicationBackpressureSettings.md
 docs/SetOrgConsumptionQuotaRequest.md
-docs/SetSksNodepoolTemplateRequest.md
 docs/ShardIndexingBackPressureSettings.md
 docs/SignRequest.md
 docs/SignResponse.md
@@ -1106,7 +1105,6 @@ src/main/java/com/exoscale/sdk/model/SecurityGroupRule.java
 src/main/java/com/exoscale/sdk/model/SecurityGroupRuleIcmp.java
 src/main/java/com/exoscale/sdk/model/SegmentReplicationBackpressureSettings.java
 src/main/java/com/exoscale/sdk/model/SetOrgConsumptionQuotaRequest.java
-src/main/java/com/exoscale/sdk/model/SetSksNodepoolTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/ShardIndexingBackPressureSettings.java
 src/main/java/com/exoscale/sdk/model/SignRequest.java
 src/main/java/com/exoscale/sdk/model/SignResponse.java

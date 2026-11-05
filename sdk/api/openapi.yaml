@@ -5447,48 +5447,6 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
-  /sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template:
-    put:
-      description: "Sets the template of the Nodepool instances, among the available\
-        \ templates of its Kubernetes version and variant (see `list-sks-nodepool-templates`).\
-        \ Without template (`null`), the Nodepool follows the latest template of its\
-        \ Kubernetes version."
-      operationId: set-sks-nodepool-template
-      parameters:
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: sks-nodepool-id
-        required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/set_sks_nodepool_template_request'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/operation'
-          description: "200"
-      summary: Set the template of an SKS Nodepool
-      tags:
-      - exoscale
-      x-content-type: application/json
-      x-accepts: application/json
   /dbaas-integration-types:
     get:
       description: "[BETA] Get DBaaS integration types"
@@ -21580,7 +21538,7 @@ components:
             Nodepool template selection:
 
             * `auto`: the latest template of the Nodepool Kubernetes version and variant;
-            * `pinned`: the template set with `set-sks-nodepool-template`.
+            * `pinned`: the template set with `update-sks-nodepool`.
           enum:
           - pinned
           - auto
@@ -28286,6 +28244,8 @@ components:
           maxItems: 16
           type: array
           uniqueItems: true
+        template:
+          $ref: '#/components/schemas/template-ref'
         kubelet-image-gc:
           $ref: '#/components/schemas/kubelet-image-gc'
         instance-prefix:
@@ -29209,11 +29169,6 @@ components:
       properties:
         settings:
           $ref: '#/components/schemas/get_dbaas_settings_clickhouse_200_response_settings'
-      type: object
-    set_sks_nodepool_template_request:
-      properties:
-        template:
-          $ref: '#/components/schemas/template-ref'
       type: object
     list_dbaas_integration_types_200_response:
       example:

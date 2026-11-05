@@ -263,7 +263,6 @@ import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.SetSksNodepoolTemplateRequest;
 import com.exoscale.sdk.model.SignRequest;
 import com.exoscale.sdk.model.SignResponse;
 import com.exoscale.sdk.model.SksCluster;
@@ -29207,110 +29206,6 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-  /**
-   * Set the template of an SKS Nodepool
-   * Sets the template of the Nodepool instances, among the available templates of its Kubernetes version and variant (see &#x60;list-sks-nodepool-templates&#x60;). Without template (&#x60;null&#x60;), the Nodepool follows the latest template of its Kubernetes version.
-   * @param id  (required)
-   * @param sksNodepoolId  (required)
-   * @param setSksNodepoolTemplateRequest  (required)
-   * @return Operation
-   * @throws ApiException if fails to make API call
-   */
-  public Operation setSksNodepoolTemplate(UUID id, UUID sksNodepoolId, SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest) throws ApiException {
-    ApiResponse<Operation> localVarResponse = setSksNodepoolTemplateWithHttpInfo(id, sksNodepoolId, setSksNodepoolTemplateRequest);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Set the template of an SKS Nodepool
-   * Sets the template of the Nodepool instances, among the available templates of its Kubernetes version and variant (see &#x60;list-sks-nodepool-templates&#x60;). Without template (&#x60;null&#x60;), the Nodepool follows the latest template of its Kubernetes version.
-   * @param id  (required)
-   * @param sksNodepoolId  (required)
-   * @param setSksNodepoolTemplateRequest  (required)
-   * @return ApiResponse&lt;Operation&gt;
-   * @throws ApiException if fails to make API call
-   */
-  private ApiResponse<Operation> setSksNodepoolTemplateWithHttpInfo(UUID id, UUID sksNodepoolId, SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = setSksNodepoolTemplateRequestBuilder(id, sksNodepoolId, setSksNodepoolTemplateRequest);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("setSksNodepoolTemplate", localVarResponse);
-        }
-        return new ApiResponse<Operation>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder setSksNodepoolTemplateRequestBuilder(UUID id, UUID sksNodepoolId, SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest) throws ApiException {
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling setSksNodepoolTemplate");
-    }
-    // verify the required parameter 'sksNodepoolId' is set
-    if (sksNodepoolId == null) {
-      throw new ApiException(400, "Missing the required parameter 'sksNodepoolId' when calling setSksNodepoolTemplate");
-    }
-    // verify the required parameter 'setSksNodepoolTemplateRequest' is set
-    if (setSksNodepoolTemplateRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'setSksNodepoolTemplateRequest' when calling setSksNodepoolTemplate");
-    }
-
-    Credentials credentials = apiClient.getCredentials();
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template"
-        .replace("{id}", ApiClient.urlEncode(id.toString()))
-        .replace("{sks-nodepool-id}", ApiClient.urlEncode(sksNodepoolId.toString()));
-      String requestBody = null;
-      String authorizationValue;
-          try{
-          requestBody = memberVarObjectMapper.writeValueAsString(setSksNodepoolTemplateRequest);
-          } catch (JsonProcessingException e) {
-          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
-          }
-
-
-      // Operations tagged x-skip-auth return public data but the server enforces IAM
-      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
-      // Skip signing so those requests are always sent without credentials.
-      try{
-      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
-      } catch (Exception e) {
-      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
-      }
-      localVarRequestBuilder.header("Authorization", authorizationValue);
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-
-    localVarRequestBuilder.header("Content-Type", "application/json");
-    localVarRequestBuilder.header("Accept", "application/json");
-
-      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

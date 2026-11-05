@@ -28,6 +28,7 @@ import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -60,6 +61,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateSksNodepoolRequest.JSON_PROPERTY_NAME,
   UpdateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_TYPE,
   UpdateSksNodepoolRequest.JSON_PROPERTY_PRIVATE_NETWORKS,
+  UpdateSksNodepoolRequest.JSON_PROPERTY_TEMPLATE,
   UpdateSksNodepoolRequest.JSON_PROPERTY_KUBELET_IMAGE_GC,
   UpdateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
   UpdateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
@@ -134,6 +136,9 @@ public class UpdateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
   private Set<PrivateNetworkRef> privateNetworks;
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  private TemplateRef template;
 
   public static final String JSON_PROPERTY_KUBELET_IMAGE_GC = "kubelet-image-gc";
   private KubeletImageGc kubeletImageGc;
@@ -452,6 +457,31 @@ public class UpdateSksNodepoolRequest {
   }
 
 
+  public UpdateSksNodepoolRequest template(TemplateRef template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TemplateRef getTemplate() {
+    return template;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTemplate(TemplateRef template) {
+    this.template = template;
+  }
+
+
   public UpdateSksNodepoolRequest kubeletImageGc(KubeletImageGc kubeletImageGc) {
     this.kubeletImageGc = kubeletImageGc;
     return this;
@@ -661,6 +691,7 @@ public class UpdateSksNodepoolRequest {
         Objects.equals(this.name, updateSksNodepoolRequest.name) &&
         Objects.equals(this.instanceType, updateSksNodepoolRequest.instanceType) &&
         Objects.equals(this.privateNetworks, updateSksNodepoolRequest.privateNetworks) &&
+        Objects.equals(this.template, updateSksNodepoolRequest.template) &&
         Objects.equals(this.kubeletImageGc, updateSksNodepoolRequest.kubeletImageGc) &&
         Objects.equals(this.instancePrefix, updateSksNodepoolRequest.instancePrefix) &&
         Objects.equals(this.deployTarget, updateSksNodepoolRequest.deployTarget) &&
@@ -676,7 +707,7 @@ public class UpdateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), cpuManagerConfig, diskSize, nvidiaMigProfiles);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), cpuManagerConfig, diskSize, nvidiaMigProfiles);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -700,6 +731,7 @@ public class UpdateSksNodepoolRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    privateNetworks: ").append(toIndentedString(privateNetworks)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    kubeletImageGc: ").append(toIndentedString(kubeletImageGc)).append("\n");
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
@@ -832,6 +864,11 @@ public class UpdateSksNodepoolRequest {
         }
       }
       i++;
+    }
+
+    // add `template` to the URL query string
+    if (getTemplate() != null) {
+      joiner.add(getTemplate().toUrlQueryString(prefix + "template" + suffix));
     }
 
     // add `kubelet-image-gc` to the URL query string

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-04T07:10:06.930806253Z[Etc/UTC]
+- Build date: 2026-11-05T07:10:11.999406806Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-393ec00</version>
+    <version>0.0.5-SNAPSHOT-4a4d4bd</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-393ec00'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4a4d4bd'
 }
 ```
 
@@ -406,7 +406,6 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**scaleInstancePool**](sdk/docs/ExoscaleApi.md#scaleInstancePool) | **PUT** /instance-pool/{id}:scale | Scale an Instance Pool
 *ExoscaleApi* | [**scaleSksNodepool**](sdk/docs/ExoscaleApi.md#scaleSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:scale | Scale a SKS Nodepool
 *ExoscaleApi* | [**scheduleKmsKeyDeletion**](sdk/docs/ExoscaleApi.md#scheduleKmsKeyDeletion) | **POST** /kms-key/{id}/schedule-deletion | Schedule KMS Key Deletion
-*ExoscaleApi* | [**setSksNodepoolTemplate**](sdk/docs/ExoscaleApi.md#setSksNodepoolTemplate) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id}:set-template | Set the template of an SKS Nodepool
 *ExoscaleApi* | [**sign**](sdk/docs/ExoscaleApi.md#sign) | **POST** /kms-key/{id}/sign | Sign
 *ExoscaleApi* | [**startDbaasClickhouseMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasClickhouseMaintenance) | **PUT** /dbaas-clickhouse/{name}/maintenance/start | Initiate ClickHouse maintenance update
 *ExoscaleApi* | [**startDbaasGrafanaMaintenance**](sdk/docs/ExoscaleApi.md#startDbaasGrafanaMaintenance) | **PUT** /dbaas-grafana/{name}/maintenance/start | Initiate Grafana maintenance update
@@ -970,7 +969,6 @@ Class | Method | HTTP request | Description
  - [SecurityGroupRuleIcmp](sdk/docs/SecurityGroupRuleIcmp.md)
  - [SegmentReplicationBackpressureSettings](sdk/docs/SegmentReplicationBackpressureSettings.md)
  - [SetOrgConsumptionQuotaRequest](sdk/docs/SetOrgConsumptionQuotaRequest.md)
- - [SetSksNodepoolTemplateRequest](sdk/docs/SetSksNodepoolTemplateRequest.md)
  - [ShardIndexingBackPressureSettings](sdk/docs/ShardIndexingBackPressureSettings.md)
  - [SignRequest](sdk/docs/SignRequest.md)
  - [SignResponse](sdk/docs/SignResponse.md)

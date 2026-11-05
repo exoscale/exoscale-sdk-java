@@ -259,7 +259,6 @@ import com.exoscale.sdk.model.ScaleSksNodepoolRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionRequest;
 import com.exoscale.sdk.model.ScheduleKmsKeyDeletionResponse;
 import com.exoscale.sdk.model.SecurityGroup;
-import com.exoscale.sdk.model.SetSksNodepoolTemplateRequest;
 import com.exoscale.sdk.model.SignRequest;
 import com.exoscale.sdk.model.SignResponse;
 import com.exoscale.sdk.model.SksCluster;
@@ -5932,25 +5931,6 @@ public class ExoscaleApiTest {
         ScheduleKmsKeyDeletionRequest scheduleKmsKeyDeletionRequest = null;
         ScheduleKmsKeyDeletionResponse response = 
         api.scheduleKmsKeyDeletion(id, scheduleKmsKeyDeletionRequest);
-        
-        // TODO: test validations
-    }
-    
-    /**
-     * Set the template of an SKS Nodepool
-     *
-     * Sets the template of the Nodepool instances, among the available templates of its Kubernetes version and variant (see &#x60;list-sks-nodepool-templates&#x60;). Without template (&#x60;null&#x60;), the Nodepool follows the latest template of its Kubernetes version.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void setSksNodepoolTemplateTest() throws ApiException {
-        UUID id = null;
-        UUID sksNodepoolId = null;
-        SetSksNodepoolTemplateRequest setSksNodepoolTemplateRequest = null;
-        Operation response = 
-        api.setSksNodepoolTemplate(id, sksNodepoolId, setSksNodepoolTemplateRequest);
         
         // TODO: test validations
     }
