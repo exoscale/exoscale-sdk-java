@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.exoscale.sdk.api"},{"l":"com.exoscale.sdk.client"},{"l":"com.exoscale.sdk.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.exoscale.sdk.api"},{"l":"com.exoscale.sdk.client"},{"l":"com.exoscale.sdk.model"}];updateSearchResults();
