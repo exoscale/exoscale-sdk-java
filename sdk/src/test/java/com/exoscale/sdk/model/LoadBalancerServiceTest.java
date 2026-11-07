@@ -16,6 +16,8 @@ package com.exoscale.sdk.model;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.LoadBalancerServerStatus;
 import com.exoscale.sdk.model.LoadBalancerServiceHealthcheck;
+import com.exoscale.sdk.model.LoadBalancerServiceInstance;
+import com.exoscale.sdk.model.LoadBalancerServiceLabelSelector;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -108,6 +110,14 @@ public class LoadBalancerServiceTest {
     }
 
     /**
+     * Test the property 'instances'
+     */
+    @Test
+    public void instancesTest() {
+        // TODO: test instances
+    }
+
+    /**
      * Test the property 'healthcheck'
      */
     @Test
@@ -129,6 +139,14 @@ public class LoadBalancerServiceTest {
     @Test
     public void healthcheckStatusTest() {
         // TODO: test healthcheckStatus
+    }
+
+    /**
+     * Test the property 'labelSelector'
+     */
+    @Test
+    public void labelSelectorTest() {
+        // TODO: test labelSelector
     }
 
 }

@@ -41,6 +41,7 @@ import com.exoscale.sdk.model.CreateDbaasClickhouseUserRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
+import com.exoscale.sdk.model.CreateDbaasMysqlUpgradeCheckRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlUserRequest;
 import com.exoscale.sdk.model.CreateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.CreateDbaasPgDatabaseRequest;
@@ -3196,6 +3197,103 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(createDbaasMysqlDatabaseRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * 
+   * Check whether you can upgrade MySQL service to a newer version
+   * @param serviceName  (required)
+   * @param createDbaasMysqlUpgradeCheckRequest  (required)
+   * @return DbaasTask
+   * @throws ApiException if fails to make API call
+   */
+  public DbaasTask createDbaasMysqlUpgradeCheck(String serviceName, CreateDbaasMysqlUpgradeCheckRequest createDbaasMysqlUpgradeCheckRequest) throws ApiException {
+    ApiResponse<DbaasTask> localVarResponse = createDbaasMysqlUpgradeCheckWithHttpInfo(serviceName, createDbaasMysqlUpgradeCheckRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * 
+   * Check whether you can upgrade MySQL service to a newer version
+   * @param serviceName  (required)
+   * @param createDbaasMysqlUpgradeCheckRequest  (required)
+   * @return ApiResponse&lt;DbaasTask&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<DbaasTask> createDbaasMysqlUpgradeCheckWithHttpInfo(String serviceName, CreateDbaasMysqlUpgradeCheckRequest createDbaasMysqlUpgradeCheckRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createDbaasMysqlUpgradeCheckRequestBuilder(serviceName, createDbaasMysqlUpgradeCheckRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createDbaasMysqlUpgradeCheck", localVarResponse);
+        }
+        return new ApiResponse<DbaasTask>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<DbaasTask>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createDbaasMysqlUpgradeCheckRequestBuilder(String serviceName, CreateDbaasMysqlUpgradeCheckRequest createDbaasMysqlUpgradeCheckRequest) throws ApiException {
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      throw new ApiException(400, "Missing the required parameter 'serviceName' when calling createDbaasMysqlUpgradeCheck");
+    }
+    // verify the required parameter 'createDbaasMysqlUpgradeCheckRequest' is set
+    if (createDbaasMysqlUpgradeCheckRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createDbaasMysqlUpgradeCheckRequest' when calling createDbaasMysqlUpgradeCheck");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/dbaas-mysql/{service-name}/upgrade-check"
+        .replace("{service-name}", ApiClient.urlEncode(serviceName.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(createDbaasMysqlUpgradeCheckRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

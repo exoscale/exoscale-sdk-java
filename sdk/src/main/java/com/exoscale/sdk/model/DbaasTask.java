@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,35 +38,205 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * DbaasTask
  */
 @JsonPropertyOrder({
+  DbaasTask.JSON_PROPERTY_DURATION_SECONDS,
+  DbaasTask.JSON_PROPERTY_TARGET_PG_VERSION,
+  DbaasTask.JSON_PROPERTY_SOURCE_MYSQL_VERSION,
+  DbaasTask.JSON_PROPERTY_TASK_TYPE,
+  DbaasTask.JSON_PROPERTY_SUCCESS,
+  DbaasTask.JSON_PROPERTY_RESULT,
   DbaasTask.JSON_PROPERTY_ID,
   DbaasTask.JSON_PROPERTY_CREATE_TIME,
-  DbaasTask.JSON_PROPERTY_RESULT,
-  DbaasTask.JSON_PROPERTY_RESULT_CODES,
-  DbaasTask.JSON_PROPERTY_SUCCESS,
-  DbaasTask.JSON_PROPERTY_TASK_TYPE
+  DbaasTask.JSON_PROPERTY_TARGET_MYSQL_VERSION,
+  DbaasTask.JSON_PROPERTY_SOURCE_PG_VERSION,
+  DbaasTask.JSON_PROPERTY_RESULT_CODES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class DbaasTask {
+  public static final String JSON_PROPERTY_DURATION_SECONDS = "duration-seconds";
+  private BigDecimal durationSeconds;
+
+  public static final String JSON_PROPERTY_TARGET_PG_VERSION = "target-pg-version";
+  private String targetPgVersion;
+
+  public static final String JSON_PROPERTY_SOURCE_MYSQL_VERSION = "source-mysql-version";
+  private String sourceMysqlVersion;
+
+  public static final String JSON_PROPERTY_TASK_TYPE = "task-type";
+  private String taskType;
+
+  public static final String JSON_PROPERTY_SUCCESS = "success";
+  private Boolean success;
+
+  public static final String JSON_PROPERTY_RESULT = "result";
+  private String result;
+
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
   public static final String JSON_PROPERTY_CREATE_TIME = "create-time";
   private OffsetDateTime createTime;
 
-  public static final String JSON_PROPERTY_RESULT = "result";
-  private String result;
+  public static final String JSON_PROPERTY_TARGET_MYSQL_VERSION = "target-mysql-version";
+  private String targetMysqlVersion;
+
+  public static final String JSON_PROPERTY_SOURCE_PG_VERSION = "source-pg-version";
+  private String sourcePgVersion;
 
   public static final String JSON_PROPERTY_RESULT_CODES = "result-codes";
   private List<DbaasTaskResultCodesInner> resultCodes;
 
-  public static final String JSON_PROPERTY_SUCCESS = "success";
-  private Boolean success;
-
-  public static final String JSON_PROPERTY_TASK_TYPE = "task-type";
-  private String taskType;
-
   public DbaasTask() { 
   }
+
+  public DbaasTask durationSeconds(BigDecimal durationSeconds) {
+    this.durationSeconds = durationSeconds;
+    return this;
+  }
+
+   /**
+   * Get durationSeconds
+   * @return durationSeconds
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DURATION_SECONDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getDurationSeconds() {
+    return durationSeconds;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DURATION_SECONDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDurationSeconds(BigDecimal durationSeconds) {
+    this.durationSeconds = durationSeconds;
+  }
+
+
+  public DbaasTask targetPgVersion(String targetPgVersion) {
+    this.targetPgVersion = targetPgVersion;
+    return this;
+  }
+
+   /**
+   * Get targetPgVersion
+   * @return targetPgVersion
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET_PG_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTargetPgVersion() {
+    return targetPgVersion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TARGET_PG_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTargetPgVersion(String targetPgVersion) {
+    this.targetPgVersion = targetPgVersion;
+  }
+
+
+  public DbaasTask sourceMysqlVersion(String sourceMysqlVersion) {
+    this.sourceMysqlVersion = sourceMysqlVersion;
+    return this;
+  }
+
+   /**
+   * Get sourceMysqlVersion
+   * @return sourceMysqlVersion
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE_MYSQL_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSourceMysqlVersion() {
+    return sourceMysqlVersion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_MYSQL_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSourceMysqlVersion(String sourceMysqlVersion) {
+    this.sourceMysqlVersion = sourceMysqlVersion;
+  }
+
+
+  public DbaasTask taskType(String taskType) {
+    this.taskType = taskType;
+    return this;
+  }
+
+   /**
+   * Get taskType
+   * @return taskType
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TASK_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTaskType() {
+    return taskType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TASK_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTaskType(String taskType) {
+    this.taskType = taskType;
+  }
+
+
+  public DbaasTask success(Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+   /**
+   * Get success
+   * @return success
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSuccess() {
+    return success;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUCCESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+
+  public DbaasTask result(String result) {
+    this.result = result;
+    return this;
+  }
+
+   /**
+   * Get result
+   * @return result
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getResult() {
+    return result;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResult(String result) {
+    this.result = result;
+  }
+
 
   public DbaasTask id(UUID id) {
     this.id = id;
@@ -117,28 +288,53 @@ public class DbaasTask {
   }
 
 
-  public DbaasTask result(String result) {
-    this.result = result;
+  public DbaasTask targetMysqlVersion(String targetMysqlVersion) {
+    this.targetMysqlVersion = targetMysqlVersion;
     return this;
   }
 
    /**
-   * Get result
-   * @return result
+   * Get targetMysqlVersion
+   * @return targetMysqlVersion
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(JSON_PROPERTY_TARGET_MYSQL_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getResult() {
-    return result;
+  public String getTargetMysqlVersion() {
+    return targetMysqlVersion;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(JSON_PROPERTY_TARGET_MYSQL_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResult(String result) {
-    this.result = result;
+  public void setTargetMysqlVersion(String targetMysqlVersion) {
+    this.targetMysqlVersion = targetMysqlVersion;
+  }
+
+
+  public DbaasTask sourcePgVersion(String sourcePgVersion) {
+    this.sourcePgVersion = sourcePgVersion;
+    return this;
+  }
+
+   /**
+   * Get sourcePgVersion
+   * @return sourcePgVersion
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE_PG_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSourcePgVersion() {
+    return sourcePgVersion;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCE_PG_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSourcePgVersion(String sourcePgVersion) {
+    this.sourcePgVersion = sourcePgVersion;
   }
 
 
@@ -175,56 +371,6 @@ public class DbaasTask {
   }
 
 
-  public DbaasTask success(Boolean success) {
-    this.success = success;
-    return this;
-  }
-
-   /**
-   * Get success
-   * @return success
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getSuccess() {
-    return success;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SUCCESS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuccess(Boolean success) {
-    this.success = success;
-  }
-
-
-  public DbaasTask taskType(String taskType) {
-    this.taskType = taskType;
-    return this;
-  }
-
-   /**
-   * Get taskType
-   * @return taskType
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TASK_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getTaskType() {
-    return taskType;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TASK_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaskType(String taskType) {
-    this.taskType = taskType;
-  }
-
-
   /**
    * Return true if this dbaas-task object is equal to o.
    */
@@ -237,29 +383,39 @@ public class DbaasTask {
       return false;
     }
     DbaasTask dbaasTask = (DbaasTask) o;
-    return Objects.equals(this.id, dbaasTask.id) &&
-        Objects.equals(this.createTime, dbaasTask.createTime) &&
-        Objects.equals(this.result, dbaasTask.result) &&
-        Objects.equals(this.resultCodes, dbaasTask.resultCodes) &&
+    return Objects.equals(this.durationSeconds, dbaasTask.durationSeconds) &&
+        Objects.equals(this.targetPgVersion, dbaasTask.targetPgVersion) &&
+        Objects.equals(this.sourceMysqlVersion, dbaasTask.sourceMysqlVersion) &&
+        Objects.equals(this.taskType, dbaasTask.taskType) &&
         Objects.equals(this.success, dbaasTask.success) &&
-        Objects.equals(this.taskType, dbaasTask.taskType);
+        Objects.equals(this.result, dbaasTask.result) &&
+        Objects.equals(this.id, dbaasTask.id) &&
+        Objects.equals(this.createTime, dbaasTask.createTime) &&
+        Objects.equals(this.targetMysqlVersion, dbaasTask.targetMysqlVersion) &&
+        Objects.equals(this.sourcePgVersion, dbaasTask.sourcePgVersion) &&
+        Objects.equals(this.resultCodes, dbaasTask.resultCodes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createTime, result, resultCodes, success, taskType);
+    return Objects.hash(durationSeconds, targetPgVersion, sourceMysqlVersion, taskType, success, result, id, createTime, targetMysqlVersion, sourcePgVersion, resultCodes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbaasTask {\n");
+    sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
+    sb.append("    targetPgVersion: ").append(toIndentedString(targetPgVersion)).append("\n");
+    sb.append("    sourceMysqlVersion: ").append(toIndentedString(sourceMysqlVersion)).append("\n");
+    sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    createTime: ").append(toIndentedString(createTime)).append("\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    targetMysqlVersion: ").append(toIndentedString(targetMysqlVersion)).append("\n");
+    sb.append("    sourcePgVersion: ").append(toIndentedString(sourcePgVersion)).append("\n");
     sb.append("    resultCodes: ").append(toIndentedString(resultCodes)).append("\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
-    sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -307,6 +463,36 @@ public class DbaasTask {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `duration-seconds` to the URL query string
+    if (getDurationSeconds() != null) {
+      joiner.add(String.format("%sduration-seconds%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDurationSeconds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `target-pg-version` to the URL query string
+    if (getTargetPgVersion() != null) {
+      joiner.add(String.format("%starget-pg-version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTargetPgVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `source-mysql-version` to the URL query string
+    if (getSourceMysqlVersion() != null) {
+      joiner.add(String.format("%ssource-mysql-version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceMysqlVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `task-type` to the URL query string
+    if (getTaskType() != null) {
+      joiner.add(String.format("%stask-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTaskType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `success` to the URL query string
+    if (getSuccess() != null) {
+      joiner.add(String.format("%ssuccess%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccess()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `result` to the URL query string
+    if (getResult() != null) {
+      joiner.add(String.format("%sresult%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getResult()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -317,9 +503,14 @@ public class DbaasTask {
       joiner.add(String.format("%screate-time%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreateTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `result` to the URL query string
-    if (getResult() != null) {
-      joiner.add(String.format("%sresult%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getResult()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `target-mysql-version` to the URL query string
+    if (getTargetMysqlVersion() != null) {
+      joiner.add(String.format("%starget-mysql-version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTargetMysqlVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `source-pg-version` to the URL query string
+    if (getSourcePgVersion() != null) {
+      joiner.add(String.format("%ssource-pg-version%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourcePgVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `result-codes` to the URL query string
@@ -330,16 +521,6 @@ public class DbaasTask {
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
-    }
-
-    // add `success` to the URL query string
-    if (getSuccess() != null) {
-      joiner.add(String.format("%ssuccess%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccess()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `task-type` to the URL query string
-    if (getTaskType() != null) {
-      joiner.add(String.format("%stask-type%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTaskType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

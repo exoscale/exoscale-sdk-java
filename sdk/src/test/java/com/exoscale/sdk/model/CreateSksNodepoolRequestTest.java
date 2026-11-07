@@ -22,6 +22,7 @@ import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -133,6 +134,14 @@ public class CreateSksNodepoolRequestTest {
     @Test
     public void privateNetworksTest() {
         // TODO: test privateNetworks
+    }
+
+    /**
+     * Test the property 'template'
+     */
+    @Test
+    public void templateTest() {
+        // TODO: test template
     }
 
     /**

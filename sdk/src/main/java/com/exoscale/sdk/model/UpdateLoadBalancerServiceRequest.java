@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.LoadBalancerServiceHealthcheck;
+import com.exoscale.sdk.model.LoadBalancerServiceLabelSelector;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,7 +44,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateLoadBalancerServiceRequest.JSON_PROPERTY_STRATEGY,
   UpdateLoadBalancerServiceRequest.JSON_PROPERTY_PORT,
   UpdateLoadBalancerServiceRequest.JSON_PROPERTY_TARGET_PORT,
-  UpdateLoadBalancerServiceRequest.JSON_PROPERTY_HEALTHCHECK
+  UpdateLoadBalancerServiceRequest.JSON_PROPERTY_HEALTHCHECK,
+  UpdateLoadBalancerServiceRequest.JSON_PROPERTY_LABEL_SELECTOR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class UpdateLoadBalancerServiceRequest {
@@ -139,6 +141,9 @@ public class UpdateLoadBalancerServiceRequest {
 
   public static final String JSON_PROPERTY_HEALTHCHECK = "healthcheck";
   private LoadBalancerServiceHealthcheck healthcheck;
+
+  public static final String JSON_PROPERTY_LABEL_SELECTOR = "label-selector";
+  private LoadBalancerServiceLabelSelector labelSelector;
 
   public UpdateLoadBalancerServiceRequest() { 
   }
@@ -370,6 +375,31 @@ public class UpdateLoadBalancerServiceRequest {
   }
 
 
+  public UpdateLoadBalancerServiceRequest labelSelector(LoadBalancerServiceLabelSelector labelSelector) {
+    this.labelSelector = labelSelector;
+    return this;
+  }
+
+   /**
+   * Get labelSelector
+   * @return labelSelector
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LoadBalancerServiceLabelSelector getLabelSelector() {
+    return labelSelector;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABEL_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabelSelector(LoadBalancerServiceLabelSelector labelSelector) {
+    this.labelSelector = labelSelector;
+  }
+
+
   /**
    * Return true if this update_load_balancer_service_request object is equal to o.
    */
@@ -388,7 +418,8 @@ public class UpdateLoadBalancerServiceRequest {
         equalsNullable(this.strategy, updateLoadBalancerServiceRequest.strategy) &&
         equalsNullable(this.port, updateLoadBalancerServiceRequest.port) &&
         equalsNullable(this.targetPort, updateLoadBalancerServiceRequest.targetPort) &&
-        Objects.equals(this.healthcheck, updateLoadBalancerServiceRequest.healthcheck);
+        Objects.equals(this.healthcheck, updateLoadBalancerServiceRequest.healthcheck) &&
+        Objects.equals(this.labelSelector, updateLoadBalancerServiceRequest.labelSelector);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -397,7 +428,7 @@ public class UpdateLoadBalancerServiceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(protocol), hashCodeNullable(strategy), hashCodeNullable(port), hashCodeNullable(targetPort), healthcheck);
+    return Objects.hash(hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(protocol), hashCodeNullable(strategy), hashCodeNullable(port), hashCodeNullable(targetPort), healthcheck, labelSelector);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -418,6 +449,7 @@ public class UpdateLoadBalancerServiceRequest {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    targetPort: ").append(toIndentedString(targetPort)).append("\n");
     sb.append("    healthcheck: ").append(toIndentedString(healthcheck)).append("\n");
+    sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -498,6 +530,11 @@ public class UpdateLoadBalancerServiceRequest {
     // add `healthcheck` to the URL query string
     if (getHealthcheck() != null) {
       joiner.add(getHealthcheck().toUrlQueryString(prefix + "healthcheck" + suffix));
+    }
+
+    // add `label-selector` to the URL query string
+    if (getLabelSelector() != null) {
+      joiner.add(getLabelSelector().toUrlQueryString(prefix + "label-selector" + suffix));
     }
 
     return joiner.toString();

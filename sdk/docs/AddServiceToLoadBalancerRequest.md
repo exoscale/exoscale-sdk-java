@@ -7,14 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | Load Balancer Service name |  |
 |**description** | **String** | Load Balancer Service description |  [optional] |
-|**instancePool** | [**InstancePool**](InstancePool.md) |  |  |
 |**protocol** | [**ProtocolEnum**](#ProtocolEnum) | Network traffic protocol |  |
-|**strategy** | [**StrategyEnum**](#StrategyEnum) | Load balancing strategy |  |
-|**port** | **Long** | Port exposed on the Load Balancer&#39;s public IP |  |
+|**name** | **String** | Load Balancer Service name |  |
 |**targetPort** | **Long** | Port on which the network traffic will be forwarded to on the receiving instance |  |
+|**port** | **Long** | Port exposed on the Load Balancer&#39;s public IP |  |
+|**instancePool** | [**InstancePool**](InstancePool.md) |  |  [optional] |
+|**strategy** | [**StrategyEnum**](#StrategyEnum) | Load balancing strategy |  |
 |**healthcheck** | [**LoadBalancerServiceHealthcheck**](LoadBalancerServiceHealthcheck.md) |  |  |
+|**labelSelector** | [**LoadBalancerServiceLabelSelector**](LoadBalancerServiceLabelSelector.md) |  |  [optional] |
 
 
 

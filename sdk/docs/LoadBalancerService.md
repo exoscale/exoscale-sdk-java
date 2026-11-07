@@ -16,9 +16,11 @@ Load Balancer Service
 |**port** | **Long** | Port exposed on the Load Balancer&#39;s public IP |  [optional] |
 |**instancePool** | [**InstancePool**](InstancePool.md) |  |  [optional] |
 |**strategy** | [**StrategyEnum**](#StrategyEnum) | Load balancing strategy |  [optional] |
+|**instances** | [**List&lt;LoadBalancerServiceInstance&gt;**](LoadBalancerServiceInstance.md) | Instances the network traffic is forwarded to, from the instance pool and the label selector |  [optional] [readonly] |
 |**healthcheck** | [**LoadBalancerServiceHealthcheck**](LoadBalancerServiceHealthcheck.md) |  |  [optional] |
 |**id** | **UUID** | Load Balancer Service ID |  [optional] [readonly] |
 |**healthcheckStatus** | [**List&lt;LoadBalancerServerStatus&gt;**](LoadBalancerServerStatus.md) | Healthcheck status per backend server |  [optional] [readonly] |
+|**labelSelector** | [**LoadBalancerServiceLabelSelector**](LoadBalancerServiceLabelSelector.md) |  |  [optional] |
 
 
 

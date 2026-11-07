@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.LoadBalancerServiceHealthcheck;
+import com.exoscale.sdk.model.LoadBalancerServiceLabelSelector;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -96,6 +97,14 @@ public class UpdateLoadBalancerServiceRequestTest {
     @Test
     public void healthcheckTest() {
         // TODO: test healthcheck
+    }
+
+    /**
+     * Test the property 'labelSelector'
+     */
+    @Test
+    public void labelSelectorTest() {
+        // TODO: test labelSelector
     }
 
 }

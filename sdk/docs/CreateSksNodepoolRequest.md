@@ -17,6 +17,7 @@
 |**name** | **String** | Nodepool name, lowercase only |  |
 |**instanceType** | [**InstanceTypeRef**](InstanceTypeRef.md) |  |  |
 |**privateNetworks** | [**Set&lt;PrivateNetworkRef&gt;**](PrivateNetworkRef.md) | Nodepool Private Networks |  [optional] |
+|**template** | [**TemplateRef**](TemplateRef.md) |  |  [optional] |
 |**size** | **Long** | Number of instances |  |
 |**kubeletImageGc** | [**KubeletImageGc**](KubeletImageGc.md) |  |  [optional] |
 |**instancePrefix** | **String** | Prefix to apply to instances names (default: pool), lowercase only |  [optional] |

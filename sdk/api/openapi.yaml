@@ -1660,6 +1660,36 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+  /dbaas-mysql/{service-name}/upgrade-check:
+    post:
+      description: Check whether you can upgrade MySQL service to a newer version
+      operationId: create-dbaas-mysql-upgrade-check
+      parameters:
+      - explode: false
+        in: path
+        name: service-name
+        required: true
+        schema:
+          $ref: '#/components/schemas/dbaas-service-name'
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create_dbaas_mysql_upgrade_check_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dbaas-task'
+          description: "200"
+      summary: ""
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-external-endpoint-elasticsearch/{endpoint-id}:
     delete:
       description: "[BETA] Delete ElasticSearch logs external integration endpoint"
@@ -5231,6 +5261,7 @@ paths:
         schema:
           enum:
           - description
+          - label-selector
           type: string
         style: simple
       responses:
@@ -13505,15 +13536,6 @@ components:
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         services:
         - target-port: 0
-          healthcheck:
-            mode: tcp
-            retries: 7
-            tls-sni: tls-sni
-            port: 46277
-            interval: 72
-            uri: uri
-            timeout: 55
-          protocol: tcp
           instance-pool:
             template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -13562,9 +13584,28 @@ components:
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          label-selector:
+            labels:
+              key: labels
+          instances:
+          - public-ip: public-ip
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            healthcheck-status: failure
+          - public-ip: public-ip
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            healthcheck-status: failure
+          description: description
+          healthcheck:
+            mode: tcp
+            retries: 7
+            tls-sni: tls-sni
+            port: 46277
+            interval: 72
+            uri: uri
+            timeout: 55
+          protocol: tcp
           port: 0
           name: name
-          description: description
           state: creating
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           healthcheck-status:
@@ -13574,15 +13615,6 @@ components:
             status: failure
           strategy: round-robin
         - target-port: 0
-          healthcheck:
-            mode: tcp
-            retries: 7
-            tls-sni: tls-sni
-            port: 46277
-            interval: 72
-            uri: uri
-            timeout: 55
-          protocol: tcp
           instance-pool:
             template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -13631,9 +13663,28 @@ components:
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          label-selector:
+            labels:
+              key: labels
+          instances:
+          - public-ip: public-ip
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            healthcheck-status: failure
+          - public-ip: public-ip
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            healthcheck-status: failure
+          description: description
+          healthcheck:
+            mode: tcp
+            retries: 7
+            tls-sni: tls-sni
+            port: 46277
+            interval: 72
+            uri: uri
+            timeout: 55
+          protocol: tcp
           port: 0
           name: name
-          description: description
           state: creating
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           healthcheck-status:
@@ -13917,6 +13968,19 @@ components:
           type: string
       required:
       - zone
+      type: object
+    load-balancer-service-label-selector:
+      description: "Label selector: the instances carrying all of its labels are backends"
+      example:
+        labels:
+          key: labels
+      properties:
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+      required:
+      - labels
       type: object
     json-schema-kafka:
       additionalProperties: false
@@ -17340,15 +17404,6 @@ components:
       description: Load Balancer Service
       example:
         target-port: 0
-        healthcheck:
-          mode: tcp
-          retries: 7
-          tls-sni: tls-sni
-          port: 46277
-          interval: 72
-          uri: uri
-          timeout: 55
-        protocol: tcp
         instance-pool:
           template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -17397,9 +17452,28 @@ components:
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        label-selector:
+          labels:
+            key: labels
+        instances:
+        - public-ip: public-ip
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          healthcheck-status: failure
+        - public-ip: public-ip
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          healthcheck-status: failure
+        description: description
+        healthcheck:
+          mode: tcp
+          retries: 7
+          tls-sni: tls-sni
+          port: 46277
+          interval: 72
+          uri: uri
+          timeout: 55
+        protocol: tcp
         port: 0
         name: name
-        description: description
         state: creating
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         healthcheck-status:
@@ -17456,6 +17530,13 @@ components:
           - maglev-hash
           - source-hash
           type: string
+        instances:
+          description: "Instances the network traffic is forwarded to, from the instance\
+            \ pool and the label selector"
+          items:
+            $ref: '#/components/schemas/load-balancer-service-instance'
+          readOnly: true
+          type: array
         healthcheck:
           $ref: '#/components/schemas/load-balancer-service-healthcheck'
         id:
@@ -17469,6 +17550,8 @@ components:
             $ref: '#/components/schemas/load-balancer-server-status'
           readOnly: true
           type: array
+        label-selector:
+          $ref: '#/components/schemas/load-balancer-service-label-selector'
       type: object
     access-key:
       description: IAM Access Key
@@ -17623,6 +17706,28 @@ components:
           type: array
       required:
       - instance-types
+      type: object
+    load-balancer-service-instance:
+      description: Instance the network traffic is forwarded to
+      example:
+        public-ip: public-ip
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        healthcheck-status: failure
+      properties:
+        id:
+          description: Instance ID
+          format: uuid
+          type: string
+        public-ip:
+          description: Instance IP the network traffic is forwarded to
+          format: ip
+          type: string
+        healthcheck-status:
+          description: Status of the instance's healthcheck
+          enum:
+          - failure
+          - success
+          type: string
       type: object
     dbaas-endpoint-opensearch-secrets:
       properties:
@@ -18765,31 +18870,46 @@ components:
       example:
         result: result
         success: true
-        create-time: 2000-01-23T04:56:07.000+00:00
+        source-pg-version: source-pg-version
+        source-mysql-version: source-mysql-version
+        target-mysql-version: target-mysql-version
+        target-pg-version: target-pg-version
         task-type: task-type
+        create-time: 2000-01-23T04:56:07.000+00:00
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         result-codes:
         - code: code
           dbname: dbname
         - code: code
           dbname: dbname
+        duration-seconds: 0.8008281904610115
       properties:
+        duration-seconds:
+          type: number
+        target-pg-version:
+          type: string
+        source-mysql-version:
+          type: string
+        task-type:
+          type: string
+        success:
+          type: boolean
+        result:
+          type: string
         id:
           format: uuid
           type: string
         create-time:
           format: date-time
           type: string
-        result:
+        target-mysql-version:
+          type: string
+        source-pg-version:
           type: string
         result-codes:
           items:
             $ref: '#/components/schemas/dbaas_task_result_codes_inner'
           type: array
-        success:
-          type: boolean
-        task-type:
-          type: string
       type: object
     dbaas-endpoint-rsyslog-optional-fields:
       example:
@@ -21538,7 +21658,7 @@ components:
             Nodepool template selection:
 
             * `auto`: the latest template of the Nodepool Kubernetes version and variant;
-            * `pinned`: the template set with `update-sks-nodepool`.
+            * `pinned`: the template set at creation or with `update-sks-nodepool`.
           enum:
           - pinned
           - auto
@@ -26063,6 +26183,8 @@ components:
           type: integer
         healthcheck:
           $ref: '#/components/schemas/load-balancer-service-healthcheck'
+        label-selector:
+          $ref: '#/components/schemas/load-balancer-service-label-selector'
       type: object
     scale_instance_pool_request:
       properties:
@@ -26549,15 +26671,6 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           services:
           - target-port: 0
-            healthcheck:
-              mode: tcp
-              retries: 7
-              tls-sni: tls-sni
-              port: 46277
-              interval: 72
-              uri: uri
-              timeout: 55
-            protocol: tcp
             instance-pool:
               template:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -26606,9 +26719,28 @@ components:
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            label-selector:
+              labels:
+                key: labels
+            instances:
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            description: description
+            healthcheck:
+              mode: tcp
+              retries: 7
+              tls-sni: tls-sni
+              port: 46277
+              interval: 72
+              uri: uri
+              timeout: 55
+            protocol: tcp
             port: 0
             name: name
-            description: description
             state: creating
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             healthcheck-status:
@@ -26618,15 +26750,6 @@ components:
               status: failure
             strategy: round-robin
           - target-port: 0
-            healthcheck:
-              mode: tcp
-              retries: 7
-              tls-sni: tls-sni
-              port: 46277
-              interval: 72
-              uri: uri
-              timeout: 55
-            protocol: tcp
             instance-pool:
               template:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -26675,9 +26798,28 @@ components:
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            label-selector:
+              labels:
+                key: labels
+            instances:
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            description: description
+            healthcheck:
+              mode: tcp
+              retries: 7
+              tls-sni: tls-sni
+              port: 46277
+              interval: 72
+              uri: uri
+              timeout: 55
+            protocol: tcp
             port: 0
             name: name
-            description: description
             state: creating
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             healthcheck-status:
@@ -26697,15 +26839,6 @@ components:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           services:
           - target-port: 0
-            healthcheck:
-              mode: tcp
-              retries: 7
-              tls-sni: tls-sni
-              port: 46277
-              interval: 72
-              uri: uri
-              timeout: 55
-            protocol: tcp
             instance-pool:
               template:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -26754,9 +26887,28 @@ components:
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            label-selector:
+              labels:
+                key: labels
+            instances:
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            description: description
+            healthcheck:
+              mode: tcp
+              retries: 7
+              tls-sni: tls-sni
+              port: 46277
+              interval: 72
+              uri: uri
+              timeout: 55
+            protocol: tcp
             port: 0
             name: name
-            description: description
             state: creating
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             healthcheck-status:
@@ -26766,15 +26918,6 @@ components:
               status: failure
             strategy: round-robin
           - target-port: 0
-            healthcheck:
-              mode: tcp
-              retries: 7
-              tls-sni: tls-sni
-              port: 46277
-              interval: 72
-              uri: uri
-              timeout: 55
-            protocol: tcp
             instance-pool:
               template:
                 id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -26823,9 +26966,28 @@ components:
               anti-affinity-groups:
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
               - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            label-selector:
+              labels:
+                key: labels
+            instances:
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            - public-ip: public-ip
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              healthcheck-status: failure
+            description: description
+            healthcheck:
+              mode: tcp
+              retries: 7
+              tls-sni: tls-sni
+              port: 46277
+              interval: 72
+              uri: uri
+              timeout: 55
+            protocol: tcp
             port: 0
             name: name
-            description: description
             state: creating
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             healthcheck-status:
@@ -27277,6 +27439,16 @@ components:
           type: string
       required:
       - instance
+      type: object
+    create_dbaas_mysql_upgrade_check_request:
+      properties:
+        target-version:
+          description: Target version for upgrade
+          maxLength: 32
+          minLength: 1
+          type: string
+      required:
+      - target-version
       type: object
     create_dbaas_mysql_user_request:
       properties:
@@ -29637,38 +29809,21 @@ components:
       type: object
     add_service_to_load_balancer_request:
       properties:
-        name:
-          description: Load Balancer Service name
-          maxLength: 255
-          minLength: 1
-          type: string
         description:
           description: Load Balancer Service description
           maxLength: 255
           type: string
-        instance-pool:
-          $ref: '#/components/schemas/instance-pool'
         protocol:
           description: Network traffic protocol
           enum:
           - tcp
           - udp
           type: string
-        strategy:
-          description: Load balancing strategy
-          enum:
-          - round-robin
-          - maglev-hash
-          - source-hash
+        name:
+          description: Load Balancer Service name
+          maxLength: 255
+          minLength: 1
           type: string
-        port:
-          description: Port exposed on the Load Balancer's public IP
-          exclusiveMaximum: false
-          exclusiveMinimum: false
-          format: int64
-          maximum: 65535
-          minimum: 1
-          type: integer
         target-port:
           description: Port on which the network traffic will be forwarded to on the
             receiving instance
@@ -29678,11 +29833,29 @@ components:
           maximum: 65535
           minimum: 1
           type: integer
+        port:
+          description: Port exposed on the Load Balancer's public IP
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int64
+          maximum: 65535
+          minimum: 1
+          type: integer
+        instance-pool:
+          $ref: '#/components/schemas/instance-pool'
+        strategy:
+          description: Load balancing strategy
+          enum:
+          - round-robin
+          - maglev-hash
+          - source-hash
+          type: string
         healthcheck:
           $ref: '#/components/schemas/load-balancer-service-healthcheck'
+        label-selector:
+          $ref: '#/components/schemas/load-balancer-service-label-selector'
       required:
       - healthcheck
-      - instance-pool
       - name
       - port
       - protocol
@@ -31508,6 +31681,8 @@ components:
           maxItems: 16
           type: array
           uniqueItems: true
+        template:
+          $ref: '#/components/schemas/template-ref'
         size:
           description: Number of instances
           exclusiveMinimum: true

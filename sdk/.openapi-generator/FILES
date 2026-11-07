@@ -46,6 +46,7 @@ docs/CreateDbaasClickhouseUserRequest.md
 docs/CreateDbaasIntegrationRequest.md
 docs/CreateDbaasKafkaUserRequest.md
 docs/CreateDbaasMysqlDatabaseRequest.md
+docs/CreateDbaasMysqlUpgradeCheckRequest.md
 docs/CreateDbaasMysqlUserRequest.md
 docs/CreateDbaasPgConnectionPoolRequest.md
 docs/CreateDbaasPgDatabaseRequest.md
@@ -433,6 +434,8 @@ docs/LoadBalancer.md
 docs/LoadBalancerServerStatus.md
 docs/LoadBalancerService.md
 docs/LoadBalancerServiceHealthcheck.md
+docs/LoadBalancerServiceInstance.md
+docs/LoadBalancerServiceLabelSelector.md
 docs/MLCommonsSettings.md
 docs/Manager.md
 docs/ModelRef.md
@@ -649,6 +652,7 @@ src/main/java/com/exoscale/sdk/model/CreateDbaasClickhouseUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasIntegrationRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasKafkaUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasMysqlDatabaseRequest.java
+src/main/java/com/exoscale/sdk/model/CreateDbaasMysqlUpgradeCheckRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasMysqlUserRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasPgConnectionPoolRequest.java
 src/main/java/com/exoscale/sdk/model/CreateDbaasPgDatabaseRequest.java
@@ -1035,6 +1039,8 @@ src/main/java/com/exoscale/sdk/model/LoadBalancer.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServerStatus.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerService.java
 src/main/java/com/exoscale/sdk/model/LoadBalancerServiceHealthcheck.java
+src/main/java/com/exoscale/sdk/model/LoadBalancerServiceInstance.java
+src/main/java/com/exoscale/sdk/model/LoadBalancerServiceLabelSelector.java
 src/main/java/com/exoscale/sdk/model/MLCommonsSettings.java
 src/main/java/com/exoscale/sdk/model/Manager.java
 src/main/java/com/exoscale/sdk/model/ModelRef.java

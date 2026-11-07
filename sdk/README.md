@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-05T07:10:11.999406806Z[Etc/UTC]
+- Build date: 2026-11-07T07:08:59.430779880Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-4a4d4bd</version>
+    <version>0.0.5-SNAPSHOT-be5b9af</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-4a4d4bd'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-be5b9af'
 }
 ```
 
@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**createDbaasKafkaTopicAclConfig**](sdk/docs/ExoscaleApi.md#createDbaasKafkaTopicAclConfig) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry
 *ExoscaleApi* | [**createDbaasKafkaUser**](sdk/docs/ExoscaleApi.md#createDbaasKafkaUser) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user
 *ExoscaleApi* | [**createDbaasMysqlDatabase**](sdk/docs/ExoscaleApi.md#createDbaasMysqlDatabase) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database
+*ExoscaleApi* | [**createDbaasMysqlUpgradeCheck**](sdk/docs/ExoscaleApi.md#createDbaasMysqlUpgradeCheck) | **POST** /dbaas-mysql/{service-name}/upgrade-check | 
 *ExoscaleApi* | [**createDbaasMysqlUser**](sdk/docs/ExoscaleApi.md#createDbaasMysqlUser) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user
 *ExoscaleApi* | [**createDbaasOpensearchUser**](sdk/docs/ExoscaleApi.md#createDbaasOpensearchUser) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user
 *ExoscaleApi* | [**createDbaasPgConnectionPool**](sdk/docs/ExoscaleApi.md#createDbaasPgConnectionPool) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool
@@ -513,6 +514,7 @@ Class | Method | HTTP request | Description
  - [CreateDbaasIntegrationRequest](sdk/docs/CreateDbaasIntegrationRequest.md)
  - [CreateDbaasKafkaUserRequest](sdk/docs/CreateDbaasKafkaUserRequest.md)
  - [CreateDbaasMysqlDatabaseRequest](sdk/docs/CreateDbaasMysqlDatabaseRequest.md)
+ - [CreateDbaasMysqlUpgradeCheckRequest](sdk/docs/CreateDbaasMysqlUpgradeCheckRequest.md)
  - [CreateDbaasMysqlUserRequest](sdk/docs/CreateDbaasMysqlUserRequest.md)
  - [CreateDbaasPgConnectionPoolRequest](sdk/docs/CreateDbaasPgConnectionPoolRequest.md)
  - [CreateDbaasPgDatabaseRequest](sdk/docs/CreateDbaasPgDatabaseRequest.md)
@@ -899,6 +901,8 @@ Class | Method | HTTP request | Description
  - [LoadBalancerServerStatus](sdk/docs/LoadBalancerServerStatus.md)
  - [LoadBalancerService](sdk/docs/LoadBalancerService.md)
  - [LoadBalancerServiceHealthcheck](sdk/docs/LoadBalancerServiceHealthcheck.md)
+ - [LoadBalancerServiceInstance](sdk/docs/LoadBalancerServiceInstance.md)
+ - [LoadBalancerServiceLabelSelector](sdk/docs/LoadBalancerServiceLabelSelector.md)
  - [MLCommonsSettings](sdk/docs/MLCommonsSettings.md)
  - [Manager](sdk/docs/Manager.md)
  - [ModelRef](sdk/docs/ModelRef.md)

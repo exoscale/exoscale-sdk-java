@@ -37,6 +37,7 @@ import com.exoscale.sdk.model.CreateDbaasClickhouseUserRequest;
 import com.exoscale.sdk.model.CreateDbaasIntegrationRequest;
 import com.exoscale.sdk.model.CreateDbaasKafkaUserRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlDatabaseRequest;
+import com.exoscale.sdk.model.CreateDbaasMysqlUpgradeCheckRequest;
 import com.exoscale.sdk.model.CreateDbaasMysqlUserRequest;
 import com.exoscale.sdk.model.CreateDbaasPgConnectionPoolRequest;
 import com.exoscale.sdk.model.CreateDbaasPgDatabaseRequest;
@@ -858,6 +859,24 @@ public class ExoscaleApiTest {
         CreateDbaasMysqlDatabaseRequest createDbaasMysqlDatabaseRequest = null;
         Operation response = 
         api.createDbaasMysqlDatabase(serviceName, createDbaasMysqlDatabaseRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Check whether you can upgrade MySQL service to a newer version
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createDbaasMysqlUpgradeCheckTest() throws ApiException {
+        String serviceName = null;
+        CreateDbaasMysqlUpgradeCheckRequest createDbaasMysqlUpgradeCheckRequest = null;
+        DbaasTask response = 
+        api.createDbaasMysqlUpgradeCheck(serviceName, createDbaasMysqlUpgradeCheckRequest);
         
         // TODO: test validations
     }

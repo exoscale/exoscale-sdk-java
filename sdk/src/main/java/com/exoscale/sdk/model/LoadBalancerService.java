@@ -22,6 +22,8 @@ import java.util.HashMap;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.LoadBalancerServerStatus;
 import com.exoscale.sdk.model.LoadBalancerServiceHealthcheck;
+import com.exoscale.sdk.model.LoadBalancerServiceInstance;
+import com.exoscale.sdk.model.LoadBalancerServiceLabelSelector;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -46,9 +48,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   LoadBalancerService.JSON_PROPERTY_PORT,
   LoadBalancerService.JSON_PROPERTY_INSTANCE_POOL,
   LoadBalancerService.JSON_PROPERTY_STRATEGY,
+  LoadBalancerService.JSON_PROPERTY_INSTANCES,
   LoadBalancerService.JSON_PROPERTY_HEALTHCHECK,
   LoadBalancerService.JSON_PROPERTY_ID,
-  LoadBalancerService.JSON_PROPERTY_HEALTHCHECK_STATUS
+  LoadBalancerService.JSON_PROPERTY_HEALTHCHECK_STATUS,
+  LoadBalancerService.JSON_PROPERTY_LABEL_SELECTOR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class LoadBalancerService {
@@ -189,6 +193,9 @@ public class LoadBalancerService {
   public static final String JSON_PROPERTY_STRATEGY = "strategy";
   private StrategyEnum strategy;
 
+  public static final String JSON_PROPERTY_INSTANCES = "instances";
+  private List<LoadBalancerServiceInstance> instances;
+
   public static final String JSON_PROPERTY_HEALTHCHECK = "healthcheck";
   private LoadBalancerServiceHealthcheck healthcheck;
 
@@ -198,17 +205,22 @@ public class LoadBalancerService {
   public static final String JSON_PROPERTY_HEALTHCHECK_STATUS = "healthcheck-status";
   private List<LoadBalancerServerStatus> healthcheckStatus;
 
+  public static final String JSON_PROPERTY_LABEL_SELECTOR = "label-selector";
+  private LoadBalancerServiceLabelSelector labelSelector;
+
   public LoadBalancerService() { 
   }
 
   @JsonCreator
   public LoadBalancerService(
     @JsonProperty(JSON_PROPERTY_STATE) StateEnum state, 
+    @JsonProperty(JSON_PROPERTY_INSTANCES) List<LoadBalancerServiceInstance> instances, 
     @JsonProperty(JSON_PROPERTY_ID) UUID id, 
     @JsonProperty(JSON_PROPERTY_HEALTHCHECK_STATUS) List<LoadBalancerServerStatus> healthcheckStatus
   ) {
   this();
     this.state = state;
+    this.instances = instances;
     this.id = id;
     this.healthcheckStatus = healthcheckStatus;
   }
@@ -405,6 +417,21 @@ public class LoadBalancerService {
   }
 
 
+   /**
+   * Instances the network traffic is forwarded to, from the instance pool and the label selector
+   * @return instances
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<LoadBalancerServiceInstance> getInstances() {
+    return instances;
+  }
+
+
+
+
   public LoadBalancerService healthcheck(LoadBalancerServiceHealthcheck healthcheck) {
     this.healthcheck = healthcheck;
     return this;
@@ -460,6 +487,31 @@ public class LoadBalancerService {
 
 
 
+  public LoadBalancerService labelSelector(LoadBalancerServiceLabelSelector labelSelector) {
+    this.labelSelector = labelSelector;
+    return this;
+  }
+
+   /**
+   * Get labelSelector
+   * @return labelSelector
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LoadBalancerServiceLabelSelector getLabelSelector() {
+    return labelSelector;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABEL_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabelSelector(LoadBalancerServiceLabelSelector labelSelector) {
+    this.labelSelector = labelSelector;
+  }
+
+
   /**
    * Return true if this load-balancer-service object is equal to o.
    */
@@ -480,14 +532,16 @@ public class LoadBalancerService {
         Objects.equals(this.port, loadBalancerService.port) &&
         Objects.equals(this.instancePool, loadBalancerService.instancePool) &&
         Objects.equals(this.strategy, loadBalancerService.strategy) &&
+        Objects.equals(this.instances, loadBalancerService.instances) &&
         Objects.equals(this.healthcheck, loadBalancerService.healthcheck) &&
         Objects.equals(this.id, loadBalancerService.id) &&
-        Objects.equals(this.healthcheckStatus, loadBalancerService.healthcheckStatus);
+        Objects.equals(this.healthcheckStatus, loadBalancerService.healthcheckStatus) &&
+        Objects.equals(this.labelSelector, loadBalancerService.labelSelector);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, protocol, name, state, targetPort, port, instancePool, strategy, healthcheck, id, healthcheckStatus);
+    return Objects.hash(description, protocol, name, state, targetPort, port, instancePool, strategy, instances, healthcheck, id, healthcheckStatus, labelSelector);
   }
 
   @Override
@@ -502,9 +556,11 @@ public class LoadBalancerService {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    instancePool: ").append(toIndentedString(instancePool)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
+    sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    healthcheck: ").append(toIndentedString(healthcheck)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    healthcheckStatus: ").append(toIndentedString(healthcheckStatus)).append("\n");
+    sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -592,6 +648,16 @@ public class LoadBalancerService {
       joiner.add(String.format("%sstrategy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStrategy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `instances` to the URL query string
+    if (getInstances() != null) {
+      for (int i = 0; i < getInstances().size(); i++) {
+        if (getInstances().get(i) != null) {
+          joiner.add(getInstances().get(i).toUrlQueryString(String.format("%sinstances%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
     // add `healthcheck` to the URL query string
     if (getHealthcheck() != null) {
       joiner.add(getHealthcheck().toUrlQueryString(prefix + "healthcheck" + suffix));
@@ -610,6 +676,11 @@ public class LoadBalancerService {
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
+    }
+
+    // add `label-selector` to the URL query string
+    if (getLabelSelector() != null) {
+      joiner.add(getLabelSelector().toUrlQueryString(prefix + "label-selector" + suffix));
     }
 
     return joiner.toString();

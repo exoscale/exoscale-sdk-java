@@ -14,6 +14,7 @@
 |**port** | **Long** | Port exposed on the Load Balancer&#39;s public IP |  [optional] |
 |**targetPort** | **Long** | Port on which the network traffic will be forwarded to on the receiving instance |  [optional] |
 |**healthcheck** | [**LoadBalancerServiceHealthcheck**](LoadBalancerServiceHealthcheck.md) |  |  [optional] |
+|**labelSelector** | [**LoadBalancerServiceLabelSelector**](LoadBalancerServiceLabelSelector.md) |  |  [optional] |
 
 
 

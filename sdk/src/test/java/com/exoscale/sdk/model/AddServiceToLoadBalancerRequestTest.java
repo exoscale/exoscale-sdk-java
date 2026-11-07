@@ -15,6 +15,7 @@ package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.LoadBalancerServiceHealthcheck;
+import com.exoscale.sdk.model.LoadBalancerServiceLabelSelector;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -40,27 +41,11 @@ public class AddServiceToLoadBalancerRequestTest {
     }
 
     /**
-     * Test the property 'name'
-     */
-    @Test
-    public void nameTest() {
-        // TODO: test name
-    }
-
-    /**
      * Test the property 'description'
      */
     @Test
     public void descriptionTest() {
         // TODO: test description
-    }
-
-    /**
-     * Test the property 'instancePool'
-     */
-    @Test
-    public void instancePoolTest() {
-        // TODO: test instancePool
     }
 
     /**
@@ -72,19 +57,11 @@ public class AddServiceToLoadBalancerRequestTest {
     }
 
     /**
-     * Test the property 'strategy'
+     * Test the property 'name'
      */
     @Test
-    public void strategyTest() {
-        // TODO: test strategy
-    }
-
-    /**
-     * Test the property 'port'
-     */
-    @Test
-    public void portTest() {
-        // TODO: test port
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
@@ -96,11 +73,43 @@ public class AddServiceToLoadBalancerRequestTest {
     }
 
     /**
+     * Test the property 'port'
+     */
+    @Test
+    public void portTest() {
+        // TODO: test port
+    }
+
+    /**
+     * Test the property 'instancePool'
+     */
+    @Test
+    public void instancePoolTest() {
+        // TODO: test instancePool
+    }
+
+    /**
+     * Test the property 'strategy'
+     */
+    @Test
+    public void strategyTest() {
+        // TODO: test strategy
+    }
+
+    /**
      * Test the property 'healthcheck'
      */
     @Test
     public void healthcheckTest() {
         // TODO: test healthcheck
+    }
+
+    /**
+     * Test the property 'labelSelector'
+     */
+    @Test
+    public void labelSelectorTest() {
+        // TODO: test labelSelector
     }
 
 }

@@ -262,7 +262,7 @@ public class SksNodepool {
   private CpuManagerConfig cpuManagerConfig;
 
   /**
-   * Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set with &#x60;update-sks-nodepool&#x60;.
+   * Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set at creation or with &#x60;update-sks-nodepool&#x60;.
    */
   public enum TemplateSelectionEnum {
     PINNED("pinned"),
@@ -899,7 +899,7 @@ public class SksNodepool {
 
 
    /**
-   * Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set with &#x60;update-sks-nodepool&#x60;.
+   * Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set at creation or with &#x60;update-sks-nodepool&#x60;.
    * @return templateSelection
   **/
   @javax.annotation.Nullable

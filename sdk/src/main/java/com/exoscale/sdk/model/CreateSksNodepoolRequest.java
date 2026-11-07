@@ -28,6 +28,7 @@ import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
+import com.exoscale.sdk.model.TemplateRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -60,6 +61,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_NAME,
   CreateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_TYPE,
   CreateSksNodepoolRequest.JSON_PROPERTY_PRIVATE_NETWORKS,
+  CreateSksNodepoolRequest.JSON_PROPERTY_TEMPLATE,
   CreateSksNodepoolRequest.JSON_PROPERTY_SIZE,
   CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_IMAGE_GC,
   CreateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
@@ -136,6 +138,9 @@ public class CreateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_PRIVATE_NETWORKS = "private-networks";
   private Set<PrivateNetworkRef> privateNetworks;
+
+  public static final String JSON_PROPERTY_TEMPLATE = "template";
+  private TemplateRef template;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -493,6 +498,31 @@ public class CreateSksNodepoolRequest {
   }
 
 
+  public CreateSksNodepoolRequest template(TemplateRef template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TemplateRef getTemplate() {
+    return template;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTemplate(TemplateRef template) {
+    this.template = template;
+  }
+
+
   public CreateSksNodepoolRequest size(Long size) {
     this.size = size;
     return this;
@@ -762,6 +792,7 @@ public class CreateSksNodepoolRequest {
         Objects.equals(this.name, createSksNodepoolRequest.name) &&
         Objects.equals(this.instanceType, createSksNodepoolRequest.instanceType) &&
         Objects.equals(this.privateNetworks, createSksNodepoolRequest.privateNetworks) &&
+        Objects.equals(this.template, createSksNodepoolRequest.template) &&
         Objects.equals(this.size, createSksNodepoolRequest.size) &&
         Objects.equals(this.kubeletImageGc, createSksNodepoolRequest.kubeletImageGc) &&
         Objects.equals(this.instancePrefix, createSksNodepoolRequest.instancePrefix) &&
@@ -779,7 +810,7 @@ public class CreateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, size, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, cpuManagerConfig, diskSize, nvidiaMigProfiles);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, size, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, cpuManagerConfig, diskSize, nvidiaMigProfiles);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -803,6 +834,7 @@ public class CreateSksNodepoolRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    privateNetworks: ").append(toIndentedString(privateNetworks)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    kubeletImageGc: ").append(toIndentedString(kubeletImageGc)).append("\n");
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
@@ -937,6 +969,11 @@ public class CreateSksNodepoolRequest {
         }
       }
       i++;
+    }
+
+    // add `template` to the URL query string
+    if (getTemplate() != null) {
+      joiner.add(getTemplate().toUrlQueryString(prefix + "template" + suffix));
     }
 
     // add `size` to the URL query string

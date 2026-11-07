@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,6 +44,54 @@ public class DbaasTaskTest {
     }
 
     /**
+     * Test the property 'durationSeconds'
+     */
+    @Test
+    public void durationSecondsTest() {
+        // TODO: test durationSeconds
+    }
+
+    /**
+     * Test the property 'targetPgVersion'
+     */
+    @Test
+    public void targetPgVersionTest() {
+        // TODO: test targetPgVersion
+    }
+
+    /**
+     * Test the property 'sourceMysqlVersion'
+     */
+    @Test
+    public void sourceMysqlVersionTest() {
+        // TODO: test sourceMysqlVersion
+    }
+
+    /**
+     * Test the property 'taskType'
+     */
+    @Test
+    public void taskTypeTest() {
+        // TODO: test taskType
+    }
+
+    /**
+     * Test the property 'success'
+     */
+    @Test
+    public void successTest() {
+        // TODO: test success
+    }
+
+    /**
+     * Test the property 'result'
+     */
+    @Test
+    public void resultTest() {
+        // TODO: test result
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
@@ -59,11 +108,19 @@ public class DbaasTaskTest {
     }
 
     /**
-     * Test the property 'result'
+     * Test the property 'targetMysqlVersion'
      */
     @Test
-    public void resultTest() {
-        // TODO: test result
+    public void targetMysqlVersionTest() {
+        // TODO: test targetMysqlVersion
+    }
+
+    /**
+     * Test the property 'sourcePgVersion'
+     */
+    @Test
+    public void sourcePgVersionTest() {
+        // TODO: test sourcePgVersion
     }
 
     /**
@@ -72,22 +129,6 @@ public class DbaasTaskTest {
     @Test
     public void resultCodesTest() {
         // TODO: test resultCodes
-    }
-
-    /**
-     * Test the property 'success'
-     */
-    @Test
-    public void successTest() {
-        // TODO: test success
-    }
-
-    /**
-     * Test the property 'taskType'
-     */
-    @Test
-    public void taskTypeTest() {
-        // TODO: test taskType
     }
 
 }

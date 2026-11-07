@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.InstancePool;
 import com.exoscale.sdk.model.LoadBalancerServiceHealthcheck;
+import com.exoscale.sdk.model.LoadBalancerServiceLabelSelector;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,25 +35,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * AddServiceToLoadBalancerRequest
  */
 @JsonPropertyOrder({
-  AddServiceToLoadBalancerRequest.JSON_PROPERTY_NAME,
   AddServiceToLoadBalancerRequest.JSON_PROPERTY_DESCRIPTION,
-  AddServiceToLoadBalancerRequest.JSON_PROPERTY_INSTANCE_POOL,
   AddServiceToLoadBalancerRequest.JSON_PROPERTY_PROTOCOL,
-  AddServiceToLoadBalancerRequest.JSON_PROPERTY_STRATEGY,
-  AddServiceToLoadBalancerRequest.JSON_PROPERTY_PORT,
+  AddServiceToLoadBalancerRequest.JSON_PROPERTY_NAME,
   AddServiceToLoadBalancerRequest.JSON_PROPERTY_TARGET_PORT,
-  AddServiceToLoadBalancerRequest.JSON_PROPERTY_HEALTHCHECK
+  AddServiceToLoadBalancerRequest.JSON_PROPERTY_PORT,
+  AddServiceToLoadBalancerRequest.JSON_PROPERTY_INSTANCE_POOL,
+  AddServiceToLoadBalancerRequest.JSON_PROPERTY_STRATEGY,
+  AddServiceToLoadBalancerRequest.JSON_PROPERTY_HEALTHCHECK,
+  AddServiceToLoadBalancerRequest.JSON_PROPERTY_LABEL_SELECTOR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class AddServiceToLoadBalancerRequest {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
-
-  public static final String JSON_PROPERTY_INSTANCE_POOL = "instance-pool";
-  private InstancePool instancePool;
 
   /**
    * Network traffic protocol
@@ -91,6 +87,18 @@ public class AddServiceToLoadBalancerRequest {
 
   public static final String JSON_PROPERTY_PROTOCOL = "protocol";
   private ProtocolEnum protocol;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public static final String JSON_PROPERTY_TARGET_PORT = "target-port";
+  private Long targetPort;
+
+  public static final String JSON_PROPERTY_PORT = "port";
+  private Long port;
+
+  public static final String JSON_PROPERTY_INSTANCE_POOL = "instance-pool";
+  private InstancePool instancePool;
 
   /**
    * Load balancing strategy
@@ -132,42 +140,14 @@ public class AddServiceToLoadBalancerRequest {
   public static final String JSON_PROPERTY_STRATEGY = "strategy";
   private StrategyEnum strategy;
 
-  public static final String JSON_PROPERTY_PORT = "port";
-  private Long port;
-
-  public static final String JSON_PROPERTY_TARGET_PORT = "target-port";
-  private Long targetPort;
-
   public static final String JSON_PROPERTY_HEALTHCHECK = "healthcheck";
   private LoadBalancerServiceHealthcheck healthcheck;
 
+  public static final String JSON_PROPERTY_LABEL_SELECTOR = "label-selector";
+  private LoadBalancerServiceLabelSelector labelSelector;
+
   public AddServiceToLoadBalancerRequest() { 
   }
-
-  public AddServiceToLoadBalancerRequest name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Load Balancer Service name
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
 
   public AddServiceToLoadBalancerRequest description(String description) {
     this.description = description;
@@ -191,31 +171,6 @@ public class AddServiceToLoadBalancerRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public AddServiceToLoadBalancerRequest instancePool(InstancePool instancePool) {
-    this.instancePool = instancePool;
-    return this;
-  }
-
-   /**
-   * Get instancePool
-   * @return instancePool
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INSTANCE_POOL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public InstancePool getInstancePool() {
-    return instancePool;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INSTANCE_POOL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInstancePool(InstancePool instancePool) {
-    this.instancePool = instancePool;
   }
 
 
@@ -244,55 +199,28 @@ public class AddServiceToLoadBalancerRequest {
   }
 
 
-  public AddServiceToLoadBalancerRequest strategy(StrategyEnum strategy) {
-    this.strategy = strategy;
+  public AddServiceToLoadBalancerRequest name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Load balancing strategy
-   * @return strategy
+   * Load Balancer Service name
+   * @return name
   **/
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public StrategyEnum getStrategy() {
-    return strategy;
+  public String getName() {
+    return name;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStrategy(StrategyEnum strategy) {
-    this.strategy = strategy;
-  }
-
-
-  public AddServiceToLoadBalancerRequest port(Long port) {
-    this.port = port;
-    return this;
-  }
-
-   /**
-   * Port exposed on the Load Balancer&#39;s public IP
-   * minimum: 1
-   * maximum: 65535
-   * @return port
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PORT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Long getPort() {
-    return port;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_PORT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPort(Long port) {
-    this.port = port;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -323,6 +251,83 @@ public class AddServiceToLoadBalancerRequest {
   }
 
 
+  public AddServiceToLoadBalancerRequest port(Long port) {
+    this.port = port;
+    return this;
+  }
+
+   /**
+   * Port exposed on the Load Balancer&#39;s public IP
+   * minimum: 1
+   * maximum: 65535
+   * @return port
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Long getPort() {
+    return port;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PORT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPort(Long port) {
+    this.port = port;
+  }
+
+
+  public AddServiceToLoadBalancerRequest instancePool(InstancePool instancePool) {
+    this.instancePool = instancePool;
+    return this;
+  }
+
+   /**
+   * Get instancePool
+   * @return instancePool
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INSTANCE_POOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public InstancePool getInstancePool() {
+    return instancePool;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INSTANCE_POOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInstancePool(InstancePool instancePool) {
+    this.instancePool = instancePool;
+  }
+
+
+  public AddServiceToLoadBalancerRequest strategy(StrategyEnum strategy) {
+    this.strategy = strategy;
+    return this;
+  }
+
+   /**
+   * Load balancing strategy
+   * @return strategy
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public StrategyEnum getStrategy() {
+    return strategy;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STRATEGY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setStrategy(StrategyEnum strategy) {
+    this.strategy = strategy;
+  }
+
+
   public AddServiceToLoadBalancerRequest healthcheck(LoadBalancerServiceHealthcheck healthcheck) {
     this.healthcheck = healthcheck;
     return this;
@@ -348,6 +353,31 @@ public class AddServiceToLoadBalancerRequest {
   }
 
 
+  public AddServiceToLoadBalancerRequest labelSelector(LoadBalancerServiceLabelSelector labelSelector) {
+    this.labelSelector = labelSelector;
+    return this;
+  }
+
+   /**
+   * Get labelSelector
+   * @return labelSelector
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LoadBalancerServiceLabelSelector getLabelSelector() {
+    return labelSelector;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LABEL_SELECTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLabelSelector(LoadBalancerServiceLabelSelector labelSelector) {
+    this.labelSelector = labelSelector;
+  }
+
+
   /**
    * Return true if this add_service_to_load_balancer_request object is equal to o.
    */
@@ -360,33 +390,35 @@ public class AddServiceToLoadBalancerRequest {
       return false;
     }
     AddServiceToLoadBalancerRequest addServiceToLoadBalancerRequest = (AddServiceToLoadBalancerRequest) o;
-    return Objects.equals(this.name, addServiceToLoadBalancerRequest.name) &&
-        Objects.equals(this.description, addServiceToLoadBalancerRequest.description) &&
-        Objects.equals(this.instancePool, addServiceToLoadBalancerRequest.instancePool) &&
+    return Objects.equals(this.description, addServiceToLoadBalancerRequest.description) &&
         Objects.equals(this.protocol, addServiceToLoadBalancerRequest.protocol) &&
-        Objects.equals(this.strategy, addServiceToLoadBalancerRequest.strategy) &&
-        Objects.equals(this.port, addServiceToLoadBalancerRequest.port) &&
+        Objects.equals(this.name, addServiceToLoadBalancerRequest.name) &&
         Objects.equals(this.targetPort, addServiceToLoadBalancerRequest.targetPort) &&
-        Objects.equals(this.healthcheck, addServiceToLoadBalancerRequest.healthcheck);
+        Objects.equals(this.port, addServiceToLoadBalancerRequest.port) &&
+        Objects.equals(this.instancePool, addServiceToLoadBalancerRequest.instancePool) &&
+        Objects.equals(this.strategy, addServiceToLoadBalancerRequest.strategy) &&
+        Objects.equals(this.healthcheck, addServiceToLoadBalancerRequest.healthcheck) &&
+        Objects.equals(this.labelSelector, addServiceToLoadBalancerRequest.labelSelector);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, instancePool, protocol, strategy, port, targetPort, healthcheck);
+    return Objects.hash(description, protocol, name, targetPort, port, instancePool, strategy, healthcheck, labelSelector);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddServiceToLoadBalancerRequest {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    instancePool: ").append(toIndentedString(instancePool)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
-    sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    targetPort: ").append(toIndentedString(targetPort)).append("\n");
+    sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    instancePool: ").append(toIndentedString(instancePool)).append("\n");
+    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("    healthcheck: ").append(toIndentedString(healthcheck)).append("\n");
+    sb.append("    labelSelector: ").append(toIndentedString(labelSelector)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -434,19 +466,9 @@ public class AddServiceToLoadBalancerRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `description` to the URL query string
     if (getDescription() != null) {
       joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `instance-pool` to the URL query string
-    if (getInstancePool() != null) {
-      joiner.add(getInstancePool().toUrlQueryString(prefix + "instance-pool" + suffix));
     }
 
     // add `protocol` to the URL query string
@@ -454,14 +476,9 @@ public class AddServiceToLoadBalancerRequest {
       joiner.add(String.format("%sprotocol%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProtocol()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `strategy` to the URL query string
-    if (getStrategy() != null) {
-      joiner.add(String.format("%sstrategy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStrategy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `port` to the URL query string
-    if (getPort() != null) {
-      joiner.add(String.format("%sport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `name` to the URL query string
+    if (getName() != null) {
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `target-port` to the URL query string
@@ -469,9 +486,29 @@ public class AddServiceToLoadBalancerRequest {
       joiner.add(String.format("%starget-port%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTargetPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `port` to the URL query string
+    if (getPort() != null) {
+      joiner.add(String.format("%sport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPort()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `instance-pool` to the URL query string
+    if (getInstancePool() != null) {
+      joiner.add(getInstancePool().toUrlQueryString(prefix + "instance-pool" + suffix));
+    }
+
+    // add `strategy` to the URL query string
+    if (getStrategy() != null) {
+      joiner.add(String.format("%sstrategy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStrategy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `healthcheck` to the URL query string
     if (getHealthcheck() != null) {
       joiner.add(getHealthcheck().toUrlQueryString(prefix + "healthcheck" + suffix));
+    }
+
+    // add `label-selector` to the URL query string
+    if (getLabelSelector() != null) {
+      joiner.add(getLabelSelector().toUrlQueryString(prefix + "label-selector" + suffix));
     }
 
     return joiner.toString();

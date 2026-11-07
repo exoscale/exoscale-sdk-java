@@ -34,6 +34,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**createDbaasKafkaTopicAclConfig**](ExoscaleApi.md#createDbaasKafkaTopicAclConfig) | **POST** /dbaas-kafka/{name}/topic/acl-config | Add a Kafka topic ACL entry |
 | [**createDbaasKafkaUser**](ExoscaleApi.md#createDbaasKafkaUser) | **POST** /dbaas-kafka/{service-name}/user | Create a DBaaS Kafka user |
 | [**createDbaasMysqlDatabase**](ExoscaleApi.md#createDbaasMysqlDatabase) | **POST** /dbaas-mysql/{service-name}/database | Create a DBaaS MySQL database |
+| [**createDbaasMysqlUpgradeCheck**](ExoscaleApi.md#createDbaasMysqlUpgradeCheck) | **POST** /dbaas-mysql/{service-name}/upgrade-check |  |
 | [**createDbaasMysqlUser**](ExoscaleApi.md#createDbaasMysqlUser) | **POST** /dbaas-mysql/{service-name}/user | Create a DBaaS MySQL user |
 | [**createDbaasOpensearchUser**](ExoscaleApi.md#createDbaasOpensearchUser) | **POST** /dbaas-opensearch/{service-name}/user | Create a DBaaS OpenSearch user |
 | [**createDbaasPgConnectionPool**](ExoscaleApi.md#createDbaasPgConnectionPool) | **POST** /dbaas-postgres/{service-name}/connection-pool | Create a DBaaS PostgreSQL connection pool |
@@ -3201,6 +3202,101 @@ No authorization required
 ### Return type
 
 ApiResponse<[**Operation**](Operation.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+## createDbaasMysqlUpgradeCheck
+
+> DbaasTask createDbaasMysqlUpgradeCheck(serviceName, createDbaasMysqlUpgradeCheckRequest)
+
+
+
+Check whether you can upgrade MySQL service to a newer version
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        String serviceName = "serviceName_example"; // String | 
+        CreateDbaasMysqlUpgradeCheckRequest createDbaasMysqlUpgradeCheckRequest = new CreateDbaasMysqlUpgradeCheckRequest(); // CreateDbaasMysqlUpgradeCheckRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            DbaasTask result = client.createDbaasMysqlUpgradeCheck(serviceName, createDbaasMysqlUpgradeCheckRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#createDbaasMysqlUpgradeCheck");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **createDbaasMysqlUpgradeCheckRequest** | [**CreateDbaasMysqlUpgradeCheckRequest**](CreateDbaasMysqlUpgradeCheckRequest.md)|  | |
+
+### Return type
+
+[**DbaasTask**](DbaasTask.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **serviceName** | **String**|  | |
+| **createDbaasMysqlUpgradeCheckRequest** | [**CreateDbaasMysqlUpgradeCheckRequest**](CreateDbaasMysqlUpgradeCheckRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**DbaasTask**](DbaasTask.md)>
 
 
 ### Authorization
@@ -27906,7 +28002,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **serviceId** | **UUID**|  | |
-| **field** | **String**|  | [enum: description] |
+| **field** | **String**|  | [enum: description, label-selector] |
 
 ### Return type
 
@@ -27935,7 +28031,7 @@ No authorization required
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
 | **serviceId** | **UUID**|  | |
-| **field** | **String**|  | [enum: description] |
+| **field** | **String**|  | [enum: description, label-selector] |
 
 ### Return type
 
