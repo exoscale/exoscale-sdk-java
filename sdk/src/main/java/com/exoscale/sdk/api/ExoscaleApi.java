@@ -1145,7 +1145,7 @@ public class ExoscaleApi {
   }
   /**
    * Attach a Compute instance to a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param attachInstanceToPrivateNetworkRequest  (required)
    * @return Operation
@@ -1158,7 +1158,7 @@ public class ExoscaleApi {
 
   /**
    * Attach a Compute instance to a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param attachInstanceToPrivateNetworkRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -5873,7 +5873,7 @@ public class ExoscaleApi {
   }
   /**
    * Create a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param createPrivateNetworkRequest  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -5885,7 +5885,7 @@ public class ExoscaleApi {
 
   /**
    * Create a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param createPrivateNetworkRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -10471,7 +10471,7 @@ public class ExoscaleApi {
   }
   /**
    * Delete a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @return Operation
    * @throws ApiException if fails to make API call
@@ -10483,7 +10483,7 @@ public class ExoscaleApi {
 
   /**
    * Delete a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @return ApiResponse&lt;Operation&gt;
    * @throws ApiException if fails to make API call
@@ -11984,7 +11984,7 @@ public class ExoscaleApi {
   }
   /**
    * Detach a Compute instance from a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param detachInstanceFromPrivateNetworkRequest  (required)
    * @return Operation
@@ -11997,7 +11997,7 @@ public class ExoscaleApi {
 
   /**
    * Detach a Compute instance from a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param detachInstanceFromPrivateNetworkRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -19182,7 +19182,7 @@ public class ExoscaleApi {
   }
   /**
    * Retrieve Private Network details
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @return PrivateNetwork
    * @throws ApiException if fails to make API call
@@ -19194,7 +19194,7 @@ public class ExoscaleApi {
 
   /**
    * Retrieve Private Network details
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @return ApiResponse&lt;PrivateNetwork&gt;
    * @throws ApiException if fails to make API call
@@ -23396,7 +23396,7 @@ public class ExoscaleApi {
   }
   /**
    * List Private Networks
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @return ListPrivateNetworks200Response
    * @throws ApiException if fails to make API call
    */
@@ -23407,7 +23407,7 @@ public class ExoscaleApi {
 
   /**
    * List Private Networks
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @return ApiResponse&lt;ListPrivateNetworks200Response&gt;
    * @throws ApiException if fails to make API call
    */
@@ -27023,7 +27023,7 @@ public class ExoscaleApi {
   }
   /**
    * Reset Private Network field
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param field  (required)
    * @return Operation
@@ -27036,7 +27036,7 @@ public class ExoscaleApi {
 
   /**
    * Reset Private Network field
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param field  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -33757,7 +33757,7 @@ public class ExoscaleApi {
   }
   /**
    * Update a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param updatePrivateNetworkRequest  (required)
    * @return Operation
@@ -33770,7 +33770,7 @@ public class ExoscaleApi {
 
   /**
    * Update a Private Network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param updatePrivateNetworkRequest  (required)
    * @return ApiResponse&lt;Operation&gt;
@@ -33854,7 +33854,7 @@ public class ExoscaleApi {
   }
   /**
    * Update the IP address of an instance attached to a managed private network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param updatePrivateNetworkInstanceIpRequest  (required)
    * @return Operation
@@ -33867,7 +33867,7 @@ public class ExoscaleApi {
 
   /**
    * Update the IP address of an instance attached to a managed private network
-   * 
+   * Private Networks are deprecated in favor of VPC.
    * @param id  (required)
    * @param updatePrivateNetworkInstanceIpRequest  (required)
    * @return ApiResponse&lt;Operation&gt;

@@ -476,7 +476,7 @@ public class ExoscaleApiTest {
     /**
      * Attach a Compute instance to a Private Network
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1360,7 +1360,7 @@ public class ExoscaleApiTest {
     /**
      * Create a Private Network
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2263,7 +2263,7 @@ public class ExoscaleApiTest {
     /**
      * Delete a Private Network
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2559,7 +2559,7 @@ public class ExoscaleApiTest {
     /**
      * Detach a Compute instance from a Private Network
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -3978,7 +3978,7 @@ public class ExoscaleApiTest {
     /**
      * Retrieve Private Network details
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -4816,7 +4816,7 @@ public class ExoscaleApiTest {
     /**
      * List Private Networks
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -5514,7 +5514,7 @@ public class ExoscaleApiTest {
     /**
      * Reset Private Network field
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -6795,7 +6795,7 @@ public class ExoscaleApiTest {
     /**
      * Update a Private Network
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -6813,7 +6813,7 @@ public class ExoscaleApiTest {
     /**
      * Update the IP address of an instance attached to a managed private network
      *
-     * 
+     * Private Networks are deprecated in favor of VPC.
      *
      * @throws ApiException
      *          if the Api call fails

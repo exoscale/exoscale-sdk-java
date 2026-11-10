@@ -427,7 +427,7 @@ tags:
   x-weight: 710
   x-icon: exo-dns
 - description: Private Network provides private L2 networking functionality between
-    Compute instances.
+    Compute instances. Private Networks are deprecated in favor of VPC.
   externalDocs:
     description: Read more
     url: https://community.exoscale.com/product/networking/private-network/
@@ -1504,7 +1504,7 @@ paths:
       x-accepts: application/json
   /private-network/{id}:attach:
     put:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: attach-instance-to-private-network
       parameters:
       - explode: false
@@ -2874,7 +2874,7 @@ paths:
       x-accepts: application/json
   /private-network/{id}:update-ip:
     put:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: update-private-network-instance-ip
       parameters:
       - explode: false
@@ -3442,7 +3442,7 @@ paths:
       x-accepts: application/json
   /private-network:
     get:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: list-private-networks
       parameters: []
       responses:
@@ -3457,7 +3457,7 @@ paths:
       - exoscale
       x-accepts: application/json
     post:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: create-private-network
       parameters: []
       requestBody:
@@ -4385,7 +4385,7 @@ paths:
       x-accepts: application/json
   /private-network/{id}:detach:
     put:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: detach-instance-from-private-network
       parameters:
       - explode: false
@@ -4416,7 +4416,7 @@ paths:
       x-accepts: application/json
   /private-network/{id}:
     delete:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: delete-private-network
       parameters:
       - explode: false
@@ -4439,7 +4439,7 @@ paths:
       - exoscale
       x-accepts: application/json
     get:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: get-private-network
       parameters:
       - explode: false
@@ -4462,7 +4462,7 @@ paths:
       - exoscale
       x-accepts: application/json
     put:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: update-private-network
       parameters:
       - explode: false
@@ -10724,7 +10724,7 @@ paths:
       x-accepts: application/json
   /private-network/{id}/{field}:
     delete:
-      description: ""
+      description: Private Networks are deprecated in favor of VPC.
       operationId: reset-private-network-field
       parameters:
       - explode: false

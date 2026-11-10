@@ -1155,7 +1155,7 @@ No authorization required
 
 Attach a Compute instance to a Private Network
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -5853,7 +5853,7 @@ No authorization required
 
 Create a Private Network
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -10668,7 +10668,7 @@ No authorization required
 
 Delete a Private Network
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -12248,7 +12248,7 @@ No authorization required
 
 Detach a Compute instance from a Private Network
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -19883,7 +19883,7 @@ No authorization required
 
 Retrieve Private Network details
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -24365,7 +24365,7 @@ No authorization required
 
 List Private Networks
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -28059,7 +28059,7 @@ No authorization required
 
 Reset Private Network field
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -34840,7 +34840,7 @@ No authorization required
 
 Update a Private Network
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
@@ -34935,7 +34935,7 @@ No authorization required
 
 Update the IP address of an instance attached to a managed private network
 
-
+Private Networks are deprecated in favor of VPC.
 
 ### Example
 
