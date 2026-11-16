@@ -11332,8 +11332,6 @@ components:
         ephemeral-storage:
           description: "Ephemeral storage reservation, e.g., \"1Gi\" "
           type: string
-      required:
-      - cpu
       type: object
     dbaas-service-clickhouse:
       example:
@@ -11846,56 +11844,6 @@ components:
       - datadog
       - elasticsearch
       type: string
-    cpu-manager-config:
-      description: CPU manager config
-      example:
-        cpu-manager-policy-options:
-        - distribute-cpus-across-numa
-        - distribute-cpus-across-numa
-        system-reserved:
-          memory: memory
-          ephemeral-storage: ephemeral-storage
-          cpu: cpu
-        cpu-manager-reconcile-period: cpu-manager-reconcile-period
-        cpu-manager-policy: static
-        kube-reserved:
-          memory: memory
-          ephemeral-storage: ephemeral-storage
-          cpu: cpu
-      properties:
-        cpu-manager-policy:
-          description: "CPU management policy used by the kubelet. The \"static\"\
-            \ policy grants exclusive CPUs to Guaranteed pods requesting integer CPU\
-            \ limits. When set to \"static\", a CPU reservation must be provided via\
-            \ kube-reserved or system-reserved"
-          enum:
-          - static
-          - none
-          type: string
-        cpu-manager-policy-options:
-          description: CPU manager policy options used by the kubelet. They refine
-            the behavior of the "static" cpu-manager-policy and are only valid when
-            the policy is "static"
-          items:
-            enum:
-            - distribute-cpus-across-numa
-            - full-pcpus-only
-            - strict-cpu-reservation
-            - align-by-socket
-            - prefer-align-cpus-by-uncorecache
-            - distribute-cpus-across-cores
-            type: string
-          type: array
-          uniqueItems: true
-        kube-reserved:
-          $ref: '#/components/schemas/reserved-resources'
-        system-reserved:
-          $ref: '#/components/schemas/reserved-resources'
-        cpu-manager-reconcile-period:
-          description: "CPU manager reconcile period used by the kubelet, as a duration\
-            \ string (for example \"10s\")."
-          type: string
-      type: object
     get-confederatio-usage-response:
       description: GPU usage for all organizations
       properties:
@@ -20461,11 +20409,19 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           kubelet-max-pods: 39073
+          kube-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           nvidia-dra-driver: true
           created-at: 2000-01-23T04:56:07.000+00:00
           state: renewing-token
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: inet4
+          system-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
@@ -20479,20 +20435,6 @@ components:
             key: labels
           template-selection: pinned
           size: 0
-          cpu-manager-config:
-            cpu-manager-policy-options:
-            - distribute-cpus-across-numa
-            - distribute-cpus-across-numa
-            system-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
-            cpu-manager-reconcile-period: cpu-manager-reconcile-period
-            cpu-manager-policy: static
-            kube-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -20506,6 +20448,12 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          cpu-manager:
+            reconcile-period: reconcile-period
+            policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            policy: static
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-pool:
@@ -20531,11 +20479,19 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           kubelet-max-pods: 39073
+          kube-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           nvidia-dra-driver: true
           created-at: 2000-01-23T04:56:07.000+00:00
           state: renewing-token
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: inet4
+          system-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
@@ -20549,20 +20505,6 @@ components:
             key: labels
           template-selection: pinned
           size: 0
-          cpu-manager-config:
-            cpu-manager-policy-options:
-            - distribute-cpus-across-numa
-            - distribute-cpus-across-numa
-            system-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
-            cpu-manager-reconcile-period: cpu-manager-reconcile-period
-            cpu-manager-policy: static
-            kube-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -20576,6 +20518,12 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          cpu-manager:
+            reconcile-period: reconcile-period
+            policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            policy: static
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-pool:
@@ -20601,11 +20549,19 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           kubelet-max-pods: 39073
+          kube-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           nvidia-dra-driver: true
           created-at: 2000-01-23T04:56:07.000+00:00
           state: renewing-token
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: inet4
+          system-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
@@ -20619,20 +20575,6 @@ components:
             key: labels
           template-selection: pinned
           size: 0
-          cpu-manager-config:
-            cpu-manager-policy-options:
-            - distribute-cpus-across-numa
-            - distribute-cpus-across-numa
-            system-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
-            cpu-manager-reconcile-period: cpu-manager-reconcile-period
-            cpu-manager-policy: static
-            kube-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -20646,6 +20588,12 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          cpu-manager:
+            reconcile-period: reconcile-period
+            policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            policy: static
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-pool:
@@ -20671,11 +20619,19 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           kubelet-max-pods: 39073
+          kube-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           nvidia-dra-driver: true
           created-at: 2000-01-23T04:56:07.000+00:00
           state: renewing-token
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: inet4
+          system-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
@@ -20689,20 +20645,6 @@ components:
             key: labels
           template-selection: pinned
           size: 0
-          cpu-manager-config:
-            cpu-manager-policy-options:
-            - distribute-cpus-across-numa
-            - distribute-cpus-across-numa
-            system-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
-            cpu-manager-reconcile-period: cpu-manager-reconcile-period
-            cpu-manager-policy: static
-            kube-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -20716,6 +20658,12 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          cpu-manager:
+            reconcile-period: reconcile-period
+            policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            policy: static
         - template:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-pool:
@@ -20741,11 +20689,19 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           kubelet-max-pods: 39073
+          kube-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           nvidia-dra-driver: true
           created-at: 2000-01-23T04:56:07.000+00:00
           state: renewing-token
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           public-ip-assignment: inet4
+          system-reserved:
+            memory: memory
+            ephemeral-storage: ephemeral-storage
+            cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
@@ -20759,20 +20715,6 @@ components:
             key: labels
           template-selection: pinned
           size: 0
-          cpu-manager-config:
-            cpu-manager-policy-options:
-            - distribute-cpus-across-numa
-            - distribute-cpus-across-numa
-            system-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
-            cpu-manager-reconcile-period: cpu-manager-reconcile-period
-            cpu-manager-policy: static
-            kube-reserved:
-              memory: memory
-              ephemeral-storage: ephemeral-storage
-              cpu: cpu
           name: name
           kubelet-image-gc:
             high-threshold: 0
@@ -20786,6 +20728,12 @@ components:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          cpu-manager:
+            reconcile-period: reconcile-period
+            policy-options:
+            - distribute-cpus-across-numa
+            - distribute-cpus-across-numa
+            policy: static
         level: starter
         addons:
         - exoscale-cloud-controller
@@ -21495,11 +21443,19 @@ components:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         kubelet-max-pods: 39073
+        kube-reserved:
+          memory: memory
+          ephemeral-storage: ephemeral-storage
+          cpu: cpu
         nvidia-dra-driver: true
         created-at: 2000-01-23T04:56:07.000+00:00
         state: renewing-token
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         public-ip-assignment: inet4
+        system-reserved:
+          memory: memory
+          ephemeral-storage: ephemeral-storage
+          cpu: cpu
         deploy-target:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         instance-type:
@@ -21513,20 +21469,6 @@ components:
           key: labels
         template-selection: pinned
         size: 0
-        cpu-manager-config:
-          cpu-manager-policy-options:
-          - distribute-cpus-across-numa
-          - distribute-cpus-across-numa
-          system-reserved:
-            memory: memory
-            ephemeral-storage: ephemeral-storage
-            cpu: cpu
-          cpu-manager-reconcile-period: cpu-manager-reconcile-period
-          cpu-manager-policy: static
-          kube-reserved:
-            memory: memory
-            ephemeral-storage: ephemeral-storage
-            cpu: cpu
         name: name
         kubelet-image-gc:
           high-threshold: 0
@@ -21540,6 +21482,12 @@ components:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        cpu-manager:
+          reconcile-period: reconcile-period
+          policy-options:
+          - distribute-cpus-across-numa
+          - distribute-cpus-across-numa
+          policy: static
       properties:
         anti-affinity-groups:
           description: Nodepool Anti-affinity Groups
@@ -21570,6 +21518,8 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/sks-nodepool-taint'
           type: object
+        kube-reserved:
+          $ref: '#/components/schemas/reserved-resources'
         nvidia-dra-driver:
           description: Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA
             device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
@@ -21626,6 +21576,8 @@ components:
           maxLength: 30
           minLength: 1
           type: string
+        system-reserved:
+          $ref: '#/components/schemas/reserved-resources'
         deploy-target:
           $ref: '#/components/schemas/deploy-target-ref'
         kubelet-max-pods:
@@ -21651,8 +21603,6 @@ components:
           format: uuid
           readOnly: true
           type: string
-        cpu-manager-config:
-          $ref: '#/components/schemas/cpu-manager-config'
         template-selection:
           description: |-
             Nodepool template selection:
@@ -21683,6 +21633,8 @@ components:
           format: date-time
           readOnly: true
           type: string
+        cpu-manager:
+          $ref: '#/components/schemas/cpu-manager'
       type: object
     iam-assume-role-policy:
       description: Assume Role Policy
@@ -26135,6 +26087,44 @@ components:
         $ref: '#/components/schemas/ai-api-key-deployment-ref'
       type: array
       uniqueItems: true
+    cpu-manager:
+      description: CPU manager (kubelet settings)
+      example:
+        reconcile-period: reconcile-period
+        policy-options:
+        - distribute-cpus-across-numa
+        - distribute-cpus-across-numa
+        policy: static
+      properties:
+        policy:
+          description: "CPU management policy used by the kubelet. The \"static\"\
+            \ policy grants exclusive CPUs to Guaranteed pods requesting integer CPU\
+            \ limits. When set to \"static\", a cpu value must be set in the Nodepool\
+            \ kube-reserved or system-reserved"
+          enum:
+          - static
+          - none
+          type: string
+        policy-options:
+          description: CPU manager policy options used by the kubelet. They refine
+            the behavior of the "static" policy and are only valid when the policy
+            is "static"
+          items:
+            enum:
+            - distribute-cpus-across-numa
+            - full-pcpus-only
+            - strict-cpu-reservation
+            - align-by-socket
+            - prefer-align-cpus-by-uncorecache
+            - distribute-cpus-across-cores
+            type: string
+          type: array
+          uniqueItems: true
+        reconcile-period:
+          description: "CPU manager reconcile period used by the kubelet, as a duration\
+            \ string (for example \"10s\")."
+          type: string
+      type: object
     update_load_balancer_service_request:
       properties:
         name:
@@ -28391,6 +28381,8 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/sks-nodepool-taint'
           type: object
+        kube-reserved:
+          $ref: '#/components/schemas/reserved-resources'
         nvidia-dra-driver:
           description: Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA
             device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
@@ -28426,6 +28418,8 @@ components:
           maxLength: 30
           minLength: 1
           type: string
+        system-reserved:
+          $ref: '#/components/schemas/reserved-resources'
         deploy-target:
           $ref: '#/components/schemas/deploy-target-ref'
         kubelet-max-pods:
@@ -28437,8 +28431,6 @@ components:
           minimum: 1
           nullable: true
           type: integer
-        cpu-manager-config:
-          $ref: '#/components/schemas/cpu-manager-config'
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false
@@ -28449,6 +28441,8 @@ components:
           type: integer
         nvidia-mig-profiles:
           $ref: '#/components/schemas/nvidia-mig-profiles'
+        cpu-manager:
+          $ref: '#/components/schemas/cpu-manager'
       type: object
     update_block_storage_snapshot_request:
       properties:
@@ -29944,11 +29938,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -29962,20 +29964,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -29989,6 +29977,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30014,11 +30008,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30032,20 +30034,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30059,6 +30047,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30084,11 +30078,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30102,20 +30104,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30129,6 +30117,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30154,11 +30148,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30172,20 +30174,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30199,6 +30187,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30224,11 +30218,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30242,20 +30244,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30269,6 +30257,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           level: starter
           addons:
           - exoscale-cloud-controller
@@ -30338,11 +30332,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30356,20 +30358,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30383,6 +30371,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30408,11 +30402,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30426,20 +30428,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30453,6 +30441,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30478,11 +30472,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30496,20 +30498,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30523,6 +30511,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30548,11 +30542,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30566,20 +30568,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30593,6 +30581,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           - template:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-pool:
@@ -30618,11 +30612,19 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             kubelet-max-pods: 39073
+            kube-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             nvidia-dra-driver: true
             created-at: 2000-01-23T04:56:07.000+00:00
             state: renewing-token
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             public-ip-assignment: inet4
+            system-reserved:
+              memory: memory
+              ephemeral-storage: ephemeral-storage
+              cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
@@ -30636,20 +30638,6 @@ components:
               key: labels
             template-selection: pinned
             size: 0
-            cpu-manager-config:
-              cpu-manager-policy-options:
-              - distribute-cpus-across-numa
-              - distribute-cpus-across-numa
-              system-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
-              cpu-manager-reconcile-period: cpu-manager-reconcile-period
-              cpu-manager-policy: static
-              kube-reserved:
-                memory: memory
-                ephemeral-storage: ephemeral-storage
-                cpu: cpu
             name: name
             kubelet-image-gc:
               high-threshold: 0
@@ -30663,6 +30651,12 @@ components:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            cpu-manager:
+              reconcile-period: reconcile-period
+              policy-options:
+              - distribute-cpus-across-numa
+              - distribute-cpus-across-numa
+              policy: static
           level: starter
           addons:
           - exoscale-cloud-controller
@@ -31656,6 +31650,8 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/sks-nodepool-taint'
           type: object
+        kube-reserved:
+          $ref: '#/components/schemas/reserved-resources'
         nvidia-dra-driver:
           description: Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA
             device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater.
@@ -31697,6 +31693,8 @@ components:
           maxLength: 30
           minLength: 1
           type: string
+        system-reserved:
+          $ref: '#/components/schemas/reserved-resources'
         deploy-target:
           $ref: '#/components/schemas/deploy-target-ref'
         kubelet-max-pods:
@@ -31716,8 +31714,6 @@ components:
             type: string
           type: array
           uniqueItems: true
-        cpu-manager-config:
-          $ref: '#/components/schemas/cpu-manager-config'
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false
@@ -31728,6 +31724,8 @@ components:
           type: integer
         nvidia-mig-profiles:
           $ref: '#/components/schemas/nvidia-mig-profiles'
+        cpu-manager:
+          $ref: '#/components/schemas/cpu-manager'
       required:
       - disk-size
       - instance-type

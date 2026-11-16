@@ -14,12 +14,13 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
-import com.exoscale.sdk.model.CpuManagerConfig;
+import com.exoscale.sdk.model.CpuManager;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
 import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
+import com.exoscale.sdk.model.ReservedResources;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
 import com.exoscale.sdk.model.TemplateRef;
@@ -97,6 +98,14 @@ public class CreateSksNodepoolRequestTest {
     }
 
     /**
+     * Test the property 'kubeReserved'
+     */
+    @Test
+    public void kubeReservedTest() {
+        // TODO: test kubeReserved
+    }
+
+    /**
      * Test the property 'nvidiaDraDriver'
      */
     @Test
@@ -169,6 +178,14 @@ public class CreateSksNodepoolRequestTest {
     }
 
     /**
+     * Test the property 'systemReserved'
+     */
+    @Test
+    public void systemReservedTest() {
+        // TODO: test systemReserved
+    }
+
+    /**
      * Test the property 'deployTarget'
      */
     @Test
@@ -193,14 +210,6 @@ public class CreateSksNodepoolRequestTest {
     }
 
     /**
-     * Test the property 'cpuManagerConfig'
-     */
-    @Test
-    public void cpuManagerConfigTest() {
-        // TODO: test cpuManagerConfig
-    }
-
-    /**
      * Test the property 'diskSize'
      */
     @Test
@@ -214,6 +223,14 @@ public class CreateSksNodepoolRequestTest {
     @Test
     public void nvidiaMigProfilesTest() {
         // TODO: test nvidiaMigProfiles
+    }
+
+    /**
+     * Test the property 'cpuManager'
+     */
+    @Test
+    public void cpuManagerTest() {
+        // TODO: test cpuManager
     }
 
 }

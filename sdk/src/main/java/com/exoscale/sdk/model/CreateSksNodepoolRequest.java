@@ -20,12 +20,13 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
-import com.exoscale.sdk.model.CpuManagerConfig;
+import com.exoscale.sdk.model.CpuManager;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
 import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
+import com.exoscale.sdk.model.ReservedResources;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
 import com.exoscale.sdk.model.TemplateRef;
@@ -56,6 +57,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_PUBLIC_IP_ASSIGNMENT,
   CreateSksNodepoolRequest.JSON_PROPERTY_LABELS,
   CreateSksNodepoolRequest.JSON_PROPERTY_TAINTS,
+  CreateSksNodepoolRequest.JSON_PROPERTY_KUBE_RESERVED,
   CreateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_DRA_DRIVER,
   CreateSksNodepoolRequest.JSON_PROPERTY_SECURITY_GROUPS,
   CreateSksNodepoolRequest.JSON_PROPERTY_NAME,
@@ -65,12 +67,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_SIZE,
   CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_IMAGE_GC,
   CreateSksNodepoolRequest.JSON_PROPERTY_INSTANCE_PREFIX,
+  CreateSksNodepoolRequest.JSON_PROPERTY_SYSTEM_RESERVED,
   CreateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
   CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_MAX_PODS,
   CreateSksNodepoolRequest.JSON_PROPERTY_ADDONS,
-  CreateSksNodepoolRequest.JSON_PROPERTY_CPU_MANAGER_CONFIG,
   CreateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE,
-  CreateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES
+  CreateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES,
+  CreateSksNodepoolRequest.JSON_PROPERTY_CPU_MANAGER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class CreateSksNodepoolRequest {
@@ -124,6 +127,9 @@ public class CreateSksNodepoolRequest {
   public static final String JSON_PROPERTY_TAINTS = "taints";
   private Map<String, SksNodepoolTaint> taints = new HashMap<>();
 
+  public static final String JSON_PROPERTY_KUBE_RESERVED = "kube-reserved";
+  private ReservedResources kubeReserved;
+
   public static final String JSON_PROPERTY_NVIDIA_DRA_DRIVER = "nvidia-dra-driver";
   private Boolean nvidiaDraDriver;
 
@@ -150,6 +156,9 @@ public class CreateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_INSTANCE_PREFIX = "instance-prefix";
   private String instancePrefix;
+
+  public static final String JSON_PROPERTY_SYSTEM_RESERVED = "system-reserved";
+  private ReservedResources systemReserved;
 
   public static final String JSON_PROPERTY_DEPLOY_TARGET = "deploy-target";
   private DeployTargetRef deployTarget;
@@ -193,14 +202,14 @@ public class CreateSksNodepoolRequest {
   public static final String JSON_PROPERTY_ADDONS = "addons";
   private Set<AddonsEnum> addons;
 
-  public static final String JSON_PROPERTY_CPU_MANAGER_CONFIG = "cpu-manager-config";
-  private CpuManagerConfig cpuManagerConfig;
-
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
 
   public static final String JSON_PROPERTY_NVIDIA_MIG_PROFILES = "nvidia-mig-profiles";
   private NvidiaMigProfiles nvidiaMigProfiles;
+
+  public static final String JSON_PROPERTY_CPU_MANAGER = "cpu-manager";
+  private CpuManager cpuManager;
 
   public CreateSksNodepoolRequest() { 
   }
@@ -352,6 +361,31 @@ public class CreateSksNodepoolRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTaints(Map<String, SksNodepoolTaint> taints) {
     this.taints = taints;
+  }
+
+
+  public CreateSksNodepoolRequest kubeReserved(ReservedResources kubeReserved) {
+    this.kubeReserved = kubeReserved;
+    return this;
+  }
+
+   /**
+   * Get kubeReserved
+   * @return kubeReserved
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KUBE_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ReservedResources getKubeReserved() {
+    return kubeReserved;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KUBE_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKubeReserved(ReservedResources kubeReserved) {
+    this.kubeReserved = kubeReserved;
   }
 
 
@@ -599,6 +633,31 @@ public class CreateSksNodepoolRequest {
   }
 
 
+  public CreateSksNodepoolRequest systemReserved(ReservedResources systemReserved) {
+    this.systemReserved = systemReserved;
+    return this;
+  }
+
+   /**
+   * Get systemReserved
+   * @return systemReserved
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYSTEM_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ReservedResources getSystemReserved() {
+    return systemReserved;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SYSTEM_RESERVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSystemReserved(ReservedResources systemReserved) {
+    this.systemReserved = systemReserved;
+  }
+
+
   public CreateSksNodepoolRequest deployTarget(DeployTargetRef deployTarget) {
     this.deployTarget = deployTarget;
     return this;
@@ -693,31 +752,6 @@ public class CreateSksNodepoolRequest {
   }
 
 
-  public CreateSksNodepoolRequest cpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
-    this.cpuManagerConfig = cpuManagerConfig;
-    return this;
-  }
-
-   /**
-   * Get cpuManagerConfig
-   * @return cpuManagerConfig
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public CpuManagerConfig getCpuManagerConfig() {
-    return cpuManagerConfig;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_CPU_MANAGER_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCpuManagerConfig(CpuManagerConfig cpuManagerConfig) {
-    this.cpuManagerConfig = cpuManagerConfig;
-  }
-
-
   public CreateSksNodepoolRequest diskSize(Long diskSize) {
     this.diskSize = diskSize;
     return this;
@@ -770,6 +804,31 @@ public class CreateSksNodepoolRequest {
   }
 
 
+  public CreateSksNodepoolRequest cpuManager(CpuManager cpuManager) {
+    this.cpuManager = cpuManager;
+    return this;
+  }
+
+   /**
+   * Get cpuManager
+   * @return cpuManager
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CpuManager getCpuManager() {
+    return cpuManager;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CPU_MANAGER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCpuManager(CpuManager cpuManager) {
+    this.cpuManager = cpuManager;
+  }
+
+
   /**
    * Return true if this create_sks_nodepool_request object is equal to o.
    */
@@ -787,6 +846,7 @@ public class CreateSksNodepoolRequest {
         Objects.equals(this.publicIpAssignment, createSksNodepoolRequest.publicIpAssignment) &&
         Objects.equals(this.labels, createSksNodepoolRequest.labels) &&
         Objects.equals(this.taints, createSksNodepoolRequest.taints) &&
+        Objects.equals(this.kubeReserved, createSksNodepoolRequest.kubeReserved) &&
         Objects.equals(this.nvidiaDraDriver, createSksNodepoolRequest.nvidiaDraDriver) &&
         Objects.equals(this.securityGroups, createSksNodepoolRequest.securityGroups) &&
         Objects.equals(this.name, createSksNodepoolRequest.name) &&
@@ -796,12 +856,13 @@ public class CreateSksNodepoolRequest {
         Objects.equals(this.size, createSksNodepoolRequest.size) &&
         Objects.equals(this.kubeletImageGc, createSksNodepoolRequest.kubeletImageGc) &&
         Objects.equals(this.instancePrefix, createSksNodepoolRequest.instancePrefix) &&
+        Objects.equals(this.systemReserved, createSksNodepoolRequest.systemReserved) &&
         Objects.equals(this.deployTarget, createSksNodepoolRequest.deployTarget) &&
         equalsNullable(this.kubeletMaxPods, createSksNodepoolRequest.kubeletMaxPods) &&
         Objects.equals(this.addons, createSksNodepoolRequest.addons) &&
-        Objects.equals(this.cpuManagerConfig, createSksNodepoolRequest.cpuManagerConfig) &&
         Objects.equals(this.diskSize, createSksNodepoolRequest.diskSize) &&
-        Objects.equals(this.nvidiaMigProfiles, createSksNodepoolRequest.nvidiaMigProfiles);
+        Objects.equals(this.nvidiaMigProfiles, createSksNodepoolRequest.nvidiaMigProfiles) &&
+        Objects.equals(this.cpuManager, createSksNodepoolRequest.cpuManager);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -810,7 +871,7 @@ public class CreateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, size, kubeletImageGc, instancePrefix, deployTarget, hashCodeNullable(kubeletMaxPods), addons, cpuManagerConfig, diskSize, nvidiaMigProfiles);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, kubeReserved, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, size, kubeletImageGc, instancePrefix, systemReserved, deployTarget, hashCodeNullable(kubeletMaxPods), addons, diskSize, nvidiaMigProfiles, cpuManager);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -829,6 +890,7 @@ public class CreateSksNodepoolRequest {
     sb.append("    publicIpAssignment: ").append(toIndentedString(publicIpAssignment)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
+    sb.append("    kubeReserved: ").append(toIndentedString(kubeReserved)).append("\n");
     sb.append("    nvidiaDraDriver: ").append(toIndentedString(nvidiaDraDriver)).append("\n");
     sb.append("    securityGroups: ").append(toIndentedString(securityGroups)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -838,12 +900,13 @@ public class CreateSksNodepoolRequest {
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    kubeletImageGc: ").append(toIndentedString(kubeletImageGc)).append("\n");
     sb.append("    instancePrefix: ").append(toIndentedString(instancePrefix)).append("\n");
+    sb.append("    systemReserved: ").append(toIndentedString(systemReserved)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    kubeletMaxPods: ").append(toIndentedString(kubeletMaxPods)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
-    sb.append("    cpuManagerConfig: ").append(toIndentedString(cpuManagerConfig)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
+    sb.append("    cpuManager: ").append(toIndentedString(cpuManager)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -932,6 +995,11 @@ public class CreateSksNodepoolRequest {
       }
     }
 
+    // add `kube-reserved` to the URL query string
+    if (getKubeReserved() != null) {
+      joiner.add(getKubeReserved().toUrlQueryString(prefix + "kube-reserved" + suffix));
+    }
+
     // add `nvidia-dra-driver` to the URL query string
     if (getNvidiaDraDriver() != null) {
       joiner.add(String.format("%snvidia-dra-driver%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNvidiaDraDriver()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -991,6 +1059,11 @@ public class CreateSksNodepoolRequest {
       joiner.add(String.format("%sinstance-prefix%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInstancePrefix()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `system-reserved` to the URL query string
+    if (getSystemReserved() != null) {
+      joiner.add(getSystemReserved().toUrlQueryString(prefix + "system-reserved" + suffix));
+    }
+
     // add `deploy-target` to the URL query string
     if (getDeployTarget() != null) {
       joiner.add(getDeployTarget().toUrlQueryString(prefix + "deploy-target" + suffix));
@@ -1012,11 +1085,6 @@ public class CreateSksNodepoolRequest {
       i++;
     }
 
-    // add `cpu-manager-config` to the URL query string
-    if (getCpuManagerConfig() != null) {
-      joiner.add(getCpuManagerConfig().toUrlQueryString(prefix + "cpu-manager-config" + suffix));
-    }
-
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1025,6 +1093,11 @@ public class CreateSksNodepoolRequest {
     // add `nvidia-mig-profiles` to the URL query string
     if (getNvidiaMigProfiles() != null) {
       joiner.add(getNvidiaMigProfiles().toUrlQueryString(prefix + "nvidia-mig-profiles" + suffix));
+    }
+
+    // add `cpu-manager` to the URL query string
+    if (getCpuManager() != null) {
+      joiner.add(getCpuManager().toUrlQueryString(prefix + "cpu-manager" + suffix));
     }
 
     return joiner.toString();

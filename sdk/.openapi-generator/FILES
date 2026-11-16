@@ -35,7 +35,7 @@ docs/ClusterSettingsClusterSearchRequestSlowlog.md
 docs/ClusterSettingsClusterSearchRequestSlowlogThreshold.md
 docs/ConfigureLogCleanerForTopicCompaction.md
 docs/CopyTemplateRequest.md
-docs/CpuManagerConfig.md
+docs/CpuManager.md
 docs/CreateAiApiKeyRequest.md
 docs/CreateAiApiKeyResponse.md
 docs/CreateAntiAffinityGroupRequest.md
@@ -641,7 +641,7 @@ src/main/java/com/exoscale/sdk/model/ClusterSettingsClusterSearchRequestSlowlog.
 src/main/java/com/exoscale/sdk/model/ClusterSettingsClusterSearchRequestSlowlogThreshold.java
 src/main/java/com/exoscale/sdk/model/ConfigureLogCleanerForTopicCompaction.java
 src/main/java/com/exoscale/sdk/model/CopyTemplateRequest.java
-src/main/java/com/exoscale/sdk/model/CpuManagerConfig.java
+src/main/java/com/exoscale/sdk/model/CpuManager.java
 src/main/java/com/exoscale/sdk/model/CreateAiApiKeyRequest.java
 src/main/java/com/exoscale/sdk/model/CreateAiApiKeyResponse.java
 src/main/java/com/exoscale/sdk/model/CreateAntiAffinityGroupRequest.java

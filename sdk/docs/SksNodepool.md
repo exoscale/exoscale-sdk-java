@@ -13,6 +13,7 @@ SKS Nodepool
 |**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Nodepool public IP assignment of the Instances:  * IPv4 (&#x60;inet4&#x60;) addressing only; * IPv4 and IPv6 (&#x60;dual&#x60;) addressing. |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**taints** | [**Map&lt;String, SksNodepoolTaint&gt;**](SksNodepoolTaint.md) |  |  [optional] |
+|**kubeReserved** | [**ReservedResources**](ReservedResources.md) |  |  [optional] |
 |**nvidiaDraDriver** | **Boolean** | Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater. |  [optional] |
 |**securityGroups** | [**Set&lt;SecurityGroupRef&gt;**](SecurityGroupRef.md) | Nodepool Security Groups |  [optional] |
 |**name** | **String** | Nodepool name |  [optional] |
@@ -24,16 +25,17 @@ SKS Nodepool
 |**kubeletImageGc** | [**KubeletImageGc**](KubeletImageGc.md) |  |  [optional] |
 |**instancePool** | [**InstancePoolRef**](InstancePoolRef.md) |  |  [optional] |
 |**instancePrefix** | **String** | The instances created by the Nodepool will be prefixed with this value (default: pool) |  [optional] |
+|**systemReserved** | [**ReservedResources**](ReservedResources.md) |  |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**kubeletMaxPods** | **Long** | Maximum number of pods per node. Set to use a value other than the kubelet default. |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
-|**cpuManagerConfig** | [**CpuManagerConfig**](CpuManagerConfig.md) |  |  [optional] |
 |**templateSelection** | [**TemplateSelectionEnum**](#TemplateSelectionEnum) | Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set at creation or with &#x60;update-sks-nodepool&#x60;. |  [optional] [readonly] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
 |**version** | **String** | Nodepool version |  [optional] [readonly] |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 |**createdAt** | **OffsetDateTime** | Nodepool creation date |  [optional] [readonly] |
+|**cpuManager** | [**CpuManager**](CpuManager.md) |  |  [optional] |
 
 
 

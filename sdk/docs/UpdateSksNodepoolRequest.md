@@ -12,6 +12,7 @@
 |**publicIpAssignment** | [**PublicIpAssignmentEnum**](#PublicIpAssignmentEnum) | Configures public IP assignment of the Instances with:  * IPv4 (&#x60;inet4&#x60;) addressing only; * both IPv4 and IPv6 (&#x60;dual&#x60;) addressing. |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**taints** | [**Map&lt;String, SksNodepoolTaint&gt;**](SksNodepoolTaint.md) |  |  [optional] |
+|**kubeReserved** | [**ReservedResources**](ReservedResources.md) |  |  [optional] |
 |**nvidiaDraDriver** | **Boolean** | Expose the GPUs with the NVIDIA DRA driver instead of the NVIDIA device plugin. Requires a GPU instance type and Kubernetes 1.34 or greater. |  [optional] |
 |**securityGroups** | [**Set&lt;SecurityGroupRef&gt;**](SecurityGroupRef.md) | Nodepool Security Groups |  [optional] |
 |**name** | **String** | Nodepool name, lowercase only |  [optional] |
@@ -20,11 +21,12 @@
 |**template** | [**TemplateRef**](TemplateRef.md) |  |  [optional] |
 |**kubeletImageGc** | [**KubeletImageGc**](KubeletImageGc.md) |  |  [optional] |
 |**instancePrefix** | **String** | Prefix to apply to managed instances names (default: pool), lowercase only |  [optional] |
+|**systemReserved** | [**ReservedResources**](ReservedResources.md) |  |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**kubeletMaxPods** | **Long** | Maximum number of pods per node (kubelet setting) |  [optional] |
-|**cpuManagerConfig** | [**CpuManagerConfig**](CpuManagerConfig.md) |  |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
+|**cpuManager** | [**CpuManager**](CpuManager.md) |  |  [optional] |
 
 
 

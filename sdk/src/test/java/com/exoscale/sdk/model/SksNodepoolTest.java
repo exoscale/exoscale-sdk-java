@@ -14,13 +14,14 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
-import com.exoscale.sdk.model.CpuManagerConfig;
+import com.exoscale.sdk.model.CpuManager;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.InstancePoolRef;
 import com.exoscale.sdk.model.InstanceTypeRef;
 import com.exoscale.sdk.model.KubeletImageGc;
 import com.exoscale.sdk.model.NvidiaMigProfiles;
 import com.exoscale.sdk.model.PrivateNetworkRef;
+import com.exoscale.sdk.model.ReservedResources;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
 import com.exoscale.sdk.model.TemplateRef;
@@ -97,6 +98,14 @@ public class SksNodepoolTest {
     @Test
     public void taintsTest() {
         // TODO: test taints
+    }
+
+    /**
+     * Test the property 'kubeReserved'
+     */
+    @Test
+    public void kubeReservedTest() {
+        // TODO: test kubeReserved
     }
 
     /**
@@ -188,6 +197,14 @@ public class SksNodepoolTest {
     }
 
     /**
+     * Test the property 'systemReserved'
+     */
+    @Test
+    public void systemReservedTest() {
+        // TODO: test systemReserved
+    }
+
+    /**
      * Test the property 'deployTarget'
      */
     @Test
@@ -217,14 +234,6 @@ public class SksNodepoolTest {
     @Test
     public void idTest() {
         // TODO: test id
-    }
-
-    /**
-     * Test the property 'cpuManagerConfig'
-     */
-    @Test
-    public void cpuManagerConfigTest() {
-        // TODO: test cpuManagerConfig
     }
 
     /**
@@ -265,6 +274,14 @@ public class SksNodepoolTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'cpuManager'
+     */
+    @Test
+    public void cpuManagerTest() {
+        // TODO: test cpuManager
     }
 
 }

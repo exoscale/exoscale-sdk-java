@@ -59,9 +59,9 @@ public class ReservedResources {
    * CPU reservation, e.g., \&quot;200m\&quot; 
    * @return cpu
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CPU)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getCpu() {
     return cpu;
@@ -69,7 +69,7 @@ public class ReservedResources {
 
 
   @JsonProperty(JSON_PROPERTY_CPU)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCpu(String cpu) {
     this.cpu = cpu;
   }

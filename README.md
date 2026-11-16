@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-10T07:10:05.376800542Z[Etc/UTC]
+- Build date: 2026-11-16T10:31:25.286301907Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-b46364e</version>
+    <version>0.0.5-SNAPSHOT-c1218ac</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-b46364e'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c1218ac'
 }
 ```
 
@@ -503,7 +503,7 @@ Class | Method | HTTP request | Description
  - [ClusterSettingsClusterSearchRequestSlowlogThreshold](sdk/docs/ClusterSettingsClusterSearchRequestSlowlogThreshold.md)
  - [ConfigureLogCleanerForTopicCompaction](sdk/docs/ConfigureLogCleanerForTopicCompaction.md)
  - [CopyTemplateRequest](sdk/docs/CopyTemplateRequest.md)
- - [CpuManagerConfig](sdk/docs/CpuManagerConfig.md)
+ - [CpuManager](sdk/docs/CpuManager.md)
  - [CreateAiApiKeyRequest](sdk/docs/CreateAiApiKeyRequest.md)
  - [CreateAiApiKeyResponse](sdk/docs/CreateAiApiKeyResponse.md)
  - [CreateAntiAffinityGroupRequest](sdk/docs/CreateAntiAffinityGroupRequest.md)

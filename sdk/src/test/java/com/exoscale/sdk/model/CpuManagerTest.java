@@ -13,7 +13,6 @@
 
 package com.exoscale.sdk.model;
 
-import com.exoscale.sdk.model.ReservedResources;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -28,57 +27,41 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CpuManagerConfig
+ * Model tests for CpuManager
  */
-public class CpuManagerConfigTest {
-    private final CpuManagerConfig model = new CpuManagerConfig();
+public class CpuManagerTest {
+    private final CpuManager model = new CpuManager();
 
     /**
-     * Model tests for CpuManagerConfig
+     * Model tests for CpuManager
      */
     @Test
-    public void testCpuManagerConfig() {
-        // TODO: test CpuManagerConfig
+    public void testCpuManager() {
+        // TODO: test CpuManager
     }
 
     /**
-     * Test the property 'cpuManagerPolicy'
+     * Test the property 'policy'
      */
     @Test
-    public void cpuManagerPolicyTest() {
-        // TODO: test cpuManagerPolicy
+    public void policyTest() {
+        // TODO: test policy
     }
 
     /**
-     * Test the property 'cpuManagerPolicyOptions'
+     * Test the property 'policyOptions'
      */
     @Test
-    public void cpuManagerPolicyOptionsTest() {
-        // TODO: test cpuManagerPolicyOptions
+    public void policyOptionsTest() {
+        // TODO: test policyOptions
     }
 
     /**
-     * Test the property 'kubeReserved'
+     * Test the property 'reconcilePeriod'
      */
     @Test
-    public void kubeReservedTest() {
-        // TODO: test kubeReserved
-    }
-
-    /**
-     * Test the property 'systemReserved'
-     */
-    @Test
-    public void systemReservedTest() {
-        // TODO: test systemReserved
-    }
-
-    /**
-     * Test the property 'cpuManagerReconcilePeriod'
-     */
-    @Test
-    public void cpuManagerReconcilePeriodTest() {
-        // TODO: test cpuManagerReconcilePeriod
+    public void reconcilePeriodTest() {
+        // TODO: test reconcilePeriod
     }
 
 }
