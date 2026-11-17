@@ -305,6 +305,7 @@ import com.exoscale.sdk.model.UpdateLoadBalancerServiceRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkInstanceIpRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkRequest;
 import com.exoscale.sdk.model.UpdateReverseDnsElasticIpRequest;
+import com.exoscale.sdk.model.UpdateSecurityGroupRequest;
 import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
 import com.exoscale.sdk.model.UpdateSubnetRequest;
@@ -34135,6 +34136,103 @@ public class ExoscaleApi {
     localVarRequestBuilder.header("Accept", "application/json");
 
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update a Security Group
+   * 
+   * @param id  (required)
+   * @param updateSecurityGroupRequest  (required)
+   * @return Operation
+   * @throws ApiException if fails to make API call
+   */
+  public Operation updateSecurityGroup(UUID id, UpdateSecurityGroupRequest updateSecurityGroupRequest) throws ApiException {
+    ApiResponse<Operation> localVarResponse = updateSecurityGroupWithHttpInfo(id, updateSecurityGroupRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update a Security Group
+   * 
+   * @param id  (required)
+   * @param updateSecurityGroupRequest  (required)
+   * @return ApiResponse&lt;Operation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<Operation> updateSecurityGroupWithHttpInfo(UUID id, UpdateSecurityGroupRequest updateSecurityGroupRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateSecurityGroupRequestBuilder(id, updateSecurityGroupRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateSecurityGroup", localVarResponse);
+        }
+        return new ApiResponse<Operation>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<Operation>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateSecurityGroupRequestBuilder(UUID id, UpdateSecurityGroupRequest updateSecurityGroupRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSecurityGroup");
+    }
+    // verify the required parameter 'updateSecurityGroupRequest' is set
+    if (updateSecurityGroupRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateSecurityGroupRequest' when calling updateSecurityGroup");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/security-group/{id}"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateSecurityGroupRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("PUT", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofString(requestBody));
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

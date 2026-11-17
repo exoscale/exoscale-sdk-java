@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-16T10:31:25.286301907Z[Etc/UTC]
+- Build date: 2026-11-17T07:10:27.736032450Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c1218ac</version>
+    <version>0.0.5-SNAPSHOT-c431cae</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c1218ac'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c431cae'
 }
 ```
 
@@ -458,6 +458,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updatePrivateNetworkInstanceIp**](sdk/docs/ExoscaleApi.md#updatePrivateNetworkInstanceIp) | **PUT** /private-network/{id}:update-ip | Update the IP address of an instance attached to a managed private network
 *ExoscaleApi* | [**updateReverseDnsElasticIp**](sdk/docs/ExoscaleApi.md#updateReverseDnsElasticIp) | **POST** /reverse-dns/elastic-ip/{id} | Update/Create the PTR DNS record for an elastic IP
 *ExoscaleApi* | [**updateReverseDnsInstance**](sdk/docs/ExoscaleApi.md#updateReverseDnsInstance) | **POST** /reverse-dns/instance/{id} | Update/Create the PTR DNS record for an instance
+*ExoscaleApi* | [**updateSecurityGroup**](sdk/docs/ExoscaleApi.md#updateSecurityGroup) | **PUT** /security-group/{id} | Update a Security Group
 *ExoscaleApi* | [**updateSksCluster**](sdk/docs/ExoscaleApi.md#updateSksCluster) | **PUT** /sks-cluster/{id} | Update an SKS cluster
 *ExoscaleApi* | [**updateSksNodepool**](sdk/docs/ExoscaleApi.md#updateSksNodepool) | **PUT** /sks-cluster/{id}/nodepool/{sks-nodepool-id} | Update an SKS Nodepool
 *ExoscaleApi* | [**updateSubnet**](sdk/docs/ExoscaleApi.md#updateSubnet) | **PUT** /vpc/{vpc-id}/subnet/{id} | Update a Subnet
@@ -1042,6 +1043,7 @@ Class | Method | HTTP request | Description
  - [UpdatePrivateNetworkInstanceIpRequestInstance](sdk/docs/UpdatePrivateNetworkInstanceIpRequestInstance.md)
  - [UpdatePrivateNetworkRequest](sdk/docs/UpdatePrivateNetworkRequest.md)
  - [UpdateReverseDnsElasticIpRequest](sdk/docs/UpdateReverseDnsElasticIpRequest.md)
+ - [UpdateSecurityGroupRequest](sdk/docs/UpdateSecurityGroupRequest.md)
  - [UpdateSksClusterRequest](sdk/docs/UpdateSksClusterRequest.md)
  - [UpdateSksNodepoolRequest](sdk/docs/UpdateSksNodepoolRequest.md)
  - [UpdateSubnetRequest](sdk/docs/UpdateSubnetRequest.md)

@@ -575,6 +575,7 @@ docs/UpdatePrivateNetworkInstanceIpRequest.md
 docs/UpdatePrivateNetworkInstanceIpRequestInstance.md
 docs/UpdatePrivateNetworkRequest.md
 docs/UpdateReverseDnsElasticIpRequest.md
+docs/UpdateSecurityGroupRequest.md
 docs/UpdateSksClusterRequest.md
 docs/UpdateSksNodepoolRequest.md
 docs/UpdateSubnetRequest.md
@@ -1180,6 +1181,7 @@ src/main/java/com/exoscale/sdk/model/UpdatePrivateNetworkInstanceIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdatePrivateNetworkInstanceIpRequestInstance.java
 src/main/java/com/exoscale/sdk/model/UpdatePrivateNetworkRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateReverseDnsElasticIpRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSksNodepoolRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSubnetRequest.java

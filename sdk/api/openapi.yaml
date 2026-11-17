@@ -3635,6 +3635,36 @@ paths:
       tags:
       - exoscale
       x-accepts: application/json
+    put:
+      description: ""
+      operationId: update-security-group
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update_security_group_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operation'
+          description: "200"
+      summary: Update a Security Group
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /dbaas-clickhouse/{service-name}/role/{role-uuid}:
     delete:
       operationId: delete-dbaas-clickhouse-role
@@ -28791,6 +28821,18 @@ components:
           enum:
           - netboot-efi
           - netboot
+          type: string
+      type: object
+    update_security_group_request:
+      properties:
+        name:
+          description: Security Group name
+          maxLength: 255
+          minLength: 1
+          type: string
+        description:
+          description: Security Group description
+          maxLength: 255
           type: string
       type: object
     get_sks_cluster_authority_cert_200_response:

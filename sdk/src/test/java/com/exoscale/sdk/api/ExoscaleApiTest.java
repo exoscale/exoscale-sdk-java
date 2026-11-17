@@ -301,6 +301,7 @@ import com.exoscale.sdk.model.UpdateLoadBalancerServiceRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkInstanceIpRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkRequest;
 import com.exoscale.sdk.model.UpdateReverseDnsElasticIpRequest;
+import com.exoscale.sdk.model.UpdateSecurityGroupRequest;
 import com.exoscale.sdk.model.UpdateSksClusterRequest;
 import com.exoscale.sdk.model.UpdateSksNodepoolRequest;
 import com.exoscale.sdk.model.UpdateSubnetRequest;
@@ -6860,6 +6861,24 @@ public class ExoscaleApiTest {
         UpdateReverseDnsElasticIpRequest updateReverseDnsElasticIpRequest = null;
         Operation response = 
         api.updateReverseDnsInstance(id, updateReverseDnsElasticIpRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a Security Group
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateSecurityGroupTest() throws ApiException {
+        UUID id = null;
+        UpdateSecurityGroupRequest updateSecurityGroupRequest = null;
+        Operation response = 
+        api.updateSecurityGroup(id, updateSecurityGroupRequest);
         
         // TODO: test validations
     }
