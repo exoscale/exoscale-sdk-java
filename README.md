@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-17T07:10:27.736032450Z[Etc/UTC]
+- Build date: 2026-11-18T07:10:50.547137973Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-c431cae</version>
+    <version>0.0.5-SNAPSHOT-846300a</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-c431cae'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-846300a'
 }
 ```
 
@@ -538,6 +538,8 @@ Class | Method | HTTP request | Description
  - [CreateElasticIpRequest](sdk/docs/CreateElasticIpRequest.md)
  - [CreateIamRoleRequest](sdk/docs/CreateIamRoleRequest.md)
  - [CreateInstancePoolRequest](sdk/docs/CreateInstancePoolRequest.md)
+ - [CreateInstancePoolRequestVpc](sdk/docs/CreateInstancePoolRequestVpc.md)
+ - [CreateInstancePoolRequestVpcSubnetsInner](sdk/docs/CreateInstancePoolRequestVpcSubnetsInner.md)
  - [CreateInstanceRequest](sdk/docs/CreateInstanceRequest.md)
  - [CreateInstanceRequestVpc](sdk/docs/CreateInstanceRequestVpc.md)
  - [CreateInstanceRequestVpcSubnetsInner](sdk/docs/CreateInstanceRequestVpcSubnetsInner.md)
@@ -1034,6 +1036,7 @@ Class | Method | HTTP request | Description
  - [UpdateElasticIpRequest](sdk/docs/UpdateElasticIpRequest.md)
  - [UpdateIamRoleRequest](sdk/docs/UpdateIamRoleRequest.md)
  - [UpdateInstancePoolRequest](sdk/docs/UpdateInstancePoolRequest.md)
+ - [UpdateInstancePoolRequestVpc](sdk/docs/UpdateInstancePoolRequestVpc.md)
  - [UpdateInstanceRequest](sdk/docs/UpdateInstanceRequest.md)
  - [UpdateKeyStoreProxy](sdk/docs/UpdateKeyStoreProxy.md)
  - [UpdateKeyStoreRequest](sdk/docs/UpdateKeyStoreRequest.md)

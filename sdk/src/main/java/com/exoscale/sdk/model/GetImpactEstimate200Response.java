@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,15 +36,44 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * GetImpactEstimate200Response
  */
 @JsonPropertyOrder({
+  GetImpactEstimate200Response.JSON_PROPERTY_CALCULATION_DATE,
   GetImpactEstimate200Response.JSON_PROPERTY_IMPACT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class GetImpactEstimate200Response {
+  public static final String JSON_PROPERTY_CALCULATION_DATE = "calculation-date";
+  private LocalDate calculationDate;
+
   public static final String JSON_PROPERTY_IMPACT = "impact";
   private Map<String, Map<String, ImpactValueWithUnit>> impact = new HashMap<>();
 
   public GetImpactEstimate200Response() { 
   }
+
+  public GetImpactEstimate200Response calculationDate(LocalDate calculationDate) {
+    this.calculationDate = calculationDate;
+    return this;
+  }
+
+   /**
+   * Get calculationDate
+   * @return calculationDate
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CALCULATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LocalDate getCalculationDate() {
+    return calculationDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CALCULATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCalculationDate(LocalDate calculationDate) {
+    this.calculationDate = calculationDate;
+  }
+
 
   public GetImpactEstimate200Response impact(Map<String, Map<String, ImpactValueWithUnit>> impact) {
     this.impact = impact;
@@ -90,18 +120,20 @@ public class GetImpactEstimate200Response {
       return false;
     }
     GetImpactEstimate200Response getImpactEstimate200Response = (GetImpactEstimate200Response) o;
-    return Objects.equals(this.impact, getImpactEstimate200Response.impact);
+    return Objects.equals(this.calculationDate, getImpactEstimate200Response.calculationDate) &&
+        Objects.equals(this.impact, getImpactEstimate200Response.impact);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(impact);
+    return Objects.hash(calculationDate, impact);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetImpactEstimate200Response {\n");
+    sb.append("    calculationDate: ").append(toIndentedString(calculationDate)).append("\n");
     sb.append("    impact: ").append(toIndentedString(impact)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -149,6 +181,11 @@ public class GetImpactEstimate200Response {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `calculation-date` to the URL query string
+    if (getCalculationDate() != null) {
+      joiner.add(String.format("%scalculation-date%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCalculationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `impact` to the URL query string
     if (getImpact() != null) {

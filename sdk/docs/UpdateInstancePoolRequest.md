@@ -24,7 +24,9 @@
 |**userData** | **String** | Instances Cloud-init user-data |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Enabled** | **Boolean** | Enable IPv6. DEPRECATED: use &#x60;public-ip-assignments&#x60;. |  [optional] |
+|**vpc** | [**UpdateInstancePoolRequestVpc**](UpdateInstancePoolRequestVpc.md) |  |  [optional] |
 |**diskSize** | **Long** | Instances disk size in GiB |  [optional] |
+|**ipForwarding** | **Boolean** | Enable IP forwarding on the Instances VPC interfaces |  [optional] |
 |**sshKeys** | [**Set&lt;SshKeyRef&gt;**](SshKeyRef.md) | Instances SSH keys |  [optional] |
 
 

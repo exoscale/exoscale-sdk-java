@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,11 +37,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * ImpactBreakdown
  */
 @JsonPropertyOrder({
+  ImpactBreakdown.JSON_PROPERTY_CALCULATION_DATE,
   ImpactBreakdown.JSON_PROPERTY_IMPACT,
   ImpactBreakdown.JSON_PROPERTY_ZONES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class ImpactBreakdown {
+  public static final String JSON_PROPERTY_CALCULATION_DATE = "calculation-date";
+  private LocalDate calculationDate;
+
   public static final String JSON_PROPERTY_IMPACT = "impact";
   private Map<String, ImpactValueWithUnit> impact = new HashMap<>();
 
@@ -49,6 +54,31 @@ public class ImpactBreakdown {
 
   public ImpactBreakdown() { 
   }
+
+  public ImpactBreakdown calculationDate(LocalDate calculationDate) {
+    this.calculationDate = calculationDate;
+    return this;
+  }
+
+   /**
+   * Get calculationDate
+   * @return calculationDate
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CALCULATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public LocalDate getCalculationDate() {
+    return calculationDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CALCULATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCalculationDate(LocalDate calculationDate) {
+    this.calculationDate = calculationDate;
+  }
+
 
   public ImpactBreakdown impact(Map<String, ImpactValueWithUnit> impact) {
     this.impact = impact;
@@ -128,19 +158,21 @@ public class ImpactBreakdown {
       return false;
     }
     ImpactBreakdown impactBreakdown = (ImpactBreakdown) o;
-    return Objects.equals(this.impact, impactBreakdown.impact) &&
+    return Objects.equals(this.calculationDate, impactBreakdown.calculationDate) &&
+        Objects.equals(this.impact, impactBreakdown.impact) &&
         Objects.equals(this.zones, impactBreakdown.zones);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(impact, zones);
+    return Objects.hash(calculationDate, impact, zones);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImpactBreakdown {\n");
+    sb.append("    calculationDate: ").append(toIndentedString(calculationDate)).append("\n");
     sb.append("    impact: ").append(toIndentedString(impact)).append("\n");
     sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("}");
@@ -189,6 +221,11 @@ public class ImpactBreakdown {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `calculation-date` to the URL query string
+    if (getCalculationDate() != null) {
+      joiner.add(String.format("%scalculation-date%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCalculationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
 
     // add `impact` to the URL query string
     if (getImpact() != null) {

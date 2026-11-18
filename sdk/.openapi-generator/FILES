@@ -69,6 +69,8 @@ docs/CreateDnsDomainRequest.md
 docs/CreateElasticIpRequest.md
 docs/CreateIamRoleRequest.md
 docs/CreateInstancePoolRequest.md
+docs/CreateInstancePoolRequestVpc.md
+docs/CreateInstancePoolRequestVpcSubnetsInner.md
 docs/CreateInstanceRequest.md
 docs/CreateInstanceRequestVpc.md
 docs/CreateInstanceRequestVpcSubnetsInner.md
@@ -566,6 +568,7 @@ docs/UpdateDnsDomainRecordRequest.md
 docs/UpdateElasticIpRequest.md
 docs/UpdateIamRoleRequest.md
 docs/UpdateInstancePoolRequest.md
+docs/UpdateInstancePoolRequestVpc.md
 docs/UpdateInstanceRequest.md
 docs/UpdateKeyStoreProxy.md
 docs/UpdateKeyStoreRequest.md
@@ -676,6 +679,8 @@ src/main/java/com/exoscale/sdk/model/CreateDnsDomainRequest.java
 src/main/java/com/exoscale/sdk/model/CreateElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/CreateIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequest.java
+src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequestVpc.java
+src/main/java/com/exoscale/sdk/model/CreateInstancePoolRequestVpcSubnetsInner.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequestVpc.java
 src/main/java/com/exoscale/sdk/model/CreateInstanceRequestVpcSubnetsInner.java
@@ -1172,6 +1177,7 @@ src/main/java/com/exoscale/sdk/model/UpdateDnsDomainRecordRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateIamRoleRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateInstancePoolRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateInstancePoolRequestVpc.java
 src/main/java/com/exoscale/sdk/model/UpdateInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateKeyStoreProxy.java
 src/main/java/com/exoscale/sdk/model/UpdateKeyStoreRequest.java

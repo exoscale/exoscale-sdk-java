@@ -30,8 +30,10 @@ Instance Pool
 |**errorReason** | [**InstancePoolErrorReason**](InstancePoolErrorReason.md) |  |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**ipv6Enabled** | **Boolean** | Enable IPv6 for instances |  [optional] |
+|**vpc** | [**CreateInstancePoolRequestVpc**](CreateInstancePoolRequestVpc.md) |  |  [optional] |
 |**id** | **UUID** | Instance Pool ID |  [optional] [readonly] |
 |**diskSize** | **Long** | Instances disk size in GiB |  [optional] |
+|**ipForwarding** | **Boolean** | Enable IP forwarding on the Instances VPC interfaces |  [optional] |
 |**sshKeys** | [**List&lt;SshKeyRef&gt;**](SshKeyRef.md) | Instances SSH keys |  [optional] |
 
 

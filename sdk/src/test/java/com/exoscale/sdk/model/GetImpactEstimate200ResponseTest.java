@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +39,14 @@ public class GetImpactEstimate200ResponseTest {
     @Test
     public void testGetImpactEstimate200Response() {
         // TODO: test GetImpactEstimate200Response
+    }
+
+    /**
+     * Test the property 'calculationDate'
+     */
+    @Test
+    public void calculationDateTest() {
+        // TODO: test calculationDate
     }
 
     /**

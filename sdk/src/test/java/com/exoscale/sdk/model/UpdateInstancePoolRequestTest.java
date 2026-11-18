@@ -21,6 +21,7 @@ import com.exoscale.sdk.model.PrivateNetworkRef;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SshKeyRef;
 import com.exoscale.sdk.model.TemplateRef;
+import com.exoscale.sdk.model.UpdateInstancePoolRequestVpc;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -192,11 +193,27 @@ public class UpdateInstancePoolRequestTest {
     }
 
     /**
+     * Test the property 'vpc'
+     */
+    @Test
+    public void vpcTest() {
+        // TODO: test vpc
+    }
+
+    /**
      * Test the property 'diskSize'
      */
     @Test
     public void diskSizeTest() {
         // TODO: test diskSize
+    }
+
+    /**
+     * Test the property 'ipForwarding'
+     */
+    @Test
+    public void ipForwardingTest() {
+        // TODO: test ipForwarding
     }
 
     /**

@@ -14,6 +14,7 @@
 package com.exoscale.sdk.model;
 
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CreateInstancePoolRequestVpc;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.ElasticIpRef;
 import com.exoscale.sdk.model.InstancePoolErrorReason;
@@ -231,6 +232,14 @@ public class InstancePoolTest {
     }
 
     /**
+     * Test the property 'vpc'
+     */
+    @Test
+    public void vpcTest() {
+        // TODO: test vpc
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
@@ -244,6 +253,14 @@ public class InstancePoolTest {
     @Test
     public void diskSizeTest() {
         // TODO: test diskSize
+    }
+
+    /**
+     * Test the property 'ipForwarding'
+     */
+    @Test
+    public void ipForwardingTest() {
+        // TODO: test ipForwarding
     }
 
     /**

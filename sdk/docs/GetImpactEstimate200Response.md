@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**calculationDate** | **LocalDate** |  |  |
 |**impact** | **Map&lt;String, Map&lt;String, ImpactValueWithUnit&gt;&gt;** | Map of SKUs to their different impact indicators |  |
 
 

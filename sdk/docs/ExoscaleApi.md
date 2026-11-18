@@ -18645,7 +18645,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Impact estimate |  -  |
-| **400** | Invalid request (e.g. product does not exist) |  -  |
+| **400** | Invalid request (e.g. malformed SKU) |  -  |
 | **500** | Internal server error |  -  |
 
 
@@ -18674,7 +18674,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Impact estimate |  -  |
-| **400** | Invalid request (e.g. product does not exist) |  -  |
+| **400** | Invalid request (e.g. malformed SKU) |  -  |
 | **500** | Internal server error |  -  |
 
 
@@ -27811,7 +27811,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **field** | **String**|  | [enum: anti-affinity-groups, description, labels, security-groups, elastic-ips, private-networks, ssh-key, user-data, deploy-target, ipv6-enabled] |
+| **field** | **String**|  | [enum: anti-affinity-groups, description, labels, security-groups, elastic-ips, private-networks, ssh-key, user-data, deploy-target, ipv6-enabled, vpc, ip-forwarding] |
 
 ### Return type
 
@@ -27839,7 +27839,7 @@ No authorization required
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **UUID**|  | |
-| **field** | **String**|  | [enum: anti-affinity-groups, description, labels, security-groups, elastic-ips, private-networks, ssh-key, user-data, deploy-target, ipv6-enabled] |
+| **field** | **String**|  | [enum: anti-affinity-groups, description, labels, security-groups, elastic-ips, private-networks, ssh-key, user-data, deploy-target, ipv6-enabled, vpc, ip-forwarding] |
 
 ### Return type
 

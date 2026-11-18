@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
 import com.exoscale.sdk.model.AntiAffinityGroupRef;
+import com.exoscale.sdk.model.CreateInstancePoolRequestVpc;
 import com.exoscale.sdk.model.DeployTargetRef;
 import com.exoscale.sdk.model.ElasticIpRef;
 import com.exoscale.sdk.model.InstancePoolErrorReason;
@@ -71,8 +72,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InstancePool.JSON_PROPERTY_ERROR_REASON,
   InstancePool.JSON_PROPERTY_DEPLOY_TARGET,
   InstancePool.JSON_PROPERTY_IPV6_ENABLED,
+  InstancePool.JSON_PROPERTY_VPC,
   InstancePool.JSON_PROPERTY_ID,
   InstancePool.JSON_PROPERTY_DISK_SIZE,
+  InstancePool.JSON_PROPERTY_IP_FORWARDING,
   InstancePool.JSON_PROPERTY_SSH_KEYS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
@@ -190,11 +193,17 @@ public class InstancePool {
   public static final String JSON_PROPERTY_IPV6_ENABLED = "ipv6-enabled";
   private Boolean ipv6Enabled;
 
+  public static final String JSON_PROPERTY_VPC = "vpc";
+  private CreateInstancePoolRequestVpc vpc;
+
   public static final String JSON_PROPERTY_ID = "id";
   private UUID id;
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
+
+  public static final String JSON_PROPERTY_IP_FORWARDING = "ip-forwarding";
+  private Boolean ipForwarding;
 
   public static final String JSON_PROPERTY_SSH_KEYS = "ssh-keys";
   private List<SshKeyRef> sshKeys;
@@ -786,6 +795,31 @@ public class InstancePool {
   }
 
 
+  public InstancePool vpc(CreateInstancePoolRequestVpc vpc) {
+    this.vpc = vpc;
+    return this;
+  }
+
+   /**
+   * Get vpc
+   * @return vpc
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CreateInstancePoolRequestVpc getVpc() {
+    return vpc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVpc(CreateInstancePoolRequestVpc vpc) {
+    this.vpc = vpc;
+  }
+
+
    /**
    * Instance Pool ID
    * @return id
@@ -825,6 +859,31 @@ public class InstancePool {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDiskSize(Long diskSize) {
     this.diskSize = diskSize;
+  }
+
+
+  public InstancePool ipForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
+    return this;
+  }
+
+   /**
+   * Enable IP forwarding on the Instances VPC interfaces
+   * @return ipForwarding
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIpForwarding() {
+    return ipForwarding;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIpForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
   }
 
 
@@ -895,14 +954,16 @@ public class InstancePool {
         Objects.equals(this.errorReason, instancePool.errorReason) &&
         Objects.equals(this.deployTarget, instancePool.deployTarget) &&
         Objects.equals(this.ipv6Enabled, instancePool.ipv6Enabled) &&
+        Objects.equals(this.vpc, instancePool.vpc) &&
         Objects.equals(this.id, instancePool.id) &&
         Objects.equals(this.diskSize, instancePool.diskSize) &&
+        Objects.equals(this.ipForwarding, instancePool.ipForwarding) &&
         Objects.equals(this.sshKeys, instancePool.sshKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, state, size, sshKey, instancePrefix, userData, manager, instances, errorReason, deployTarget, ipv6Enabled, id, diskSize, sshKeys);
+    return Objects.hash(applicationConsistentSnapshotEnabled, antiAffinityGroups, description, publicIpAssignment, labels, securityGroups, elasticIps, name, instanceType, minAvailable, privateNetworks, template, state, size, sshKey, instancePrefix, userData, manager, instances, errorReason, deployTarget, ipv6Enabled, vpc, id, diskSize, ipForwarding, sshKeys);
   }
 
   @Override
@@ -931,8 +992,10 @@ public class InstancePool {
     sb.append("    errorReason: ").append(toIndentedString(errorReason)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    ipv6Enabled: ").append(toIndentedString(ipv6Enabled)).append("\n");
+    sb.append("    vpc: ").append(toIndentedString(vpc)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
+    sb.append("    ipForwarding: ").append(toIndentedString(ipForwarding)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1120,6 +1183,11 @@ public class InstancePool {
       joiner.add(String.format("%sipv6-enabled%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpv6Enabled()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `vpc` to the URL query string
+    if (getVpc() != null) {
+      joiner.add(getVpc().toUrlQueryString(prefix + "vpc" + suffix));
+    }
+
     // add `id` to the URL query string
     if (getId() != null) {
       joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1128,6 +1196,11 @@ public class InstancePool {
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ip-forwarding` to the URL query string
+    if (getIpForwarding() != null) {
+      joiner.add(String.format("%sip-forwarding%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpForwarding()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ssh-keys` to the URL query string
