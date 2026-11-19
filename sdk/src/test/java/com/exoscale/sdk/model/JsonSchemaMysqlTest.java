@@ -51,11 +51,43 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'optimizerSwitch'
+     */
+    @Test
+    public void optimizerSwitchTest() {
+        // TODO: test optimizerSwitch
+    }
+
+    /**
+     * Test the property 'tablespaceDefinitionCache'
+     */
+    @Test
+    public void tablespaceDefinitionCacheTest() {
+        // TODO: test tablespaceDefinitionCache
+    }
+
+    /**
+     * Test the property 'innodbFtMaxTokenSize'
+     */
+    @Test
+    public void innodbFtMaxTokenSizeTest() {
+        // TODO: test innodbFtMaxTokenSize
+    }
+
+    /**
      * Test the property 'internalTmpMemStorageEngine'
      */
     @Test
     public void internalTmpMemStorageEngineTest() {
         // TODO: test internalTmpMemStorageEngine
+    }
+
+    /**
+     * Test the property 'innodbIoCapacityMax'
+     */
+    @Test
+    public void innodbIoCapacityMaxTest() {
+        // TODO: test innodbIoCapacityMax
     }
 
     /**
@@ -80,6 +112,30 @@ public class JsonSchemaMysqlTest {
     @Test
     public void sortBufferSizeTest() {
         // TODO: test sortBufferSize
+    }
+
+    /**
+     * Test the property 'maxExecutionTime'
+     */
+    @Test
+    public void maxExecutionTimeTest() {
+        // TODO: test maxExecutionTime
+    }
+
+    /**
+     * Test the property 'innodbFtCacheSize'
+     */
+    @Test
+    public void innodbFtCacheSizeTest() {
+        // TODO: test innodbFtCacheSize
+    }
+
+    /**
+     * Test the property 'innodbFtNumWordOptimize'
+     */
+    @Test
+    public void innodbFtNumWordOptimizeTest() {
+        // TODO: test innodbFtNumWordOptimize
     }
 
     /**
@@ -115,11 +171,35 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'lowerCaseTableNames'
+     */
+    @Test
+    public void lowerCaseTableNamesTest() {
+        // TODO: test lowerCaseTableNames
+    }
+
+    /**
+     * Test the property 'innodbAdaptiveHashIndex'
+     */
+    @Test
+    public void innodbAdaptiveHashIndexTest() {
+        // TODO: test innodbAdaptiveHashIndex
+    }
+
+    /**
      * Test the property 'innodbFlushNeighbors'
      */
     @Test
     public void innodbFlushNeighborsTest() {
         // TODO: test innodbFlushNeighbors
+    }
+
+    /**
+     * Test the property 'optimizerPruneLevel'
+     */
+    @Test
+    public void optimizerPruneLevelTest() {
+        // TODO: test optimizerPruneLevel
     }
 
     /**
@@ -155,6 +235,14 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'maxSeeksForKey'
+     */
+    @Test
+    public void maxSeeksForKeyTest() {
+        // TODO: test maxSeeksForKey
+    }
+
+    /**
      * Test the property 'netReadTimeout'
      */
     @Test
@@ -163,11 +251,99 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'relayLogSpaceLimit'
+     */
+    @Test
+    public void relayLogSpaceLimitTest() {
+        // TODO: test relayLogSpaceLimit
+    }
+
+    /**
+     * Test the property 'innodbFtUserStopwordTable'
+     */
+    @Test
+    public void innodbFtUserStopwordTableTest() {
+        // TODO: test innodbFtUserStopwordTable
+    }
+
+    /**
+     * Test the property 'innodbMaxPurgeLag'
+     */
+    @Test
+    public void innodbMaxPurgeLagTest() {
+        // TODO: test innodbMaxPurgeLag
+    }
+
+    /**
+     * Test the property 'innodbOptimizeFulltextOnly'
+     */
+    @Test
+    public void innodbOptimizeFulltextOnlyTest() {
+        // TODO: test innodbOptimizeFulltextOnly
+    }
+
+    /**
+     * Test the property 'innodbFtEnableStopword'
+     */
+    @Test
+    public void innodbFtEnableStopwordTest() {
+        // TODO: test innodbFtEnableStopword
+    }
+
+    /**
+     * Test the property 'eqRangeIndexDiveLimit'
+     */
+    @Test
+    public void eqRangeIndexDiveLimitTest() {
+        // TODO: test eqRangeIndexDiveLimit
+    }
+
+    /**
+     * Test the property 'endMarkersInJson'
+     */
+    @Test
+    public void endMarkersInJsonTest() {
+        // TODO: test endMarkersInJson
+    }
+
+    /**
+     * Test the property 'eventScheduler'
+     */
+    @Test
+    public void eventSchedulerTest() {
+        // TODO: test eventScheduler
+    }
+
+    /**
+     * Test the property 'innodbMaxDirtyPagesPct'
+     */
+    @Test
+    public void innodbMaxDirtyPagesPctTest() {
+        // TODO: test innodbMaxDirtyPagesPct
+    }
+
+    /**
      * Test the property 'innodbLockWaitTimeout'
      */
     @Test
     public void innodbLockWaitTimeoutTest() {
         // TODO: test innodbLockWaitTimeout
+    }
+
+    /**
+     * Test the property 'innodbIoCapacity'
+     */
+    @Test
+    public void innodbIoCapacityTest() {
+        // TODO: test innodbIoCapacity
+    }
+
+    /**
+     * Test the property 'maxUserConnections'
+     */
+    @Test
+    public void maxUserConnectionsTest() {
+        // TODO: test maxUserConnections
     }
 
     /**
@@ -203,6 +379,22 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'optimizerSearchDepth'
+     */
+    @Test
+    public void optimizerSearchDepthTest() {
+        // TODO: test optimizerSearchDepth
+    }
+
+    /**
+     * Test the property 'innodbSortBufferSize'
+     */
+    @Test
+    public void innodbSortBufferSizeTest() {
+        // TODO: test innodbSortBufferSize
+    }
+
+    /**
      * Test the property 'innodbPrintAllDeadlocks'
      */
     @Test
@@ -216,6 +408,30 @@ public class JsonSchemaMysqlTest {
     @Test
     public void innodbOnlineAlterLogMaxSizeTest() {
         // TODO: test innodbOnlineAlterLogMaxSize
+    }
+
+    /**
+     * Test the property 'innodbFtResultCacheLimit'
+     */
+    @Test
+    public void innodbFtResultCacheLimitTest() {
+        // TODO: test innodbFtResultCacheLimit
+    }
+
+    /**
+     * Test the property 'innodbFtTotalCacheSize'
+     */
+    @Test
+    public void innodbFtTotalCacheSizeTest() {
+        // TODO: test innodbFtTotalCacheSize
+    }
+
+    /**
+     * Test the property 'schemaDefinitionCache'
+     */
+    @Test
+    public void schemaDefinitionCacheTest() {
+        // TODO: test schemaDefinitionCache
     }
 
     /**
@@ -243,6 +459,22 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'innodbMaxPurgeLagDelay'
+     */
+    @Test
+    public void innodbMaxPurgeLagDelayTest() {
+        // TODO: test innodbMaxPurgeLagDelay
+    }
+
+    /**
+     * Test the property 'divPrecisionIncrement'
+     */
+    @Test
+    public void divPrecisionIncrementTest() {
+        // TODO: test divPrecisionIncrement
+    }
+
+    /**
      * Test the property 'maxHeapTableSize'
      */
     @Test
@@ -251,11 +483,51 @@ public class JsonSchemaMysqlTest {
     }
 
     /**
+     * Test the property 'innodbFtSortPllDegree'
+     */
+    @Test
+    public void innodbFtSortPllDegreeTest() {
+        // TODO: test innodbFtSortPllDegree
+    }
+
+    /**
      * Test the property 'innodbFtServerStopwordTable'
      */
     @Test
     public void innodbFtServerStopwordTableTest() {
         // TODO: test innodbFtServerStopwordTable
+    }
+
+    /**
+     * Test the property 'innodbMaxDirtyPagesPctLwm'
+     */
+    @Test
+    public void innodbMaxDirtyPagesPctLwmTest() {
+        // TODO: test innodbMaxDirtyPagesPctLwm
+    }
+
+    /**
+     * Test the property 'automaticSpPrivileges'
+     */
+    @Test
+    public void automaticSpPrivilegesTest() {
+        // TODO: test automaticSpPrivileges
+    }
+
+    /**
+     * Test the property 'maxConnections'
+     */
+    @Test
+    public void maxConnectionsTest() {
+        // TODO: test maxConnections
+    }
+
+    /**
+     * Test the property 'collationServer'
+     */
+    @Test
+    public void collationServerTest() {
+        // TODO: test collationServer
     }
 
     /**
@@ -272,6 +544,14 @@ public class JsonSchemaMysqlTest {
     @Test
     public void sqlRequirePrimaryKeyTest() {
         // TODO: test sqlRequirePrimaryKey
+    }
+
+    /**
+     * Test the property 'performanceSchemaEventsStatementsHistorySize'
+     */
+    @Test
+    public void performanceSchemaEventsStatementsHistorySizeTest() {
+        // TODO: test performanceSchemaEventsStatementsHistorySize
     }
 
     /**

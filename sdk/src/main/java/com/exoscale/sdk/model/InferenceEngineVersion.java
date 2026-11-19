@@ -80,7 +80,11 @@ public enum InferenceEngineVersion {
   
   _31_0("0.31.0"),
   
-  _32_0("0.32.0");
+  _32_0("0.32.0"),
+  
+  _33_0("0.33.0"),
+  
+  _34_0("0.34.0");
 
   private String value;
 

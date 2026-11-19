@@ -38,34 +38,69 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({
   JsonSchemaMysql.JSON_PROPERTY_NET_WRITE_TIMEOUT,
+  JsonSchemaMysql.JSON_PROPERTY_OPTIMIZER_SWITCH,
+  JsonSchemaMysql.JSON_PROPERTY_TABLESPACE_DEFINITION_CACHE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_MAX_TOKEN_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_INTERNAL_TMP_MEM_STORAGE_ENGINE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_IO_CAPACITY_MAX,
   JsonSchemaMysql.JSON_PROPERTY_SQL_MODE,
   JsonSchemaMysql.JSON_PROPERTY_INFORMATION_SCHEMA_STATS_EXPIRY,
   JsonSchemaMysql.JSON_PROPERTY_SORT_BUFFER_SIZE,
+  JsonSchemaMysql.JSON_PROPERTY_MAX_EXECUTION_TIME,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_CACHE_SIZE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_NUM_WORD_OPTIMIZE,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_THREAD_CONCURRENCY,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_WRITE_IO_THREADS,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_MIN_TOKEN_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_CHANGE_BUFFER_MAX_SIZE,
+  JsonSchemaMysql.JSON_PROPERTY_LOWER_CASE_TABLE_NAMES,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_ADAPTIVE_HASH_INDEX,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_FLUSH_NEIGHBORS,
+  JsonSchemaMysql.JSON_PROPERTY_OPTIMIZER_PRUNE_LEVEL,
   JsonSchemaMysql.JSON_PROPERTY_TMP_TABLE_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_SLOW_QUERY_LOG,
   JsonSchemaMysql.JSON_PROPERTY_CONNECT_TIMEOUT,
   JsonSchemaMysql.JSON_PROPERTY_LOG_OUTPUT,
+  JsonSchemaMysql.JSON_PROPERTY_MAX_SEEKS_FOR_KEY,
   JsonSchemaMysql.JSON_PROPERTY_NET_READ_TIMEOUT,
+  JsonSchemaMysql.JSON_PROPERTY_RELAY_LOG_SPACE_LIMIT,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_USER_STOPWORD_TABLE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_MAX_PURGE_LAG,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_OPTIMIZE_FULLTEXT_ONLY,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_ENABLE_STOPWORD,
+  JsonSchemaMysql.JSON_PROPERTY_EQ_RANGE_INDEX_DIVE_LIMIT,
+  JsonSchemaMysql.JSON_PROPERTY_END_MARKERS_IN_JSON,
+  JsonSchemaMysql.JSON_PROPERTY_EVENT_SCHEDULER,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_LOCK_WAIT_TIMEOUT,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_IO_CAPACITY,
+  JsonSchemaMysql.JSON_PROPERTY_MAX_USER_CONNECTIONS,
   JsonSchemaMysql.JSON_PROPERTY_WAIT_TIMEOUT,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_ROLLBACK_ON_TIMEOUT,
   JsonSchemaMysql.JSON_PROPERTY_GROUP_CONCAT_MAX_LEN,
   JsonSchemaMysql.JSON_PROPERTY_NET_BUFFER_LENGTH,
+  JsonSchemaMysql.JSON_PROPERTY_OPTIMIZER_SEARCH_DEPTH,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_SORT_BUFFER_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_PRINT_ALL_DEADLOCKS,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_ONLINE_ALTER_LOG_MAX_SIZE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_RESULT_CACHE_LIMIT,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_TOTAL_CACHE_SIZE,
+  JsonSchemaMysql.JSON_PROPERTY_SCHEMA_DEFINITION_CACHE,
   JsonSchemaMysql.JSON_PROPERTY_INTERACTIVE_TIMEOUT,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_LOG_BUFFER_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_MAX_ALLOWED_PACKET,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_MAX_PURGE_LAG_DELAY,
+  JsonSchemaMysql.JSON_PROPERTY_DIV_PRECISION_INCREMENT,
   JsonSchemaMysql.JSON_PROPERTY_MAX_HEAP_TABLE_SIZE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_SORT_PLL_DEGREE,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_FT_SERVER_STOPWORD_TABLE,
+  JsonSchemaMysql.JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT_LWM,
+  JsonSchemaMysql.JSON_PROPERTY_AUTOMATIC_SP_PRIVILEGES,
+  JsonSchemaMysql.JSON_PROPERTY_MAX_CONNECTIONS,
+  JsonSchemaMysql.JSON_PROPERTY_COLLATION_SERVER,
   JsonSchemaMysql.JSON_PROPERTY_INNODB_READ_IO_THREADS,
   JsonSchemaMysql.JSON_PROPERTY_SQL_REQUIRE_PRIMARY_KEY,
+  JsonSchemaMysql.JSON_PROPERTY_PERFORMANCE_SCHEMA_EVENTS_STATEMENTS_HISTORY_SIZE,
   JsonSchemaMysql.JSON_PROPERTY_DEFAULT_TIME_ZONE,
   JsonSchemaMysql.JSON_PROPERTY_LONG_QUERY_TIME
 })
@@ -73,6 +108,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_NET_WRITE_TIMEOUT = "net_write_timeout";
   private Integer netWriteTimeout;
+
+  public static final String JSON_PROPERTY_OPTIMIZER_SWITCH = "optimizer_switch";
+  private String optimizerSwitch;
+
+  public static final String JSON_PROPERTY_TABLESPACE_DEFINITION_CACHE = "tablespace_definition_cache";
+  private Integer tablespaceDefinitionCache;
+
+  public static final String JSON_PROPERTY_INNODB_FT_MAX_TOKEN_SIZE = "innodb_ft_max_token_size";
+  private Integer innodbFtMaxTokenSize;
 
   /**
    * The storage engine for in-memory internal temporary tables.
@@ -112,6 +156,9 @@ public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_INTERNAL_TMP_MEM_STORAGE_ENGINE = "internal_tmp_mem_storage_engine";
   private InternalTmpMemStorageEngineEnum internalTmpMemStorageEngine;
 
+  public static final String JSON_PROPERTY_INNODB_IO_CAPACITY_MAX = "innodb_io_capacity_max";
+  private Integer innodbIoCapacityMax;
+
   public static final String JSON_PROPERTY_SQL_MODE = "sql_mode";
   private String sqlMode;
 
@@ -120,6 +167,15 @@ public class JsonSchemaMysql {
 
   public static final String JSON_PROPERTY_SORT_BUFFER_SIZE = "sort_buffer_size";
   private Integer sortBufferSize;
+
+  public static final String JSON_PROPERTY_MAX_EXECUTION_TIME = "max_execution_time";
+  private Integer maxExecutionTime;
+
+  public static final String JSON_PROPERTY_INNODB_FT_CACHE_SIZE = "innodb_ft_cache_size";
+  private Integer innodbFtCacheSize;
+
+  public static final String JSON_PROPERTY_INNODB_FT_NUM_WORD_OPTIMIZE = "innodb_ft_num_word_optimize";
+  private Integer innodbFtNumWordOptimize;
 
   public static final String JSON_PROPERTY_INNODB_THREAD_CONCURRENCY = "innodb_thread_concurrency";
   private Integer innodbThreadConcurrency;
@@ -133,8 +189,52 @@ public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_INNODB_CHANGE_BUFFER_MAX_SIZE = "innodb_change_buffer_max_size";
   private Integer innodbChangeBufferMaxSize;
 
+  /**
+   * Sets how table and database names are stored and compared. 0 &#x3D; case-sensitive (default), 1 &#x3D; names stored lowercase, comparisons are case-insensitive. This option can only be set when creating the service and cannot be changed later. See https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html for details.
+   */
+  public enum LowerCaseTableNamesEnum {
+    NUMBER_0(0),
+    
+    NUMBER_1(1);
+
+    private Integer value;
+
+    LowerCaseTableNamesEnum(Integer value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public Integer getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static LowerCaseTableNamesEnum fromValue(Integer value) {
+      for (LowerCaseTableNamesEnum b : LowerCaseTableNamesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_LOWER_CASE_TABLE_NAMES = "lower_case_table_names";
+  private LowerCaseTableNamesEnum lowerCaseTableNames;
+
+  public static final String JSON_PROPERTY_INNODB_ADAPTIVE_HASH_INDEX = "innodb_adaptive_hash_index";
+  private Boolean innodbAdaptiveHashIndex;
+
   public static final String JSON_PROPERTY_INNODB_FLUSH_NEIGHBORS = "innodb_flush_neighbors";
   private Integer innodbFlushNeighbors;
+
+  public static final String JSON_PROPERTY_OPTIMIZER_PRUNE_LEVEL = "optimizer_prune_level";
+  private Integer optimizerPruneLevel;
 
   public static final String JSON_PROPERTY_TMP_TABLE_SIZE = "tmp_table_size";
   private Integer tmpTableSize;
@@ -187,11 +287,82 @@ public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_LOG_OUTPUT = "log_output";
   private LogOutputEnum logOutput;
 
+  public static final String JSON_PROPERTY_MAX_SEEKS_FOR_KEY = "max_seeks_for_key";
+  private Integer maxSeeksForKey;
+
   public static final String JSON_PROPERTY_NET_READ_TIMEOUT = "net_read_timeout";
   private Integer netReadTimeout;
 
+  public static final String JSON_PROPERTY_RELAY_LOG_SPACE_LIMIT = "relay_log_space_limit";
+  private Integer relayLogSpaceLimit;
+
+  public static final String JSON_PROPERTY_INNODB_FT_USER_STOPWORD_TABLE = "innodb_ft_user_stopword_table";
+  private JsonNullable<String> innodbFtUserStopwordTable = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_INNODB_MAX_PURGE_LAG = "innodb_max_purge_lag";
+  private Integer innodbMaxPurgeLag;
+
+  public static final String JSON_PROPERTY_INNODB_OPTIMIZE_FULLTEXT_ONLY = "innodb_optimize_fulltext_only";
+  private Boolean innodbOptimizeFulltextOnly;
+
+  public static final String JSON_PROPERTY_INNODB_FT_ENABLE_STOPWORD = "innodb_ft_enable_stopword";
+  private Boolean innodbFtEnableStopword;
+
+  public static final String JSON_PROPERTY_EQ_RANGE_INDEX_DIVE_LIMIT = "eq_range_index_dive_limit";
+  private Integer eqRangeIndexDiveLimit;
+
+  public static final String JSON_PROPERTY_END_MARKERS_IN_JSON = "end_markers_in_json";
+  private Boolean endMarkersInJson;
+
+  /**
+   * Whether the event scheduler runs the events created with CREATE EVENT. Set OFF to stop every event on the service without dropping it, and ON to start them again. A change applies at once, without a restart. Events take effect only on the primary node. After a failover, they are re-enabled on the new primary. Default is ON.
+   */
+  public enum EventSchedulerEnum {
+    ON("ON"),
+    
+    OFF("OFF");
+
+    private String value;
+
+    EventSchedulerEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static EventSchedulerEnum fromValue(String value) {
+      for (EventSchedulerEnum b : EventSchedulerEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_EVENT_SCHEDULER = "event_scheduler";
+  private EventSchedulerEnum eventScheduler;
+
+  public static final String JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT = "innodb_max_dirty_pages_pct";
+  private BigDecimal innodbMaxDirtyPagesPct;
+
   public static final String JSON_PROPERTY_INNODB_LOCK_WAIT_TIMEOUT = "innodb_lock_wait_timeout";
   private Integer innodbLockWaitTimeout;
+
+  public static final String JSON_PROPERTY_INNODB_IO_CAPACITY = "innodb_io_capacity";
+  private Integer innodbIoCapacity;
+
+  public static final String JSON_PROPERTY_MAX_USER_CONNECTIONS = "max_user_connections";
+  private Integer maxUserConnections;
 
   public static final String JSON_PROPERTY_WAIT_TIMEOUT = "wait_timeout";
   private Integer waitTimeout;
@@ -205,11 +376,26 @@ public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_NET_BUFFER_LENGTH = "net_buffer_length";
   private Integer netBufferLength;
 
+  public static final String JSON_PROPERTY_OPTIMIZER_SEARCH_DEPTH = "optimizer_search_depth";
+  private Integer optimizerSearchDepth;
+
+  public static final String JSON_PROPERTY_INNODB_SORT_BUFFER_SIZE = "innodb_sort_buffer_size";
+  private Integer innodbSortBufferSize;
+
   public static final String JSON_PROPERTY_INNODB_PRINT_ALL_DEADLOCKS = "innodb_print_all_deadlocks";
   private Boolean innodbPrintAllDeadlocks;
 
   public static final String JSON_PROPERTY_INNODB_ONLINE_ALTER_LOG_MAX_SIZE = "innodb_online_alter_log_max_size";
   private Integer innodbOnlineAlterLogMaxSize;
+
+  public static final String JSON_PROPERTY_INNODB_FT_RESULT_CACHE_LIMIT = "innodb_ft_result_cache_limit";
+  private Integer innodbFtResultCacheLimit;
+
+  public static final String JSON_PROPERTY_INNODB_FT_TOTAL_CACHE_SIZE = "innodb_ft_total_cache_size";
+  private Integer innodbFtTotalCacheSize;
+
+  public static final String JSON_PROPERTY_SCHEMA_DEFINITION_CACHE = "schema_definition_cache";
+  private Integer schemaDefinitionCache;
 
   public static final String JSON_PROPERTY_INTERACTIVE_TIMEOUT = "interactive_timeout";
   private Integer interactiveTimeout;
@@ -220,17 +406,250 @@ public class JsonSchemaMysql {
   public static final String JSON_PROPERTY_MAX_ALLOWED_PACKET = "max_allowed_packet";
   private Integer maxAllowedPacket;
 
+  public static final String JSON_PROPERTY_INNODB_MAX_PURGE_LAG_DELAY = "innodb_max_purge_lag_delay";
+  private Integer innodbMaxPurgeLagDelay;
+
+  public static final String JSON_PROPERTY_DIV_PRECISION_INCREMENT = "div_precision_increment";
+  private Integer divPrecisionIncrement;
+
   public static final String JSON_PROPERTY_MAX_HEAP_TABLE_SIZE = "max_heap_table_size";
   private Integer maxHeapTableSize;
 
+  public static final String JSON_PROPERTY_INNODB_FT_SORT_PLL_DEGREE = "innodb_ft_sort_pll_degree";
+  private Integer innodbFtSortPllDegree;
+
   public static final String JSON_PROPERTY_INNODB_FT_SERVER_STOPWORD_TABLE = "innodb_ft_server_stopword_table";
   private JsonNullable<String> innodbFtServerStopwordTable = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT_LWM = "innodb_max_dirty_pages_pct_lwm";
+  private BigDecimal innodbMaxDirtyPagesPctLwm;
+
+  public static final String JSON_PROPERTY_AUTOMATIC_SP_PRIVILEGES = "automatic_sp_privileges";
+  private Boolean automaticSpPrivileges;
+
+  public static final String JSON_PROPERTY_MAX_CONNECTIONS = "max_connections";
+  private Integer maxConnections;
+
+  /**
+   * The default collation for databases created without one, which their new tables then inherit. Only collations of the utf8mb4 character set are accepted. Databases Aiven creates, defaultdb and those added through the API or Console, keep utf8mb4_0900_ai_ci. Changing it leaves existing databases as they are. A change applies to new connections at once. After the next server restart, for example at maintenance, an upgrade, a plan change or a node replacement, sessions reset with COM_RESET_CONNECTION also compare strings with this collation, which a change without a restart does not do. Every 0900 collation except utf8mb4_0900_ai_ci has an id above 255, so after that restart MySQL announces a wrong character set to connecting clients. Clients that take their character set from the server, such as PHP mysqli and PDO without a charset option and MySQL Connector/NET (MySql.Data) without CharSet, must then set utf8mb4 themselves. Default is utf8mb4_0900_ai_ci.
+   */
+  public enum CollationServerEnum {
+    _0900_AI_CI("utf8mb4_0900_ai_ci"),
+    
+    _0900_AS_CI("utf8mb4_0900_as_ci"),
+    
+    _0900_AS_CS("utf8mb4_0900_as_cs"),
+    
+    _0900_BIN("utf8mb4_0900_bin"),
+    
+    BG_0900_AI_CI("utf8mb4_bg_0900_ai_ci"),
+    
+    BG_0900_AS_CS("utf8mb4_bg_0900_as_cs"),
+    
+    BIN("utf8mb4_bin"),
+    
+    BS_0900_AI_CI("utf8mb4_bs_0900_ai_ci"),
+    
+    BS_0900_AS_CS("utf8mb4_bs_0900_as_cs"),
+    
+    CROATIAN_CI("utf8mb4_croatian_ci"),
+    
+    CS_0900_AI_CI("utf8mb4_cs_0900_ai_ci"),
+    
+    CS_0900_AS_CS("utf8mb4_cs_0900_as_cs"),
+    
+    CZECH_CI("utf8mb4_czech_ci"),
+    
+    DANISH_CI("utf8mb4_danish_ci"),
+    
+    DA_0900_AI_CI("utf8mb4_da_0900_ai_ci"),
+    
+    DA_0900_AS_CS("utf8mb4_da_0900_as_cs"),
+    
+    DE_PB_0900_AI_CI("utf8mb4_de_pb_0900_ai_ci"),
+    
+    DE_PB_0900_AS_CS("utf8mb4_de_pb_0900_as_cs"),
+    
+    EO_0900_AI_CI("utf8mb4_eo_0900_ai_ci"),
+    
+    EO_0900_AS_CS("utf8mb4_eo_0900_as_cs"),
+    
+    ESPERANTO_CI("utf8mb4_esperanto_ci"),
+    
+    ESTONIAN_CI("utf8mb4_estonian_ci"),
+    
+    ES_0900_AI_CI("utf8mb4_es_0900_ai_ci"),
+    
+    ES_0900_AS_CS("utf8mb4_es_0900_as_cs"),
+    
+    ES_TRAD_0900_AI_CI("utf8mb4_es_trad_0900_ai_ci"),
+    
+    ES_TRAD_0900_AS_CS("utf8mb4_es_trad_0900_as_cs"),
+    
+    ET_0900_AI_CI("utf8mb4_et_0900_ai_ci"),
+    
+    ET_0900_AS_CS("utf8mb4_et_0900_as_cs"),
+    
+    GENERAL_CI("utf8mb4_general_ci"),
+    
+    GERMAN2_CI("utf8mb4_german2_ci"),
+    
+    GL_0900_AI_CI("utf8mb4_gl_0900_ai_ci"),
+    
+    GL_0900_AS_CS("utf8mb4_gl_0900_as_cs"),
+    
+    HR_0900_AI_CI("utf8mb4_hr_0900_ai_ci"),
+    
+    HR_0900_AS_CS("utf8mb4_hr_0900_as_cs"),
+    
+    HUNGARIAN_CI("utf8mb4_hungarian_ci"),
+    
+    HU_0900_AI_CI("utf8mb4_hu_0900_ai_ci"),
+    
+    HU_0900_AS_CS("utf8mb4_hu_0900_as_cs"),
+    
+    ICELANDIC_CI("utf8mb4_icelandic_ci"),
+    
+    IS_0900_AI_CI("utf8mb4_is_0900_ai_ci"),
+    
+    IS_0900_AS_CS("utf8mb4_is_0900_as_cs"),
+    
+    JA_0900_AS_CS("utf8mb4_ja_0900_as_cs"),
+    
+    JA_0900_AS_CS_KS("utf8mb4_ja_0900_as_cs_ks"),
+    
+    LATVIAN_CI("utf8mb4_latvian_ci"),
+    
+    LA_0900_AI_CI("utf8mb4_la_0900_ai_ci"),
+    
+    LA_0900_AS_CS("utf8mb4_la_0900_as_cs"),
+    
+    LITHUANIAN_CI("utf8mb4_lithuanian_ci"),
+    
+    LT_0900_AI_CI("utf8mb4_lt_0900_ai_ci"),
+    
+    LT_0900_AS_CS("utf8mb4_lt_0900_as_cs"),
+    
+    LV_0900_AI_CI("utf8mb4_lv_0900_ai_ci"),
+    
+    LV_0900_AS_CS("utf8mb4_lv_0900_as_cs"),
+    
+    MN_CYRL_0900_AI_CI("utf8mb4_mn_cyrl_0900_ai_ci"),
+    
+    MN_CYRL_0900_AS_CS("utf8mb4_mn_cyrl_0900_as_cs"),
+    
+    NB_0900_AI_CI("utf8mb4_nb_0900_ai_ci"),
+    
+    NB_0900_AS_CS("utf8mb4_nb_0900_as_cs"),
+    
+    NN_0900_AI_CI("utf8mb4_nn_0900_ai_ci"),
+    
+    NN_0900_AS_CS("utf8mb4_nn_0900_as_cs"),
+    
+    PERSIAN_CI("utf8mb4_persian_ci"),
+    
+    PL_0900_AI_CI("utf8mb4_pl_0900_ai_ci"),
+    
+    PL_0900_AS_CS("utf8mb4_pl_0900_as_cs"),
+    
+    POLISH_CI("utf8mb4_polish_ci"),
+    
+    ROMANIAN_CI("utf8mb4_romanian_ci"),
+    
+    ROMAN_CI("utf8mb4_roman_ci"),
+    
+    RO_0900_AI_CI("utf8mb4_ro_0900_ai_ci"),
+    
+    RO_0900_AS_CS("utf8mb4_ro_0900_as_cs"),
+    
+    RU_0900_AI_CI("utf8mb4_ru_0900_ai_ci"),
+    
+    RU_0900_AS_CS("utf8mb4_ru_0900_as_cs"),
+    
+    SINHALA_CI("utf8mb4_sinhala_ci"),
+    
+    SK_0900_AI_CI("utf8mb4_sk_0900_ai_ci"),
+    
+    SK_0900_AS_CS("utf8mb4_sk_0900_as_cs"),
+    
+    SLOVAK_CI("utf8mb4_slovak_ci"),
+    
+    SLOVENIAN_CI("utf8mb4_slovenian_ci"),
+    
+    SL_0900_AI_CI("utf8mb4_sl_0900_ai_ci"),
+    
+    SL_0900_AS_CS("utf8mb4_sl_0900_as_cs"),
+    
+    SPANISH2_CI("utf8mb4_spanish2_ci"),
+    
+    SPANISH_CI("utf8mb4_spanish_ci"),
+    
+    SR_LATN_0900_AI_CI("utf8mb4_sr_latn_0900_ai_ci"),
+    
+    SR_LATN_0900_AS_CS("utf8mb4_sr_latn_0900_as_cs"),
+    
+    SV_0900_AI_CI("utf8mb4_sv_0900_ai_ci"),
+    
+    SV_0900_AS_CS("utf8mb4_sv_0900_as_cs"),
+    
+    SWEDISH_CI("utf8mb4_swedish_ci"),
+    
+    TR_0900_AI_CI("utf8mb4_tr_0900_ai_ci"),
+    
+    TR_0900_AS_CS("utf8mb4_tr_0900_as_cs"),
+    
+    TURKISH_CI("utf8mb4_turkish_ci"),
+    
+    UNICODE_520_CI("utf8mb4_unicode_520_ci"),
+    
+    UNICODE_CI("utf8mb4_unicode_ci"),
+    
+    VIETNAMESE_CI("utf8mb4_vietnamese_ci"),
+    
+    VI_0900_AI_CI("utf8mb4_vi_0900_ai_ci"),
+    
+    VI_0900_AS_CS("utf8mb4_vi_0900_as_cs"),
+    
+    ZH_0900_AS_CS("utf8mb4_zh_0900_as_cs");
+
+    private String value;
+
+    CollationServerEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static CollationServerEnum fromValue(String value) {
+      for (CollationServerEnum b : CollationServerEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
+  public static final String JSON_PROPERTY_COLLATION_SERVER = "collation_server";
+  private CollationServerEnum collationServer;
 
   public static final String JSON_PROPERTY_INNODB_READ_IO_THREADS = "innodb_read_io_threads";
   private Integer innodbReadIoThreads;
 
   public static final String JSON_PROPERTY_SQL_REQUIRE_PRIMARY_KEY = "sql_require_primary_key";
   private Boolean sqlRequirePrimaryKey;
+
+  public static final String JSON_PROPERTY_PERFORMANCE_SCHEMA_EVENTS_STATEMENTS_HISTORY_SIZE = "performance_schema_events_statements_history_size";
+  private JsonNullable<Integer> performanceSchemaEventsStatementsHistorySize = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_DEFAULT_TIME_ZONE = "default_time_zone";
   private String defaultTimeZone;
@@ -268,6 +687,85 @@ public class JsonSchemaMysql {
   }
 
 
+  public JsonSchemaMysql optimizerSwitch(String optimizerSwitch) {
+    this.optimizerSwitch = optimizerSwitch;
+    return this;
+  }
+
+   /**
+   * Comma-separated list of optimizer flag assignments in the form flag&#x3D;on|off|default, or the single value &#39;default&#39; to reset all flags. Flags not listed keep their current values. Controls query optimizer behaviors such as index merge, hash join and semijoin strategies.
+   * @return optimizerSwitch
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIMIZER_SWITCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getOptimizerSwitch() {
+    return optimizerSwitch;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIMIZER_SWITCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptimizerSwitch(String optimizerSwitch) {
+    this.optimizerSwitch = optimizerSwitch;
+  }
+
+
+  public JsonSchemaMysql tablespaceDefinitionCache(Integer tablespaceDefinitionCache) {
+    this.tablespaceDefinitionCache = tablespaceDefinitionCache;
+    return this;
+  }
+
+   /**
+   * The number of tablespace definition objects the data dictionary object cache can hold. Each InnoDB table stored in its own file is a separate tablespace, so raise it above the number of tables on the service to keep their tablespace definitions in memory. Each cached definition uses a small amount of memory, and the cache never holds more than the service&#39;s own tables, so a high value costs nothing extra on a service with few tables. Default is 256.
+   * minimum: 256
+   * maximum: 524288
+   * @return tablespaceDefinitionCache
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TABLESPACE_DEFINITION_CACHE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getTablespaceDefinitionCache() {
+    return tablespaceDefinitionCache;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TABLESPACE_DEFINITION_CACHE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTablespaceDefinitionCache(Integer tablespaceDefinitionCache) {
+    this.tablespaceDefinitionCache = tablespaceDefinitionCache;
+  }
+
+
+  public JsonSchemaMysql innodbFtMaxTokenSize(Integer innodbFtMaxTokenSize) {
+    this.innodbFtMaxTokenSize = innodbFtMaxTokenSize;
+    return this;
+  }
+
+   /**
+   * Maximum length of words that are stored in an InnoDB FULLTEXT index. Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 10
+   * maximum: 84
+   * @return innodbFtMaxTokenSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_MAX_TOKEN_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbFtMaxTokenSize() {
+    return innodbFtMaxTokenSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_MAX_TOKEN_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtMaxTokenSize(Integer innodbFtMaxTokenSize) {
+    this.innodbFtMaxTokenSize = innodbFtMaxTokenSize;
+  }
+
+
   public JsonSchemaMysql internalTmpMemStorageEngine(InternalTmpMemStorageEngineEnum internalTmpMemStorageEngine) {
     this.internalTmpMemStorageEngine = internalTmpMemStorageEngine;
     return this;
@@ -290,6 +788,33 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInternalTmpMemStorageEngine(InternalTmpMemStorageEngineEnum internalTmpMemStorageEngine) {
     this.internalTmpMemStorageEngine = internalTmpMemStorageEngine;
+  }
+
+
+  public JsonSchemaMysql innodbIoCapacityMax(Integer innodbIoCapacityMax) {
+    this.innodbIoCapacityMax = innodbIoCapacityMax;
+    return this;
+  }
+
+   /**
+   * The maximum number of I/O operations per second (IOPS) that InnoDB background tasks may perform when flushing falls behind. Defaults to twice innodb_io_capacity (minimum 2000). This must be greater than or equal to innodb_io_capacity.
+   * minimum: 100
+   * maximum: 4294967295
+   * @return innodbIoCapacityMax
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_IO_CAPACITY_MAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbIoCapacityMax() {
+    return innodbIoCapacityMax;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_IO_CAPACITY_MAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbIoCapacityMax(Integer innodbIoCapacityMax) {
+    this.innodbIoCapacityMax = innodbIoCapacityMax;
   }
 
 
@@ -369,6 +894,87 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSortBufferSize(Integer sortBufferSize) {
     this.sortBufferSize = sortBufferSize;
+  }
+
+
+  public JsonSchemaMysql maxExecutionTime(Integer maxExecutionTime) {
+    this.maxExecutionTime = maxExecutionTime;
+    return this;
+  }
+
+   /**
+   * Execution timeout in milliseconds for read-only top-level SELECT statements. 0 (the default) means no timeout.
+   * minimum: 0
+   * maximum: 4294967295
+   * @return maxExecutionTime
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_EXECUTION_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxExecutionTime() {
+    return maxExecutionTime;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_EXECUTION_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxExecutionTime(Integer maxExecutionTime) {
+    this.maxExecutionTime = maxExecutionTime;
+  }
+
+
+  public JsonSchemaMysql innodbFtCacheSize(Integer innodbFtCacheSize) {
+    this.innodbFtCacheSize = innodbFtCacheSize;
+    return this;
+  }
+
+   /**
+   * The size in bytes of the InnoDB FULLTEXT index cache for each table. Pending index updates are flushed to disk when the cache reaches this limit. innodb_ft_total_cache_size controls the combined cache limit for all tables. Default is 8000000. Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 1600000
+   * maximum: 80000000
+   * @return innodbFtCacheSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_CACHE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbFtCacheSize() {
+    return innodbFtCacheSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_CACHE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtCacheSize(Integer innodbFtCacheSize) {
+    this.innodbFtCacheSize = innodbFtCacheSize;
+  }
+
+
+  public JsonSchemaMysql innodbFtNumWordOptimize(Integer innodbFtNumWordOptimize) {
+    this.innodbFtNumWordOptimize = innodbFtNumWordOptimize;
+    return this;
+  }
+
+   /**
+   * Number of words processed during each OPTIMIZE TABLE operation on an InnoDB FULLTEXT index. Default is 2000.
+   * minimum: 1000
+   * maximum: 10000
+   * @return innodbFtNumWordOptimize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_NUM_WORD_OPTIMIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbFtNumWordOptimize() {
+    return innodbFtNumWordOptimize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_NUM_WORD_OPTIMIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtNumWordOptimize(Integer innodbFtNumWordOptimize) {
+    this.innodbFtNumWordOptimize = innodbFtNumWordOptimize;
   }
 
 
@@ -480,6 +1086,56 @@ public class JsonSchemaMysql {
   }
 
 
+  public JsonSchemaMysql lowerCaseTableNames(LowerCaseTableNamesEnum lowerCaseTableNames) {
+    this.lowerCaseTableNames = lowerCaseTableNames;
+    return this;
+  }
+
+   /**
+   * Sets how table and database names are stored and compared. 0 &#x3D; case-sensitive (default), 1 &#x3D; names stored lowercase, comparisons are case-insensitive. This option can only be set when creating the service and cannot be changed later. See https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html for details.
+   * @return lowerCaseTableNames
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOWER_CASE_TABLE_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LowerCaseTableNamesEnum getLowerCaseTableNames() {
+    return lowerCaseTableNames;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LOWER_CASE_TABLE_NAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLowerCaseTableNames(LowerCaseTableNamesEnum lowerCaseTableNames) {
+    this.lowerCaseTableNames = lowerCaseTableNames;
+  }
+
+
+  public JsonSchemaMysql innodbAdaptiveHashIndex(Boolean innodbAdaptiveHashIndex) {
+    this.innodbAdaptiveHashIndex = innodbAdaptiveHashIndex;
+    return this;
+  }
+
+   /**
+   * Whether InnoDB adaptive hash indexing is enabled. The optimal setting is workload-dependent: it speeds up lookups for some workloads but its internal latch can become a contention point under high concurrency, in which case disabling it can improve throughput.
+   * @return innodbAdaptiveHashIndex
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_ADAPTIVE_HASH_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getInnodbAdaptiveHashIndex() {
+    return innodbAdaptiveHashIndex;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_ADAPTIVE_HASH_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbAdaptiveHashIndex(Boolean innodbAdaptiveHashIndex) {
+    this.innodbAdaptiveHashIndex = innodbAdaptiveHashIndex;
+  }
+
+
   public JsonSchemaMysql innodbFlushNeighbors(Integer innodbFlushNeighbors) {
     this.innodbFlushNeighbors = innodbFlushNeighbors;
     return this;
@@ -504,6 +1160,33 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInnodbFlushNeighbors(Integer innodbFlushNeighbors) {
     this.innodbFlushNeighbors = innodbFlushNeighbors;
+  }
+
+
+  public JsonSchemaMysql optimizerPruneLevel(Integer optimizerPruneLevel) {
+    this.optimizerPruneLevel = optimizerPruneLevel;
+    return this;
+  }
+
+   /**
+   * Controls the heuristics applied during query optimization to prune less-promising partial plans from the optimizer search space. 0 disables heuristics (exhaustive search); 1 prunes plans based on the number of rows retrieved.
+   * minimum: 0
+   * maximum: 1
+   * @return optimizerPruneLevel
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIMIZER_PRUNE_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getOptimizerPruneLevel() {
+    return optimizerPruneLevel;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIMIZER_PRUNE_LEVEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptimizerPruneLevel(Integer optimizerPruneLevel) {
+    this.optimizerPruneLevel = optimizerPruneLevel;
   }
 
 
@@ -611,6 +1294,33 @@ public class JsonSchemaMysql {
   }
 
 
+  public JsonSchemaMysql maxSeeksForKey(Integer maxSeeksForKey) {
+    this.maxSeeksForKey = maxSeeksForKey;
+    return this;
+  }
+
+   /**
+   * Limit on the assumed maximum number of index seeks when looking up rows based on a key. Lowering this value causes the optimizer to prefer index lookups over table scans.
+   * minimum: 1
+   * maximum: -1
+   * @return maxSeeksForKey
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_SEEKS_FOR_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxSeeksForKey() {
+    return maxSeeksForKey;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_SEEKS_FOR_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxSeeksForKey(Integer maxSeeksForKey) {
+    this.maxSeeksForKey = maxSeeksForKey;
+  }
+
+
   public JsonSchemaMysql netReadTimeout(Integer netReadTimeout) {
     this.netReadTimeout = netReadTimeout;
     return this;
@@ -638,6 +1348,247 @@ public class JsonSchemaMysql {
   }
 
 
+  public JsonSchemaMysql relayLogSpaceLimit(Integer relayLogSpaceLimit) {
+    this.relayLogSpaceLimit = relayLogSpaceLimit;
+    return this;
+  }
+
+   /**
+   * The maximum amount of space in bytes to use for all relay logs while replicating from an external migration source. When the limit is reached, the replication I/O thread stops fetching relay log events until the SQL thread has caught up. Raise this to give a large migration a bigger relay-log budget; ensure the service disk is sized accordingly. The setting applies only on the node replicating from the external source; standby nodes always use the Aiven-managed default (the smaller of 5 GiB and 30% of the service disk), which is also used when this option is left unset. Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 134217728
+   * maximum: -1
+   * @return relayLogSpaceLimit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELAY_LOG_SPACE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getRelayLogSpaceLimit() {
+    return relayLogSpaceLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RELAY_LOG_SPACE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRelayLogSpaceLimit(Integer relayLogSpaceLimit) {
+    this.relayLogSpaceLimit = relayLogSpaceLimit;
+  }
+
+
+  public JsonSchemaMysql innodbFtUserStopwordTable(String innodbFtUserStopwordTable) {
+    this.innodbFtUserStopwordTable = JsonNullable.<String>of(innodbFtUserStopwordTable);
+    return this;
+  }
+
+   /**
+   * This option is used to specify your own InnoDB FULLTEXT index stopword list for specific InnoDB tables.
+   * @return innodbFtUserStopwordTable
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public String getInnodbFtUserStopwordTable() {
+        return innodbFtUserStopwordTable.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_USER_STOPWORD_TABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<String> getInnodbFtUserStopwordTable_JsonNullable() {
+    return innodbFtUserStopwordTable;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_USER_STOPWORD_TABLE)
+  public void setInnodbFtUserStopwordTable_JsonNullable(JsonNullable<String> innodbFtUserStopwordTable) {
+    this.innodbFtUserStopwordTable = innodbFtUserStopwordTable;
+  }
+
+  public void setInnodbFtUserStopwordTable(String innodbFtUserStopwordTable) {
+    this.innodbFtUserStopwordTable = JsonNullable.<String>of(innodbFtUserStopwordTable);
+  }
+
+
+  public JsonSchemaMysql innodbMaxPurgeLag(Integer innodbMaxPurgeLag) {
+    this.innodbMaxPurgeLag = innodbMaxPurgeLag;
+    return this;
+  }
+
+   /**
+   * Number of outstanding transactions the InnoDB purge operation may fall behind by before INSERT, UPDATE and DELETE are delayed to let it catch up. The delay applies per row and grows with the lag, and it is capped by innodb_max_purge_lag_delay, which has to be set as well for this option to have any effect. Default is 0, which never delays anything.
+   * minimum: 0
+   * maximum: 4294967295
+   * @return innodbMaxPurgeLag
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_PURGE_LAG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbMaxPurgeLag() {
+    return innodbMaxPurgeLag;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_PURGE_LAG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbMaxPurgeLag(Integer innodbMaxPurgeLag) {
+    this.innodbMaxPurgeLag = innodbMaxPurgeLag;
+  }
+
+
+  public JsonSchemaMysql innodbOptimizeFulltextOnly(Boolean innodbOptimizeFulltextOnly) {
+    this.innodbOptimizeFulltextOnly = innodbOptimizeFulltextOnly;
+    return this;
+  }
+
+   /**
+   * When enabled, OPTIMIZE TABLE on InnoDB tables only updates the FULLTEXT index instead of rebuilding the table. Intended to be enabled temporarily during FULLTEXT index maintenance and disabled afterwards; while enabled, OPTIMIZE TABLE does not reclaim table space.
+   * @return innodbOptimizeFulltextOnly
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_OPTIMIZE_FULLTEXT_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getInnodbOptimizeFulltextOnly() {
+    return innodbOptimizeFulltextOnly;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_OPTIMIZE_FULLTEXT_ONLY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbOptimizeFulltextOnly(Boolean innodbOptimizeFulltextOnly) {
+    this.innodbOptimizeFulltextOnly = innodbOptimizeFulltextOnly;
+  }
+
+
+  public JsonSchemaMysql innodbFtEnableStopword(Boolean innodbFtEnableStopword) {
+    this.innodbFtEnableStopword = innodbFtEnableStopword;
+    return this;
+  }
+
+   /**
+   * Whether stopword processing is applied when creating or rebuilding an InnoDB FULLTEXT index. Enabled by default.
+   * @return innodbFtEnableStopword
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_ENABLE_STOPWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getInnodbFtEnableStopword() {
+    return innodbFtEnableStopword;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_ENABLE_STOPWORD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtEnableStopword(Boolean innodbFtEnableStopword) {
+    this.innodbFtEnableStopword = innodbFtEnableStopword;
+  }
+
+
+  public JsonSchemaMysql eqRangeIndexDiveLimit(Integer eqRangeIndexDiveLimit) {
+    this.eqRangeIndexDiveLimit = eqRangeIndexDiveLimit;
+    return this;
+  }
+
+   /**
+   * The number of equality ranges in a query at or above which the optimizer switches from index dives to index statistics when estimating the number of qualifying rows. 0 means always use index dives. Default is 200.
+   * minimum: 0
+   * maximum: 4294967295
+   * @return eqRangeIndexDiveLimit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EQ_RANGE_INDEX_DIVE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getEqRangeIndexDiveLimit() {
+    return eqRangeIndexDiveLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EQ_RANGE_INDEX_DIVE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEqRangeIndexDiveLimit(Integer eqRangeIndexDiveLimit) {
+    this.eqRangeIndexDiveLimit = eqRangeIndexDiveLimit;
+  }
+
+
+  public JsonSchemaMysql endMarkersInJson(Boolean endMarkersInJson) {
+    this.endMarkersInJson = endMarkersInJson;
+    return this;
+  }
+
+   /**
+   * Whether optimizer JSON output such as EXPLAIN FORMAT&#x3D;JSON adds end markers that repeat a structure&#39;s key near its closing bracket, making large JSON structures easier to read.
+   * @return endMarkersInJson
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_END_MARKERS_IN_JSON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getEndMarkersInJson() {
+    return endMarkersInJson;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_END_MARKERS_IN_JSON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEndMarkersInJson(Boolean endMarkersInJson) {
+    this.endMarkersInJson = endMarkersInJson;
+  }
+
+
+  public JsonSchemaMysql eventScheduler(EventSchedulerEnum eventScheduler) {
+    this.eventScheduler = eventScheduler;
+    return this;
+  }
+
+   /**
+   * Whether the event scheduler runs the events created with CREATE EVENT. Set OFF to stop every event on the service without dropping it, and ON to start them again. A change applies at once, without a restart. Events take effect only on the primary node. After a failover, they are re-enabled on the new primary. Default is ON.
+   * @return eventScheduler
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_SCHEDULER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public EventSchedulerEnum getEventScheduler() {
+    return eventScheduler;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EVENT_SCHEDULER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEventScheduler(EventSchedulerEnum eventScheduler) {
+    this.eventScheduler = eventScheduler;
+  }
+
+
+  public JsonSchemaMysql innodbMaxDirtyPagesPct(BigDecimal innodbMaxDirtyPagesPct) {
+    this.innodbMaxDirtyPagesPct = innodbMaxDirtyPagesPct;
+    return this;
+  }
+
+   /**
+   * Percentage of dirty pages in the InnoDB buffer pool at which InnoDB starts flushing aggressively. Lowering it spreads write I/O more evenly and shortens crash recovery, at the cost of flushing pages that might have been modified again. Must stay at or above innodb_max_dirty_pages_pct_lwm. Default is 90.
+   * minimum: 5
+   * maximum: 99
+   * @return innodbMaxDirtyPagesPct
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getInnodbMaxDirtyPagesPct() {
+    return innodbMaxDirtyPagesPct;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbMaxDirtyPagesPct(BigDecimal innodbMaxDirtyPagesPct) {
+    this.innodbMaxDirtyPagesPct = innodbMaxDirtyPagesPct;
+  }
+
+
   public JsonSchemaMysql innodbLockWaitTimeout(Integer innodbLockWaitTimeout) {
     this.innodbLockWaitTimeout = innodbLockWaitTimeout;
     return this;
@@ -662,6 +1613,60 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInnodbLockWaitTimeout(Integer innodbLockWaitTimeout) {
     this.innodbLockWaitTimeout = innodbLockWaitTimeout;
+  }
+
+
+  public JsonSchemaMysql innodbIoCapacity(Integer innodbIoCapacity) {
+    this.innodbIoCapacity = innodbIoCapacity;
+    return this;
+  }
+
+   /**
+   * The number of I/O operations per second (IOPS) available to InnoDB background tasks, such as flushing pages from the buffer pool and merging data from the change buffer. Set this to a value appropriate for the underlying storage; it must not exceed innodb_io_capacity_max.
+   * minimum: 100
+   * maximum: 4294967295
+   * @return innodbIoCapacity
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_IO_CAPACITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbIoCapacity() {
+    return innodbIoCapacity;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_IO_CAPACITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbIoCapacity(Integer innodbIoCapacity) {
+    this.innodbIoCapacity = innodbIoCapacity;
+  }
+
+
+  public JsonSchemaMysql maxUserConnections(Integer maxUserConnections) {
+    this.maxUserConnections = maxUserConnections;
+    return this;
+  }
+
+   /**
+   * The maximum number of simultaneous connections permitted to any single user account. 0, the default, means no per-account limit. Any other value must be at least 10 below max_connections, so that monitoring and your own admin sessions can still connect when an application saturates its own limit. Aiven&#39;s replication and management connections are unaffected however low you set this.
+   * minimum: 0
+   * maximum: 99990
+   * @return maxUserConnections
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_USER_CONNECTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxUserConnections() {
+    return maxUserConnections;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_USER_CONNECTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxUserConnections(Integer maxUserConnections) {
+    this.maxUserConnections = maxUserConnections;
   }
 
 
@@ -771,6 +1776,60 @@ public class JsonSchemaMysql {
   }
 
 
+  public JsonSchemaMysql optimizerSearchDepth(Integer optimizerSearchDepth) {
+    this.optimizerSearchDepth = optimizerSearchDepth;
+    return this;
+  }
+
+   /**
+   * Maximum depth of search performed by the query optimizer when choosing a join order. Larger values produce better plans for joins over many tables but take longer to compile; 0 lets the optimizer choose the depth automatically.
+   * minimum: 0
+   * maximum: 62
+   * @return optimizerSearchDepth
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIMIZER_SEARCH_DEPTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getOptimizerSearchDepth() {
+    return optimizerSearchDepth;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIMIZER_SEARCH_DEPTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptimizerSearchDepth(Integer optimizerSearchDepth) {
+    this.optimizerSearchDepth = optimizerSearchDepth;
+  }
+
+
+  public JsonSchemaMysql innodbSortBufferSize(Integer innodbSortBufferSize) {
+    this.innodbSortBufferSize = innodbSortBufferSize;
+    return this;
+  }
+
+   /**
+   * The size in bytes of the sort buffer used when creating InnoDB indexes. Also controls the read and write buffer sizes for the temporary log used during online DDL operations. Default is 1048576 (1 MiB). Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 65536
+   * maximum: 67108864
+   * @return innodbSortBufferSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_SORT_BUFFER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbSortBufferSize() {
+    return innodbSortBufferSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_SORT_BUFFER_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbSortBufferSize(Integer innodbSortBufferSize) {
+    this.innodbSortBufferSize = innodbSortBufferSize;
+  }
+
+
   public JsonSchemaMysql innodbPrintAllDeadlocks(Boolean innodbPrintAllDeadlocks) {
     this.innodbPrintAllDeadlocks = innodbPrintAllDeadlocks;
     return this;
@@ -820,6 +1879,87 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInnodbOnlineAlterLogMaxSize(Integer innodbOnlineAlterLogMaxSize) {
     this.innodbOnlineAlterLogMaxSize = innodbOnlineAlterLogMaxSize;
+  }
+
+
+  public JsonSchemaMysql innodbFtResultCacheLimit(Integer innodbFtResultCacheLimit) {
+    this.innodbFtResultCacheLimit = innodbFtResultCacheLimit;
+    return this;
+  }
+
+   /**
+   * Maximum memory in bytes used per query for the InnoDB FULLTEXT search query result cache. Aiven sizes this automatically based on the service plan&#39;s memory; setting a value overrides the calculated default.
+   * minimum: 1000000
+   * maximum: 4294967295
+   * @return innodbFtResultCacheLimit
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_RESULT_CACHE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbFtResultCacheLimit() {
+    return innodbFtResultCacheLimit;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_RESULT_CACHE_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtResultCacheLimit(Integer innodbFtResultCacheLimit) {
+    this.innodbFtResultCacheLimit = innodbFtResultCacheLimit;
+  }
+
+
+  public JsonSchemaMysql innodbFtTotalCacheSize(Integer innodbFtTotalCacheSize) {
+    this.innodbFtTotalCacheSize = innodbFtTotalCacheSize;
+    return this;
+  }
+
+   /**
+   * The combined memory limit in bytes for InnoDB FULLTEXT index caches across all tables. When an index operation reaches this limit, InnoDB forces cached index updates to disk to reduce memory usage. Values above 5% of plan RAM are rejected. Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 32000000
+   * maximum: 1600000000
+   * @return innodbFtTotalCacheSize
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_TOTAL_CACHE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbFtTotalCacheSize() {
+    return innodbFtTotalCacheSize;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_TOTAL_CACHE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtTotalCacheSize(Integer innodbFtTotalCacheSize) {
+    this.innodbFtTotalCacheSize = innodbFtTotalCacheSize;
+  }
+
+
+  public JsonSchemaMysql schemaDefinitionCache(Integer schemaDefinitionCache) {
+    this.schemaDefinitionCache = schemaDefinitionCache;
+    return this;
+  }
+
+   /**
+   * The number of schema definition objects the data dictionary object cache can hold. Raise it above the number of schemas on the service to keep their definitions in memory. Each cached definition uses a small amount of memory, and the cache never holds more than the service&#39;s own schemas, so a high value costs nothing extra on a service with few schemas. Default is 256.
+   * minimum: 256
+   * maximum: 524288
+   * @return schemaDefinitionCache
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEMA_DEFINITION_CACHE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getSchemaDefinitionCache() {
+    return schemaDefinitionCache;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SCHEMA_DEFINITION_CACHE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSchemaDefinitionCache(Integer schemaDefinitionCache) {
+    this.schemaDefinitionCache = schemaDefinitionCache;
   }
 
 
@@ -904,6 +2044,60 @@ public class JsonSchemaMysql {
   }
 
 
+  public JsonSchemaMysql innodbMaxPurgeLagDelay(Integer innodbMaxPurgeLagDelay) {
+    this.innodbMaxPurgeLagDelay = innodbMaxPurgeLagDelay;
+    return this;
+  }
+
+   /**
+   * Cap in microseconds on the per-row delay innodb_max_purge_lag applies to INSERT, UPDATE and DELETE. MySQL clamps the delay to this value unconditionally, so while this is 0 no delay is ever applied and innodb_max_purge_lag on its own does nothing. Both options must be non-zero for either to take effect. Default is 0.
+   * minimum: 0
+   * maximum: 10000000
+   * @return innodbMaxPurgeLagDelay
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_PURGE_LAG_DELAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbMaxPurgeLagDelay() {
+    return innodbMaxPurgeLagDelay;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_PURGE_LAG_DELAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbMaxPurgeLagDelay(Integer innodbMaxPurgeLagDelay) {
+    this.innodbMaxPurgeLagDelay = innodbMaxPurgeLagDelay;
+  }
+
+
+  public JsonSchemaMysql divPrecisionIncrement(Integer divPrecisionIncrement) {
+    this.divPrecisionIncrement = divPrecisionIncrement;
+    return this;
+  }
+
+   /**
+   * Number of digits by which to increase the scale of the result of division operations performed with the / operator. Default is 4.
+   * minimum: 0
+   * maximum: 30
+   * @return divPrecisionIncrement
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DIV_PRECISION_INCREMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getDivPrecisionIncrement() {
+    return divPrecisionIncrement;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DIV_PRECISION_INCREMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDivPrecisionIncrement(Integer divPrecisionIncrement) {
+    this.divPrecisionIncrement = divPrecisionIncrement;
+  }
+
+
   public JsonSchemaMysql maxHeapTableSize(Integer maxHeapTableSize) {
     this.maxHeapTableSize = maxHeapTableSize;
     return this;
@@ -928,6 +2122,33 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxHeapTableSize(Integer maxHeapTableSize) {
     this.maxHeapTableSize = maxHeapTableSize;
+  }
+
+
+  public JsonSchemaMysql innodbFtSortPllDegree(Integer innodbFtSortPllDegree) {
+    this.innodbFtSortPllDegree = innodbFtSortPllDegree;
+    return this;
+  }
+
+   /**
+   * The number of parallel threads used to tokenize and index text when building an InnoDB FULLTEXT index. Default is 2. Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 1
+   * maximum: 32
+   * @return innodbFtSortPllDegree
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_SORT_PLL_DEGREE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getInnodbFtSortPllDegree() {
+    return innodbFtSortPllDegree;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_FT_SORT_PLL_DEGREE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbFtSortPllDegree(Integer innodbFtSortPllDegree) {
+    this.innodbFtSortPllDegree = innodbFtSortPllDegree;
   }
 
 
@@ -961,6 +2182,110 @@ public class JsonSchemaMysql {
 
   public void setInnodbFtServerStopwordTable(String innodbFtServerStopwordTable) {
     this.innodbFtServerStopwordTable = JsonNullable.<String>of(innodbFtServerStopwordTable);
+  }
+
+
+  public JsonSchemaMysql innodbMaxDirtyPagesPctLwm(BigDecimal innodbMaxDirtyPagesPctLwm) {
+    this.innodbMaxDirtyPagesPctLwm = innodbMaxDirtyPagesPctLwm;
+    return this;
+  }
+
+   /**
+   * Percentage of dirty pages in the InnoDB buffer pool at which InnoDB starts pre-flushing, to keep the dirty page ratio from reaching innodb_max_dirty_pages_pct. 0 turns pre-flushing off. Cannot be set above innodb_max_dirty_pages_pct. Default is 10.
+   * minimum: 0
+   * maximum: 99
+   * @return innodbMaxDirtyPagesPctLwm
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT_LWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getInnodbMaxDirtyPagesPctLwm() {
+    return innodbMaxDirtyPagesPctLwm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNODB_MAX_DIRTY_PAGES_PCT_LWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnodbMaxDirtyPagesPctLwm(BigDecimal innodbMaxDirtyPagesPctLwm) {
+    this.innodbMaxDirtyPagesPctLwm = innodbMaxDirtyPagesPctLwm;
+  }
+
+
+  public JsonSchemaMysql automaticSpPrivileges(Boolean automaticSpPrivileges) {
+    this.automaticSpPrivileges = automaticSpPrivileges;
+    return this;
+  }
+
+   /**
+   * When enabled, the server automatically grants the EXECUTE and ALTER ROUTINE privileges to the creator of a stored routine and drops them when the routine is dropped.
+   * @return automaticSpPrivileges
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC_SP_PRIVILEGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getAutomaticSpPrivileges() {
+    return automaticSpPrivileges;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AUTOMATIC_SP_PRIVILEGES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAutomaticSpPrivileges(Boolean automaticSpPrivileges) {
+    this.automaticSpPrivileges = automaticSpPrivileges;
+  }
+
+
+  public JsonSchemaMysql maxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+    return this;
+  }
+
+   /**
+   * The maximum permitted number of simultaneous client connections. Lower this to reserve memory for other work. The value cannot exceed the limit provided by your service plan. Upgrading the plan does not raise a value you have set explicitly, so increase it yourself after an upgrade.
+   * minimum: 30
+   * maximum: 100000
+   * @return maxConnections
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_CONNECTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxConnections() {
+    return maxConnections;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX_CONNECTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMaxConnections(Integer maxConnections) {
+    this.maxConnections = maxConnections;
+  }
+
+
+  public JsonSchemaMysql collationServer(CollationServerEnum collationServer) {
+    this.collationServer = collationServer;
+    return this;
+  }
+
+   /**
+   * The default collation for databases created without one, which their new tables then inherit. Only collations of the utf8mb4 character set are accepted. Databases Aiven creates, defaultdb and those added through the API or Console, keep utf8mb4_0900_ai_ci. Changing it leaves existing databases as they are. A change applies to new connections at once. After the next server restart, for example at maintenance, an upgrade, a plan change or a node replacement, sessions reset with COM_RESET_CONNECTION also compare strings with this collation, which a change without a restart does not do. Every 0900 collation except utf8mb4_0900_ai_ci has an id above 255, so after that restart MySQL announces a wrong character set to connecting clients. Clients that take their character set from the server, such as PHP mysqli and PDO without a charset option and MySQL Connector/NET (MySql.Data) without CharSet, must then set utf8mb4 themselves. Default is utf8mb4_0900_ai_ci.
+   * @return collationServer
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COLLATION_SERVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CollationServerEnum getCollationServer() {
+    return collationServer;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COLLATION_SERVER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCollationServer(CollationServerEnum collationServer) {
+    this.collationServer = collationServer;
   }
 
 
@@ -1013,6 +2338,41 @@ public class JsonSchemaMysql {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSqlRequirePrimaryKey(Boolean sqlRequirePrimaryKey) {
     this.sqlRequirePrimaryKey = sqlRequirePrimaryKey;
+  }
+
+
+  public JsonSchemaMysql performanceSchemaEventsStatementsHistorySize(Integer performanceSchemaEventsStatementsHistorySize) {
+    this.performanceSchemaEventsStatementsHistorySize = JsonNullable.<Integer>of(performanceSchemaEventsStatementsHistorySize);
+    return this;
+  }
+
+   /**
+   * The number of rows per thread in the events_statements_history table. Changing this parameter will lead to a restart of the MySQL service.
+   * minimum: 0
+   * maximum: 1024
+   * @return performanceSchemaEventsStatementsHistorySize
+  **/
+  @javax.annotation.Nullable
+  @JsonIgnore
+
+  public Integer getPerformanceSchemaEventsStatementsHistorySize() {
+        return performanceSchemaEventsStatementsHistorySize.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE_SCHEMA_EVENTS_STATEMENTS_HISTORY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Integer> getPerformanceSchemaEventsStatementsHistorySize_JsonNullable() {
+    return performanceSchemaEventsStatementsHistorySize;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE_SCHEMA_EVENTS_STATEMENTS_HISTORY_SIZE)
+  public void setPerformanceSchemaEventsStatementsHistorySize_JsonNullable(JsonNullable<Integer> performanceSchemaEventsStatementsHistorySize) {
+    this.performanceSchemaEventsStatementsHistorySize = performanceSchemaEventsStatementsHistorySize;
+  }
+
+  public void setPerformanceSchemaEventsStatementsHistorySize(Integer performanceSchemaEventsStatementsHistorySize) {
+    this.performanceSchemaEventsStatementsHistorySize = JsonNullable.<Integer>of(performanceSchemaEventsStatementsHistorySize);
   }
 
 
@@ -1081,34 +2441,69 @@ public class JsonSchemaMysql {
     }
     JsonSchemaMysql jsonSchemaMysql = (JsonSchemaMysql) o;
     return Objects.equals(this.netWriteTimeout, jsonSchemaMysql.netWriteTimeout) &&
+        Objects.equals(this.optimizerSwitch, jsonSchemaMysql.optimizerSwitch) &&
+        Objects.equals(this.tablespaceDefinitionCache, jsonSchemaMysql.tablespaceDefinitionCache) &&
+        Objects.equals(this.innodbFtMaxTokenSize, jsonSchemaMysql.innodbFtMaxTokenSize) &&
         Objects.equals(this.internalTmpMemStorageEngine, jsonSchemaMysql.internalTmpMemStorageEngine) &&
+        Objects.equals(this.innodbIoCapacityMax, jsonSchemaMysql.innodbIoCapacityMax) &&
         Objects.equals(this.sqlMode, jsonSchemaMysql.sqlMode) &&
         Objects.equals(this.informationSchemaStatsExpiry, jsonSchemaMysql.informationSchemaStatsExpiry) &&
         Objects.equals(this.sortBufferSize, jsonSchemaMysql.sortBufferSize) &&
+        Objects.equals(this.maxExecutionTime, jsonSchemaMysql.maxExecutionTime) &&
+        Objects.equals(this.innodbFtCacheSize, jsonSchemaMysql.innodbFtCacheSize) &&
+        Objects.equals(this.innodbFtNumWordOptimize, jsonSchemaMysql.innodbFtNumWordOptimize) &&
         Objects.equals(this.innodbThreadConcurrency, jsonSchemaMysql.innodbThreadConcurrency) &&
         Objects.equals(this.innodbWriteIoThreads, jsonSchemaMysql.innodbWriteIoThreads) &&
         Objects.equals(this.innodbFtMinTokenSize, jsonSchemaMysql.innodbFtMinTokenSize) &&
         Objects.equals(this.innodbChangeBufferMaxSize, jsonSchemaMysql.innodbChangeBufferMaxSize) &&
+        Objects.equals(this.lowerCaseTableNames, jsonSchemaMysql.lowerCaseTableNames) &&
+        Objects.equals(this.innodbAdaptiveHashIndex, jsonSchemaMysql.innodbAdaptiveHashIndex) &&
         Objects.equals(this.innodbFlushNeighbors, jsonSchemaMysql.innodbFlushNeighbors) &&
+        Objects.equals(this.optimizerPruneLevel, jsonSchemaMysql.optimizerPruneLevel) &&
         Objects.equals(this.tmpTableSize, jsonSchemaMysql.tmpTableSize) &&
         Objects.equals(this.slowQueryLog, jsonSchemaMysql.slowQueryLog) &&
         Objects.equals(this.connectTimeout, jsonSchemaMysql.connectTimeout) &&
         Objects.equals(this.logOutput, jsonSchemaMysql.logOutput) &&
+        Objects.equals(this.maxSeeksForKey, jsonSchemaMysql.maxSeeksForKey) &&
         Objects.equals(this.netReadTimeout, jsonSchemaMysql.netReadTimeout) &&
+        Objects.equals(this.relayLogSpaceLimit, jsonSchemaMysql.relayLogSpaceLimit) &&
+        equalsNullable(this.innodbFtUserStopwordTable, jsonSchemaMysql.innodbFtUserStopwordTable) &&
+        Objects.equals(this.innodbMaxPurgeLag, jsonSchemaMysql.innodbMaxPurgeLag) &&
+        Objects.equals(this.innodbOptimizeFulltextOnly, jsonSchemaMysql.innodbOptimizeFulltextOnly) &&
+        Objects.equals(this.innodbFtEnableStopword, jsonSchemaMysql.innodbFtEnableStopword) &&
+        Objects.equals(this.eqRangeIndexDiveLimit, jsonSchemaMysql.eqRangeIndexDiveLimit) &&
+        Objects.equals(this.endMarkersInJson, jsonSchemaMysql.endMarkersInJson) &&
+        Objects.equals(this.eventScheduler, jsonSchemaMysql.eventScheduler) &&
+        Objects.equals(this.innodbMaxDirtyPagesPct, jsonSchemaMysql.innodbMaxDirtyPagesPct) &&
         Objects.equals(this.innodbLockWaitTimeout, jsonSchemaMysql.innodbLockWaitTimeout) &&
+        Objects.equals(this.innodbIoCapacity, jsonSchemaMysql.innodbIoCapacity) &&
+        Objects.equals(this.maxUserConnections, jsonSchemaMysql.maxUserConnections) &&
         Objects.equals(this.waitTimeout, jsonSchemaMysql.waitTimeout) &&
         Objects.equals(this.innodbRollbackOnTimeout, jsonSchemaMysql.innodbRollbackOnTimeout) &&
         Objects.equals(this.groupConcatMaxLen, jsonSchemaMysql.groupConcatMaxLen) &&
         Objects.equals(this.netBufferLength, jsonSchemaMysql.netBufferLength) &&
+        Objects.equals(this.optimizerSearchDepth, jsonSchemaMysql.optimizerSearchDepth) &&
+        Objects.equals(this.innodbSortBufferSize, jsonSchemaMysql.innodbSortBufferSize) &&
         Objects.equals(this.innodbPrintAllDeadlocks, jsonSchemaMysql.innodbPrintAllDeadlocks) &&
         Objects.equals(this.innodbOnlineAlterLogMaxSize, jsonSchemaMysql.innodbOnlineAlterLogMaxSize) &&
+        Objects.equals(this.innodbFtResultCacheLimit, jsonSchemaMysql.innodbFtResultCacheLimit) &&
+        Objects.equals(this.innodbFtTotalCacheSize, jsonSchemaMysql.innodbFtTotalCacheSize) &&
+        Objects.equals(this.schemaDefinitionCache, jsonSchemaMysql.schemaDefinitionCache) &&
         Objects.equals(this.interactiveTimeout, jsonSchemaMysql.interactiveTimeout) &&
         Objects.equals(this.innodbLogBufferSize, jsonSchemaMysql.innodbLogBufferSize) &&
         Objects.equals(this.maxAllowedPacket, jsonSchemaMysql.maxAllowedPacket) &&
+        Objects.equals(this.innodbMaxPurgeLagDelay, jsonSchemaMysql.innodbMaxPurgeLagDelay) &&
+        Objects.equals(this.divPrecisionIncrement, jsonSchemaMysql.divPrecisionIncrement) &&
         Objects.equals(this.maxHeapTableSize, jsonSchemaMysql.maxHeapTableSize) &&
+        Objects.equals(this.innodbFtSortPllDegree, jsonSchemaMysql.innodbFtSortPllDegree) &&
         equalsNullable(this.innodbFtServerStopwordTable, jsonSchemaMysql.innodbFtServerStopwordTable) &&
+        Objects.equals(this.innodbMaxDirtyPagesPctLwm, jsonSchemaMysql.innodbMaxDirtyPagesPctLwm) &&
+        Objects.equals(this.automaticSpPrivileges, jsonSchemaMysql.automaticSpPrivileges) &&
+        Objects.equals(this.maxConnections, jsonSchemaMysql.maxConnections) &&
+        Objects.equals(this.collationServer, jsonSchemaMysql.collationServer) &&
         Objects.equals(this.innodbReadIoThreads, jsonSchemaMysql.innodbReadIoThreads) &&
         Objects.equals(this.sqlRequirePrimaryKey, jsonSchemaMysql.sqlRequirePrimaryKey) &&
+        equalsNullable(this.performanceSchemaEventsStatementsHistorySize, jsonSchemaMysql.performanceSchemaEventsStatementsHistorySize) &&
         Objects.equals(this.defaultTimeZone, jsonSchemaMysql.defaultTimeZone) &&
         Objects.equals(this.longQueryTime, jsonSchemaMysql.longQueryTime);
   }
@@ -1119,7 +2514,7 @@ public class JsonSchemaMysql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(netWriteTimeout, internalTmpMemStorageEngine, sqlMode, informationSchemaStatsExpiry, sortBufferSize, innodbThreadConcurrency, innodbWriteIoThreads, innodbFtMinTokenSize, innodbChangeBufferMaxSize, innodbFlushNeighbors, tmpTableSize, slowQueryLog, connectTimeout, logOutput, netReadTimeout, innodbLockWaitTimeout, waitTimeout, innodbRollbackOnTimeout, groupConcatMaxLen, netBufferLength, innodbPrintAllDeadlocks, innodbOnlineAlterLogMaxSize, interactiveTimeout, innodbLogBufferSize, maxAllowedPacket, maxHeapTableSize, hashCodeNullable(innodbFtServerStopwordTable), innodbReadIoThreads, sqlRequirePrimaryKey, defaultTimeZone, longQueryTime);
+    return Objects.hash(netWriteTimeout, optimizerSwitch, tablespaceDefinitionCache, innodbFtMaxTokenSize, internalTmpMemStorageEngine, innodbIoCapacityMax, sqlMode, informationSchemaStatsExpiry, sortBufferSize, maxExecutionTime, innodbFtCacheSize, innodbFtNumWordOptimize, innodbThreadConcurrency, innodbWriteIoThreads, innodbFtMinTokenSize, innodbChangeBufferMaxSize, lowerCaseTableNames, innodbAdaptiveHashIndex, innodbFlushNeighbors, optimizerPruneLevel, tmpTableSize, slowQueryLog, connectTimeout, logOutput, maxSeeksForKey, netReadTimeout, relayLogSpaceLimit, hashCodeNullable(innodbFtUserStopwordTable), innodbMaxPurgeLag, innodbOptimizeFulltextOnly, innodbFtEnableStopword, eqRangeIndexDiveLimit, endMarkersInJson, eventScheduler, innodbMaxDirtyPagesPct, innodbLockWaitTimeout, innodbIoCapacity, maxUserConnections, waitTimeout, innodbRollbackOnTimeout, groupConcatMaxLen, netBufferLength, optimizerSearchDepth, innodbSortBufferSize, innodbPrintAllDeadlocks, innodbOnlineAlterLogMaxSize, innodbFtResultCacheLimit, innodbFtTotalCacheSize, schemaDefinitionCache, interactiveTimeout, innodbLogBufferSize, maxAllowedPacket, innodbMaxPurgeLagDelay, divPrecisionIncrement, maxHeapTableSize, innodbFtSortPllDegree, hashCodeNullable(innodbFtServerStopwordTable), innodbMaxDirtyPagesPctLwm, automaticSpPrivileges, maxConnections, collationServer, innodbReadIoThreads, sqlRequirePrimaryKey, hashCodeNullable(performanceSchemaEventsStatementsHistorySize), defaultTimeZone, longQueryTime);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1134,34 +2529,69 @@ public class JsonSchemaMysql {
     StringBuilder sb = new StringBuilder();
     sb.append("class JsonSchemaMysql {\n");
     sb.append("    netWriteTimeout: ").append(toIndentedString(netWriteTimeout)).append("\n");
+    sb.append("    optimizerSwitch: ").append(toIndentedString(optimizerSwitch)).append("\n");
+    sb.append("    tablespaceDefinitionCache: ").append(toIndentedString(tablespaceDefinitionCache)).append("\n");
+    sb.append("    innodbFtMaxTokenSize: ").append(toIndentedString(innodbFtMaxTokenSize)).append("\n");
     sb.append("    internalTmpMemStorageEngine: ").append(toIndentedString(internalTmpMemStorageEngine)).append("\n");
+    sb.append("    innodbIoCapacityMax: ").append(toIndentedString(innodbIoCapacityMax)).append("\n");
     sb.append("    sqlMode: ").append(toIndentedString(sqlMode)).append("\n");
     sb.append("    informationSchemaStatsExpiry: ").append(toIndentedString(informationSchemaStatsExpiry)).append("\n");
     sb.append("    sortBufferSize: ").append(toIndentedString(sortBufferSize)).append("\n");
+    sb.append("    maxExecutionTime: ").append(toIndentedString(maxExecutionTime)).append("\n");
+    sb.append("    innodbFtCacheSize: ").append(toIndentedString(innodbFtCacheSize)).append("\n");
+    sb.append("    innodbFtNumWordOptimize: ").append(toIndentedString(innodbFtNumWordOptimize)).append("\n");
     sb.append("    innodbThreadConcurrency: ").append(toIndentedString(innodbThreadConcurrency)).append("\n");
     sb.append("    innodbWriteIoThreads: ").append(toIndentedString(innodbWriteIoThreads)).append("\n");
     sb.append("    innodbFtMinTokenSize: ").append(toIndentedString(innodbFtMinTokenSize)).append("\n");
     sb.append("    innodbChangeBufferMaxSize: ").append(toIndentedString(innodbChangeBufferMaxSize)).append("\n");
+    sb.append("    lowerCaseTableNames: ").append(toIndentedString(lowerCaseTableNames)).append("\n");
+    sb.append("    innodbAdaptiveHashIndex: ").append(toIndentedString(innodbAdaptiveHashIndex)).append("\n");
     sb.append("    innodbFlushNeighbors: ").append(toIndentedString(innodbFlushNeighbors)).append("\n");
+    sb.append("    optimizerPruneLevel: ").append(toIndentedString(optimizerPruneLevel)).append("\n");
     sb.append("    tmpTableSize: ").append(toIndentedString(tmpTableSize)).append("\n");
     sb.append("    slowQueryLog: ").append(toIndentedString(slowQueryLog)).append("\n");
     sb.append("    connectTimeout: ").append(toIndentedString(connectTimeout)).append("\n");
     sb.append("    logOutput: ").append(toIndentedString(logOutput)).append("\n");
+    sb.append("    maxSeeksForKey: ").append(toIndentedString(maxSeeksForKey)).append("\n");
     sb.append("    netReadTimeout: ").append(toIndentedString(netReadTimeout)).append("\n");
+    sb.append("    relayLogSpaceLimit: ").append(toIndentedString(relayLogSpaceLimit)).append("\n");
+    sb.append("    innodbFtUserStopwordTable: ").append(toIndentedString(innodbFtUserStopwordTable)).append("\n");
+    sb.append("    innodbMaxPurgeLag: ").append(toIndentedString(innodbMaxPurgeLag)).append("\n");
+    sb.append("    innodbOptimizeFulltextOnly: ").append(toIndentedString(innodbOptimizeFulltextOnly)).append("\n");
+    sb.append("    innodbFtEnableStopword: ").append(toIndentedString(innodbFtEnableStopword)).append("\n");
+    sb.append("    eqRangeIndexDiveLimit: ").append(toIndentedString(eqRangeIndexDiveLimit)).append("\n");
+    sb.append("    endMarkersInJson: ").append(toIndentedString(endMarkersInJson)).append("\n");
+    sb.append("    eventScheduler: ").append(toIndentedString(eventScheduler)).append("\n");
+    sb.append("    innodbMaxDirtyPagesPct: ").append(toIndentedString(innodbMaxDirtyPagesPct)).append("\n");
     sb.append("    innodbLockWaitTimeout: ").append(toIndentedString(innodbLockWaitTimeout)).append("\n");
+    sb.append("    innodbIoCapacity: ").append(toIndentedString(innodbIoCapacity)).append("\n");
+    sb.append("    maxUserConnections: ").append(toIndentedString(maxUserConnections)).append("\n");
     sb.append("    waitTimeout: ").append(toIndentedString(waitTimeout)).append("\n");
     sb.append("    innodbRollbackOnTimeout: ").append(toIndentedString(innodbRollbackOnTimeout)).append("\n");
     sb.append("    groupConcatMaxLen: ").append(toIndentedString(groupConcatMaxLen)).append("\n");
     sb.append("    netBufferLength: ").append(toIndentedString(netBufferLength)).append("\n");
+    sb.append("    optimizerSearchDepth: ").append(toIndentedString(optimizerSearchDepth)).append("\n");
+    sb.append("    innodbSortBufferSize: ").append(toIndentedString(innodbSortBufferSize)).append("\n");
     sb.append("    innodbPrintAllDeadlocks: ").append(toIndentedString(innodbPrintAllDeadlocks)).append("\n");
     sb.append("    innodbOnlineAlterLogMaxSize: ").append(toIndentedString(innodbOnlineAlterLogMaxSize)).append("\n");
+    sb.append("    innodbFtResultCacheLimit: ").append(toIndentedString(innodbFtResultCacheLimit)).append("\n");
+    sb.append("    innodbFtTotalCacheSize: ").append(toIndentedString(innodbFtTotalCacheSize)).append("\n");
+    sb.append("    schemaDefinitionCache: ").append(toIndentedString(schemaDefinitionCache)).append("\n");
     sb.append("    interactiveTimeout: ").append(toIndentedString(interactiveTimeout)).append("\n");
     sb.append("    innodbLogBufferSize: ").append(toIndentedString(innodbLogBufferSize)).append("\n");
     sb.append("    maxAllowedPacket: ").append(toIndentedString(maxAllowedPacket)).append("\n");
+    sb.append("    innodbMaxPurgeLagDelay: ").append(toIndentedString(innodbMaxPurgeLagDelay)).append("\n");
+    sb.append("    divPrecisionIncrement: ").append(toIndentedString(divPrecisionIncrement)).append("\n");
     sb.append("    maxHeapTableSize: ").append(toIndentedString(maxHeapTableSize)).append("\n");
+    sb.append("    innodbFtSortPllDegree: ").append(toIndentedString(innodbFtSortPllDegree)).append("\n");
     sb.append("    innodbFtServerStopwordTable: ").append(toIndentedString(innodbFtServerStopwordTable)).append("\n");
+    sb.append("    innodbMaxDirtyPagesPctLwm: ").append(toIndentedString(innodbMaxDirtyPagesPctLwm)).append("\n");
+    sb.append("    automaticSpPrivileges: ").append(toIndentedString(automaticSpPrivileges)).append("\n");
+    sb.append("    maxConnections: ").append(toIndentedString(maxConnections)).append("\n");
+    sb.append("    collationServer: ").append(toIndentedString(collationServer)).append("\n");
     sb.append("    innodbReadIoThreads: ").append(toIndentedString(innodbReadIoThreads)).append("\n");
     sb.append("    sqlRequirePrimaryKey: ").append(toIndentedString(sqlRequirePrimaryKey)).append("\n");
+    sb.append("    performanceSchemaEventsStatementsHistorySize: ").append(toIndentedString(performanceSchemaEventsStatementsHistorySize)).append("\n");
     sb.append("    defaultTimeZone: ").append(toIndentedString(defaultTimeZone)).append("\n");
     sb.append("    longQueryTime: ").append(toIndentedString(longQueryTime)).append("\n");
     sb.append("}");
@@ -1216,9 +2646,29 @@ public class JsonSchemaMysql {
       joiner.add(String.format("%snet_write_timeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetWriteTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `optimizer_switch` to the URL query string
+    if (getOptimizerSwitch() != null) {
+      joiner.add(String.format("%soptimizer_switch%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOptimizerSwitch()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `tablespace_definition_cache` to the URL query string
+    if (getTablespaceDefinitionCache() != null) {
+      joiner.add(String.format("%stablespace_definition_cache%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTablespaceDefinitionCache()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_max_token_size` to the URL query string
+    if (getInnodbFtMaxTokenSize() != null) {
+      joiner.add(String.format("%sinnodb_ft_max_token_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtMaxTokenSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `internal_tmp_mem_storage_engine` to the URL query string
     if (getInternalTmpMemStorageEngine() != null) {
       joiner.add(String.format("%sinternal_tmp_mem_storage_engine%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInternalTmpMemStorageEngine()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_io_capacity_max` to the URL query string
+    if (getInnodbIoCapacityMax() != null) {
+      joiner.add(String.format("%sinnodb_io_capacity_max%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbIoCapacityMax()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sql_mode` to the URL query string
@@ -1234,6 +2684,21 @@ public class JsonSchemaMysql {
     // add `sort_buffer_size` to the URL query string
     if (getSortBufferSize() != null) {
       joiner.add(String.format("%ssort_buffer_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSortBufferSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `max_execution_time` to the URL query string
+    if (getMaxExecutionTime() != null) {
+      joiner.add(String.format("%smax_execution_time%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxExecutionTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_cache_size` to the URL query string
+    if (getInnodbFtCacheSize() != null) {
+      joiner.add(String.format("%sinnodb_ft_cache_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtCacheSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_num_word_optimize` to the URL query string
+    if (getInnodbFtNumWordOptimize() != null) {
+      joiner.add(String.format("%sinnodb_ft_num_word_optimize%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtNumWordOptimize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `innodb_thread_concurrency` to the URL query string
@@ -1256,9 +2721,24 @@ public class JsonSchemaMysql {
       joiner.add(String.format("%sinnodb_change_buffer_max_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbChangeBufferMaxSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `lower_case_table_names` to the URL query string
+    if (getLowerCaseTableNames() != null) {
+      joiner.add(String.format("%slower_case_table_names%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLowerCaseTableNames()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_adaptive_hash_index` to the URL query string
+    if (getInnodbAdaptiveHashIndex() != null) {
+      joiner.add(String.format("%sinnodb_adaptive_hash_index%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbAdaptiveHashIndex()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `innodb_flush_neighbors` to the URL query string
     if (getInnodbFlushNeighbors() != null) {
       joiner.add(String.format("%sinnodb_flush_neighbors%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFlushNeighbors()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `optimizer_prune_level` to the URL query string
+    if (getOptimizerPruneLevel() != null) {
+      joiner.add(String.format("%soptimizer_prune_level%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOptimizerPruneLevel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tmp_table_size` to the URL query string
@@ -1281,14 +2761,74 @@ public class JsonSchemaMysql {
       joiner.add(String.format("%slog_output%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLogOutput()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `max_seeks_for_key` to the URL query string
+    if (getMaxSeeksForKey() != null) {
+      joiner.add(String.format("%smax_seeks_for_key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxSeeksForKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `net_read_timeout` to the URL query string
     if (getNetReadTimeout() != null) {
       joiner.add(String.format("%snet_read_timeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetReadTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `relay_log_space_limit` to the URL query string
+    if (getRelayLogSpaceLimit() != null) {
+      joiner.add(String.format("%srelay_log_space_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRelayLogSpaceLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_user_stopword_table` to the URL query string
+    if (getInnodbFtUserStopwordTable() != null) {
+      joiner.add(String.format("%sinnodb_ft_user_stopword_table%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtUserStopwordTable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_max_purge_lag` to the URL query string
+    if (getInnodbMaxPurgeLag() != null) {
+      joiner.add(String.format("%sinnodb_max_purge_lag%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbMaxPurgeLag()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_optimize_fulltext_only` to the URL query string
+    if (getInnodbOptimizeFulltextOnly() != null) {
+      joiner.add(String.format("%sinnodb_optimize_fulltext_only%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbOptimizeFulltextOnly()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_enable_stopword` to the URL query string
+    if (getInnodbFtEnableStopword() != null) {
+      joiner.add(String.format("%sinnodb_ft_enable_stopword%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtEnableStopword()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `eq_range_index_dive_limit` to the URL query string
+    if (getEqRangeIndexDiveLimit() != null) {
+      joiner.add(String.format("%seq_range_index_dive_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEqRangeIndexDiveLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `end_markers_in_json` to the URL query string
+    if (getEndMarkersInJson() != null) {
+      joiner.add(String.format("%send_markers_in_json%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEndMarkersInJson()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `event_scheduler` to the URL query string
+    if (getEventScheduler() != null) {
+      joiner.add(String.format("%sevent_scheduler%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEventScheduler()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_max_dirty_pages_pct` to the URL query string
+    if (getInnodbMaxDirtyPagesPct() != null) {
+      joiner.add(String.format("%sinnodb_max_dirty_pages_pct%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbMaxDirtyPagesPct()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `innodb_lock_wait_timeout` to the URL query string
     if (getInnodbLockWaitTimeout() != null) {
       joiner.add(String.format("%sinnodb_lock_wait_timeout%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbLockWaitTimeout()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_io_capacity` to the URL query string
+    if (getInnodbIoCapacity() != null) {
+      joiner.add(String.format("%sinnodb_io_capacity%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbIoCapacity()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `max_user_connections` to the URL query string
+    if (getMaxUserConnections() != null) {
+      joiner.add(String.format("%smax_user_connections%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxUserConnections()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `wait_timeout` to the URL query string
@@ -1311,6 +2851,16 @@ public class JsonSchemaMysql {
       joiner.add(String.format("%snet_buffer_length%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetBufferLength()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `optimizer_search_depth` to the URL query string
+    if (getOptimizerSearchDepth() != null) {
+      joiner.add(String.format("%soptimizer_search_depth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOptimizerSearchDepth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_sort_buffer_size` to the URL query string
+    if (getInnodbSortBufferSize() != null) {
+      joiner.add(String.format("%sinnodb_sort_buffer_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbSortBufferSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `innodb_print_all_deadlocks` to the URL query string
     if (getInnodbPrintAllDeadlocks() != null) {
       joiner.add(String.format("%sinnodb_print_all_deadlocks%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbPrintAllDeadlocks()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
@@ -1319,6 +2869,21 @@ public class JsonSchemaMysql {
     // add `innodb_online_alter_log_max_size` to the URL query string
     if (getInnodbOnlineAlterLogMaxSize() != null) {
       joiner.add(String.format("%sinnodb_online_alter_log_max_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbOnlineAlterLogMaxSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_result_cache_limit` to the URL query string
+    if (getInnodbFtResultCacheLimit() != null) {
+      joiner.add(String.format("%sinnodb_ft_result_cache_limit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtResultCacheLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_ft_total_cache_size` to the URL query string
+    if (getInnodbFtTotalCacheSize() != null) {
+      joiner.add(String.format("%sinnodb_ft_total_cache_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtTotalCacheSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `schema_definition_cache` to the URL query string
+    if (getSchemaDefinitionCache() != null) {
+      joiner.add(String.format("%sschema_definition_cache%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSchemaDefinitionCache()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `interactive_timeout` to the URL query string
@@ -1336,14 +2901,49 @@ public class JsonSchemaMysql {
       joiner.add(String.format("%smax_allowed_packet%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxAllowedPacket()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `innodb_max_purge_lag_delay` to the URL query string
+    if (getInnodbMaxPurgeLagDelay() != null) {
+      joiner.add(String.format("%sinnodb_max_purge_lag_delay%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbMaxPurgeLagDelay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `div_precision_increment` to the URL query string
+    if (getDivPrecisionIncrement() != null) {
+      joiner.add(String.format("%sdiv_precision_increment%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDivPrecisionIncrement()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `max_heap_table_size` to the URL query string
     if (getMaxHeapTableSize() != null) {
       joiner.add(String.format("%smax_heap_table_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxHeapTableSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `innodb_ft_sort_pll_degree` to the URL query string
+    if (getInnodbFtSortPllDegree() != null) {
+      joiner.add(String.format("%sinnodb_ft_sort_pll_degree%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtSortPllDegree()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
     // add `innodb_ft_server_stopword_table` to the URL query string
     if (getInnodbFtServerStopwordTable() != null) {
       joiner.add(String.format("%sinnodb_ft_server_stopword_table%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbFtServerStopwordTable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `innodb_max_dirty_pages_pct_lwm` to the URL query string
+    if (getInnodbMaxDirtyPagesPctLwm() != null) {
+      joiner.add(String.format("%sinnodb_max_dirty_pages_pct_lwm%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInnodbMaxDirtyPagesPctLwm()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `automatic_sp_privileges` to the URL query string
+    if (getAutomaticSpPrivileges() != null) {
+      joiner.add(String.format("%sautomatic_sp_privileges%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAutomaticSpPrivileges()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `max_connections` to the URL query string
+    if (getMaxConnections() != null) {
+      joiner.add(String.format("%smax_connections%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaxConnections()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `collation_server` to the URL query string
+    if (getCollationServer() != null) {
+      joiner.add(String.format("%scollation_server%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCollationServer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `innodb_read_io_threads` to the URL query string
@@ -1354,6 +2954,11 @@ public class JsonSchemaMysql {
     // add `sql_require_primary_key` to the URL query string
     if (getSqlRequirePrimaryKey() != null) {
       joiner.add(String.format("%ssql_require_primary_key%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSqlRequirePrimaryKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `performance_schema_events_statements_history_size` to the URL query string
+    if (getPerformanceSchemaEventsStatementsHistorySize() != null) {
+      joiner.add(String.format("%sperformance_schema_events_statements_history_size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPerformanceSchemaEventsStatementsHistorySize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `default_time_zone` to the URL query string
