@@ -20994,6 +20994,11 @@ components:
             cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            subnets:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           taints:
@@ -21011,6 +21016,7 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
+          ip-forwarding: true
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21064,6 +21070,11 @@ components:
             cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            subnets:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           taints:
@@ -21081,6 +21092,7 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
+          ip-forwarding: true
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21134,6 +21146,11 @@ components:
             cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            subnets:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           taints:
@@ -21151,6 +21168,7 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
+          ip-forwarding: true
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21204,6 +21222,11 @@ components:
             cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            subnets:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           taints:
@@ -21221,6 +21244,7 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
+          ip-forwarding: true
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -21274,6 +21298,11 @@ components:
             cpu: cpu
           deploy-target:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          vpc:
+            subnets:
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           instance-type:
             id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           taints:
@@ -21291,6 +21320,7 @@ components:
             low-threshold: 0
             min-age: min-age
           disk-size: 28872
+          ip-forwarding: true
           instance-prefix: instance-prefix
           anti-affinity-groups:
           - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22039,6 +22069,11 @@ components:
           cpu: cpu
         deploy-target:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        vpc:
+          subnets:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         instance-type:
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         taints:
@@ -22056,6 +22091,7 @@ components:
           low-threshold: 0
           min-age: min-age
         disk-size: 28872
+        ip-forwarding: true
         instance-prefix: instance-prefix
         anti-affinity-groups:
         - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -22171,6 +22207,8 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        vpc:
+          $ref: '#/components/schemas/vpc-ref'
         addons:
           description: Nodepool addons
           items:
@@ -22203,6 +22241,10 @@ components:
           maximum: 51200
           minimum: 20
           type: integer
+        ip-forwarding:
+          description: Allow the Instances to act as routers in their VPC (IP forwarding).
+            Only applies to new Instances
+          type: boolean
         version:
           description: Nodepool version
           readOnly: true
@@ -23744,6 +23786,29 @@ components:
           type: string
         auth:
           $ref: '#/components/schemas/key-store-proxy-auth'
+      type: object
+    vpc-ref:
+      description: VPC
+      example:
+        subnets:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: VPC ID
+          format: uuid
+          type: string
+        subnets:
+          description: VPC Subnets to attach the Instances to
+          items:
+            $ref: '#/components/schemas/vpc-subnet-ref'
+          minItems: 1
+          type: array
+          uniqueItems: true
+      required:
+      - id
+      - subnets
       type: object
     manager:
       description: Resource manager
@@ -25520,6 +25585,18 @@ components:
           description: DNS domain record system status
           readOnly: true
           type: boolean
+      type: object
+    vpc-subnet-ref:
+      description: VPC Subnet
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          description: Subnet ID
+          format: uuid
+          type: string
+      required:
+      - id
       type: object
     organization:
       description: Organization
@@ -29011,6 +29088,23 @@ components:
             $ref: '#/components/schemas/list-route-entry'
           type: array
       type: object
+    update_sks_nodepool_request_vpc:
+      description: "Nodepool VPC: the Instances are attached to the given Subnets\
+        \ of the VPC, or none (`null` or `{}`) to detach them"
+      nullable: true
+      properties:
+        id:
+          description: "VPC ID, required with `subnets`"
+          format: uuid
+          type: string
+        subnets:
+          description: "VPC Subnets to attach the Instances to, required with `id`"
+          items:
+            $ref: '#/components/schemas/vpc-subnet-ref'
+          minItems: 1
+          type: array
+          uniqueItems: true
+      type: object
     update_sks_nodepool_request:
       properties:
         anti-affinity-groups:
@@ -29092,6 +29186,8 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        vpc:
+          $ref: '#/components/schemas/update_sks_nodepool_request_vpc'
         disk-size:
           description: Nodepool instances disk size in GiB
           exclusiveMaximum: false
@@ -29100,6 +29196,10 @@ components:
           maximum: 51200
           minimum: 20
           type: integer
+        ip-forwarding:
+          description: Allow the Instances to act as routers in their VPC (IP forwarding).
+            Only applies to new Instances
+          type: boolean
         nvidia-mig-profiles:
           $ref: '#/components/schemas/nvidia-mig-profiles'
         cpu-manager:
@@ -30649,6 +30749,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -30666,6 +30771,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30719,6 +30825,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -30736,6 +30847,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30789,6 +30901,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -30806,6 +30923,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30859,6 +30977,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -30876,6 +30999,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -30929,6 +31053,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -30946,6 +31075,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31043,6 +31173,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -31060,6 +31195,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31113,6 +31249,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -31130,6 +31271,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31183,6 +31325,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -31200,6 +31347,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31253,6 +31401,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -31270,6 +31423,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -31323,6 +31477,11 @@ components:
               cpu: cpu
             deploy-target:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            vpc:
+              subnets:
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             instance-type:
               id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             taints:
@@ -31340,6 +31499,7 @@ components:
               low-threshold: 0
               min-age: min-age
             disk-size: 28872
+            ip-forwarding: true
             instance-prefix: instance-prefix
             anti-affinity-groups:
             - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
@@ -32402,6 +32562,8 @@ components:
           minimum: 1
           nullable: true
           type: integer
+        vpc:
+          $ref: '#/components/schemas/vpc-ref'
         addons:
           description: Nodepool addons
           items:
@@ -32418,6 +32580,10 @@ components:
           maximum: 51200
           minimum: 20
           type: integer
+        ip-forwarding:
+          description: Allow the Instances to act as routers in their VPC (IP forwarding).
+            Only applies to new Instances
+          type: boolean
         nvidia-mig-profiles:
           $ref: '#/components/schemas/nvidia-mig-profiles'
         cpu-manager:

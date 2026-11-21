@@ -581,6 +581,7 @@ docs/UpdateReverseDnsElasticIpRequest.md
 docs/UpdateSecurityGroupRequest.md
 docs/UpdateSksClusterRequest.md
 docs/UpdateSksNodepoolRequest.md
+docs/UpdateSksNodepoolRequestVpc.md
 docs/UpdateSubnetRequest.md
 docs/UpdateTemplateRequest.md
 docs/UpdateUserRoleRequest.md
@@ -591,6 +592,8 @@ docs/VerifyRequest.md
 docs/VerifyResponse.md
 docs/Vpc.md
 docs/VpcDhcpOptions.md
+docs/VpcRef.md
+docs/VpcSubnetRef.md
 docs/WatermarkSettings.md
 docs/WriteAheadLogWALSettings.md
 docs/XksKey.md
@@ -1190,6 +1193,7 @@ src/main/java/com/exoscale/sdk/model/UpdateReverseDnsElasticIpRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSecurityGroupRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSksClusterRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateSksNodepoolRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateSksNodepoolRequestVpc.java
 src/main/java/com/exoscale/sdk/model/UpdateSubnetRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateTemplateRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateUserRoleRequest.java
@@ -1200,6 +1204,8 @@ src/main/java/com/exoscale/sdk/model/VerifyRequest.java
 src/main/java/com/exoscale/sdk/model/VerifyResponse.java
 src/main/java/com/exoscale/sdk/model/Vpc.java
 src/main/java/com/exoscale/sdk/model/VpcDhcpOptions.java
+src/main/java/com/exoscale/sdk/model/VpcRef.java
+src/main/java/com/exoscale/sdk/model/VpcSubnetRef.java
 src/main/java/com/exoscale/sdk/model/WatermarkSettings.java
 src/main/java/com/exoscale/sdk/model/WriteAheadLogWALSettings.java
 src/main/java/com/exoscale/sdk/model/XksKey.java

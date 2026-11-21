@@ -28,10 +28,12 @@ SKS Nodepool
 |**systemReserved** | [**ReservedResources**](ReservedResources.md) |  |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**kubeletMaxPods** | **Long** | Maximum number of pods per node. Set to use a value other than the kubelet default. |  [optional] |
+|**vpc** | [**VpcRef**](VpcRef.md) |  |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**id** | **UUID** | Nodepool ID |  [optional] [readonly] |
 |**templateSelection** | [**TemplateSelectionEnum**](#TemplateSelectionEnum) | Nodepool template selection:  * &#x60;auto&#x60;: the latest template of the Nodepool Kubernetes version and variant; * &#x60;pinned&#x60;: the template set at creation or with &#x60;update-sks-nodepool&#x60;. |  [optional] [readonly] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  [optional] |
+|**ipForwarding** | **Boolean** | Allow the Instances to act as routers in their VPC (IP forwarding). Only applies to new Instances |  [optional] |
 |**version** | **String** | Nodepool version |  [optional] [readonly] |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 |**createdAt** | **OffsetDateTime** | Nodepool creation date |  [optional] [readonly] |

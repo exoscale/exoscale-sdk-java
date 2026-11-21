@@ -30,6 +30,7 @@ import com.exoscale.sdk.model.ReservedResources;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
 import com.exoscale.sdk.model.TemplateRef;
+import com.exoscale.sdk.model.VpcRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -70,8 +71,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateSksNodepoolRequest.JSON_PROPERTY_SYSTEM_RESERVED,
   CreateSksNodepoolRequest.JSON_PROPERTY_DEPLOY_TARGET,
   CreateSksNodepoolRequest.JSON_PROPERTY_KUBELET_MAX_PODS,
+  CreateSksNodepoolRequest.JSON_PROPERTY_VPC,
   CreateSksNodepoolRequest.JSON_PROPERTY_ADDONS,
   CreateSksNodepoolRequest.JSON_PROPERTY_DISK_SIZE,
+  CreateSksNodepoolRequest.JSON_PROPERTY_IP_FORWARDING,
   CreateSksNodepoolRequest.JSON_PROPERTY_NVIDIA_MIG_PROFILES,
   CreateSksNodepoolRequest.JSON_PROPERTY_CPU_MANAGER
 })
@@ -166,6 +169,9 @@ public class CreateSksNodepoolRequest {
   public static final String JSON_PROPERTY_KUBELET_MAX_PODS = "kubelet-max-pods";
   private JsonNullable<Long> kubeletMaxPods = JsonNullable.<Long>undefined();
 
+  public static final String JSON_PROPERTY_VPC = "vpc";
+  private VpcRef vpc;
+
   /**
    * Gets or Sets addons
    */
@@ -204,6 +210,9 @@ public class CreateSksNodepoolRequest {
 
   public static final String JSON_PROPERTY_DISK_SIZE = "disk-size";
   private Long diskSize;
+
+  public static final String JSON_PROPERTY_IP_FORWARDING = "ip-forwarding";
+  private Boolean ipForwarding;
 
   public static final String JSON_PROPERTY_NVIDIA_MIG_PROFILES = "nvidia-mig-profiles";
   private NvidiaMigProfiles nvidiaMigProfiles;
@@ -718,6 +727,31 @@ public class CreateSksNodepoolRequest {
   }
 
 
+  public CreateSksNodepoolRequest vpc(VpcRef vpc) {
+    this.vpc = vpc;
+    return this;
+  }
+
+   /**
+   * Get vpc
+   * @return vpc
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public VpcRef getVpc() {
+    return vpc;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VPC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVpc(VpcRef vpc) {
+    this.vpc = vpc;
+  }
+
+
   public CreateSksNodepoolRequest addons(Set<AddonsEnum> addons) {
     this.addons = addons;
     return this;
@@ -776,6 +810,31 @@ public class CreateSksNodepoolRequest {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDiskSize(Long diskSize) {
     this.diskSize = diskSize;
+  }
+
+
+  public CreateSksNodepoolRequest ipForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
+    return this;
+  }
+
+   /**
+   * Allow the Instances to act as routers in their VPC (IP forwarding). Only applies to new Instances
+   * @return ipForwarding
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIpForwarding() {
+    return ipForwarding;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IP_FORWARDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIpForwarding(Boolean ipForwarding) {
+    this.ipForwarding = ipForwarding;
   }
 
 
@@ -859,8 +918,10 @@ public class CreateSksNodepoolRequest {
         Objects.equals(this.systemReserved, createSksNodepoolRequest.systemReserved) &&
         Objects.equals(this.deployTarget, createSksNodepoolRequest.deployTarget) &&
         equalsNullable(this.kubeletMaxPods, createSksNodepoolRequest.kubeletMaxPods) &&
+        Objects.equals(this.vpc, createSksNodepoolRequest.vpc) &&
         Objects.equals(this.addons, createSksNodepoolRequest.addons) &&
         Objects.equals(this.diskSize, createSksNodepoolRequest.diskSize) &&
+        Objects.equals(this.ipForwarding, createSksNodepoolRequest.ipForwarding) &&
         Objects.equals(this.nvidiaMigProfiles, createSksNodepoolRequest.nvidiaMigProfiles) &&
         Objects.equals(this.cpuManager, createSksNodepoolRequest.cpuManager);
   }
@@ -871,7 +932,7 @@ public class CreateSksNodepoolRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, kubeReserved, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, size, kubeletImageGc, instancePrefix, systemReserved, deployTarget, hashCodeNullable(kubeletMaxPods), addons, diskSize, nvidiaMigProfiles, cpuManager);
+    return Objects.hash(antiAffinityGroups, description, publicIpAssignment, labels, taints, kubeReserved, nvidiaDraDriver, securityGroups, name, instanceType, privateNetworks, template, size, kubeletImageGc, instancePrefix, systemReserved, deployTarget, hashCodeNullable(kubeletMaxPods), vpc, addons, diskSize, ipForwarding, nvidiaMigProfiles, cpuManager);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -903,8 +964,10 @@ public class CreateSksNodepoolRequest {
     sb.append("    systemReserved: ").append(toIndentedString(systemReserved)).append("\n");
     sb.append("    deployTarget: ").append(toIndentedString(deployTarget)).append("\n");
     sb.append("    kubeletMaxPods: ").append(toIndentedString(kubeletMaxPods)).append("\n");
+    sb.append("    vpc: ").append(toIndentedString(vpc)).append("\n");
     sb.append("    addons: ").append(toIndentedString(addons)).append("\n");
     sb.append("    diskSize: ").append(toIndentedString(diskSize)).append("\n");
+    sb.append("    ipForwarding: ").append(toIndentedString(ipForwarding)).append("\n");
     sb.append("    nvidiaMigProfiles: ").append(toIndentedString(nvidiaMigProfiles)).append("\n");
     sb.append("    cpuManager: ").append(toIndentedString(cpuManager)).append("\n");
     sb.append("}");
@@ -1074,6 +1137,11 @@ public class CreateSksNodepoolRequest {
       joiner.add(String.format("%skubelet-max-pods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKubeletMaxPods()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `vpc` to the URL query string
+    if (getVpc() != null) {
+      joiner.add(getVpc().toUrlQueryString(prefix + "vpc" + suffix));
+    }
+
     // add `addons` to the URL query string
     if (getAddons() != null) {
       int i = 0;
@@ -1088,6 +1156,11 @@ public class CreateSksNodepoolRequest {
     // add `disk-size` to the URL query string
     if (getDiskSize() != null) {
       joiner.add(String.format("%sdisk-size%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiskSize()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `ip-forwarding` to the URL query string
+    if (getIpForwarding() != null) {
+      joiner.add(String.format("%sip-forwarding%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIpForwarding()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nvidia-mig-profiles` to the URL query string

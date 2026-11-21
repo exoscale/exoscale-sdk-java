@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-19T07:07:01.458543469Z[Etc/UTC]
+- Build date: 2026-11-21T07:09:14.434196904Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-caf13c5</version>
+    <version>0.0.5-SNAPSHOT-2a2c425</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-caf13c5'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-2a2c425'
 }
 ```
 
@@ -1049,6 +1049,7 @@ Class | Method | HTTP request | Description
  - [UpdateSecurityGroupRequest](sdk/docs/UpdateSecurityGroupRequest.md)
  - [UpdateSksClusterRequest](sdk/docs/UpdateSksClusterRequest.md)
  - [UpdateSksNodepoolRequest](sdk/docs/UpdateSksNodepoolRequest.md)
+ - [UpdateSksNodepoolRequestVpc](sdk/docs/UpdateSksNodepoolRequestVpc.md)
  - [UpdateSubnetRequest](sdk/docs/UpdateSubnetRequest.md)
  - [UpdateTemplateRequest](sdk/docs/UpdateTemplateRequest.md)
  - [UpdateUserRoleRequest](sdk/docs/UpdateUserRoleRequest.md)
@@ -1059,6 +1060,8 @@ Class | Method | HTTP request | Description
  - [VerifyResponse](sdk/docs/VerifyResponse.md)
  - [Vpc](sdk/docs/Vpc.md)
  - [VpcDhcpOptions](sdk/docs/VpcDhcpOptions.md)
+ - [VpcRef](sdk/docs/VpcRef.md)
+ - [VpcSubnetRef](sdk/docs/VpcSubnetRef.md)
  - [WatermarkSettings](sdk/docs/WatermarkSettings.md)
  - [WriteAheadLogWALSettings](sdk/docs/WriteAheadLogWALSettings.md)
  - [XksKey](sdk/docs/XksKey.md)

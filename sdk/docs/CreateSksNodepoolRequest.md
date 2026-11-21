@@ -25,8 +25,10 @@
 |**systemReserved** | [**ReservedResources**](ReservedResources.md) |  |  [optional] |
 |**deployTarget** | [**DeployTargetRef**](DeployTargetRef.md) |  |  [optional] |
 |**kubeletMaxPods** | **Long** | Maximum number of pods per node (kubelet setting) |  [optional] |
+|**vpc** | [**VpcRef**](VpcRef.md) |  |  [optional] |
 |**addons** | [**Set&lt;AddonsEnum&gt;**](#Set&lt;AddonsEnum&gt;) | Nodepool addons |  [optional] |
 |**diskSize** | **Long** | Nodepool instances disk size in GiB |  |
+|**ipForwarding** | **Boolean** | Allow the Instances to act as routers in their VPC (IP forwarding). Only applies to new Instances |  [optional] |
 |**nvidiaMigProfiles** | [**NvidiaMigProfiles**](NvidiaMigProfiles.md) |  |  [optional] |
 |**cpuManager** | [**CpuManager**](CpuManager.md) |  |  [optional] |
 

@@ -24,6 +24,7 @@ import com.exoscale.sdk.model.ReservedResources;
 import com.exoscale.sdk.model.SecurityGroupRef;
 import com.exoscale.sdk.model.SksNodepoolTaint;
 import com.exoscale.sdk.model.TemplateRef;
+import com.exoscale.sdk.model.VpcRef;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -202,6 +203,14 @@ public class CreateSksNodepoolRequestTest {
     }
 
     /**
+     * Test the property 'vpc'
+     */
+    @Test
+    public void vpcTest() {
+        // TODO: test vpc
+    }
+
+    /**
      * Test the property 'addons'
      */
     @Test
@@ -215,6 +224,14 @@ public class CreateSksNodepoolRequestTest {
     @Test
     public void diskSizeTest() {
         // TODO: test diskSize
+    }
+
+    /**
+     * Test the property 'ipForwarding'
+     */
+    @Test
+    public void ipForwardingTest() {
+        // TODO: test ipForwarding
     }
 
     /**
