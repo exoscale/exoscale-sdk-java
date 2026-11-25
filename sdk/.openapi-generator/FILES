@@ -572,6 +572,7 @@ docs/UpdateInstancePoolRequestVpc.md
 docs/UpdateInstanceRequest.md
 docs/UpdateKeyStoreProxy.md
 docs/UpdateKeyStoreRequest.md
+docs/UpdateKmsKeyDescriptionRequest.md
 docs/UpdateLoadBalancerRequest.md
 docs/UpdateLoadBalancerServiceRequest.md
 docs/UpdatePrivateNetworkInstanceIpRequest.md
@@ -1184,6 +1185,7 @@ src/main/java/com/exoscale/sdk/model/UpdateInstancePoolRequestVpc.java
 src/main/java/com/exoscale/sdk/model/UpdateInstanceRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateKeyStoreProxy.java
 src/main/java/com/exoscale/sdk/model/UpdateKeyStoreRequest.java
+src/main/java/com/exoscale/sdk/model/UpdateKmsKeyDescriptionRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateLoadBalancerRequest.java
 src/main/java/com/exoscale/sdk/model/UpdateLoadBalancerServiceRequest.java
 src/main/java/com/exoscale/sdk/model/UpdatePrivateNetworkInstanceIpRequest.java

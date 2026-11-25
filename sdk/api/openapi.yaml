@@ -2635,6 +2635,55 @@ paths:
       - exoscale
       x-content-type: application/json
       x-accepts: application/json
+  /kms-key/{id}/update-description:
+    post:
+      description: "Updates the description of a KMS Key. On a multi-zone key, the\
+        \ change is propagated to its replicas."
+      operationId: update-kms-key-description
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/update-kms-key-description-request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/success-response'
+          description: Key description updated
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error-response'
+          description: |
+            Errors
+
+            Key Not Found: The request was rejected because the specified KMS Key could not be found.
+
+            Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.
+
+            Not on Default: The request was rejected because the operation is not allowed on the default key.
+
+            Not on Replica: The request was rejected because the operation is not allowed on a replica.
+
+            Bad Request: The request was rejected because of an invalid request body or path parameter.
+      summary: Update KMS Key Description
+      tags:
+      - exoscale
+      x-content-type: application/json
+      x-accepts: application/json
   /kms-key/{id}/enable:
     post:
       description: Enables a KMS Key by setting its state to "enabled". It restores
@@ -20621,6 +20670,7 @@ components:
         description:
           description: An optional detailed description providing additional context
             about the key's intended use case.
+          maxLength: 1024
           type: string
         usage:
           default: encrypt-decrypt
@@ -24911,6 +24961,16 @@ components:
           items:
             type: string
           type: array
+      type: object
+    update-kms-key-description-request:
+      properties:
+        description:
+          description: A new detailed description providing additional context about
+            the key's intended use case.
+          maxLength: 1024
+          type: string
+      required:
+      - description
       type: object
     iam-role:
       description: IAM Role

@@ -7,7 +7,7 @@ Java SDK for interacting with Exoscale Cloud Services.
 
 - API version: 2.0.0
 
-- Build date: 2026-11-21T07:09:14.434196904Z[Etc/UTC]
+- Build date: 2026-11-25T07:10:24.810441147Z[Etc/UTC]
 
 
 
@@ -32,7 +32,7 @@ Maven users can simply add the below dependency to their `pom.xml` :
 <dependency>
     <groupId>com.exoscale.sdk</groupId>
     <artifactId>sdk</artifactId>
-    <version>0.0.5-SNAPSHOT-2a2c425</version>
+    <version>0.0.5-SNAPSHOT-31ae288</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Gradle users can add to their `build.gradle` file, and then specify the dependen
 ```groovy
 
 dependencies {
-  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-2a2c425'
+  implementation 'com.exoscale.sdk:sdk:0.0.5-SNAPSHOT-31ae288'
 }
 ```
 
@@ -452,6 +452,7 @@ Class | Method | HTTP request | Description
 *ExoscaleApi* | [**updateInstance**](sdk/docs/ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance
 *ExoscaleApi* | [**updateInstancePool**](sdk/docs/ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool
 *ExoscaleApi* | [**updateKeyStore**](sdk/docs/ExoscaleApi.md#updateKeyStore) | **POST** /key-store/{id}/update | [BETA] Update Key Store
+*ExoscaleApi* | [**updateKmsKeyDescription**](sdk/docs/ExoscaleApi.md#updateKmsKeyDescription) | **POST** /kms-key/{id}/update-description | Update KMS Key Description
 *ExoscaleApi* | [**updateLoadBalancer**](sdk/docs/ExoscaleApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer
 *ExoscaleApi* | [**updateLoadBalancerService**](sdk/docs/ExoscaleApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service
 *ExoscaleApi* | [**updatePrivateNetwork**](sdk/docs/ExoscaleApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network
@@ -1040,6 +1041,7 @@ Class | Method | HTTP request | Description
  - [UpdateInstanceRequest](sdk/docs/UpdateInstanceRequest.md)
  - [UpdateKeyStoreProxy](sdk/docs/UpdateKeyStoreProxy.md)
  - [UpdateKeyStoreRequest](sdk/docs/UpdateKeyStoreRequest.md)
+ - [UpdateKmsKeyDescriptionRequest](sdk/docs/UpdateKmsKeyDescriptionRequest.md)
  - [UpdateLoadBalancerRequest](sdk/docs/UpdateLoadBalancerRequest.md)
  - [UpdateLoadBalancerServiceRequest](sdk/docs/UpdateLoadBalancerServiceRequest.md)
  - [UpdatePrivateNetworkInstanceIpRequest](sdk/docs/UpdatePrivateNetworkInstanceIpRequest.md)

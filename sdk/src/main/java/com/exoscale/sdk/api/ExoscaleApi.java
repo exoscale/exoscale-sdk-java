@@ -300,6 +300,7 @@ import com.exoscale.sdk.model.UpdateIamRoleRequest;
 import com.exoscale.sdk.model.UpdateInstancePoolRequest;
 import com.exoscale.sdk.model.UpdateInstanceRequest;
 import com.exoscale.sdk.model.UpdateKeyStoreRequest;
+import com.exoscale.sdk.model.UpdateKmsKeyDescriptionRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerServiceRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkInstanceIpRequest;
@@ -33527,6 +33528,103 @@ public class ExoscaleApi {
       String authorizationValue;
           try{
           requestBody = memberVarObjectMapper.writeValueAsString(updateKeyStoreRequest);
+          } catch (JsonProcessingException e) {
+          throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
+          }
+
+
+      // Operations tagged x-skip-auth return public data but the server enforces IAM
+      // role policies on authenticated requests. Restricted keys (e.g. DBaaS-only) get 403.
+      // Skip signing so those requests are always sent without credentials.
+      try{
+      authorizationValue = credentials.generateSignature("POST", "/v2"+localVarPath , requestBody != null ? requestBody : "");
+      } catch (Exception e) {
+      throw new ApiException(500, "Failed to generate signature: " + e.getMessage());
+      }
+      localVarRequestBuilder.header("Authorization", authorizationValue);
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/json");
+    localVarRequestBuilder.header("Accept", "application/json");
+
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofString(requestBody));
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+  /**
+   * Update KMS Key Description
+   * Updates the description of a KMS Key. On a multi-zone key, the change is propagated to its replicas.
+   * @param id  (required)
+   * @param updateKmsKeyDescriptionRequest  (required)
+   * @return SuccessResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SuccessResponse updateKmsKeyDescription(UUID id, UpdateKmsKeyDescriptionRequest updateKmsKeyDescriptionRequest) throws ApiException {
+    ApiResponse<SuccessResponse> localVarResponse = updateKmsKeyDescriptionWithHttpInfo(id, updateKmsKeyDescriptionRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update KMS Key Description
+   * Updates the description of a KMS Key. On a multi-zone key, the change is propagated to its replicas.
+   * @param id  (required)
+   * @param updateKmsKeyDescriptionRequest  (required)
+   * @return ApiResponse&lt;SuccessResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  private ApiResponse<SuccessResponse> updateKmsKeyDescriptionWithHttpInfo(UUID id, UpdateKmsKeyDescriptionRequest updateKmsKeyDescriptionRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateKmsKeyDescriptionRequestBuilder(id, updateKmsKeyDescriptionRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateKmsKeyDescription", localVarResponse);
+        }
+        return new ApiResponse<SuccessResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<SuccessResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateKmsKeyDescriptionRequestBuilder(UUID id, UpdateKmsKeyDescriptionRequest updateKmsKeyDescriptionRequest) throws ApiException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateKmsKeyDescription");
+    }
+    // verify the required parameter 'updateKmsKeyDescriptionRequest' is set
+    if (updateKmsKeyDescriptionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateKmsKeyDescriptionRequest' when calling updateKmsKeyDescription");
+    }
+
+    Credentials credentials = apiClient.getCredentials();
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/kms-key/{id}/update-description"
+        .replace("{id}", ApiClient.urlEncode(id.toString()));
+      String requestBody = null;
+      String authorizationValue;
+          try{
+          requestBody = memberVarObjectMapper.writeValueAsString(updateKmsKeyDescriptionRequest);
           } catch (JsonProcessingException e) {
           throw new ApiException(500, "Failed to serialize request body: " + e.getMessage());
           }

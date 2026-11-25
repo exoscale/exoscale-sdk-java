@@ -296,6 +296,7 @@ import com.exoscale.sdk.model.UpdateIamRoleRequest;
 import com.exoscale.sdk.model.UpdateInstancePoolRequest;
 import com.exoscale.sdk.model.UpdateInstanceRequest;
 import com.exoscale.sdk.model.UpdateKeyStoreRequest;
+import com.exoscale.sdk.model.UpdateKmsKeyDescriptionRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerRequest;
 import com.exoscale.sdk.model.UpdateLoadBalancerServiceRequest;
 import com.exoscale.sdk.model.UpdatePrivateNetworkInstanceIpRequest;
@@ -6752,6 +6753,24 @@ public class ExoscaleApiTest {
         UpdateKeyStoreRequest updateKeyStoreRequest = null;
         GetKeyStoreResponse response = 
         api.updateKeyStore(id, updateKeyStoreRequest);
+        
+        // TODO: test validations
+    }
+    
+    /**
+     * Update KMS Key Description
+     *
+     * Updates the description of a KMS Key. On a multi-zone key, the change is propagated to its replicas.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateKmsKeyDescriptionTest() throws ApiException {
+        UUID id = null;
+        UpdateKmsKeyDescriptionRequest updateKmsKeyDescriptionRequest = null;
+        SuccessResponse response = 
+        api.updateKmsKeyDescription(id, updateKmsKeyDescriptionRequest);
         
         // TODO: test validations
     }

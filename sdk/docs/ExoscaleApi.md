@@ -374,6 +374,7 @@ All URIs are relative to *https://api-ch-gva-2.exoscale.com/v2*
 | [**updateInstance**](ExoscaleApi.md#updateInstance) | **PUT** /instance/{id} | Update a Compute instance |
 | [**updateInstancePool**](ExoscaleApi.md#updateInstancePool) | **PUT** /instance-pool/{id} | Update an Instance Pool |
 | [**updateKeyStore**](ExoscaleApi.md#updateKeyStore) | **POST** /key-store/{id}/update | [BETA] Update Key Store |
+| [**updateKmsKeyDescription**](ExoscaleApi.md#updateKmsKeyDescription) | **POST** /kms-key/{id}/update-description | Update KMS Key Description |
 | [**updateLoadBalancer**](ExoscaleApi.md#updateLoadBalancer) | **PUT** /load-balancer/{id} | Update a Load Balancer |
 | [**updateLoadBalancerService**](ExoscaleApi.md#updateLoadBalancerService) | **PUT** /load-balancer/{id}/service/{service-id} | Update a Load Balancer Service |
 | [**updatePrivateNetwork**](ExoscaleApi.md#updatePrivateNetwork) | **PUT** /private-network/{id} | Update a Private Network |
@@ -34640,6 +34641,103 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Updated the External Key Store |  -  |
 | **400** | Errors  Not Found: The request was rejected because no key store with the given id exists in the organization.  Bad Request: The request was rejected because of an invalid path parameter.  Conflict: The request was rejected because the key store was concurrently modified. Retry with the latest state.  |  -  |
+
+
+## updateKmsKeyDescription
+
+> SuccessResponse updateKmsKeyDescription(id, updateKmsKeyDescriptionRequest)
+
+Update KMS Key Description
+
+Updates the description of a KMS Key. On a multi-zone key, the change is propagated to its replicas.
+
+### Example
+
+```java
+// Import classes:
+import com.exoscale.sdk.client.ApiException;
+import com.exoscale.sdk.client.*;
+import com.exoscale.sdk.client.models.*;
+import com.exoscale.sdk.api.ExoscaleApi;
+
+public class Example {
+    public static void main(String[] args) throws ApiException, InterruptedException{
+        // Initialize the client with credentials
+        Client client = new Client(new Credentials(System.getenv("EXOSCALE_API_KEY"), System.getenv("EXOSCALE_API_SECRET")));
+        UUID id = UUID.randomUUID(); // UUID | 
+        UpdateKmsKeyDescriptionRequest updateKmsKeyDescriptionRequest = new UpdateKmsKeyDescriptionRequest(); // UpdateKmsKeyDescriptionRequest |  please add at least all the required fields
+
+        try {
+            // Invoke the API method
+            SuccessResponse result = client.updateKmsKeyDescription(id, updateKmsKeyDescriptionRequest);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ExoscaleApi#updateKmsKeyDescription");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateKmsKeyDescriptionRequest** | [**UpdateKmsKeyDescriptionRequest**](UpdateKmsKeyDescriptionRequest.md)|  | |
+
+### Return type
+
+[**SuccessResponse**](SuccessResponse.md)
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Key description updated |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
+
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **updateKmsKeyDescriptionRequest** | [**UpdateKmsKeyDescriptionRequest**](UpdateKmsKeyDescriptionRequest.md)|  | |
+
+### Return type
+
+ApiResponse<[**SuccessResponse**](SuccessResponse.md)>
+
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Key description updated |  -  |
+| **400** | Errors  Key Not Found: The request was rejected because the specified KMS Key could not be found.  Key is Pending Deletion: The request was rejected because it was performed on a key that is pending deletion.  Not on Default: The request was rejected because the operation is not allowed on the default key.  Not on Replica: The request was rejected because the operation is not allowed on a replica.  Bad Request: The request was rejected because of an invalid request body or path parameter.  |  -  |
 
 
 ## updateLoadBalancer
